@@ -498,5 +498,135 @@
     "causeOfDeath": "Product Pivot",
     "killedBy": "Microsoft",
     "link": "https://support.microsoft.com/en-us/topic/copilot-gpt-builder-is-no-longer-available-e917c498-1dea-43d2-bf12-7bc091845a5f"
+  },
+  {
+    "name": "GPT-4o (ChatGPT)",
+    "dateOpen": "2024-05-13",
+    "dateClose": "2026-02-13",
+    "description": "OpenAI's 'omni' multimodal model that processed text, audio, image, and video. Despite becoming the most-used AI model globally, it was retired from ChatGPT after GPT-5 captured nearly all usage. The retirement sparked emotional backlash from ~800K daily users who had formed attachments to the model's personality.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "OpenAI",
+    "link": "https://openai.com/index/retiring-gpt-4o-and-older-models/"
+  },
+  {
+    "name": "GPT-4.5 Preview",
+    "dateOpen": "2025-02-27",
+    "dateClose": "2025-07-14",
+    "description": "OpenAI's most expensive model ever at $75 per million input tokens, codenamed 'Orion.' Deprecated just four months after launch — the shortest-lived model in OpenAI's commercial history — as GPT-4.1 offered similar performance at a fraction of the cost.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "OpenAI",
+    "link": "https://community.openai.com/t/gpt-4-5-preview-model-will-be-removed-from-the-api-on-2025-07-14/1230050"
+  },
+  {
+    "name": "OpenAI o1-preview",
+    "dateOpen": "2024-09-12",
+    "dateClose": "2025-07-28",
+    "description": "OpenAI's first 'reasoning' model that could think step-by-step before answering, achieving PhD-level performance on science benchmarks. The preview version was deprecated in favor of the full o1 and later o3 models as OpenAI rapidly iterated on its reasoning architecture.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "OpenAI",
+    "link": "https://platform.openai.com/docs/deprecations"
+  },
+  {
+    "name": "OpenAI o1-mini",
+    "dateOpen": "2024-09-12",
+    "dateClose": "2025-10-27",
+    "description": "A smaller, faster, cheaper version of OpenAI's o1 reasoning model designed for coding and STEM tasks. Deprecated and replaced by o4-mini, which offered better reasoning at lower cost.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "OpenAI",
+    "link": "https://platform.openai.com/docs/deprecations"
+  },
+  {
+    "name": "GPT-4 Vision Preview",
+    "dateOpen": "2023-11-06",
+    "dateClose": "2024-12-06",
+    "description": "OpenAI's first multimodal endpoint that could analyze images alongside text. Deprecated as GPT-4o rolled vision capabilities into a single, faster, and cheaper package, eliminating the need for a separate vision-specific endpoint.",
+    "type": "model",
+    "causeOfDeath": "Model Consolidation",
+    "killedBy": "OpenAI",
+    "link": "https://platform.openai.com/docs/deprecations"
+  },
+  {
+    "name": "Claude 3 Opus",
+    "dateOpen": "2024-03-04",
+    "dateClose": "2025-06-30",
+    "description": "Anthropic's most powerful Claude 3 model, praised for creative writing and deep analysis. Deprecated just 15 months after launch as Claude 3.5 Sonnet outperformed it at a fraction of the cost. Anthropic gave the retired model its own Substack blog as a farewell before later restoring limited access.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Anthropic",
+    "link": "https://www.anthropic.com/research/deprecation-updates-opus-3"
+  },
+  {
+    "name": "Olive AI",
+    "dateOpen": "2017-01-01",
+    "dateClose": "2023-10-31",
+    "description": "A healthcare AI startup once valued at $4 billion that promised to automate hospital admin tasks. Despite raising $902M, investigations revealed its 'AI' relied heavily on manual human labor behind the scenes. After mass layoffs, it shut down and sold its assets for a fraction of its valuation.",
+    "type": "startup",
+    "causeOfDeath": "Financial Collapse",
+    "killedBy": "Itself",
+    "link": "https://www.healthcaredive.com/news/olive-ai-shuts-down/698455/"
+  },
+  {
+    "name": "Moxie Robot",
+    "dateOpen": "2020-09-01",
+    "dateClose": "2024-12-01",
+    "description": "An $800 AI social robot designed to help children develop emotional skills, particularly popular with autistic kids. When funding collapsed, the company shut down abruptly — bricking all devices and leaving heartbroken children saying goodbye to their companion on camera. No refunds were offered.",
+    "type": "hardware",
+    "causeOfDeath": "Funding Collapse",
+    "killedBy": "Embodied Inc.",
+    "link": "https://www.axios.com/2024/12/10/moxie-kids-robot-shuts-down"
+  },
+  {
+    "name": "Google Gemini Image Generation (People)",
+    "dateOpen": "2024-02-01",
+    "dateClose": "2024-02-22",
+    "description": "Gemini's image generation feature for people, killed just 3 weeks after launch. It generated historically inaccurate images like racially diverse Nazi soldiers and Black U.S. Founding Fathers, wiping 3.5% off Alphabet's stock. Google CEO Sundar Pichai called the outputs 'completely unacceptable.'",
+    "type": "service",
+    "causeOfDeath": "Public Backlash",
+    "killedBy": "Google",
+    "link": "https://blog.google/products/gemini/gemini-image-generation-issue/"
+  },
+  {
+    "name": "Adept AI (Independent)",
+    "dateOpen": "2022-01-01",
+    "dateClose": "2024-06-28",
+    "description": "An AI startup building autonomous agents that could use software tools, valued at $1B with $415M raised. Amazon hired 80% of the team including the CEO and co-founders — a 'reverse acqui-hire' that drew FTC scrutiny as a pattern of Big Tech absorbing AI startups without triggering antitrust review.",
+    "type": "startup",
+    "causeOfDeath": "Acqui-hire",
+    "killedBy": "Amazon",
+    "link": "https://techcrunch.com/2024/06/28/amazon-hires-founders-away-from-ai-startup-adept/"
+  },
+  {
+    "name": "Limitless Pendant (Rewind AI)",
+    "dateOpen": "2024-05-01",
+    "dateClose": "2025-12-05",
+    "description": "A $99 AI wearable pendant that recorded and transcribed in-person conversations, previously known as Rewind. Meta acquired the company and immediately ended hardware sales, sunset the desktop app, and cut off EU/UK service entirely due to GDPR concerns.",
+    "type": "hardware",
+    "causeOfDeath": "Acquisition",
+    "killedBy": "Meta",
+    "link": "https://techcrunch.com/2025/12/05/meta-acquires-ai-device-startup-limitless/"
+  },
+  {
+    "name": "Google Jamboard",
+    "dateOpen": "2016-10-25",
+    "dateClose": "2024-12-31",
+    "description": "Google's $5,000 AI-powered collaborative digital whiteboard for enterprise. After remote work made the physical hardware irrelevant and software alternatives like FigJam and Miro surpassed its features, Google killed it — deleting all user data after the shutdown date.",
+    "type": "hardware",
+    "causeOfDeath": "Market Irrelevance",
+    "killedBy": "Google",
+    "link": "https://support.google.com/jamboard/answer/14084927"
+  },
+  {
+    "name": "Woebot",
+    "dateOpen": "2017-06-01",
+    "dateClose": "2025-06-30",
+    "description": "A pioneering AI therapy chatbot used by 1.5 million people that delivered cognitive behavioral therapy via smartphone. Despite FDA Breakthrough Device designation, the company shut down because the regulatory process for AI mental health tools proved too costly and slow as LLMs outpaced the FDA's ability to regulate them.",
+    "type": "app",
+    "causeOfDeath": "Regulatory Barriers",
+    "killedBy": "FDA",
+    "link": "https://www.statnews.com/2025/07/02/woebot-therapy-chatbot-shuts-down-founder-says-ai-moving-faster-than-regulators/"
   }
 ]
