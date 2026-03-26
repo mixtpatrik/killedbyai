@@ -1,0 +1,302 @@
+[
+  {
+    "name": "Google Bard",
+    "dateOpen": "2023-03-21",
+    "dateClose": "2024-02-08",
+    "description": "Google's original answer to ChatGPT. Bard was rushed to market after ChatGPT's viral launch, famously losing Google $100B in market cap after a factual error in its first demo. It was killed and rebranded as Gemini in February 2024.",
+    "type": "app",
+    "causeOfDeath": "Rebranding",
+    "killedBy": "Google",
+    "link": "https://blog.google/products/gemini/bard-gemini-advanced-app/"
+  },
+  {
+    "name": "ChatGPT Plugins",
+    "dateOpen": "2023-03-23",
+    "dateClose": "2024-04-09",
+    "description": "OpenAI's first attempt at an AI app ecosystem. Plugins let ChatGPT browse the web, run code, and connect to third-party services like Expedia and Zapier. Killed in favor of the more controlled GPTs and the custom GPT Store.",
+    "type": "service",
+    "causeOfDeath": "Product Evolution",
+    "killedBy": "OpenAI",
+    "link": "https://help.openai.com/en/articles/8988022-winding-down-the-chatgpt-plugins-beta"
+  },
+  {
+    "name": "Meta Galactica",
+    "dateOpen": "2022-11-15",
+    "dateClose": "2022-11-18",
+    "description": "Meta's large language model for scientific research. Taken offline just 3 days after launch due to generating convincing but completely fabricated scientific papers, fake citations, and biased content. One of the shortest-lived AI products ever.",
+    "type": "model",
+    "causeOfDeath": "Public Backlash",
+    "killedBy": "Meta",
+    "link": "https://www.technologyreview.com/2022/11/18/1063487/meta-large-language-model-ai-only-survived-three-days-galactica-science/"
+  },
+  {
+    "name": "Microsoft Cortana",
+    "dateOpen": "2014-04-02",
+    "dateClose": "2023-12-31",
+    "description": "Microsoft's Siri competitor and virtual assistant, named after the Halo AI character. After years of declining relevance against Alexa and Siri, Cortana was killed in Windows and mobile as Microsoft pivoted fully to Copilot and GPT-powered assistants.",
+    "type": "app",
+    "causeOfDeath": "Replaced by AI",
+    "killedBy": "Microsoft Copilot",
+    "link": "https://support.microsoft.com/en-us/topic/end-of-support-for-cortana-in-windows-and-teams-d025b39f-ee5b-4836-a954-0ab646ee1efa"
+  },
+  {
+    "name": "IBM Watson Marketing",
+    "dateOpen": "2014-01-01",
+    "dateClose": "2022-06-30",
+    "description": "IBM's flagship AI marketing platform, once hyped as the future of enterprise AI. Despite billions in investment, Watson failed to deliver on its promises. IBM sold off Watson Health and quietly wound down its marketing suite as generative AI made it obsolete.",
+    "type": "service",
+    "causeOfDeath": "Commercial Failure",
+    "killedBy": "IBM",
+    "link": "https://www.theverge.com/2022/1/21/22894386/ibm-watson-health-sale-francisco-partners"
+  },
+  {
+    "name": "OpenAI Codex API",
+    "dateOpen": "2021-08-10",
+    "dateClose": "2023-03-23",
+    "description": "The dedicated code-generation model behind GitHub Copilot's early versions. Deprecated as GPT-3.5 and GPT-4 proved capable enough at code generation to make a separate model unnecessary.",
+    "type": "model",
+    "causeOfDeath": "Model Consolidation",
+    "killedBy": "OpenAI",
+    "link": "https://platform.openai.com/docs/deprecations"
+  },
+  {
+    "name": "GPT-3 (Original Models)",
+    "dateOpen": "2020-06-11",
+    "dateClose": "2024-01-04",
+    "description": "The original GPT-3 family — davinci, curie, babbage, and ada — that kicked off the generative AI revolution. These base models were fully retired as the Turbo and Instruct variants made them redundant.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "OpenAI",
+    "link": "https://platform.openai.com/docs/deprecations"
+  },
+  {
+    "name": "Inflection AI / Pi",
+    "dateOpen": "2023-05-02",
+    "dateClose": "2024-03-19",
+    "description": "A 'personal AI' focused on emotional intelligence and empathy, backed by $1.5B in funding. Effectively killed when Microsoft hired CEO Mustafa Suleyman and most of the engineering team, leaving Pi as an orphaned product.",
+    "type": "app",
+    "causeOfDeath": "Acqui-hire",
+    "killedBy": "Microsoft",
+    "link": "https://www.theverge.com/2024/3/19/24105263/microsoft-inflection-mustafa-suleyman-hire"
+  },
+  {
+    "name": "Humane AI Pin",
+    "dateOpen": "2024-04-11",
+    "dateClose": "2025-05-01",
+    "description": "The $699 screenless AI wearable that was supposed to replace smartphones. Plagued by overheating, terrible battery life, and painfully slow responses. Humane sought a buyer after disastrous reviews and abysmal sales.",
+    "type": "hardware",
+    "causeOfDeath": "Market Rejection",
+    "killedBy": "Reality",
+    "link": "https://www.theverge.com/24126502/humane-ai-pin-review"
+  },
+  {
+    "name": "Rabbit R1",
+    "dateOpen": "2024-04-24",
+    "dateClose": "2025-03-01",
+    "description": "A $199 'AI-native' gadget designed to replace apps with a 'Large Action Model.' Widely panned as a repackaged Android app with a $199 price tag. The hardware became essentially abandoned after the company pivoted to software-only.",
+    "type": "hardware",
+    "causeOfDeath": "Market Rejection",
+    "killedBy": "Reality",
+    "link": "https://www.theverge.com/24133200/rabbit-r1-review-ai-gadget"
+  },
+  {
+    "name": "Google Duplex on the Web",
+    "dateOpen": "2019-11-01",
+    "dateClose": "2024-03-01",
+    "description": "Google's AI that could navigate websites and complete tasks for you, like buying movie tickets or checking into flights. Quietly shelved as Google shifted its automation focus to Gemini-powered agents.",
+    "type": "service",
+    "causeOfDeath": "Strategic Pivot",
+    "killedBy": "Google",
+    "link": "https://9to5google.com/2024/03/01/google-duplex-web-dead/"
+  },
+  {
+    "name": "OpenAI /v1/edits Endpoint",
+    "dateOpen": "2022-01-01",
+    "dateClose": "2024-01-04",
+    "description": "A specialized API endpoint for editing text by providing instructions ('make this more formal'). Deprecated as the Chat Completions API proved more flexible and capable at handling edit-style tasks.",
+    "type": "service",
+    "causeOfDeath": "API Consolidation",
+    "killedBy": "OpenAI",
+    "link": "https://platform.openai.com/docs/deprecations"
+  },
+  {
+    "name": "DALL·E 2",
+    "dateOpen": "2022-04-06",
+    "dateClose": "2025-02-03",
+    "description": "OpenAI's second-generation image model that democratized AI art. Once revolutionary, it was deprecated from the API as DALL·E 3 (integrated directly into ChatGPT) made the standalone model obsolete.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "OpenAI",
+    "link": "https://platform.openai.com/docs/deprecations"
+  },
+  {
+    "name": "Character.AI (Independent)",
+    "dateOpen": "2022-09-16",
+    "dateClose": "2024-08-02",
+    "description": "The viral AI chatbot platform where users created and talked to AI 'characters.' After safety controversies and intense competition, Google effectively acqui-hired the founders and key staff, leaving the company a shell of its former self.",
+    "type": "startup",
+    "causeOfDeath": "Acqui-hire",
+    "killedBy": "Google",
+    "link": "https://www.theverge.com/2024/8/2/24212348/google-character-ai-noam-shazeer"
+  },
+  {
+    "name": "Amazon Alexa (Original AI)",
+    "dateOpen": "2014-11-06",
+    "dateClose": "2024-09-01",
+    "description": "The original Alexa voice assistant that pioneered smart speakers. After losing over $25 billion, Amazon pivoted Alexa to a new LLM-powered version behind a paywall ('Alexa Plus'), effectively killing the free AI assistant millions relied on.",
+    "type": "app",
+    "causeOfDeath": "Financial Losses",
+    "killedBy": "Amazon",
+    "link": "https://arstechnica.com/gadgets/2023/04/amazon-has-lost-over-25-billion-on-alexa-other-devices-report-says/"
+  },
+  {
+    "name": "Stability AI (Stable Diffusion Creator)",
+    "dateOpen": "2020-01-01",
+    "dateClose": "2024-06-01",
+    "description": "The company behind Stable Diffusion, the open-source model that democratized AI image generation. After CEO Emad Mostaque resigned amid financial turmoil and copyright lawsuits, the company struggled to survive as a going concern.",
+    "type": "startup",
+    "causeOfDeath": "Financial Collapse",
+    "killedBy": "Itself",
+    "link": "https://www.forbes.com/sites/kenrickcai/2024/03/29/stability-ai-ceo-emad-mostaque-resigns/"
+  },
+  {
+    "name": "Google AI Test Kitchen",
+    "dateOpen": "2022-05-11",
+    "dateClose": "2023-12-01",
+    "description": "Google's experimental app for testing unreleased AI models like LaMDA and PaLM. Quietly discontinued as Google moved all AI demos to the Gemini app and API.",
+    "type": "app",
+    "causeOfDeath": "Product Evolution",
+    "killedBy": "Google",
+    "link": "https://aitestkitchen.withgoogle.com/"
+  },
+  {
+    "name": "Bing Chat",
+    "dateOpen": "2023-02-07",
+    "dateClose": "2023-11-15",
+    "description": "Microsoft's GPT-4-powered Bing chatbot that briefly made Bing relevant for the first time in a decade. Rebranded to 'Microsoft Copilot' as part of a broader push to embed AI across all Microsoft products.",
+    "type": "app",
+    "causeOfDeath": "Rebranding",
+    "killedBy": "Microsoft",
+    "link": "https://blogs.microsoft.com/blog/2023/11/15/introducing-microsoft-copilot-studio-and-new-features-for-copilot-in-microsoft-365/"
+  },
+  {
+    "name": "ChatPDF / PDF Chat Wrappers",
+    "dateOpen": "2023-03-01",
+    "dateClose": "2024-05-01",
+    "description": "An entire category of startups (ChatPDF, PDF.ai, AskYourPDF) built around 'chat with your documents.' Most became obsolete overnight when OpenAI, Google, and Claude added native file upload and analysis.",
+    "type": "startup",
+    "causeOfDeath": "Feature Absorption",
+    "killedBy": "OpenAI / Google / Anthropic",
+    "link": "https://openai.com/index/improvements-to-data-analysis-in-chatgpt/"
+  },
+  {
+    "name": "Cohere Generate (Original)",
+    "dateOpen": "2021-11-01",
+    "dateClose": "2024-06-01",
+    "description": "Cohere's original text generation endpoint. Deprecated in favor of the Chat endpoint and Command R models as the industry moved from 'completion' to 'conversation' paradigms.",
+    "type": "model",
+    "causeOfDeath": "API Consolidation",
+    "killedBy": "Cohere",
+    "link": "https://docs.cohere.com/docs/migrating-from-cogenerate-to-cochat"
+  },
+  {
+    "name": "Google Gemini 1.0 Pro",
+    "dateOpen": "2023-12-06",
+    "dateClose": "2025-02-15",
+    "description": "Google's first Gemini model. Deprecated barely a year after launch as the rapid pace of AI development made it obsolete. Replaced by Gemini 1.5 Pro and then Gemini 2.0.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Google",
+    "link": "https://ai.google.dev/gemini-api/docs/deprecation"
+  },
+  {
+    "name": "Neeva",
+    "dateOpen": "2019-01-01",
+    "dateClose": "2023-05-20",
+    "description": "An ad-free, AI-powered search engine founded by ex-Google executives. Despite raising $77.5M, it couldn't compete with free alternatives. Acquired by Snowflake for its AI talent, and the search engine was shut down.",
+    "type": "startup",
+    "causeOfDeath": "Acqui-hire",
+    "killedBy": "Snowflake",
+    "link": "https://neeva.com/blog/may-announcement"
+  },
+  {
+    "name": "Jasper AI (Original Platform)",
+    "dateOpen": "2021-01-01",
+    "dateClose": "2025-06-01",
+    "description": "One of the first AI writing unicorns, valued at $1.5B. Jasper's 'wrapper' business model collapsed as GPT-4o and Claude made its core features available for free or at a fraction of the cost.",
+    "type": "startup",
+    "causeOfDeath": "Feature Parity",
+    "killedBy": "OpenAI / Anthropic",
+    "link": "https://www.jasper.ai/"
+  },
+  {
+    "name": "OpenAI GPT-3.5 Turbo",
+    "dateOpen": "2022-11-30",
+    "dateClose": "2025-09-01",
+    "description": "The model that started it all — the engine behind the original ChatGPT. After being the world's most-used AI model, it was fully retired as GPT-4o Mini offered better quality at the same price point.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "OpenAI",
+    "link": "https://platform.openai.com/docs/deprecations"
+  },
+  {
+    "name": "Samsung Gauss",
+    "dateOpen": "2023-11-08",
+    "dateClose": "2024-06-01",
+    "description": "Samsung's in-house generative AI model announced at Samsung AI Forum. Quietly shelved in favor of partnering with Google Gemini for Galaxy AI features, as building a competitive foundation model proved too costly.",
+    "type": "model",
+    "causeOfDeath": "Strategic Pivot",
+    "killedBy": "Samsung",
+    "link": "https://news.samsung.com/global/samsung-introduces-samsung-gauss"
+  },
+  {
+    "name": "Writer (GPT Wrapper Era)",
+    "dateOpen": "2020-01-01",
+    "dateClose": "2025-01-01",
+    "description": "Originally an AI writing assistant for enterprises built on GPT. Pivoted multiple times as the 'wrapper' model died, eventually trying to become a full AI platform. Struggled as enterprises adopted native Copilot and Gemini integrations.",
+    "type": "startup",
+    "causeOfDeath": "Feature Absorption",
+    "killedBy": "Microsoft Copilot",
+    "link": "https://writer.com/"
+  },
+  {
+    "name": "Google Assistant (Classic)",
+    "dateOpen": "2016-05-18",
+    "dateClose": "2025-01-01",
+    "description": "Google's original AI assistant that lived in phones, speakers, and smart displays. After years of declining investment, Google began replacing it with Gemini-powered assistants, leaving the classic version to quietly fade away.",
+    "type": "app",
+    "causeOfDeath": "Replaced by AI",
+    "killedBy": "Google Gemini",
+    "link": "https://blog.google/products/assistant/google-assistant-update-gemini/"
+  },
+  {
+    "name": "Siri (Classic)",
+    "dateOpen": "2011-10-14",
+    "dateClose": "2025-06-01",
+    "description": "Apple's pioneering voice assistant that defined the category. After over a decade of stagnation, Apple announced a full Siri rewrite powered by Apple Intelligence LLMs, effectively killing the original system.",
+    "type": "app",
+    "causeOfDeath": "Replaced by AI",
+    "killedBy": "Apple Intelligence",
+    "link": "https://www.apple.com/apple-intelligence/"
+  },
+  {
+    "name": "Midjourney Free Tier",
+    "dateOpen": "2022-07-12",
+    "dateClose": "2023-03-30",
+    "description": "Midjourney's free trial that let anyone generate 25 images. Killed after viral abuse and deepfake scandals (including a fake Pope photo), forcing the company to go paid-only permanently.",
+    "type": "service",
+    "causeOfDeath": "Abuse Prevention",
+    "killedBy": "Midjourney",
+    "link": "https://www.theverge.com/2023/3/30/23662940/midjourney-free-trial-ai-image-generation-halted"
+  },
+  {
+    "name": "GitHub Copilot X",
+    "dateOpen": "2023-03-22",
+    "dateClose": "2024-01-01",
+    "description": "GitHub's ambitious 'next vision' for AI coding that promised voice control, pull request summaries, and CLI integration. Many of the announced features were quietly shelved or absorbed into standard Copilot.",
+    "type": "service",
+    "causeOfDeath": "Overpromised",
+    "killedBy": "GitHub",
+    "link": "https://github.blog/news-insights/product-news/github-copilot-x-the-ai-powered-developer-experience/"
+  }
+]

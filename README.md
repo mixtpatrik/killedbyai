@@ -2,7 +2,7 @@
 
 **Killed by AI** is a free, open-source cemetery for discontinued Artificial Intelligence projects, products, and companies. As the industry moves from the hype of 2023 to the consolidation of 2026, many tools are being left in the digital dust.
 
-[View the Live Graveyard](https://your-username.github.io/killedbyai)
+[View the Live Graveyard](https://mixtpatrik.github.io/killedbyai)
 
 ---
 
