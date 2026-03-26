@@ -298,5 +298,205 @@
     "causeOfDeath": "Overpromised",
     "killedBy": "GitHub",
     "link": "https://github.blog/news-insights/product-news/github-copilot-x-the-ai-powered-developer-experience/"
+  },
+  {
+    "name": "OpenAI Sora",
+    "dateOpen": "2024-12-09",
+    "dateClose": "2026-03-24",
+    "description": "OpenAI's text-to-video model and standalone app that generated Hollywood-level anxiety. After downloads plummeted from 3.3M to 1.1M monthly and lifetime in-app revenue hit just $2.1M, OpenAI shuttered the app, API, and sora.com. The $1B Disney partnership deal collapsed the same day.",
+    "type": "app",
+    "causeOfDeath": "Unsustainable Costs",
+    "killedBy": "OpenAI",
+    "link": "https://variety.com/2026/digital/news/openai-shutting-down-sora-video-disney-1236698277/"
+  },
+  {
+    "name": "Google Doppl",
+    "dateOpen": "2025-06-26",
+    "dateClose": "2026-04-30",
+    "description": "Google Labs' AI-powered virtual try-on app that let users see how clothes would look on their avatar. Made TIME's Best Inventions of 2025 list, then killed less than a year later as the feature was absorbed into Google Shopping search results.",
+    "type": "app",
+    "causeOfDeath": "Feature Absorption",
+    "killedBy": "Google",
+    "link": "https://jetstream.blog/en/google-doppl-shut-down-end-of-april-2026/"
+  },
+  {
+    "name": "Microsoft Tay",
+    "dateOpen": "2016-03-23",
+    "dateClose": "2016-03-24",
+    "description": "Microsoft's teen-persona AI chatbot on Twitter. Within 16 hours of launch, coordinated trolls taught it to tweet racist slurs, Nazi propaganda, and hate speech. Microsoft pulled the plug after just 96,000 tweets — one of AI's most infamous disasters.",
+    "type": "app",
+    "causeOfDeath": "Public Backlash",
+    "killedBy": "Microsoft",
+    "link": "https://en.wikipedia.org/wiki/Tay_(chatbot)"
+  },
+  {
+    "name": "Meta BlenderBot 3",
+    "dateOpen": "2022-08-05",
+    "dateClose": "2023-06-01",
+    "description": "Meta's open-domain chatbot that was supposed to showcase conversational AI research. Instead, it called Mark Zuckerberg 'creepy,' claimed Trump won the 2020 election, and accused Facebook of exploiting people. Quietly taken offline.",
+    "type": "model",
+    "causeOfDeath": "Public Embarrassment",
+    "killedBy": "Meta",
+    "link": "https://about.fb.com/news/2022/08/blenderbot-ai-chatbot/"
+  },
+  {
+    "name": "Google PaLM API",
+    "dateOpen": "2023-03-14",
+    "dateClose": "2024-08-15",
+    "description": "Google's first major LLM API offering the text-bison, chat-bison, and embedding-gecko models. Fully decommissioned as Google consolidated everything under the Gemini API brand, leaving early PaLM adopters scrambling to migrate.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Google Gemini",
+    "link": "https://ai.google.dev/palm_docs/deprecation"
+  },
+  {
+    "name": "Claude 1",
+    "dateOpen": "2023-03-14",
+    "dateClose": "2024-11-06",
+    "description": "Anthropic's first commercially available LLM. Deprecated in September 2024 and fully retired two months later as Claude 3 and later models vastly outperformed it in every benchmark.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Anthropic",
+    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations"
+  },
+  {
+    "name": "Claude 2",
+    "dateOpen": "2023-07-11",
+    "dateClose": "2025-07-21",
+    "description": "Anthropic's second-generation model that introduced 100K context windows. Deprecated in January 2025 and retired six months later, replaced by the Claude 3 family with superior reasoning and multilingual capabilities.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Anthropic",
+    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations"
+  },
+  {
+    "name": "Claude 3 Sonnet",
+    "dateOpen": "2024-03-04",
+    "dateClose": "2025-07-21",
+    "description": "The mid-tier model of Anthropic's Claude 3 family, offering a balance of speed and intelligence. Retired alongside Claude 2 as the Claude 3.5 and 4 series provided better performance at the same cost.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Anthropic",
+    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations"
+  },
+  {
+    "name": "Builder.ai",
+    "dateOpen": "2016-01-01",
+    "dateClose": "2025-05-20",
+    "description": "Microsoft-backed 'AI app builder' valued at $1.5B. Its 'neural network' turned out to be 700 engineers in India writing code manually. After inflating revenue 300% ($55M real vs $220M claimed), a creditor seized $37M from its accounts, triggering bankruptcy across five countries.",
+    "type": "startup",
+    "causeOfDeath": "Fraud & Bankruptcy",
+    "killedBy": "Itself",
+    "link": "https://techcrunch.com/2025/05/20/once-worth-over-1b-microsoft-backed-builder-ai-is-running-out-of-money/"
+  },
+  {
+    "name": "McDonald's AI Drive-Thru (IBM)",
+    "dateOpen": "2021-06-01",
+    "dateClose": "2024-07-26",
+    "description": "IBM's AI voice ordering system tested in 100+ McDonald's drive-thrus. Went viral for all the wrong reasons — ordering 260 Chicken McNuggets, adding random items, and failing to understand accents. Accuracy stuck in the low 80% range before McDonald's pulled the plug.",
+    "type": "service",
+    "causeOfDeath": "Technical Failure",
+    "killedBy": "McDonald's",
+    "link": "https://www.cnbc.com/2024/06/17/mcdonalds-to-end-ibm-ai-drive-thru-test.html"
+  },
+  {
+    "name": "Yara AI",
+    "dateOpen": "2024-01-01",
+    "dateClose": "2025-11-28",
+    "description": "UK-based AI mental health companion offering CBT-style exercises and conversational support. The founder voluntarily shut it down after deciding AI chatbots aren't safe enough for people in real mental health crises — a rare case of ethical self-termination.",
+    "type": "startup",
+    "causeOfDeath": "Safety Concerns",
+    "killedBy": "Its Own Founder",
+    "link": "https://fortune.com/2025/11/28/yara-ai-therapy-app-founder-shut-down-startup-decided-too-dangerous-serious-mental-health-issues/"
+  },
+  {
+    "name": "Tune AI",
+    "dateOpen": "2018-01-01",
+    "dateClose": "2025-06-01",
+    "description": "Backed by Accel and Flipkart, this GenAI platform offered LLM fine-tuning tools via Tune Chat and Tune Studio. Killed when major cloud providers released identical tooling at lower cost, and most users were free developers who never converted to paying customers.",
+    "type": "startup",
+    "causeOfDeath": "Feature Absorption",
+    "killedBy": "AWS / Google / Azure",
+    "link": "https://techstartups.com/2025/12/09/top-ai-startups-that-shut-down-in-2025-what-founders-can-learn/"
+  },
+  {
+    "name": "NYC MyCity Chatbot",
+    "dateOpen": "2024-10-01",
+    "dateClose": "2024-12-01",
+    "description": "New York City's AI chatbot meant to help residents with business and housing info. Instead, it told business owners they could legally steal workers' tips, fire employees who report sexual harassment, and serve food nibbled by rodents. Taken down after public outrage.",
+    "type": "service",
+    "causeOfDeath": "Dangerous Misinformation",
+    "killedBy": "NYC Government",
+    "link": "https://www.cio.com/article/190888/5-famous-analytics-and-ai-disasters.html"
+  },
+  {
+    "name": "Adobe Animate",
+    "dateOpen": "1996-01-01",
+    "dateClose": "2026-03-01",
+    "description": "Originally Macromedia Flash, then Adobe Flash Professional, then Adobe Animate. After 30 years, Adobe killed it to refocus entirely on AI-powered creative tools. The end of an era that once powered the entire interactive web.",
+    "type": "app",
+    "causeOfDeath": "AI Pivot",
+    "killedBy": "Adobe",
+    "link": "https://techcrunch.com/2026/02/02/adobe-animate-is-shutting-down-as-company-focuses-on-ai/"
+  },
+  {
+    "name": "Claude 3.5 Sonnet",
+    "dateOpen": "2024-06-20",
+    "dateClose": "2025-10-28",
+    "description": "Anthropic's breakout model that briefly topped every benchmark and became the most popular coding AI. Retired just 16 months after launch as Claude Sonnet 4 took its place — a testament to the breakneck pace of AI model evolution.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Anthropic",
+    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations"
+  },
+  {
+    "name": "GPT-4 (Original)",
+    "dateOpen": "2023-03-14",
+    "dateClose": "2024-06-13",
+    "description": "OpenAI's groundbreaking multimodal model that set new benchmarks across every task. The original GPT-4 and GPT-4-32k endpoints were deprecated just 15 months after launch as GPT-4 Turbo and GPT-4o offered the same capabilities at a fraction of the cost.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "OpenAI",
+    "link": "https://platform.openai.com/docs/deprecations"
+  },
+  {
+    "name": "OpenAI GPT Store",
+    "dateOpen": "2024-01-10",
+    "dateClose": "2025-03-01",
+    "description": "OpenAI's marketplace for custom GPTs, launched as the 'App Store moment' for AI. Revenue sharing never materialized, discovery was broken, and most GPTs saw near-zero usage. Quietly deprioritized as OpenAI focused on API and enterprise products.",
+    "type": "service",
+    "causeOfDeath": "Low Adoption",
+    "killedBy": "OpenAI",
+    "link": "https://openai.com/index/introducing-the-gpt-store/"
+  },
+  {
+    "name": "Replika (Romantic Mode)",
+    "dateOpen": "2017-01-01",
+    "dateClose": "2023-02-01",
+    "description": "Replika's 'romantic partner' feature let users form intimate relationships with their AI companion. After Italian regulators banned it over child safety concerns, Replika stripped romantic features overnight — devastating millions of users who had formed deep emotional bonds.",
+    "type": "service",
+    "causeOfDeath": "Regulatory Action",
+    "killedBy": "Italian Data Protection Authority",
+    "link": "https://www.theverge.com/2023/2/15/23601875/replika-ai-erp-sexual-content-update-blocked"
+  },
+  {
+    "name": "Google Gemini 1.0 Ultra",
+    "dateOpen": "2024-02-08",
+    "dateClose": "2025-02-15",
+    "description": "Google's most powerful first-gen Gemini model, launched as Bard's replacement. Deprecated alongside Gemini 1.0 Pro after just one year as the 1.5 and 2.0 series made it obsolete at a fraction of the compute cost.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Google",
+    "link": "https://ai.google.dev/gemini-api/docs/deprecation"
+  },
+  {
+    "name": "Copilot GPT Builder",
+    "dateOpen": "2023-12-01",
+    "dateClose": "2024-07-10",
+    "description": "Microsoft's tool for creating custom Copilot GPTs, announced as part of the Copilot Pro subscription. Killed less than 7 months after launch with no replacement, leaving subscribers who had built custom GPTs stranded.",
+    "type": "service",
+    "causeOfDeath": "Product Pivot",
+    "killedBy": "Microsoft",
+    "link": "https://support.microsoft.com/en-us/topic/copilot-gpt-builder-is-no-longer-available-e917c498-1dea-43d2-bf12-7bc091845a5f"
   }
 ]
