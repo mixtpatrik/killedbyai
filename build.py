@@ -157,6 +157,28 @@ Sitemap: {SITE_URL}sitemap.xml
 '''
 
 
+def build_timeline(items):
+    """Render a bar chart of kills per year."""
+    from collections import Counter
+    years = Counter(int(year(item["dateClose"])) for item in items)
+    min_y, max_y = min(years.keys()), max(years.keys())
+    max_count = max(years.values())
+
+    bars = []
+    for y in range(min_y, max_y + 1):
+        count = years.get(y, 0)
+        height_pct = (count / max_count * 100) if max_count else 0
+        bars.append(
+            f'<button class="bar" data-year="{y}" aria-label="{count} killed in {y}" '
+            f'style="--bar-height: {height_pct}%;">'
+            f'<span class="bar-count">{count}</span>'
+            f'<span class="bar-fill"></span>'
+            f'<span class="bar-label">{str(y)[-2:]}</span>'
+            f'</button>'
+        )
+    return "\n".join(bars), min_y, max_y, max_count
+
+
 def main():
     data = json.loads((ROOT / "graveyard.json").read_text())
     template = (ROOT / "template.html").read_text()
@@ -164,12 +186,16 @@ def main():
     cards_html = "\n".join(render_card(item) for item in data)
     jsonld = json.dumps(build_jsonld(data), indent=2)
     data_json = json.dumps(data, separators=(",", ":"))
+    timeline_html, min_year, max_year, max_count = build_timeline(data)
 
     output = (template
               .replace("{{CARDS}}", cards_html)
               .replace("{{JSONLD}}", jsonld)
               .replace("{{DATA_JSON}}", data_json)
               .replace("{{COUNT}}", str(len(data)))
+              .replace("{{TIMELINE}}", timeline_html)
+              .replace("{{YEAR_RANGE}}", f"{min_year}–{max_year}")
+              .replace("{{MAX_COUNT}}", str(max_count))
               .replace("{{LAST_UPDATED}}", datetime.utcnow().strftime("%B %d, %Y")))
 
     (ROOT / "index.html").write_text(output)

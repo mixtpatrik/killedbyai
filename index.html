@@ -3137,11 +3137,131 @@
             margin-top: 1rem;
         }
 
+        /* Timeline chart */
+        .timeline-section {
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            padding: 0 1.5rem;
+        }
+
+        .timeline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.5rem 0.75rem;
+        }
+
+        .timeline-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .timeline-head h2 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: 0.02em;
+        }
+
+        .timeline-head .range {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            font-family: 'SF Mono', 'Cascadia Code', monospace;
+        }
+
+        .timeline-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.25rem;
+            height: 140px;
+            padding-top: 0.5rem;
+        }
+
+        .bar {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 0.25rem;
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            font-family: inherit;
+            height: 100%;
+            position: relative;
+            min-width: 0;
+        }
+
+        .bar-count {
+            font-size: 0.625rem;
+            font-weight: 700;
+            color: var(--text-dim);
+            font-family: 'SF Mono', 'Cascadia Code', monospace;
+            transition: color 0.2s;
+            opacity: 0;
+        }
+
+        .bar:hover .bar-count,
+        .bar.active .bar-count { opacity: 1; color: var(--red); }
+
+        .bar-fill {
+            width: 100%;
+            height: var(--bar-height, 0%);
+            min-height: 2px;
+            background: linear-gradient(180deg, #3f3f46 0%, #27272a 100%);
+            border-radius: 3px 3px 0 0;
+            transition: all 0.25s ease;
+        }
+
+        .bar:hover .bar-fill {
+            background: linear-gradient(180deg, #ef4444 0%, #991b1b 100%);
+        }
+
+        .bar.active .bar-fill {
+            background: linear-gradient(180deg, #ef4444 0%, #991b1b 100%);
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+        }
+
+        .bar-label {
+            font-size: 0.6875rem;
+            color: var(--text-dim);
+            font-family: 'SF Mono', 'Cascadia Code', monospace;
+            margin-top: 0.25rem;
+        }
+
+        .bar:hover .bar-label,
+        .bar.active .bar-label { color: var(--text); }
+
+        .bar.active .bar-label { color: var(--red); font-weight: 700; }
+
+        .year-filter-clear {
+            display: none;
+            margin-left: auto;
+            font-size: 0.75rem;
+            color: var(--red);
+            background: var(--red-dim);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            padding: 0.25rem 0.625rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .year-filter-clear.visible { display: inline-block; }
+
         @media (max-width: 600px) {
             .header { padding: 3rem 1rem 1.5rem; }
             .grid { grid-template-columns: 1fr; padding: 0 1rem 3rem; }
             .controls { padding: 0 1rem; }
             .search-box { max-width: none; min-width: 0; }
+            .timeline-section { padding: 0 1rem; }
+            .bar-label { font-size: 0.5625rem; }
+            .timeline-chart { height: 110px; }
         }
     </style>
 </head>
@@ -3156,6 +3276,29 @@
         </div>
         <span class="last-updated">Last updated: April 22, 2026</span>
     </header>
+
+    <section class="timeline-section" aria-label="Kills per year">
+        <div class="timeline-card">
+            <div class="timeline-head">
+                <h2>💀 Deaths per year</h2>
+                <button class="year-filter-clear" id="year-clear">✕ Clear year filter</button>
+                <span class="range">2016–2026</span>
+            </div>
+            <div class="timeline-chart" id="timeline">
+<button class="bar" data-year="2016" aria-label="1 killed in 2016" style="--bar-height: 4.166666666666666%;"><span class="bar-count">1</span><span class="bar-fill"></span><span class="bar-label">16</span></button>
+<button class="bar" data-year="2017" aria-label="0 killed in 2017" style="--bar-height: 0.0%;"><span class="bar-count">0</span><span class="bar-fill"></span><span class="bar-label">17</span></button>
+<button class="bar" data-year="2018" aria-label="0 killed in 2018" style="--bar-height: 0.0%;"><span class="bar-count">0</span><span class="bar-fill"></span><span class="bar-label">18</span></button>
+<button class="bar" data-year="2019" aria-label="0 killed in 2019" style="--bar-height: 0.0%;"><span class="bar-count">0</span><span class="bar-fill"></span><span class="bar-label">19</span></button>
+<button class="bar" data-year="2020" aria-label="0 killed in 2020" style="--bar-height: 0.0%;"><span class="bar-count">0</span><span class="bar-fill"></span><span class="bar-label">20</span></button>
+<button class="bar" data-year="2021" aria-label="0 killed in 2021" style="--bar-height: 0.0%;"><span class="bar-count">0</span><span class="bar-fill"></span><span class="bar-label">21</span></button>
+<button class="bar" data-year="2022" aria-label="2 killed in 2022" style="--bar-height: 8.333333333333332%;"><span class="bar-count">2</span><span class="bar-fill"></span><span class="bar-label">22</span></button>
+<button class="bar" data-year="2023" aria-label="9 killed in 2023" style="--bar-height: 37.5%;"><span class="bar-count">9</span><span class="bar-fill"></span><span class="bar-label">23</span></button>
+<button class="bar" data-year="2024" aria-label="24 killed in 2024" style="--bar-height: 100.0%;"><span class="bar-count">24</span><span class="bar-fill"></span><span class="bar-label">24</span></button>
+<button class="bar" data-year="2025" aria-label="23 killed in 2025" style="--bar-height: 95.83333333333334%;"><span class="bar-count">23</span><span class="bar-fill"></span><span class="bar-label">25</span></button>
+<button class="bar" data-year="2026" aria-label="15 killed in 2026" style="--bar-height: 62.5%;"><span class="bar-count">15</span><span class="bar-fill"></span><span class="bar-label">26</span></button>
+            </div>
+        </div>
+    </section>
 
     <div class="controls">
         <div class="search-box">
@@ -4384,7 +4527,11 @@
         const filtersEl = document.getElementById('filters');
         const sortSelect = document.getElementById('sort');
 
+        const timelineEl = document.getElementById('timeline');
+        const yearClearBtn = document.getElementById('year-clear');
+
         let activeFilter = 'all';
+        let activeYear = null;
         const cards = Array.from(grid.querySelectorAll('.card'));
 
         function apply() {
@@ -4393,14 +4540,16 @@
 
             cards.forEach(card => {
                 const type = card.dataset.type;
+                const cardYear = card.dataset.dateClose.slice(0, 4);
                 const matchesFilter = activeFilter === 'all' || type === activeFilter;
+                const matchesYear = !activeYear || cardYear === activeYear;
                 const matchesSearch = !q || (
                     card.dataset.name.includes(q) ||
                     card.dataset.desc.includes(q) ||
                     card.dataset.killer.includes(q) ||
                     card.dataset.cause.includes(q)
                 );
-                const show = matchesFilter && matchesSearch;
+                const show = matchesFilter && matchesYear && matchesSearch;
                 card.classList.toggle('hidden', !show);
                 if (show) visibleCount++;
             });
@@ -4445,6 +4594,30 @@
             filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
             pill.classList.add('active');
             activeFilter = pill.dataset.filter;
+            apply();
+        });
+
+        timelineEl.addEventListener('click', (e) => {
+            const bar = e.target.closest('.bar');
+            if (!bar) return;
+            const year = bar.dataset.year;
+            timelineEl.querySelectorAll('.bar').forEach(b => b.classList.remove('active'));
+            if (activeYear === year) {
+                activeYear = null;
+                yearClearBtn.classList.remove('visible');
+            } else {
+                activeYear = year;
+                bar.classList.add('active');
+                yearClearBtn.classList.add('visible');
+            }
+            apply();
+            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        yearClearBtn.addEventListener('click', () => {
+            activeYear = null;
+            timelineEl.querySelectorAll('.bar').forEach(b => b.classList.remove('active'));
+            yearClearBtn.classList.remove('visible');
             apply();
         });
 
