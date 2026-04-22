@@ -19,10 +19,12 @@ We track tools that have been discontinued due to:
 * **JSON-driven** for easy community contributions.
 
 ## 🤝 Contributing
-Want to add a fresh tombstone? 
+Want to add a fresh tombstone?
 1. Fork this repository.
-2. Add a new entry to the `index.html` (or `data.json`).
+2. Add a new entry to `graveyard.json` with the required fields: `name`, `dateOpen`, `dateClose`, `description`, `type`, `causeOfDeath`, `killedBy`, `link`.
 3. Submit a Pull Request with a link to the official shutdown announcement.
+
+The site is built from `graveyard.json` via `python3 build.py`, which regenerates `index.html`, `sitemap.xml`, and `robots.txt`. GitHub Actions runs the build on every push to `main`.
 
 ---
 *Disclaimer: This project is not affiliated with OpenAI, Google, or the original 'Killed by Google'. It is a community-run archive.*

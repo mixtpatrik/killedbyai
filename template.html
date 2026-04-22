@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MC3PM7NKRX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MC3PM7NKRX');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Killed by AI — The AI Graveyard | {{COUNT}} Discontinued AI Products</title>
+    <meta name="description" content="A digital cemetery for {{COUNT}} discontinued AI models, apps, startups, and hardware. Tracking every casualty of the artificial intelligence gold rush — from OpenAI Sora to Humane AI Pin, Google Bard, and more.">
+    <meta name="keywords" content="killed by AI, AI graveyard, discontinued AI, dead AI products, AI shutdown, deprecated AI models, failed AI startups, OpenAI Sora, Humane AI Pin, AI tool tracker">
+    <meta name="author" content="Patrik Rojan">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://mixtpatrik.github.io/killedbyai/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mixtpatrik.github.io/killedbyai/">
+    <meta property="og:title" content="Killed by AI — The AI Graveyard">
+    <meta property="og:description" content="A digital cemetery for the AI tools that didn't survive the intelligence gold rush. {{COUNT}} products and counting.">
+    <meta property="og:site_name" content="Killed by AI">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Killed by AI — The AI Graveyard">
+    <meta name="twitter:description" content="A digital cemetery for the AI tools that didn't survive the intelligence gold rush. {{COUNT}} products and counting.">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪦</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">{{JSONLD}}</script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #09090b;
+            --bg-card: #111113;
+            --bg-card-hover: #18181b;
+            --border: #27272a;
+            --border-hover: #ef4444;
+            --text: #fafafa;
+            --text-muted: #a1a1aa;
+            --text-dim: #52525b;
+            --red: #ef4444;
+            --red-dim: rgba(239, 68, 68, 0.15);
+            --red-glow: rgba(239, 68, 68, 0.08);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 4rem 1.5rem 2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+            line-height: 1.1;
+        }
+
+        .header h1 span {
+            color: var(--red);
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 4px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .counter {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--red-dim);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            border-radius: 999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--red);
+        }
+
+        .counter .skull { font-size: 1rem; }
+
+        .last-updated {
+            display: block;
+            margin-top: 0.75rem;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+        }
+
+        .controls {
+            max-width: 1200px;
+            margin: 1.5rem auto 2rem;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 400px;
+            min-width: 200px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.625rem 1rem 0.625rem 2.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            color: var(--text);
+            font-size: 0.875rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus { border-color: var(--red); }
+        .search-box input::placeholder { color: var(--text-dim); }
+
+        .search-box svg {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            color: var(--text-dim);
+        }
+
+        .filter-pills {
+            display: flex;
+            gap: 0.375rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-pill {
+            padding: 0.5rem 0.875rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .filter-pill:hover { border-color: var(--text-dim); color: var(--text); }
+        .filter-pill.active { background: var(--red-dim); border-color: var(--red); color: var(--red); }
+
+        .sort-select {
+            padding: 0.5rem 0.875rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+            font-family: inherit;
+            cursor: pointer;
+            outline: none;
+        }
+        .sort-select:focus { border-color: var(--red); }
+
+        .grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.5rem;
+            transition: all 0.25s ease;
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--red);
+            opacity: 0;
+            transition: opacity 0.25s;
+        }
+
+        .card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px var(--red-glow);
+        }
+
+        .card:hover::before { opacity: 1; }
+
+        .card.hidden { display: none; }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-name {
+            font-size: 1.0625rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .card-lifespan {
+            font-size: 0.6875rem;
+            font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+            font-weight: 600;
+            background: var(--red-dim);
+            color: var(--red);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .card-description {
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+            line-height: 1.65;
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 0.375rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+            background: #1c1c1f;
+            color: var(--text-dim);
+        }
+
+        .tag-killer {
+            background: var(--red-dim);
+            color: #f87171;
+        }
+
+        .card-age {
+            font-size: 0.6875rem;
+            color: var(--text-dim);
+            font-style: italic;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .card-link:hover { color: var(--red); }
+        .card-link svg { width: 12px; height: 12px; }
+
+        .empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 1rem;
+            color: var(--text-dim);
+        }
+
+        .empty .icon { font-size: 3rem; margin-bottom: 1rem; }
+        .empty p { font-size: 1rem; }
+
+        .site-footer {
+            text-align: center;
+            padding: 2rem 1.5rem 3rem;
+            border-top: 1px solid var(--border);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .site-footer p {
+            color: var(--text-dim);
+            font-size: 0.8125rem;
+            line-height: 1.8;
+        }
+
+        .site-footer a {
+            color: var(--text-muted);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .site-footer a:hover { color: var(--red); }
+
+        .site-footer .quote {
+            font-style: italic;
+            color: var(--text-dim);
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .header { padding: 3rem 1rem 1.5rem; }
+            .grid { grid-template-columns: 1fr; padding: 0 1rem 3rem; }
+            .controls { padding: 0 1rem; }
+            .search-box { max-width: none; min-width: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Killed by <span>AI</span></h1>
+        <p>A digital cemetery for the models, apps, and startups that didn't survive the artificial intelligence gold rush.</p>
+        <div class="counter">
+            <span class="skull">💀</span>
+            <span id="total-count">{{COUNT}}</span> products killed and counting
+        </div>
+        <span class="last-updated">Last updated: {{LAST_UPDATED}}</span>
+    </header>
+
+    <div class="controls">
+        <div class="search-box">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+            </svg>
+            <input type="text" id="search" placeholder="Search the graveyard..." autocomplete="off" aria-label="Search">
+        </div>
+        <div class="filter-pills" id="filters" role="group" aria-label="Filter by type">
+            <button class="filter-pill active" data-filter="all">All</button>
+            <button class="filter-pill" data-filter="app">Apps</button>
+            <button class="filter-pill" data-filter="model">Models</button>
+            <button class="filter-pill" data-filter="service">Services</button>
+            <button class="filter-pill" data-filter="startup">Startups</button>
+            <button class="filter-pill" data-filter="hardware">Hardware</button>
+        </div>
+        <select class="sort-select" id="sort" aria-label="Sort by">
+            <option value="recent">Recently Killed</option>
+            <option value="oldest">Oldest First</option>
+            <option value="shortest">Shortest Lived</option>
+            <option value="longest">Longest Lived</option>
+            <option value="name">A — Z</option>
+        </select>
+    </div>
+
+    <main class="grid" id="grid">
+{{CARDS}}
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            Inspired by <a href="https://killedbygoogle.com/" target="_blank" rel="noopener">Killed by Google</a>.
+            Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.
+            <br>Want to add a tombstone? Submit a pull request.
+        </p>
+        <p class="quote">"I'm sorry, Dave. I'm afraid I can't do that anymore."</p>
+    </footer>
+
+    <script>
+    (function () {
+        const grid = document.getElementById('grid');
+        const searchInput = document.getElementById('search');
+        const filtersEl = document.getElementById('filters');
+        const sortSelect = document.getElementById('sort');
+
+        let activeFilter = 'all';
+        const cards = Array.from(grid.querySelectorAll('.card'));
+
+        function apply() {
+            const q = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const type = card.dataset.type;
+                const matchesFilter = activeFilter === 'all' || type === activeFilter;
+                const matchesSearch = !q || (
+                    card.dataset.name.includes(q) ||
+                    card.dataset.desc.includes(q) ||
+                    card.dataset.killer.includes(q) ||
+                    card.dataset.cause.includes(q)
+                );
+                const show = matchesFilter && matchesSearch;
+                card.classList.toggle('hidden', !show);
+                if (show) visibleCount++;
+            });
+
+            let empty = grid.querySelector('.empty');
+            if (visibleCount === 0) {
+                if (!empty) {
+                    empty = document.createElement('div');
+                    empty.className = 'empty';
+                    empty.innerHTML = '<div class="icon">🔍</div><p>No casualties found. Try a different search.</p>';
+                    grid.appendChild(empty);
+                }
+            } else if (empty) {
+                empty.remove();
+            }
+
+            sortCards();
+        }
+
+        function sortCards() {
+            const sort = sortSelect.value;
+            const visible = cards.filter(c => !c.classList.contains('hidden'));
+            visible.sort((a, b) => {
+                switch (sort) {
+                    case 'recent': return b.dataset.dateClose.localeCompare(a.dataset.dateClose);
+                    case 'oldest': return a.dataset.dateClose.localeCompare(b.dataset.dateClose);
+                    case 'shortest': return parseInt(a.dataset.days) - parseInt(b.dataset.days);
+                    case 'longest': return parseInt(b.dataset.days) - parseInt(a.dataset.days);
+                    case 'name': return a.dataset.name.localeCompare(b.dataset.name);
+                    default: return 0;
+                }
+            });
+            visible.forEach(c => grid.appendChild(c));
+        }
+
+        searchInput.addEventListener('input', apply);
+        sortSelect.addEventListener('change', apply);
+
+        filtersEl.addEventListener('click', (e) => {
+            const pill = e.target.closest('.filter-pill');
+            if (!pill) return;
+            filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            activeFilter = pill.dataset.filter;
+            apply();
+        });
+
+        apply();
+
+        // Support ?q= URL param from SearchAction
+        const params = new URLSearchParams(location.search);
+        if (params.get('q')) {
+            searchInput.value = params.get('q');
+            apply();
+        }
+    })();
+    </script>
+</body>
+</html>
