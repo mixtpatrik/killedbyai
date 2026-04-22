@@ -302,12 +302,12 @@
   {
     "name": "OpenAI Sora",
     "dateOpen": "2024-12-09",
-    "dateClose": "2026-03-24",
-    "description": "OpenAI's text-to-video model and standalone app that generated Hollywood-level anxiety. After downloads plummeted from 3.3M to 1.1M monthly and lifetime in-app revenue hit just $2.1M, OpenAI shuttered the app, API, and sora.com. The $1B Disney partnership deal collapsed the same day.",
+    "dateClose": "2026-04-26",
+    "description": "OpenAI's text-to-video model and standalone app. The Sora web and app were shut down on April 26, 2026 (API following on September 24). Peaked at ~1M users before collapsing to under 500K while burning ~$1M/day. OpenAI is freeing up compute for its coding and enterprise products, and the $1B Disney deal collapsed.",
     "type": "app",
     "causeOfDeath": "Unsustainable Costs",
     "killedBy": "OpenAI",
-    "link": "https://variety.com/2026/digital/news/openai-shutting-down-sora-video-disney-1236698277/"
+    "link": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation"
   },
   {
     "name": "Google Doppl",
@@ -628,5 +628,115 @@
     "causeOfDeath": "Regulatory Barriers",
     "killedBy": "FDA",
     "link": "https://www.statnews.com/2025/07/02/woebot-therapy-chatbot-shuts-down-founder-says-ai-moving-faster-than-regulators/"
+  },
+  {
+    "name": "Google Interview Warmup",
+    "dateOpen": "2022-06-09",
+    "dateClose": "2026-04-01",
+    "description": "Google's free AI-powered interview practice tool that helped millions of job seekers rehearse common interview questions with real-time transcription and ML-based analysis. Quietly killed in April 2026 with no announcement — visitors clicking 'Get Started' are silently redirected to a generic 'How to Prepare for an Interview' article.",
+    "type": "service",
+    "causeOfDeath": "Silent Shutdown",
+    "killedBy": "Google",
+    "link": "https://www.finalroundai.com/blog/google-interview-warmup-discontinued-alternatives"
+  },
+  {
+    "name": "Qwen Code Free Tier",
+    "dateOpen": "2024-09-01",
+    "dateClose": "2026-04-15",
+    "description": "Alibaba's terminal coding agent — a direct Claude Code rival running Qwen3-Coder models with competitive SWE-Bench scores. The free OAuth tier was killed 48 hours after MiniMax made the same move, as Chinese AI labs pivot from 'free for growth' to subscription economics. Daily free requests slashed from 1,000 to 100.",
+    "type": "service",
+    "causeOfDeath": "Monetization Pivot",
+    "killedBy": "Alibaba",
+    "link": "https://decrypt.co/364501/alibaba-shuts-down-free-tier-qwen-code"
+  },
+  {
+    "name": "OpenAI Assistants API (Beta)",
+    "dateOpen": "2023-11-06",
+    "dateClose": "2026-08-26",
+    "description": "OpenAI's persistent 'assistants' framework that bundled model choice, instructions, file handling, and tool declarations into reusable API objects. Announced at DevDay 2023 alongside GPTs, it never left beta. Being sunset in favor of the newer Responses API, which moved prompt versioning into the dashboard.",
+    "type": "service",
+    "causeOfDeath": "API Consolidation",
+    "killedBy": "OpenAI",
+    "link": "https://community.openai.com/t/assistants-api-beta-deprecation-august-26-2026-sunset/1354666"
+  },
+  {
+    "name": "OpenAI for Science",
+    "dateOpen": "2025-05-01",
+    "dateClose": "2026-04-17",
+    "description": "OpenAI's research initiative to apply frontier models to scientific discovery in biology, physics, and materials science. Dismantled alongside Sora as OpenAI shed 'side quests' to refocus compute on coding and enterprise products. Announced the same day product chief Kevin Weil and Sora head Bill Peebles departed.",
+    "type": "service",
+    "causeOfDeath": "Strategic Pivot",
+    "killedBy": "OpenAI",
+    "link": "https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/"
+  },
+  {
+    "name": "Google Gemini 2.0 Flash",
+    "dateOpen": "2024-12-11",
+    "dateClose": "2026-02-05",
+    "description": "Google's fast, low-cost multimodal model introduced as the next generation after Gemini 1.5. Deprecated just 14 months after launch as the 2.5 family (Pro, Flash, Flash Lite) took its place — continuing Google's pattern of aggressive model refresh cycles.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Google",
+    "link": "https://ai.google.dev/gemini-api/docs/deprecations"
+  },
+  {
+    "name": "Google Gemini 3 Pro Preview",
+    "dateOpen": "2025-11-18",
+    "dateClose": "2026-03-09",
+    "description": "Google's flagship Gemini 3 preview release. Lived just 111 days before being replaced by Gemini 3.1 Pro Preview — one of the shortest-lived frontier model releases, highlighting how 'preview' is now shorthand for 'expect to migrate in three months.'",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Google",
+    "link": "https://discuss.ai.google.dev/t/migrate-from-gemini-3-pro-preview-to-gemini-3-1-pro-preview-before-march-9-2026/127062"
+  },
+  {
+    "name": "GPT-4o (API snapshots)",
+    "dateOpen": "2024-05-13",
+    "dateClose": "2026-02-13",
+    "description": "Alongside its ChatGPT retirement, the legacy GPT-4o API snapshots were sunset for developers. GPT-4.1, GPT-4.1 mini, and o4-mini were retired in the same wave. After powering billions of conversations, 4o became the most-mourned model in AI history with users petitioning for its return.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "OpenAI",
+    "link": "https://openai.com/index/retiring-gpt-4o-and-older-models/"
+  },
+  {
+    "name": "gpt-4o-realtime-preview",
+    "dateOpen": "2024-10-01",
+    "dateClose": "2026-03-26",
+    "description": "OpenAI's low-latency speech-to-speech API that powered the viral 'Advanced Voice Mode' demos. The preview endpoint was sunset as OpenAI transitioned to newer realtime models, leaving apps that built voice experiences on top of it with a hard migration deadline.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "OpenAI",
+    "link": "https://developers.openai.com/api/docs/deprecations"
+  },
+  {
+    "name": "DALL·E 3 API Snapshots",
+    "dateOpen": "2023-10-19",
+    "dateClose": "2026-05-12",
+    "description": "The specific dated snapshots of DALL·E 3 used via the Images API were scheduled for removal as OpenAI consolidated image generation under GPT-4o's native image capabilities. Another casualty of the 'everything in one model' consolidation trend.",
+    "type": "model",
+    "causeOfDeath": "Model Consolidation",
+    "killedBy": "OpenAI",
+    "link": "https://developers.openai.com/api/docs/deprecations"
+  },
+  {
+    "name": "Google Assistant (on Mobile)",
+    "dateOpen": "2016-05-18",
+    "dateClose": "2026-03-01",
+    "description": "Google's final shutdown date for the classic Google Assistant on Android phones and tablets. After years of deprioritization, Gemini fully replaced it on mobile — ending a decade-long voice assistant that once powered hundreds of millions of devices across phones, speakers, and displays.",
+    "type": "app",
+    "causeOfDeath": "Replaced by AI",
+    "killedBy": "Google Gemini",
+    "link": "https://www.timesofai.com/news/google-quietly-shares-retirement-timeline-for-its-assistant/"
+  },
+  {
+    "name": "MiniMax API Free Tier",
+    "dateOpen": "2024-01-01",
+    "dateClose": "2026-04-13",
+    "description": "Chinese AI lab MiniMax was one of the most generous in offering free API access to developers. Killed its free tier two days before Alibaba's Qwen did the same — signaling the end of the 'free forever' era of Chinese AI APIs as labs pivot from land-grab growth to sustainable economics.",
+    "type": "service",
+    "causeOfDeath": "Monetization Pivot",
+    "killedBy": "MiniMax",
+    "link": "https://tech.yahoo.com/ai/gemini/articles/free-qwen-dead-alibaba-shuts-190159063.html"
   }
 ]
