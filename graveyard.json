@@ -433,9 +433,9 @@
     "name": "Adobe Animate",
     "dateOpen": "1996-01-01",
     "dateClose": "2026-03-01",
-    "description": "Originally Macromedia Flash, then Adobe Flash Professional, then Adobe Animate. After 30 years, Adobe killed it to refocus entirely on AI-powered creative tools. The end of an era that once powered the entire interactive web.",
+    "description": "Originally Macromedia Flash, then Adobe Flash Professional, then Adobe Animate. After 30 years, Adobe announced it would kill the app to refocus on AI tools. Intense backlash forced a reversal — Adobe put it on 'maintenance mode' instead, but no new features will be developed.",
     "type": "app",
-    "causeOfDeath": "AI Pivot",
+    "causeOfDeath": "AI Pivot (Reversed)",
     "killedBy": "Adobe",
     "link": "https://techcrunch.com/2026/02/02/adobe-animate-is-shutting-down-as-company-focuses-on-ai/"
   },
@@ -738,5 +738,55 @@
     "causeOfDeath": "Monetization Pivot",
     "killedBy": "MiniMax",
     "link": "https://tech.yahoo.com/ai/gemini/articles/free-qwen-dead-alibaba-shuts-190159063.html"
+  },
+  {
+    "name": "Google Dark Web Report",
+    "dateOpen": "2023-07-01",
+    "dateClose": "2026-02-16",
+    "description": "Google's security feature that monitored the dark web for leaked personal data. Scans stopped January 15, 2026, and all monitoring data was wiped February 16. Google said user feedback showed the tool failed to provide useful follow-up steps after flagging breaches.",
+    "type": "service",
+    "causeOfDeath": "Low Utility",
+    "killedBy": "Google",
+    "link": "https://thehackernews.com/2025/12/google-to-shut-down-dark-web-monitoring.html"
+  },
+  {
+    "name": "OpenAI Realtime API (Beta)",
+    "dateOpen": "2024-10-01",
+    "dateClose": "2026-05-07",
+    "description": "OpenAI's WebSocket-based API for building real-time voice conversations, powering Advanced Voice Mode demos. The beta endpoint was deprecated as OpenAI shipped a GA (general availability) version with a different interface, forcing developers to rewrite their integrations.",
+    "type": "service",
+    "causeOfDeath": "API Consolidation",
+    "killedBy": "OpenAI",
+    "link": "https://developers.openai.com/api/docs/deprecations"
+  },
+  {
+    "name": "Robin AI",
+    "dateOpen": "2019-01-01",
+    "dateClose": "2025-11-01",
+    "description": "UK legal tech startup that raised $44M to build AI-powered contract review tools used by PwC and KPMG. After failing to close a $50M Series C, the company cut a third of its staff and was listed on an insolvency marketplace — just 9 months after making the Sunday Times 100 Tech list.",
+    "type": "startup",
+    "causeOfDeath": "Funding Collapse",
+    "killedBy": "Market",
+    "link": "https://www.legalcheek.com/2025/10/uk-lawtech-business-seeks-buyer-following-38-million-fundraising-setback/"
+  },
+  {
+    "name": "Gmailify",
+    "dateOpen": "2016-02-17",
+    "dateClose": "2026-02-01",
+    "description": "Google's feature that let users link Yahoo, Outlook, and other email accounts to Gmail and benefit from its spam filtering, inbox categories, and organization. Quietly discontinued after a decade, stranding users who relied on it to manage multiple email accounts from one interface.",
+    "type": "service",
+    "causeOfDeath": "Product Cleanup",
+    "killedBy": "Google",
+    "link": "https://nokiapoweruser.com/google-is-killing-these-android-features-in-2026-full-list/"
+  },
+  {
+    "name": "GPT-4o (API: 2024-05-13 & 2024-08-06)",
+    "dateOpen": "2024-05-13",
+    "dateClose": "2026-03-31",
+    "description": "The original GPT-4o API snapshots were auto-upgraded to GPT-5.1 when they retired. Developers who relied on specific model behavior, fine-tuning, or output consistency were forced into a blind migration with no rollback option.",
+    "type": "model",
+    "causeOfDeath": "Forced Auto-upgrade",
+    "killedBy": "OpenAI",
+    "link": "https://developers.openai.com/api/docs/deprecations"
   }
 ]

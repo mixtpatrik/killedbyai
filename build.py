@@ -157,6 +157,28 @@ Sitemap: {SITE_URL}sitemap.xml
 '''
 
 
+def build_stats(items):
+    """Compute summary statistics for the stats ribbon."""
+    from collections import Counter
+    total = len(items)
+    lifespans = [days_between(i["dateOpen"], i["dateClose"]) for i in items]
+    avg_lifespan = sum(lifespans) // total if total else 0
+
+    killers = Counter(i["killedBy"] for i in items)
+    top_killer, top_killer_count = killers.most_common(1)[0]
+
+    shortest = min(items, key=lambda i: days_between(i["dateOpen"], i["dateClose"]))
+    shortest_days = days_between(shortest["dateOpen"], shortest["dateClose"])
+
+    return {
+        "avg_lifespan": format_lifespan(avg_lifespan),
+        "top_killer": top_killer,
+        "top_killer_count": top_killer_count,
+        "shortest_name": shortest["name"],
+        "shortest_days": format_lifespan(shortest_days),
+    }
+
+
 def build_timeline(items):
     """Render a bar chart of kills per year."""
     from collections import Counter
@@ -187,6 +209,11 @@ def main():
     jsonld = json.dumps(build_jsonld(data), indent=2)
     data_json = json.dumps(data, separators=(",", ":"))
     timeline_html, min_year, max_year, max_count = build_timeline(data)
+    stats = build_stats(data)
+
+    type_counts = {}
+    for item in data:
+        type_counts[item["type"]] = type_counts.get(item["type"], 0) + 1
 
     output = (template
               .replace("{{CARDS}}", cards_html)
@@ -196,6 +223,16 @@ def main():
               .replace("{{TIMELINE}}", timeline_html)
               .replace("{{YEAR_RANGE}}", f"{min_year}–{max_year}")
               .replace("{{MAX_COUNT}}", str(max_count))
+              .replace("{{AVG_LIFESPAN}}", stats["avg_lifespan"])
+              .replace("{{TOP_KILLER}}", esc(stats["top_killer"]))
+              .replace("{{TOP_KILLER_COUNT}}", str(stats["top_killer_count"]))
+              .replace("{{SHORTEST_NAME}}", esc(stats["shortest_name"]))
+              .replace("{{SHORTEST_DAYS}}", stats["shortest_days"])
+              .replace("{{COUNT_APP}}", str(type_counts.get("app", 0)))
+              .replace("{{COUNT_MODEL}}", str(type_counts.get("model", 0)))
+              .replace("{{COUNT_SERVICE}}", str(type_counts.get("service", 0)))
+              .replace("{{COUNT_STARTUP}}", str(type_counts.get("startup", 0)))
+              .replace("{{COUNT_HARDWARE}}", str(type_counts.get("hardware", 0)))
               .replace("{{LAST_UPDATED}}", datetime.utcnow().strftime("%B %d, %Y")))
 
     (ROOT / "index.html").write_text(output)

@@ -116,6 +116,117 @@
             font-size: 0.75rem;
         }
 
+        /* Stats ribbon */
+        .stats-ribbon {
+            max-width: 1200px;
+            margin: 1.5rem auto 0;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 0.875rem 1rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--red);
+            font-family: 'SF Mono', 'Cascadia Code', monospace;
+        }
+
+        .stat-label {
+            font-size: 0.6875rem;
+            color: var(--text-dim);
+            margin-top: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-detail {
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+            margin-top: 0.125rem;
+        }
+
+        /* Result counter */
+        .result-count {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Submit CTA */
+        .submit-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .submit-cta:hover {
+            border-color: var(--red);
+            color: var(--red);
+            background: var(--red-dim);
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 50;
+        }
+
+        .back-to-top:hover { border-color: var(--red); color: var(--red); }
+        .back-to-top.visible { display: flex; }
+
+        /* Keyboard hint */
+        .search-hint {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.625rem;
+            color: var(--text-dim);
+            background: #1c1c1f;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+            font-family: 'SF Mono', 'Cascadia Code', monospace;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+
+        .search-box input:focus ~ .search-hint { opacity: 0; }
+
         .controls {
             max-width: 1200px;
             margin: 1.5rem auto 2rem;
@@ -501,6 +612,27 @@
         <span class="last-updated">Last updated: {{LAST_UPDATED}}</span>
     </header>
 
+    <div class="stats-ribbon">
+        <div class="stat-card">
+            <div class="stat-value">{{AVG_LIFESPAN}}</div>
+            <div class="stat-label">Average lifespan</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{{TOP_KILLER_COUNT}}</div>
+            <div class="stat-label">Deadliest killer</div>
+            <div class="stat-detail">{{TOP_KILLER}}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{{SHORTEST_DAYS}}</div>
+            <div class="stat-label">Shortest lived</div>
+            <div class="stat-detail">{{SHORTEST_NAME}}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{{COUNT}}</div>
+            <div class="stat-label">Total killed</div>
+        </div>
+    </div>
+
     <section class="timeline-section" aria-label="Kills per year">
         <div class="timeline-card">
             <div class="timeline-head">
@@ -520,14 +652,15 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
             </svg>
             <input type="text" id="search" placeholder="Search the graveyard..." autocomplete="off" aria-label="Search">
+            <span class="search-hint">/</span>
         </div>
         <div class="filter-pills" id="filters" role="group" aria-label="Filter by type">
-            <button class="filter-pill active" data-filter="all">All</button>
-            <button class="filter-pill" data-filter="app">Apps</button>
-            <button class="filter-pill" data-filter="model">Models</button>
-            <button class="filter-pill" data-filter="service">Services</button>
-            <button class="filter-pill" data-filter="startup">Startups</button>
-            <button class="filter-pill" data-filter="hardware">Hardware</button>
+            <button class="filter-pill active" data-filter="all">All ({{COUNT}})</button>
+            <button class="filter-pill" data-filter="app">Apps ({{COUNT_APP}})</button>
+            <button class="filter-pill" data-filter="model">Models ({{COUNT_MODEL}})</button>
+            <button class="filter-pill" data-filter="service">Services ({{COUNT_SERVICE}})</button>
+            <button class="filter-pill" data-filter="startup">Startups ({{COUNT_STARTUP}})</button>
+            <button class="filter-pill" data-filter="hardware">Hardware ({{COUNT_HARDWARE}})</button>
         </div>
         <select class="sort-select" id="sort" aria-label="Sort by">
             <option value="recent">Recently Killed</option>
@@ -536,11 +669,15 @@
             <option value="longest">Longest Lived</option>
             <option value="name">A — Z</option>
         </select>
+        <a class="submit-cta" href="https://github.com/mixtpatrik/killedbyai/issues/new?title=New+entry:+[Product+Name]&body=Name:%0ADate+launched:%0ADate+killed:%0ADescription:%0AKilled+by:%0ASource+link:" target="_blank" rel="noopener">+ Submit a death</a>
     </div>
+    <div class="result-count" id="result-count"></div>
 
     <main class="grid" id="grid">
 {{CARDS}}
     </main>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
 
     <footer class="site-footer">
         <p>
@@ -557,13 +694,26 @@
         const searchInput = document.getElementById('search');
         const filtersEl = document.getElementById('filters');
         const sortSelect = document.getElementById('sort');
-
         const timelineEl = document.getElementById('timeline');
         const yearClearBtn = document.getElementById('year-clear');
+        const resultCountEl = document.getElementById('result-count');
+        const backToTopBtn = document.getElementById('back-to-top');
 
         let activeFilter = 'all';
         let activeYear = null;
         const cards = Array.from(grid.querySelectorAll('.card'));
+        const totalCards = cards.length;
+
+        function updateURL() {
+            const p = new URLSearchParams();
+            if (searchInput.value.trim()) p.set('q', searchInput.value.trim());
+            if (activeFilter !== 'all') p.set('type', activeFilter);
+            if (activeYear) p.set('year', activeYear);
+            if (sortSelect.value !== 'recent') p.set('sort', sortSelect.value);
+            const qs = p.toString();
+            const url = location.pathname + (qs ? '?' + qs : '');
+            history.replaceState(null, '', url);
+        }
 
         function apply() {
             const q = searchInput.value.toLowerCase().trim();
@@ -597,7 +747,12 @@
                 empty.remove();
             }
 
+            resultCountEl.textContent = visibleCount === totalCards
+                ? ''
+                : `Showing ${visibleCount} of ${totalCards} casualties`;
+
             sortCards();
+            updateURL();
         }
 
         function sortCards() {
@@ -631,13 +786,13 @@
         timelineEl.addEventListener('click', (e) => {
             const bar = e.target.closest('.bar');
             if (!bar) return;
-            const year = bar.dataset.year;
+            const yr = bar.dataset.year;
             timelineEl.querySelectorAll('.bar').forEach(b => b.classList.remove('active'));
-            if (activeYear === year) {
+            if (activeYear === yr) {
                 activeYear = null;
                 yearClearBtn.classList.remove('visible');
             } else {
-                activeYear = year;
+                activeYear = yr;
                 bar.classList.add('active');
                 yearClearBtn.classList.add('visible');
             }
@@ -652,14 +807,44 @@
             apply();
         });
 
-        apply();
+        // Keyboard: press / to focus search
+        document.addEventListener('keydown', (e) => {
+            if (e.key === '/' && document.activeElement !== searchInput) {
+                e.preventDefault();
+                searchInput.focus();
+            }
+            if (e.key === 'Escape' && document.activeElement === searchInput) {
+                searchInput.blur();
+            }
+        });
 
-        // Support ?q= URL param from SearchAction
+        // Back to top
+        window.addEventListener('scroll', () => {
+            backToTopBtn.classList.toggle('visible', window.scrollY > 600);
+        }, { passive: true });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Restore state from URL
         const params = new URLSearchParams(location.search);
-        if (params.get('q')) {
-            searchInput.value = params.get('q');
-            apply();
+        if (params.get('q')) searchInput.value = params.get('q');
+        if (params.get('type')) {
+            activeFilter = params.get('type');
+            filtersEl.querySelectorAll('.filter-pill').forEach(p => {
+                p.classList.toggle('active', p.dataset.filter === activeFilter);
+            });
         }
+        if (params.get('year')) {
+            activeYear = params.get('year');
+            const bar = timelineEl.querySelector(`[data-year="${activeYear}"]`);
+            if (bar) bar.classList.add('active');
+            yearClearBtn.classList.add('visible');
+        }
+        if (params.get('sort')) sortSelect.value = params.get('sort');
+
+        apply();
     })();
     </script>
 </body>
