@@ -11,9 +11,9 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Killed by AI — The AI Graveyard | {{COUNT}} Discontinued AI Products</title>
-    <meta name="description" content="A digital cemetery for {{COUNT}} discontinued AI models, apps, startups, and hardware. Tracking every casualty of the artificial intelligence gold rush — from OpenAI Sora to Humane AI Pin, Google Bard, and more.">
-    <meta name="keywords" content="killed by AI, AI graveyard, discontinued AI, dead AI products, AI shutdown, deprecated AI models, failed AI startups, OpenAI Sora, Humane AI Pin, AI tool tracker">
+    <title>Killed by AI — The AI Graveyard | {{COUNT}} Dead AI Products, Sora Shutdown & More</title>
+    <meta name="description" content="{{COUNT}} AI products killed and counting. The complete tracker of every AI shutdown, from Sora AI shutdown to Humane AI Pin failure, deprecated models like GPT-4o, and failed startups. The AI graveyard the industry doesn't want you to see.">
+    <meta name="keywords" content="killed by AI, AI graveyard, sora ai shutdown, discontinued AI, dead AI products, AI shutdown, deprecated AI models, failed AI startups, openai sora shutdown, humane ai pin failure, AI tool tracker, openai ai text classifier discontinued">
     <meta name="author" content="Patrik Rojan">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://mixtpatrik.github.io/killedbyai/">
@@ -22,22 +22,25 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mixtpatrik.github.io/killedbyai/">
     <meta property="og:title" content="Killed by AI — The AI Graveyard">
-    <meta property="og:description" content="A digital cemetery for the AI tools that didn't survive the intelligence gold rush. {{COUNT}} products and counting.">
+    <meta property="og:description" content="{{COUNT}} AI products killed and counting. The complete tracker of every AI shutdown — from Sora to GPT-4o to Humane AI Pin.">
     <meta property="og:site_name" content="Killed by AI">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Killed by AI — The AI Graveyard">
-    <meta name="twitter:description" content="A digital cemetery for the AI tools that didn't survive the intelligence gold rush. {{COUNT}} products and counting.">
+    <meta name="twitter:description" content="{{COUNT}} AI products killed and counting. The complete tracker of every AI shutdown — from Sora to GPT-4o to Humane AI Pin.">
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪦</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+    <link rel="alternate" type="application/rss+xml" title="Killed by AI — RSS Feed" href="https://mixtpatrik.github.io/killedbyai/feed.xml">
+
     <!-- Structured Data -->
     <script type="application/ld+json">{{JSONLD}}</script>
+    <script type="application/ld+json">{{FAQ_JSONLD}}</script>
 
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -226,6 +229,69 @@
         }
 
         .search-box input:focus ~ .search-hint { opacity: 0; }
+
+        /* FAQ section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 2rem;
+        }
+
+        .faq-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+            text-align: center;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            background: var(--bg-card);
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            padding: 0.875rem 1.25rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item summary::-webkit-details-marker { display: none; }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.125rem;
+            color: var(--text-dim);
+            flex-shrink: 0;
+            margin-left: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+            color: var(--red);
+        }
+
+        .faq-item[open] summary { color: var(--red); }
+
+        .faq-answer {
+            padding: 0 1.25rem 1rem;
+        }
+
+        .faq-answer p {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
 
         .controls {
             max-width: 1200px;
@@ -676,6 +742,11 @@
     <main class="grid" id="grid">
 {{CARDS}}
     </main>
+
+    <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+{{FAQ_HTML}}
+    </section>
 
     <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
 

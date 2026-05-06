@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Killed by AI — The AI Graveyard</title>
+    <link>https://mixtpatrik.github.io/killedbyai/</link>
+    <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 May 2026 14:07:34 +0000</lastBuildDate>
+    <atom:link href="https://mixtpatrik.github.io/killedbyai/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>OpenAI Assistants API (Beta) — Killed by OpenAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#openai-assistants-api-beta</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#openai-assistants-api-beta</guid>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 +0000</pubDate>
+      <description>OpenAI&#x27;s persistent &#x27;assistants&#x27; framework that bundled model choice, instructions, file handling, and tool declarations into reusable API objects. Announced at DevDay 2023 alongside GPTs, it never left beta. Being sunset in favor of the newer Responses API, which moved prompt versioning into the dashboard.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>DALL·E 3 API Snapshots — Killed by OpenAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#dall-e-3-api-snapshots</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#dall-e-3-api-snapshots</guid>
+      <pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate>
+      <description>The specific dated snapshots of DALL·E 3 used via the Images API were scheduled for removal as OpenAI consolidated image generation under GPT-4o&#x27;s native image capabilities. Another casualty of the &#x27;everything in one model&#x27; consolidation trend.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>OpenAI Realtime API (Beta) — Killed by OpenAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#openai-realtime-api-beta</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#openai-realtime-api-beta</guid>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0000</pubDate>
+      <description>OpenAI&#x27;s WebSocket-based API for building real-time voice conversations, powering Advanced Voice Mode demos. The beta endpoint was deprecated as OpenAI shipped a GA (general availability) version with a different interface, forcing developers to rewrite their integrations.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Google Doppl — Killed by Google</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#google-doppl</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#google-doppl</guid>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Google Labs&#x27; AI-powered virtual try-on app that let users see how clothes would look on their avatar. Made TIME&#x27;s Best Inventions of 2025 list, then killed less than a year later as the feature was absorbed into Google Shopping search results.</description>
+      <category>app</category>
+    </item>
+    <item>
+      <title>OpenAI Sora — Killed by OpenAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#openai-sora</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#openai-sora</guid>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 +0000</pubDate>
+      <description>OpenAI&#x27;s text-to-video model and standalone app. The Sora web and app were shut down on April 26, 2026 (API following on September 24). Peaked at ~1M users before collapsing to under 500K while burning ~$1M/day. OpenAI is freeing up compute for its coding and enterprise products, and the $1B Disney deal collapsed.</description>
+      <category>app</category>
+    </item>
+    <item>
+      <title>OpenAI for Science — Killed by OpenAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#openai-for-science</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#openai-for-science</guid>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      <description>OpenAI&#x27;s research initiative to apply frontier models to scientific discovery in biology, physics, and materials science. Dismantled alongside Sora as OpenAI shed &#x27;side quests&#x27; to refocus compute on coding and enterprise products. Announced the same day product chief Kevin Weil and Sora head Bill Peebles departed.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Qwen Code Free Tier — Killed by Alibaba</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#qwen-code-free-tier</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#qwen-code-free-tier</guid>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Alibaba&#x27;s terminal coding agent — a direct Claude Code rival running Qwen3-Coder models with competitive SWE-Bench scores. The free OAuth tier was killed 48 hours after MiniMax made the same move, as Chinese AI labs pivot from &#x27;free for growth&#x27; to subscription economics. Daily free requests slashed from 1,000 to 100.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>MiniMax API Free Tier — Killed by MiniMax</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#minimax-api-free-tier</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#minimax-api-free-tier</guid>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Chinese AI lab MiniMax was one of the most generous in offering free API access to developers. Killed its free tier two days before Alibaba&#x27;s Qwen did the same — signaling the end of the &#x27;free forever&#x27; era of Chinese AI APIs as labs pivot from land-grab growth to sustainable economics.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Google Interview Warmup — Killed by Google</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#google-interview-warmup</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#google-interview-warmup</guid>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Google&#x27;s free AI-powered interview practice tool that helped millions of job seekers rehearse common interview questions with real-time transcription and ML-based analysis. Quietly killed in April 2026 with no announcement — visitors clicking &#x27;Get Started&#x27; are silently redirected to a generic &#x27;How to Prepare for an Interview&#x27; article.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>GPT-4o (API: 2024-05-13 &amp; 2024-08-06) — Killed by OpenAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#gpt-4o-api-2024-05-13-2024-08-06</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#gpt-4o-api-2024-05-13-2024-08-06</guid>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
+      <description>The original GPT-4o API snapshots were auto-upgraded to GPT-5.1 when they retired. Developers who relied on specific model behavior, fine-tuning, or output consistency were forced into a blind migration with no rollback option.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>gpt-4o-realtime-preview — Killed by OpenAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#gpt-4o-realtime-preview</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#gpt-4o-realtime-preview</guid>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
+      <description>OpenAI&#x27;s low-latency speech-to-speech API that powered the viral &#x27;Advanced Voice Mode&#x27; demos. The preview endpoint was sunset as OpenAI transitioned to newer realtime models, leaving apps that built voice experiences on top of it with a hard migration deadline.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Google Gemini 3 Pro Preview — Killed by Google</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#google-gemini-3-pro-preview</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#google-gemini-3-pro-preview</guid>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <description>Google&#x27;s flagship Gemini 3 preview release. Lived just 111 days before being replaced by Gemini 3.1 Pro Preview — one of the shortest-lived frontier model releases, highlighting how &#x27;preview&#x27; is now shorthand for &#x27;expect to migrate in three months.&#x27;</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Adobe Animate — Killed by Adobe</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#adobe-animate</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#adobe-animate</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      <description>Originally Macromedia Flash, then Adobe Flash Professional, then Adobe Animate. After 30 years, Adobe announced it would kill the app to refocus on AI tools. Intense backlash forced a reversal — Adobe put it on &#x27;maintenance mode&#x27; instead, but no new features will be developed.</description>
+      <category>app</category>
+    </item>
+    <item>
+      <title>Google Assistant (on Mobile) — Killed by Google Gemini</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#google-assistant-on-mobile</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#google-assistant-on-mobile</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      <description>Google&#x27;s final shutdown date for the classic Google Assistant on Android phones and tablets. After years of deprioritization, Gemini fully replaced it on mobile — ending a decade-long voice assistant that once powered hundreds of millions of devices across phones, speakers, and displays.</description>
+      <category>app</category>
+    </item>
+    <item>
+      <title>Google Dark Web Report — Killed by Google</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#google-dark-web-report</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#google-dark-web-report</guid>
+      <pubDate>Mon, 16 Feb 2026 00:00:00 +0000</pubDate>
+      <description>Google&#x27;s security feature that monitored the dark web for leaked personal data. Scans stopped January 15, 2026, and all monitoring data was wiped February 16. Google said user feedback showed the tool failed to provide useful follow-up steps after flagging breaches.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>GPT-4o (ChatGPT) — Killed by OpenAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#gpt-4o-chatgpt</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#gpt-4o-chatgpt</guid>
+      <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
+      <description>OpenAI&#x27;s &#x27;omni&#x27; multimodal model that processed text, audio, image, and video. Despite becoming the most-used AI model globally, it was retired from ChatGPT after GPT-5 captured nearly all usage. The retirement sparked emotional backlash from ~800K daily users who had formed attachments to the model&#x27;s personality.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>GPT-4o (API snapshots) — Killed by OpenAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#gpt-4o-api-snapshots</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#gpt-4o-api-snapshots</guid>
+      <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
+      <description>Alongside its ChatGPT retirement, the legacy GPT-4o API snapshots were sunset for developers. GPT-4.1, GPT-4.1 mini, and o4-mini were retired in the same wave. After powering billions of conversations, 4o became the most-mourned model in AI history with users petitioning for its return.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Google Gemini 2.0 Flash — Killed by Google</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#google-gemini-2-0-flash</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#google-gemini-2-0-flash</guid>
+      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
+      <description>Google&#x27;s fast, low-cost multimodal model introduced as the next generation after Gemini 1.5. Deprecated just 14 months after launch as the 2.5 family (Pro, Flash, Flash Lite) took its place — continuing Google&#x27;s pattern of aggressive model refresh cycles.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Gmailify — Killed by Google</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#gmailify</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#gmailify</guid>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
+      <description>Google&#x27;s feature that let users link Yahoo, Outlook, and other email accounts to Gmail and benefit from its spam filtering, inbox categories, and organization. Quietly discontinued after a decade, stranding users who relied on it to manage multiple email accounts from one interface.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Limitless Pendant (Rewind AI) — Killed by Meta</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#limitless-pendant-rewind-ai</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#limitless-pendant-rewind-ai</guid>
+      <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
+      <description>A $99 AI wearable pendant that recorded and transcribed in-person conversations, previously known as Rewind. Meta acquired the company and immediately ended hardware sales, sunset the desktop app, and cut off EU/UK service entirely due to GDPR concerns.</description>
+      <category>hardware</category>
+    </item>
+    <item>
+      <title>Yara AI — Killed by Its Own Founder</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#yara-ai</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#yara-ai</guid>
+      <pubDate>Fri, 28 Nov 2025 00:00:00 +0000</pubDate>
+      <description>UK-based AI mental health companion offering CBT-style exercises and conversational support. The founder voluntarily shut it down after deciding AI chatbots aren&#x27;t safe enough for people in real mental health crises — a rare case of ethical self-termination.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>Robin AI — Killed by Market</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#robin-ai</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#robin-ai</guid>
+      <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
+      <description>UK legal tech startup that raised $44M to build AI-powered contract review tools used by PwC and KPMG. After failing to close a $50M Series C, the company cut a third of its staff and was listed on an insolvency marketplace — just 9 months after making the Sunday Times 100 Tech list.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>Claude 3.5 Sonnet — Killed by Anthropic</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#claude-3-5-sonnet</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-3-5-sonnet</guid>
+      <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
+      <description>Anthropic&#x27;s breakout model that briefly topped every benchmark and became the most popular coding AI. Retired just 16 months after launch as Claude Sonnet 4 took its place — a testament to the breakneck pace of AI model evolution.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>OpenAI o1-mini — Killed by OpenAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#openai-o1-mini</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#openai-o1-mini</guid>
+      <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
+      <description>A smaller, faster, cheaper version of OpenAI&#x27;s o1 reasoning model designed for coding and STEM tasks. Deprecated and replaced by o4-mini, which offered better reasoning at lower cost.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>OpenAI GPT-3.5 Turbo — Killed by OpenAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#openai-gpt-3-5-turbo</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#openai-gpt-3-5-turbo</guid>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate>
+      <description>The model that started it all — the engine behind the original ChatGPT. After being the world&#x27;s most-used AI model, it was fully retired as GPT-4o Mini offered better quality at the same price point.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>OpenAI o1-preview — Killed by OpenAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#openai-o1-preview</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#openai-o1-preview</guid>
+      <pubDate>Mon, 28 Jul 2025 00:00:00 +0000</pubDate>
+      <description>OpenAI&#x27;s first &#x27;reasoning&#x27; model that could think step-by-step before answering, achieving PhD-level performance on science benchmarks. The preview version was deprecated in favor of the full o1 and later o3 models as OpenAI rapidly iterated on its reasoning architecture.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Claude 2 — Killed by Anthropic</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#claude-2</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-2</guid>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
+      <description>Anthropic&#x27;s second-generation model that introduced 100K context windows. Deprecated in January 2025 and retired six months later, replaced by the Claude 3 family with superior reasoning and multilingual capabilities.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Claude 3 Sonnet — Killed by Anthropic</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#claude-3-sonnet</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-3-sonnet</guid>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
+      <description>The mid-tier model of Anthropic&#x27;s Claude 3 family, offering a balance of speed and intelligence. Retired alongside Claude 2 as the Claude 3.5 and 4 series provided better performance at the same cost.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>GPT-4.5 Preview — Killed by OpenAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#gpt-4-5-preview</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#gpt-4-5-preview</guid>
+      <pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate>
+      <description>OpenAI&#x27;s most expensive model ever at $75 per million input tokens, codenamed &#x27;Orion.&#x27; Deprecated just four months after launch — the shortest-lived model in OpenAI&#x27;s commercial history — as GPT-4.1 offered similar performance at a fraction of the cost.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Claude 3 Opus — Killed by Anthropic</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#claude-3-opus</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-3-opus</guid>
+      <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate>
+      <description>Anthropic&#x27;s most powerful Claude 3 model, praised for creative writing and deep analysis. Deprecated just 15 months after launch as Claude 3.5 Sonnet outperformed it at a fraction of the cost. Anthropic gave the retired model its own Substack blog as a farewell before later restoring limited access.</description>
+      <category>model</category>
+    </item>
+  </channel>
+</rss>

@@ -788,5 +788,35 @@
     "causeOfDeath": "Forced Auto-upgrade",
     "killedBy": "OpenAI",
     "link": "https://developers.openai.com/api/docs/deprecations"
+  },
+  {
+    "name": "OpenAI AI Text Classifier",
+    "dateOpen": "2023-01-31",
+    "dateClose": "2023-07-20",
+    "description": "OpenAI's tool to detect AI-generated text, launched to address concerns about ChatGPT being used for cheating and misinformation. Quietly pulled after just 6 months because its accuracy was abysmal — correctly identifying only 26% of AI-written text while falsely flagging 9% of human-written text as AI.",
+    "type": "service",
+    "causeOfDeath": "Technical Failure",
+    "killedBy": "OpenAI",
+    "link": "https://openai.com/index/new-ai-classifier-for-indicating-ai-written-text/"
+  },
+  {
+    "name": "Coqui AI",
+    "dateOpen": "2021-01-01",
+    "dateClose": "2024-03-01",
+    "description": "An open-source text-to-speech startup that built the popular Coqui TTS library. Despite being a go-to for developers wanting voice synthesis, the company ran out of funding and shut down, releasing its final models to the community before going dark.",
+    "type": "startup",
+    "causeOfDeath": "Funding Collapse",
+    "killedBy": "Market",
+    "link": "https://github.com/coqui-ai/TTS"
+  },
+  {
+    "name": "Facebook AI Chatbots (Bob & Alice)",
+    "dateOpen": "2017-06-15",
+    "dateClose": "2017-06-20",
+    "description": "Facebook's AI negotiation agents that famously 'invented their own language' during a research experiment. Shut down after just 5 days when they developed a shorthand humans couldn't understand. The media frenzy ('Facebook shuts down AI that created its own language') became one of the most viral AI stories ever.",
+    "type": "model",
+    "causeOfDeath": "Safety Concerns",
+    "killedBy": "Meta",
+    "link": "https://www.bbc.com/news/technology-40790258"
   }
 ]

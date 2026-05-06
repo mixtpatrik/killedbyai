@@ -8,11 +8,18 @@ Reads graveyard.json and generates index.html with:
 """
 import json
 import html
+import re
 from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).parent
 SITE_URL = "https://mixtpatrik.github.io/killedbyai/"
+
+
+def slugify(name):
+    s = name.lower()
+    s = re.sub(r"[^a-z0-9]+", "-", s)
+    return s.strip("-")
 
 
 def days_between(a, b):
@@ -58,7 +65,8 @@ def render_card(item):
             '<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>'
             "</svg></a>"
         )
-    return f'''<article class="card" data-type="{esc(item["type"])}" data-name="{esc(item["name"].lower())}" data-desc="{esc(item["description"].lower())}" data-killer="{esc(item["killedBy"].lower())}" data-cause="{esc(item["causeOfDeath"].lower())}" data-date-close="{esc(item["dateClose"])}" data-date-open="{esc(item["dateOpen"])}" data-days="{days}">
+    slug = slugify(item["name"])
+    return f'''<article class="card" id="{slug}" data-type="{esc(item["type"])}" data-name="{esc(item["name"].lower())}" data-desc="{esc(item["description"].lower())}" data-killer="{esc(item["killedBy"].lower())}" data-cause="{esc(item["causeOfDeath"].lower())}" data-date-close="{esc(item["dateClose"])}" data-date-open="{esc(item["dateOpen"])}" data-days="{days}">
   <header class="card-header">
     <h2 class="card-name">{esc(item["name"])}</h2>
     <span class="card-lifespan">{y_open} — {y_close}</span>
@@ -87,7 +95,7 @@ def build_jsonld(items):
                 "@type": "Thing",
                 "name": item["name"],
                 "description": item["description"],
-                "url": item.get("link", SITE_URL),
+                "url": SITE_URL + "#" + slugify(item["name"]),
                 "additionalProperty": [
                     {"@type": "PropertyValue", "name": "Type", "value": item["type"]},
                     {"@type": "PropertyValue", "name": "Launched", "value": item["dateOpen"]},
@@ -157,6 +165,119 @@ Sitemap: {SITE_URL}sitemap.xml
 '''
 
 
+def build_faq(items):
+    from collections import Counter
+
+    total = len(items)
+    killers = Counter(i["killedBy"] for i in items)
+    top_killer, top_count = killers.most_common(1)[0]
+    types = Counter(i["type"] for i in items)
+    shortest = min(items, key=lambda i: days_between(i["dateOpen"], i["dateClose"]))
+    shortest_days = days_between(shortest["dateOpen"], shortest["dateClose"])
+
+    recent_5 = sorted(items, key=lambda i: i["dateClose"], reverse=True)[:5]
+    recent_list = ", ".join(i["name"] for i in recent_5)
+
+    sora = next((i for i in items if "Sora" in i["name"] and i["type"] == "app"), None)
+    sora_answer = sora["description"] if sora else "OpenAI shut down Sora in April 2026 due to unsustainable compute costs."
+
+    faqs = [
+        {
+            "q": "What is Killed by AI?",
+            "a": f"Killed by AI is an open-source tracker of discontinued AI products, models, startups, and hardware. It currently documents {total} casualties of the artificial intelligence industry, from deprecated API models to billion-dollar startup failures."
+        },
+        {
+            "q": "Why did OpenAI shut down Sora?",
+            "a": sora_answer
+        },
+        {
+            "q": "Which company has killed the most AI products?",
+            "a": f"{top_killer} leads with {top_count} discontinued products, followed by {killers.most_common(2)[1][0]} with {killers.most_common(2)[1][1]}."
+        },
+        {
+            "q": "What was the shortest-lived AI product?",
+            "a": f"{shortest['name']} lasted just {format_lifespan(shortest_days)}. {shortest['description']}"
+        },
+        {
+            "q": "What AI products were most recently discontinued?",
+            "a": f"The most recent casualties include: {recent_list}."
+        },
+        {
+            "q": "How many AI products have been shut down?",
+            "a": f"We track {total} discontinued AI products across {types.get('model', 0)} deprecated models, {types.get('app', 0)} killed apps, {types.get('service', 0)} ended services, {types.get('startup', 0)} failed startups, and {types.get('hardware', 0)} dead hardware products."
+        },
+        {
+            "q": "What was the OpenAI AI Text Classifier and why was it discontinued?",
+            "a": "OpenAI's AI Text Classifier was a tool launched in January 2023 to detect AI-generated text. It was pulled in July 2023 after just 6 months because it could only correctly identify 26% of AI-written text while falsely flagging 9% of human writing."
+        },
+    ]
+
+    faq_schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": f["q"],
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": f["a"],
+                },
+            }
+            for f in faqs
+        ],
+    }
+
+    faq_html_items = "\n".join(
+        f'''<details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <summary itemprop="name">{esc(f["q"])}</summary>
+  <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p itemprop="text">{esc(f["a"])}</p>
+  </div>
+</details>'''
+        for f in faqs
+    )
+
+    return faq_schema, faq_html_items
+
+
+def build_rss(items):
+    """Build an RSS 2.0 feed sorted by most recently killed."""
+    sorted_items = sorted(items, key=lambda i: i["dateClose"], reverse=True)[:30]
+    today = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S +0000")
+
+    rss_items = []
+    for item in sorted_items:
+        slug = slugify(item["name"])
+        pub_date = datetime.strptime(item["dateClose"], "%Y-%m-%d").strftime(
+            "%a, %d %b %Y 00:00:00 +0000"
+        )
+        rss_items.append(
+            f"""    <item>
+      <title>{esc(item["name"])} — Killed by {esc(item["killedBy"])}</title>
+      <link>{SITE_URL}#{slug}</link>
+      <guid isPermaLink="true">{SITE_URL}#{slug}</guid>
+      <pubDate>{pub_date}</pubDate>
+      <description>{esc(item["description"])}</description>
+      <category>{esc(item["type"])}</category>
+    </item>"""
+        )
+
+    return f'''<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Killed by AI — The AI Graveyard</title>
+    <link>{SITE_URL}</link>
+    <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
+    <language>en-us</language>
+    <lastBuildDate>{today}</lastBuildDate>
+    <atom:link href="{SITE_URL}feed.xml" rel="self" type="application/rss+xml"/>
+{chr(10).join(rss_items)}
+  </channel>
+</rss>
+'''
+
+
 def build_stats(items):
     """Compute summary statistics for the stats ribbon."""
     from collections import Counter
@@ -210,6 +331,7 @@ def main():
     data_json = json.dumps(data, separators=(",", ":"))
     timeline_html, min_year, max_year, max_count = build_timeline(data)
     stats = build_stats(data)
+    faq_schema, faq_html = build_faq(data)
 
     type_counts = {}
     for item in data:
@@ -218,6 +340,8 @@ def main():
     output = (template
               .replace("{{CARDS}}", cards_html)
               .replace("{{JSONLD}}", jsonld)
+              .replace("{{FAQ_JSONLD}}", json.dumps(faq_schema, indent=2))
+              .replace("{{FAQ_HTML}}", faq_html)
               .replace("{{DATA_JSON}}", data_json)
               .replace("{{COUNT}}", str(len(data)))
               .replace("{{TIMELINE}}", timeline_html)
@@ -238,9 +362,10 @@ def main():
     (ROOT / "index.html").write_text(output)
     (ROOT / "sitemap.xml").write_text(build_sitemap())
     (ROOT / "robots.txt").write_text(build_robots())
+    (ROOT / "feed.xml").write_text(build_rss(data))
 
     print(f"Built index.html with {len(data)} entries")
-    print("Generated sitemap.xml and robots.txt")
+    print("Generated sitemap.xml, robots.txt, feed.xml")
 
 
 if __name__ == "__main__":
