@@ -5,7 +5,7 @@
     <link>https://mixtpatrik.github.io/killedbyai/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 May 2026 14:07:34 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2026 08:24:52 +0000</lastBuildDate>
     <atom:link href="https://mixtpatrik.github.io/killedbyai/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>OpenAI Assistants API (Beta) — Killed by OpenAI</title>
@@ -14,6 +14,30 @@
       <pubDate>Wed, 26 Aug 2026 00:00:00 +0000</pubDate>
       <description>OpenAI&#x27;s persistent &#x27;assistants&#x27; framework that bundled model choice, instructions, file handling, and tool declarations into reusable API objects. Announced at DevDay 2023 alongside GPTs, it never left beta. Being sunset in favor of the newer Responses API, which moved prompt versioning into the dashboard.</description>
       <category>service</category>
+    </item>
+    <item>
+      <title>Claude Sonnet 4 &amp; Opus 4 — Killed by Anthropic</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#claude-sonnet-4-opus-4</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-sonnet-4-opus-4</guid>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Anthropic&#x27;s flagship Claude 4 generation — Sonnet 4 and Opus 4 — retired less than a year after launch. API calls to claude-sonnet-4-0 and claude-opus-4-0 return errors after June 15, 2026. Replaced by the 4.5 and 4.7 series with dramatically improved coding and computer use capabilities.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Stainless SDK Generator — Killed by Anthropic</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#stainless-sdk-generator</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#stainless-sdk-generator</guid>
+      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
+      <description>The startup that auto-generated production-ready API SDKs in Python, TypeScript, Go, Java, and Kotlin. Used by OpenAI, Google, Cloudflare, Replicate, Runway, and Meta. Anthropic acquired it for $300M+ and immediately announced it would wind down all hosted products — a strategic kill to deny competitors access to critical infrastructure.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>xAI Grok Legacy Models — Killed by xAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#xai-grok-legacy-models</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#xai-grok-legacy-models</guid>
+      <pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate>
+      <description>Eight Grok models retired at once: grok-4-1-fast, grok-4-fast, grok-4-0709, grok-code-fast-1, grok-3, and grok-imagine-image-pro. xAI silently redirected all retired slugs to grok-4.3 — meaning developers&#x27; bills and output quality changed without code changes or warnings. A masterclass in how NOT to handle deprecation.</description>
+      <category>model</category>
     </item>
     <item>
       <title>DALL·E 3 API Snapshots — Killed by OpenAI</title>
@@ -27,8 +51,24 @@
       <title>OpenAI Realtime API (Beta) — Killed by OpenAI</title>
       <link>https://mixtpatrik.github.io/killedbyai/#openai-realtime-api-beta</link>
       <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#openai-realtime-api-beta</guid>
-      <pubDate>Thu, 07 May 2026 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate>
       <description>OpenAI&#x27;s WebSocket-based API for building real-time voice conversations, powering Advanced Voice Mode demos. The beta endpoint was deprecated as OpenAI shipped a GA (general availability) version with a different interface, forcing developers to rewrite their integrations.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>GPT-5.2 &amp; GPT-5.3 (API Snapshots) — Killed by OpenAI</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#gpt-5-2-gpt-5-3-api-snapshots</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#gpt-5-2-gpt-5-3-api-snapshots</guid>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <description>OpenAI deprecated the gpt-5.2-chat-latest and gpt-5.3-chat-latest snapshots less than 4 months after release. The pace of model churn has become so extreme that even &#x27;latest&#x27; models are now deprecated quarterly, leaving developers in a permanent migration treadmill.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Google Project Mariner — Killed by Google</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#google-project-mariner</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#google-project-mariner</guid>
+      <pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
+      <description>Google DeepMind&#x27;s experimental AI browser agent that could navigate Chrome, fill out forms, book travel, and complete web tasks by taking screenshots and clicking for you. Quietly killed after 17 months when staff were reassigned. The tech was absorbed into Gemini Agent. Privacy concerns and high compute costs for visual processing made it unsustainable.</description>
       <category>service</category>
     </item>
     <item>
@@ -120,6 +160,14 @@
       <category>app</category>
     </item>
     <item>
+      <title>Cydoc — Killed by Big Tech</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#cydoc</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#cydoc</guid>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <description>A bootstrapped health AI startup that operated for 7 years trying to build clinical AI tools. The founder published a detailed postmortem explaining why even technically sound health AI products die: the regulatory maze, slow hospital sales cycles, and the impossibility of competing with Big Tech&#x27;s free AI offerings.</description>
+      <category>startup</category>
+    </item>
+    <item>
       <title>Google Dark Web Report — Killed by Google</title>
       <link>https://mixtpatrik.github.io/killedbyai/#google-dark-web-report</link>
       <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#google-dark-web-report</guid>
@@ -142,6 +190,14 @@
       <pubDate>Fri, 13 Feb 2026 00:00:00 +0000</pubDate>
       <description>Alongside its ChatGPT retirement, the legacy GPT-4o API snapshots were sunset for developers. GPT-4.1, GPT-4.1 mini, and o4-mini were retired in the same wave. After powering billions of conversations, 4o became the most-mourned model in AI history with users petitioning for its return.</description>
       <category>model</category>
+    </item>
+    <item>
+      <title>Kintsugi AI — Killed by FDA</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#kintsugi-ai</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#kintsugi-ai</guid>
+      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
+      <description>An AI startup that spent 7 years and $30M developing voice biomarker technology to detect depression and anxiety from how people speak. Shut down after nearly 4 years waiting for FDA De Novo clearance that never came. Open-sourced all code and research before closing — a rare act of scientific integrity in an industry of quiet deaths.</description>
+      <category>startup</category>
     </item>
     <item>
       <title>Google Gemini 2.0 Flash — Killed by Google</title>
@@ -189,62 +245,6 @@
       <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-3-5-sonnet</guid>
       <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
       <description>Anthropic&#x27;s breakout model that briefly topped every benchmark and became the most popular coding AI. Retired just 16 months after launch as Claude Sonnet 4 took its place — a testament to the breakneck pace of AI model evolution.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>OpenAI o1-mini — Killed by OpenAI</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#openai-o1-mini</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#openai-o1-mini</guid>
-      <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
-      <description>A smaller, faster, cheaper version of OpenAI&#x27;s o1 reasoning model designed for coding and STEM tasks. Deprecated and replaced by o4-mini, which offered better reasoning at lower cost.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>OpenAI GPT-3.5 Turbo — Killed by OpenAI</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#openai-gpt-3-5-turbo</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#openai-gpt-3-5-turbo</guid>
-      <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate>
-      <description>The model that started it all — the engine behind the original ChatGPT. After being the world&#x27;s most-used AI model, it was fully retired as GPT-4o Mini offered better quality at the same price point.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>OpenAI o1-preview — Killed by OpenAI</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#openai-o1-preview</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#openai-o1-preview</guid>
-      <pubDate>Mon, 28 Jul 2025 00:00:00 +0000</pubDate>
-      <description>OpenAI&#x27;s first &#x27;reasoning&#x27; model that could think step-by-step before answering, achieving PhD-level performance on science benchmarks. The preview version was deprecated in favor of the full o1 and later o3 models as OpenAI rapidly iterated on its reasoning architecture.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Claude 2 — Killed by Anthropic</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#claude-2</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-2</guid>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
-      <description>Anthropic&#x27;s second-generation model that introduced 100K context windows. Deprecated in January 2025 and retired six months later, replaced by the Claude 3 family with superior reasoning and multilingual capabilities.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Claude 3 Sonnet — Killed by Anthropic</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#claude-3-sonnet</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-3-sonnet</guid>
-      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
-      <description>The mid-tier model of Anthropic&#x27;s Claude 3 family, offering a balance of speed and intelligence. Retired alongside Claude 2 as the Claude 3.5 and 4 series provided better performance at the same cost.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>GPT-4.5 Preview — Killed by OpenAI</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#gpt-4-5-preview</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#gpt-4-5-preview</guid>
-      <pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate>
-      <description>OpenAI&#x27;s most expensive model ever at $75 per million input tokens, codenamed &#x27;Orion.&#x27; Deprecated just four months after launch — the shortest-lived model in OpenAI&#x27;s commercial history — as GPT-4.1 offered similar performance at a fraction of the cost.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Claude 3 Opus — Killed by Anthropic</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#claude-3-opus</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-3-opus</guid>
-      <pubDate>Mon, 30 Jun 2025 00:00:00 +0000</pubDate>
-      <description>Anthropic&#x27;s most powerful Claude 3 model, praised for creative writing and deep analysis. Deprecated just 15 months after launch as Claude 3.5 Sonnet outperformed it at a fraction of the cost. Anthropic gave the retired model its own Substack blog as a farewell before later restoring limited access.</description>
       <category>model</category>
     </item>
   </channel>

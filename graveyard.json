@@ -752,7 +752,7 @@
   {
     "name": "OpenAI Realtime API (Beta)",
     "dateOpen": "2024-10-01",
-    "dateClose": "2026-05-07",
+    "dateClose": "2026-05-12",
     "description": "OpenAI's WebSocket-based API for building real-time voice conversations, powering Advanced Voice Mode demos. The beta endpoint was deprecated as OpenAI shipped a GA (general availability) version with a different interface, forcing developers to rewrite their integrations.",
     "type": "service",
     "causeOfDeath": "API Consolidation",
@@ -818,5 +818,75 @@
     "causeOfDeath": "Safety Concerns",
     "killedBy": "Meta",
     "link": "https://www.bbc.com/news/technology-40790258"
+  },
+  {
+    "name": "Google Project Mariner",
+    "dateOpen": "2025-01-01",
+    "dateClose": "2026-05-04",
+    "description": "Google DeepMind's experimental AI browser agent that could navigate Chrome, fill out forms, book travel, and complete web tasks by taking screenshots and clicking for you. Quietly killed after 17 months when staff were reassigned. The tech was absorbed into Gemini Agent. Privacy concerns and high compute costs for visual processing made it unsustainable.",
+    "type": "service",
+    "causeOfDeath": "Feature Absorption",
+    "killedBy": "Google",
+    "link": "https://www.androidauthority.com/google-project-mariner-shutdown-3664323/"
+  },
+  {
+    "name": "Stainless SDK Generator",
+    "dateOpen": "2022-01-01",
+    "dateClose": "2026-05-18",
+    "description": "The startup that auto-generated production-ready API SDKs in Python, TypeScript, Go, Java, and Kotlin. Used by OpenAI, Google, Cloudflare, Replicate, Runway, and Meta. Anthropic acquired it for $300M+ and immediately announced it would wind down all hosted products — a strategic kill to deny competitors access to critical infrastructure.",
+    "type": "startup",
+    "causeOfDeath": "Strategic Acquisition",
+    "killedBy": "Anthropic",
+    "link": "https://techcrunch.com/2026/05/18/anthropic-has-acquired-the-dev-tools-startup-used-by-openai-google-and-cloudflare/"
+  },
+  {
+    "name": "Kintsugi AI",
+    "dateOpen": "2019-01-01",
+    "dateClose": "2026-02-11",
+    "description": "An AI startup that spent 7 years and $30M developing voice biomarker technology to detect depression and anxiety from how people speak. Shut down after nearly 4 years waiting for FDA De Novo clearance that never came. Open-sourced all code and research before closing — a rare act of scientific integrity in an industry of quiet deaths.",
+    "type": "startup",
+    "causeOfDeath": "Regulatory Barriers",
+    "killedBy": "FDA",
+    "link": "https://endpoints.news/why-clinical-ai-startup-kintsugi-shut-down/"
+  },
+  {
+    "name": "xAI Grok Legacy Models",
+    "dateOpen": "2024-03-01",
+    "dateClose": "2026-05-15",
+    "description": "Eight Grok models retired at once: grok-4-1-fast, grok-4-fast, grok-4-0709, grok-code-fast-1, grok-3, and grok-imagine-image-pro. xAI silently redirected all retired slugs to grok-4.3 — meaning developers' bills and output quality changed without code changes or warnings. A masterclass in how NOT to handle deprecation.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "xAI",
+    "link": "https://docs.x.ai/developers/migration/may-15-retirement"
+  },
+  {
+    "name": "Claude Sonnet 4 & Opus 4",
+    "dateOpen": "2025-06-25",
+    "dateClose": "2026-06-15",
+    "description": "Anthropic's flagship Claude 4 generation — Sonnet 4 and Opus 4 — retired less than a year after launch. API calls to claude-sonnet-4-0 and claude-opus-4-0 return errors after June 15, 2026. Replaced by the 4.5 and 4.7 series with dramatically improved coding and computer use capabilities.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Anthropic",
+    "link": "https://www.mindstudio.ai/blog/claude-sonnet-4-opus-4-deprecation-migration-guide"
+  },
+  {
+    "name": "Cydoc",
+    "dateOpen": "2019-02-01",
+    "dateClose": "2026-02-21",
+    "description": "A bootstrapped health AI startup that operated for 7 years trying to build clinical AI tools. The founder published a detailed postmortem explaining why even technically sound health AI products die: the regulatory maze, slow hospital sales cycles, and the impossibility of competing with Big Tech's free AI offerings.",
+    "type": "startup",
+    "causeOfDeath": "Market Conditions",
+    "killedBy": "Big Tech",
+    "link": "https://glassboxmedicine.com/2026/02/21/why-i-shut-down-my-bootstrapped-health-ai-startup-after-7-years-a-founders-postmortem/"
+  },
+  {
+    "name": "GPT-5.2 & GPT-5.3 (API Snapshots)",
+    "dateOpen": "2026-01-15",
+    "dateClose": "2026-05-08",
+    "description": "OpenAI deprecated the gpt-5.2-chat-latest and gpt-5.3-chat-latest snapshots less than 4 months after release. The pace of model churn has become so extreme that even 'latest' models are now deprecated quarterly, leaving developers in a permanent migration treadmill.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "OpenAI",
+    "link": "https://developers.openai.com/api/docs/deprecations"
   }
 ]
