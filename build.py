@@ -65,6 +65,9 @@ def render_card(item):
             '<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>'
             "</svg></a>"
         )
+    collateral_html = ""
+    if item.get("collateral"):
+        collateral_html = f'<div class="card-collateral"><span class="collateral-icon">⚠️</span> {esc(item["collateral"])}</div>'
     slug = slugify(item["name"])
     return f'''<article class="card" id="{slug}" data-type="{esc(item["type"])}" data-name="{esc(item["name"].lower())}" data-desc="{esc(item["description"].lower())}" data-killer="{esc(item["killedBy"].lower())}" data-cause="{esc(item["causeOfDeath"].lower())}" data-date-close="{esc(item["dateClose"])}" data-date-open="{esc(item["dateOpen"])}" data-days="{days}">
   <header class="card-header">
@@ -80,6 +83,7 @@ def render_card(item):
     </div>
     <div class="card-age">{lifespan}</div>
   </footer>
+  {collateral_html}
   {link_html}
 </article>'''
 
@@ -278,6 +282,35 @@ def build_rss(items):
 '''
 
 
+def build_killer_leaderboard(items):
+    from collections import Counter
+    killers = Counter(i["killedBy"] for i in items)
+    top10 = killers.most_common(10)
+    max_count = top10[0][1] if top10 else 1
+    rows = []
+    for killer, count in top10:
+        pct = count / max_count * 100
+        rows.append(
+            f'<button class="lb-row" data-killer="{esc(killer.lower())}">'
+            f'<span class="lb-name">{esc(killer)}</span>'
+            f'<span class="lb-bar-wrap"><span class="lb-bar" style="width:{pct}%"></span></span>'
+            f'<span class="lb-count">{count}</span>'
+            f'</button>'
+        )
+    return "\n".join(rows)
+
+
+def build_pace(items):
+    from collections import Counter
+    years = Counter(int(year(i["dateClose"])) for i in items)
+    current_year = datetime.utcnow().year
+    kills_this_year = years.get(current_year, 0)
+    month_now = datetime.utcnow().month
+    pace_per_month = round(kills_this_year / max(month_now, 1), 1)
+    projected = round(pace_per_month * 12)
+    return kills_this_year, pace_per_month, projected
+
+
 def build_stats(items):
     """Compute summary statistics for the stats ribbon."""
     from collections import Counter
@@ -332,6 +365,8 @@ def main():
     timeline_html, min_year, max_year, max_count = build_timeline(data)
     stats = build_stats(data)
     faq_schema, faq_html = build_faq(data)
+    leaderboard_html = build_killer_leaderboard(data)
+    kills_ytd, pace_per_month, projected_eoy = build_pace(data)
 
     type_counts = {}
     for item in data:
@@ -357,6 +392,11 @@ def main():
               .replace("{{COUNT_SERVICE}}", str(type_counts.get("service", 0)))
               .replace("{{COUNT_STARTUP}}", str(type_counts.get("startup", 0)))
               .replace("{{COUNT_HARDWARE}}", str(type_counts.get("hardware", 0)))
+              .replace("{{LEADERBOARD}}", leaderboard_html)
+              .replace("{{KILLS_YTD}}", str(kills_ytd))
+              .replace("{{PACE_PER_MONTH}}", str(pace_per_month))
+              .replace("{{PROJECTED_EOY}}", str(projected_eoy))
+              .replace("{{CURRENT_YEAR}}", str(datetime.utcnow().year))
               .replace("{{LAST_UPDATED}}", datetime.utcnow().strftime("%B %d, %Y")))
 
     (ROOT / "index.html").write_text(output)

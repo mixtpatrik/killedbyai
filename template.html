@@ -230,6 +230,116 @@
 
         .search-box input:focus ~ .search-hint { opacity: 0; }
 
+        /* Leaderboard & pace */
+        .insights-row {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .insights-row { grid-template-columns: 1fr; }
+        }
+
+        .insight-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.5rem;
+        }
+
+        .insight-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .lb-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.375rem 0;
+            background: none;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            font-family: inherit;
+            transition: opacity 0.15s;
+        }
+
+        .lb-row:hover { opacity: 0.8; }
+
+        .lb-name {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            min-width: 100px;
+            text-align: left;
+        }
+
+        .lb-bar-wrap {
+            flex: 1;
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .lb-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ef4444, #991b1b);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .lb-count {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--red);
+            font-family: 'SF Mono', 'Cascadia Code', monospace;
+            min-width: 24px;
+            text-align: right;
+        }
+
+        .pace-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .pace-item {
+            text-align: center;
+        }
+
+        .pace-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--red);
+            font-family: 'SF Mono', 'Cascadia Code', monospace;
+            line-height: 1;
+        }
+
+        .pace-label {
+            font-size: 0.6875rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        .pace-projected {
+            padding: 0.75rem;
+            background: var(--red-dim);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .pace-projected .pace-value { font-size: 2.5rem; }
+
         /* FAQ section */
         .faq-section {
             max-width: 800px;
@@ -488,6 +598,19 @@
             font-style: italic;
         }
 
+        .card-collateral {
+            margin-top: 0.625rem;
+            padding: 0.5rem 0.75rem;
+            background: rgba(234, 179, 8, 0.06);
+            border: 1px solid rgba(234, 179, 8, 0.15);
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            color: #ca8a04;
+            line-height: 1.5;
+        }
+
+        .collateral-icon { margin-right: 0.25rem; }
+
         .card-link {
             display: inline-flex;
             align-items: center;
@@ -712,6 +835,30 @@
         </div>
     </section>
 
+    <div class="insights-row">
+        <div class="insight-card">
+            <h2 class="insight-title">🏆 Kill Count Leaderboard</h2>
+{{LEADERBOARD}}
+        </div>
+        <div class="insight-card">
+            <h2 class="insight-title">📈 Pace of Death ({{CURRENT_YEAR}})</h2>
+            <div class="pace-stats">
+                <div class="pace-item">
+                    <div class="pace-value">{{KILLS_YTD}}</div>
+                    <div class="pace-label">Killed so far in {{CURRENT_YEAR}}</div>
+                </div>
+                <div class="pace-item">
+                    <div class="pace-value">{{PACE_PER_MONTH}}</div>
+                    <div class="pace-label">Deaths per month</div>
+                </div>
+                <div class="pace-projected">
+                    <div class="pace-value">~{{PROJECTED_EOY}}</div>
+                    <div class="pace-label">Projected by end of {{CURRENT_YEAR}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="controls">
         <div class="search-box">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -876,6 +1023,16 @@
             timelineEl.querySelectorAll('.bar').forEach(b => b.classList.remove('active'));
             yearClearBtn.classList.remove('visible');
             apply();
+        });
+
+        // Leaderboard: click a killer to filter
+        document.querySelectorAll('.lb-row').forEach(row => {
+            row.addEventListener('click', () => {
+                const killer = row.dataset.killer;
+                searchInput.value = killer;
+                apply();
+                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
         });
 
         // Keyboard: press / to focus search

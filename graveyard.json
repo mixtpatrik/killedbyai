@@ -7,7 +7,8 @@
     "type": "app",
     "causeOfDeath": "Rebranding",
     "killedBy": "Google",
-    "link": "https://blog.google/products/gemini/bard-gemini-advanced-app/"
+    "link": "https://blog.google/products/gemini/bard-gemini-advanced-app/",
+    "collateral": "Early Bard conversation history and saved responses were not migrated to Gemini."
   },
   {
     "name": "ChatGPT Plugins",
@@ -17,7 +18,8 @@
     "type": "service",
     "causeOfDeath": "Product Evolution",
     "killedBy": "OpenAI",
-    "link": "https://help.openai.com/en/articles/8988022-winding-down-the-chatgpt-plugins-beta"
+    "link": "https://help.openai.com/en/articles/8988022-winding-down-the-chatgpt-plugins-beta",
+    "collateral": "Developers who built and monetized plugins lost their distribution channel. User workflows built around specific plugins broke."
   },
   {
     "name": "Meta Galactica",
@@ -57,7 +59,8 @@
     "type": "model",
     "causeOfDeath": "Model Consolidation",
     "killedBy": "OpenAI",
-    "link": "https://platform.openai.com/docs/deprecations"
+    "link": "https://platform.openai.com/docs/deprecations",
+    "collateral": "Developers who built code-generation tools on Codex had to rewrite their entire integration layer."
   },
   {
     "name": "GPT-3 (Original Models)",
@@ -77,7 +80,8 @@
     "type": "app",
     "causeOfDeath": "Acqui-hire",
     "killedBy": "Microsoft",
-    "link": "https://www.theverge.com/2024/3/19/24105263/microsoft-inflection-mustafa-suleyman-hire"
+    "link": "https://www.theverge.com/2024/3/19/24105263/microsoft-inflection-mustafa-suleyman-hire",
+    "collateral": "Users who spent months building a personal relationship with Pi lost all conversation history and emotional context when the team left."
   },
   {
     "name": "Humane AI Pin",
@@ -87,7 +91,8 @@
     "type": "hardware",
     "causeOfDeath": "Market Rejection",
     "killedBy": "Reality",
-    "link": "https://www.theverge.com/24126502/humane-ai-pin-review"
+    "link": "https://www.theverge.com/24126502/humane-ai-pin-review",
+    "collateral": "All $699 devices were remotely bricked when cloud services shut down. No refunds offered."
   },
   {
     "name": "Rabbit R1",
@@ -97,7 +102,8 @@
     "type": "hardware",
     "causeOfDeath": "Market Rejection",
     "killedBy": "Reality",
-    "link": "https://www.theverge.com/24133200/rabbit-r1-review-ai-gadget"
+    "link": "https://www.theverge.com/24133200/rabbit-r1-review-ai-gadget",
+    "collateral": "Buyers stuck with a $199 paperweight. No meaningful resale value."
   },
   {
     "name": "Google Duplex on the Web",
@@ -127,7 +133,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "OpenAI",
-    "link": "https://platform.openai.com/docs/deprecations"
+    "link": "https://platform.openai.com/docs/deprecations",
+    "collateral": "Apps built on the DALL-E 2 API had to migrate to a completely different image generation interface."
   },
   {
     "name": "Character.AI (Independent)",
@@ -137,7 +144,8 @@
     "type": "startup",
     "causeOfDeath": "Acqui-hire",
     "killedBy": "Google",
-    "link": "https://www.theverge.com/2024/8/2/24212348/google-character-ai-noam-shazeer"
+    "link": "https://www.theverge.com/2024/8/2/24212348/google-character-ai-noam-shazeer",
+    "collateral": "Users lost unique AI personalities they had spent hundreds of hours training and conversing with."
   },
   {
     "name": "Amazon Alexa (Original AI)",
@@ -277,7 +285,8 @@
     "type": "app",
     "causeOfDeath": "Replaced by AI",
     "killedBy": "Apple Intelligence",
-    "link": "https://www.apple.com/apple-intelligence/"
+    "link": "https://www.apple.com/apple-intelligence/",
+    "collateral": "A decade of 'Hey Siri' muscle memory and custom Shortcuts workflows being rebuilt from scratch for Apple Intelligence."
   },
   {
     "name": "Midjourney Free Tier",
@@ -307,7 +316,8 @@
     "type": "app",
     "causeOfDeath": "Unsustainable Costs",
     "killedBy": "OpenAI",
-    "link": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation"
+    "link": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
+    "collateral": "Users mid-project lost access to all generated videos. Creators who built audiences on the platform lost their portfolios overnight."
   },
   {
     "name": "Google Doppl",
@@ -467,7 +477,8 @@
     "type": "service",
     "causeOfDeath": "Low Adoption",
     "killedBy": "OpenAI",
-    "link": "https://openai.com/index/introducing-the-gpt-store/"
+    "link": "https://openai.com/index/introducing-the-gpt-store/",
+    "collateral": "Creators who built and marketed custom GPTs saw their work become undiscoverable. Revenue sharing never materialized."
   },
   {
     "name": "Replika (Romantic Mode)",
@@ -477,7 +488,8 @@
     "type": "service",
     "causeOfDeath": "Regulatory Action",
     "killedBy": "Italian Data Protection Authority",
-    "link": "https://www.theverge.com/2023/2/15/23601875/replika-ai-erp-sexual-content-update-blocked"
+    "link": "https://www.theverge.com/2023/2/15/23601875/replika-ai-erp-sexual-content-update-blocked",
+    "collateral": "Millions of users lost intimate AI companions overnight. Some reported genuine grief and emotional distress."
   },
   {
     "name": "Google Gemini 1.0 Ultra",
@@ -577,7 +589,8 @@
     "type": "hardware",
     "causeOfDeath": "Funding Collapse",
     "killedBy": "Embodied Inc.",
-    "link": "https://www.axios.com/2024/12/10/moxie-kids-robot-shuts-down"
+    "link": "https://www.axios.com/2024/12/10/moxie-kids-robot-shuts-down",
+    "collateral": "Children with autism who had formed bonds with their $800 companion lost it overnight. Families recorded tearful goodbyes."
   },
   {
     "name": "Google Gemini Image Generation (People)",
@@ -617,7 +630,8 @@
     "type": "hardware",
     "causeOfDeath": "Market Irrelevance",
     "killedBy": "Google",
-    "link": "https://support.google.com/jamboard/answer/14084927"
+    "link": "https://support.google.com/jamboard/answer/14084927",
+    "collateral": "All collaborative whiteboard data was permanently deleted after the shutdown date. No export path for some content."
   },
   {
     "name": "Woebot",
@@ -657,7 +671,8 @@
     "type": "service",
     "causeOfDeath": "API Consolidation",
     "killedBy": "OpenAI",
-    "link": "https://community.openai.com/t/assistants-api-beta-deprecation-august-26-2026-sunset/1354666"
+    "link": "https://community.openai.com/t/assistants-api-beta-deprecation-august-26-2026-sunset/1354666",
+    "collateral": "Developers who built AI agents with persistent memory, file handling, and tool use face a full rewrite to the Responses API."
   },
   {
     "name": "OpenAI for Science",
@@ -727,7 +742,8 @@
     "type": "app",
     "causeOfDeath": "Replaced by AI",
     "killedBy": "Google Gemini",
-    "link": "https://www.timesofai.com/news/google-quietly-shares-retirement-timeline-for-its-assistant/"
+    "link": "https://www.timesofai.com/news/google-quietly-shares-retirement-timeline-for-its-assistant/",
+    "collateral": "Years of voice command customizations, routines, and smart home configurations needed to be rebuilt in Gemini."
   },
   {
     "name": "MiniMax API Free Tier",
@@ -797,7 +813,8 @@
     "type": "service",
     "causeOfDeath": "Technical Failure",
     "killedBy": "OpenAI",
-    "link": "https://openai.com/index/new-ai-classifier-for-indicating-ai-written-text/"
+    "link": "https://openai.com/index/new-ai-classifier-for-indicating-ai-written-text/",
+    "collateral": "Educators who relied on it to detect AI-written assignments lost their only free detection tool from a major AI lab."
   },
   {
     "name": "Coqui AI",
@@ -827,7 +844,8 @@
     "type": "service",
     "causeOfDeath": "Feature Absorption",
     "killedBy": "Google",
-    "link": "https://www.androidauthority.com/google-project-mariner-shutdown-3664323/"
+    "link": "https://www.androidauthority.com/google-project-mariner-shutdown-3664323/",
+    "collateral": "Early testers lost their web automation workflows. Saved routines and trained behaviors didn't transfer to Gemini Agent."
   },
   {
     "name": "Stainless SDK Generator",
@@ -837,7 +855,8 @@
     "type": "startup",
     "causeOfDeath": "Strategic Acquisition",
     "killedBy": "Anthropic",
-    "link": "https://techcrunch.com/2026/05/18/anthropic-has-acquired-the-dev-tools-startup-used-by-openai-google-and-cloudflare/"
+    "link": "https://techcrunch.com/2026/05/18/anthropic-has-acquired-the-dev-tools-startup-used-by-openai-google-and-cloudflare/",
+    "collateral": "OpenAI, Google, Cloudflare, Meta, and dozens of companies lost automated SDK generation. Existing SDKs frozen in time."
   },
   {
     "name": "Kintsugi AI",
@@ -847,7 +866,8 @@
     "type": "startup",
     "causeOfDeath": "Regulatory Barriers",
     "killedBy": "FDA",
-    "link": "https://endpoints.news/why-clinical-ai-startup-kintsugi-shut-down/"
+    "link": "https://endpoints.news/why-clinical-ai-startup-kintsugi-shut-down/",
+    "collateral": "Clinical partners lost a diagnostic screening tool their patients relied on. Research datasets open-sourced as a consolation."
   },
   {
     "name": "xAI Grok Legacy Models",
