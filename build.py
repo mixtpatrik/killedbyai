@@ -335,11 +335,13 @@ def build_stats(items):
 
 
 def build_timeline(items):
-    """Render a bar chart of kills per year."""
+    """Render a bar chart of kills per year (last 5 years only)."""
     from collections import Counter
+    current_year = datetime.utcnow().year
     years = Counter(int(year(item["dateClose"])) for item in items)
-    min_y, max_y = min(years.keys()), max(years.keys())
-    max_count = max(years.values())
+    min_y = current_year - 4
+    max_y = current_year
+    max_count = max(years.get(y, 0) for y in range(min_y, max_y + 1))
 
     bars = []
     for y in range(min_y, max_y + 1):
@@ -400,10 +402,84 @@ def main():
               .replace("{{CURRENT_YEAR}}", str(datetime.utcnow().year))
               .replace("{{LAST_UPDATED}}", datetime.utcnow().strftime("%B %d, %Y")))
 
+    # Inject layoffs stats into main page
+    layoffs_path_check = ROOT / "layoffs.json"
+    if layoffs_path_check.exists():
+        ldata = json.loads(layoffs_path_check.read_text())
+        total_jobs_lost = sum(l["jobs"] for l in ldata)
+        output = (output
+                  .replace("{{TOTAL_JOBS_LOST}}", f"{total_jobs_lost:,}")
+                  .replace("{{TOTAL_COMPANIES_LAYOFFS}}", str(len(ldata))))
+    else:
+        output = output.replace("{{TOTAL_JOBS_LOST}}", "0").replace("{{TOTAL_COMPANIES_LAYOFFS}}", "0")
+
     (ROOT / "index.html").write_text(output)
     (ROOT / "sitemap.xml").write_text(build_sitemap())
     (ROOT / "robots.txt").write_text(build_robots())
     (ROOT / "feed.xml").write_text(build_rss(data))
+
+    # Build Employee Graveyard
+    layoffs_path = ROOT / "layoffs.json"
+    if layoffs_path.exists():
+        layoffs = json.loads(layoffs_path.read_text())
+        layoffs_template = (ROOT / "layoffs-template.html").read_text()
+        total_jobs = sum(l["jobs"] for l in layoffs)
+        total_companies = len(layoffs)
+        layoffs_sorted = sorted(layoffs, key=lambda l: l["jobs"], reverse=True)
+        max_jobs = layoffs_sorted[0]["jobs"] if layoffs_sorted else 1
+
+        rows_html = "\n".join(
+            f'''<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: {l["jobs"] / max_jobs * 100}%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">{esc(l["company"])}</h2>
+      <span class="layoff-count">{l["jobs"]:,}</span>
+    </div>
+    <p class="layoff-desc">{esc(l["description"])}</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">{esc(l["roles"])}</span>
+      <span class="layoff-date">{l["date"][:7]}</span>
+      <a class="layoff-source" href="{esc(l["source"])}" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>'''
+            for l in layoffs_sorted
+        )
+
+        by_year = {}
+        for l in layoffs:
+            y = l["date"][:4]
+            by_year[y] = by_year.get(y, 0) + l["jobs"]
+        year_stats = " | ".join(f"{y}: {c:,}" for y, c in sorted(by_year.items()))
+
+        layoffs_out = (layoffs_template
+                       .replace("{{ROWS}}", rows_html)
+                       .replace("{{TOTAL_JOBS}}", f"{total_jobs:,}")
+                       .replace("{{TOTAL_COMPANIES}}", str(total_companies))
+                       .replace("{{YEAR_STATS}}", year_stats)
+                       .replace("{{LAST_UPDATED}}", datetime.utcnow().strftime("%B %d, %Y")))
+        (ROOT / "layoffs.html").write_text(layoffs_out)
+        print(f"Built layoffs.html with {total_companies} companies, {total_jobs:,} jobs")
+
+    # Update sitemap with layoffs page
+    sitemap = build_sitemap()
+    if layoffs_path.exists():
+        today = datetime.utcnow().strftime("%Y-%m-%d")
+        sitemap = sitemap.replace(
+            "</urlset>",
+            f"""  <url>
+    <loc>{SITE_URL}layoffs.html</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
+"""
+        )
+    (ROOT / "sitemap.xml").write_text(sitemap)
 
     print(f"Built index.html with {len(data)} entries")
     print("Generated sitemap.xml, robots.txt, feed.xml")

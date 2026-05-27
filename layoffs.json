@@ -1,0 +1,154 @@
+[
+  {
+    "company": "Meta",
+    "jobs": 8000,
+    "date": "2026-05-20",
+    "description": "Cut 10% of workforce. CEO Zuckerberg warned 'in the AI age, success isn't a given' in a memo to employees.",
+    "roles": "Middle management, underperformers, various",
+    "source": "https://www.cnbc.com/2026/04/24/20k-job-cuts-at-meta-microsoft-raise-concern-of-ai-labor-crisis-.html"
+  },
+  {
+    "company": "Oracle",
+    "jobs": 30000,
+    "date": "2026-04-01",
+    "description": "Massive layoffs estimated at 30,000 staff, attributed to AI adoption and cloud infrastructure automation.",
+    "roles": "Engineering, support, operations",
+    "source": "https://news.crunchbase.com/startups/tech-layoffs/"
+  },
+  {
+    "company": "Block (Square)",
+    "jobs": 4000,
+    "date": "2026-02-01",
+    "description": "Jack Dorsey cut 40% of global workforce, explicitly tying job losses to AI advancements replacing human workflows.",
+    "roles": "Engineering, operations, support",
+    "source": "https://tech.co/news/companies-replace-workers-with-ai"
+  },
+  {
+    "company": "Atlassian",
+    "jobs": 1600,
+    "date": "2026-03-01",
+    "description": "Cut 10% of workforce as the company doubled down on AI-powered project management and coding assistants.",
+    "roles": "Various",
+    "source": "https://intellizence.com/insights/layoff-downsizing/major-companies-that-announced-mass-layoffs/"
+  },
+  {
+    "company": "Cloudflare",
+    "jobs": 1100,
+    "date": "2026-05-08",
+    "description": "First mass layoff in 16-year history, cutting 20% of staff while posting record $639.8M revenue. CEO said AI made 'measurers' — middle management, finance, legal, auditing — obsolete. Internal AI usage surged 600% in 3 months.",
+    "roles": "Middle management, finance, legal, auditing",
+    "source": "https://techcrunch.com/2026/05/08/cloudflare-says-ai-made-1100-jobs-obsolete-even-as-revenue-hit-a-record-high/"
+  },
+  {
+    "company": "Coinbase",
+    "jobs": 950,
+    "date": "2026-05-01",
+    "description": "Cut 14% of workforce. CEO Brian Armstrong said the company needs to become 'AI-native' to compete.",
+    "roles": "Various",
+    "source": "https://news.crunchbase.com/startups/tech-layoffs/"
+  },
+  {
+    "company": "General Motors",
+    "jobs": 600,
+    "date": "2026-05-01",
+    "description": "Cut 10% of IT department. Employees were told 'lack of AI skills' was the reason — learn AI or lose your job.",
+    "roles": "IT, software engineering",
+    "source": "https://tech.co/news/companies-replace-workers-with-ai"
+  },
+  {
+    "company": "Salesforce",
+    "jobs": 4000,
+    "date": "2025-09-01",
+    "description": "Cut customer support roles. CEO Marc Benioff said bluntly: 'I need less heads.' Replaced with AI-powered Agentforce platform.",
+    "roles": "Customer support, success managers",
+    "source": "https://tech.co/news/companies-replace-workers-with-ai"
+  },
+  {
+    "company": "Chegg",
+    "jobs": 600,
+    "date": "2025-10-01",
+    "description": "Cut 45% of workforce as students abandoned homework-help platforms for ChatGPT and Claude. Stock dropped 99% from peak.",
+    "roles": "Content creators, editors, support",
+    "source": "https://tech.co/news/companies-replace-workers-with-ai"
+  },
+  {
+    "company": "Snap",
+    "jobs": 1000,
+    "date": "2025-12-01",
+    "description": "Slashed 16% of workforce. CEO Evan Spiegel cited AI-driven efficiencies across content moderation and ad operations.",
+    "roles": "Content moderation, ad ops, engineering",
+    "source": "https://tech.co/news/companies-replace-workers-with-ai"
+  },
+  {
+    "company": "HP",
+    "jobs": 5000,
+    "date": "2025-11-01",
+    "description": "Cut 4,000-6,000 employees as part of an AI productivity initiative across global operations.",
+    "roles": "Operations, support, admin",
+    "source": "https://intellizence.com/insights/layoff-downsizing/major-companies-that-announced-mass-layoffs/"
+  },
+  {
+    "company": "Paycom",
+    "jobs": 500,
+    "date": "2025-10-01",
+    "description": "Cut staff after automating payroll and back-office functions with AI. One of the clearest cases of AI directly replacing human jobs.",
+    "roles": "Payroll processing, back-office",
+    "source": "https://programs.com/resources/ai-layoffs/"
+  },
+  {
+    "company": "CrowdStrike",
+    "jobs": 250,
+    "date": "2025-05-01",
+    "description": "Cut 5% of staff citing 'AI efficiency' as a key driver alongside restructuring after the July 2024 global outage.",
+    "roles": "Various",
+    "source": "https://programs.com/resources/ai-layoffs/"
+  },
+  {
+    "company": "Duolingo",
+    "jobs": 100,
+    "date": "2024-01-08",
+    "description": "Offboarded 10% of contractors as the company declared itself 'AI-first.' Content translation work shifted to AI models. One of the first major 'replaced by AI' stories.",
+    "roles": "Contract translators, content creators",
+    "source": "https://www.techrepublic.com/article/news-duolingo-replaces-contractors-ai/"
+  },
+  {
+    "company": "Dell",
+    "jobs": 12500,
+    "date": "2024-08-01",
+    "description": "Cut 10% of workforce as it reorganized around demand for AI servers and infrastructure. Traditional PC and services roles eliminated.",
+    "roles": "Sales, support, traditional infrastructure",
+    "source": "https://news.crunchbase.com/startups/tech-layoffs/"
+  },
+  {
+    "company": "Dropbox",
+    "jobs": 528,
+    "date": "2024-10-01",
+    "description": "Cut staff as it refocused the entire business around AI-powered search and document intelligence.",
+    "roles": "Engineering, product, various",
+    "source": "https://programs.com/resources/ai-layoffs/"
+  },
+  {
+    "company": "PayPal",
+    "jobs": 2500,
+    "date": "2024-01-30",
+    "description": "Reduced 9% of staff as automation expanded across fraud detection, risk management, and customer support pipelines.",
+    "roles": "Fraud analysts, risk management, support",
+    "source": "https://programs.com/resources/ai-layoffs/"
+  },
+  {
+    "company": "Klarna",
+    "jobs": 700,
+    "date": "2024-06-01",
+    "description": "Replaced 700 customer service agents with an AI chatbot. Then quietly reversed course by 2026 as customer satisfaction tanked on complex issues. Now uses a hybrid model.",
+    "roles": "Customer service agents",
+    "source": "https://www.digitalapplied.com/blog/klarna-reverses-ai-layoffs-replacing-700-workers-backfired"
+  },
+  {
+    "company": "Citigroup",
+    "jobs": 20000,
+    "date": "2026-01-15",
+    "description": "CFO expects headcount down by 20,000 as part of a broad AI-driven overhaul of banking operations.",
+    "roles": "Operations, middle office, compliance",
+    "source": "https://tech.co/news/companies-replace-workers-with-ai"
+  }
+]

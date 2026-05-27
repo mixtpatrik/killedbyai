@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MC3PM7NKRX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MC3PM7NKRX');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Graveyard — Jobs Killed by AI | 93,928 Layoffs Tracked</title>
+    <meta name="description" content="93,928 jobs cut across 19 companies because of AI. From Cloudflare's 1,100 'measurers' to Block's 40% workforce slash. The human cost of the AI revolution.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mixtpatrik.github.io/killedbyai/layoffs.html">
+    <meta property="og:title" content="Employee Graveyard — Jobs Killed by AI">
+    <meta property="og:description" content="93,928 jobs cut across 19 companies because of AI.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #09090b; --bg-card: #111113; --border: #27272a;
+            --text: #fafafa; --text-muted: #a1a1aa; --text-dim: #52525b;
+            --orange: #f97316; --orange-dim: rgba(249, 115, 22, 0.15);
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg); color: var(--text);
+            line-height: 1.6; min-height: 100vh;
+        }
+        .header {
+            text-align: center;
+            padding: 2.5rem 1.5rem 1rem;
+            max-width: 700px; margin: 0 auto;
+        }
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900; letter-spacing: -0.03em;
+            margin-bottom: 0.5rem; line-height: 1.1;
+        }
+        .header h1 span { color: var(--orange); }
+        .header p { color: var(--text-muted); font-size: 0.95rem; max-width: 550px; margin: 0 auto; }
+        .nav-link {
+            display: inline-block; margin-top: 0.75rem;
+            color: var(--text-dim); font-size: 0.8125rem;
+            text-decoration: underline; text-underline-offset: 2px;
+        }
+        .nav-link:hover { color: var(--orange); }
+        .stats-row {
+            max-width: 900px; margin: 1rem auto 0;
+            padding: 0 1.5rem; display: flex;
+            gap: 0.5rem; justify-content: center; flex-wrap: wrap;
+        }
+        .stat {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 0.375rem; padding: 0.5rem 1rem; text-align: center;
+            flex: 1; min-width: 140px; max-width: 220px;
+        }
+        .stat-val {
+            font-size: 1.5rem; font-weight: 800; color: var(--orange);
+            font-family: 'SF Mono', 'Cascadia Code', monospace;
+        }
+        .stat-lbl { font-size: 0.5625rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+        .stat-sub { font-size: 0.625rem; color: var(--text-muted); margin-top: 0.125rem; }
+        .last-updated { display: block; text-align: center; color: var(--text-dim); font-size: 0.6875rem; margin-top: 0.5rem; }
+        .list {
+            max-width: 900px; margin: 1.5rem auto 3rem;
+            padding: 0 1.5rem; display: flex;
+            flex-direction: column; gap: 0.5rem;
+        }
+        .layoff-row {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 0.5rem; overflow: hidden;
+            transition: border-color 0.2s;
+        }
+        .layoff-row:hover { border-color: var(--orange); }
+        .layoff-bar-wrap {
+            height: 3px; background: transparent;
+        }
+        .layoff-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--orange), #c2410c);
+            border-radius: 0 0 2px 0;
+        }
+        .layoff-info { padding: 0.875rem 1.25rem; }
+        .layoff-header {
+            display: flex; justify-content: space-between;
+            align-items: baseline; gap: 0.5rem; margin-bottom: 0.375rem;
+        }
+        .layoff-company {
+            font-size: 1rem; font-weight: 700; color: var(--text);
+        }
+        .layoff-count {
+            font-size: 1.125rem; font-weight: 800; color: var(--orange);
+            font-family: 'SF Mono', 'Cascadia Code', monospace;
+        }
+        .layoff-desc {
+            font-size: 0.8125rem; color: var(--text-muted);
+            line-height: 1.6; margin-bottom: 0.5rem;
+        }
+        .layoff-meta {
+            display: flex; gap: 0.75rem; flex-wrap: wrap;
+            align-items: center; font-size: 0.6875rem;
+        }
+        .layoff-roles { color: var(--text-dim); }
+        .layoff-date {
+            color: var(--text-dim);
+            font-family: 'SF Mono', 'Cascadia Code', monospace;
+        }
+        .layoff-source {
+            color: var(--text-muted); text-decoration: none;
+            background: #1c1c1f; padding: 0.125rem 0.5rem;
+            border-radius: 0.25rem; font-size: 0.625rem;
+        }
+        .layoff-source:hover { color: var(--orange); background: var(--orange-dim); }
+        .site-footer {
+            text-align: center; padding: 2rem 1.5rem 3rem;
+            border-top: 1px solid var(--border);
+            max-width: 700px; margin: 0 auto;
+        }
+        .site-footer p { color: var(--text-dim); font-size: 0.8125rem; line-height: 1.8; }
+        .site-footer a { color: var(--text-muted); text-decoration: underline; text-underline-offset: 2px; }
+        .site-footer a:hover { color: var(--orange); }
+        @media (max-width: 600px) {
+            .header { padding: 2rem 1rem 0.75rem; }
+            .list { padding: 0 1rem; }
+            .stats-row { padding: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Employee <span>Graveyard</span></h1>
+        <p>The human cost of the AI revolution. Every job cut that companies blamed on artificial intelligence.</p>
+        <a class="nav-link" href="./">← Back to Killed by AI (Product Graveyard)</a>
+    </header>
+
+    <div class="stats-row">
+        <div class="stat">
+            <div class="stat-val">93,928</div>
+            <div class="stat-lbl">Jobs killed by AI</div>
+        </div>
+        <div class="stat">
+            <div class="stat-val">19</div>
+            <div class="stat-lbl">Companies</div>
+        </div>
+        <div class="stat">
+            <div class="stat-val">127K+</div>
+            <div class="stat-lbl">Tech layoffs in 2026</div>
+            <div class="stat-sub">1,003 people per day</div>
+        </div>
+    </div>
+    <span class="last-updated">Last updated: May 27, 2026 | 2024: 16,328 | 2025: 11,350 | 2026: 66,250</span>
+
+    <main class="list">
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 100.0%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Oracle</h2>
+      <span class="layoff-count">30,000</span>
+    </div>
+    <p class="layoff-desc">Massive layoffs estimated at 30,000 staff, attributed to AI adoption and cloud infrastructure automation.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Engineering, support, operations</span>
+      <span class="layoff-date">2026-04</span>
+      <a class="layoff-source" href="https://news.crunchbase.com/startups/tech-layoffs/" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 66.66666666666666%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Citigroup</h2>
+      <span class="layoff-count">20,000</span>
+    </div>
+    <p class="layoff-desc">CFO expects headcount down by 20,000 as part of a broad AI-driven overhaul of banking operations.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Operations, middle office, compliance</span>
+      <span class="layoff-date">2026-01</span>
+      <a class="layoff-source" href="https://tech.co/news/companies-replace-workers-with-ai" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 41.66666666666667%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Dell</h2>
+      <span class="layoff-count">12,500</span>
+    </div>
+    <p class="layoff-desc">Cut 10% of workforce as it reorganized around demand for AI servers and infrastructure. Traditional PC and services roles eliminated.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Sales, support, traditional infrastructure</span>
+      <span class="layoff-date">2024-08</span>
+      <a class="layoff-source" href="https://news.crunchbase.com/startups/tech-layoffs/" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 26.666666666666668%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Meta</h2>
+      <span class="layoff-count">8,000</span>
+    </div>
+    <p class="layoff-desc">Cut 10% of workforce. CEO Zuckerberg warned &#x27;in the AI age, success isn&#x27;t a given&#x27; in a memo to employees.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Middle management, underperformers, various</span>
+      <span class="layoff-date">2026-05</span>
+      <a class="layoff-source" href="https://www.cnbc.com/2026/04/24/20k-job-cuts-at-meta-microsoft-raise-concern-of-ai-labor-crisis-.html" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 16.666666666666664%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">HP</h2>
+      <span class="layoff-count">5,000</span>
+    </div>
+    <p class="layoff-desc">Cut 4,000-6,000 employees as part of an AI productivity initiative across global operations.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Operations, support, admin</span>
+      <span class="layoff-date">2025-11</span>
+      <a class="layoff-source" href="https://intellizence.com/insights/layoff-downsizing/major-companies-that-announced-mass-layoffs/" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 13.333333333333334%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Block (Square)</h2>
+      <span class="layoff-count">4,000</span>
+    </div>
+    <p class="layoff-desc">Jack Dorsey cut 40% of global workforce, explicitly tying job losses to AI advancements replacing human workflows.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Engineering, operations, support</span>
+      <span class="layoff-date">2026-02</span>
+      <a class="layoff-source" href="https://tech.co/news/companies-replace-workers-with-ai" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 13.333333333333334%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Salesforce</h2>
+      <span class="layoff-count">4,000</span>
+    </div>
+    <p class="layoff-desc">Cut customer support roles. CEO Marc Benioff said bluntly: &#x27;I need less heads.&#x27; Replaced with AI-powered Agentforce platform.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Customer support, success managers</span>
+      <span class="layoff-date">2025-09</span>
+      <a class="layoff-source" href="https://tech.co/news/companies-replace-workers-with-ai" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 8.333333333333332%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">PayPal</h2>
+      <span class="layoff-count">2,500</span>
+    </div>
+    <p class="layoff-desc">Reduced 9% of staff as automation expanded across fraud detection, risk management, and customer support pipelines.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Fraud analysts, risk management, support</span>
+      <span class="layoff-date">2024-01</span>
+      <a class="layoff-source" href="https://programs.com/resources/ai-layoffs/" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 5.333333333333334%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Atlassian</h2>
+      <span class="layoff-count">1,600</span>
+    </div>
+    <p class="layoff-desc">Cut 10% of workforce as the company doubled down on AI-powered project management and coding assistants.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Various</span>
+      <span class="layoff-date">2026-03</span>
+      <a class="layoff-source" href="https://intellizence.com/insights/layoff-downsizing/major-companies-that-announced-mass-layoffs/" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 3.6666666666666665%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Cloudflare</h2>
+      <span class="layoff-count">1,100</span>
+    </div>
+    <p class="layoff-desc">First mass layoff in 16-year history, cutting 20% of staff while posting record $639.8M revenue. CEO said AI made &#x27;measurers&#x27; — middle management, finance, legal, auditing — obsolete. Internal AI usage surged 600% in 3 months.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Middle management, finance, legal, auditing</span>
+      <span class="layoff-date">2026-05</span>
+      <a class="layoff-source" href="https://techcrunch.com/2026/05/08/cloudflare-says-ai-made-1100-jobs-obsolete-even-as-revenue-hit-a-record-high/" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 3.3333333333333335%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Snap</h2>
+      <span class="layoff-count">1,000</span>
+    </div>
+    <p class="layoff-desc">Slashed 16% of workforce. CEO Evan Spiegel cited AI-driven efficiencies across content moderation and ad operations.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Content moderation, ad ops, engineering</span>
+      <span class="layoff-date">2025-12</span>
+      <a class="layoff-source" href="https://tech.co/news/companies-replace-workers-with-ai" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 3.166666666666667%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Coinbase</h2>
+      <span class="layoff-count">950</span>
+    </div>
+    <p class="layoff-desc">Cut 14% of workforce. CEO Brian Armstrong said the company needs to become &#x27;AI-native&#x27; to compete.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Various</span>
+      <span class="layoff-date">2026-05</span>
+      <a class="layoff-source" href="https://news.crunchbase.com/startups/tech-layoffs/" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 2.3333333333333335%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Klarna</h2>
+      <span class="layoff-count">700</span>
+    </div>
+    <p class="layoff-desc">Replaced 700 customer service agents with an AI chatbot. Then quietly reversed course by 2026 as customer satisfaction tanked on complex issues. Now uses a hybrid model.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Customer service agents</span>
+      <span class="layoff-date">2024-06</span>
+      <a class="layoff-source" href="https://www.digitalapplied.com/blog/klarna-reverses-ai-layoffs-replacing-700-workers-backfired" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 2.0%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">General Motors</h2>
+      <span class="layoff-count">600</span>
+    </div>
+    <p class="layoff-desc">Cut 10% of IT department. Employees were told &#x27;lack of AI skills&#x27; was the reason — learn AI or lose your job.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">IT, software engineering</span>
+      <span class="layoff-date">2026-05</span>
+      <a class="layoff-source" href="https://tech.co/news/companies-replace-workers-with-ai" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 2.0%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Chegg</h2>
+      <span class="layoff-count">600</span>
+    </div>
+    <p class="layoff-desc">Cut 45% of workforce as students abandoned homework-help platforms for ChatGPT and Claude. Stock dropped 99% from peak.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Content creators, editors, support</span>
+      <span class="layoff-date">2025-10</span>
+      <a class="layoff-source" href="https://tech.co/news/companies-replace-workers-with-ai" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 1.76%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Dropbox</h2>
+      <span class="layoff-count">528</span>
+    </div>
+    <p class="layoff-desc">Cut staff as it refocused the entire business around AI-powered search and document intelligence.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Engineering, product, various</span>
+      <span class="layoff-date">2024-10</span>
+      <a class="layoff-source" href="https://programs.com/resources/ai-layoffs/" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 1.6666666666666667%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Paycom</h2>
+      <span class="layoff-count">500</span>
+    </div>
+    <p class="layoff-desc">Cut staff after automating payroll and back-office functions with AI. One of the clearest cases of AI directly replacing human jobs.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Payroll processing, back-office</span>
+      <span class="layoff-date">2025-10</span>
+      <a class="layoff-source" href="https://programs.com/resources/ai-layoffs/" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 0.8333333333333334%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">CrowdStrike</h2>
+      <span class="layoff-count">250</span>
+    </div>
+    <p class="layoff-desc">Cut 5% of staff citing &#x27;AI efficiency&#x27; as a key driver alongside restructuring after the July 2024 global outage.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Various</span>
+      <span class="layoff-date">2025-05</span>
+      <a class="layoff-source" href="https://programs.com/resources/ai-layoffs/" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+<article class="layoff-row">
+  <div class="layoff-bar-wrap">
+    <div class="layoff-bar" style="width: 0.33333333333333337%"></div>
+  </div>
+  <div class="layoff-info">
+    <div class="layoff-header">
+      <h2 class="layoff-company">Duolingo</h2>
+      <span class="layoff-count">100</span>
+    </div>
+    <p class="layoff-desc">Offboarded 10% of contractors as the company declared itself &#x27;AI-first.&#x27; Content translation work shifted to AI models. One of the first major &#x27;replaced by AI&#x27; stories.</p>
+    <div class="layoff-meta">
+      <span class="layoff-roles">Contract translators, content creators</span>
+      <span class="layoff-date">2024-01</span>
+      <a class="layoff-source" href="https://www.techrepublic.com/article/news-duolingo-replaces-contractors-ai/" target="_blank" rel="noopener">Source</a>
+    </div>
+  </div>
+</article>
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            Part of <a href="./">Killed by AI</a>.
+            Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.
+            <br>Know of a layoff we missed? <a href="https://github.com/mixtpatrik/killedbyai/issues/new?title=New+layoff:+[Company]&body=Company:%0AJobs+cut:%0ADate:%0AReason:%0ASource:" target="_blank" rel="noopener">Submit it</a>.
+        </p>
+    </footer>
+</body>
+</html>
