@@ -69,7 +69,8 @@ def render_card(item):
     if item.get("collateral"):
         collateral_html = f'<div class="card-collateral"><span class="collateral-icon">⚠️</span> {esc(item["collateral"])}</div>'
     slug = slugify(item["name"])
-    return f'''<article class="card" id="{slug}" data-type="{esc(item["type"])}" data-name="{esc(item["name"].lower())}" data-desc="{esc(item["description"].lower())}" data-killer="{esc(item["killedBy"].lower())}" data-cause="{esc(item["causeOfDeath"].lower())}" data-date-close="{esc(item["dateClose"])}" data-date-open="{esc(item["dateOpen"])}" data-days="{days}">
+    death_type = item.get("deathType", "product-killed")
+    return f'''<article class="card" id="{slug}" data-type="{esc(item["type"])}" data-death-type="{death_type}" data-name="{esc(item["name"].lower())}" data-desc="{esc(item["description"].lower())}" data-killer="{esc(item["killedBy"].lower())}" data-cause="{esc(item["causeOfDeath"].lower())}" data-date-close="{esc(item["dateClose"])}" data-date-open="{esc(item["dateOpen"])}" data-days="{days}">
   <header class="card-header">
     <h2 class="card-name">{esc(item["name"])}</h2>
     <span class="card-lifespan">{y_open} — {y_close}</span>

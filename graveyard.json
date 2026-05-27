@@ -8,7 +8,8 @@
     "causeOfDeath": "Rebranding",
     "killedBy": "Google",
     "link": "https://blog.google/products/gemini/bard-gemini-advanced-app/",
-    "collateral": "Early Bard conversation history and saved responses were not migrated to Gemini."
+    "collateral": "Early Bard conversation history and saved responses were not migrated to Gemini.",
+    "deathType": "product-killed"
   },
   {
     "name": "ChatGPT Plugins",
@@ -19,7 +20,8 @@
     "causeOfDeath": "Product Evolution",
     "killedBy": "OpenAI",
     "link": "https://help.openai.com/en/articles/8988022-winding-down-the-chatgpt-plugins-beta",
-    "collateral": "Developers who built and monetized plugins lost their distribution channel. User workflows built around specific plugins broke."
+    "collateral": "Developers who built and monetized plugins lost their distribution channel. User workflows built around specific plugins broke.",
+    "deathType": "feature-removed"
   },
   {
     "name": "Meta Galactica",
@@ -29,7 +31,8 @@
     "type": "model",
     "causeOfDeath": "Public Backlash",
     "killedBy": "Meta",
-    "link": "https://www.technologyreview.com/2022/11/18/1063487/meta-large-language-model-ai-only-survived-three-days-galactica-science/"
+    "link": "https://www.technologyreview.com/2022/11/18/1063487/meta-large-language-model-ai-only-survived-three-days-galactica-science/",
+    "deathType": "product-killed"
   },
   {
     "name": "Microsoft Cortana",
@@ -39,7 +42,8 @@
     "type": "app",
     "causeOfDeath": "Replaced by AI",
     "killedBy": "Microsoft Copilot",
-    "link": "https://support.microsoft.com/en-us/topic/end-of-support-for-cortana-in-windows-and-teams-d025b39f-ee5b-4836-a954-0ab646ee1efa"
+    "link": "https://support.microsoft.com/en-us/topic/end-of-support-for-cortana-in-windows-and-teams-d025b39f-ee5b-4836-a954-0ab646ee1efa",
+    "deathType": "product-killed"
   },
   {
     "name": "IBM Watson Marketing",
@@ -49,7 +53,8 @@
     "type": "service",
     "causeOfDeath": "Commercial Failure",
     "killedBy": "IBM",
-    "link": "https://www.theverge.com/2022/1/21/22894386/ibm-watson-health-sale-francisco-partners"
+    "link": "https://www.theverge.com/2022/1/21/22894386/ibm-watson-health-sale-francisco-partners",
+    "deathType": "product-killed"
   },
   {
     "name": "OpenAI Codex API",
@@ -60,7 +65,8 @@
     "causeOfDeath": "Model Consolidation",
     "killedBy": "OpenAI",
     "link": "https://platform.openai.com/docs/deprecations",
-    "collateral": "Developers who built code-generation tools on Codex had to rewrite their entire integration layer."
+    "collateral": "Developers who built code-generation tools on Codex had to rewrite their entire integration layer.",
+    "deathType": "model-upgrade"
   },
   {
     "name": "GPT-3 (Original Models)",
@@ -70,7 +76,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "OpenAI",
-    "link": "https://platform.openai.com/docs/deprecations"
+    "link": "https://platform.openai.com/docs/deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Inflection AI / Pi",
@@ -81,7 +88,8 @@
     "causeOfDeath": "Acqui-hire",
     "killedBy": "Microsoft",
     "link": "https://www.theverge.com/2024/3/19/24105263/microsoft-inflection-mustafa-suleyman-hire",
-    "collateral": "Users who spent months building a personal relationship with Pi lost all conversation history and emotional context when the team left."
+    "collateral": "Users who spent months building a personal relationship with Pi lost all conversation history and emotional context when the team left.",
+    "deathType": "acqui-hired"
   },
   {
     "name": "Humane AI Pin",
@@ -92,7 +100,8 @@
     "causeOfDeath": "Market Rejection",
     "killedBy": "Reality",
     "link": "https://www.theverge.com/24126502/humane-ai-pin-review",
-    "collateral": "All $699 devices were remotely bricked when cloud services shut down. No refunds offered."
+    "collateral": "All $699 devices were remotely bricked when cloud services shut down. No refunds offered.",
+    "deathType": "hardware-failed"
   },
   {
     "name": "Rabbit R1",
@@ -103,7 +112,8 @@
     "causeOfDeath": "Market Rejection",
     "killedBy": "Reality",
     "link": "https://www.theverge.com/24133200/rabbit-r1-review-ai-gadget",
-    "collateral": "Buyers stuck with a $199 paperweight. No meaningful resale value."
+    "collateral": "Buyers stuck with a $199 paperweight. No meaningful resale value.",
+    "deathType": "hardware-failed"
   },
   {
     "name": "Google Duplex on the Web",
@@ -113,7 +123,8 @@
     "type": "service",
     "causeOfDeath": "Strategic Pivot",
     "killedBy": "Google",
-    "link": "https://9to5google.com/2024/03/01/google-duplex-web-dead/"
+    "link": "https://9to5google.com/2024/03/01/google-duplex-web-dead/",
+    "deathType": "feature-removed"
   },
   {
     "name": "OpenAI /v1/edits Endpoint",
@@ -123,7 +134,8 @@
     "type": "service",
     "causeOfDeath": "API Consolidation",
     "killedBy": "OpenAI",
-    "link": "https://platform.openai.com/docs/deprecations"
+    "link": "https://platform.openai.com/docs/deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "DALL·E 2",
@@ -134,7 +146,8 @@
     "causeOfDeath": "Model Deprecation",
     "killedBy": "OpenAI",
     "link": "https://platform.openai.com/docs/deprecations",
-    "collateral": "Apps built on the DALL-E 2 API had to migrate to a completely different image generation interface."
+    "collateral": "Apps built on the DALL-E 2 API had to migrate to a completely different image generation interface.",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Character.AI (Independent)",
@@ -145,7 +158,8 @@
     "causeOfDeath": "Acqui-hire",
     "killedBy": "Google",
     "link": "https://www.theverge.com/2024/8/2/24212348/google-character-ai-noam-shazeer",
-    "collateral": "Users lost unique AI personalities they had spent hundreds of hours training and conversing with."
+    "collateral": "Users lost unique AI personalities they had spent hundreds of hours training and conversing with.",
+    "deathType": "acqui-hired"
   },
   {
     "name": "Amazon Alexa (Original AI)",
@@ -155,7 +169,8 @@
     "type": "app",
     "causeOfDeath": "Financial Losses",
     "killedBy": "Amazon",
-    "link": "https://arstechnica.com/gadgets/2023/04/amazon-has-lost-over-25-billion-on-alexa-other-devices-report-says/"
+    "link": "https://arstechnica.com/gadgets/2023/04/amazon-has-lost-over-25-billion-on-alexa-other-devices-report-says/",
+    "deathType": "product-killed"
   },
   {
     "name": "Stability AI (Stable Diffusion Creator)",
@@ -165,7 +180,8 @@
     "type": "startup",
     "causeOfDeath": "Financial Collapse",
     "killedBy": "Itself",
-    "link": "https://www.forbes.com/sites/kenrickcai/2024/03/29/stability-ai-ceo-emad-mostaque-resigns/"
+    "link": "https://www.forbes.com/sites/kenrickcai/2024/03/29/stability-ai-ceo-emad-mostaque-resigns/",
+    "deathType": "startup-failed"
   },
   {
     "name": "Google AI Test Kitchen",
@@ -175,7 +191,8 @@
     "type": "app",
     "causeOfDeath": "Product Evolution",
     "killedBy": "Google",
-    "link": "https://aitestkitchen.withgoogle.com/"
+    "link": "https://aitestkitchen.withgoogle.com/",
+    "deathType": "feature-removed"
   },
   {
     "name": "Bing Chat",
@@ -185,7 +202,8 @@
     "type": "app",
     "causeOfDeath": "Rebranding",
     "killedBy": "Microsoft",
-    "link": "https://blogs.microsoft.com/blog/2023/11/15/introducing-microsoft-copilot-studio-and-new-features-for-copilot-in-microsoft-365/"
+    "link": "https://blogs.microsoft.com/blog/2023/11/15/introducing-microsoft-copilot-studio-and-new-features-for-copilot-in-microsoft-365/",
+    "deathType": "product-killed"
   },
   {
     "name": "ChatPDF / PDF Chat Wrappers",
@@ -195,7 +213,8 @@
     "type": "startup",
     "causeOfDeath": "Feature Absorption",
     "killedBy": "OpenAI / Google / Anthropic",
-    "link": "https://openai.com/index/improvements-to-data-analysis-in-chatgpt/"
+    "link": "https://openai.com/index/improvements-to-data-analysis-in-chatgpt/",
+    "deathType": "startup-failed"
   },
   {
     "name": "Cohere Generate (Original)",
@@ -205,7 +224,8 @@
     "type": "model",
     "causeOfDeath": "API Consolidation",
     "killedBy": "Cohere",
-    "link": "https://docs.cohere.com/docs/migrating-from-cogenerate-to-cochat"
+    "link": "https://docs.cohere.com/docs/migrating-from-cogenerate-to-cochat",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Google Gemini 1.0 Pro",
@@ -215,7 +235,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "Google",
-    "link": "https://ai.google.dev/gemini-api/docs/deprecation"
+    "link": "https://ai.google.dev/gemini-api/docs/deprecation",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Neeva",
@@ -225,7 +246,8 @@
     "type": "startup",
     "causeOfDeath": "Acqui-hire",
     "killedBy": "Snowflake",
-    "link": "https://neeva.com/blog/may-announcement"
+    "link": "https://neeva.com/blog/may-announcement",
+    "deathType": "acqui-hired"
   },
   {
     "name": "Jasper AI (Original Platform)",
@@ -235,7 +257,8 @@
     "type": "startup",
     "causeOfDeath": "Feature Parity",
     "killedBy": "OpenAI / Anthropic",
-    "link": "https://www.jasper.ai/"
+    "link": "https://www.jasper.ai/",
+    "deathType": "startup-failed"
   },
   {
     "name": "OpenAI GPT-3.5 Turbo",
@@ -245,7 +268,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "OpenAI",
-    "link": "https://platform.openai.com/docs/deprecations"
+    "link": "https://platform.openai.com/docs/deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Samsung Gauss",
@@ -255,7 +279,8 @@
     "type": "model",
     "causeOfDeath": "Strategic Pivot",
     "killedBy": "Samsung",
-    "link": "https://news.samsung.com/global/samsung-introduces-samsung-gauss"
+    "link": "https://news.samsung.com/global/samsung-introduces-samsung-gauss",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Writer (GPT Wrapper Era)",
@@ -265,7 +290,8 @@
     "type": "startup",
     "causeOfDeath": "Feature Absorption",
     "killedBy": "Microsoft Copilot",
-    "link": "https://writer.com/"
+    "link": "https://writer.com/",
+    "deathType": "startup-failed"
   },
   {
     "name": "Google Assistant (Classic)",
@@ -275,7 +301,8 @@
     "type": "app",
     "causeOfDeath": "Replaced by AI",
     "killedBy": "Google Gemini",
-    "link": "https://blog.google/products/assistant/google-assistant-update-gemini/"
+    "link": "https://blog.google/products/assistant/google-assistant-update-gemini/",
+    "deathType": "product-killed"
   },
   {
     "name": "Siri (Classic)",
@@ -286,7 +313,8 @@
     "causeOfDeath": "Replaced by AI",
     "killedBy": "Apple Intelligence",
     "link": "https://www.apple.com/apple-intelligence/",
-    "collateral": "A decade of 'Hey Siri' muscle memory and custom Shortcuts workflows being rebuilt from scratch for Apple Intelligence."
+    "collateral": "A decade of 'Hey Siri' muscle memory and custom Shortcuts workflows being rebuilt from scratch for Apple Intelligence.",
+    "deathType": "product-killed"
   },
   {
     "name": "Midjourney Free Tier",
@@ -296,7 +324,8 @@
     "type": "service",
     "causeOfDeath": "Abuse Prevention",
     "killedBy": "Midjourney",
-    "link": "https://www.theverge.com/2023/3/30/23662940/midjourney-free-trial-ai-image-generation-halted"
+    "link": "https://www.theverge.com/2023/3/30/23662940/midjourney-free-trial-ai-image-generation-halted",
+    "deathType": "feature-removed"
   },
   {
     "name": "GitHub Copilot X",
@@ -306,7 +335,8 @@
     "type": "service",
     "causeOfDeath": "Overpromised",
     "killedBy": "GitHub",
-    "link": "https://github.blog/news-insights/product-news/github-copilot-x-the-ai-powered-developer-experience/"
+    "link": "https://github.blog/news-insights/product-news/github-copilot-x-the-ai-powered-developer-experience/",
+    "deathType": "feature-removed"
   },
   {
     "name": "OpenAI Sora",
@@ -317,7 +347,8 @@
     "causeOfDeath": "Unsustainable Costs",
     "killedBy": "OpenAI",
     "link": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
-    "collateral": "Users mid-project lost access to all generated videos. Creators who built audiences on the platform lost their portfolios overnight."
+    "collateral": "Users mid-project lost access to all generated videos. Creators who built audiences on the platform lost their portfolios overnight.",
+    "deathType": "product-killed"
   },
   {
     "name": "Google Doppl",
@@ -327,7 +358,8 @@
     "type": "app",
     "causeOfDeath": "Feature Absorption",
     "killedBy": "Google",
-    "link": "https://jetstream.blog/en/google-doppl-shut-down-end-of-april-2026/"
+    "link": "https://jetstream.blog/en/google-doppl-shut-down-end-of-april-2026/",
+    "deathType": "product-killed"
   },
   {
     "name": "Microsoft Tay",
@@ -337,7 +369,8 @@
     "type": "app",
     "causeOfDeath": "Public Backlash",
     "killedBy": "Microsoft",
-    "link": "https://en.wikipedia.org/wiki/Tay_(chatbot)"
+    "link": "https://en.wikipedia.org/wiki/Tay_(chatbot)",
+    "deathType": "product-killed"
   },
   {
     "name": "Meta BlenderBot 3",
@@ -347,7 +380,8 @@
     "type": "model",
     "causeOfDeath": "Public Embarrassment",
     "killedBy": "Meta",
-    "link": "https://about.fb.com/news/2022/08/blenderbot-ai-chatbot/"
+    "link": "https://about.fb.com/news/2022/08/blenderbot-ai-chatbot/",
+    "deathType": "product-killed"
   },
   {
     "name": "Google PaLM API",
@@ -357,7 +391,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "Google Gemini",
-    "link": "https://ai.google.dev/palm_docs/deprecation"
+    "link": "https://ai.google.dev/palm_docs/deprecation",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Claude 1",
@@ -367,7 +402,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "Anthropic",
-    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations"
+    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Claude 2",
@@ -377,7 +413,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "Anthropic",
-    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations"
+    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Claude 3 Sonnet",
@@ -387,7 +424,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "Anthropic",
-    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations"
+    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Builder.ai",
@@ -397,7 +435,8 @@
     "type": "startup",
     "causeOfDeath": "Fraud & Bankruptcy",
     "killedBy": "Itself",
-    "link": "https://techcrunch.com/2025/05/20/once-worth-over-1b-microsoft-backed-builder-ai-is-running-out-of-money/"
+    "link": "https://techcrunch.com/2025/05/20/once-worth-over-1b-microsoft-backed-builder-ai-is-running-out-of-money/",
+    "deathType": "startup-failed"
   },
   {
     "name": "McDonald's AI Drive-Thru (IBM)",
@@ -407,7 +446,8 @@
     "type": "service",
     "causeOfDeath": "Technical Failure",
     "killedBy": "McDonald's",
-    "link": "https://www.cnbc.com/2024/06/17/mcdonalds-to-end-ibm-ai-drive-thru-test.html"
+    "link": "https://www.cnbc.com/2024/06/17/mcdonalds-to-end-ibm-ai-drive-thru-test.html",
+    "deathType": "product-killed"
   },
   {
     "name": "Yara AI",
@@ -417,7 +457,8 @@
     "type": "startup",
     "causeOfDeath": "Safety Concerns",
     "killedBy": "Its Own Founder",
-    "link": "https://fortune.com/2025/11/28/yara-ai-therapy-app-founder-shut-down-startup-decided-too-dangerous-serious-mental-health-issues/"
+    "link": "https://fortune.com/2025/11/28/yara-ai-therapy-app-founder-shut-down-startup-decided-too-dangerous-serious-mental-health-issues/",
+    "deathType": "startup-failed"
   },
   {
     "name": "Tune AI",
@@ -427,7 +468,8 @@
     "type": "startup",
     "causeOfDeath": "Feature Absorption",
     "killedBy": "AWS / Google / Azure",
-    "link": "https://techstartups.com/2025/12/09/top-ai-startups-that-shut-down-in-2025-what-founders-can-learn/"
+    "link": "https://techstartups.com/2025/12/09/top-ai-startups-that-shut-down-in-2025-what-founders-can-learn/",
+    "deathType": "startup-failed"
   },
   {
     "name": "NYC MyCity Chatbot",
@@ -437,7 +479,8 @@
     "type": "service",
     "causeOfDeath": "Dangerous Misinformation",
     "killedBy": "NYC Government",
-    "link": "https://www.cio.com/article/190888/5-famous-analytics-and-ai-disasters.html"
+    "link": "https://www.cio.com/article/190888/5-famous-analytics-and-ai-disasters.html",
+    "deathType": "product-killed"
   },
   {
     "name": "Adobe Animate",
@@ -447,7 +490,8 @@
     "type": "app",
     "causeOfDeath": "AI Pivot (Reversed)",
     "killedBy": "Adobe",
-    "link": "https://techcrunch.com/2026/02/02/adobe-animate-is-shutting-down-as-company-focuses-on-ai/"
+    "link": "https://techcrunch.com/2026/02/02/adobe-animate-is-shutting-down-as-company-focuses-on-ai/",
+    "deathType": "product-killed"
   },
   {
     "name": "Claude 3.5 Sonnet",
@@ -457,7 +501,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "Anthropic",
-    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations"
+    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "GPT-4 (Original)",
@@ -467,7 +512,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "OpenAI",
-    "link": "https://platform.openai.com/docs/deprecations"
+    "link": "https://platform.openai.com/docs/deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "OpenAI GPT Store",
@@ -478,7 +524,8 @@
     "causeOfDeath": "Low Adoption",
     "killedBy": "OpenAI",
     "link": "https://openai.com/index/introducing-the-gpt-store/",
-    "collateral": "Creators who built and marketed custom GPTs saw their work become undiscoverable. Revenue sharing never materialized."
+    "collateral": "Creators who built and marketed custom GPTs saw their work become undiscoverable. Revenue sharing never materialized.",
+    "deathType": "feature-removed"
   },
   {
     "name": "Replika (Romantic Mode)",
@@ -489,7 +536,8 @@
     "causeOfDeath": "Regulatory Action",
     "killedBy": "Italian Data Protection Authority",
     "link": "https://www.theverge.com/2023/2/15/23601875/replika-ai-erp-sexual-content-update-blocked",
-    "collateral": "Millions of users lost intimate AI companions overnight. Some reported genuine grief and emotional distress."
+    "collateral": "Millions of users lost intimate AI companions overnight. Some reported genuine grief and emotional distress.",
+    "deathType": "feature-removed"
   },
   {
     "name": "Google Gemini 1.0 Ultra",
@@ -499,7 +547,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "Google",
-    "link": "https://ai.google.dev/gemini-api/docs/deprecation"
+    "link": "https://ai.google.dev/gemini-api/docs/deprecation",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Copilot GPT Builder",
@@ -509,7 +558,8 @@
     "type": "service",
     "causeOfDeath": "Product Pivot",
     "killedBy": "Microsoft",
-    "link": "https://support.microsoft.com/en-us/topic/copilot-gpt-builder-is-no-longer-available-e917c498-1dea-43d2-bf12-7bc091845a5f"
+    "link": "https://support.microsoft.com/en-us/topic/copilot-gpt-builder-is-no-longer-available-e917c498-1dea-43d2-bf12-7bc091845a5f",
+    "deathType": "feature-removed"
   },
   {
     "name": "GPT-4o (ChatGPT)",
@@ -519,7 +569,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "OpenAI",
-    "link": "https://openai.com/index/retiring-gpt-4o-and-older-models/"
+    "link": "https://openai.com/index/retiring-gpt-4o-and-older-models/",
+    "deathType": "model-upgrade"
   },
   {
     "name": "GPT-4.5 Preview",
@@ -529,7 +580,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "OpenAI",
-    "link": "https://community.openai.com/t/gpt-4-5-preview-model-will-be-removed-from-the-api-on-2025-07-14/1230050"
+    "link": "https://community.openai.com/t/gpt-4-5-preview-model-will-be-removed-from-the-api-on-2025-07-14/1230050",
+    "deathType": "model-upgrade"
   },
   {
     "name": "OpenAI o1-preview",
@@ -539,7 +591,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "OpenAI",
-    "link": "https://platform.openai.com/docs/deprecations"
+    "link": "https://platform.openai.com/docs/deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "OpenAI o1-mini",
@@ -549,7 +602,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "OpenAI",
-    "link": "https://platform.openai.com/docs/deprecations"
+    "link": "https://platform.openai.com/docs/deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "GPT-4 Vision Preview",
@@ -559,7 +613,8 @@
     "type": "model",
     "causeOfDeath": "Model Consolidation",
     "killedBy": "OpenAI",
-    "link": "https://platform.openai.com/docs/deprecations"
+    "link": "https://platform.openai.com/docs/deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Claude 3 Opus",
@@ -569,7 +624,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "Anthropic",
-    "link": "https://www.anthropic.com/research/deprecation-updates-opus-3"
+    "link": "https://www.anthropic.com/research/deprecation-updates-opus-3",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Olive AI",
@@ -579,7 +635,8 @@
     "type": "startup",
     "causeOfDeath": "Financial Collapse",
     "killedBy": "Itself",
-    "link": "https://www.healthcaredive.com/news/olive-ai-shuts-down/698455/"
+    "link": "https://www.healthcaredive.com/news/olive-ai-shuts-down/698455/",
+    "deathType": "startup-failed"
   },
   {
     "name": "Moxie Robot",
@@ -590,7 +647,8 @@
     "causeOfDeath": "Funding Collapse",
     "killedBy": "Embodied Inc.",
     "link": "https://www.axios.com/2024/12/10/moxie-kids-robot-shuts-down",
-    "collateral": "Children with autism who had formed bonds with their $800 companion lost it overnight. Families recorded tearful goodbyes."
+    "collateral": "Children with autism who had formed bonds with their $800 companion lost it overnight. Families recorded tearful goodbyes.",
+    "deathType": "hardware-failed"
   },
   {
     "name": "Google Gemini Image Generation (People)",
@@ -600,7 +658,8 @@
     "type": "service",
     "causeOfDeath": "Public Backlash",
     "killedBy": "Google",
-    "link": "https://blog.google/products/gemini/gemini-image-generation-issue/"
+    "link": "https://blog.google/products/gemini/gemini-image-generation-issue/",
+    "deathType": "feature-removed"
   },
   {
     "name": "Adept AI (Independent)",
@@ -610,7 +669,8 @@
     "type": "startup",
     "causeOfDeath": "Acqui-hire",
     "killedBy": "Amazon",
-    "link": "https://techcrunch.com/2024/06/28/amazon-hires-founders-away-from-ai-startup-adept/"
+    "link": "https://techcrunch.com/2024/06/28/amazon-hires-founders-away-from-ai-startup-adept/",
+    "deathType": "acqui-hired"
   },
   {
     "name": "Limitless Pendant (Rewind AI)",
@@ -620,7 +680,8 @@
     "type": "hardware",
     "causeOfDeath": "Acquisition",
     "killedBy": "Meta",
-    "link": "https://techcrunch.com/2025/12/05/meta-acquires-ai-device-startup-limitless/"
+    "link": "https://techcrunch.com/2025/12/05/meta-acquires-ai-device-startup-limitless/",
+    "deathType": "hardware-failed"
   },
   {
     "name": "Google Jamboard",
@@ -631,7 +692,8 @@
     "causeOfDeath": "Market Irrelevance",
     "killedBy": "Google",
     "link": "https://support.google.com/jamboard/answer/14084927",
-    "collateral": "All collaborative whiteboard data was permanently deleted after the shutdown date. No export path for some content."
+    "collateral": "All collaborative whiteboard data was permanently deleted after the shutdown date. No export path for some content.",
+    "deathType": "hardware-failed"
   },
   {
     "name": "Woebot",
@@ -641,7 +703,8 @@
     "type": "app",
     "causeOfDeath": "Regulatory Barriers",
     "killedBy": "FDA",
-    "link": "https://www.statnews.com/2025/07/02/woebot-therapy-chatbot-shuts-down-founder-says-ai-moving-faster-than-regulators/"
+    "link": "https://www.statnews.com/2025/07/02/woebot-therapy-chatbot-shuts-down-founder-says-ai-moving-faster-than-regulators/",
+    "deathType": "startup-failed"
   },
   {
     "name": "Google Interview Warmup",
@@ -651,7 +714,8 @@
     "type": "service",
     "causeOfDeath": "Silent Shutdown",
     "killedBy": "Google",
-    "link": "https://www.finalroundai.com/blog/google-interview-warmup-discontinued-alternatives"
+    "link": "https://www.finalroundai.com/blog/google-interview-warmup-discontinued-alternatives",
+    "deathType": "feature-removed"
   },
   {
     "name": "Qwen Code Free Tier",
@@ -661,7 +725,8 @@
     "type": "service",
     "causeOfDeath": "Monetization Pivot",
     "killedBy": "Alibaba",
-    "link": "https://decrypt.co/364501/alibaba-shuts-down-free-tier-qwen-code"
+    "link": "https://decrypt.co/364501/alibaba-shuts-down-free-tier-qwen-code",
+    "deathType": "feature-removed"
   },
   {
     "name": "OpenAI Assistants API (Beta)",
@@ -672,7 +737,8 @@
     "causeOfDeath": "API Consolidation",
     "killedBy": "OpenAI",
     "link": "https://community.openai.com/t/assistants-api-beta-deprecation-august-26-2026-sunset/1354666",
-    "collateral": "Developers who built AI agents with persistent memory, file handling, and tool use face a full rewrite to the Responses API."
+    "collateral": "Developers who built AI agents with persistent memory, file handling, and tool use face a full rewrite to the Responses API.",
+    "deathType": "feature-removed"
   },
   {
     "name": "OpenAI for Science",
@@ -682,7 +748,8 @@
     "type": "service",
     "causeOfDeath": "Strategic Pivot",
     "killedBy": "OpenAI",
-    "link": "https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/"
+    "link": "https://techcrunch.com/2026/04/17/kevin-weil-and-bill-peebles-exit-openai-as-company-continues-to-shed-side-quests/",
+    "deathType": "feature-removed"
   },
   {
     "name": "Google Gemini 2.0 Flash",
@@ -692,7 +759,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "Google",
-    "link": "https://ai.google.dev/gemini-api/docs/deprecations"
+    "link": "https://ai.google.dev/gemini-api/docs/deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Google Gemini 3 Pro Preview",
@@ -702,7 +770,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "Google",
-    "link": "https://discuss.ai.google.dev/t/migrate-from-gemini-3-pro-preview-to-gemini-3-1-pro-preview-before-march-9-2026/127062"
+    "link": "https://discuss.ai.google.dev/t/migrate-from-gemini-3-pro-preview-to-gemini-3-1-pro-preview-before-march-9-2026/127062",
+    "deathType": "model-upgrade"
   },
   {
     "name": "GPT-4o (API snapshots)",
@@ -712,7 +781,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "OpenAI",
-    "link": "https://openai.com/index/retiring-gpt-4o-and-older-models/"
+    "link": "https://openai.com/index/retiring-gpt-4o-and-older-models/",
+    "deathType": "model-upgrade"
   },
   {
     "name": "gpt-4o-realtime-preview",
@@ -722,7 +792,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "OpenAI",
-    "link": "https://developers.openai.com/api/docs/deprecations"
+    "link": "https://developers.openai.com/api/docs/deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "DALL·E 3 API Snapshots",
@@ -732,7 +803,8 @@
     "type": "model",
     "causeOfDeath": "Model Consolidation",
     "killedBy": "OpenAI",
-    "link": "https://developers.openai.com/api/docs/deprecations"
+    "link": "https://developers.openai.com/api/docs/deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Google Assistant (on Mobile)",
@@ -743,7 +815,8 @@
     "causeOfDeath": "Replaced by AI",
     "killedBy": "Google Gemini",
     "link": "https://www.timesofai.com/news/google-quietly-shares-retirement-timeline-for-its-assistant/",
-    "collateral": "Years of voice command customizations, routines, and smart home configurations needed to be rebuilt in Gemini."
+    "collateral": "Years of voice command customizations, routines, and smart home configurations needed to be rebuilt in Gemini.",
+    "deathType": "product-killed"
   },
   {
     "name": "MiniMax API Free Tier",
@@ -753,7 +826,8 @@
     "type": "service",
     "causeOfDeath": "Monetization Pivot",
     "killedBy": "MiniMax",
-    "link": "https://tech.yahoo.com/ai/gemini/articles/free-qwen-dead-alibaba-shuts-190159063.html"
+    "link": "https://tech.yahoo.com/ai/gemini/articles/free-qwen-dead-alibaba-shuts-190159063.html",
+    "deathType": "feature-removed"
   },
   {
     "name": "Google Dark Web Report",
@@ -763,7 +837,8 @@
     "type": "service",
     "causeOfDeath": "Low Utility",
     "killedBy": "Google",
-    "link": "https://thehackernews.com/2025/12/google-to-shut-down-dark-web-monitoring.html"
+    "link": "https://thehackernews.com/2025/12/google-to-shut-down-dark-web-monitoring.html",
+    "deathType": "feature-removed"
   },
   {
     "name": "OpenAI Realtime API (Beta)",
@@ -773,7 +848,8 @@
     "type": "service",
     "causeOfDeath": "API Consolidation",
     "killedBy": "OpenAI",
-    "link": "https://developers.openai.com/api/docs/deprecations"
+    "link": "https://developers.openai.com/api/docs/deprecations",
+    "deathType": "feature-removed"
   },
   {
     "name": "Robin AI",
@@ -783,7 +859,8 @@
     "type": "startup",
     "causeOfDeath": "Funding Collapse",
     "killedBy": "Market",
-    "link": "https://www.legalcheek.com/2025/10/uk-lawtech-business-seeks-buyer-following-38-million-fundraising-setback/"
+    "link": "https://www.legalcheek.com/2025/10/uk-lawtech-business-seeks-buyer-following-38-million-fundraising-setback/",
+    "deathType": "startup-failed"
   },
   {
     "name": "Gmailify",
@@ -793,7 +870,8 @@
     "type": "service",
     "causeOfDeath": "Product Cleanup",
     "killedBy": "Google",
-    "link": "https://nokiapoweruser.com/google-is-killing-these-android-features-in-2026-full-list/"
+    "link": "https://nokiapoweruser.com/google-is-killing-these-android-features-in-2026-full-list/",
+    "deathType": "feature-removed"
   },
   {
     "name": "GPT-4o (API: 2024-05-13 & 2024-08-06)",
@@ -803,7 +881,8 @@
     "type": "model",
     "causeOfDeath": "Forced Auto-upgrade",
     "killedBy": "OpenAI",
-    "link": "https://developers.openai.com/api/docs/deprecations"
+    "link": "https://developers.openai.com/api/docs/deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "OpenAI AI Text Classifier",
@@ -814,7 +893,8 @@
     "causeOfDeath": "Technical Failure",
     "killedBy": "OpenAI",
     "link": "https://openai.com/index/new-ai-classifier-for-indicating-ai-written-text/",
-    "collateral": "Educators who relied on it to detect AI-written assignments lost their only free detection tool from a major AI lab."
+    "collateral": "Educators who relied on it to detect AI-written assignments lost their only free detection tool from a major AI lab.",
+    "deathType": "feature-removed"
   },
   {
     "name": "Coqui AI",
@@ -824,7 +904,8 @@
     "type": "startup",
     "causeOfDeath": "Funding Collapse",
     "killedBy": "Market",
-    "link": "https://github.com/coqui-ai/TTS"
+    "link": "https://github.com/coqui-ai/TTS",
+    "deathType": "startup-failed"
   },
   {
     "name": "Facebook AI Chatbots (Bob & Alice)",
@@ -834,7 +915,8 @@
     "type": "model",
     "causeOfDeath": "Safety Concerns",
     "killedBy": "Meta",
-    "link": "https://www.bbc.com/news/technology-40790258"
+    "link": "https://www.bbc.com/news/technology-40790258",
+    "deathType": "product-killed"
   },
   {
     "name": "Google Project Mariner",
@@ -845,7 +927,8 @@
     "causeOfDeath": "Feature Absorption",
     "killedBy": "Google",
     "link": "https://www.androidauthority.com/google-project-mariner-shutdown-3664323/",
-    "collateral": "Early testers lost their web automation workflows. Saved routines and trained behaviors didn't transfer to Gemini Agent."
+    "collateral": "Early testers lost their web automation workflows. Saved routines and trained behaviors didn't transfer to Gemini Agent.",
+    "deathType": "feature-removed"
   },
   {
     "name": "Stainless SDK Generator",
@@ -856,7 +939,8 @@
     "causeOfDeath": "Strategic Acquisition",
     "killedBy": "Anthropic",
     "link": "https://techcrunch.com/2026/05/18/anthropic-has-acquired-the-dev-tools-startup-used-by-openai-google-and-cloudflare/",
-    "collateral": "OpenAI, Google, Cloudflare, Meta, and dozens of companies lost automated SDK generation. Existing SDKs frozen in time."
+    "collateral": "OpenAI, Google, Cloudflare, Meta, and dozens of companies lost automated SDK generation. Existing SDKs frozen in time.",
+    "deathType": "acqui-hired"
   },
   {
     "name": "Kintsugi AI",
@@ -867,7 +951,8 @@
     "causeOfDeath": "Regulatory Barriers",
     "killedBy": "FDA",
     "link": "https://endpoints.news/why-clinical-ai-startup-kintsugi-shut-down/",
-    "collateral": "Clinical partners lost a diagnostic screening tool their patients relied on. Research datasets open-sourced as a consolation."
+    "collateral": "Clinical partners lost a diagnostic screening tool their patients relied on. Research datasets open-sourced as a consolation.",
+    "deathType": "startup-failed"
   },
   {
     "name": "xAI Grok Legacy Models",
@@ -877,7 +962,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "xAI",
-    "link": "https://docs.x.ai/developers/migration/may-15-retirement"
+    "link": "https://docs.x.ai/developers/migration/may-15-retirement",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Claude Sonnet 4 & Opus 4",
@@ -887,7 +973,8 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "Anthropic",
-    "link": "https://www.mindstudio.ai/blog/claude-sonnet-4-opus-4-deprecation-migration-guide"
+    "link": "https://www.mindstudio.ai/blog/claude-sonnet-4-opus-4-deprecation-migration-guide",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Cydoc",
@@ -897,7 +984,8 @@
     "type": "startup",
     "causeOfDeath": "Market Conditions",
     "killedBy": "Big Tech",
-    "link": "https://glassboxmedicine.com/2026/02/21/why-i-shut-down-my-bootstrapped-health-ai-startup-after-7-years-a-founders-postmortem/"
+    "link": "https://glassboxmedicine.com/2026/02/21/why-i-shut-down-my-bootstrapped-health-ai-startup-after-7-years-a-founders-postmortem/",
+    "deathType": "startup-failed"
   },
   {
     "name": "GPT-5.2 & GPT-5.3 (API Snapshots)",
@@ -907,6 +995,18 @@
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "OpenAI",
-    "link": "https://developers.openai.com/api/docs/deprecations"
+    "link": "https://developers.openai.com/api/docs/deprecations",
+    "deathType": "model-upgrade"
+  },
+  {
+    "name": "Microsoft Clippy",
+    "dateOpen": "1996-11-19",
+    "dateClose": "2007-01-01",
+    "description": "The iconic paperclip assistant from Microsoft Office that asked 'It looks like you're writing a letter. Would you like help?' Universally loathed by users but deeply loved in hindsight. Killed after a decade of annoyance, Clippy became the original AI assistant meme and the spiritual ancestor of every chatbot that followed.",
+    "type": "app",
+    "causeOfDeath": "User Hatred",
+    "killedBy": "Microsoft",
+    "link": "https://en.wikipedia.org/wiki/Office_Assistant",
+    "deathType": "product-killed"
   }
 ]
