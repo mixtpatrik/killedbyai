@@ -21,8 +21,10 @@
         .header h1{font-size:clamp(2rem,5vw,2.5rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:0.5rem}
         .header h1 span{color:var(--green)}
         .header p{color:var(--text-muted);font-size:0.95rem}
-        .nav-link{display:inline-block;margin-top:0.75rem;color:var(--text-dim);font-size:0.8125rem;text-decoration:underline;text-underline-offset:2px}
-        .nav-link:hover{color:var(--green)}
+        .site-nav{display:flex;justify-content:center;gap:0.125rem;padding:0.5rem 0.75rem;border-bottom:1px solid var(--border)}
+        .site-nav-item{padding:0.375rem 0.75rem;font-size:0.6875rem;font-weight:500;color:var(--text-dim);text-decoration:none;border-radius:0.25rem;transition:all 0.15s}
+        .site-nav-item:hover{color:#a1a1aa;background:#111113}
+        .site-nav-item.active{color:var(--green);background:var(--green-dim)}
         .content{max-width:800px;margin:2rem auto 3rem;padding:0 1.5rem}
         h2{font-size:1.25rem;font-weight:700;color:var(--text);margin:2rem 0 0.75rem;padding-top:1rem;border-top:1px solid var(--border)}
         h2:first-of-type{border-top:none;margin-top:0}
@@ -42,14 +44,21 @@
         .site-footer p{color:var(--text-dim);font-size:0.8125rem;line-height:1.8}
         .site-footer a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
         .site-footer a:hover{color:var(--green)}
-        @media(max-width:600px){.header{padding:1.75rem 0.75rem 0.75rem}.content{padding:0 0.75rem}pre{padding:0.75rem;font-size:0.75rem}}
+        @media(max-width:600px){.site-nav{gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;justify-content:flex-start;padding:0.375rem 0.5rem}.site-nav::-webkit-scrollbar{display:none}.site-nav-item{flex-shrink:0;font-size:0.625rem;padding:0.3rem 0.5rem}.header{padding:1.75rem 0.75rem 0.75rem}.content{padding:0 0.75rem}pre{padding:0.75rem;font-size:0.75rem}}
     </style>
 </head>
 <body>
+    <nav class="site-nav">
+        <a href="./" class="site-nav-item">💀 Graveyard</a>
+        <a href="layoffs.html" class="site-nav-item">💼 Layoffs</a>
+        <a href="funding.html" class="site-nav-item">🔥 Funding</a>
+        <a href="coming-soon.html" class="site-nav-item">⏳ Soon</a>
+        <a href="api.html" class="site-nav-item active">{ } API</a>
+    </nav>
+
     <header class="header">
         <h1><span>{</span> API <span>}</span></h1>
         <p>Free, open JSON API for discontinued AI products, AI-driven layoffs, and upcoming shutdowns. No auth, no rate limits, no API key.</p>
-        <a class="nav-link" href="./">← Back to Killed by AI</a>
     </header>
 
     <div class="content">

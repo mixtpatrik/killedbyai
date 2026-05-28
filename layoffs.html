@@ -46,12 +46,10 @@
         }
         .header h1 span { color: var(--orange); }
         .header p { color: var(--text-muted); font-size: 0.95rem; max-width: 550px; margin: 0 auto; }
-        .nav-link {
-            display: inline-block; margin-top: 0.75rem;
-            color: var(--text-dim); font-size: 0.8125rem;
-            text-decoration: underline; text-underline-offset: 2px;
-        }
-        .nav-link:hover { color: var(--orange); }
+        .site-nav{display:flex;justify-content:center;gap:0.125rem;padding:0.5rem 0.75rem;border-bottom:1px solid var(--border)}
+        .site-nav-item{padding:0.375rem 0.75rem;font-size:0.6875rem;font-weight:500;color:var(--text-dim);text-decoration:none;border-radius:0.25rem;transition:all 0.15s}
+        .site-nav-item:hover{color:#a1a1aa;background:#111113}
+        .site-nav-item.active{color:var(--orange);background:var(--orange-dim)}
         .stats-row {
             max-width: 900px; margin: 1rem auto 0;
             padding: 0 1.5rem; display: flex;
@@ -128,6 +126,9 @@
         .site-footer a { color: var(--text-muted); text-decoration: underline; text-underline-offset: 2px; }
         .site-footer a:hover { color: var(--orange); }
         @media (max-width: 600px) {
+            .site-nav{gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;justify-content:flex-start;padding:0.375rem 0.5rem}
+            .site-nav::-webkit-scrollbar{display:none}
+            .site-nav-item{flex-shrink:0;font-size:0.625rem;padding:0.3rem 0.5rem}
             .header { padding: 1.75rem 0.75rem 0.75rem; }
             .header h1 { font-size: 1.75rem; }
             .header p { font-size: 0.8125rem; }
@@ -145,10 +146,17 @@
     </style>
 </head>
 <body>
+    <nav class="site-nav">
+        <a href="./" class="site-nav-item">💀 Graveyard</a>
+        <a href="layoffs.html" class="site-nav-item active">💼 Layoffs</a>
+        <a href="funding.html" class="site-nav-item">🔥 Funding</a>
+        <a href="coming-soon.html" class="site-nav-item">⏳ Soon</a>
+        <a href="api.html" class="site-nav-item">{ } API</a>
+    </nav>
+
     <header class="header">
         <h1>Employee <span>Graveyard</span></h1>
         <p>The human cost of the AI revolution. Every job cut that companies blamed on artificial intelligence.</p>
-        <a class="nav-link" href="./">← Back to Killed by AI (Product Graveyard)</a>
     </header>
 
     <div class="stats-row">

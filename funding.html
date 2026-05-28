@@ -21,8 +21,10 @@
         .header h1{font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:0.5rem}
         .header h1 span{color:var(--fire)}
         .header p{color:var(--text-muted);font-size:0.95rem}
-        .nav-link{display:inline-block;margin-top:0.75rem;color:var(--text-dim);font-size:0.8125rem;text-decoration:underline;text-underline-offset:2px}
-        .nav-link:hover{color:var(--fire)}
+        .site-nav{display:flex;justify-content:center;gap:0.125rem;padding:0.5rem 0.75rem;border-bottom:1px solid var(--border)}
+        .site-nav-item{padding:0.375rem 0.75rem;font-size:0.6875rem;font-weight:500;color:var(--text-dim);text-decoration:none;border-radius:0.25rem;transition:all 0.15s}
+        .site-nav-item:hover{color:#a1a1aa;background:#111113}
+        .site-nav-item.active{color:var(--fire);background:var(--fire-dim)}
         .hero-stat{text-align:center;margin:1.5rem auto;padding:1.5rem}
         .hero-val{font-size:clamp(3rem,8vw,5rem);font-weight:900;color:var(--fire);font-family:'SF Mono','Cascadia Code',monospace;line-height:1}
         .hero-lbl{font-size:0.875rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.05em;margin-top:0.25rem}
@@ -45,14 +47,21 @@
         .site-footer p{color:var(--text-dim);font-size:0.8125rem;line-height:1.8}
         .site-footer a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
         .site-footer a:hover{color:var(--fire)}
-        @media(max-width:600px){.header{padding:1.75rem 0.75rem 0.75rem}.header h1{font-size:1.75rem}.list{padding:0 0.75rem}.fund-info{padding:0.75rem 1rem}.fund-name{font-size:0.875rem}.fund-amount{font-size:0.9375rem}.fund-desc{font-size:0.75rem}}
+        @media(max-width:600px){.site-nav{gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;justify-content:flex-start;padding:0.375rem 0.5rem}.site-nav::-webkit-scrollbar{display:none}.site-nav-item{flex-shrink:0;font-size:0.625rem;padding:0.3rem 0.5rem}.header{padding:1.75rem 0.75rem 0.75rem}.header h1{font-size:1.75rem}.list{padding:0 0.75rem}.fund-info{padding:0.75rem 1rem}.fund-name{font-size:0.875rem}.fund-amount{font-size:0.9375rem}.fund-desc{font-size:0.75rem}}
     </style>
 </head>
 <body>
+    <nav class="site-nav">
+        <a href="./" class="site-nav-item">💀 Graveyard</a>
+        <a href="layoffs.html" class="site-nav-item">💼 Layoffs</a>
+        <a href="funding.html" class="site-nav-item active">🔥 Funding</a>
+        <a href="coming-soon.html" class="site-nav-item">⏳ Soon</a>
+        <a href="api.html" class="site-nav-item">{ } API</a>
+    </nav>
+
     <header class="header">
         <h1>Funding <span>Burned</span> 🔥</h1>
         <p>The most expensive graveyard in tech. How much venture capital went up in smoke when these AI startups died.</p>
-        <a class="nav-link" href="./">← Back to Killed by AI</a>
     </header>
     <div class="hero-stat">
         <div class="hero-val">$4.3B</div>

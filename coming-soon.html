@@ -21,8 +21,10 @@
         .header h1{font-size:clamp(1.75rem,5vw,2.5rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:0.5rem}
         .header h1 span{color:var(--yellow)}
         .header p{color:var(--text-muted);font-size:0.95rem}
-        .nav-link{display:inline-block;margin-top:0.75rem;color:var(--text-dim);font-size:0.8125rem;text-decoration:underline;text-underline-offset:2px}
-        .nav-link:hover{color:var(--yellow)}
+        .site-nav{display:flex;justify-content:center;gap:0.125rem;padding:0.5rem 0.75rem;border-bottom:1px solid var(--border)}
+        .site-nav-item{padding:0.375rem 0.75rem;font-size:0.6875rem;font-weight:500;color:var(--text-dim);text-decoration:none;border-radius:0.25rem;transition:all 0.15s}
+        .site-nav-item:hover{color:#a1a1aa;background:#111113}
+        .site-nav-item.active{color:var(--yellow);background:var(--yellow-dim)}
         .list{max-width:900px;margin:1.5rem auto 3rem;padding:0 1.5rem;display:flex;flex-direction:column;gap:0.75rem}
         .doom-card{background:var(--bg-card);border:1px solid var(--border);border-radius:0.5rem;padding:1.25rem 1.5rem;transition:border-color 0.2s;position:relative;overflow:hidden}
         .doom-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--yellow)}
@@ -40,14 +42,21 @@
         .site-footer p{color:var(--text-dim);font-size:0.8125rem;line-height:1.8}
         .site-footer a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
         .site-footer a:hover{color:var(--yellow)}
-        @media(max-width:600px){.header{padding:1.75rem 0.75rem 0.75rem}.header h1{font-size:1.5rem}.list{padding:0 0.75rem}.doom-card{padding:1rem 1.125rem}.doom-name{font-size:0.9375rem}.doom-desc{font-size:0.75rem}}
+        @media(max-width:600px){.site-nav{gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;justify-content:flex-start;padding:0.375rem 0.5rem}.site-nav::-webkit-scrollbar{display:none}.site-nav-item{flex-shrink:0;font-size:0.625rem;padding:0.3rem 0.5rem}.header{padding:1.75rem 0.75rem 0.75rem}.header h1{font-size:1.5rem}.list{padding:0 0.75rem}.doom-card{padding:1rem 1.125rem}.doom-name{font-size:0.9375rem}.doom-desc{font-size:0.75rem}}
     </style>
 </head>
 <body>
+    <nav class="site-nav">
+        <a href="./" class="site-nav-item">💀 Graveyard</a>
+        <a href="layoffs.html" class="site-nav-item">💼 Layoffs</a>
+        <a href="funding.html" class="site-nav-item">🔥 Funding</a>
+        <a href="coming-soon.html" class="site-nav-item active">⏳ Soon</a>
+        <a href="api.html" class="site-nav-item">{ } API</a>
+    </nav>
+
     <header class="header">
         <h1>⏳ Coming Soon to the <span>Graveyard</span></h1>
         <p>AI products with confirmed death dates. The walking dead of the AI industry — already announced, just counting down.</p>
-        <a class="nav-link" href="./">← Back to Killed by AI</a>
     </header>
     <main class="list">
 <article class="doom-card">
