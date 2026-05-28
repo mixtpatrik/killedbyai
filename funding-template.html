@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MC3PM7NKRX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-MC3PM7NKRX');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funding Burned — ${{TOTAL_B}}B in AI Startup Funding Gone | Killed by AI</title>
+    <meta name="description" content="${{TOTAL_B}} billion in venture capital burned across {{COUNT}} failed AI startups. From Inflection's $1.5B to Olive AI's $902M — the most expensive graveyard in tech.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mixtpatrik.github.io/killedbyai/funding.html">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#52525b;--fire:#f59e0b;--fire-dim:rgba(245,158,11,0.12)}
+        body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+        .header{text-align:center;padding:2.5rem 1.5rem 1rem;max-width:700px;margin:0 auto}
+        .header h1{font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:0.5rem}
+        .header h1 span{color:var(--fire)}
+        .header p{color:var(--text-muted);font-size:0.95rem}
+        .nav-link{display:inline-block;margin-top:0.75rem;color:var(--text-dim);font-size:0.8125rem;text-decoration:underline;text-underline-offset:2px}
+        .nav-link:hover{color:var(--fire)}
+        .hero-stat{text-align:center;margin:1.5rem auto;padding:1.5rem}
+        .hero-val{font-size:clamp(3rem,8vw,5rem);font-weight:900;color:var(--fire);font-family:'SF Mono','Cascadia Code',monospace;line-height:1}
+        .hero-lbl{font-size:0.875rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.05em;margin-top:0.25rem}
+        .hero-sub{font-size:0.75rem;color:var(--text-muted);margin-top:0.25rem}
+        .list{max-width:900px;margin:1rem auto 3rem;padding:0 1.5rem;display:flex;flex-direction:column;gap:0.5rem}
+        .fund-row{background:var(--bg-card);border:1px solid var(--border);border-radius:0.5rem;overflow:hidden;transition:border-color 0.2s}
+        .fund-row:hover{border-color:var(--fire)}
+        .fund-bar-wrap{height:3px}
+        .fund-bar{height:100%;background:linear-gradient(90deg,var(--fire),#d97706);border-radius:0 0 2px 0}
+        .fund-info{padding:0.875rem 1.25rem}
+        .fund-header{display:flex;justify-content:space-between;align-items:baseline;gap:0.5rem;margin-bottom:0.25rem}
+        .fund-name{font-size:1rem;font-weight:700}
+        .fund-amount{font-size:1.125rem;font-weight:800;color:var(--fire);font-family:'SF Mono','Cascadia Code',monospace}
+        .fund-desc{font-size:0.8125rem;color:var(--text-muted);line-height:1.6;margin-bottom:0.375rem}
+        .fund-meta{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;font-size:0.6875rem}
+        .fund-type,.fund-dates{color:var(--text-dim)}
+        .fund-source{color:var(--text-muted);text-decoration:none;background:#1c1c1f;padding:0.125rem 0.5rem;border-radius:0.25rem;font-size:0.625rem}
+        .fund-source:hover{color:var(--fire);background:var(--fire-dim)}
+        .site-footer{text-align:center;padding:2rem 1.5rem 3rem;border-top:1px solid var(--border);max-width:700px;margin:0 auto}
+        .site-footer p{color:var(--text-dim);font-size:0.8125rem;line-height:1.8}
+        .site-footer a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
+        .site-footer a:hover{color:var(--fire)}
+        @media(max-width:600px){.header{padding:1.75rem 0.75rem 0.75rem}.header h1{font-size:1.75rem}.list{padding:0 0.75rem}.fund-info{padding:0.75rem 1rem}.fund-name{font-size:0.875rem}.fund-amount{font-size:0.9375rem}.fund-desc{font-size:0.75rem}}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Funding <span>Burned</span> 🔥</h1>
+        <p>The most expensive graveyard in tech. How much venture capital went up in smoke when these AI startups died.</p>
+        <a class="nav-link" href="./">← Back to Killed by AI</a>
+    </header>
+    <div class="hero-stat">
+        <div class="hero-val">${{TOTAL_B}}B</div>
+        <div class="hero-lbl">Total VC funding burned</div>
+        <div class="hero-sub">Across {{COUNT}} startups that didn't make it</div>
+    </div>
+    <main class="list">
+{{ROWS}}
+    </main>
+    <footer class="site-footer">
+        <p>Part of <a href="./">Killed by AI</a>. Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.</p>
+    </footer>
+</body>
+</html>

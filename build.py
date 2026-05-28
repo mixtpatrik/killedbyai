@@ -464,22 +464,105 @@ def main():
         (ROOT / "layoffs.html").write_text(layoffs_out)
         print(f"Built layoffs.html with {total_companies} companies, {total_jobs:,} jobs")
 
-    # Update sitemap with layoffs page
-    sitemap = build_sitemap()
-    if layoffs_path.exists():
-        today = datetime.utcnow().strftime("%Y-%m-%d")
-        sitemap = sitemap.replace(
-            "</urlset>",
-            f"""  <url>
-    <loc>{SITE_URL}layoffs.html</loc>
-    <lastmod>{today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-</urlset>
-"""
+    # Build Funding Burned page
+    funded = sorted(
+        [i for i in data if i.get("fundingM")],
+        key=lambda i: i["fundingM"],
+        reverse=True,
+    )
+    if funded:
+        fund_template = (ROOT / "funding-template.html").read_text()
+        total_m = sum(i["fundingM"] for i in funded)
+        total_b = f"{total_m / 1000:.1f}"
+        max_fund = funded[0]["fundingM"]
+
+        fund_rows = "\n".join(
+            f'''<article class="fund-row">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:{i["fundingM"]/max_fund*100}%"></div></div>
+  <div class="fund-info">
+    <div class="fund-header">
+      <h2 class="fund-name">{esc(i["name"])}</h2>
+      <span class="fund-amount">${i["fundingM"]:,.0f}M</span>
+    </div>
+    <p class="fund-desc">{esc(i["description"])}</p>
+    <div class="fund-meta">
+      <span class="fund-type">{esc(i["type"])}</span>
+      <span class="fund-dates">{i["dateOpen"][:4]}–{i["dateClose"][:4]}</span>
+      {f'<a class="fund-source" href="{esc(i["link"])}" target="_blank" rel="noopener">Source</a>' if i.get("link") else ""}
+    </div>
+  </div>
+</article>'''
+            for i in funded
         )
-    (ROOT / "sitemap.xml").write_text(sitemap)
+
+        fund_out = (fund_template
+                    .replace("{{ROWS}}", fund_rows)
+                    .replace("{{TOTAL_B}}", total_b)
+                    .replace("{{COUNT}}", str(len(funded)))
+                    .replace("{{LAST_UPDATED}}", datetime.utcnow().strftime("%B %d, %Y")))
+        (ROOT / "funding.html").write_text(fund_out)
+        print(f"Built funding.html: ${total_b}B across {len(funded)} startups")
+
+    # Build Coming Soon page
+    cs_path = ROOT / "coming-soon.json"
+    if cs_path.exists():
+        cs_data = json.loads(cs_path.read_text())
+        cs_template = (ROOT / "coming-soon-template.html").read_text()
+        cs_sorted = sorted(cs_data, key=lambda i: i["dateShutdown"])
+        now = datetime.utcnow()
+
+        cs_rows = []
+        for item in cs_sorted:
+            shutdown = datetime.strptime(item["dateShutdown"], "%Y-%m-%d")
+            days_left = (shutdown - now).days
+            if days_left > 0:
+                countdown = f"{days_left}d left"
+                dead_class = ""
+            else:
+                countdown = "DEAD"
+                dead_class = " dead"
+
+            cs_rows.append(
+                f'''<article class="doom-card">
+  <div class="doom-header">
+    <h2 class="doom-name">{esc(item["name"])}</h2>
+    <span class="doom-countdown{dead_class}">{countdown}</span>
+  </div>
+  <p class="doom-desc">{esc(item["description"])}</p>
+  <div class="doom-meta">
+    <span class="doom-tag">Killed by: {esc(item["killedBy"])}</span>
+    <span>Shutdown: {item["dateShutdown"]}</span>
+    <span>Replacement: {esc(item["replacement"])}</span>
+    <a class="doom-source" href="{esc(item["link"])}" target="_blank" rel="noopener">Source</a>
+  </div>
+</article>'''
+            )
+
+        cs_out = (cs_template
+                  .replace("{{ROWS}}", "\n".join(cs_rows))
+                  .replace("{{COUNT}}", str(len(cs_sorted))))
+        (ROOT / "coming-soon.html").write_text(cs_out)
+        print(f"Built coming-soon.html with {len(cs_sorted)} entries")
+
+    # Build sitemap
+    today = datetime.utcnow().strftime("%Y-%m-%d")
+    pages = [
+        (SITE_URL, "1.0"),
+        (SITE_URL + "layoffs.html", "0.8"),
+        (SITE_URL + "funding.html", "0.8"),
+        (SITE_URL + "coming-soon.html", "0.8"),
+        (SITE_URL + "api.html", "0.6"),
+    ]
+    sitemap_urls = "\n".join(
+        f"  <url>\n    <loc>{url}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>{prio}</priority>\n  </url>"
+        for url, prio in pages
+    )
+    sitemap_xml = f'''<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{sitemap_urls}
+</urlset>
+'''
+    (ROOT / "sitemap.xml").write_text(sitemap_xml)
 
     print(f"Built index.html with {len(data)} entries")
     print("Generated sitemap.xml, robots.txt, feed.xml")

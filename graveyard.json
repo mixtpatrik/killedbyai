@@ -89,7 +89,8 @@
     "killedBy": "Microsoft",
     "link": "https://www.theverge.com/2024/3/19/24105263/microsoft-inflection-mustafa-suleyman-hire",
     "collateral": "Users who spent months building a personal relationship with Pi lost all conversation history and emotional context when the team left.",
-    "deathType": "acqui-hired"
+    "deathType": "acqui-hired",
+    "fundingM": 1500
   },
   {
     "name": "Humane AI Pin",
@@ -101,7 +102,8 @@
     "killedBy": "Reality",
     "link": "https://www.theverge.com/24126502/humane-ai-pin-review",
     "collateral": "All $699 devices were remotely bricked when cloud services shut down. No refunds offered.",
-    "deathType": "hardware-failed"
+    "deathType": "hardware-failed",
+    "fundingM": 230
   },
   {
     "name": "Rabbit R1",
@@ -113,7 +115,8 @@
     "killedBy": "Reality",
     "link": "https://www.theverge.com/24133200/rabbit-r1-review-ai-gadget",
     "collateral": "Buyers stuck with a $199 paperweight. No meaningful resale value.",
-    "deathType": "hardware-failed"
+    "deathType": "hardware-failed",
+    "fundingM": 30
   },
   {
     "name": "Google Duplex on the Web",
@@ -159,7 +162,8 @@
     "killedBy": "Google",
     "link": "https://www.theverge.com/2024/8/2/24212348/google-character-ai-noam-shazeer",
     "collateral": "Users lost unique AI personalities they had spent hundreds of hours training and conversing with.",
-    "deathType": "acqui-hired"
+    "deathType": "acqui-hired",
+    "fundingM": 150
   },
   {
     "name": "Amazon Alexa (Original AI)",
@@ -181,7 +185,8 @@
     "causeOfDeath": "Financial Collapse",
     "killedBy": "Itself",
     "link": "https://www.forbes.com/sites/kenrickcai/2024/03/29/stability-ai-ceo-emad-mostaque-resigns/",
-    "deathType": "startup-failed"
+    "deathType": "startup-failed",
+    "fundingM": 101
   },
   {
     "name": "Google AI Test Kitchen",
@@ -247,7 +252,8 @@
     "causeOfDeath": "Acqui-hire",
     "killedBy": "Snowflake",
     "link": "https://neeva.com/blog/may-announcement",
-    "deathType": "acqui-hired"
+    "deathType": "acqui-hired",
+    "fundingM": 77.5
   },
   {
     "name": "Jasper AI (Original Platform)",
@@ -258,7 +264,8 @@
     "causeOfDeath": "Feature Parity",
     "killedBy": "OpenAI / Anthropic",
     "link": "https://www.jasper.ai/",
-    "deathType": "startup-failed"
+    "deathType": "startup-failed",
+    "fundingM": 125
   },
   {
     "name": "OpenAI GPT-3.5 Turbo",
@@ -291,7 +298,8 @@
     "causeOfDeath": "Feature Absorption",
     "killedBy": "Microsoft Copilot",
     "link": "https://writer.com/",
-    "deathType": "startup-failed"
+    "deathType": "startup-failed",
+    "fundingM": 100
   },
   {
     "name": "Google Assistant (Classic)",
@@ -436,7 +444,8 @@
     "causeOfDeath": "Fraud & Bankruptcy",
     "killedBy": "Itself",
     "link": "https://techcrunch.com/2025/05/20/once-worth-over-1b-microsoft-backed-builder-ai-is-running-out-of-money/",
-    "deathType": "startup-failed"
+    "deathType": "startup-failed",
+    "fundingM": 445
   },
   {
     "name": "McDonald's AI Drive-Thru (IBM)",
@@ -458,7 +467,8 @@
     "causeOfDeath": "Safety Concerns",
     "killedBy": "Its Own Founder",
     "link": "https://fortune.com/2025/11/28/yara-ai-therapy-app-founder-shut-down-startup-decided-too-dangerous-serious-mental-health-issues/",
-    "deathType": "startup-failed"
+    "deathType": "startup-failed",
+    "fundingM": 2
   },
   {
     "name": "Tune AI",
@@ -469,7 +479,8 @@
     "causeOfDeath": "Feature Absorption",
     "killedBy": "AWS / Google / Azure",
     "link": "https://techstartups.com/2025/12/09/top-ai-startups-that-shut-down-in-2025-what-founders-can-learn/",
-    "deathType": "startup-failed"
+    "deathType": "startup-failed",
+    "fundingM": 20
   },
   {
     "name": "NYC MyCity Chatbot",
@@ -636,7 +647,8 @@
     "causeOfDeath": "Financial Collapse",
     "killedBy": "Itself",
     "link": "https://www.healthcaredive.com/news/olive-ai-shuts-down/698455/",
-    "deathType": "startup-failed"
+    "deathType": "startup-failed",
+    "fundingM": 902
   },
   {
     "name": "Moxie Robot",
@@ -648,7 +660,8 @@
     "killedBy": "Embodied Inc.",
     "link": "https://www.axios.com/2024/12/10/moxie-kids-robot-shuts-down",
     "collateral": "Children with autism who had formed bonds with their $800 companion lost it overnight. Families recorded tearful goodbyes.",
-    "deathType": "hardware-failed"
+    "deathType": "hardware-failed",
+    "fundingM": 54
   },
   {
     "name": "Google Gemini Image Generation (People)",
@@ -670,7 +683,8 @@
     "causeOfDeath": "Acqui-hire",
     "killedBy": "Amazon",
     "link": "https://techcrunch.com/2024/06/28/amazon-hires-founders-away-from-ai-startup-adept/",
-    "deathType": "acqui-hired"
+    "deathType": "acqui-hired",
+    "fundingM": 415
   },
   {
     "name": "Limitless Pendant (Rewind AI)",
@@ -704,7 +718,8 @@
     "causeOfDeath": "Regulatory Barriers",
     "killedBy": "FDA",
     "link": "https://www.statnews.com/2025/07/02/woebot-therapy-chatbot-shuts-down-founder-says-ai-moving-faster-than-regulators/",
-    "deathType": "startup-failed"
+    "deathType": "startup-failed",
+    "fundingM": 114
   },
   {
     "name": "Google Interview Warmup",
@@ -860,7 +875,8 @@
     "causeOfDeath": "Funding Collapse",
     "killedBy": "Market",
     "link": "https://www.legalcheek.com/2025/10/uk-lawtech-business-seeks-buyer-following-38-million-fundraising-setback/",
-    "deathType": "startup-failed"
+    "deathType": "startup-failed",
+    "fundingM": 44
   },
   {
     "name": "Gmailify",
@@ -905,7 +921,8 @@
     "causeOfDeath": "Funding Collapse",
     "killedBy": "Market",
     "link": "https://github.com/coqui-ai/TTS",
-    "deathType": "startup-failed"
+    "deathType": "startup-failed",
+    "fundingM": 3.3
   },
   {
     "name": "Facebook AI Chatbots (Bob & Alice)",
@@ -940,7 +957,8 @@
     "killedBy": "Anthropic",
     "link": "https://techcrunch.com/2026/05/18/anthropic-has-acquired-the-dev-tools-startup-used-by-openai-google-and-cloudflare/",
     "collateral": "OpenAI, Google, Cloudflare, Meta, and dozens of companies lost automated SDK generation. Existing SDKs frozen in time.",
-    "deathType": "acqui-hired"
+    "deathType": "acqui-hired",
+    "fundingM": 3.5
   },
   {
     "name": "Kintsugi AI",
@@ -952,7 +970,8 @@
     "killedBy": "FDA",
     "link": "https://endpoints.news/why-clinical-ai-startup-kintsugi-shut-down/",
     "collateral": "Clinical partners lost a diagnostic screening tool their patients relied on. Research datasets open-sourced as a consolation.",
-    "deathType": "startup-failed"
+    "deathType": "startup-failed",
+    "fundingM": 30
   },
   {
     "name": "xAI Grok Legacy Models",
@@ -985,7 +1004,8 @@
     "causeOfDeath": "Market Conditions",
     "killedBy": "Big Tech",
     "link": "https://glassboxmedicine.com/2026/02/21/why-i-shut-down-my-bootstrapped-health-ai-startup-after-7-years-a-founders-postmortem/",
-    "deathType": "startup-failed"
+    "deathType": "startup-failed",
+    "fundingM": 0.5
   },
   {
     "name": "GPT-5.2 & GPT-5.3 (API Snapshots)",

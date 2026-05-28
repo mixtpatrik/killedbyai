@@ -1,0 +1,65 @@
+[
+  {
+    "name": "OpenAI Assistants API",
+    "dateAnnounced": "2025-08-26",
+    "dateShutdown": "2026-08-26",
+    "description": "Persistent AI agents with memory, tools, and file handling. Replaced by the Responses API. Developers face a full rewrite.",
+    "replacement": "Responses API",
+    "killedBy": "OpenAI",
+    "link": "https://community.openai.com/t/assistants-api-beta-deprecation-august-26-2026-sunset/1354666"
+  },
+  {
+    "name": "Claude Sonnet 4 & Opus 4",
+    "dateAnnounced": "2026-04-15",
+    "dateShutdown": "2026-06-15",
+    "description": "Anthropic's flagship Claude 4 generation. API calls to claude-sonnet-4-0 and claude-opus-4-0 will return errors after June 15.",
+    "replacement": "Claude Sonnet 4.5 / Opus 4.7",
+    "killedBy": "Anthropic",
+    "link": "https://www.mindstudio.ai/blog/claude-sonnet-4-opus-4-deprecation-migration-guide"
+  },
+  {
+    "name": "Gemini 2.5 Pro / Flash / Flash Lite",
+    "dateAnnounced": "2026-04-01",
+    "dateShutdown": "2026-10-16",
+    "description": "Google's entire Gemini 2.5 family on Vertex AI will be retired no earlier than October 16, 2026.",
+    "replacement": "Gemini 3.x series",
+    "killedBy": "Google",
+    "link": "https://gcpstudyhub.com/blog/google-is-retiring-gemini-2-5-on-vertex-ai-what-you-need-to-know-and-do-before-october-2026"
+  },
+  {
+    "name": "Sora API",
+    "dateAnnounced": "2026-03-24",
+    "dateShutdown": "2026-09-24",
+    "description": "While the Sora app died in April, the API endpoint survives until September. Then it's gone completely.",
+    "replacement": "None (ChatGPT image gen only)",
+    "killedBy": "OpenAI",
+    "link": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation"
+  },
+  {
+    "name": "DALL·E (all remaining endpoints)",
+    "dateAnnounced": "2025-11-14",
+    "dateShutdown": "2026-05-12",
+    "description": "All remaining DALL-E model snapshots removed from the API. GPT Image 1.5 replaces them inside ChatGPT.",
+    "replacement": "GPT Image 1.5",
+    "killedBy": "OpenAI",
+    "link": "https://genra.ai/blog/dall-e-retired-may-2026-what-replaces-it"
+  },
+  {
+    "name": "Claude 3.7 Sonnet",
+    "dateAnnounced": "2025-11-11",
+    "dateShutdown": "2026-05-11",
+    "description": "Anthropic's extended thinking model, deprecated November 2025, shut down May 2026.",
+    "replacement": "Claude Sonnet 4.5+",
+    "killedBy": "Anthropic",
+    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations"
+  },
+  {
+    "name": "OpenAI Fine-tuning (new orgs)",
+    "dateAnnounced": "2026-05-07",
+    "dateShutdown": "2026-07-23",
+    "description": "New organizations can no longer create fine-tuning jobs. Existing jobs will stop on July 23, with a second wave October 23.",
+    "replacement": "Prompt caching / system prompts",
+    "killedBy": "OpenAI",
+    "link": "https://developers.openai.com/api/docs/deprecations"
+  }
+]

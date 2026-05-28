@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#09090b"/>
+  <rect x="0" y="0" width="1200" height="3" fill="#ef4444"/>
+  <text x="600" y="230" text-anchor="middle" fill="#fafafa" font-family="Inter, -apple-system, sans-serif" font-weight="900" font-size="96" letter-spacing="-3">Killed by <tspan fill="#ef4444" text-decoration="underline">AI</tspan></text>
+  <text x="600" y="310" text-anchor="middle" fill="#a1a1aa" font-family="Inter, sans-serif" font-weight="400" font-size="28">A digital cemetery for the AI tools that didn't survive</text>
+  <text x="600" y="350" text-anchor="middle" fill="#a1a1aa" font-family="Inter, sans-serif" font-weight="400" font-size="28">the artificial intelligence gold rush.</text>
+  <rect x="430" y="400" width="340" height="50" rx="25" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
+  <text x="600" y="433" text-anchor="middle" fill="#ef4444" font-family="Inter, sans-serif" font-weight="700" font-size="22">💀  90+ products killed</text>
+  <text x="600" y="530" text-anchor="middle" fill="#52525b" font-family="Inter, sans-serif" font-weight="400" font-size="20">mixtpatrik.github.io/killedbyai</text>
+</svg>
