@@ -3,9 +3,9 @@
     "company": "Meta",
     "jobs": 8000,
     "date": "2026-05-20",
-    "description": "Cut 10% of workforce. CEO Zuckerberg warned 'in the AI age, success isn't a given' in a memo to employees.",
-    "roles": "Middle management, underperformers, various",
-    "source": "https://www.cnbc.com/2026/04/24/20k-job-cuts-at-meta-microsoft-raise-concern-of-ai-labor-crisis-.html"
+    "description": "Cut 10% of its 80,000 workforce. Zuckerberg's memo: 'success isn't a given' in the AI era. 7,000 more employees reassigned to AI-focused teams. 6,000 open roles scrapped. Nearly 1,400 cut in Seattle alone — 20% of its local workforce. His $300M superyacht docked in Seattle the same day.",
+    "roles": "Sales, marketing, product, middle management (India, Seattle, Bay Area hardest hit). AI teams protected.",
+    "source": "https://fortune.com/2026/05/21/meta-10-percent-workforce-layoffs-ai-tech-success-is-not-a-given-8-thousand-employees-mark-zuckerberg/"
   },
   {
     "company": "Oracle",
@@ -150,5 +150,45 @@
     "description": "CFO expects headcount down by 20,000 as part of a broad AI-driven overhaul of banking operations.",
     "roles": "Operations, middle office, compliance",
     "source": "https://tech.co/news/companies-replace-workers-with-ai"
+  },
+  {
+    "company": "Cloudflare",
+    "jobs": 1100,
+    "date": "2026-05-08",
+    "description": "First mass layoff in 16-year history — cut 20% of staff while posting record $639.8M quarterly revenue. CEO said AI usage surged 600% in 3 months, making 'measurers' (middle management, finance, legal, auditing) obsolete.",
+    "roles": "Middle management, finance, legal, auditing, revenue recognition",
+    "source": "https://techcrunch.com/2026/05/08/cloudflare-says-ai-made-1100-jobs-obsolete-even-as-revenue-hit-a-record-high/"
+  },
+  {
+    "company": "Upwork",
+    "jobs": 145,
+    "date": "2026-05-07",
+    "description": "Cut 24% of its 600-person workforce. CEO said AI is making teams smaller: 'Two pizza teams are dead.' Stock plunged 19%. Law firms launched securities investigations.",
+    "roles": "Various across the company",
+    "source": "https://www.finalroundai.com/blog/upwork-layoffs-2026"
+  },
+  {
+    "company": "BILL Holdings",
+    "jobs": 709,
+    "date": "2026-05-07",
+    "description": "Cut 30% of staff the same day it authorized a $1B stock buyback. CEO said 'AI presents an extraordinary opportunity' while eliminating the humans. Announced on the same day as Upwork's cuts.",
+    "roles": "Engineering, operations, support",
+    "source": "https://layoffhedge.com/company/bill-holdings"
+  },
+  {
+    "company": "PayPal (2026)",
+    "jobs": 4760,
+    "date": "2026-05-01",
+    "description": "Plans to eliminate 20% of its 23,800 workforce over the next 2-3 years as AI automates fraud detection, risk management, and support. Second round of AI-driven cuts after 2,500 in Jan 2024.",
+    "roles": "Fraud detection, risk management, customer support",
+    "source": "https://programs.com/resources/ai-layoffs/"
+  },
+  {
+    "company": "Ticketmaster",
+    "jobs": 350,
+    "date": "2026-05-15",
+    "description": "Cut 8% of global workforce across 25 countries as AI handles more customer service and event operations.",
+    "roles": "Customer service, operations across 25 countries",
+    "source": "https://finance.yahoo.com/sectors/technology/articles/layoffs-accelerate-may-2026-firms-040430218.html"
   }
 ]
