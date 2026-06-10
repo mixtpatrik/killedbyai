@@ -5,7 +5,7 @@
     <link>https://mixtpatrik.github.io/killedbyai/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 May 2026 08:39:12 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2026 18:55:42 +0000</lastBuildDate>
     <atom:link href="https://mixtpatrik.github.io/killedbyai/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>OpenAI Assistants API (Beta) — Killed by OpenAI</title>
@@ -54,6 +54,14 @@
       <pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate>
       <description>OpenAI&#x27;s WebSocket-based API for building real-time voice conversations, powering Advanced Voice Mode demos. The beta endpoint was deprecated as OpenAI shipped a GA (general availability) version with a different interface, forcing developers to rewrite their integrations.</description>
       <category>service</category>
+    </item>
+    <item>
+      <title>Claude 3.7 Sonnet — Killed by Anthropic</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#claude-3-7-sonnet</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-3-7-sonnet</guid>
+      <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+      <description>Anthropic&#x27;s first model with hybrid &#x27;extended thinking&#x27; — it could reason step-by-step for up to 128K tokens before answering, scoring state-of-the-art on SWE-Bench coding benchmarks at launch. Deprecated just 15 months after release as the Claude 4 family made extended thinking standard across the entire lineup.</description>
+      <category>model</category>
     </item>
     <item>
       <title>GPT-5.2 &amp; GPT-5.3 (API Snapshots) — Killed by OpenAI</title>
@@ -238,14 +246,6 @@
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       <description>UK legal tech startup that raised $44M to build AI-powered contract review tools used by PwC and KPMG. After failing to close a $50M Series C, the company cut a third of its staff and was listed on an insolvency marketplace — just 9 months after making the Sunday Times 100 Tech list.</description>
       <category>startup</category>
-    </item>
-    <item>
-      <title>Claude 3.5 Sonnet — Killed by Anthropic</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#claude-3-5-sonnet</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-3-5-sonnet</guid>
-      <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
-      <description>Anthropic&#x27;s breakout model that briefly topped every benchmark and became the most popular coding AI. Retired just 16 months after launch as Claude Sonnet 4 took its place — a testament to the breakneck pace of AI model evolution.</description>
-      <category>model</category>
     </item>
   </channel>
 </rss>

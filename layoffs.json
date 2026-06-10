@@ -152,14 +152,6 @@
     "source": "https://tech.co/news/companies-replace-workers-with-ai"
   },
   {
-    "company": "Cloudflare",
-    "jobs": 1100,
-    "date": "2026-05-08",
-    "description": "First mass layoff in 16-year history — cut 20% of staff while posting record $639.8M quarterly revenue. CEO said AI usage surged 600% in 3 months, making 'measurers' (middle management, finance, legal, auditing) obsolete.",
-    "roles": "Middle management, finance, legal, auditing, revenue recognition",
-    "source": "https://techcrunch.com/2026/05/08/cloudflare-says-ai-made-1100-jobs-obsolete-even-as-revenue-hit-a-record-high/"
-  },
-  {
     "company": "Upwork",
     "jobs": 145,
     "date": "2026-05-07",
@@ -190,5 +182,21 @@
     "description": "Cut 8% of global workforce across 25 countries as AI handles more customer service and event operations.",
     "roles": "Customer service, operations across 25 countries",
     "source": "https://finance.yahoo.com/sectors/technology/articles/layoffs-accelerate-may-2026-firms-040430218.html"
+  },
+  {
+    "company": "Microsoft",
+    "jobs": 6000,
+    "date": "2026-05-13",
+    "description": "Cut ~3% of its global 228,000-person workforce. CEO Satya Nadella said Copilot and AI agents now handle work that previously required dedicated headcount — internal Copilot usage tripled year-over-year. Sales and customer-facing teams hit hardest as AI-first engagement replaces human touchpoints.",
+    "roles": "Sales, marketing, customer success, engineering",
+    "source": "https://www.geekwire.com/2026/microsoft-lays-off-about-6000-employees/"
+  },
+  {
+    "company": "Workday",
+    "jobs": 1750,
+    "date": "2026-01-13",
+    "description": "Cut 8.5% of its 20,500-person workforce. CEO Carl Eschenbach said the company was 'eating its own cooking' — using Workday's own AI to automate the HR and finance work its employees once did. One of the more ironic AI layoffs: the company building workforce AI software replacing its own workforce with AI.",
+    "roles": "Professional services, sales, HR operations",
+    "source": "https://techcrunch.com/2026/01/13/workday-to-cut-about-1750-jobs-as-it-doubles-down-on-ai/"
   }
 ]

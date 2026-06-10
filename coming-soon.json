@@ -36,24 +36,6 @@
     "link": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation"
   },
   {
-    "name": "DALL·E (all remaining endpoints)",
-    "dateAnnounced": "2025-11-14",
-    "dateShutdown": "2026-05-12",
-    "description": "All remaining DALL-E model snapshots removed from the API. GPT Image 1.5 replaces them inside ChatGPT.",
-    "replacement": "GPT Image 1.5",
-    "killedBy": "OpenAI",
-    "link": "https://genra.ai/blog/dall-e-retired-may-2026-what-replaces-it"
-  },
-  {
-    "name": "Claude 3.7 Sonnet",
-    "dateAnnounced": "2025-11-11",
-    "dateShutdown": "2026-05-11",
-    "description": "Anthropic's extended thinking model, deprecated November 2025, shut down May 2026.",
-    "replacement": "Claude Sonnet 4.5+",
-    "killedBy": "Anthropic",
-    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations"
-  },
-  {
     "name": "OpenAI Fine-tuning (new orgs)",
     "dateAnnounced": "2026-05-07",
     "dateShutdown": "2026-07-23",

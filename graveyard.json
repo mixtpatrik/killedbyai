@@ -985,6 +985,17 @@
     "deathType": "model-upgrade"
   },
   {
+    "name": "Claude 3.7 Sonnet",
+    "dateOpen": "2025-02-24",
+    "dateClose": "2026-05-11",
+    "description": "Anthropic's first model with hybrid 'extended thinking' — it could reason step-by-step for up to 128K tokens before answering, scoring state-of-the-art on SWE-Bench coding benchmarks at launch. Deprecated just 15 months after release as the Claude 4 family made extended thinking standard across the entire lineup.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Anthropic",
+    "link": "https://docs.anthropic.com/en/docs/about-claude/model-deprecations",
+    "deathType": "model-upgrade"
+  },
+  {
     "name": "Claude Sonnet 4 & Opus 4",
     "dateOpen": "2025-06-25",
     "dateClose": "2026-06-15",
