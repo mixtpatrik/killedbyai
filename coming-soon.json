@@ -43,5 +43,23 @@
     "replacement": "Prompt caching / system prompts",
     "killedBy": "OpenAI",
     "link": "https://developers.openai.com/api/docs/deprecations"
+  },
+  {
+    "name": "Google Imagen (all models)",
+    "dateAnnounced": "2026-04-24",
+    "dateShutdown": "2026-06-24",
+    "description": "Google's entire Imagen image-generation family is being retired on Vertex AI as native image generation moves into the Gemini 3 models. Apps built on the standalone Imagen endpoints must migrate.",
+    "replacement": "Gemini 3 native image gen",
+    "killedBy": "Google",
+    "link": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/deprecations"
+  },
+  {
+    "name": "OpenAI Legacy GPT Image Models",
+    "dateAnnounced": "2026-06-02",
+    "dateShutdown": "2026-12-01",
+    "description": "Older GPT Image model snapshots were flagged for removal from the API on December 1, 2026, just months after they replaced DALL·E. The endpoint that buried DALL·E is already on its own deprecation clock.",
+    "replacement": "GPT Image 1.5",
+    "killedBy": "OpenAI",
+    "link": "https://platform.openai.com/docs/deprecations"
   }
 ]
