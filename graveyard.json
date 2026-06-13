@@ -1030,6 +1030,18 @@
     "deathType": "model-upgrade"
   },
   {
+    "name": "Claude Fable 5 & Mythos 5",
+    "dateOpen": "2026-06-09",
+    "dateClose": "2026-06-12",
+    "description": "Anthropic's most powerful model ever — a 'Mythos-class' tier above Opus that scored 10%+ higher than Opus 4.8 on major benchmarks. Launched June 9. Pulled June 12. The U.S. government issued a national-security export directive at 5:21pm ET prohibiting use by any foreign national, anywhere. Because the order reached Anthropic's own employees, the only way to comply was to turn it off for everyone. Three days of life — tied with Meta Galactica for shortest-lived frontier AI release.",
+    "type": "model",
+    "causeOfDeath": "Government Order",
+    "killedBy": "U.S. Government",
+    "link": "https://techcrunch.com/2026/06/12/anthropics-safety-warnings-may-have-just-backfired-the-government-has-pulled-the-plug-on-its-most-powerful-ai/",
+    "collateral": "Developers who integrated Fable 5 during its 3-day window lost access without warning. Free introductory access for Pro/Max/Team/Enterprise users cut short.",
+    "deathType": "product-killed"
+  },
+  {
     "name": "Microsoft Clippy",
     "dateOpen": "1996-11-19",
     "dateClose": "2007-01-01",

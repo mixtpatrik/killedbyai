@@ -5,7 +5,7 @@
     <link>https://mixtpatrik.github.io/killedbyai/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Jun 2026 16:14:33 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 16:25:36 +0000</lastBuildDate>
     <atom:link href="https://mixtpatrik.github.io/killedbyai/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>OpenAI Assistants API (Beta) — Killed by OpenAI</title>
@@ -21,6 +21,14 @@
       <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-sonnet-4-opus-4</guid>
       <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
       <description>Anthropic&#x27;s flagship Claude 4 generation — Sonnet 4 and Opus 4 — retired less than a year after launch. API calls to claude-sonnet-4-0 and claude-opus-4-0 return errors after June 15, 2026. Replaced by the 4.5 and 4.7 series with dramatically improved coding and computer use capabilities.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Claude Fable 5 &amp; Mythos 5 — Killed by U.S. Government</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#claude-fable-5-mythos-5</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-fable-5-mythos-5</guid>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Anthropic&#x27;s most powerful model ever — a &#x27;Mythos-class&#x27; tier above Opus that scored 10%+ higher than Opus 4.8 on major benchmarks. Launched June 9. Pulled June 12. The U.S. government issued a national-security export directive at 5:21pm ET prohibiting use by any foreign national, anywhere. Because the order reached Anthropic&#x27;s own employees, the only way to comply was to turn it off for everyone. Three days of life — tied with Meta Galactica for shortest-lived frontier AI release.</description>
       <category>model</category>
     </item>
     <item>
@@ -237,14 +245,6 @@
       <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#yara-ai</guid>
       <pubDate>Fri, 28 Nov 2025 00:00:00 +0000</pubDate>
       <description>UK-based AI mental health companion offering CBT-style exercises and conversational support. The founder voluntarily shut it down after deciding AI chatbots aren&#x27;t safe enough for people in real mental health crises — a rare case of ethical self-termination.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>Robin AI — Killed by Market</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#robin-ai</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#robin-ai</guid>
-      <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
-      <description>UK legal tech startup that raised $44M to build AI-powered contract review tools used by PwC and KPMG. After failing to close a $50M Series C, the company cut a third of its staff and was listed on an insolvency marketplace — just 9 months after making the Sunday Times 100 Tech list.</description>
       <category>startup</category>
     </item>
   </channel>
