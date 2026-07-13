@@ -5,7 +5,7 @@
     <link>https://mixtpatrik.github.io/killedbyai/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Jun 2026 16:25:36 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2026 08:25:21 +0000</lastBuildDate>
     <atom:link href="https://mixtpatrik.github.io/killedbyai/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>OpenAI Assistants API (Beta) — Killed by OpenAI</title>
@@ -16,6 +16,14 @@
       <category>service</category>
     </item>
     <item>
+      <title>Google Imagen (Vertex AI) — Killed by Google</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#google-imagen-vertex-ai</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#google-imagen-vertex-ai</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Google&#x27;s family of text-to-image models on Vertex AI, once the backbone of image generation across Google Cloud and Workspace. Retired June 24, 2026 as native image generation folded directly into the Gemini 3 models. Apps built on the standalone Imagen endpoints were forced to migrate to Gemini&#x27;s built-in image gen.</description>
+      <category>model</category>
+    </item>
+    <item>
       <title>Claude Sonnet 4 &amp; Opus 4 — Killed by Anthropic</title>
       <link>https://mixtpatrik.github.io/killedbyai/#claude-sonnet-4-opus-4</link>
       <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-sonnet-4-opus-4</guid>
@@ -24,11 +32,11 @@
       <category>model</category>
     </item>
     <item>
-      <title>Claude Fable 5 &amp; Mythos 5 — Killed by U.S. Government</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#claude-fable-5-mythos-5</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-fable-5-mythos-5</guid>
+      <title>Claude Fable 5 &amp; Mythos 5 (June Suspension) — Killed by U.S. Government</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#claude-fable-5-mythos-5-june-suspension</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#claude-fable-5-mythos-5-june-suspension</guid>
       <pubDate>Fri, 12 Jun 2026 00:00:00 +0000</pubDate>
-      <description>Anthropic&#x27;s most powerful model ever — a &#x27;Mythos-class&#x27; tier above Opus that scored 10%+ higher than Opus 4.8 on major benchmarks. Launched June 9. Pulled June 12. The U.S. government issued a national-security export directive at 5:21pm ET prohibiting use by any foreign national, anywhere. Because the order reached Anthropic&#x27;s own employees, the only way to comply was to turn it off for everyone. Three days of life — tied with Meta Galactica for shortest-lived frontier AI release.</description>
+      <description>Anthropic&#x27;s most powerful model ever — a &#x27;Mythos-class&#x27; tier above Opus that scored 10%+ higher than Opus 4.8. Launched June 9, killed June 12 when the U.S. Commerce Department issued a national-security export directive barring use by any foreign national anywhere — including Anthropic&#x27;s own staff. The only way to comply was to shut it off for everyone. Dead for 19 days until Commerce lifted the controls on June 30; Fable 5 returned globally on July 1 with a new jailbreak classifier. A rare resurrection — killed by government order, then un-killed.</description>
       <category>model</category>
     </item>
     <item>
@@ -238,14 +246,6 @@
       <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
       <description>A $99 AI wearable pendant that recorded and transcribed in-person conversations, previously known as Rewind. Meta acquired the company and immediately ended hardware sales, sunset the desktop app, and cut off EU/UK service entirely due to GDPR concerns.</description>
       <category>hardware</category>
-    </item>
-    <item>
-      <title>Yara AI — Killed by Its Own Founder</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#yara-ai</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#yara-ai</guid>
-      <pubDate>Fri, 28 Nov 2025 00:00:00 +0000</pubDate>
-      <description>UK-based AI mental health companion offering CBT-style exercises and conversational support. The founder voluntarily shut it down after deciding AI chatbots aren&#x27;t safe enough for people in real mental health crises — a rare case of ethical self-termination.</description>
-      <category>startup</category>
     </item>
   </channel>
 </rss>

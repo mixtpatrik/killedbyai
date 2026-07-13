@@ -1,39 +1,12 @@
 [
   {
-    "name": "OpenAI Assistants API",
-    "dateAnnounced": "2025-08-26",
-    "dateShutdown": "2026-08-26",
-    "description": "Persistent AI agents with memory, tools, and file handling. Replaced by the Responses API. Developers face a full rewrite.",
-    "replacement": "Responses API",
-    "killedBy": "OpenAI",
-    "link": "https://community.openai.com/t/assistants-api-beta-deprecation-august-26-2026-sunset/1354666"
-  },
-  {
-    "name": "Claude Sonnet 4 & Opus 4",
-    "dateAnnounced": "2026-04-15",
-    "dateShutdown": "2026-06-15",
-    "description": "Anthropic's flagship Claude 4 generation. API calls to claude-sonnet-4-0 and claude-opus-4-0 will return errors after June 15.",
-    "replacement": "Claude Sonnet 4.5 / Opus 4.7",
-    "killedBy": "Anthropic",
-    "link": "https://www.mindstudio.ai/blog/claude-sonnet-4-opus-4-deprecation-migration-guide"
-  },
-  {
-    "name": "Gemini 2.5 Pro / Flash / Flash Lite",
-    "dateAnnounced": "2026-04-01",
-    "dateShutdown": "2026-10-16",
-    "description": "Google's entire Gemini 2.5 family on Vertex AI will be retired no earlier than October 16, 2026.",
-    "replacement": "Gemini 3.x series",
-    "killedBy": "Google",
-    "link": "https://gcpstudyhub.com/blog/google-is-retiring-gemini-2-5-on-vertex-ai-what-you-need-to-know-and-do-before-october-2026"
-  },
-  {
-    "name": "Sora API",
-    "dateAnnounced": "2026-03-24",
-    "dateShutdown": "2026-09-24",
-    "description": "While the Sora app died in April, the API endpoint survives until September. Then it's gone completely.",
-    "replacement": "None (ChatGPT image gen only)",
-    "killedBy": "OpenAI",
-    "link": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation"
+    "name": "Doubao & Qwen AI Agent Builders",
+    "dateAnnounced": "2026-07-06",
+    "dateShutdown": "2026-07-15",
+    "description": "ByteDance's Doubao and Alibaba's Qwen both kill their AI-agent creation features on July 15. Existing user-built agents stop functioning entirely — timed to China's new Interim Measures for Anthropomorphic AI Interaction Services taking effect the same day.",
+    "replacement": "None",
+    "killedBy": "ByteDance / Alibaba (China regulation)",
+    "link": "https://technode.com/2026/07/06/bytedances-doubao-and-alibabas-qwen-to-shut-down-ai-agent-features-on-july-15/"
   },
   {
     "name": "OpenAI Fine-tuning (new orgs)",
@@ -45,13 +18,40 @@
     "link": "https://developers.openai.com/api/docs/deprecations"
   },
   {
-    "name": "Google Imagen (all models)",
-    "dateAnnounced": "2026-04-24",
-    "dateShutdown": "2026-06-24",
-    "description": "Google's entire Imagen image-generation family is being retired on Vertex AI as native image generation moves into the Gemini 3 models. Apps built on the standalone Imagen endpoints must migrate.",
-    "replacement": "Gemini 3 native image gen",
+    "name": "OpenAI Atlas (AI Browser)",
+    "dateAnnounced": "2026-07-09",
+    "dateShutdown": "2026-08-09",
+    "description": "OpenAI's ChatGPT-powered web browser, launched October 2025, stops working August 9 — less than a year old. The agentic browsing features are being redistributed into ChatGPT's desktop app and a Chrome extension instead.",
+    "replacement": "ChatGPT desktop app + Chrome extension",
+    "killedBy": "OpenAI",
+    "link": "https://techcrunch.com/2026/07/09/openai-is-shutting-down-atlas-but-its-ai-browser-ambitions-are-still-growing/"
+  },
+  {
+    "name": "OpenAI Assistants API",
+    "dateAnnounced": "2025-08-26",
+    "dateShutdown": "2026-08-26",
+    "description": "Persistent AI agents with memory, tools, and file handling. Replaced by the Responses API. Developers face a full rewrite.",
+    "replacement": "Responses API",
+    "killedBy": "OpenAI",
+    "link": "https://community.openai.com/t/assistants-api-beta-deprecation-august-26-2026-sunset/1354666"
+  },
+  {
+    "name": "Sora API",
+    "dateAnnounced": "2026-03-24",
+    "dateShutdown": "2026-09-24",
+    "description": "While the Sora app died in April, the API endpoint survives until September. Then it's gone completely.",
+    "replacement": "None (ChatGPT image gen only)",
+    "killedBy": "OpenAI",
+    "link": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation"
+  },
+  {
+    "name": "Gemini 2.5 Pro / Flash / Flash Lite",
+    "dateAnnounced": "2026-04-01",
+    "dateShutdown": "2026-10-16",
+    "description": "Google's entire Gemini 2.5 family on Vertex AI will be retired no earlier than October 16, 2026.",
+    "replacement": "Gemini 3.x series",
     "killedBy": "Google",
-    "link": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/deprecations"
+    "link": "https://gcpstudyhub.com/blog/google-is-retiring-gemini-2-5-on-vertex-ai-what-you-need-to-know-and-do-before-october-2026"
   },
   {
     "name": "OpenAI Legacy GPT Image Models",

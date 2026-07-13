@@ -1030,16 +1030,27 @@
     "deathType": "model-upgrade"
   },
   {
-    "name": "Claude Fable 5 & Mythos 5",
+    "name": "Claude Fable 5 & Mythos 5 (June Suspension)",
     "dateOpen": "2026-06-09",
     "dateClose": "2026-06-12",
-    "description": "Anthropic's most powerful model ever — a 'Mythos-class' tier above Opus that scored 10%+ higher than Opus 4.8 on major benchmarks. Launched June 9. Pulled June 12. The U.S. government issued a national-security export directive at 5:21pm ET prohibiting use by any foreign national, anywhere. Because the order reached Anthropic's own employees, the only way to comply was to turn it off for everyone. Three days of life — tied with Meta Galactica for shortest-lived frontier AI release.",
+    "description": "Anthropic's most powerful model ever — a 'Mythos-class' tier above Opus that scored 10%+ higher than Opus 4.8. Launched June 9, killed June 12 when the U.S. Commerce Department issued a national-security export directive barring use by any foreign national anywhere — including Anthropic's own staff. The only way to comply was to shut it off for everyone. Dead for 19 days until Commerce lifted the controls on June 30; Fable 5 returned globally on July 1 with a new jailbreak classifier. A rare resurrection — killed by government order, then un-killed.",
     "type": "model",
-    "causeOfDeath": "Government Order",
+    "causeOfDeath": "Government Order (Reversed)",
     "killedBy": "U.S. Government",
-    "link": "https://techcrunch.com/2026/06/12/anthropics-safety-warnings-may-have-just-backfired-the-government-has-pulled-the-plug-on-its-most-powerful-ai/",
-    "collateral": "Developers who integrated Fable 5 during its 3-day window lost access without warning. Free introductory access for Pro/Max/Team/Enterprise users cut short.",
+    "link": "https://9to5google.com/2026/07/01/anthropic-fable-5-returns-to-claude/",
+    "collateral": "Developers who integrated Fable 5 during its 3-day launch window lost access for 19 days with no warning. On its return, bundled access was capped then moved to metered credits on July 7.",
     "deathType": "product-killed"
+  },
+  {
+    "name": "Google Imagen (Vertex AI)",
+    "dateOpen": "2023-06-07",
+    "dateClose": "2026-06-24",
+    "description": "Google's family of text-to-image models on Vertex AI, once the backbone of image generation across Google Cloud and Workspace. Retired June 24, 2026 as native image generation folded directly into the Gemini 3 models. Apps built on the standalone Imagen endpoints were forced to migrate to Gemini's built-in image gen.",
+    "type": "model",
+    "causeOfDeath": "Model Consolidation",
+    "killedBy": "Google",
+    "link": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/deprecations",
+    "deathType": "model-upgrade"
   },
   {
     "name": "Microsoft Clippy",
