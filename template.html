@@ -310,6 +310,7 @@
         }
 
         .lb-bar-wrap {
+            display: block;
             flex: 1;
             height: 6px;
             background: var(--border);
@@ -318,6 +319,7 @@
         }
 
         .lb-bar {
+            display: block;
             height: 100%;
             background: linear-gradient(90deg, #ef4444, #991b1b);
             border-radius: 3px;
@@ -369,6 +371,40 @@
         }
 
         .pace-projected .pace-value { font-size: 1.75rem; }
+
+        .pace-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .pace-link {
+            display: flex;
+            flex-direction: column;
+            gap: 0.125rem;
+            padding: 0.625rem 0.75rem;
+            background: #1c1c1f;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: border-color 0.2s, transform 0.15s;
+        }
+
+        .pace-link:hover { border-color: var(--text-dim); transform: translateY(-1px); }
+
+        .pace-link-val {
+            font-size: 1.125rem;
+            font-weight: 800;
+            font-family: 'SF Mono', 'Cascadia Code', monospace;
+        }
+
+        .pace-link-lbl {
+            font-size: 0.625rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
 
         /* FAQ section */
         .faq-section {
@@ -808,20 +844,19 @@
         .bar-count {
             font-size: 0.625rem;
             font-weight: 700;
-            color: var(--text-dim);
+            color: var(--text-muted);
             font-family: 'SF Mono', 'Cascadia Code', monospace;
             transition: color 0.2s;
-            opacity: 0;
         }
 
         .bar:hover .bar-count,
-        .bar.active .bar-count { opacity: 1; color: var(--red); }
+        .bar.active .bar-count { color: var(--red); }
 
         .bar-fill {
             width: 100%;
             height: var(--bar-height, 0%);
             min-height: 2px;
-            background: linear-gradient(180deg, #3f3f46 0%, #27272a 100%);
+            background: linear-gradient(180deg, #b91c1c 0%, #57140e 100%);
             border-radius: 3px 3px 0 0;
             transition: all 0.25s ease;
         }
@@ -997,6 +1032,16 @@
                     <div class="pace-value">~{{PROJECTED_EOY}}</div>
                     <div class="pace-label">Projected by end of {{CURRENT_YEAR}}</div>
                 </div>
+            </div>
+            <div class="pace-links">
+                <a href="funding.html" class="pace-link">
+                    <span class="pace-link-val" style="color:#f59e0b">${{FUNDING_B}}B</span>
+                    <span class="pace-link-lbl">🔥 VC funding burned</span>
+                </a>
+                <a href="layoffs.html" class="pace-link">
+                    <span class="pace-link-val" style="color:#f97316">{{TOTAL_JOBS_LOST}}</span>
+                    <span class="pace-link-lbl">💼 jobs killed by AI</span>
+                </a>
             </div>
         </div>
     </div>

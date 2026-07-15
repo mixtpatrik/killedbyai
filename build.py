@@ -400,6 +400,7 @@ def main():
               .replace("{{PACE_PER_MONTH}}", str(pace_per_month))
               .replace("{{PROJECTED_EOY}}", str(projected_eoy))
               .replace("{{CURRENT_YEAR}}", str(datetime.utcnow().year))
+              .replace("{{FUNDING_B}}", f"{sum(d.get('fundingM', 0) for d in data) / 1000:.1f}")
               .replace("{{LAST_UPDATED}}", datetime.utcnow().strftime("%B %d, %Y")))
 
     # Inject layoffs stats into main page
