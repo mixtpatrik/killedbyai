@@ -184,6 +184,22 @@
     "source": "https://finance.yahoo.com/sectors/technology/articles/layoffs-accelerate-may-2026-firms-040430218.html"
   },
   {
+    "company": "Intuit",
+    "jobs": 3000,
+    "date": "2026-05-20",
+    "description": "The TurboTax and QuickBooks maker cut 17% of its workforce to 'reduce complexity' and divert resources toward baking AI into its products. Announced the same day as Meta's 8,000 cuts. Signed multi-year deals with Anthropic and OpenAI while showing 3,000 humans the door.",
+    "roles": "Corporate structure, product, various (US workers stay until July 31)",
+    "source": "https://techcrunch.com/2026/05/20/intuit-to-lay-off-over-3000-employees-to-refocus-on-ai/"
+  },
+  {
+    "company": "Cisco",
+    "jobs": 4000,
+    "date": "2026-05-14",
+    "description": "Cut nearly 4,000 jobs one day after reporting record $15.8B quarterly revenue and $5.3B in AI infrastructure orders. CFO said the restructuring realigns resources around silicon, optics, security, and AI. Up to $1B in charges to pay people to leave.",
+    "roles": "Various — restructuring toward AI infrastructure",
+    "source": "https://techcrunch.com/2026/05/14/cisco-cuts-nearly-4000-jobs-to-spend-more-on-ai-reports-record-quarterly-revenue/"
+  },
+  {
     "company": "Microsoft",
     "jobs": 6000,
     "date": "2026-05-13",

@@ -744,18 +744,6 @@
     "deathType": "feature-removed"
   },
   {
-    "name": "OpenAI Assistants API (Beta)",
-    "dateOpen": "2023-11-06",
-    "dateClose": "2026-08-26",
-    "description": "OpenAI's persistent 'assistants' framework that bundled model choice, instructions, file handling, and tool declarations into reusable API objects. Announced at DevDay 2023 alongside GPTs, it never left beta. Being sunset in favor of the newer Responses API, which moved prompt versioning into the dashboard.",
-    "type": "service",
-    "causeOfDeath": "API Consolidation",
-    "killedBy": "OpenAI",
-    "link": "https://community.openai.com/t/assistants-api-beta-deprecation-august-26-2026-sunset/1354666",
-    "collateral": "Developers who built AI agents with persistent memory, file handling, and tool use face a full rewrite to the Responses API.",
-    "deathType": "feature-removed"
-  },
-  {
     "name": "OpenAI for Science",
     "dateOpen": "2025-05-01",
     "dateClose": "2026-04-17",
@@ -1051,6 +1039,53 @@
     "killedBy": "Google",
     "link": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/deprecations",
     "deathType": "model-upgrade"
+  },
+  {
+    "name": "Google Whisk",
+    "dateOpen": "2024-12-03",
+    "dateClose": "2026-04-30",
+    "description": "Google Labs' viral image-remixing tool that let users blend a Subject, Scene, and Style image instead of writing prompts. Its Sticker and Plushie styles briefly took over social media. Killed after 17 months when Google folded it into Flow — continuing its pattern of absorbing experimental AI products into fewer surfaces.",
+    "type": "app",
+    "causeOfDeath": "Feature Absorption",
+    "killedBy": "Google",
+    "link": "https://workspaceupdates.googleblog.com/2026/03/whisk-is-moving-to-flow-on-april-30-2026.html",
+    "deathType": "product-killed"
+  },
+  {
+    "name": "Sourcegraph Cody (Free & Pro)",
+    "dateOpen": "2023-06-28",
+    "dateClose": "2025-07-01",
+    "description": "One of the first serious AI coding assistants, with codebase-aware context that predated most rivals. Sourcegraph killed the free and individual Pro tiers to reposition Cody as enterprise-only — an early signal of AI dev tools abandoning the free-tier growth playbook once inference costs got priced honestly.",
+    "type": "service",
+    "causeOfDeath": "Monetization Pivot",
+    "killedBy": "Sourcegraph",
+    "link": "https://aiagentsquare.com/agents/sourcegraph-cody",
+    "collateral": "Individual developers who built Cody into their daily workflow were left with no non-enterprise option.",
+    "deathType": "feature-removed"
+  },
+  {
+    "name": "TV Time",
+    "dateOpen": "2011-09-01",
+    "dateClose": "2026-07-15",
+    "description": "The beloved TV-tracking app used by millions to log episodes and get recommendations for 15 years. Shut down so its parent company could refocus on AI products — one of the clearest cases of a healthy, loved product dying not from AI competition, but from its owner chasing the AI gold rush.",
+    "type": "app",
+    "causeOfDeath": "AI Pivot",
+    "killedBy": "Its Own Parent Company",
+    "link": "https://techcrunch.com/2026/07/02/popular-tv-tracking-app-tv-time-is-shutting-down-as-company-focuses-on-ai/",
+    "collateral": "Fifteen years of user watch history, ratings, and social connections lost unless manually exported before shutdown.",
+    "deathType": "product-killed"
+  },
+  {
+    "name": "Doubao & Qwen AI Agent Builders",
+    "dateOpen": "2024-05-01",
+    "dateClose": "2026-07-15",
+    "description": "ByteDance's Doubao and Alibaba's Qwen both killed their AI-agent creation features on the same day — July 15, 2026 — as China's Interim Measures for Anthropomorphic AI Interaction Services took effect. Every user-created agent stopped functioning, not just new creation. Two of China's biggest AI platforms amputated a flagship feature simultaneously under regulatory pressure.",
+    "type": "service",
+    "causeOfDeath": "Regulatory Action",
+    "killedBy": "Chinese Government",
+    "link": "https://technode.com/2026/07/06/bytedances-doubao-and-alibabas-qwen-to-shut-down-ai-agent-features-on-july-15/",
+    "collateral": "Millions of user-built agents across both platforms stopped working overnight, with no export or migration path.",
+    "deathType": "feature-removed"
   },
   {
     "name": "Microsoft Clippy",

@@ -1,12 +1,12 @@
 [
   {
-    "name": "Doubao & Qwen AI Agent Builders",
-    "dateAnnounced": "2026-07-06",
-    "dateShutdown": "2026-07-15",
-    "description": "ByteDance's Doubao and Alibaba's Qwen both kill their AI-agent creation features on July 15. Existing user-built agents stop functioning entirely — timed to China's new Interim Measures for Anthropomorphic AI Interaction Services taking effect the same day.",
-    "replacement": "None",
-    "killedBy": "ByteDance / Alibaba (China regulation)",
-    "link": "https://technode.com/2026/07/06/bytedances-doubao-and-alibabas-qwen-to-shut-down-ai-agent-features-on-july-15/"
+    "name": "OpenAI Operator (CUA Preview)",
+    "dateAnnounced": "2026-06-02",
+    "dateShutdown": "2026-07-23",
+    "description": "The preview snapshot of the Computer-Using Agent model behind Operator, OpenAI's browser-controlling agent, shuts down July 23 as part of the summer deprecation wave.",
+    "replacement": "Newer agentic models in ChatGPT",
+    "killedBy": "OpenAI",
+    "link": "https://platform.openai.com/docs/deprecations"
   },
   {
     "name": "OpenAI Fine-tuning (new orgs)",

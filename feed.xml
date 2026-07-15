@@ -5,14 +5,22 @@
     <link>https://mixtpatrik.github.io/killedbyai/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jul 2026 08:25:21 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2026 17:04:07 +0000</lastBuildDate>
     <atom:link href="https://mixtpatrik.github.io/killedbyai/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>OpenAI Assistants API (Beta) — Killed by OpenAI</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#openai-assistants-api-beta</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#openai-assistants-api-beta</guid>
-      <pubDate>Wed, 26 Aug 2026 00:00:00 +0000</pubDate>
-      <description>OpenAI&#x27;s persistent &#x27;assistants&#x27; framework that bundled model choice, instructions, file handling, and tool declarations into reusable API objects. Announced at DevDay 2023 alongside GPTs, it never left beta. Being sunset in favor of the newer Responses API, which moved prompt versioning into the dashboard.</description>
+      <title>TV Time — Killed by Its Own Parent Company</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#tv-time</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#tv-time</guid>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
+      <description>The beloved TV-tracking app used by millions to log episodes and get recommendations for 15 years. Shut down so its parent company could refocus on AI products — one of the clearest cases of a healthy, loved product dying not from AI competition, but from its owner chasing the AI gold rush.</description>
+      <category>app</category>
+    </item>
+    <item>
+      <title>Doubao &amp; Qwen AI Agent Builders — Killed by Chinese Government</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#doubao-qwen-ai-agent-builders</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#doubao-qwen-ai-agent-builders</guid>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
+      <description>ByteDance&#x27;s Doubao and Alibaba&#x27;s Qwen both killed their AI-agent creation features on the same day — July 15, 2026 — as China&#x27;s Interim Measures for Anthropomorphic AI Interaction Services took effect. Every user-created agent stopped functioning, not just new creation. Two of China&#x27;s biggest AI platforms amputated a flagship feature simultaneously under regulatory pressure.</description>
       <category>service</category>
     </item>
     <item>
@@ -101,6 +109,14 @@
       <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#google-doppl</guid>
       <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
       <description>Google Labs&#x27; AI-powered virtual try-on app that let users see how clothes would look on their avatar. Made TIME&#x27;s Best Inventions of 2025 list, then killed less than a year later as the feature was absorbed into Google Shopping search results.</description>
+      <category>app</category>
+    </item>
+    <item>
+      <title>Google Whisk — Killed by Google</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#google-whisk</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#google-whisk</guid>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Google Labs&#x27; viral image-remixing tool that let users blend a Subject, Scene, and Style image instead of writing prompts. Its Sticker and Plushie styles briefly took over social media. Killed after 17 months when Google folded it into Flow — continuing its pattern of absorbing experimental AI products into fewer surfaces.</description>
       <category>app</category>
     </item>
     <item>
@@ -230,22 +246,6 @@
       <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
       <description>Google&#x27;s fast, low-cost multimodal model introduced as the next generation after Gemini 1.5. Deprecated just 14 months after launch as the 2.5 family (Pro, Flash, Flash Lite) took its place — continuing Google&#x27;s pattern of aggressive model refresh cycles.</description>
       <category>model</category>
-    </item>
-    <item>
-      <title>Gmailify — Killed by Google</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#gmailify</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#gmailify</guid>
-      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
-      <description>Google&#x27;s feature that let users link Yahoo, Outlook, and other email accounts to Gmail and benefit from its spam filtering, inbox categories, and organization. Quietly discontinued after a decade, stranding users who relied on it to manage multiple email accounts from one interface.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Limitless Pendant (Rewind AI) — Killed by Meta</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#limitless-pendant-rewind-ai</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#limitless-pendant-rewind-ai</guid>
-      <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
-      <description>A $99 AI wearable pendant that recorded and transcribed in-person conversations, previously known as Rewind. Meta acquired the company and immediately ended hardware sales, sunset the desktop app, and cut off EU/UK service entirely due to GDPR concerns.</description>
-      <category>hardware</category>
     </item>
   </channel>
 </rss>
