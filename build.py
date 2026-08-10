@@ -358,13 +358,80 @@ def build_timeline(items):
     return "\n".join(bars), min_y, max_y, max_count
 
 
+VALID_DEATH_TYPES = {
+    "model-upgrade", "product-killed", "startup-failed",
+    "acqui-hired", "feature-removed", "hardware-failed",
+}
+VALID_TYPES = {"app", "model", "service", "startup", "hardware"}
+GRAVEYARD_REQUIRED = (
+    "name", "dateOpen", "dateClose", "description",
+    "type", "causeOfDeath", "killedBy", "link",
+)
+
+
+def validate(data, ldata, cs_data):
+    """Data hygiene checks. Returns a list of human-readable warnings.
+
+    These encode the failure modes that have actually bitten this project:
+    entries buried in the graveyard before they died, coming-soon items that
+    quietly expired, and duplicate rows silently inflating the totals.
+    """
+    today = datetime.utcnow().strftime("%Y-%m-%d")
+    warnings = []
+
+    seen = set()
+    for item in data:
+        name = item.get("name", "<unnamed>")
+        if name in seen:
+            warnings.append(f"graveyard: duplicate entry '{name}'")
+        seen.add(name)
+
+        for field in GRAVEYARD_REQUIRED:
+            if not item.get(field):
+                warnings.append(f"graveyard: '{name}' missing required field '{field}'")
+
+        if item.get("dateClose", "") > today:
+            warnings.append(
+                f"graveyard: '{name}' dies {item['dateClose']} (future) — "
+                f"it belongs in coming-soon.json until then"
+            )
+        if item.get("dateOpen") and item.get("dateClose") and item["dateClose"] <= item["dateOpen"]:
+            warnings.append(
+                f"graveyard: '{name}' closes {item['dateClose']} on/before it opened {item['dateOpen']}"
+            )
+        if item.get("deathType") not in VALID_DEATH_TYPES:
+            warnings.append(f"graveyard: '{name}' has invalid deathType '{item.get('deathType')}'")
+        if item.get("type") not in VALID_TYPES:
+            warnings.append(f"graveyard: '{name}' has invalid type '{item.get('type')}'")
+
+    graveyard_names = {i.get("name", "").lower() for i in data}
+    for item in cs_data:
+        name = item.get("name", "<unnamed>")
+        if item.get("dateShutdown", "") < today:
+            warnings.append(
+                f"coming-soon: '{name}' died {item['dateShutdown']} — move it to graveyard.json"
+            )
+        if name.lower() in graveyard_names:
+            warnings.append(f"coming-soon: '{name}' is already in the graveyard — remove one")
+
+    layoff_keys = set()
+    for item in ldata:
+        key = (item.get("company"), item.get("date"))
+        if key in layoff_keys:
+            warnings.append(
+                f"layoffs: duplicate '{item.get('company')}' on {item.get('date')} — inflates the job total"
+            )
+        layoff_keys.add(key)
+
+    return warnings
+
+
 def main():
     data = json.loads((ROOT / "graveyard.json").read_text())
     template = (ROOT / "template.html").read_text()
 
     cards_html = "\n".join(render_card(item) for item in data)
     jsonld = json.dumps(build_jsonld(data), indent=2)
-    data_json = json.dumps(data, separators=(",", ":"))
     timeline_html, min_year, max_year, max_count = build_timeline(data)
     stats = build_stats(data)
     faq_schema, faq_html = build_faq(data)
@@ -380,7 +447,6 @@ def main():
               .replace("{{JSONLD}}", jsonld)
               .replace("{{FAQ_JSONLD}}", json.dumps(faq_schema, indent=2))
               .replace("{{FAQ_HTML}}", faq_html)
-              .replace("{{DATA_JSON}}", data_json)
               .replace("{{COUNT}}", str(len(data)))
               .replace("{{TIMELINE}}", timeline_html)
               .replace("{{YEAR_RANGE}}", f"{min_year}–{max_year}")
@@ -567,6 +633,16 @@ def main():
 
     print(f"Built index.html with {len(data)} entries")
     print("Generated sitemap.xml, robots.txt, feed.xml")
+
+    ldata_for_check = json.loads((ROOT / "layoffs.json").read_text()) if (ROOT / "layoffs.json").exists() else []
+    cs_for_check = json.loads((ROOT / "coming-soon.json").read_text()) if (ROOT / "coming-soon.json").exists() else []
+    warnings = validate(data, ldata_for_check, cs_for_check)
+    if warnings:
+        print(f"\n⚠️  {len(warnings)} data warning(s):")
+        for w in warnings:
+            print(f"   - {w}")
+    else:
+        print("✓ Data checks passed")
 
 
 if __name__ == "__main__":
