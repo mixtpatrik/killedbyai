@@ -1,30 +1,12 @@
 [
   {
-    "name": "OpenAI Operator (CUA Preview)",
-    "dateAnnounced": "2026-06-02",
-    "dateShutdown": "2026-07-23",
-    "description": "The preview snapshot of the Computer-Using Agent model behind Operator, OpenAI's browser-controlling agent, shuts down July 23 as part of the summer deprecation wave.",
-    "replacement": "Newer agentic models in ChatGPT",
-    "killedBy": "OpenAI",
-    "link": "https://platform.openai.com/docs/deprecations"
-  },
-  {
     "name": "OpenAI Fine-tuning (new orgs)",
     "dateAnnounced": "2026-05-07",
-    "dateShutdown": "2026-07-23",
-    "description": "New organizations can no longer create fine-tuning jobs. Existing jobs will stop on July 23, with a second wave October 23.",
+    "dateShutdown": "2026-10-23",
+    "description": "New organizations can no longer create fine-tuning jobs. The first wave executed on schedule July 23, 2026; the second takes every remaining fine-tuned model — ft-gpt-3.5-turbo, ft-gpt-4, ft-gpt-4.1-nano, ft-babbage-002 and ft-davinci-002 — on October 23.",
     "replacement": "Prompt caching / system prompts",
     "killedBy": "OpenAI",
     "link": "https://developers.openai.com/api/docs/deprecations"
-  },
-  {
-    "name": "OpenAI Atlas (AI Browser)",
-    "dateAnnounced": "2026-07-09",
-    "dateShutdown": "2026-08-09",
-    "description": "OpenAI's ChatGPT-powered web browser, launched October 2025, stops working August 9 — less than a year old. The agentic browsing features are being redistributed into ChatGPT's desktop app and a Chrome extension instead.",
-    "replacement": "ChatGPT desktop app + Chrome extension",
-    "killedBy": "OpenAI",
-    "link": "https://techcrunch.com/2026/07/09/openai-is-shutting-down-atlas-but-its-ai-browser-ambitions-are-still-growing/"
   },
   {
     "name": "OpenAI Assistants API",
@@ -45,13 +27,13 @@
     "link": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation"
   },
   {
-    "name": "Gemini 2.5 Pro / Flash / Flash Lite",
+    "name": "Gemini 2.5 Pro / Flash / Flash Lite (Vertex AI)",
     "dateAnnounced": "2026-04-01",
     "dateShutdown": "2026-10-16",
-    "description": "Google's entire Gemini 2.5 family on Vertex AI will be retired no earlier than October 16, 2026.",
+    "description": "Google's entire Gemini 2.5 family retires on Vertex AI no earlier than October 16, 2026. Note this is Vertex-only — the Gemini Developer API still lists no shutdown date for the same three models.",
     "replacement": "Gemini 3.x series",
     "killedBy": "Google",
-    "link": "https://gcpstudyhub.com/blog/google-is-retiring-gemini-2-5-on-vertex-ai-what-you-need-to-know-and-do-before-october-2026"
+    "link": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/deprecations"
   },
   {
     "name": "OpenAI Legacy GPT Image Models",
@@ -61,5 +43,131 @@
     "replacement": "GPT Image 1.5",
     "killedBy": "OpenAI",
     "link": "https://platform.openai.com/docs/deprecations"
+  },
+  {
+    "name": "Google Imagen 4.0 (Gemini API)",
+    "dateAnnounced": "2026-06-17",
+    "dateShutdown": "2026-08-17",
+    "description": "All three Imagen 4.0 variants on the Gemini API — generate, ultra and fast — dead in under 14 months. Google already slipped this date once. Best part: the pricing-page banner tells you to migrate to Gemini 2.5 Flash Image, which is itself deprecated with an October shutdown — an evacuation route into a building that's also on fire.",
+    "replacement": "gemini-3.1-flash-image",
+    "killedBy": "Google",
+    "link": "https://ai.google.dev/gemini-api/docs/deprecations"
+  },
+  {
+    "name": "Groq Llama 3.1 8B Instant & Llama 3.3 70B Versatile",
+    "dateAnnounced": "2026-06-17",
+    "dateShutdown": "2026-08-16",
+    "description": "Groq emailed users in June; the models stop answering August 16. Free and developer tiers only — committed-spend enterprise contracts are exempt. llama-3.3-70b-versatile was the only free-tier model with enough headroom for a lot of production prompts, and nothing left in the free catalog replaces it.",
+    "replacement": "openai/gpt-oss-20b, gpt-oss-120b, qwen/qwen3.6-27b",
+    "killedBy": "Groq",
+    "link": "https://console.groq.com/docs/deprecations"
+  },
+  {
+    "name": "Cohere Command R & Command R+ on Amazon Bedrock",
+    "dateAnnounced": "2026-02-19",
+    "dateShutdown": "2026-08-19",
+    "description": "The RAG-and-tool-use pair AWS launched on Bedrock in April 2024 both hit end-of-life at 08:00 UTC, after a staged wind-down: legacy in February, new customers cut off in May, hard kill in August. AWS names no replacement for either. Cohere had already pulled the originals from its own API back in September 2025.",
+    "replacement": "None named",
+    "killedBy": "AWS",
+    "link": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html"
+  },
+  {
+    "name": "Claude 3 Haiku on Google Cloud",
+    "dateAnnounced": "2026-02-23",
+    "dateShutdown": "2026-08-23",
+    "description": "Deprecated since February and available to existing customers only, Claude 3 Haiku clears off Google Cloud on August 23 — the last Claude 3-generation model on the platform. The absurd part: Anthropic itself retired claude-3-haiku back on April 20, 2026. Google kept serving a model its maker had already killed for another four months.",
+    "replacement": "Claude 4.x on Vertex",
+    "killedBy": "Google Cloud",
+    "link": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/partner-models"
+  },
+  {
+    "name": "Gemini Robotics-ER 1.6 Preview",
+    "dateAnnounced": "2026-07-31",
+    "dateShutdown": "2026-08-31",
+    "description": "Released April 14, 2026. Scheduled for deletion August 31, 2026. A 139-day lifespan, and it never left preview. It killed its own predecessor, ER 1.5, on April 30 — meaning Google will have retired two embodied-reasoning robotics models inside five months, neither of which ever reached GA.",
+    "replacement": "gemini-robotics-er-2-preview",
+    "killedBy": "Google DeepMind",
+    "link": "https://ai.google.dev/gemini-api/docs/deprecations"
+  },
+  {
+    "name": "Mistral Medium 3 & 3.1",
+    "dateAnnounced": "2026-05-22",
+    "dateShutdown": "2026-08-31",
+    "description": "Both retire the same day. Medium 3.1 shipped in August 2025 and dies almost exactly a year later.",
+    "replacement": "Mistral Medium 3.5",
+    "killedBy": "Mistral",
+    "link": "https://github.com/mistralai/platform-docs-public"
+  },
+  {
+    "name": "OpenAI davinci-002, babbage-002 & gpt-3.5-turbo-instruct",
+    "dateAnnounced": "2025-09-26",
+    "dateShutdown": "2026-09-28",
+    "description": "The end of the GPT-3 base-model lineage. These three shipped in August 2023, inherited the job when the original ada/babbage/curie/davinci died in January 2024, and are the last models served over the legacy /v1/completions endpoint. Their own fine-tuned versions outlive them by 25 days.",
+    "replacement": "gpt-5.6-terra",
+    "killedBy": "OpenAI",
+    "link": "https://developers.openai.com/api/docs/deprecations"
+  },
+  {
+    "name": "Mistral Leanstral 1.5",
+    "dateAnnounced": "2026-06-30",
+    "dateShutdown": "2026-09-30",
+    "description": "Mistral announced this Lean 4 formal-proof model's death in the same sentence that announced its birth. The changelog reads: 'We released Leanstral 1.5... This model will be retired on September 30, 2026.' A 92-day advertised lifespan, dead on arrival by design.",
+    "replacement": "None named",
+    "killedBy": "Mistral",
+    "link": "https://github.com/mistralai/platform-docs-public"
+  },
+  {
+    "name": "Google Gemini 2.5 Flash Image (\"Nano Banana\")",
+    "dateAnnounced": "2026-05-26",
+    "dateShutdown": "2026-10-02",
+    "description": "The image model that went viral as 'Nano Banana' and briefly made Gemini the #1 free iPhone app shuts down exactly one year after release, to the day. Google's officially recommended replacement, gemini-3.1-flash-image-preview, was itself shut down in June 2026. The migration target is dead; the model isn't yet.",
+    "replacement": "gemini-3.1-flash-image-preview (already retired)",
+    "killedBy": "Google",
+    "link": "https://ai.google.dev/gemini-api/docs/deprecations"
+  },
+  {
+    "name": "Azure OpenAI GPT-4.1, 4.1 mini & 4.1 nano",
+    "dateAnnounced": "2026-04-14",
+    "dateShutdown": "2026-10-14",
+    "description": "GPT-4.1 launched April 2025 as OpenAI's 'best model for coding' with a 1M-token context window. Azure retires it, plus mini and nano, after 18 months. Fine-tuned deployments on the same bases get a one-year stay of execution.",
+    "replacement": "gpt-5 / gpt-5-mini / gpt-5-nano",
+    "killedBy": "Microsoft Azure",
+    "link": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements"
+  },
+  {
+    "name": "Azure OpenAI o-series (o1, o3, o4-mini, o3-pro)",
+    "dateAnnounced": "2026-07-29",
+    "dateShutdown": "2026-10-21",
+    "description": "Azure deletes an entire generation of reasoning models in under 90 days: o3-mini October 1, o4-mini October 16, o1/o1-pro/o3 October 21, codex-mini November 15, o3-pro December 17. Four have no named replacement — Microsoft declares one only 90 to 120 days out, because 'declaring a replacement too early risks directing customers to a model that is no longer the best available option.'",
+    "replacement": "gpt-5.6-sol (partial); several unnamed",
+    "killedBy": "Microsoft Azure",
+    "link": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule"
+  },
+  {
+    "name": "OpenAI GPT-4, GPT-4 Turbo, GPT-3.5 Turbo & the o-series",
+    "dateAnnounced": "2026-04-22",
+    "dateShutdown": "2026-10-23",
+    "description": "One date kills three eras. On October 23, OpenAI removes gpt-3.5-turbo (the engine that launched ChatGPT), gpt-4 and gpt-4-0613 (the model that defined 2023), and its entire first generation of reasoning models — o1, o1-pro, o3-mini, o4-mini — plus gpt-4o-2024-05-13 and gpt-image-1. Every fine-tune built on them dies the same day. Seventeen table rows, six months' notice.",
+    "replacement": "gpt-5.5 / gpt-5.4-mini / gpt-5.4-nano / gpt-image-2",
+    "killedBy": "OpenAI",
+    "link": "https://developers.openai.com/api/docs/deprecations"
+  },
+  {
+    "name": "OpenAI GPT-5 (original snapshots), o3 & o3-pro",
+    "dateAnnounced": "2026-06-11",
+    "dateShutdown": "2026-12-11",
+    "description": "The original GPT-5 launch snapshots — gpt-5-2025-08-07 and its mini, nano and pro siblings — plus o3 and o3-pro shut down December 11. GPT-5 launched in August 2025 as the 'PhD-level expert' model. Its launch snapshot gets 16 months before it starts returning errors.",
+    "replacement": "gpt-5.6-sol / gpt-5.6-terra / gpt-5.6-luna",
+    "killedBy": "OpenAI",
+    "link": "https://developers.openai.com/api/docs/deprecations"
+  },
+  {
+    "name": "OpenAI Realtime & Audio Model Family",
+    "dateAnnounced": "2026-07-20",
+    "dateShutdown": "2027-01-20",
+    "description": "OpenAI put its entire GA voice stack on death row: gpt-realtime, gpt-audio, gpt-realtime-mini, gpt-audio-mini and all four gpt-4o audio/realtime variants. gpt-realtime and gpt-audio went GA in August 2025 — the models that headlined 'production-ready voice agents' get roughly 17 months. OpenAI is skipping its own intermediate generation: the 1.5 series shipped in February 2026 and the named replacement is already 2.1.",
+    "replacement": "gpt-realtime-2.1 / gpt-realtime-2.1-mini / gpt-audio-1.5",
+    "killedBy": "OpenAI",
+    "link": "https://developers.openai.com/api/docs/deprecations"
   }
 ]

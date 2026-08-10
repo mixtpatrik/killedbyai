@@ -214,5 +214,13 @@
     "description": "Cut 8.5% of its 20,500-person workforce. CEO Carl Eschenbach said the company was 'eating its own cooking' — using Workday's own AI to automate the HR and finance work its employees once did. One of the more ironic AI layoffs: the company building workforce AI software replacing its own workforce with AI.",
     "roles": "Professional services, sales, HR operations",
     "source": "https://techcrunch.com/2026/01/13/workday-to-cut-about-1750-jobs-as-it-doubles-down-on-ai/"
+  },
+  {
+    "company": "Uber",
+    "jobs": 41,
+    "date": "2026-07-22",
+    "description": "Cut roughly 10% of Community Operations — the support arm covering riders, drivers and delivery partners — in the first headcount reduction Uber has ever attributed directly to AI. Bloomberg's headline: 'Uber Cuts 10% of Customer Service Jobs, Citing Embrace of AI.' Remaining remote staff in the division were also ordered to relocate to hub offices. Only the 41-person California WARN filing is public; the global total is undisclosed and larger.",
+    "roles": "Customer support / Community Operations; remaining remote roles forced back to hub offices",
+    "source": "https://www.businessinsider.com/uber-layoffs-ai-prompts-cuts-to-customer-service-jobs-2026-7"
   }
 ]

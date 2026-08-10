@@ -1097,5 +1097,117 @@
     "killedBy": "Microsoft",
     "link": "https://en.wikipedia.org/wiki/Office_Assistant",
     "deathType": "product-killed"
+  },
+  {
+    "name": "OpenAI Atlas",
+    "dateOpen": "2025-10-21",
+    "dateClose": "2026-08-09",
+    "description": "OpenAI's ChatGPT-powered web browser, launched October 2025 as its bid to own the browsing layer. Dead in under ten months. OpenAI absorbed the agentic browsing into ChatGPT and a Chrome extension instead. Bookmarks did not transfer automatically — users had to manually export them as HTML before the deadline or lose them, and open tabs and history simply didn't carry over.",
+    "type": "app",
+    "causeOfDeath": "Strategic Retreat",
+    "killedBy": "OpenAI",
+    "link": "https://help.openai.com/en/articles/20001371-evolving-atlas-into-chatgpt-for-browser-based-agentic-work",
+    "collateral": "Bookmarks required manual HTML export before August 9. Open tabs and browsing history were not migrated at all.",
+    "deathType": "product-killed"
+  },
+  {
+    "name": "GitHub Models",
+    "dateOpen": "2024-08-01",
+    "dateClose": "2026-07-30",
+    "description": "GitHub's free multi-model playground and inference API — Llama 3.1, GPT-4o, Cohere Command and Mistral Large, all callable with just a GitHub token. GitHub closed it to new customers in June 2026, then ran two deliberate 'brownouts' on July 16 and 23 where requests simply returned errors, to smoke out anyone still depending on it. On July 30 everything went dark, including for existing paying customers. Free model experimentation went back to being a cloud-procurement decision.",
+    "type": "service",
+    "causeOfDeath": "Strategic Consolidation",
+    "killedBy": "GitHub",
+    "link": "https://github.blog/changelog/2026-07-30-github-models-is-now-retired/",
+    "collateral": "No grandfathering and no paid escape hatch. Projects that prototyped against a GitHub token had to migrate to a billed cloud provider.",
+    "deathType": "product-killed"
+  },
+  {
+    "name": "Meta Llama API",
+    "dateOpen": "2025-04-29",
+    "dateClose": "2026-07-06",
+    "description": "Meta's own hosted home for Llama inference, unveiled at the first-ever LlamaCon in April 2025. Fourteen months later Meta retired the public preview and told developers to go rent Llama from AWS Bedrock, Together AI or Groq instead. Its replacement hosted service serves closed-weight models — cloud-only, no downloadable weights. The company that built its reputation on open models kept the API business and dropped the open part.",
+    "type": "service",
+    "causeOfDeath": "Strategy Pivot",
+    "killedBy": "Meta",
+    "link": "https://llama.developer.meta.com/docs/llama-api-deprecation/",
+    "deathType": "product-killed"
+  },
+  {
+    "name": "Amazon Bedrock Agents (Classic)",
+    "dateOpen": "2023-11-28",
+    "dateClose": "2026-07-30",
+    "description": "AWS's flagship managed AI-agent product, launched at re:Invent 2023, was renamed 'Bedrock Agents Classic' and shoved into maintenance mode — closed to new customers, model catalog frozen, superseded by Bedrock AgentCore. New accounts calling CreateAgent now get a 403 citing maintenance mode. AWS broke its own CDK integration tests in the process and swapped the agent resource for a CloudWatch dashboard. One of roughly 20 services swept into maintenance in a single bulletin.",
+    "type": "service",
+    "causeOfDeath": "Maintenance Mode",
+    "killedBy": "AWS",
+    "link": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html",
+    "deathType": "product-killed"
+  },
+  {
+    "name": "OpenAI Operator (CUA Preview)",
+    "dateOpen": "2025-01-23",
+    "dateClose": "2026-07-23",
+    "description": "OpenAI's Computer-Using Agent — the model that clicked, scrolled and typed its way around websites on your behalf. Shut down July 23, 2026 as part of a 14-model cull that also took gpt-5-codex, gpt-5.1-codex-max and gpt-5.2-codex. The whole computer-use preview line died in a single afternoon, eighteen months after it was billed as the future of agentic AI.",
+    "type": "service",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "OpenAI",
+    "link": "https://developers.openai.com/api/docs/deprecations",
+    "deathType": "feature-removed"
+  },
+  {
+    "name": "Claude Opus 4.1",
+    "dateOpen": "2025-08-05",
+    "dateClose": "2026-08-05",
+    "description": "Retired exactly one year to the day after release — the model ID carries its own birthday, claude-opus-4-1-20250805. Anthropic gave 61 days' notice, one day above its stated 60-day minimum. It was the second flagship retirement in under two months after Sonnet 4 and Opus 4 both died June 15. Anthropic's own deprecation page concedes that retirement means researchers lose access for comparative studies and that it 'introduces safety- and model welfare-related risks.'",
+    "type": "model",
+    "causeOfDeath": "Scheduled Retirement",
+    "killedBy": "Anthropic",
+    "link": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+    "deathType": "model-upgrade"
+  },
+  {
+    "name": "DeepSeek deepseek-chat & deepseek-reasoner",
+    "dateOpen": "2025-01-20",
+    "dateClose": "2026-07-24",
+    "description": "The two API names the entire January 2025 DeepSeek boom was written against. DeepSeek killed them at 15:59 UTC on July 24, telling developers to call deepseek-v4-flash and toggle thinking mode in the request instead of switching model IDs. The migration notes promised the retired names would 'return 404.' They never did — weeks past the hard cutoff, third-party clients still had both names working as silent aliases, priced identically.",
+    "type": "model",
+    "causeOfDeath": "Renamed to Death",
+    "killedBy": "DeepSeek",
+    "link": "https://api-docs.deepseek.com/updates/",
+    "deathType": "model-upgrade"
+  },
+  {
+    "name": "Mistral Magistral",
+    "dateOpen": "2025-06-10",
+    "dateClose": "2026-07-31",
+    "description": "Mistral's first reasoning models, shipped June 2025 as a separate product line. On July 31, 2026 the last two snapshots were retired — and with them the entire category. Reasoning at Mistral is now just a request parameter, reasoning_effort, on general-purpose models. The official migration path runs from magistral-small-latest to mistral-small-latest, a one-letter difference, at roughly 70% less on input.",
+    "type": "model",
+    "causeOfDeath": "Category Collapse",
+    "killedBy": "Mistral",
+    "link": "https://docs.mistral.ai/models/model-cards/magistral-small-1-2-25-09",
+    "deathType": "model-upgrade"
+  },
+  {
+    "name": "Groq Qwen3-32B & Llama 4 Scout",
+    "dateOpen": "2025-04-05",
+    "dateClose": "2026-07-17",
+    "description": "Groq deleted qwen/qwen3-32b and meta-llama/llama-4-scout-17b-16e-instruct on July 17, 2026 — the first half of a two-stage cull that takes Llama 3.1 8B Instant and Llama 3.3 70B Versatile in August. The best-documented failure mode: a retired Groq model fails quietly, so downstream apps didn't break, they just started sounding generic.",
+    "type": "model",
+    "causeOfDeath": "Catalog Pruning",
+    "killedBy": "Groq",
+    "link": "https://console.groq.com/docs/deprecations",
+    "deathType": "model-upgrade"
+  },
+  {
+    "name": "Relay.app",
+    "dateOpen": "2021-01-01",
+    "dateClose": "2026-07-16",
+    "description": "AI-agent workflow automation, founded by Jacob Bank — ex-Google Gmail and Calendar product lead whose previous startup Timeful was bought by Google. On July 16, 2026 the homepage was simply replaced with 'Relay.app is shutting down.' No reason, no acquirer, no acqui-hire announcement. The blog is still live and still ranking, including a post titled 'The 10 best AI agent builders in 2026 (Tested).'",
+    "type": "startup",
+    "causeOfDeath": "Quiet Shutdown",
+    "killedBy": "Undisclosed",
+    "link": "https://www.relay.app/",
+    "deathType": "startup-failed"
   }
 ]
