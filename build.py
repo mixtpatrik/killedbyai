@@ -115,8 +115,18 @@ def build_jsonld(items):
         "@context": "https://schema.org",
         "@graph": [
             {
+                "@type": "Organization",
+                "@id": SITE_URL + "#org",
+                "name": "Killed by AI",
+                "url": SITE_URL,
+                "logo": SITE_URL + "og-image.png",
+                "founder": {"@type": "Person", "name": "Patrik Rojan"},
+                "sameAs": ["https://github.com/mixtpatrik/killedbyai"],
+            },
+            {
                 "@type": "WebSite",
                 "@id": SITE_URL + "#website",
+                "publisher": {"@id": SITE_URL + "#org"},
                 "url": SITE_URL,
                 "name": "Killed by AI",
                 "description": "A digital cemetery for discontinued AI models, apps, startups, and hardware.",
@@ -426,6 +436,153 @@ def validate(data, ldata, cs_data):
     return warnings
 
 
+REDIRECT_STUB = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Redirecting to {target}</title>
+<link rel="canonical" href="{target}">
+<meta name="robots" content="noindex, follow">
+<meta http-equiv="refresh" content="0; url={target}">
+<script>location.replace("{target}" + location.search + location.hash);</script>
+</head>
+<body><p>This page has moved to <a href="{target}">{target}</a>.</p></body>
+</html>
+"""
+
+
+def publish(slug, html):
+    """Write a page at /slug/ and leave a redirect stub at the legacy /slug.html.
+
+    GitHub Pages serves any .html file at both /slug and /slug.html, which is
+    duplicate content we cannot fix server-side (no .htaccess, no _redirects).
+    Serving the real page from a directory gives one canonical URL, and the
+    stub collapses the old extension onto it.
+    """
+    d = ROOT / slug
+    d.mkdir(exist_ok=True)
+    (d / "index.html").write_text(html)
+    (ROOT / f"{slug}.html").write_text(REDIRECT_STUB.format(target=f"{SITE_URL}{slug}/"))
+
+
+def build_breadcrumb(name, slug):
+    """BreadcrumbList so Google shows Home > Section instead of a bare URL."""
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL},
+            {"@type": "ListItem", "position": 2, "name": name, "item": f"{SITE_URL}{slug}/"},
+        ],
+    }
+
+
+def build_layoffs_jsonld(ldata):
+    """Dataset + ItemList for the layoffs page."""
+    total = sum(l["jobs"] for l in ldata)
+    items = [
+        {
+            "@type": "ListItem",
+            "position": i,
+            "item": {
+                "@type": "Thing",
+                "name": f'{l["company"]} — {l["jobs"]:,} jobs cut',
+                "description": l["description"],
+                "additionalProperty": [
+                    {"@type": "PropertyValue", "name": "Jobs cut", "value": l["jobs"]},
+                    {"@type": "PropertyValue", "name": "Date announced", "value": l["date"]},
+                    {"@type": "PropertyValue", "name": "Roles affected", "value": l["roles"]},
+                ],
+            },
+        }
+        for i, l in enumerate(sorted(ldata, key=lambda x: -x["jobs"]), 1)
+    ]
+    return {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Dataset",
+                "name": "AI-Attributed Layoffs Tracker",
+                "description": (
+                    f"{total:,} jobs cut across {len(ldata)} companies that explicitly cited AI, "
+                    "automation, or an AI-first strategy as a reason."
+                ),
+                "url": SITE_URL + "layoffs/",
+                "keywords": "AI layoffs, jobs killed by AI, AI job cuts, automation layoffs, AI unemployment",
+                "creator": {"@type": "Person", "name": "Patrik Rojan"},
+                "distribution": {
+                    "@type": "DataDownload",
+                    "encodingFormat": "application/json",
+                    "contentUrl": SITE_URL + "layoffs.json",
+                },
+            },
+            {"@type": "ItemList", "numberOfItems": len(ldata), "itemListElement": items},
+        ],
+    }
+
+
+def build_coming_soon_jsonld(cs_data):
+    """ItemList of scheduled shutdowns, each with its announced death date."""
+    items = [
+        {
+            "@type": "ListItem",
+            "position": i,
+            "item": {
+                "@type": "Thing",
+                "name": c["name"],
+                "description": c["description"],
+                "additionalProperty": [
+                    {"@type": "PropertyValue", "name": "Shutdown date", "value": c["dateShutdown"]},
+                    {"@type": "PropertyValue", "name": "Announced", "value": c["dateAnnounced"]},
+                    {"@type": "PropertyValue", "name": "Replacement", "value": c["replacement"]},
+                    {"@type": "PropertyValue", "name": "Killed by", "value": c["killedBy"]},
+                ],
+            },
+        }
+        for i, c in enumerate(sorted(cs_data, key=lambda x: x["dateShutdown"]), 1)
+    ]
+    return {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Dataset",
+                "name": "Upcoming AI Product Shutdowns",
+                "description": f"{len(cs_data)} AI products and models with publicly confirmed shutdown dates.",
+                "url": SITE_URL + "coming-soon/",
+                "keywords": "AI deprecation schedule, upcoming AI shutdowns, model retirement dates, AI sunset",
+                "creator": {"@type": "Person", "name": "Patrik Rojan"},
+                "distribution": {
+                    "@type": "DataDownload",
+                    "encodingFormat": "application/json",
+                    "contentUrl": SITE_URL + "coming-soon.json",
+                },
+            },
+            {"@type": "ItemList", "numberOfItems": len(cs_data), "itemListElement": items},
+        ],
+    }
+
+
+def build_funding_jsonld(funded, total_b):
+    """Dataset for the funding page."""
+    return {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "VC Funding Burned by Failed AI Startups",
+        "description": (
+            f"${total_b} billion in venture capital raised by {len(funded)} AI startups that shut down, "
+            "were acqui-hired into oblivion, or ran out of money."
+        ),
+        "url": SITE_URL + "funding/",
+        "keywords": "failed AI startups, AI startup failures, VC funding burned, AI bubble, wasted venture capital",
+        "creator": {"@type": "Person", "name": "Patrik Rojan"},
+        "distribution": {
+            "@type": "DataDownload",
+            "encodingFormat": "application/json",
+            "contentUrl": SITE_URL + "graveyard.json",
+        },
+    }
+
+
 def main():
     data = json.loads((ROOT / "graveyard.json").read_text())
     template = (ROOT / "template.html").read_text()
@@ -523,12 +680,14 @@ def main():
         year_stats = " | ".join(f"{y}: {c:,}" for y, c in sorted(by_year.items()))
 
         layoffs_out = (layoffs_template
-                       .replace("{{ROWS}}", rows_html)
+                       .replace("{{JSONLD}}", json.dumps(build_layoffs_jsonld(ldata), indent=2))
+                  .replace("{{BREADCRUMB}}", json.dumps(build_breadcrumb("Employee Graveyard", "layoffs"), indent=2))
+                  .replace("{{ROWS}}", rows_html)
                        .replace("{{TOTAL_JOBS}}", f"{total_jobs:,}")
                        .replace("{{TOTAL_COMPANIES}}", str(total_companies))
                        .replace("{{YEAR_STATS}}", year_stats)
                        .replace("{{LAST_UPDATED}}", datetime.utcnow().strftime("%B %d, %Y")))
-        (ROOT / "layoffs.html").write_text(layoffs_out)
+        publish("layoffs", layoffs_out)
         print(f"Built layoffs.html with {total_companies} companies, {total_jobs:,} jobs")
 
     # Build Funding Burned page
@@ -563,11 +722,13 @@ def main():
         )
 
         fund_out = (fund_template
+                    .replace("{{JSONLD}}", json.dumps(build_funding_jsonld(funded, total_b), indent=2))
+                    .replace("{{BREADCRUMB}}", json.dumps(build_breadcrumb("Funding Burned", "funding"), indent=2))
                     .replace("{{ROWS}}", fund_rows)
                     .replace("{{TOTAL_B}}", total_b)
                     .replace("{{COUNT}}", str(len(funded)))
                     .replace("{{LAST_UPDATED}}", datetime.utcnow().strftime("%B %d, %Y")))
-        (ROOT / "funding.html").write_text(fund_out)
+        publish("funding", fund_out)
         print(f"Built funding.html: ${total_b}B across {len(funded)} startups")
 
     # Build Coming Soon page
@@ -606,19 +767,21 @@ def main():
             )
 
         cs_out = (cs_template
+                  .replace("{{JSONLD}}", json.dumps(build_coming_soon_jsonld(cs_data), indent=2))
+                  .replace("{{BREADCRUMB}}", json.dumps(build_breadcrumb("Coming Soon", "coming-soon"), indent=2))
                   .replace("{{ROWS}}", "\n".join(cs_rows))
                   .replace("{{COUNT}}", str(len(cs_sorted))))
-        (ROOT / "coming-soon.html").write_text(cs_out)
+        publish("coming-soon", cs_out)
         print(f"Built coming-soon.html with {len(cs_sorted)} entries")
 
     # Build sitemap
     today = datetime.utcnow().strftime("%Y-%m-%d")
     pages = [
         (SITE_URL, "1.0"),
-        (SITE_URL + "layoffs.html", "0.8"),
-        (SITE_URL + "funding.html", "0.8"),
-        (SITE_URL + "coming-soon.html", "0.8"),
-        (SITE_URL + "api.html", "0.6"),
+        (SITE_URL + "layoffs/", "0.8"),
+        (SITE_URL + "funding/", "0.8"),
+        (SITE_URL + "coming-soon/", "0.8"),
+        (SITE_URL + "api/", "0.6"),
     ]
     sitemap_urls = "\n".join(
         f"  <url>\n    <loc>{url}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>{prio}</priority>\n  </url>"

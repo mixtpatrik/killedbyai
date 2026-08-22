@@ -11,8 +11,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Killed by AI — The AI Graveyard | 111 Dead AI Products, Sora Shutdown & More</title>
-    <meta name="description" content="111 AI products killed and counting. The complete tracker of every AI shutdown, from Sora AI shutdown to Humane AI Pin failure, deprecated models like GPT-4o, and failed startups. The AI graveyard the industry doesn't want you to see.">
+    <title>Killed by AI — The AI Graveyard | 111 Dead AI Products</title>
+    <meta name="description" content="111 AI products killed and counting. Every AI shutdown tracked — the Sora shutdown, GPT-4o, the Humane AI Pin, and the startups that died trying.">
     <meta name="keywords" content="killed by AI, AI graveyard, sora ai shutdown, discontinued AI, dead AI products, AI shutdown, deprecated AI models, failed AI startups, openai sora shutdown, humane ai pin failure, AI tool tracker, openai ai text classifier discontinued">
     <meta name="author" content="Patrik Rojan">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -47,8 +47,25 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://killedbyai.net/#org",
+      "name": "Killed by AI",
+      "url": "https://killedbyai.net/",
+      "logo": "https://killedbyai.net/og-image.png",
+      "founder": {
+        "@type": "Person",
+        "name": "Patrik Rojan"
+      },
+      "sameAs": [
+        "https://github.com/mixtpatrik/killedbyai"
+      ]
+    },
+    {
       "@type": "WebSite",
       "@id": "https://killedbyai.net/#website",
+      "publisher": {
+        "@id": "https://killedbyai.net/#org"
+      },
       "url": "https://killedbyai.net/",
       "name": "Killed by AI",
       "description": "A digital cemetery for discontinued AI models, apps, startups, and hardware.",
@@ -5167,11 +5184,11 @@
 <body>
 
     <nav class="site-nav">
-        <a href="./" class="site-nav-item active">💀 Graveyard</a>
-        <a href="layoffs.html" class="site-nav-item">💼 Layoffs</a>
-        <a href="funding.html" class="site-nav-item">🔥 Funding</a>
-        <a href="coming-soon.html" class="site-nav-item">⏳ Soon</a>
-        <a href="api.html" class="site-nav-item">{ } API</a>
+        <a href="/" class="site-nav-item active">💀 Graveyard</a>
+        <a href="/layoffs/" class="site-nav-item">💼 Layoffs</a>
+        <a href="/funding/" class="site-nav-item">🔥 Funding</a>
+        <a href="/coming-soon/" class="site-nav-item">⏳ Soon</a>
+        <a href="/api/" class="site-nav-item">{ } API</a>
     </nav>
 
     <header class="header">
@@ -5253,11 +5270,11 @@
                 </div>
             </div>
             <div class="pace-links">
-                <a href="funding.html" class="pace-link">
+                <a href="/funding/" class="pace-link">
                     <span class="pace-link-val" style="color:#f59e0b">$4.4B</span>
                     <span class="pace-link-lbl">🔥 VC funding burned</span>
                 </a>
-                <a href="layoffs.html" class="pace-link">
+                <a href="/layoffs/" class="pace-link">
                     <span class="pace-link-val" style="color:#f97316">115,633</span>
                     <span class="pace-link-lbl">💼 jobs killed by AI</span>
                 </a>

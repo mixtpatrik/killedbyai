@@ -7,25 +7,25 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://killedbyai.net/layoffs.html</loc>
+    <loc>https://killedbyai.net/layoffs/</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://killedbyai.net/funding.html</loc>
+    <loc>https://killedbyai.net/funding/</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://killedbyai.net/coming-soon.html</loc>
+    <loc>https://killedbyai.net/coming-soon/</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://killedbyai.net/api.html</loc>
+    <loc>https://killedbyai.net/api/</loc>
     <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

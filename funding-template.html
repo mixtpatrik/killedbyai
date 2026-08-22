@@ -8,8 +8,8 @@
     <title>Funding Burned — ${{TOTAL_B}}B in AI Startup Funding Gone | Killed by AI</title>
     <meta name="description" content="${{TOTAL_B}} billion in venture capital burned across {{COUNT}} failed AI startups. From Inflection's $1.5B to Olive AI's $902M — the most expensive graveyard in tech.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://killedbyai.net/funding.html">
-    <meta property="og:url" content="https://killedbyai.net/funding.html">
+    <link rel="canonical" href="https://killedbyai.net/funding/">
+    <meta property="og:url" content="https://killedbyai.net/funding/">
     <meta property="og:title" content="Funding Burned — The Most Expensive AI Graveyard">
     <meta property="og:description" content="${{TOTAL_B}} billion in venture capital burned across {{COUNT}} failed AI startups.">
     <meta property="og:type" content="website">
@@ -59,14 +59,16 @@
         .site-footer a:hover{color:var(--fire)}
         @media(max-width:600px){.site-nav{gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;justify-content:flex-start;padding:0.375rem 0.5rem}.site-nav::-webkit-scrollbar{display:none}.site-nav-item{flex-shrink:0;font-size:0.625rem;padding:0.3rem 0.5rem}.header{padding:1.75rem 0.75rem 0.75rem}.header h1{font-size:1.75rem}.list{padding:0 0.75rem}.fund-info{padding:0.75rem 1rem}.fund-name{font-size:0.875rem}.fund-amount{font-size:0.9375rem}.fund-desc{font-size:0.75rem}}
     </style>
+    <script type="application/ld+json">{{JSONLD}}</script>
+    <script type="application/ld+json">{{BREADCRUMB}}</script>
 </head>
 <body>
     <nav class="site-nav">
-        <a href="./" class="site-nav-item">💀 Graveyard</a>
-        <a href="layoffs.html" class="site-nav-item">💼 Layoffs</a>
-        <a href="funding.html" class="site-nav-item active">🔥 Funding</a>
-        <a href="coming-soon.html" class="site-nav-item">⏳ Soon</a>
-        <a href="api.html" class="site-nav-item">{ } API</a>
+        <a href="/" class="site-nav-item">💀 Graveyard</a>
+        <a href="/layoffs/" class="site-nav-item">💼 Layoffs</a>
+        <a href="/funding/" class="site-nav-item active">🔥 Funding</a>
+        <a href="/coming-soon/" class="site-nav-item">⏳ Soon</a>
+        <a href="/api/" class="site-nav-item">{ } API</a>
     </nav>
 
     <header class="header">
@@ -82,7 +84,7 @@
 {{ROWS}}
     </main>
     <footer class="site-footer">
-        <p>Part of <a href="./">Killed by AI</a>. Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.</p>
+        <p>Part of <a href="/">Killed by AI</a>. Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.</p>
     </footer>
 </body>
 </html>
