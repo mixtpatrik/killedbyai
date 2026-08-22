@@ -8,7 +8,7 @@
     <title>API — Killed by AI Graveyard Data | Free JSON API</title>
     <meta name="description" content="Free JSON API for discontinued AI products, layoffs, and upcoming shutdowns. Use graveyard.json, layoffs.json, and coming-soon.json in your projects.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://mixtpatrik.github.io/killedbyai/api.html">
+    <link rel="canonical" href="https://killedbyai.net/api.html">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>{ }</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,7 +64,7 @@
     <div class="content">
         <h2>Base URL</h2>
         <div class="endpoint">
-            <span class="url">https://mixtpatrik.github.io/killedbyai/</span>
+            <span class="url">https://killedbyai.net/</span>
         </div>
         <p>All data is served as static JSON files via GitHub Pages. CORS is enabled by default. Responses are cached by GitHub's CDN.</p>
 
@@ -133,7 +133,7 @@
 
         <h2>Usage Example</h2>
 <pre><code>// Fetch all dead AI products
-const res = await fetch('https://mixtpatrik.github.io/killedbyai/graveyard.json');
+const res = await fetch('https://killedbyai.net/graveyard.json');
 const graveyard = await res.json();
 
 // Filter to only real kills (not model upgrades)

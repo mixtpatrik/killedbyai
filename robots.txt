@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mixtpatrik.github.io/killedbyai/sitemap.xml
+Sitemap: https://killedbyai.net/sitemap.xml

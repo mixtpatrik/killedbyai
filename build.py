@@ -13,7 +13,7 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-SITE_URL = "https://mixtpatrik.github.io/killedbyai/"
+SITE_URL = "https://killedbyai.net/"
 
 
 def slugify(name):
