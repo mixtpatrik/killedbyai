@@ -45,33 +45,6 @@
     "link": "https://platform.openai.com/docs/deprecations"
   },
   {
-    "name": "Google Imagen 4.0 (Gemini API)",
-    "dateAnnounced": "2026-06-17",
-    "dateShutdown": "2026-08-17",
-    "description": "All three Imagen 4.0 variants on the Gemini API — generate, ultra and fast — dead in under 14 months. Google already slipped this date once. Best part: the pricing-page banner tells you to migrate to Gemini 2.5 Flash Image, which is itself deprecated with an October shutdown — an evacuation route into a building that's also on fire.",
-    "replacement": "gemini-3.1-flash-image",
-    "killedBy": "Google",
-    "link": "https://ai.google.dev/gemini-api/docs/deprecations"
-  },
-  {
-    "name": "Groq Llama 3.1 8B Instant & Llama 3.3 70B Versatile",
-    "dateAnnounced": "2026-06-17",
-    "dateShutdown": "2026-08-16",
-    "description": "Groq emailed users in June; the models stop answering August 16. Free and developer tiers only — committed-spend enterprise contracts are exempt. llama-3.3-70b-versatile was the only free-tier model with enough headroom for a lot of production prompts, and nothing left in the free catalog replaces it.",
-    "replacement": "openai/gpt-oss-20b, gpt-oss-120b, qwen/qwen3.6-27b",
-    "killedBy": "Groq",
-    "link": "https://console.groq.com/docs/deprecations"
-  },
-  {
-    "name": "Cohere Command R & Command R+ on Amazon Bedrock",
-    "dateAnnounced": "2026-02-19",
-    "dateShutdown": "2026-08-19",
-    "description": "The RAG-and-tool-use pair AWS launched on Bedrock in April 2024 both hit end-of-life at 08:00 UTC, after a staged wind-down: legacy in February, new customers cut off in May, hard kill in August. AWS names no replacement for either. Cohere had already pulled the originals from its own API back in September 2025.",
-    "replacement": "None named",
-    "killedBy": "AWS",
-    "link": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html"
-  },
-  {
     "name": "Claude 3 Haiku on Google Cloud",
     "dateAnnounced": "2026-02-23",
     "dateShutdown": "2026-08-23",
@@ -169,5 +142,14 @@
     "replacement": "gpt-realtime-2.1 / gpt-realtime-2.1-mini / gpt-audio-1.5",
     "killedBy": "OpenAI",
     "link": "https://developers.openai.com/api/docs/deprecations"
+  },
+  {
+    "name": "DALL·E GPT (in ChatGPT)",
+    "dateAnnounced": "2026-08-04",
+    "dateShutdown": "2026-08-30",
+    "description": "The official preconfigured DALL·E GPT — the last place the DALL·E brand still lived inside ChatGPT — retires August 30. OpenAI won't say what happens to images stored in it, and instead just recommends downloading anything you want to keep before the deadline. Image generation itself stays, under the ChatGPT Images banner.",
+    "replacement": "ChatGPT Images",
+    "killedBy": "OpenAI",
+    "link": "https://www.tomsguide.com/ai/chatgpt/you-have-until-august-30-to-save-your-chatgpt-dall-e-images-heres-how-to-avoid-losing-them-forever"
   }
 ]

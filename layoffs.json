@@ -222,5 +222,21 @@
     "description": "Cut roughly 10% of Community Operations — the support arm covering riders, drivers and delivery partners — in the first headcount reduction Uber has ever attributed directly to AI. Bloomberg's headline: 'Uber Cuts 10% of Customer Service Jobs, Citing Embrace of AI.' Remaining remote staff in the division were also ordered to relocate to hub offices. Only the 41-person California WARN filing is public; the global total is undisclosed and larger.",
     "roles": "Customer support / Community Operations; remaining remote roles forced back to hub offices",
     "source": "https://www.businessinsider.com/uber-layoffs-ai-prompts-cuts-to-customer-service-jobs-2026-7"
+  },
+  {
+    "company": "Monday.com",
+    "jobs": 600,
+    "date": "2026-07-22",
+    "description": "Cut 20% of its workforce — just over 600 people — in an SEC-filed restructuring tied to its 'AI-driven growth strategy,' at a cost of $45-55M in charges while still guiding to 19-20% revenue growth. Co-founder Eran Zinman told staff the move 'was not made to reduce costs or replace people with AI,' which is a difficult sentence to place next to the filing.",
+    "roles": "Product, marketing, go-to-market",
+    "source": "https://techcrunch.com/2026/07/22/monday-com-lays-off-hundreds-to-focuses-on-ai/"
+  },
+  {
+    "company": "Angi",
+    "jobs": 350,
+    "date": "2026-01-01",
+    "description": "The home-services marketplace formerly known as Angie's List cut 350 jobs — 12.5% of its 2,800 staff — explicitly 'in light of AI-driven efficiency improvements,' with AI taking over customer matching and contractor vetting. Expected to save $70-80M a year, at a one-time restructuring cost of about $30M.",
+    "roles": "Customer matching, service provider vetting, operations",
+    "source": "https://www.ibj.com/articles/angi-to-eliminate-350-jobs"
   }
 ]

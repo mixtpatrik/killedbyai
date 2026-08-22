@@ -5,8 +5,32 @@
     <link>https://mixtpatrik.github.io/killedbyai/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Aug 2026 16:32:42 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 09:14:01 +0000</lastBuildDate>
     <atom:link href="https://mixtpatrik.github.io/killedbyai/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Cohere Command R &amp; Command R+ on Amazon Bedrock — Killed by AWS</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#cohere-command-r-command-r-on-amazon-bedrock</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#cohere-command-r-command-r-on-amazon-bedrock</guid>
+      <pubDate>Wed, 19 Aug 2026 00:00:00 +0000</pubDate>
+      <description>The RAG-and-tool-use pair AWS launched on Bedrock in April 2024 both hit end-of-life at 08:00 UTC, after a staged wind-down: legacy in February, new customers cut off in May, hard kill in August. AWS named no replacement for either. Cohere had already pulled the originals from its own API back in September 2025 — along with command-light, base command, summarize, and its entire fine-tuning product.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Google Imagen 4.0 (Gemini API) — Killed by Google</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#google-imagen-4-0-gemini-api</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#google-imagen-4-0-gemini-api</guid>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 +0000</pubDate>
+      <description>All three Imagen 4.0 variants on the Gemini API — generate, ultra and fast — dead in under 14 months, after Google already slipped the date once. The best part was the exit signage: the pricing-page banner told users to migrate to Gemini 2.5 Flash Image, which is itself deprecated with an October shutdown. An evacuation route into a building that&#x27;s also on fire.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Groq Llama 3.1 8B Instant &amp; Llama 3.3 70B Versatile — Killed by Groq</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#groq-llama-3-1-8b-instant-llama-3-3-70b-versatile</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#groq-llama-3-1-8b-instant-llama-3-3-70b-versatile</guid>
+      <pubDate>Sun, 16 Aug 2026 00:00:00 +0000</pubDate>
+      <description>The second half of Groq&#x27;s two-stage catalog cull, after Qwen3-32B and Llama 4 Scout went in July. Free and developer tiers only — committed-spend enterprise contracts were exempt. llama-3.3-70b-versatile was the only free-tier model with enough context headroom for a lot of real production prompts, and nothing left in the free catalog replaced it.</description>
+      <category>model</category>
+    </item>
     <item>
       <title>OpenAI Atlas — Killed by OpenAI</title>
       <link>https://mixtpatrik.github.io/killedbyai/#openai-atlas</link>
@@ -30,6 +54,14 @@
       <pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate>
       <description>Mistral&#x27;s first reasoning models, shipped June 2025 as a separate product line. On July 31, 2026 the last two snapshots were retired — and with them the entire category. Reasoning at Mistral is now just a request parameter, reasoning_effort, on general-purpose models. The official migration path runs from magistral-small-latest to mistral-small-latest, a one-letter difference, at roughly 70% less on input.</description>
       <category>model</category>
+    </item>
+    <item>
+      <title>Reforged Labs — Killed by Foundation Models</title>
+      <link>https://mixtpatrik.github.io/killedbyai/#reforged-labs</link>
+      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#reforged-labs</guid>
+      <pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate>
+      <description>Built AI-generated video ad creative for mobile game studios and won real customers — Supercell, King, Ubisoft, Playtika, Scopely — with 17 staff across Vietnam and the US. CEO Robert Huynh shut it down after three years because foundation models got good enough for studios to build the same tooling in-house: &#x27;the gap we were selling into is closing.&#x27; Its biggest customers signed six-figure contracts; there were simply too few studios at that scale to sustain a company.</description>
+      <category>startup</category>
     </item>
     <item>
       <title>GitHub Models — Killed by GitHub</title>
@@ -72,11 +104,11 @@
       <category>model</category>
     </item>
     <item>
-      <title>Relay.app — Killed by Undisclosed</title>
+      <title>Relay.app — Killed by Google</title>
       <link>https://mixtpatrik.github.io/killedbyai/#relay-app</link>
       <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#relay-app</guid>
       <pubDate>Thu, 16 Jul 2026 00:00:00 +0000</pubDate>
-      <description>AI-agent workflow automation, founded by Jacob Bank — ex-Google Gmail and Calendar product lead whose previous startup Timeful was bought by Google. On July 16, 2026 the homepage was simply replaced with &#x27;Relay.app is shutting down.&#x27; No reason, no acquirer, no acqui-hire announcement. The blog is still live and still ranking, including a post titled &#x27;The 10 best AI agent builders in 2026 (Tested).&#x27;</description>
+      <description>AI-agent workflow automation pitched as a Zapier alternative, founded by Jacob Bank — ex-Google Gmail and Calendar product lead whose previous startup Timeful was bought by Google. On July 16, 2026 the homepage was simply replaced with &#x27;Relay.app is shutting down,&#x27; with no reason given. A month later the answer arrived: Bank and part of the team joined Google&#x27;s Chrome division. The free tier stopped working August 15; paid accounts were given until September 14.</description>
       <category>startup</category>
     </item>
     <item>
@@ -214,38 +246,6 @@
       <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
       <description>OpenAI&#x27;s research initiative to apply frontier models to scientific discovery in biology, physics, and materials science. Dismantled alongside Sora as OpenAI shed &#x27;side quests&#x27; to refocus compute on coding and enterprise products. Announced the same day product chief Kevin Weil and Sora head Bill Peebles departed.</description>
       <category>service</category>
-    </item>
-    <item>
-      <title>Qwen Code Free Tier — Killed by Alibaba</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#qwen-code-free-tier</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#qwen-code-free-tier</guid>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
-      <description>Alibaba&#x27;s terminal coding agent — a direct Claude Code rival running Qwen3-Coder models with competitive SWE-Bench scores. The free OAuth tier was killed 48 hours after MiniMax made the same move, as Chinese AI labs pivot from &#x27;free for growth&#x27; to subscription economics. Daily free requests slashed from 1,000 to 100.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>MiniMax API Free Tier — Killed by MiniMax</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#minimax-api-free-tier</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#minimax-api-free-tier</guid>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
-      <description>Chinese AI lab MiniMax was one of the most generous in offering free API access to developers. Killed its free tier two days before Alibaba&#x27;s Qwen did the same — signaling the end of the &#x27;free forever&#x27; era of Chinese AI APIs as labs pivot from land-grab growth to sustainable economics.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Google Interview Warmup — Killed by Google</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#google-interview-warmup</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#google-interview-warmup</guid>
-      <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
-      <description>Google&#x27;s free AI-powered interview practice tool that helped millions of job seekers rehearse common interview questions with real-time transcription and ML-based analysis. Quietly killed in April 2026 with no announcement — visitors clicking &#x27;Get Started&#x27; are silently redirected to a generic &#x27;How to Prepare for an Interview&#x27; article.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>GPT-4o (API: 2024-05-13 &amp; 2024-08-06) — Killed by OpenAI</title>
-      <link>https://mixtpatrik.github.io/killedbyai/#gpt-4o-api-2024-05-13-2024-08-06</link>
-      <guid isPermaLink="true">https://mixtpatrik.github.io/killedbyai/#gpt-4o-api-2024-05-13-2024-08-06</guid>
-      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
-      <description>The original GPT-4o API snapshots were auto-upgraded to GPT-5.1 when they retired. Developers who relied on specific model behavior, fine-tuning, or output consistency were forced into a blind migration with no rollback option.</description>
-      <category>model</category>
     </item>
   </channel>
 </rss>

@@ -1203,11 +1203,69 @@
     "name": "Relay.app",
     "dateOpen": "2021-01-01",
     "dateClose": "2026-07-16",
-    "description": "AI-agent workflow automation, founded by Jacob Bank — ex-Google Gmail and Calendar product lead whose previous startup Timeful was bought by Google. On July 16, 2026 the homepage was simply replaced with 'Relay.app is shutting down.' No reason, no acquirer, no acqui-hire announcement. The blog is still live and still ranking, including a post titled 'The 10 best AI agent builders in 2026 (Tested).'",
+    "description": "AI-agent workflow automation pitched as a Zapier alternative, founded by Jacob Bank — ex-Google Gmail and Calendar product lead whose previous startup Timeful was bought by Google. On July 16, 2026 the homepage was simply replaced with 'Relay.app is shutting down,' with no reason given. A month later the answer arrived: Bank and part of the team joined Google's Chrome division. The free tier stopped working August 15; paid accounts were given until September 14.",
     "type": "startup",
-    "causeOfDeath": "Quiet Shutdown",
-    "killedBy": "Undisclosed",
-    "link": "https://www.relay.app/",
-    "deathType": "startup-failed"
+    "causeOfDeath": "Acqui-hire",
+    "killedBy": "Google",
+    "link": "https://techcrunch.com/2026/08/17/ai-automation-startup-relay-shuts-down-staff-joins-googles-chrome-team/",
+    "deathType": "acqui-hired",
+    "collateral": "Free accounts lost access August 15 with paid access ending September 14 — automations built on Relay had to be rebuilt elsewhere."
+  },
+  {
+    "name": "Groq Llama 3.1 8B Instant & Llama 3.3 70B Versatile",
+    "dateOpen": "2024-07-23",
+    "dateClose": "2026-08-16",
+    "description": "The second half of Groq's two-stage catalog cull, after Qwen3-32B and Llama 4 Scout went in July. Free and developer tiers only — committed-spend enterprise contracts were exempt. llama-3.3-70b-versatile was the only free-tier model with enough context headroom for a lot of real production prompts, and nothing left in the free catalog replaced it.",
+    "type": "model",
+    "causeOfDeath": "Catalog Pruning",
+    "killedBy": "Groq",
+    "link": "https://console.groq.com/docs/deprecations",
+    "deathType": "model-upgrade"
+  },
+  {
+    "name": "Google Imagen 4.0 (Gemini API)",
+    "dateOpen": "2025-06-24",
+    "dateClose": "2026-08-17",
+    "description": "All three Imagen 4.0 variants on the Gemini API — generate, ultra and fast — dead in under 14 months, after Google already slipped the date once. The best part was the exit signage: the pricing-page banner told users to migrate to Gemini 2.5 Flash Image, which is itself deprecated with an October shutdown. An evacuation route into a building that's also on fire.",
+    "type": "model",
+    "causeOfDeath": "Model Consolidation",
+    "killedBy": "Google",
+    "link": "https://ai.google.dev/gemini-api/docs/deprecations",
+    "deathType": "model-upgrade"
+  },
+  {
+    "name": "Cohere Command R & Command R+ on Amazon Bedrock",
+    "dateOpen": "2024-04-30",
+    "dateClose": "2026-08-19",
+    "description": "The RAG-and-tool-use pair AWS launched on Bedrock in April 2024 both hit end-of-life at 08:00 UTC, after a staged wind-down: legacy in February, new customers cut off in May, hard kill in August. AWS named no replacement for either. Cohere had already pulled the originals from its own API back in September 2025 — along with command-light, base command, summarize, and its entire fine-tuning product.",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "AWS",
+    "link": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html",
+    "deathType": "model-upgrade"
+  },
+  {
+    "name": "Reforged Labs",
+    "dateOpen": "2023-01-01",
+    "dateClose": "2026-07-31",
+    "description": "Built AI-generated video ad creative for mobile game studios and won real customers — Supercell, King, Ubisoft, Playtika, Scopely — with 17 staff across Vietnam and the US. CEO Robert Huynh shut it down after three years because foundation models got good enough for studios to build the same tooling in-house: 'the gap we were selling into is closing.' Its biggest customers signed six-figure contracts; there were simply too few studios at that scale to sustain a company.",
+    "type": "startup",
+    "causeOfDeath": "Feature Absorption",
+    "killedBy": "Foundation Models",
+    "link": "https://www.pocketgamer.biz/reforged-labs-shuts-down-as-ceo-says-ai-is-closing-its-market-opportunity/",
+    "deathType": "startup-failed",
+    "fundingM": 3.9
+  },
+  {
+    "name": "Yupp.ai",
+    "dateOpen": "2025-06-01",
+    "dateClose": "2026-03-31",
+    "description": "A crowdsourced AI-evaluation platform that paid users to compare model outputs, backed by $33M from a16z crypto. It reached 1.3 million users and still died inside a year. The labs had moved on to expert-sourced data and agentic evaluation — broad consumer preference signal simply stopped being the scarce input anyone would pay for. Co-founders Pankaj Gupta and Gilad Mishne kept it accessible for two weeks after the announcement, then closed signups permanently.",
+    "type": "startup",
+    "causeOfDeath": "No Product-Market Fit",
+    "killedBy": "Market",
+    "link": "https://www.techbuzz.ai/articles/yupp-ai-shuts-down-after-33m-a16z-crypto-raise",
+    "deathType": "startup-failed",
+    "fundingM": 33
   }
 ]
