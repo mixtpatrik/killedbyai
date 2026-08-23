@@ -14,6 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 SITE_URL = "https://killedbyai.net/"
+DATA_LICENSE = "https://creativecommons.org/licenses/by/4.0/"
 
 
 def slugify(name):
@@ -89,6 +90,11 @@ def render_card(item):
 </article>'''
 
 
+def temporal_coverage(items):
+    """ISO 8601 interval spanning the oldest launch to the newest death."""
+    return f'{min(i["dateOpen"] for i in items)}/{max(i["dateClose"] for i in items)}'
+
+
 def build_jsonld(items):
     """Build an ItemList JSON-LD for structured data."""
     list_items = []
@@ -145,8 +151,16 @@ def build_jsonld(items):
                 "description": "An open dataset of discontinued AI products, models, startups, and hardware, tracking casualties of the artificial intelligence gold rush.",
                 "url": SITE_URL,
                 "keywords": "AI graveyard, killed by AI, discontinued AI, deprecated AI models, AI shutdown, dead AI products",
-                "license": "https://github.com/mixtpatrik/killedbyai",
+                "license": DATA_LICENSE,
+                "isAccessibleForFree": True,
                 "creator": {"@type": "Person", "name": "Patrik Rojan"},
+                "dateModified": datetime.utcnow().strftime("%Y-%m-%d"),
+                "temporalCoverage": temporal_coverage(items),
+                "distribution": {
+                    "@type": "DataDownload",
+                    "encodingFormat": "application/json",
+                    "contentUrl": SITE_URL + "graveyard.json",
+                },
             },
             {
                 "@type": "ItemList",
@@ -509,6 +523,9 @@ def build_layoffs_jsonld(ldata):
                 ),
                 "url": SITE_URL + "layoffs/",
                 "keywords": "AI layoffs, jobs killed by AI, AI job cuts, automation layoffs, AI unemployment",
+                "license": DATA_LICENSE,
+                "isAccessibleForFree": True,
+                "dateModified": datetime.utcnow().strftime("%Y-%m-%d"),
                 "creator": {"@type": "Person", "name": "Patrik Rojan"},
                 "distribution": {
                     "@type": "DataDownload",
@@ -550,6 +567,9 @@ def build_coming_soon_jsonld(cs_data):
                 "description": f"{len(cs_data)} AI products and models with publicly confirmed shutdown dates.",
                 "url": SITE_URL + "coming-soon/",
                 "keywords": "AI deprecation schedule, upcoming AI shutdowns, model retirement dates, AI sunset",
+                "license": DATA_LICENSE,
+                "isAccessibleForFree": True,
+                "dateModified": datetime.utcnow().strftime("%Y-%m-%d"),
                 "creator": {"@type": "Person", "name": "Patrik Rojan"},
                 "distribution": {
                     "@type": "DataDownload",
@@ -574,6 +594,9 @@ def build_funding_jsonld(funded, total_b):
         ),
         "url": SITE_URL + "funding/",
         "keywords": "failed AI startups, AI startup failures, VC funding burned, AI bubble, wasted venture capital",
+        "license": DATA_LICENSE,
+        "isAccessibleForFree": True,
+        "dateModified": datetime.utcnow().strftime("%Y-%m-%d"),
         "creator": {"@type": "Person", "name": "Patrik Rojan"},
         "distribution": {
             "@type": "DataDownload",
@@ -796,6 +819,13 @@ def main():
 
     print(f"Built index.html with {len(data)} entries")
     print("Generated sitemap.xml, robots.txt, feed.xml")
+
+    api_page = ROOT / "api" / "index.html"
+    if api_page.exists():
+        api_html = re.sub(r'"dateModified": "\d{4}-\d{2}-\d{2}"',
+                          '"dateModified": "%s"' % datetime.utcnow().strftime("%Y-%m-%d"),
+                          api_page.read_text())
+        api_page.write_text(api_html)
 
     ldata_for_check = json.loads((ROOT / "layoffs.json").read_text()) if (ROOT / "layoffs.json").exists() else []
     cs_for_check = json.loads((ROOT / "coming-soon.json").read_text()) if (ROOT / "coming-soon.json").exists() else []
