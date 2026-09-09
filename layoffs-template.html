@@ -11,8 +11,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Graveyard — Jobs Killed by AI | {{TOTAL_JOBS}} Layoffs Tracked</title>
-    <meta name="description" content="{{TOTAL_JOBS}} jobs cut across {{TOTAL_COMPANIES}} companies because of AI. From Cloudflare's 1,100 'measurers' to Block's 40% workforce slash. The human cost of the AI revolution.">
+    <title>AI Layoffs Tracker 2026: {{TOTAL_JOBS}} Jobs Cut by AI at {{TOTAL_COMPANIES}} Companies</title>
+    <meta name="description" content="AI layoffs tracker: {{TOTAL_JOBS}} jobs replaced by AI across {{TOTAL_COMPANIES}} companies that explicitly blamed AI — from Cloudflare's 1,100 'measurers' to Block's 40% cut. A source on every entry.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://killedbyai.net/layoffs/">
     <meta property="og:url" content="https://killedbyai.net/layoffs/">
@@ -22,7 +22,7 @@
     <meta property="og:site_name" content="Killed by AI">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
-    <meta property="og:title" content="Employee Graveyard — Jobs Killed by AI">
+    <meta property="og:title" content="AI Layoffs Tracker — {{TOTAL_JOBS}} Jobs Cut by AI">
     <meta property="og:description" content="{{TOTAL_JOBS}} jobs cut across {{TOTAL_COMPANIES}} companies because of AI.">
     <meta property="og:type" content="website">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>">
@@ -150,22 +150,36 @@
             .layoff-meta { font-size: 0.625rem; gap: 0.5rem; }
             .site-footer { padding: 1.5rem 0.75rem 2rem; }
         }
+
+        /* ===== UX & accessibility floors (audit 2026-09) ===== */
+        :root { --text-dim: #8f8f99; }
+        html { -webkit-text-size-adjust: 100%; }
+        :focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+        .site-nav { gap: .25rem; }
+        .site-nav-item { min-height: 44px; display: inline-flex; align-items: center; font-size: .875rem; padding: 0 .875rem; color: var(--text-muted); }
+        .site-nav-item.active { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+        .layoff-source, .fund-source, .doom-source { min-height: 36px; display: inline-flex; align-items: center; font-size: .8125rem; }
+        .layoff-desc, .fund-desc, .doom-desc { font-size: .9375rem; }
+        .layoff-meta, .fund-meta, .doom-meta { font-size: .8125rem; }
+        .last-updated { font-size: .8125rem; color: var(--text-muted); }
+        @media (max-width: 600px) { .site-nav { justify-content: flex-start; -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); mask-image: linear-gradient(90deg, #000 90%, transparent); } .site-nav-item { font-size: .8125rem; padding: 0 .75rem; } .layoff-desc, .fund-desc, .doom-desc { font-size: .875rem; } }
     </style>
     <script type="application/ld+json">{{JSONLD}}</script>
     <script type="application/ld+json">{{BREADCRUMB}}</script>
 </head>
 <body>
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Site">
         <a href="/" class="site-nav-item">💀 Graveyard</a>
-        <a href="/layoffs/" class="site-nav-item active">💼 Layoffs</a>
+        <a href="/layoffs/" class="site-nav-item active" aria-current="page">💼 AI Layoffs</a>
         <a href="/funding/" class="site-nav-item">🔥 Funding</a>
-        <a href="/coming-soon/" class="site-nav-item">⏳ Soon</a>
+        <a href="/coming-soon/" class="site-nav-item">⏳ Dying soon</a>
         <a href="/api/" class="site-nav-item">{ } API</a>
     </nav>
 
     <header class="header">
-        <h1>Employee <span>Graveyard</span></h1>
-        <p>The human cost of the AI revolution. Every job cut that companies blamed on artificial intelligence.</p>
+        <h1>AI Layoffs <span>Tracker</span></h1>
+        <p>The employee graveyard: every job cut a company blamed on artificial intelligence, with the announcement date, the roles replaced by AI, and the quote. {{TOTAL_JOBS}} jobs lost to AI so far.</p>
     </header>
 
     <div class="stats-row">

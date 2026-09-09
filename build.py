@@ -9,6 +9,7 @@ Reads graveyard.json and generates index.html with:
 import json
 import html
 import re
+import subprocess
 from datetime import datetime
 from pathlib import Path
 
@@ -52,6 +53,137 @@ def esc(s):
     return html.escape(s or "", quote=True)
 
 
+TYPE_LABEL = {"app": "App", "model": "Model", "service": "Service", "startup": "Startup", "hardware": "Hardware"}
+DEATH_LABEL = {"model-upgrade": "Model deprecation", "product-killed": "Product killed", "startup-failed": "Startup failed",
+               "acqui-hired": "Acqui-hired", "feature-removed": "Feature removed", "hardware-failed": "Hardware discontinued"}
+NEW_DAYS = 14
+
+
+def fmt_date(d):
+    return datetime.strptime(d, "%Y-%m-%d").strftime("%B %-d, %Y")
+
+
+def fmt_month(d):
+    return datetime.strptime(d, "%Y-%m-%d").strftime("%b %Y")
+
+
+def is_new(item):
+    added = item.get("dateAdded")
+    return bool(added) and (datetime.utcnow() - datetime.strptime(added, "%Y-%m-%d")).days <= NEW_DAYS
+
+
+def product_url(item):
+    return f"{SITE_URL}dead/{slugify(item['name'])}/"
+
+
+def killer_slug(name):
+    return slugify(name)
+
+
+def git_lastmod(paths, needle=None):
+    """Last commit date touching these paths (optionally filtered to commits containing `needle`)."""
+    try:
+        cmd = ["git", "log", "-1", "--format=%cs"]
+        if needle:
+            cmd += ["-S", needle]
+        cmd += ["--", *paths]
+        out = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, timeout=15).stdout.strip()
+        return out or None
+    except Exception:
+        return None
+
+
+def render_product(item, ordered, idx, tpl, total, killer_counts):
+    name = item["name"]; slug = slugify(name); url = product_url(item)
+    days = days_between(item["dateOpen"], item["dateClose"]); lifespan = format_lifespan(days)
+    mon = fmt_month(item["dateClose"])
+    title = f"Is {name} dead? Shut down {mon} | Killed by AI"
+    if len(title) > 65:
+        title = f"Is {name} dead? Shut down {mon}"
+    if len(title) > 65:
+        title = f"{name} shut down {mon}"
+    first = re.split(r"(?<=[.!?])\s", item["description"].strip())[0]
+    meta = f"{name} was shut down on {fmt_date(item['dateClose'])} after {lifespan}. Killed by {item['killedBy']}. {first}"
+    if len(meta) > 155:
+        meta = meta[:152].rsplit(" ", 1)[0] + "…"
+    verdict = "Dead" if item.get("causeOfDeath", "").lower().find("reversed") < 0 else "Dead, then revived"
+    subtitle = f"{DEATH_LABEL.get(item.get('deathType'), 'Killed')} · {item['causeOfDeath']} · shut down {fmt_date(item['dateClose'])}"
+    ks = killer_slug(item["killedBy"])
+    killer_html = (f'<a href="/killed-by/{ks}/">{esc(item["killedBy"])}</a>' if killer_counts.get(item["killedBy"], 0) >= 2 else esc(item["killedBy"]))
+    collateral = f'<div class="collateral"><span aria-hidden="true">⚠️</span><div><strong>Collateral damage:</strong> {esc(item["collateral"])}</div></div>' if item.get("collateral") else ""
+    source = f'<a class="btn btn-red" href="{esc(item["link"])}" target="_blank" rel="noopener">Source ↗</a>' if item.get("link") else ""
+    answer = (f"Yes. {name} was discontinued on {fmt_date(item['dateClose'])}, {lifespan} after it launched on {fmt_date(item['dateOpen'])}. "
+              f"Cause of death: {item['causeOfDeath'].lower()}, killed by {item['killedBy']}. {first}")
+    if verdict != "Dead":
+        answer = f"It was — briefly. {first} See the full story above."
+    related = [o for o in ordered if o is not item and o["killedBy"] == item["killedBy"]]
+    related = sorted(related, key=lambda o: o["dateClose"], reverse=True)[:4]
+    related_html = ""
+    if related:
+        rows = "".join(f'<a class="rel" href="{product_url(o)}"><b>{esc(o["name"])}</b><span>{o["dateClose"][:4]}</span></a>' for o in related)
+        related_html = f'<h2>Also killed by {esc(item["killedBy"])}</h2><div class="related">{rows}</div>'
+    prev_ = ordered[idx - 1] if idx > 0 else None
+    next_ = ordered[idx + 1] if idx + 1 < len(ordered) else None
+    pn = ""
+    if prev_: pn += f'<a class="prev" href="{product_url(prev_)}"><small>← Died before</small>{esc(prev_["name"])}</a>'
+    if next_: pn += f'<a class="next" href="{product_url(next_)}"><small>Died after →</small>{esc(next_["name"])}</a>'
+    pn_html = f'<nav class="prevnext" aria-label="Chronological">{pn}</nav>' if pn else ""
+    jsonld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL},
+            {"@type": "ListItem", "position": 2, "name": "Graveyard", "item": SITE_URL + "#graveyard"},
+            {"@type": "ListItem", "position": 3, "name": name, "item": url}]},
+        {"@type": "WebPage", "@id": url, "url": url, "name": title, "description": meta,
+         "isPartOf": {"@id": SITE_URL + "#website"}, "datePublished": item.get("dateAdded", item["dateClose"]),
+         "dateModified": git_lastmod(["graveyard.json"], needle=f'"name": {json.dumps(name, ensure_ascii=False)}') or item.get("dateAdded", item["dateClose"]),
+         "about": {"@type": "Thing", "name": name, "description": item["description"],
+                   "additionalProperty": [
+                       {"@type": "PropertyValue", "name": "Launched", "value": item["dateOpen"]},
+                       {"@type": "PropertyValue", "name": "Discontinued", "value": item["dateClose"]},
+                       {"@type": "PropertyValue", "name": "Cause of death", "value": item["causeOfDeath"]},
+                       {"@type": "PropertyValue", "name": "Killed by", "value": item["killedBy"]}]},
+         "citation": item.get("link", "")},
+        {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f"Is {name} dead?",
+            "acceptedAnswer": {"@type": "Answer", "text": answer}}]}]}
+    out = tpl
+    for k, v in {
+        "{{TITLE}}": esc(title), "{{OG_TITLE}}": esc(f"{name} — Killed by AI"), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{SLUG}}": slug,
+        "{{NAME}}": esc(name), "{{NAME_URL}}": html.escape(name.replace(" ", "+"), quote=True), "{{VERDICT}}": verdict, "{{SUBTITLE}}": esc(subtitle),
+        "{{DATE_OPEN}}": item["dateOpen"], "{{DATE_OPEN_FMT}}": fmt_date(item["dateOpen"]),
+        "{{DATE_CLOSE}}": item["dateClose"], "{{DATE_CLOSE_FMT}}": fmt_date(item["dateClose"]),
+        "{{LIFESPAN}}": lifespan, "{{CAUSE}}": esc(item["causeOfDeath"]), "{{KILLER_HTML}}": killer_html,
+        "{{TYPE_LABEL}}": TYPE_LABEL.get(item["type"], item["type"]), "{{DESCRIPTION}}": esc(item["description"]),
+        "{{COLLATERAL_HTML}}": collateral, "{{SOURCE_HTML}}": source, "{{ANSWER}}": esc(answer),
+        "{{RELATED_HTML}}": related_html, "{{PREV_NEXT_HTML}}": pn_html, "{{COUNT}}": str(total),
+        "{{JSONLD}}": json.dumps(jsonld, indent=2, ensure_ascii=False),
+    }.items():
+        out = out.replace(k, v)
+    return out
+
+
+def render_killer_page(killer, items, tpl, total):
+    slug = killer_slug(killer); url = f"{SITE_URL}killed-by/{slug}/"
+    items = sorted(items, key=lambda i: i["dateClose"], reverse=True)
+    n = len(items)
+    title = f"{killer}: {n} AI products it killed | Killed by AI"
+    if len(title) > 65: title = f"{killer}: {n} AI products killed"
+    years = f"{min(i['dateClose'] for i in items)[:4]}–{max(i['dateClose'] for i in items)[:4]}"
+    meta = f"Every AI product, model or startup killed by {killer}: {n} deaths between {years}, each with launch date, shutdown date, cause of death and source."
+    rows = "".join(f'<a class="row" href="{product_url(i)}"><span><b>{esc(i["name"])}</b><small>{esc(i["causeOfDeath"])} · {TYPE_LABEL.get(i["type"], i["type"])}</small></span><span class="when">{i["dateClose"]}</span></a>' for i in items)
+    jsonld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL},
+            {"@type": "ListItem", "position": 2, "name": f"Killed by {killer}", "item": url}]},
+        {"@type": "ItemList", "name": f"AI products killed by {killer}", "numberOfItems": n,
+         "itemListElement": [{"@type": "ListItem", "position": k + 1, "name": i["name"], "url": product_url(i)} for k, i in enumerate(items)]}]}
+    out = tpl
+    for k, v in {"{{TITLE}}": esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": f"Killed by {esc(killer)}",
+                 "{{H1}}": f"Killed by {esc(killer)}", "{{INTRO}}": esc(f"{n} AI products, models and startups that {killer} shut down, {years}. Newest first."),
+                 "{{ROWS}}": rows, "{{JSONLD}}": json.dumps(jsonld, indent=2, ensure_ascii=False)}.items():
+        out = out.replace(k, v)
+    return out
+
+
 def render_card(item):
     days = days_between(item["dateOpen"], item["dateClose"])
     lifespan = format_lifespan(days)
@@ -71,9 +203,10 @@ def render_card(item):
         collateral_html = f'<div class="card-collateral"><span class="collateral-icon">⚠️</span> {esc(item["collateral"])}</div>'
     slug = slugify(item["name"])
     death_type = item.get("deathType", "product-killed")
-    return f'''<article class="card" id="{slug}" data-type="{esc(item["type"])}" data-death-type="{death_type}" data-name="{esc(item["name"].lower())}" data-desc="{esc(item["description"].lower())}" data-killer="{esc(item["killedBy"].lower())}" data-cause="{esc(item["causeOfDeath"].lower())}" data-date-close="{esc(item["dateClose"])}" data-date-open="{esc(item["dateOpen"])}" data-days="{days}">
+    new_badge = '<span class="badge-new" title="Added in the last two weeks">NEW</span>' if is_new(item) else ""
+    return f'''<article class="card{" is-new" if new_badge else ""}" id="{slug}" data-type="{esc(item["type"])}" data-death-type="{death_type}" data-name="{esc(item["name"].lower())}" data-desc="{esc(item["description"].lower())}" data-killer="{esc(item["killedBy"].lower())}" data-cause="{esc(item["causeOfDeath"].lower())}" data-date-close="{esc(item["dateClose"])}" data-date-open="{esc(item["dateOpen"])}" data-added="{esc(item.get("dateAdded", ""))}" data-days="{days}">
   <header class="card-header">
-    <h2 class="card-name">{esc(item["name"])}</h2>
+    <h3 class="card-name"><a href="/dead/{slug}/">{esc(item["name"])}</a>{new_badge}</h3>
     <span class="card-lifespan">{y_open} — {y_close}</span>
   </header>
   <p class="card-description">{esc(item["description"])}</p>
@@ -99,23 +232,7 @@ def build_jsonld(items):
     """Build an ItemList JSON-LD for structured data."""
     list_items = []
     for i, item in enumerate(items, 1):
-        list_items.append({
-            "@type": "ListItem",
-            "position": i,
-            "item": {
-                "@type": "Thing",
-                "name": item["name"],
-                "description": item["description"],
-                "url": SITE_URL + "#" + slugify(item["name"]),
-                "additionalProperty": [
-                    {"@type": "PropertyValue", "name": "Type", "value": item["type"]},
-                    {"@type": "PropertyValue", "name": "Launched", "value": item["dateOpen"]},
-                    {"@type": "PropertyValue", "name": "Discontinued", "value": item["dateClose"]},
-                    {"@type": "PropertyValue", "name": "Cause of Death", "value": item["causeOfDeath"]},
-                    {"@type": "PropertyValue", "name": "Killed By", "value": item["killedBy"]},
-                ],
-            },
-        })
+        list_items.append({"@type": "ListItem", "position": i, "name": item["name"], "url": product_url(item)})
 
     return {
         "@context": "https://schema.org",
@@ -271,21 +388,22 @@ def build_faq(items):
 
 
 def build_rss(items):
-    """Build an RSS 2.0 feed sorted by most recently killed."""
-    sorted_items = sorted(items, key=lambda i: i["dateClose"], reverse=True)[:30]
+    """Build an RSS 2.0 feed sorted by most recently ADDED (so backfilled older deaths still surface)."""
+    sorted_items = sorted(items, key=lambda i: (i.get("dateAdded") or i["dateClose"], i["dateClose"]), reverse=True)[:30]
     today = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S +0000")
 
     rss_items = []
     for item in sorted_items:
         slug = slugify(item["name"])
-        pub_date = datetime.strptime(item["dateClose"], "%Y-%m-%d").strftime(
+        pub_date = datetime.strptime(item.get("dateAdded") or item["dateClose"], "%Y-%m-%d").strftime(
             "%a, %d %b %Y 00:00:00 +0000"
         )
+        url = product_url(item)
         rss_items.append(
             f"""    <item>
-      <title>{esc(item["name"])} — Killed by {esc(item["killedBy"])}</title>
-      <link>{SITE_URL}#{slug}</link>
-      <guid isPermaLink="true">{SITE_URL}#{slug}</guid>
+      <title>{esc(item["name"])} — Killed by {esc(item["killedBy"])} ({item["dateClose"]})</title>
+      <link>{url}</link>
+      <guid isPermaLink="true">{url}</guid>
       <pubDate>{pub_date}</pubDate>
       <description>{esc(item["description"])}</description>
       <category>{esc(item["type"])}</category>
@@ -388,7 +506,7 @@ VALID_DEATH_TYPES = {
 }
 VALID_TYPES = {"app", "model", "service", "startup", "hardware"}
 GRAVEYARD_REQUIRED = (
-    "name", "dateOpen", "dateClose", "description",
+    "name", "dateOpen", "dateClose", "dateAdded", "description",
     "type", "causeOfDeath", "killedBy", "link",
 )
 
@@ -608,6 +726,7 @@ def build_funding_jsonld(funded, total_b):
 
 def main():
     data = json.loads((ROOT / "graveyard.json").read_text())
+    data.sort(key=lambda i: (i["dateClose"], i.get("dateAdded", "")), reverse=True)
     template = (ROOT / "template.html").read_text()
 
     cards_html = "\n".join(render_card(item) for item in data)
@@ -661,7 +780,24 @@ def main():
         output = output.replace("{{TOTAL_JOBS_LOST}}", "0").replace("{{TOTAL_COMPANIES_LAYOFFS}}", "0")
 
     (ROOT / "index.html").write_text(output)
-    (ROOT / "sitemap.xml").write_text(build_sitemap())
+
+    # Per-product pages (/dead/<slug>/) and per-killer pages (/killed-by/<slug>/)
+    from collections import Counter as _Counter
+    killer_counts = _Counter(i["killedBy"] for i in data)
+    ordered = sorted(data, key=lambda i: i["dateClose"])
+    prod_tpl = (ROOT / "product-template.html").read_text()
+    for idx, item in enumerate(ordered):
+        d = ROOT / "dead" / slugify(item["name"]); d.mkdir(parents=True, exist_ok=True)
+        (d / "index.html").write_text(render_product(item, ordered, idx, prod_tpl, len(data), killer_counts))
+    list_tpl = (ROOT / "list-template.html").read_text()
+    killer_pages = []
+    for killer, n in killer_counts.items():
+        if n < 2:
+            continue
+        d = ROOT / "killed-by" / killer_slug(killer); d.mkdir(parents=True, exist_ok=True)
+        (d / "index.html").write_text(render_killer_page(killer, [i for i in data if i["killedBy"] == killer], list_tpl, len(data)))
+        killer_pages.append(killer)
+    print(f"Built {len(ordered)} product pages and {len(killer_pages)} killer pages")
     (ROOT / "robots.txt").write_text(build_robots())
     (ROOT / "feed.xml").write_text(build_rss(data))
 
@@ -777,7 +913,7 @@ def main():
                 f'''<article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">{esc(item["name"])}</h2>
-    <span class="doom-countdown{dead_class}">{countdown}</span>
+    <span class="doom-countdown{dead_class}" data-shutdown="{item["dateShutdown"]}">{countdown}</span>
   </div>
   <p class="doom-desc">{esc(item["description"])}</p>
   <div class="doom-meta">
@@ -797,18 +933,25 @@ def main():
         publish("coming-soon", cs_out)
         print(f"Built coming-soon.html with {len(cs_sorted)} entries")
 
-    # Build sitemap
+    # Build sitemap — lastmod derived from git so it changes only when content does
     today = datetime.utcnow().strftime("%Y-%m-%d")
+    def lm(paths, needle=None):
+        return git_lastmod(paths, needle) or today
     pages = [
-        (SITE_URL, "1.0"),
-        (SITE_URL + "layoffs/", "0.8"),
-        (SITE_URL + "funding/", "0.8"),
-        (SITE_URL + "coming-soon/", "0.8"),
-        (SITE_URL + "api/", "0.6"),
+        (SITE_URL, "1.0", "daily", lm(["graveyard.json", "template.html", "build.py"])),
+        (SITE_URL + "layoffs/", "0.9", "weekly", lm(["layoffs.json", "layoffs-template.html"])),
+        (SITE_URL + "coming-soon/", "0.8", "weekly", lm(["coming-soon.json", "coming-soon-template.html"])),
+        (SITE_URL + "funding/", "0.8", "weekly", lm(["graveyard.json", "funding-template.html"])),
+        (SITE_URL + "api/", "0.6", "monthly", lm(["api/index.html"])),
+        (SITE_URL + "about/", "0.5", "monthly", lm(["about/index.html"])),
     ]
+    for item in ordered:
+        pages.append((product_url(item), "0.7", "monthly", item.get("dateAdded") or item["dateClose"]))
+    for killer in killer_pages:
+        pages.append((f"{SITE_URL}killed-by/{killer_slug(killer)}/", "0.6", "weekly", lm(["graveyard.json"])))
     sitemap_urls = "\n".join(
-        f"  <url>\n    <loc>{url}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>{prio}</priority>\n  </url>"
-        for url, prio in pages
+        f"  <url>\n    <loc>{esc(url)}</loc>\n    <lastmod>{mod}</lastmod>\n    <changefreq>{freq}</changefreq>\n    <priority>{prio}</priority>\n  </url>"
+        for url, prio, freq, mod in pages
     )
     sitemap_xml = f'''<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

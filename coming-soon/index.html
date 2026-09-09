@@ -5,8 +5,8 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-MC3PM7NKRX');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon to the Graveyard — 17 AI Products Dying Soon</title>
-    <meta name="description" content="17 AI products with confirmed shutdown dates. From OpenAI Assistants API to Gemini 2.5 — these are the walking dead of AI. Countdown to their funeral.">
+    <title>Upcoming AI Shutdowns &amp; Model Deprecation Dates (2026–27)</title>
+    <meta name="description" content="The AI deprecation schedule: 17 AI products, APIs and models with confirmed shutdown dates, counting down. From OpenAI's October 23 cull to Sora's API. Coming soon to the graveyard.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://killedbyai.net/coming-soon/">
     <meta property="og:url" content="https://killedbyai.net/coming-soon/">
@@ -53,6 +53,20 @@
         .site-footer a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
         .site-footer a:hover{color:var(--yellow)}
         @media(max-width:600px){.site-nav{gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;justify-content:flex-start;padding:0.375rem 0.5rem}.site-nav::-webkit-scrollbar{display:none}.site-nav-item{flex-shrink:0;font-size:0.625rem;padding:0.3rem 0.5rem}.header{padding:1.75rem 0.75rem 0.75rem}.header h1{font-size:1.5rem}.list{padding:0 0.75rem}.doom-card{padding:1rem 1.125rem}.doom-name{font-size:0.9375rem}.doom-desc{font-size:0.75rem}}
+
+        /* ===== UX & accessibility floors (audit 2026-09) ===== */
+        :root { --text-dim: #8f8f99; }
+        html { -webkit-text-size-adjust: 100%; }
+        :focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+        .site-nav { gap: .25rem; }
+        .site-nav-item { min-height: 44px; display: inline-flex; align-items: center; font-size: .875rem; padding: 0 .875rem; color: var(--text-muted); }
+        .site-nav-item.active { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+        .layoff-source, .fund-source, .doom-source { min-height: 36px; display: inline-flex; align-items: center; font-size: .8125rem; }
+        .layoff-desc, .fund-desc, .doom-desc { font-size: .9375rem; }
+        .layoff-meta, .fund-meta, .doom-meta { font-size: .8125rem; }
+        .last-updated { font-size: .8125rem; color: var(--text-muted); }
+        @media (max-width: 600px) { .site-nav { justify-content: flex-start; -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); mask-image: linear-gradient(90deg, #000 90%, transparent); } .site-nav-item { font-size: .8125rem; padding: 0 .75rem; } .layoff-desc, .fund-desc, .doom-desc { font-size: .875rem; } }
     </style>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -65,7 +79,7 @@
       "keywords": "AI deprecation schedule, upcoming AI shutdowns, model retirement dates, AI sunset",
       "license": "https://creativecommons.org/licenses/by/4.0/",
       "isAccessibleForFree": true,
-      "dateModified": "2026-08-23",
+      "dateModified": "2026-09-09",
       "creator": {
         "@type": "Person",
         "name": "Patrik Rojan"
@@ -631,23 +645,23 @@
 }</script>
 </head>
 <body>
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Site">
         <a href="/" class="site-nav-item">💀 Graveyard</a>
-        <a href="/layoffs/" class="site-nav-item">💼 Layoffs</a>
+        <a href="/layoffs/" class="site-nav-item">💼 AI Layoffs</a>
         <a href="/funding/" class="site-nav-item">🔥 Funding</a>
-        <a href="/coming-soon/" class="site-nav-item active">⏳ Soon</a>
+        <a href="/coming-soon/" class="site-nav-item active" aria-current="page">⏳ Dying soon</a>
         <a href="/api/" class="site-nav-item">{ } API</a>
     </nav>
 
     <header class="header">
-        <h1>⏳ Coming Soon to the <span>Graveyard</span></h1>
-        <p>AI products with confirmed death dates. The walking dead of the AI industry — already announced, just counting down.</p>
+        <h1>⏳ Upcoming AI <span>Shutdowns</span></h1>
+        <p>Coming soon to the graveyard: the deprecation schedule for 17 AI products with confirmed death dates. Already announced, just counting down.</p>
     </header>
     <main class="list">
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">Claude 3 Haiku on Google Cloud</h2>
-    <span class="doom-countdown dead">DEAD</span>
+    <span class="doom-countdown dead" data-shutdown="2026-08-23">DEAD</span>
   </div>
   <p class="doom-desc">Deprecated since February and available to existing customers only, Claude 3 Haiku clears off Google Cloud on August 23 — the last Claude 3-generation model on the platform. The absurd part: Anthropic itself retired claude-3-haiku back on April 20, 2026. Google kept serving a model its maker had already killed for another four months.</p>
   <div class="doom-meta">
@@ -660,7 +674,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">OpenAI Assistants API</h2>
-    <span class="doom-countdown">2d left</span>
+    <span class="doom-countdown dead" data-shutdown="2026-08-26">DEAD</span>
   </div>
   <p class="doom-desc">Persistent AI agents with memory, tools, and file handling. Replaced by the Responses API. Developers face a full rewrite.</p>
   <div class="doom-meta">
@@ -673,7 +687,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">DALL·E GPT (in ChatGPT)</h2>
-    <span class="doom-countdown">6d left</span>
+    <span class="doom-countdown dead" data-shutdown="2026-08-30">DEAD</span>
   </div>
   <p class="doom-desc">The official preconfigured DALL·E GPT — the last place the DALL·E brand still lived inside ChatGPT — retires August 30. OpenAI won&#x27;t say what happens to images stored in it, and instead just recommends downloading anything you want to keep before the deadline. Image generation itself stays, under the ChatGPT Images banner.</p>
   <div class="doom-meta">
@@ -686,7 +700,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">Gemini Robotics-ER 1.6 Preview</h2>
-    <span class="doom-countdown">7d left</span>
+    <span class="doom-countdown dead" data-shutdown="2026-08-31">DEAD</span>
   </div>
   <p class="doom-desc">Released April 14, 2026. Scheduled for deletion August 31, 2026. A 139-day lifespan, and it never left preview. It killed its own predecessor, ER 1.5, on April 30 — meaning Google will have retired two embodied-reasoning robotics models inside five months, neither of which ever reached GA.</p>
   <div class="doom-meta">
@@ -699,7 +713,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">Mistral Medium 3 &amp; 3.1</h2>
-    <span class="doom-countdown">7d left</span>
+    <span class="doom-countdown dead" data-shutdown="2026-08-31">DEAD</span>
   </div>
   <p class="doom-desc">Both retire the same day. Medium 3.1 shipped in August 2025 and dies almost exactly a year later.</p>
   <div class="doom-meta">
@@ -712,7 +726,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">Sora API</h2>
-    <span class="doom-countdown">31d left</span>
+    <span class="doom-countdown" data-shutdown="2026-09-24">14d left</span>
   </div>
   <p class="doom-desc">While the Sora app died in April, the API endpoint survives until September. Then it&#x27;s gone completely.</p>
   <div class="doom-meta">
@@ -725,7 +739,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">OpenAI davinci-002, babbage-002 &amp; gpt-3.5-turbo-instruct</h2>
-    <span class="doom-countdown">35d left</span>
+    <span class="doom-countdown" data-shutdown="2026-09-28">18d left</span>
   </div>
   <p class="doom-desc">The end of the GPT-3 base-model lineage. These three shipped in August 2023, inherited the job when the original ada/babbage/curie/davinci died in January 2024, and are the last models served over the legacy /v1/completions endpoint. Their own fine-tuned versions outlive them by 25 days.</p>
   <div class="doom-meta">
@@ -738,7 +752,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">Mistral Leanstral 1.5</h2>
-    <span class="doom-countdown">37d left</span>
+    <span class="doom-countdown" data-shutdown="2026-09-30">20d left</span>
   </div>
   <p class="doom-desc">Mistral announced this Lean 4 formal-proof model&#x27;s death in the same sentence that announced its birth. The changelog reads: &#x27;We released Leanstral 1.5... This model will be retired on September 30, 2026.&#x27; A 92-day advertised lifespan, dead on arrival by design.</p>
   <div class="doom-meta">
@@ -751,7 +765,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">Google Gemini 2.5 Flash Image (&quot;Nano Banana&quot;)</h2>
-    <span class="doom-countdown">39d left</span>
+    <span class="doom-countdown" data-shutdown="2026-10-02">22d left</span>
   </div>
   <p class="doom-desc">The image model that went viral as &#x27;Nano Banana&#x27; and briefly made Gemini the #1 free iPhone app shuts down exactly one year after release, to the day. Google&#x27;s officially recommended replacement, gemini-3.1-flash-image-preview, was itself shut down in June 2026. The migration target is dead; the model isn&#x27;t yet.</p>
   <div class="doom-meta">
@@ -764,7 +778,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">Azure OpenAI GPT-4.1, 4.1 mini &amp; 4.1 nano</h2>
-    <span class="doom-countdown">51d left</span>
+    <span class="doom-countdown" data-shutdown="2026-10-14">34d left</span>
   </div>
   <p class="doom-desc">GPT-4.1 launched April 2025 as OpenAI&#x27;s &#x27;best model for coding&#x27; with a 1M-token context window. Azure retires it, plus mini and nano, after 18 months. Fine-tuned deployments on the same bases get a one-year stay of execution.</p>
   <div class="doom-meta">
@@ -777,7 +791,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">Gemini 2.5 Pro / Flash / Flash Lite (Vertex AI)</h2>
-    <span class="doom-countdown">53d left</span>
+    <span class="doom-countdown" data-shutdown="2026-10-16">36d left</span>
   </div>
   <p class="doom-desc">Google&#x27;s entire Gemini 2.5 family retires on Vertex AI no earlier than October 16, 2026. Note this is Vertex-only — the Gemini Developer API still lists no shutdown date for the same three models.</p>
   <div class="doom-meta">
@@ -790,7 +804,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">Azure OpenAI o-series (o1, o3, o4-mini, o3-pro)</h2>
-    <span class="doom-countdown">58d left</span>
+    <span class="doom-countdown" data-shutdown="2026-10-21">41d left</span>
   </div>
   <p class="doom-desc">Azure deletes an entire generation of reasoning models in under 90 days: o3-mini October 1, o4-mini October 16, o1/o1-pro/o3 October 21, codex-mini November 15, o3-pro December 17. Four have no named replacement — Microsoft declares one only 90 to 120 days out, because &#x27;declaring a replacement too early risks directing customers to a model that is no longer the best available option.&#x27;</p>
   <div class="doom-meta">
@@ -803,7 +817,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">OpenAI Fine-tuning (new orgs)</h2>
-    <span class="doom-countdown">60d left</span>
+    <span class="doom-countdown" data-shutdown="2026-10-23">43d left</span>
   </div>
   <p class="doom-desc">New organizations can no longer create fine-tuning jobs. The first wave executed on schedule July 23, 2026; the second takes every remaining fine-tuned model — ft-gpt-3.5-turbo, ft-gpt-4, ft-gpt-4.1-nano, ft-babbage-002 and ft-davinci-002 — on October 23.</p>
   <div class="doom-meta">
@@ -816,7 +830,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">OpenAI GPT-4, GPT-4 Turbo, GPT-3.5 Turbo &amp; the o-series</h2>
-    <span class="doom-countdown">60d left</span>
+    <span class="doom-countdown" data-shutdown="2026-10-23">43d left</span>
   </div>
   <p class="doom-desc">One date kills three eras. On October 23, OpenAI removes gpt-3.5-turbo (the engine that launched ChatGPT), gpt-4 and gpt-4-0613 (the model that defined 2023), and its entire first generation of reasoning models — o1, o1-pro, o3-mini, o4-mini — plus gpt-4o-2024-05-13 and gpt-image-1. Every fine-tune built on them dies the same day. Seventeen table rows, six months&#x27; notice.</p>
   <div class="doom-meta">
@@ -829,7 +843,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">OpenAI Legacy GPT Image Models</h2>
-    <span class="doom-countdown">99d left</span>
+    <span class="doom-countdown" data-shutdown="2026-12-01">82d left</span>
   </div>
   <p class="doom-desc">Older GPT Image model snapshots were flagged for removal from the API on December 1, 2026, just months after they replaced DALL·E. The endpoint that buried DALL·E is already on its own deprecation clock.</p>
   <div class="doom-meta">
@@ -842,7 +856,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">OpenAI GPT-5 (original snapshots), o3 &amp; o3-pro</h2>
-    <span class="doom-countdown">109d left</span>
+    <span class="doom-countdown" data-shutdown="2026-12-11">92d left</span>
   </div>
   <p class="doom-desc">The original GPT-5 launch snapshots — gpt-5-2025-08-07 and its mini, nano and pro siblings — plus o3 and o3-pro shut down December 11. GPT-5 launched in August 2025 as the &#x27;PhD-level expert&#x27; model. Its launch snapshot gets 16 months before it starts returning errors.</p>
   <div class="doom-meta">
@@ -855,7 +869,7 @@
 <article class="doom-card">
   <div class="doom-header">
     <h2 class="doom-name">OpenAI Realtime &amp; Audio Model Family</h2>
-    <span class="doom-countdown">149d left</span>
+    <span class="doom-countdown" data-shutdown="2027-01-20">132d left</span>
   </div>
   <p class="doom-desc">OpenAI put its entire GA voice stack on death row: gpt-realtime, gpt-audio, gpt-realtime-mini, gpt-audio-mini and all four gpt-4o audio/realtime variants. gpt-realtime and gpt-audio went GA in August 2025 — the models that headlined &#x27;production-ready voice agents&#x27; get roughly 17 months. OpenAI is skipping its own intermediate generation: the 1.5 series shipped in February 2026 and the named replacement is already 2.1.</p>
   <div class="doom-meta">
@@ -869,5 +883,15 @@
     <footer class="site-footer">
         <p>Part of <a href="/">Killed by AI</a>. Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.</p>
     </footer>
+    <script>
+    (function () {  // countdowns recompute on every visit, not just at build time
+        const now = Date.now();
+        document.querySelectorAll('.doom-countdown[data-shutdown]').forEach(el => {
+            const d = Math.ceil((Date.parse(el.dataset.shutdown + 'T00:00:00Z') - now) / 864e5);
+            if (d > 0) { el.textContent = d + 'd left'; el.classList.remove('dead'); }
+            else { el.textContent = 'DEAD'; el.classList.add('dead'); }
+        });
+    })();
+    </script>
 </body>
 </html>

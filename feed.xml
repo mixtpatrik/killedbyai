@@ -5,247 +5,247 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Aug 2026 07:56:50 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Sep 2026 00:55:06 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Cohere Command R &amp; Command R+ on Amazon Bedrock — Killed by AWS</title>
-      <link>https://killedbyai.net/#cohere-command-r-command-r-on-amazon-bedrock</link>
-      <guid isPermaLink="true">https://killedbyai.net/#cohere-command-r-command-r-on-amazon-bedrock</guid>
-      <pubDate>Wed, 19 Aug 2026 00:00:00 +0000</pubDate>
+      <title>Cohere Command R &amp; Command R+ on Amazon Bedrock — Killed by AWS (2026-08-19)</title>
+      <link>https://killedbyai.net/dead/cohere-command-r-command-r-on-amazon-bedrock/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/cohere-command-r-command-r-on-amazon-bedrock/</guid>
+      <pubDate>Sat, 22 Aug 2026 00:00:00 +0000</pubDate>
       <description>The RAG-and-tool-use pair AWS launched on Bedrock in April 2024 both hit end-of-life at 08:00 UTC, after a staged wind-down: legacy in February, new customers cut off in May, hard kill in August. AWS named no replacement for either. Cohere had already pulled the originals from its own API back in September 2025 — along with command-light, base command, summarize, and its entire fine-tuning product.</description>
       <category>model</category>
     </item>
     <item>
-      <title>Google Imagen 4.0 (Gemini API) — Killed by Google</title>
-      <link>https://killedbyai.net/#google-imagen-4-0-gemini-api</link>
-      <guid isPermaLink="true">https://killedbyai.net/#google-imagen-4-0-gemini-api</guid>
-      <pubDate>Mon, 17 Aug 2026 00:00:00 +0000</pubDate>
+      <title>Google Imagen 4.0 (Gemini API) — Killed by Google (2026-08-17)</title>
+      <link>https://killedbyai.net/dead/google-imagen-4-0-gemini-api/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/google-imagen-4-0-gemini-api/</guid>
+      <pubDate>Sat, 22 Aug 2026 00:00:00 +0000</pubDate>
       <description>All three Imagen 4.0 variants on the Gemini API — generate, ultra and fast — dead in under 14 months, after Google already slipped the date once. The best part was the exit signage: the pricing-page banner told users to migrate to Gemini 2.5 Flash Image, which is itself deprecated with an October shutdown. An evacuation route into a building that&#x27;s also on fire.</description>
       <category>model</category>
     </item>
     <item>
-      <title>Groq Llama 3.1 8B Instant &amp; Llama 3.3 70B Versatile — Killed by Groq</title>
-      <link>https://killedbyai.net/#groq-llama-3-1-8b-instant-llama-3-3-70b-versatile</link>
-      <guid isPermaLink="true">https://killedbyai.net/#groq-llama-3-1-8b-instant-llama-3-3-70b-versatile</guid>
-      <pubDate>Sun, 16 Aug 2026 00:00:00 +0000</pubDate>
+      <title>Groq Llama 3.1 8B Instant &amp; Llama 3.3 70B Versatile — Killed by Groq (2026-08-16)</title>
+      <link>https://killedbyai.net/dead/groq-llama-3-1-8b-instant-llama-3-3-70b-versatile/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/groq-llama-3-1-8b-instant-llama-3-3-70b-versatile/</guid>
+      <pubDate>Sat, 22 Aug 2026 00:00:00 +0000</pubDate>
       <description>The second half of Groq&#x27;s two-stage catalog cull, after Qwen3-32B and Llama 4 Scout went in July. Free and developer tiers only — committed-spend enterprise contracts were exempt. llama-3.3-70b-versatile was the only free-tier model with enough context headroom for a lot of real production prompts, and nothing left in the free catalog replaced it.</description>
       <category>model</category>
     </item>
     <item>
-      <title>OpenAI Atlas — Killed by OpenAI</title>
-      <link>https://killedbyai.net/#openai-atlas</link>
-      <guid isPermaLink="true">https://killedbyai.net/#openai-atlas</guid>
-      <pubDate>Sun, 09 Aug 2026 00:00:00 +0000</pubDate>
-      <description>OpenAI&#x27;s ChatGPT-powered web browser, launched October 2025 as its bid to own the browsing layer. Dead in under ten months. OpenAI absorbed the agentic browsing into ChatGPT and a Chrome extension instead. Bookmarks did not transfer automatically — users had to manually export them as HTML before the deadline or lose them, and open tabs and history simply didn&#x27;t carry over.</description>
-      <category>app</category>
-    </item>
-    <item>
-      <title>Claude Opus 4.1 — Killed by Anthropic</title>
-      <link>https://killedbyai.net/#claude-opus-4-1</link>
-      <guid isPermaLink="true">https://killedbyai.net/#claude-opus-4-1</guid>
-      <pubDate>Wed, 05 Aug 2026 00:00:00 +0000</pubDate>
-      <description>Retired exactly one year to the day after release — the model ID carries its own birthday, claude-opus-4-1-20250805. Anthropic gave 61 days&#x27; notice, one day above its stated 60-day minimum. It was the second flagship retirement in under two months after Sonnet 4 and Opus 4 both died June 15. Anthropic&#x27;s own deprecation page concedes that retirement means researchers lose access for comparative studies and that it &#x27;introduces safety- and model welfare-related risks.&#x27;</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Mistral Magistral — Killed by Mistral</title>
-      <link>https://killedbyai.net/#mistral-magistral</link>
-      <guid isPermaLink="true">https://killedbyai.net/#mistral-magistral</guid>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate>
-      <description>Mistral&#x27;s first reasoning models, shipped June 2025 as a separate product line. On July 31, 2026 the last two snapshots were retired — and with them the entire category. Reasoning at Mistral is now just a request parameter, reasoning_effort, on general-purpose models. The official migration path runs from magistral-small-latest to mistral-small-latest, a one-letter difference, at roughly 70% less on input.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Reforged Labs — Killed by Foundation Models</title>
-      <link>https://killedbyai.net/#reforged-labs</link>
-      <guid isPermaLink="true">https://killedbyai.net/#reforged-labs</guid>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 +0000</pubDate>
+      <title>Reforged Labs — Killed by Foundation Models (2026-07-31)</title>
+      <link>https://killedbyai.net/dead/reforged-labs/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/reforged-labs/</guid>
+      <pubDate>Sat, 22 Aug 2026 00:00:00 +0000</pubDate>
       <description>Built AI-generated video ad creative for mobile game studios and won real customers — Supercell, King, Ubisoft, Playtika, Scopely — with 17 staff across Vietnam and the US. CEO Robert Huynh shut it down after three years because foundation models got good enough for studios to build the same tooling in-house: &#x27;the gap we were selling into is closing.&#x27; Its biggest customers signed six-figure contracts; there were simply too few studios at that scale to sustain a company.</description>
       <category>startup</category>
     </item>
     <item>
-      <title>GitHub Models — Killed by GitHub</title>
-      <link>https://killedbyai.net/#github-models</link>
-      <guid isPermaLink="true">https://killedbyai.net/#github-models</guid>
-      <pubDate>Thu, 30 Jul 2026 00:00:00 +0000</pubDate>
+      <title>Yupp.ai — Killed by Market (2026-03-31)</title>
+      <link>https://killedbyai.net/dead/yupp-ai/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/yupp-ai/</guid>
+      <pubDate>Sat, 22 Aug 2026 00:00:00 +0000</pubDate>
+      <description>A crowdsourced AI-evaluation platform that paid users to compare model outputs, backed by $33M from a16z crypto. It reached 1.3 million users and still died inside a year. The labs had moved on to expert-sourced data and agentic evaluation — broad consumer preference signal simply stopped being the scarce input anyone would pay for. Co-founders Pankaj Gupta and Gilad Mishne kept it accessible for two weeks after the announcement, then closed signups permanently.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>OpenAI Atlas — Killed by OpenAI (2026-08-09)</title>
+      <link>https://killedbyai.net/dead/openai-atlas/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/openai-atlas/</guid>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+      <description>OpenAI&#x27;s ChatGPT-powered web browser, launched October 2025 as its bid to own the browsing layer. Dead in under ten months. OpenAI absorbed the agentic browsing into ChatGPT and a Chrome extension instead. Bookmarks did not transfer automatically — users had to manually export them as HTML before the deadline or lose them, and open tabs and history simply didn&#x27;t carry over.</description>
+      <category>app</category>
+    </item>
+    <item>
+      <title>Claude Opus 4.1 — Killed by Anthropic (2026-08-05)</title>
+      <link>https://killedbyai.net/dead/claude-opus-4-1/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/claude-opus-4-1/</guid>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+      <description>Retired exactly one year to the day after release — the model ID carries its own birthday, claude-opus-4-1-20250805. Anthropic gave 61 days&#x27; notice, one day above its stated 60-day minimum. It was the second flagship retirement in under two months after Sonnet 4 and Opus 4 both died June 15. Anthropic&#x27;s own deprecation page concedes that retirement means researchers lose access for comparative studies and that it &#x27;introduces safety- and model welfare-related risks.&#x27;</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Mistral Magistral — Killed by Mistral (2026-07-31)</title>
+      <link>https://killedbyai.net/dead/mistral-magistral/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/mistral-magistral/</guid>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+      <description>Mistral&#x27;s first reasoning models, shipped June 2025 as a separate product line. On July 31, 2026 the last two snapshots were retired — and with them the entire category. Reasoning at Mistral is now just a request parameter, reasoning_effort, on general-purpose models. The official migration path runs from magistral-small-latest to mistral-small-latest, a one-letter difference, at roughly 70% less on input.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>GitHub Models — Killed by GitHub (2026-07-30)</title>
+      <link>https://killedbyai.net/dead/github-models/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/github-models/</guid>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
       <description>GitHub&#x27;s free multi-model playground and inference API — Llama 3.1, GPT-4o, Cohere Command and Mistral Large, all callable with just a GitHub token. GitHub closed it to new customers in June 2026, then ran two deliberate &#x27;brownouts&#x27; on July 16 and 23 where requests simply returned errors, to smoke out anyone still depending on it. On July 30 everything went dark, including for existing paying customers. Free model experimentation went back to being a cloud-procurement decision.</description>
       <category>service</category>
     </item>
     <item>
-      <title>Amazon Bedrock Agents (Classic) — Killed by AWS</title>
-      <link>https://killedbyai.net/#amazon-bedrock-agents-classic</link>
-      <guid isPermaLink="true">https://killedbyai.net/#amazon-bedrock-agents-classic</guid>
-      <pubDate>Thu, 30 Jul 2026 00:00:00 +0000</pubDate>
+      <title>Amazon Bedrock Agents (Classic) — Killed by AWS (2026-07-30)</title>
+      <link>https://killedbyai.net/dead/amazon-bedrock-agents-classic/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/amazon-bedrock-agents-classic/</guid>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
       <description>AWS&#x27;s flagship managed AI-agent product, launched at re:Invent 2023, was renamed &#x27;Bedrock Agents Classic&#x27; and shoved into maintenance mode — closed to new customers, model catalog frozen, superseded by Bedrock AgentCore. New accounts calling CreateAgent now get a 403 citing maintenance mode. AWS broke its own CDK integration tests in the process and swapped the agent resource for a CloudWatch dashboard. One of roughly 20 services swept into maintenance in a single bulletin.</description>
       <category>service</category>
     </item>
     <item>
-      <title>DeepSeek deepseek-chat &amp; deepseek-reasoner — Killed by DeepSeek</title>
-      <link>https://killedbyai.net/#deepseek-deepseek-chat-deepseek-reasoner</link>
-      <guid isPermaLink="true">https://killedbyai.net/#deepseek-deepseek-chat-deepseek-reasoner</guid>
-      <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
+      <title>DeepSeek deepseek-chat &amp; deepseek-reasoner — Killed by DeepSeek (2026-07-24)</title>
+      <link>https://killedbyai.net/dead/deepseek-deepseek-chat-deepseek-reasoner/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/deepseek-deepseek-chat-deepseek-reasoner/</guid>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
       <description>The two API names the entire January 2025 DeepSeek boom was written against. DeepSeek killed them at 15:59 UTC on July 24, telling developers to call deepseek-v4-flash and toggle thinking mode in the request instead of switching model IDs. The migration notes promised the retired names would &#x27;return 404.&#x27; They never did — weeks past the hard cutoff, third-party clients still had both names working as silent aliases, priced identically.</description>
       <category>model</category>
     </item>
     <item>
-      <title>OpenAI Operator (CUA Preview) — Killed by OpenAI</title>
-      <link>https://killedbyai.net/#openai-operator-cua-preview</link>
-      <guid isPermaLink="true">https://killedbyai.net/#openai-operator-cua-preview</guid>
-      <pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate>
+      <title>OpenAI Operator (CUA Preview) — Killed by OpenAI (2026-07-23)</title>
+      <link>https://killedbyai.net/dead/openai-operator-cua-preview/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/openai-operator-cua-preview/</guid>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
       <description>OpenAI&#x27;s Computer-Using Agent — the model that clicked, scrolled and typed its way around websites on your behalf. Shut down July 23, 2026 as part of a 14-model cull that also took gpt-5-codex, gpt-5.1-codex-max and gpt-5.2-codex. The whole computer-use preview line died in a single afternoon, eighteen months after it was billed as the future of agentic AI.</description>
       <category>service</category>
     </item>
     <item>
-      <title>Groq Qwen3-32B &amp; Llama 4 Scout — Killed by Groq</title>
-      <link>https://killedbyai.net/#groq-qwen3-32b-llama-4-scout</link>
-      <guid isPermaLink="true">https://killedbyai.net/#groq-qwen3-32b-llama-4-scout</guid>
-      <pubDate>Fri, 17 Jul 2026 00:00:00 +0000</pubDate>
+      <title>Groq Qwen3-32B &amp; Llama 4 Scout — Killed by Groq (2026-07-17)</title>
+      <link>https://killedbyai.net/dead/groq-qwen3-32b-llama-4-scout/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/groq-qwen3-32b-llama-4-scout/</guid>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
       <description>Groq deleted qwen/qwen3-32b and meta-llama/llama-4-scout-17b-16e-instruct on July 17, 2026 — the first half of a two-stage cull that takes Llama 3.1 8B Instant and Llama 3.3 70B Versatile in August. The best-documented failure mode: a retired Groq model fails quietly, so downstream apps didn&#x27;t break, they just started sounding generic.</description>
       <category>model</category>
     </item>
     <item>
-      <title>Relay.app — Killed by Google</title>
-      <link>https://killedbyai.net/#relay-app</link>
-      <guid isPermaLink="true">https://killedbyai.net/#relay-app</guid>
-      <pubDate>Thu, 16 Jul 2026 00:00:00 +0000</pubDate>
+      <title>Relay.app — Killed by Google (2026-07-16)</title>
+      <link>https://killedbyai.net/dead/relay-app/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/relay-app/</guid>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
       <description>AI-agent workflow automation pitched as a Zapier alternative, founded by Jacob Bank — ex-Google Gmail and Calendar product lead whose previous startup Timeful was bought by Google. On July 16, 2026 the homepage was simply replaced with &#x27;Relay.app is shutting down,&#x27; with no reason given. A month later the answer arrived: Bank and part of the team joined Google&#x27;s Chrome division. The free tier stopped working August 15; paid accounts were given until September 14.</description>
       <category>startup</category>
     </item>
     <item>
-      <title>TV Time — Killed by Its Own Parent Company</title>
-      <link>https://killedbyai.net/#tv-time</link>
-      <guid isPermaLink="true">https://killedbyai.net/#tv-time</guid>
+      <title>Meta Llama API — Killed by Meta (2026-07-06)</title>
+      <link>https://killedbyai.net/dead/meta-llama-api/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/meta-llama-api/</guid>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+      <description>Meta&#x27;s own hosted home for Llama inference, unveiled at the first-ever LlamaCon in April 2025. Fourteen months later Meta retired the public preview and told developers to go rent Llama from AWS Bedrock, Together AI or Groq instead. Its replacement hosted service serves closed-weight models — cloud-only, no downloadable weights. The company that built its reputation on open models kept the API business and dropped the open part.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>TV Time — Killed by Its Own Parent Company (2026-07-15)</title>
+      <link>https://killedbyai.net/dead/tv-time/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/tv-time/</guid>
       <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
       <description>The beloved TV-tracking app used by millions to log episodes and get recommendations for 15 years. Shut down so its parent company could refocus on AI products — one of the clearest cases of a healthy, loved product dying not from AI competition, but from its owner chasing the AI gold rush.</description>
       <category>app</category>
     </item>
     <item>
-      <title>Doubao &amp; Qwen AI Agent Builders — Killed by Chinese Government</title>
-      <link>https://killedbyai.net/#doubao-qwen-ai-agent-builders</link>
-      <guid isPermaLink="true">https://killedbyai.net/#doubao-qwen-ai-agent-builders</guid>
+      <title>Doubao &amp; Qwen AI Agent Builders — Killed by Chinese Government (2026-07-15)</title>
+      <link>https://killedbyai.net/dead/doubao-qwen-ai-agent-builders/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/doubao-qwen-ai-agent-builders/</guid>
       <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
       <description>ByteDance&#x27;s Doubao and Alibaba&#x27;s Qwen both killed their AI-agent creation features on the same day — July 15, 2026 — as China&#x27;s Interim Measures for Anthropomorphic AI Interaction Services took effect. Every user-created agent stopped functioning, not just new creation. Two of China&#x27;s biggest AI platforms amputated a flagship feature simultaneously under regulatory pressure.</description>
       <category>service</category>
     </item>
     <item>
-      <title>Meta Llama API — Killed by Meta</title>
-      <link>https://killedbyai.net/#meta-llama-api</link>
-      <guid isPermaLink="true">https://killedbyai.net/#meta-llama-api</guid>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
-      <description>Meta&#x27;s own hosted home for Llama inference, unveiled at the first-ever LlamaCon in April 2025. Fourteen months later Meta retired the public preview and told developers to go rent Llama from AWS Bedrock, Together AI or Groq instead. Its replacement hosted service serves closed-weight models — cloud-only, no downloadable weights. The company that built its reputation on open models kept the API business and dropped the open part.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Google Imagen (Vertex AI) — Killed by Google</title>
-      <link>https://killedbyai.net/#google-imagen-vertex-ai</link>
-      <guid isPermaLink="true">https://killedbyai.net/#google-imagen-vertex-ai</guid>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
-      <description>Google&#x27;s family of text-to-image models on Vertex AI, once the backbone of image generation across Google Cloud and Workspace. Retired June 24, 2026 as native image generation folded directly into the Gemini 3 models. Apps built on the standalone Imagen endpoints were forced to migrate to Gemini&#x27;s built-in image gen.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Claude Sonnet 4 &amp; Opus 4 — Killed by Anthropic</title>
-      <link>https://killedbyai.net/#claude-sonnet-4-opus-4</link>
-      <guid isPermaLink="true">https://killedbyai.net/#claude-sonnet-4-opus-4</guid>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
-      <description>Anthropic&#x27;s flagship Claude 4 generation — Sonnet 4 and Opus 4 — retired less than a year after launch. API calls to claude-sonnet-4-0 and claude-opus-4-0 return errors after June 15, 2026. Replaced by the 4.5 and 4.7 series with dramatically improved coding and computer use capabilities.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Claude Fable 5 &amp; Mythos 5 (June Suspension) — Killed by U.S. Government</title>
-      <link>https://killedbyai.net/#claude-fable-5-mythos-5-june-suspension</link>
-      <guid isPermaLink="true">https://killedbyai.net/#claude-fable-5-mythos-5-june-suspension</guid>
-      <pubDate>Fri, 12 Jun 2026 00:00:00 +0000</pubDate>
-      <description>Anthropic&#x27;s most powerful model ever — a &#x27;Mythos-class&#x27; tier above Opus that scored 10%+ higher than Opus 4.8. Launched June 9, killed June 12 when the U.S. Commerce Department issued a national-security export directive barring use by any foreign national anywhere — including Anthropic&#x27;s own staff. The only way to comply was to shut it off for everyone. Dead for 19 days until Commerce lifted the controls on June 30; Fable 5 returned globally on July 1 with a new jailbreak classifier. A rare resurrection — killed by government order, then un-killed.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Stainless SDK Generator — Killed by Anthropic</title>
-      <link>https://killedbyai.net/#stainless-sdk-generator</link>
-      <guid isPermaLink="true">https://killedbyai.net/#stainless-sdk-generator</guid>
-      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
-      <description>The startup that auto-generated production-ready API SDKs in Python, TypeScript, Go, Java, and Kotlin. Used by OpenAI, Google, Cloudflare, Replicate, Runway, and Meta. Anthropic acquired it for $300M+ and immediately announced it would wind down all hosted products — a strategic kill to deny competitors access to critical infrastructure.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>xAI Grok Legacy Models — Killed by xAI</title>
-      <link>https://killedbyai.net/#xai-grok-legacy-models</link>
-      <guid isPermaLink="true">https://killedbyai.net/#xai-grok-legacy-models</guid>
-      <pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate>
-      <description>Eight Grok models retired at once: grok-4-1-fast, grok-4-fast, grok-4-0709, grok-code-fast-1, grok-3, and grok-imagine-image-pro. xAI silently redirected all retired slugs to grok-4.3 — meaning developers&#x27; bills and output quality changed without code changes or warnings. A masterclass in how NOT to handle deprecation.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>DALL·E 3 API Snapshots — Killed by OpenAI</title>
-      <link>https://killedbyai.net/#dall-e-3-api-snapshots</link>
-      <guid isPermaLink="true">https://killedbyai.net/#dall-e-3-api-snapshots</guid>
-      <pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate>
-      <description>The specific dated snapshots of DALL·E 3 used via the Images API were scheduled for removal as OpenAI consolidated image generation under GPT-4o&#x27;s native image capabilities. Another casualty of the &#x27;everything in one model&#x27; consolidation trend.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>OpenAI Realtime API (Beta) — Killed by OpenAI</title>
-      <link>https://killedbyai.net/#openai-realtime-api-beta</link>
-      <guid isPermaLink="true">https://killedbyai.net/#openai-realtime-api-beta</guid>
-      <pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate>
-      <description>OpenAI&#x27;s WebSocket-based API for building real-time voice conversations, powering Advanced Voice Mode demos. The beta endpoint was deprecated as OpenAI shipped a GA (general availability) version with a different interface, forcing developers to rewrite their integrations.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Claude 3.7 Sonnet — Killed by Anthropic</title>
-      <link>https://killedbyai.net/#claude-3-7-sonnet</link>
-      <guid isPermaLink="true">https://killedbyai.net/#claude-3-7-sonnet</guid>
-      <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
-      <description>Anthropic&#x27;s first model with hybrid &#x27;extended thinking&#x27; — it could reason step-by-step for up to 128K tokens before answering, scoring state-of-the-art on SWE-Bench coding benchmarks at launch. Deprecated just 15 months after release as the Claude 4 family made extended thinking standard across the entire lineup.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>GPT-5.2 &amp; GPT-5.3 (API Snapshots) — Killed by OpenAI</title>
-      <link>https://killedbyai.net/#gpt-5-2-gpt-5-3-api-snapshots</link>
-      <guid isPermaLink="true">https://killedbyai.net/#gpt-5-2-gpt-5-3-api-snapshots</guid>
-      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
-      <description>OpenAI deprecated the gpt-5.2-chat-latest and gpt-5.3-chat-latest snapshots less than 4 months after release. The pace of model churn has become so extreme that even &#x27;latest&#x27; models are now deprecated quarterly, leaving developers in a permanent migration treadmill.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Google Project Mariner — Killed by Google</title>
-      <link>https://killedbyai.net/#google-project-mariner</link>
-      <guid isPermaLink="true">https://killedbyai.net/#google-project-mariner</guid>
-      <pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
-      <description>Google DeepMind&#x27;s experimental AI browser agent that could navigate Chrome, fill out forms, book travel, and complete web tasks by taking screenshots and clicking for you. Quietly killed after 17 months when staff were reassigned. The tech was absorbed into Gemini Agent. Privacy concerns and high compute costs for visual processing made it unsustainable.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Google Doppl — Killed by Google</title>
-      <link>https://killedbyai.net/#google-doppl</link>
-      <guid isPermaLink="true">https://killedbyai.net/#google-doppl</guid>
-      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
-      <description>Google Labs&#x27; AI-powered virtual try-on app that let users see how clothes would look on their avatar. Made TIME&#x27;s Best Inventions of 2025 list, then killed less than a year later as the feature was absorbed into Google Shopping search results.</description>
-      <category>app</category>
-    </item>
-    <item>
-      <title>Google Whisk — Killed by Google</title>
-      <link>https://killedbyai.net/#google-whisk</link>
-      <guid isPermaLink="true">https://killedbyai.net/#google-whisk</guid>
-      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <title>Google Whisk — Killed by Google (2026-04-30)</title>
+      <link>https://killedbyai.net/dead/google-whisk/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/google-whisk/</guid>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
       <description>Google Labs&#x27; viral image-remixing tool that let users blend a Subject, Scene, and Style image instead of writing prompts. Its Sticker and Plushie styles briefly took over social media. Killed after 17 months when Google folded it into Flow — continuing its pattern of absorbing experimental AI products into fewer surfaces.</description>
       <category>app</category>
     </item>
     <item>
-      <title>OpenAI Sora — Killed by OpenAI</title>
-      <link>https://killedbyai.net/#openai-sora</link>
-      <guid isPermaLink="true">https://killedbyai.net/#openai-sora</guid>
-      <pubDate>Sun, 26 Apr 2026 00:00:00 +0000</pubDate>
-      <description>OpenAI&#x27;s text-to-video model and standalone app. The Sora web and app were shut down on April 26, 2026 (API following on September 24). Peaked at ~1M users before collapsing to under 500K while burning ~$1M/day. OpenAI is freeing up compute for its coding and enterprise products, and the $1B Disney deal collapsed.</description>
+      <title>Sourcegraph Cody (Free &amp; Pro) — Killed by Sourcegraph (2025-07-01)</title>
+      <link>https://killedbyai.net/dead/sourcegraph-cody-free-pro/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/sourcegraph-cody-free-pro/</guid>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
+      <description>One of the first serious AI coding assistants, with codebase-aware context that predated most rivals. Sourcegraph killed the free and individual Pro tiers to reposition Cody as enterprise-only — an early signal of AI dev tools abandoning the free-tier growth playbook once inference costs got priced honestly.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Google Imagen (Vertex AI) — Killed by Google (2026-06-24)</title>
+      <link>https://killedbyai.net/dead/google-imagen-vertex-ai/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/google-imagen-vertex-ai/</guid>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
+      <description>Google&#x27;s family of text-to-image models on Vertex AI, once the backbone of image generation across Google Cloud and Workspace. Retired June 24, 2026 as native image generation folded directly into the Gemini 3 models. Apps built on the standalone Imagen endpoints were forced to migrate to Gemini&#x27;s built-in image gen.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Claude Fable 5 &amp; Mythos 5 (June Suspension) — Killed by U.S. Government (2026-06-12)</title>
+      <link>https://killedbyai.net/dead/claude-fable-5-mythos-5-june-suspension/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/claude-fable-5-mythos-5-june-suspension/</guid>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
+      <description>Anthropic&#x27;s most powerful model ever — a &#x27;Mythos-class&#x27; tier above Opus that scored 10%+ higher than Opus 4.8. Launched June 9, killed June 12 when the U.S. Commerce Department issued a national-security export directive barring use by any foreign national anywhere — including Anthropic&#x27;s own staff. The only way to comply was to shut it off for everyone. Dead for 19 days until Commerce lifted the controls on June 30; Fable 5 returned globally on July 1 with a new jailbreak classifier. A rare resurrection — killed by government order, then un-killed.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Claude 3.7 Sonnet — Killed by Anthropic (2026-05-11)</title>
+      <link>https://killedbyai.net/dead/claude-3-7-sonnet/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/claude-3-7-sonnet/</guid>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 +0000</pubDate>
+      <description>Anthropic&#x27;s first model with hybrid &#x27;extended thinking&#x27; — it could reason step-by-step for up to 128K tokens before answering, scoring state-of-the-art on SWE-Bench coding benchmarks at launch. Deprecated just 15 months after release as the Claude 4 family made extended thinking standard across the entire lineup.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Microsoft Clippy — Killed by Microsoft (2007-01-01)</title>
+      <link>https://killedbyai.net/dead/microsoft-clippy/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/microsoft-clippy/</guid>
+      <pubDate>Wed, 27 May 2026 00:00:00 +0000</pubDate>
+      <description>The iconic paperclip assistant from Microsoft Office that asked &#x27;It looks like you&#x27;re writing a letter. Would you like help?&#x27; Universally loathed by users but deeply loved in hindsight. Killed after a decade of annoyance, Clippy became the original AI assistant meme and the spiritual ancestor of every chatbot that followed.</description>
       <category>app</category>
     </item>
     <item>
-      <title>OpenAI for Science — Killed by OpenAI</title>
-      <link>https://killedbyai.net/#openai-for-science</link>
-      <guid isPermaLink="true">https://killedbyai.net/#openai-for-science</guid>
-      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
-      <description>OpenAI&#x27;s research initiative to apply frontier models to scientific discovery in biology, physics, and materials science. Dismantled alongside Sora as OpenAI shed &#x27;side quests&#x27; to refocus compute on coding and enterprise products. Announced the same day product chief Kevin Weil and Sora head Bill Peebles departed.</description>
+      <title>Claude Sonnet 4 &amp; Opus 4 — Killed by Anthropic (2026-06-15)</title>
+      <link>https://killedbyai.net/dead/claude-sonnet-4-opus-4/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/claude-sonnet-4-opus-4/</guid>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <description>Anthropic&#x27;s flagship Claude 4 generation — Sonnet 4 and Opus 4 — retired less than a year after launch. API calls to claude-sonnet-4-0 and claude-opus-4-0 return errors after June 15, 2026. Replaced by the 4.5 and 4.7 series with dramatically improved coding and computer use capabilities.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Stainless SDK Generator — Killed by Anthropic (2026-05-18)</title>
+      <link>https://killedbyai.net/dead/stainless-sdk-generator/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/stainless-sdk-generator/</guid>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <description>The startup that auto-generated production-ready API SDKs in Python, TypeScript, Go, Java, and Kotlin. Used by OpenAI, Google, Cloudflare, Replicate, Runway, and Meta. Anthropic acquired it for $300M+ and immediately announced it would wind down all hosted products — a strategic kill to deny competitors access to critical infrastructure.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>xAI Grok Legacy Models — Killed by xAI (2026-05-15)</title>
+      <link>https://killedbyai.net/dead/xai-grok-legacy-models/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/xai-grok-legacy-models/</guid>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <description>Eight Grok models retired at once: grok-4-1-fast, grok-4-fast, grok-4-0709, grok-code-fast-1, grok-3, and grok-imagine-image-pro. xAI silently redirected all retired slugs to grok-4.3 — meaning developers&#x27; bills and output quality changed without code changes or warnings. A masterclass in how NOT to handle deprecation.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>GPT-5.2 &amp; GPT-5.3 (API Snapshots) — Killed by OpenAI (2026-05-08)</title>
+      <link>https://killedbyai.net/dead/gpt-5-2-gpt-5-3-api-snapshots/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/gpt-5-2-gpt-5-3-api-snapshots/</guid>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <description>OpenAI deprecated the gpt-5.2-chat-latest and gpt-5.3-chat-latest snapshots less than 4 months after release. The pace of model churn has become so extreme that even &#x27;latest&#x27; models are now deprecated quarterly, leaving developers in a permanent migration treadmill.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Google Project Mariner — Killed by Google (2026-05-04)</title>
+      <link>https://killedbyai.net/dead/google-project-mariner/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/google-project-mariner/</guid>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <description>Google DeepMind&#x27;s experimental AI browser agent that could navigate Chrome, fill out forms, book travel, and complete web tasks by taking screenshots and clicking for you. Quietly killed after 17 months when staff were reassigned. The tech was absorbed into Gemini Agent. Privacy concerns and high compute costs for visual processing made it unsustainable.</description>
       <category>service</category>
+    </item>
+    <item>
+      <title>Cydoc — Killed by Big Tech (2026-02-21)</title>
+      <link>https://killedbyai.net/dead/cydoc/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/cydoc/</guid>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <description>A bootstrapped health AI startup that operated for 7 years trying to build clinical AI tools. The founder published a detailed postmortem explaining why even technically sound health AI products die: the regulatory maze, slow hospital sales cycles, and the impossibility of competing with Big Tech&#x27;s free AI offerings.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>Kintsugi AI — Killed by FDA (2026-02-11)</title>
+      <link>https://killedbyai.net/dead/kintsugi-ai/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/kintsugi-ai/</guid>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <description>An AI startup that spent 7 years and $30M developing voice biomarker technology to detect depression and anxiety from how people speak. Shut down after nearly 4 years waiting for FDA De Novo clearance that never came. Open-sourced all code and research before closing — a rare act of scientific integrity in an industry of quiet deaths.</description>
+      <category>startup</category>
     </item>
   </channel>
 </rss>

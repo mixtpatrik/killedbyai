@@ -43,8 +43,6 @@
     <link rel="alternate" type="application/rss+xml" title="Killed by AI — RSS Feed" href="https://killedbyai.net/feed.xml">
 
     <!-- Structured Data -->
-    <script type="application/ld+json">{{JSONLD}}</script>
-    <script type="application/ld+json">{{FAQ_JSONLD}}</script>
 
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -956,21 +954,71 @@
             .pace-projected .pace-value { font-size: 1.375rem; }
             .site-footer { padding: 1.5rem 0.75rem 2rem; }
         }
+
+        /* ===== UX & accessibility floors (audit 2026-09) ===== */
+        :root { --text-dim: #8f8f99; --line-dim: #52525b; }
+        html { -webkit-text-size-adjust: 100%; }
+        :focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+        .site-nav { gap: .25rem; }
+        .site-nav-item { min-height: 44px; display: inline-flex; align-items: center; font-size: .875rem; padding: 0 .875rem; color: var(--text-muted); }
+        .site-nav-item.active { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+        .last-updated { font-size: .8125rem; color: var(--text-muted); }
+        .filter-pill { min-height: 44px; display: inline-flex; align-items: center; font-size: .8125rem; padding: 0 .875rem; }
+        .filter-pill[disabled] { opacity: .4; cursor: not-allowed; }
+        .sort-select { min-height: 44px; font-size: .875rem; }
+        .toggle-wrap { min-height: 44px; display: inline-flex; align-items: center; cursor: pointer; position: relative; }
+        .toggle-input { position: absolute; clip: rect(0 0 0 0); width: 1px; height: 1px; overflow: hidden; white-space: nowrap; }
+        .toggle-input:focus-visible + .toggle-switch { outline: 2px solid var(--red); outline-offset: 2px; }
+        .submit-cta, .card-link { min-height: 44px; display: inline-flex; align-items: center; }
+        .year-filter-clear.visible { min-height: 44px; display: inline-flex; align-items: center; }
+        .lb-row { min-height: 44px; }
+        .bar { min-width: 40px; }
+        .timeline-chart { height: 110px; }
+        .card-name a { color: inherit; text-decoration: none; }
+        .card-name a:hover, .card-name a:focus-visible { color: var(--red); }
+        .badge-new { display: inline-block; margin-left: .5rem; padding: .125rem .5rem; border-radius: 999px; background: var(--red); color: #fff; font-size: .6875rem; font-weight: 800; letter-spacing: .06em; vertical-align: middle; }
+        .card-description { font-size: .875rem; line-height: 1.6; }
+        .tag { font-size: .75rem; }
+        .grid-title { max-width: 1200px; margin: 1.25rem auto .5rem; padding: 0 1.5rem; font-size: 1.125rem; font-weight: 800; letter-spacing: -.01em; }
+        .grid-title span { color: var(--red); }
+        .active-filters { max-width: 1200px; margin: 0 auto .5rem; padding: 0 1.5rem; display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+        .active-filters:empty { display: none; }
+        .chip { display: inline-flex; align-items: center; gap: .375rem; min-height: 36px; padding: 0 .75rem; border-radius: 999px; background: var(--red-dim); border: 1px solid rgba(239,68,68,.3); color: var(--red); font-size: .8125rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+        .chip:hover { background: rgba(239,68,68,.25); }
+        .chip-clear { background: transparent; border-color: var(--border); color: var(--text-muted); }
+        .result-count { margin: 0; font-size: .8125rem; color: var(--text-muted); }
+        .empty .actions { display: flex; gap: .5rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; }
+        .insights-fold > summary { display: none; }
+        @media (max-width: 600px) {
+            input, select { font-size: 16px; }
+            .site-nav-item { font-size: .8125rem; padding: 0 .75rem; }
+            .site-nav { justify-content: flex-start; -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); mask-image: linear-gradient(90deg, #000 90%, transparent); }
+            .card-name { font-size: 1rem; }
+            .card-description { font-size: .875rem; }
+            .timeline-chart { height: 96px; }
+            .filter-pills { -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent); mask-image: linear-gradient(90deg, #000 88%, transparent); padding-right: 2rem; }
+            .grid-title, .active-filters { padding: 0 .75rem; }
+            .insights-fold > summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; margin: .5rem .75rem 0; padding: 0 .875rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: .5rem; font-size: .875rem; font-weight: 600; color: var(--text-muted); cursor: pointer; list-style: none; }
+            .insights-fold > summary::-webkit-details-marker { display: none; }
+            .insights-fold > summary::after { content: "▾"; color: var(--text-dim); }
+            .insights-fold[open] > summary::after { content: "▴"; }
+        }
     </style>
 </head>
 <body>
 
-    <nav class="site-nav">
-        <a href="/" class="site-nav-item active">💀 Graveyard</a>
-        <a href="/layoffs/" class="site-nav-item">💼 Layoffs</a>
+    <nav class="site-nav" aria-label="Site">
+        <a href="/" class="site-nav-item active" aria-current="page">💀 Graveyard</a>
+        <a href="/layoffs/" class="site-nav-item">💼 AI Layoffs</a>
         <a href="/funding/" class="site-nav-item">🔥 Funding</a>
-        <a href="/coming-soon/" class="site-nav-item">⏳ Soon</a>
+        <a href="/coming-soon/" class="site-nav-item">⏳ Dying soon</a>
         <a href="/api/" class="site-nav-item">{ } API</a>
     </nav>
 
     <header class="header">
         <h1>Killed by <span>AI</span></h1>
-        <p>A digital cemetery for the models, apps, and startups that didn't survive the artificial intelligence gold rush.</p>
+        <p>The AI graveyard: a digital cemetery for the models, apps, and startups that didn't survive the artificial intelligence gold rush — every dead AI product, with a launch date, a death date, a killer and a source.</p>
         <div class="counter">
             <span class="skull">💀</span>
             <span id="total-count">{{COUNT}}</span> products killed and counting
@@ -978,6 +1026,8 @@
         <span class="last-updated">Last updated: {{LAST_UPDATED}}</span>
     </header>
 
+    <details class="insights-fold" id="insights" open>
+        <summary>📊 Stats, deaths-per-year chart &amp; kill leaderboard</summary>
     <div class="stats-ribbon">
         <div class="stat-card">
             <div class="stat-value">{{AVG_LIFESPAN}}</div>
@@ -1046,9 +1096,7 @@
         </div>
     </div>
 
-    <div class="scroll-hint" id="scroll-hint">
-        <span>↓</span> Scroll to explore the graveyard
-    </div>
+    </details>
 
     <div class="controls">
         <div class="search-box">
@@ -1059,15 +1107,16 @@
             <span class="search-hint">/</span>
         </div>
         <div class="filter-pills" id="filters" role="group" aria-label="Filter by type">
-            <button class="filter-pill active" data-filter="all">All ({{COUNT}})</button>
-            <button class="filter-pill" data-filter="app">Apps ({{COUNT_APP}})</button>
-            <button class="filter-pill" data-filter="model">Models ({{COUNT_MODEL}})</button>
-            <button class="filter-pill" data-filter="service">Services ({{COUNT_SERVICE}})</button>
-            <button class="filter-pill" data-filter="startup">Startups ({{COUNT_STARTUP}})</button>
-            <button class="filter-pill" data-filter="hardware">Hardware ({{COUNT_HARDWARE}})</button>
+            <button type="button" class="filter-pill active" data-filter="all" aria-pressed="true">All ({{COUNT}})</button>
+            <button type="button" class="filter-pill" data-filter="app" aria-pressed="false">Apps ({{COUNT_APP}})</button>
+            <button type="button" class="filter-pill" data-filter="model" aria-pressed="false">Models ({{COUNT_MODEL}})</button>
+            <button type="button" class="filter-pill" data-filter="service" aria-pressed="false">Services ({{COUNT_SERVICE}})</button>
+            <button type="button" class="filter-pill" data-filter="startup" aria-pressed="false">Startups ({{COUNT_STARTUP}})</button>
+            <button type="button" class="filter-pill" data-filter="hardware" aria-pressed="false">Hardware ({{COUNT_HARDWARE}})</button>
         </div>
         <select class="sort-select" id="sort" aria-label="Sort by">
             <option value="recent">Recently Killed</option>
+            <option value="added">Recently Added</option>
             <option value="oldest">Oldest First</option>
             <option value="shortest">Shortest Lived</option>
             <option value="longest">Longest Lived</option>
@@ -1080,7 +1129,8 @@
         </label>
         <a class="submit-cta" href="https://github.com/mixtpatrik/killedbyai/issues/new?title=New+entry:+[Product+Name]&body=Name:%0ADate+launched:%0ADate+killed:%0ADescription:%0AKilled+by:%0ASource+link:" target="_blank" rel="noopener">+ Submit a death</a>
     </div>
-    <div class="result-count" id="result-count"></div>
+    <div class="active-filters" id="active-filters" aria-live="polite"></div>
+    <h2 class="grid-title" id="graveyard">The AI graveyard: <span>{{COUNT}}</span> tombstones</h2>
 
     <main class="grid" id="grid">
 {{CARDS}}
@@ -1097,186 +1147,140 @@
         <p>
             Inspired by <a href="https://killedbygoogle.com/" target="_blank" rel="noopener">Killed by Google</a>.
             Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.
-            <br>Want to add a tombstone? Submit a pull request.
+            <br>Want to add a tombstone? <a href="https://github.com/mixtpatrik/killedbyai/issues/new?title=New+entry:+[Product+Name]" target="_blank" rel="noopener">Submit a death</a> or a pull request.
+            <br><a href="/about/">About &amp; methodology</a> · <a href="/api/">JSON API</a> · <a href="/feed.xml">RSS</a> · Data <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>
         </p>
         <p class="quote">"I'm sorry, Dave. I'm afraid I can't do that anymore."</p>
     </footer>
 
     <script>
     (function () {
-        const grid = document.getElementById('grid');
-        const searchInput = document.getElementById('search');
-        const filtersEl = document.getElementById('filters');
-        const sortSelect = document.getElementById('sort');
-        const timelineEl = document.getElementById('timeline');
-        const yearClearBtn = document.getElementById('year-clear');
-        const resultCountEl = document.getElementById('result-count');
-        const backToTopBtn = document.getElementById('back-to-top');
-        const hideUpgradesToggle = document.getElementById('hide-upgrades');
-
-        let activeFilter = 'all';
-        let activeYear = null;
-        const cards = Array.from(grid.querySelectorAll('.card'));
-        const totalCards = cards.length;
+        const grid = document.getElementById('grid'), searchInput = document.getElementById('search'), filtersEl = document.getElementById('filters'),
+              sortSelect = document.getElementById('sort'), timelineEl = document.getElementById('timeline'), yearClearBtn = document.getElementById('year-clear'),
+              chipsEl = document.getElementById('active-filters'), backToTopBtn = document.getElementById('back-to-top'),
+              hideUpgradesToggle = document.getElementById('hide-upgrades'), controlsEl = document.querySelector('.controls'), insights = document.getElementById('insights');
+        let activeFilter = 'all', activeYear = null, activeKiller = null;
+        const cards = Array.from(grid.querySelectorAll('.card')), total = cards.length;
+        const pillBase = {}; filtersEl.querySelectorAll('.filter-pill').forEach(p => { pillBase[p.dataset.filter] = p.textContent.replace(/\s*\(\d+\)\s*$/, ''); });
+        const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const killerLabel = k => { const c = cards.find(x => x.dataset.killer === k); const t = c && c.querySelector('.tag-killer'); return t ? t.textContent.replace(/^Killed by:\s*/, '') : k; };
 
         function updateURL() {
             const p = new URLSearchParams();
             if (searchInput.value.trim()) p.set('q', searchInput.value.trim());
             if (activeFilter !== 'all') p.set('type', activeFilter);
             if (activeYear) p.set('year', activeYear);
+            if (activeKiller) p.set('killer', activeKiller);
             if (sortSelect.value !== 'recent') p.set('sort', sortSelect.value);
             if (hideUpgradesToggle.checked) p.set('real', '1');
             const qs = p.toString();
-            const url = location.pathname + (qs ? '?' + qs : '');
-            history.replaceState(null, '', url);
+            history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
         }
-
-        function apply() {
+        function matches(card, ignoreType) {
             const q = searchInput.value.toLowerCase().trim();
-            let visibleCount = 0;
-
-            cards.forEach(card => {
-                const type = card.dataset.type;
-                const cardYear = card.dataset.dateClose.slice(0, 4);
-                const matchesFilter = activeFilter === 'all' || type === activeFilter;
-                const matchesYear = !activeYear || cardYear === activeYear;
-                const hideUpgrades = hideUpgradesToggle.checked && card.dataset.deathType === 'model-upgrade';
-                const matchesSearch = !q || (
-                    card.dataset.name.includes(q) ||
-                    card.dataset.desc.includes(q) ||
-                    card.dataset.killer.includes(q) ||
-                    card.dataset.cause.includes(q)
-                );
-                const show = matchesFilter && matchesYear && matchesSearch && !hideUpgrades;
-                card.classList.toggle('hidden', !show);
-                if (show) visibleCount++;
-            });
-
-            let empty = grid.querySelector('.empty');
-            if (visibleCount === 0) {
-                if (!empty) {
-                    empty = document.createElement('div');
-                    empty.className = 'empty';
-                    empty.innerHTML = '<div class="icon">🔍</div><p>No casualties found. Try a different search.</p>';
-                    grid.appendChild(empty);
-                }
-            } else if (empty) {
-                empty.remove();
-            }
-
-            resultCountEl.textContent = visibleCount === totalCards
-                ? ''
-                : `Showing ${visibleCount} of ${totalCards} casualties`;
-
-            sortCards();
-            updateURL();
+            return (ignoreType || activeFilter === 'all' || card.dataset.type === activeFilter)
+                && (!activeYear || card.dataset.dateClose.slice(0, 4) === activeYear)
+                && (!activeKiller || card.dataset.killer === activeKiller)
+                && !(hideUpgradesToggle.checked && card.dataset.deathType === 'model-upgrade')
+                && (!q || card.dataset.name.includes(q) || card.dataset.desc.includes(q) || card.dataset.killer.includes(q) || card.dataset.cause.includes(q));
         }
-
+        function chip(label, onClear, cls) {
+            const b = document.createElement('button'); b.type = 'button'; b.className = 'chip' + (cls ? ' ' + cls : '');
+            b.textContent = label; if (onClear) { b.setAttribute('aria-label', 'Remove filter: ' + label); b.append(' ✕'); b.addEventListener('click', onClear); }
+            return b;
+        }
+        function renderChips(visible) {
+            chipsEl.innerHTML = '';
+            const chips = [];
+            if (activeFilter !== 'all') chips.push(chip('Type: ' + pillBase[activeFilter], () => setFilter('all')));
+            if (activeYear) chips.push(chip('Year: ' + activeYear, clearYear));
+            if (activeKiller) chips.push(chip('Killed by: ' + killerLabel(activeKiller), () => { activeKiller = null; apply(); }));
+            if (searchInput.value.trim()) chips.push(chip('Search: “' + searchInput.value.trim() + '”', () => { searchInput.value = ''; apply(); }));
+            if (hideUpgradesToggle.checked) chips.push(chip('Hiding model upgrades', () => { hideUpgradesToggle.checked = false; apply(); }));
+            chips.forEach(c => chipsEl.appendChild(c));
+            if (chips.length) { const all = chip('Clear all', clearAll, 'chip-clear'); all.setAttribute('aria-label', 'Clear all filters'); chipsEl.appendChild(all); }
+            if (chips.length || visible !== total) { const n = document.createElement('span'); n.className = 'result-count'; n.id = 'result-count'; n.textContent = 'Showing ' + visible + ' of ' + total; chipsEl.appendChild(n); }
+        }
+        function apply() {
+            let visible = 0; const counts = {};
+            cards.forEach(card => {
+                const show = matches(card, false); card.classList.toggle('hidden', !show); if (show) visible++;
+                if (matches(card, true)) { counts[card.dataset.type] = (counts[card.dataset.type] || 0) + 1; counts.all = (counts.all || 0) + 1; }
+            });
+            filtersEl.querySelectorAll('.filter-pill').forEach(p => {
+                const n = counts[p.dataset.filter] || 0;
+                p.textContent = pillBase[p.dataset.filter] + ' (' + n + ')';
+                p.disabled = n === 0 && p.dataset.filter !== activeFilter;
+                p.setAttribute('aria-pressed', String(p.dataset.filter === activeFilter));
+            });
+            let empty = grid.querySelector('.empty');
+            if (visible === 0) {
+                if (!empty) { empty = document.createElement('div'); empty.className = 'empty'; grid.appendChild(empty); }
+                empty.innerHTML = '<div class="icon">🪦</div><p>Nothing buried here — no tombstones match those filters.</p><div class="actions"></div>';
+                const a = empty.querySelector('.actions');
+                if (activeYear) a.appendChild(chip('Clear year', clearYear));
+                if (activeKiller) a.appendChild(chip('Clear killer', () => { activeKiller = null; apply(); }));
+                if (activeFilter !== 'all') a.appendChild(chip('All types', () => setFilter('all')));
+                if (hideUpgradesToggle.checked) a.appendChild(chip('Show model upgrades', () => { hideUpgradesToggle.checked = false; apply(); }));
+                a.appendChild(chip('Clear all filters', clearAll, 'chip-clear'));
+            } else if (empty) empty.remove();
+            renderChips(visible); sortCards(); updateURL();
+        }
         function sortCards() {
-            const sort = sortSelect.value;
-            const visible = cards.filter(c => !c.classList.contains('hidden'));
-            visible.sort((a, b) => {
-                switch (sort) {
+            const s = sortSelect.value, vis = cards.filter(c => !c.classList.contains('hidden'));
+            vis.sort((a, b) => {
+                switch (s) {
                     case 'recent': return b.dataset.dateClose.localeCompare(a.dataset.dateClose);
+                    case 'added': return (b.dataset.added || '').localeCompare(a.dataset.added || '') || b.dataset.dateClose.localeCompare(a.dataset.dateClose);
                     case 'oldest': return a.dataset.dateClose.localeCompare(b.dataset.dateClose);
-                    case 'shortest': return parseInt(a.dataset.days) - parseInt(b.dataset.days);
-                    case 'longest': return parseInt(b.dataset.days) - parseInt(a.dataset.days);
+                    case 'shortest': return +a.dataset.days - +b.dataset.days;
+                    case 'longest': return +b.dataset.days - +a.dataset.days;
                     case 'name': return a.dataset.name.localeCompare(b.dataset.name);
                     default: return 0;
                 }
             });
-            visible.forEach(c => grid.appendChild(c));
+            vis.forEach(c => grid.appendChild(c));
         }
+        function setFilter(f) { activeFilter = f; filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === f)); apply(); }
+        function clearYear() { activeYear = null; timelineEl.querySelectorAll('.bar').forEach(b => b.classList.remove('active')); yearClearBtn.classList.remove('visible'); apply(); }
+        function clearAll() { searchInput.value = ''; activeKiller = null; hideUpgradesToggle.checked = false; activeFilter = 'all'; filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === 'all')); clearYear(); }
+        const scrollToControls = () => controlsEl.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
 
         searchInput.addEventListener('input', apply);
         sortSelect.addEventListener('change', apply);
         hideUpgradesToggle.addEventListener('change', apply);
-
-        filtersEl.addEventListener('click', (e) => {
-            const pill = e.target.closest('.filter-pill');
-            if (!pill) return;
-            filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-            pill.classList.add('active');
-            activeFilter = pill.dataset.filter;
-            apply();
+        filtersEl.addEventListener('click', e => { const p = e.target.closest('.filter-pill'); if (p && !p.disabled) setFilter(p.dataset.filter); });
+        timelineEl.addEventListener('click', e => {
+            const bar = e.target.closest('.bar'); if (!bar) return;
+            const yr = bar.dataset.year; timelineEl.querySelectorAll('.bar').forEach(b => b.classList.remove('active'));
+            if (activeYear === yr) { activeYear = null; yearClearBtn.classList.remove('visible'); } else { activeYear = yr; bar.classList.add('active'); yearClearBtn.classList.add('visible'); }
+            apply(); scrollToControls();
         });
-
-        timelineEl.addEventListener('click', (e) => {
-            const bar = e.target.closest('.bar');
-            if (!bar) return;
-            const yr = bar.dataset.year;
-            timelineEl.querySelectorAll('.bar').forEach(b => b.classList.remove('active'));
-            if (activeYear === yr) {
-                activeYear = null;
-                yearClearBtn.classList.remove('visible');
-            } else {
-                activeYear = yr;
-                bar.classList.add('active');
-                yearClearBtn.classList.add('visible');
-            }
-            apply();
-            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        yearClearBtn.addEventListener('click', clearYear);
+        document.querySelectorAll('.lb-row').forEach(row => row.addEventListener('click', () => { activeKiller = activeKiller === row.dataset.killer ? null : row.dataset.killer; apply(); scrollToControls(); }));
+        document.addEventListener('keydown', e => {
+            if (e.key === '/' && document.activeElement !== searchInput) { e.preventDefault(); searchInput.focus(); }
+            if (e.key === 'Escape' && document.activeElement === searchInput) searchInput.blur();
         });
+        window.addEventListener('scroll', () => backToTopBtn.classList.toggle('visible', window.scrollY > 600), { passive: true });
+        backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' }));
 
-        yearClearBtn.addEventListener('click', () => {
-            activeYear = null;
-            timelineEl.querySelectorAll('.bar').forEach(b => b.classList.remove('active'));
-            yearClearBtn.classList.remove('visible');
-            apply();
-        });
+        // Mobile: fold the dashboard so search and tombstones sit above the fold (keep it open if a year filter is in the URL)
+        if (insights && matchMedia('(max-width: 600px)').matches && !/[?&]year=/.test(location.search)) insights.removeAttribute('open');
 
-        // Leaderboard: click a killer to filter
-        document.querySelectorAll('.lb-row').forEach(row => {
-            row.addEventListener('click', () => {
-                const killer = row.dataset.killer;
-                searchInput.value = killer;
-                apply();
-                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        // Keyboard: press / to focus search
-        document.addEventListener('keydown', (e) => {
-            if (e.key === '/' && document.activeElement !== searchInput) {
-                e.preventDefault();
-                searchInput.focus();
-            }
-            if (e.key === 'Escape' && document.activeElement === searchInput) {
-                searchInput.blur();
-            }
-        });
-
-        // Back to top + hide scroll hint
-        const scrollHint = document.getElementById('scroll-hint');
-        window.addEventListener('scroll', () => {
-            backToTopBtn.classList.toggle('visible', window.scrollY > 600);
-            if (window.scrollY > 100 && scrollHint) scrollHint.style.display = 'none';
-        }, { passive: true });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Restore state from URL
         const params = new URLSearchParams(location.search);
         if (params.get('q')) searchInput.value = params.get('q');
-        if (params.get('type')) {
-            activeFilter = params.get('type');
-            filtersEl.querySelectorAll('.filter-pill').forEach(p => {
-                p.classList.toggle('active', p.dataset.filter === activeFilter);
-            });
-        }
-        if (params.get('year')) {
-            activeYear = params.get('year');
-            const bar = timelineEl.querySelector(`[data-year="${activeYear}"]`);
-            if (bar) bar.classList.add('active');
-            yearClearBtn.classList.add('visible');
-        }
-        if (params.get('sort')) sortSelect.value = params.get('sort');
+        if (params.get('type') && pillBase[params.get('type')]) { activeFilter = params.get('type'); filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === activeFilter)); }
+        if (params.get('year')) { activeYear = params.get('year'); const bar = timelineEl.querySelector('[data-year="' + activeYear + '"]'); if (bar) bar.classList.add('active'); yearClearBtn.classList.add('visible'); }
+        if (params.get('killer')) activeKiller = params.get('killer').toLowerCase();
+        if (params.get('sort') && [...sortSelect.options].some(o => o.value === params.get('sort'))) sortSelect.value = params.get('sort');
         if (params.get('real')) hideUpgradesToggle.checked = true;
-
         apply();
+        // Deep links: cards ship pre-sorted newest-first so the default sort is a no-op; scroll once layout settles
+        if (location.hash) { const el = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (el) requestAnimationFrame(() => el.scrollIntoView({ block: 'start' })); }
     })();
     </script>
+    <script type="application/ld+json">{{JSONLD}}</script>
+    <script type="application/ld+json">{{FAQ_JSONLD}}</script>
 </body>
 </html>

@@ -4,6 +4,8 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * *"   # daily: refresh countdowns, pace-of-death, last-updated
 
 permissions:
   contents: read
@@ -23,6 +25,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so build.py can derive per-page lastmod
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
