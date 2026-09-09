@@ -1671,5 +1671,59 @@
     "description": "The open-source drag-and-drop LLM builder with 55,000 GitHub stars froze feature development on July 29, 2026, archived the repository on August 13 and declared end of life on August 31. Maintainer HenryHengZJ was candid about the cause: \"the typical rigid workflow low-code approach quickly hits the limit when it comes to complexity\" as developers hand complex work to coding agents instead. A tool for building AI without code, killed by AI that writes code. The Apache-2.0 source stays up for forks.",
     "dateAdded": "2026-09-09",
     "slug": "flowise"
+  },
+  {
+    "name": "Weights (weights.gg)",
+    "slug": "weights-gg",
+    "dateOpen": "2023-06-01",
+    "dateClose": "2026-03-31",
+    "dateAdded": "2026-09-09",
+    "type": "app",
+    "causeOfDeath": "Acqui-hire",
+    "killedBy": "OpenAI",
+    "deathType": "acqui-hired",
+    "link": "https://www.techtimes.com/articles/317405/20260529/openai-acquires-weightsgg-voice-cloning-tech-deepfake-law-claims-arrests-losses-hit-893m.htm",
+    "description": "The community voice-cloning and AI-music platform where thousands of celebrity and character voice models lived. Weights announced in January 2026 that it had never been profitable and closed on March 31; two months later The New York Times reported that OpenAI had quietly bought its technology and roughly six engineers. Its library of consent-free celebrity voices had become a liability as deepfake laws tightened — the thing that made it popular was the thing that made it unsellable as a product.",
+    "collateral": "Voice models not exported as .pth/.index files before March 31 are gone; the platform kept no archive.",
+    "seo": {
+      "title": "Weights AI shut down: what happened to weights.gg (2026)",
+      "description": "Weights.gg closed on March 31, 2026 after announcing it was never profitable; OpenAI then acquired its voice-cloning tech and engineers. Timeline, reasons, and what happened to user voice models."
+    }
+  },
+  {
+    "name": "Wsup AI",
+    "slug": "wsup-ai",
+    "dateOpen": "2024-11-01",
+    "dateClose": "2026-06-19",
+    "dateAdded": "2026-09-09",
+    "type": "app",
+    "causeOfDeath": "Companion Market Squeeze",
+    "killedBy": "Itself",
+    "deathType": "startup-failed",
+    "link": "https://www.barchart.com/story/news/3530872/wsup-ai-launches-independent-character-chat-replacement-following-wsupai-closure",
+    "description": "A no-sign-up AI character-chat app that briefly found an audience in the gap beneath Character.AI and Replika. In May 2026 it announced a wind-down: chats worked until May 24, accounts went read-only from May 25, and the service closed on June 19. No reason was given beyond the obvious one — an 18-month-old companion app cannot outspend incumbents with multi-year head starts. An unrelated operator has since launched a look-alike under the same name.",
+    "collateral": "Conversations, generated images and unused credits were frozen on May 25 and gone on June 19.",
+    "seo": {
+      "title": "Why did Wsup AI shut down? Closure timeline (June 2026)",
+      "description": "Wsup.ai closed on June 19, 2026 after a staged wind-down announced in May. What the character-chat app was, why it died, and what happened to users' conversations and credits."
+    }
+  },
+  {
+    "name": "HereAfter AI",
+    "slug": "hereafter-ai",
+    "dateOpen": "2021-11-16",
+    "dateClose": "2026-08-18",
+    "dateAdded": "2026-09-09",
+    "type": "startup",
+    "causeOfDeath": "Wind-down",
+    "killedBy": "Itself",
+    "deathType": "startup-failed",
+    "link": "https://www.afterlife.ai/hereafter-ai-shutting-down",
+    "description": "The grief-tech pioneer that interviewed people about their lives so relatives could later ask questions and hear answers in the recorded voice — built by former journalist James Vlahos from the 'Dadbot' he made of his dying father. Vlahos left in January 2024; the iOS app was last updated in September 2023. A farewell notice appeared on the homepage in July 2026 with no deadline, telling families to email support to export recordings; by August 18 the site itself no longer loaded. ⚠ The closing date here is the day the site went dark, as no official end date was published.",
+    "collateral": "Families who did not email for an export lost the recordings; no self-service download existed.",
+    "seo": {
+      "title": "HereAfter AI shutting down: what happened (2026)",
+      "description": "HereAfter AI, the app that let families talk to a recorded relative, posted a farewell notice in July 2026 and went dark in August. What it was, why it wound down, and how to recover recordings."
+    }
   }
 ]

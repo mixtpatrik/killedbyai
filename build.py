@@ -1194,7 +1194,17 @@ def main():
                   .replace("{{LAST_UPDATED}}", fmt_date(lm(["coming-soon.json"])))
                   .replace("{{COUNT}}", str(len(cs_sorted))))
         publish("coming-soon", cs_out)
-        (ROOT / "deprecations.ics").write_text(build_ics(cs_data))
+        # RFC 5545 requires CRLF line endings; also fold lines at 75 octets so strict clients (Google Calendar) accept it
+        ics_lines = []
+        for line in build_ics(cs_data).replace("\r\n", "\n").split("\n"):
+            enc = line.encode("utf-8")
+            while len(enc) > 73:
+                cut = 73
+                while cut > 0 and (enc[cut] & 0xC0) == 0x80:  # don't split a UTF-8 sequence
+                    cut -= 1
+                ics_lines.append(enc[:cut].decode("utf-8")); enc = b" " + enc[cut:]
+            ics_lines.append(enc.decode("utf-8"))
+        (ROOT / "deprecations.ics").write_bytes("\r\n".join(ics_lines).encode("utf-8"))
         print(f"Built coming-soon.html with {len(cs_sorted)} entries")
 
     # Build sitemap — lastmod derived from git so it changes only when content does

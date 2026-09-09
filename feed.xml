@@ -5,7 +5,7 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Sep 2026 05:47:10 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Sep 2026 06:29:26 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Gemini Robotics-ER 1.6 Preview — Killed by Google (2026-08-31)</title>
@@ -56,6 +56,14 @@
       <category>model</category>
     </item>
     <item>
+      <title>HereAfter AI — Killed by Itself (2026-08-18)</title>
+      <link>https://killedbyai.net/dead/hereafter-ai/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/hereafter-ai/</guid>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
+      <description>The grief-tech pioneer that interviewed people about their lives so relatives could later ask questions and hear answers in the recorded voice — built by former journalist James Vlahos from the &#x27;Dadbot&#x27; he made of his dying father. Vlahos left in January 2024; the iOS app was last updated in September 2023. A farewell notice appeared on the homepage in July 2026 with no deadline, telling families to email support to export recordings; by August 18 the site itself no longer loaded. ⚠ The closing date here is the day the site went dark, as no official end date was published.</description>
+      <category>startup</category>
+    </item>
+    <item>
       <title>Anthropic Legacy Workbench — Killed by Anthropic (2026-08-17)</title>
       <link>https://killedbyai.net/dead/anthropic-legacy-workbench/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/anthropic-legacy-workbench/</guid>
@@ -70,6 +78,22 @@
       <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
       <description>Microsoft&#x27;s first in-house image models did not get long. MAI-Image-2 (February 20) and MAI-Image-2e (April 9) were retired from Azure Foundry on August 15, 2026 — 176 and 128 days after release — in favour of MAI-Image-2.5 and 2.5-Flash. The successors are still in preview and already carry their own retirement date of October 1. Microsoft is now deprecating image models faster than most companies ship them.</description>
       <category>model</category>
+    </item>
+    <item>
+      <title>Wsup AI — Killed by Itself (2026-06-19)</title>
+      <link>https://killedbyai.net/dead/wsup-ai/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/wsup-ai/</guid>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
+      <description>A no-sign-up AI character-chat app that briefly found an audience in the gap beneath Character.AI and Replika. In May 2026 it announced a wind-down: chats worked until May 24, accounts went read-only from May 25, and the service closed on June 19. No reason was given beyond the obvious one — an 18-month-old companion app cannot outspend incumbents with multi-year head starts. An unrelated operator has since launched a look-alike under the same name.</description>
+      <category>app</category>
+    </item>
+    <item>
+      <title>Weights (weights.gg) — Killed by OpenAI (2026-03-31)</title>
+      <link>https://killedbyai.net/dead/weights-gg/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/weights-gg/</guid>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
+      <description>The community voice-cloning and AI-music platform where thousands of celebrity and character voice models lived. Weights announced in January 2026 that it had never been profitable and closed on March 31; two months later The New York Times reported that OpenAI had quietly bought its technology and roughly six engineers. Its library of consent-free celebrity voices had become a liability as deepfake laws tightened — the thing that made it popular was the thing that made it unsellable as a product.</description>
+      <category>app</category>
     </item>
     <item>
       <title>Cohere Command R &amp; Command R+ on Amazon Bedrock — Killed by AWS (2026-08-19)</title>
@@ -222,30 +246,6 @@
       <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
       <description>One of the first serious AI coding assistants, with codebase-aware context that predated most rivals. Sourcegraph killed the free and individual Pro tiers to reposition Cody as enterprise-only — an early signal of AI dev tools abandoning the free-tier growth playbook once inference costs got priced honestly.</description>
       <category>service</category>
-    </item>
-    <item>
-      <title>Google Imagen (Vertex AI) — Killed by Google (2026-06-24)</title>
-      <link>https://killedbyai.net/dead/google-imagen-vertex-ai/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/google-imagen-vertex-ai/</guid>
-      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
-      <description>Google&#x27;s family of text-to-image models on Vertex AI, once the backbone of image generation across Google Cloud and Workspace. Retired June 24, 2026 as native image generation folded directly into the Gemini 3 models. Apps built on the standalone Imagen endpoints were forced to migrate to Gemini&#x27;s built-in image gen.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Claude Fable 5 &amp; Mythos 5 (June Suspension) — Killed by U.S. Government (2026-06-12)</title>
-      <link>https://killedbyai.net/dead/claude-fable-5-mythos-5-june-suspension/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/claude-fable-5-mythos-5-june-suspension/</guid>
-      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
-      <description>Anthropic&#x27;s most powerful model ever — a &#x27;Mythos-class&#x27; tier above Opus that scored 10%+ higher than Opus 4.8. Launched June 9, killed June 12 when the U.S. Commerce Department issued a national-security export directive barring use by any foreign national anywhere — including Anthropic&#x27;s own staff. The only way to comply was to shut it off for everyone. Dead for 19 days until Commerce lifted the controls on June 30; Fable 5 returned globally on July 1 with a new jailbreak classifier. A rare resurrection — killed by government order, then un-killed.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Claude 3.7 Sonnet — Killed by Anthropic (2026-05-11)</title>
-      <link>https://killedbyai.net/dead/claude-3-7-sonnet/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/claude-3-7-sonnet/</guid>
-      <pubDate>Wed, 10 Jun 2026 00:00:00 +0000</pubDate>
-      <description>Anthropic&#x27;s first model with hybrid &#x27;extended thinking&#x27; — it could reason step-by-step for up to 128K tokens before answering, scoring state-of-the-art on SWE-Bench coding benchmarks at launch. Deprecated just 15 months after release as the Claude 4 family made extended thinking standard across the entire lineup.</description>
-      <category>model</category>
     </item>
   </channel>
 </rss>

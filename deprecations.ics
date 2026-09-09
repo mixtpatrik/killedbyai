@@ -4,216 +4,341 @@ PRODID:-//Killed by AI//Upcoming AI shutdowns//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Upcoming AI shutdowns — Killed by AI
-X-WR-CALDESC:Confirmed shutdown and deprecation dates for AI products and models. Source: killedbyai.net/coming-soon/
+X-WR-CALDESC:Confirmed shutdown and deprecation dates for AI products and
+  models. Source: killedbyai.net/coming-soon/
 REFRESH-INTERVAL;VALUE=DURATION:P1D
 BEGIN:VEVENT
 UID:mai-code-1-flash-github-copilot@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20260910
 DTEND;VALUE=DATE:20260911
 SUMMARY:🪦 MAI-Code-1-Flash (GitHub Copilot) shuts down
-DESCRIPTION:Announced August 21\, gone from Copilot September 10 — twenty days' notice for a model that was itself the named replacement for Raptor mini. The only Copilot retirement on the calendar after September 8. Replacement: MAI-Code-1.1-Flash. Source: https://docs.github.com/en/copilot/reference/ai-models/supported-models
+DESCRIPTION:Announced August 21\, gone from Copilot September 10 — twen
+ ty days' notice for a model that was itself the named replacement for Ra
+ ptor mini. The only Copilot retirement on the calendar after September 8
+ . Replacement: MAI-Code-1.1-Flash. Source: https://docs.github.com/en/co
+ pilot/reference/ai-models/supported-models
 URL:https://killedbyai.net/coming-soon/#mai-code-1-flash-github-copilot
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:amazon-nova-gen-1-premier-sonic-canvas-reel@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20260914
 DTEND;VALUE=DATE:20260915
-SUMMARY:🪦 Amazon Nova Gen-1 (Premier\, Sonic\, Canvas\, Reel) shuts down
-DESCRIPTION:Amazon's first-generation Nova line is being cleared off Bedrock: Premier and Sonic on September 14\, Canvas and Reel on September 30. Nova launched at re:Invent in December 2024 as Amazon's answer to frontier models\; the second generation replaces it inside two years. Replacement: Nova 2 Sonic / Nova 2 Lite\; Luma Ray v2 for video. Source: https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html
-URL:https://killedbyai.net/coming-soon/#amazon-nova-gen-1-premier-sonic-canvas-reel
+SUMMARY:🪦 Amazon Nova Gen-1 (Premier\, Sonic\, Canvas\, Reel) shuts do
+ wn
+DESCRIPTION:Amazon's first-generation Nova line is being cleared off Bedr
+ ock: Premier and Sonic on September 14\, Canvas and Reel on September 30
+ . Nova launched at re:Invent in December 2024 as Amazon's answer to fron
+ tier models\; the second generation replaces it inside two years. Replac
+ ement: Nova 2 Sonic / Nova 2 Lite\; Luma Ray v2 for video. Source: https
+ ://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html
+URL:https://killedbyai.net/coming-soon/#amazon-nova-gen-1-premier-sonic-c
+ anvas-reel
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:mai-transcribe-1-microsoft-foundry@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20260915
 DTEND;VALUE=DATE:20260916
 SUMMARY:🪦 MAI-Transcribe-1 (Microsoft Foundry) shuts down
-DESCRIPTION:Version 2026-01-23\, retired September 15\, 2026 — less than eight months old. Microsoft's first-party speech model line is now on the same accelerated churn as its image models. Replacement: MAI-Transcribe-1.5. Source: https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
-URL:https://killedbyai.net/coming-soon/#mai-transcribe-1-microsoft-foundry
+DESCRIPTION:Version 2026-01-23\, retired September 15\, 2026 — less tha
+ n eight months old. Microsoft's first-party speech model line is now on 
+ the same accelerated churn as its image models. Replacement: MAI-Transcr
+ ibe-1.5. Source: https://learn.microsoft.com/en-us/azure/foundry/openai/
+ concepts/model-retirement-schedule
+URL:https://killedbyai.net/coming-soon/#mai-transcribe-1-microsoft-foundr
+ y
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:sora-api@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20260924
 DTEND;VALUE=DATE:20260925
 SUMMARY:🪦 Sora API shuts down
-DESCRIPTION:While the Sora app died in April\, the API endpoint survives until September. Then it's gone completely. Replacement: None (ChatGPT image gen only). Source: https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation
+DESCRIPTION:While the Sora app died in April\, the API endpoint survives 
+ until September. Then it's gone completely. Replacement: None (ChatGPT i
+ mage gen only). Source: https://help.openai.com/en/articles/20001152-wha
+ t-to-know-about-the-sora-discontinuation
 URL:https://killedbyai.net/coming-soon/#sora-api
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20260928
 DTEND;VALUE=DATE:20260929
-SUMMARY:🪦 OpenAI davinci-002\, babbage-002 & gpt-3.5-turbo-instruct shuts down
-DESCRIPTION:The end of the GPT-3 base-model lineage. These three shipped in August 2023\, inherited the job when the original ada/babbage/curie/davinci died in January 2024\, and are the last models served over the legacy /v1/completions endpoint. Their own fine-tuned versions outlive them by 25 days. Replacement: gpt-5.6-terra. Source: https://developers.openai.com/api/docs/deprecations
-URL:https://killedbyai.net/coming-soon/#openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct
+SUMMARY:🪦 OpenAI davinci-002\, babbage-002 & gpt-3.5-turbo-instruct sh
+ uts down
+DESCRIPTION:The end of the GPT-3 base-model lineage. These three shipped 
+ in August 2023\, inherited the job when the original ada/babbage/curie/d
+ avinci died in January 2024\, and are the last models served over the le
+ gacy /v1/completions endpoint. Their own fine-tuned versions outlive the
+ m by 25 days. Replacement: gpt-5.6-terra. Source: https://developers.ope
+ nai.com/api/docs/deprecations
+URL:https://killedbyai.net/coming-soon/#openai-davinci-002-babbage-002-gp
+ t-3-5-turbo-instruct
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:mistral-leanstral-1-5@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 SUMMARY:🪦 Mistral Leanstral 1.5 shuts down
-DESCRIPTION:Mistral announced this Lean 4 formal-proof model's death in the same sentence that announced its birth. The changelog reads: 'We released Leanstral 1.5... This model will be retired on September 30\, 2026.' A 92-day advertised lifespan\, dead on arrival by design. Replacement: None named. Source: https://github.com/mistralai/platform-docs-public
+DESCRIPTION:Mistral announced this Lean 4 formal-proof model's death in t
+ he same sentence that announced its birth. The changelog reads: 'We rele
+ ased Leanstral 1.5... This model will be retired on September 30\, 2026.
+ ' A 92-day advertised lifespan\, dead on arrival by design. Replacement:
+  None named. Source: https://github.com/mistralai/platform-docs-public
 URL:https://killedbyai.net/coming-soon/#mistral-leanstral-1-5
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:amazon-mechanical-turk@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 SUMMARY:🪦 Amazon Mechanical Turk shuts down
-DESCRIPTION:The 21-year-old marketplace Jeff Bezos once called "artificial artificial intelligence" — the humans who labelled a generation of training data — closes on September 30\, 2026. New customers were cut off July 30. Amazon cites "an internal assessment of its programs and services"\; everyone else notes that the models MTurk workers trained now do MTurk's job. Replacement: None — Scale AI\, Mercor and Prolific absorbed the market. Source: https://www.cnbc.com/2026/08/25/amazon-service-that-jeff-bezos-called-artificial-ai-is-shutting-down.html
+DESCRIPTION:The 21-year-old marketplace Jeff Bezos once called "artificia
+ l artificial intelligence" — the humans who labelled a generation of t
+ raining data — closes on September 30\, 2026. New customers were cut o
+ ff July 30. Amazon cites "an internal assessment of its programs and ser
+ vices"\; everyone else notes that the models MTurk workers trained now d
+ o MTurk's job. Replacement: None — Scale AI\, Mercor and Prolific abso
+ rbed the market. Source: https://www.cnbc.com/2026/08/25/amazon-service-
+ that-jeff-bezos-called-artificial-ai-is-shutting-down.html
 URL:https://killedbyai.net/coming-soon/#amazon-mechanical-turk
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:gemini-omni-flash-preview@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 SUMMARY:🪦 Gemini Omni Flash Preview shuts down
-DESCRIPTION:Google's text-and-image-to-video model shipped June 30\, 2026 and was deprecated on August 27\, the day gemini-omni-1.1-flash went GA. Shutdown September 30 — a 92-day life\, with the successor announced and the death date set in the same changelog entry. Replacement: gemini-omni-1.1-flash. Source: https://ai.google.dev/gemini-api/docs/changelog
+DESCRIPTION:Google's text-and-image-to-video model shipped June 30\, 2026
+  and was deprecated on August 27\, the day gemini-omni-1.1-flash went GA
+ . Shutdown September 30 — a 92-day life\, with the successor announced
+  and the death date set in the same changelog entry. Replacement: gemini
+ -omni-1.1-flash. Source: https://ai.google.dev/gemini-api/docs/changelog
 URL:https://killedbyai.net/coming-soon/#gemini-omni-flash-preview
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:google-gemini-2-5-flash-image-nano-banana@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20261002
 DTEND;VALUE=DATE:20261003
 SUMMARY:🪦 Google Gemini 2.5 Flash Image ("Nano Banana") shuts down
-DESCRIPTION:The image model that went viral as 'Nano Banana' and briefly made Gemini the #1 free iPhone app shuts down exactly one year after release\, to the day. Google's officially recommended replacement\, gemini-3.1-flash-image-preview\, was itself shut down in June 2026. The migration target is dead\; the model isn't yet. Replacement: gemini-3.1-flash-image-preview (already retired). Source: https://ai.google.dev/gemini-api/docs/deprecations
-URL:https://killedbyai.net/coming-soon/#google-gemini-2-5-flash-image-nano-banana
+DESCRIPTION:The image model that went viral as 'Nano Banana' and briefly 
+ made Gemini the #1 free iPhone app shuts down exactly one year after rel
+ ease\, to the day. Google's officially recommended replacement\, gemini-
+ 3.1-flash-image-preview\, was itself shut down in June 2026. The migrati
+ on target is dead\; the model isn't yet. Replacement: gemini-3.1-flash-i
+ mage-preview (already retired). Source: https://ai.google.dev/gemini-api
+ /docs/deprecations
+URL:https://killedbyai.net/coming-soon/#google-gemini-2-5-flash-image-nan
+ o-banana
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:azure-openai-gpt-4-1-4-1-mini-4-1-nano@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
 SUMMARY:🪦 Azure OpenAI GPT-4.1\, 4.1 mini & 4.1 nano shuts down
-DESCRIPTION:GPT-4.1 launched April 2025 as OpenAI's 'best model for coding' with a 1M-token context window. Azure retires it\, plus mini and nano\, after 18 months. Fine-tuned deployments on the same bases get a one-year stay of execution. Replacement: gpt-5 / gpt-5-mini / gpt-5-nano. Source: https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/model-retirements
-URL:https://killedbyai.net/coming-soon/#azure-openai-gpt-4-1-4-1-mini-4-1-nano
+DESCRIPTION:GPT-4.1 launched April 2025 as OpenAI's 'best model for codin
+ g' with a 1M-token context window. Azure retires it\, plus mini and nano
+ \, after 18 months. Fine-tuned deployments on the same bases get a one-y
+ ear stay of execution. Replacement: gpt-5 / gpt-5-mini / gpt-5-nano. Sou
+ rce: https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/
+ model-retirements
+URL:https://killedbyai.net/coming-soon/#azure-openai-gpt-4-1-4-1-mini-4-1
+ -nano
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:sora-2-on-azure-openai-foundry@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:🪦 Sora 2 on Azure OpenAI / Foundry shuts down
-DESCRIPTION:Sora outlives its maker's own shutdown by three weeks: Microsoft pushed the Azure retirement from September 15 to October 15\, with no replacement. OpenAI's own Sora API dies September 24. The last place to generate a Sora video will be a Microsoft data centre. Replacement: None listed. Source: https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
+DESCRIPTION:Sora outlives its maker's own shutdown by three weeks: Micros
+ oft pushed the Azure retirement from September 15 to October 15\, with n
+ o replacement. OpenAI's own Sora API dies September 24. The last place t
+ o generate a Sora video will be a Microsoft data centre. Replacement: No
+ ne listed. Source: https://learn.microsoft.com/en-us/azure/foundry/opena
+ i/concepts/model-retirement-schedule
 URL:https://killedbyai.net/coming-soon/#sora-2-on-azure-openai-foundry
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:gemini-2-5-pro-flash-flash-lite-vertex-ai@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
 SUMMARY:🪦 Gemini 2.5 Pro / Flash / Flash Lite (Vertex AI) shuts down
-DESCRIPTION:Google's entire Gemini 2.5 family retires on Vertex AI no earlier than October 16\, 2026. Note this is Vertex-only — the Gemini Developer API still lists no shutdown date for the same three models. Replacement: Gemini 3.x series. Source: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/deprecations
-URL:https://killedbyai.net/coming-soon/#gemini-2-5-pro-flash-flash-lite-vertex-ai
+DESCRIPTION:Google's entire Gemini 2.5 family retires on Vertex AI no ear
+ lier than October 16\, 2026. Note this is Vertex-only — the Gemini Dev
+ eloper API still lists no shutdown date for the same three models. Repla
+ cement: Gemini 3.x series. Source: https://docs.cloud.google.com/vertex-
+ ai/generative-ai/docs/deprecations
+URL:https://killedbyai.net/coming-soon/#gemini-2-5-pro-flash-flash-lite-v
+ ertex-ai
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:azure-openai-o-series-o1-o3-o4-mini-o3-pro@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20261021
 DTEND;VALUE=DATE:20261022
-SUMMARY:🪦 Azure OpenAI o-series (o1\, o3\, o4-mini\, o3-pro) shuts down
-DESCRIPTION:Azure deletes an entire generation of reasoning models in under 90 days: o3-mini October 1\, o4-mini October 16\, o1/o1-pro/o3 October 21\, codex-mini November 15\, o3-pro December 17. Four have no named replacement — Microsoft declares one only 90 to 120 days out\, because 'declaring a replacement too early risks directing customers to a model that is no longer the best available option.' Replacement: gpt-5.6-sol (partial)\; several unnamed. Source: https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule
-URL:https://killedbyai.net/coming-soon/#azure-openai-o-series-o1-o3-o4-mini-o3-pro
+SUMMARY:🪦 Azure OpenAI o-series (o1\, o3\, o4-mini\, o3-pro) shuts dow
+ n
+DESCRIPTION:Azure deletes an entire generation of reasoning models in und
+ er 90 days: o3-mini October 1\, o4-mini October 16\, o1/o1-pro/o3 Octobe
+ r 21\, codex-mini November 15\, o3-pro December 17. Four have no named r
+ eplacement — Microsoft declares one only 90 to 120 days out\, because 
+ 'declaring a replacement too early risks directing customers to a model 
+ that is no longer the best available option.' Replacement: gpt-5.6-sol (
+ partial)\; several unnamed. Source: https://learn.microsoft.com/en-us/az
+ ure/foundry/openai/concepts/model-retirement-schedule
+URL:https://killedbyai.net/coming-soon/#azure-openai-o-series-o1-o3-o4-mi
+ ni-o3-pro
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:vertex-ai-open-model-maas-13-models@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20261021
 DTEND;VALUE=DATE:20261022
 SUMMARY:🪦 Vertex AI Open-Model MaaS (13 models) shuts down
-DESCRIPTION:Google Cloud drops managed serving for 13 open models on October 21 — DeepSeek V3.1\, GLM-5 and 4.7\, gpt-oss-20b\, Kimi K2 Thinking\, Llama 3.3 70B\, MiniMax M2\, two e5 embedding models and four Qwen3 variants. You can still run them\; you just have to host them yourself. Replacement: Self-deploy the weights from Model Garden. Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models
-URL:https://killedbyai.net/coming-soon/#vertex-ai-open-model-maas-13-models
+DESCRIPTION:Google Cloud drops managed serving for 13 open models on Octo
+ ber 21 — DeepSeek V3.1\, GLM-5 and 4.7\, gpt-oss-20b\, Kimi K2 Thinkin
+ g\, Llama 3.3 70B\, MiniMax M2\, two e5 embedding models and four Qwen3 
+ variants. You can still run them\; you just have to host them yourself. 
+ Replacement: Self-deploy the weights from Model Garden. Source: https://
+ docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecatio
+ ns/open-models
+URL:https://killedbyai.net/coming-soon/#vertex-ai-open-model-maas-13-mode
+ ls
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-fine-tuning-new-orgs@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
 SUMMARY:🪦 OpenAI Fine-tuning (new orgs) shuts down
-DESCRIPTION:New organizations can no longer create fine-tuning jobs. The first wave executed on schedule July 23\, 2026\; the second takes every remaining fine-tuned model — ft-gpt-3.5-turbo\, ft-gpt-4\, ft-gpt-4.1-nano\, ft-babbage-002 and ft-davinci-002 — on October 23. Replacement: Prompt caching / system prompts. Source: https://developers.openai.com/api/docs/deprecations
+DESCRIPTION:New organizations can no longer create fine-tuning jobs. The 
+ first wave executed on schedule July 23\, 2026\; the second takes every 
+ remaining fine-tuned model — ft-gpt-3.5-turbo\, ft-gpt-4\, ft-gpt-4.1-
+ nano\, ft-babbage-002 and ft-davinci-002 — on October 23. Replacement:
+  Prompt caching / system prompts. Source: https://developers.openai.com/
+ api/docs/deprecations
 URL:https://killedbyai.net/coming-soon/#openai-fine-tuning-new-orgs
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-gpt-4-gpt-4-turbo-gpt-3-5-turbo-the-o-series@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
-SUMMARY:🪦 OpenAI GPT-4\, GPT-4 Turbo\, GPT-3.5 Turbo & the o-series shuts down
-DESCRIPTION:One date kills three eras. On October 23\, OpenAI removes gpt-3.5-turbo (the engine that launched ChatGPT)\, gpt-4 and gpt-4-0613 (the model that defined 2023)\, and its entire first generation of reasoning models — o1\, o1-pro\, o3-mini\, o4-mini — plus gpt-4o-2024-05-13 and gpt-image-1. Every fine-tune built on them dies the same day. Seventeen table rows\, six months' notice. Replacement: gpt-5.5 / gpt-5.4-mini / gpt-5.4-nano / gpt-image-2. Source: https://developers.openai.com/api/docs/deprecations
-URL:https://killedbyai.net/coming-soon/#openai-gpt-4-gpt-4-turbo-gpt-3-5-turbo-the-o-series
+SUMMARY:🪦 OpenAI GPT-4\, GPT-4 Turbo\, GPT-3.5 Turbo & the o-series sh
+ uts down
+DESCRIPTION:One date kills three eras. On October 23\, OpenAI removes gpt
+ -3.5-turbo (the engine that launched ChatGPT)\, gpt-4 and gpt-4-0613 (th
+ e model that defined 2023)\, and its entire first generation of reasonin
+ g models — o1\, o1-pro\, o3-mini\, o4-mini — plus gpt-4o-2024-05-13 
+ and gpt-image-1. Every fine-tune built on them dies the same day. Sevent
+ een table rows\, six months' notice. Replacement: gpt-5.5 / gpt-5.4-mini
+  / gpt-5.4-nano / gpt-image-2. Source: https://developers.openai.com/api
+ /docs/deprecations
+URL:https://killedbyai.net/coming-soon/#openai-gpt-4-gpt-4-turbo-gpt-3-5-
+ turbo-the-o-series
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:vertex-ai-extensions@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20261126
 DTEND;VALUE=DATE:20261127
 SUMMARY:🪦 Vertex AI Extensions shuts down
-DESCRIPTION:Google's managed tool-calling framework for Gemini\, deprecated with the standard six-month window and switched off after November 26\, 2026. The replacement is the Agent Platform — the third name for this idea in as many years. Replacement: Agent Platform. Source: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/deprecations
+DESCRIPTION:Google's managed tool-calling framework for Gemini\, deprecat
+ ed with the standard six-month window and switched off after November 26
+ \, 2026. The replacement is the Agent Platform — the third name for th
+ is idea in as many years. Replacement: Agent Platform. Source: https://d
+ ocs.cloud.google.com/vertex-ai/generative-ai/docs/deprecations
 URL:https://killedbyai.net/coming-soon/#vertex-ai-extensions
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-legacy-gpt-image-models@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:🪦 OpenAI Legacy GPT Image Models shuts down
-DESCRIPTION:Older GPT Image model snapshots were flagged for removal from the API on December 1\, 2026\, just months after they replaced DALL·E. The endpoint that buried DALL·E is already on its own deprecation clock. Replacement: GPT Image 1.5. Source: https://platform.openai.com/docs/deprecations
+DESCRIPTION:Older GPT Image model snapshots were flagged for removal from
+  the API on December 1\, 2026\, just months after they replaced DALL·E.
+  The endpoint that buried DALL·E is already on its own deprecation cloc
+ k. Replacement: GPT Image 1.5. Source: https://platform.openai.com/docs/
+ deprecations
 URL:https://killedbyai.net/coming-soon/#openai-legacy-gpt-image-models
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-gpt-5-original-snapshots-o3-o3-pro@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:🪦 OpenAI GPT-5 (original snapshots)\, o3 & o3-pro shuts down
-DESCRIPTION:The original GPT-5 launch snapshots — gpt-5-2025-08-07 and its mini\, nano and pro siblings — plus o3 and o3-pro shut down December 11. GPT-5 launched in August 2025 as the 'PhD-level expert' model. Its launch snapshot gets 16 months before it starts returning errors. Replacement: gpt-5.6-sol / gpt-5.6-terra / gpt-5.6-luna. Source: https://developers.openai.com/api/docs/deprecations
-URL:https://killedbyai.net/coming-soon/#openai-gpt-5-original-snapshots-o3-o3-pro
+DESCRIPTION:The original GPT-5 launch snapshots — gpt-5-2025-08-07 and 
+ its mini\, nano and pro siblings — plus o3 and o3-pro shut down Decemb
+ er 11. GPT-5 launched in August 2025 as the 'PhD-level expert' model. It
+ s launch snapshot gets 16 months before it starts returning errors. Repl
+ acement: gpt-5.6-sol / gpt-5.6-terra / gpt-5.6-luna. Source: https://dev
+ elopers.openai.com/api/docs/deprecations
+URL:https://killedbyai.net/coming-soon/#openai-gpt-5-original-snapshots-o
+ 3-o3-pro
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-realtime-audio-model-family@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:🪦 OpenAI Realtime & Audio Model Family shuts down
-DESCRIPTION:OpenAI put its entire GA voice stack on death row: gpt-realtime\, gpt-audio\, gpt-realtime-mini\, gpt-audio-mini and all four gpt-4o audio/realtime variants. gpt-realtime and gpt-audio went GA in August 2025 — the models that headlined 'production-ready voice agents' get roughly 17 months. OpenAI is skipping its own intermediate generation: the 1.5 series shipped in February 2026 and the named replacement is already 2.1. Replacement: gpt-realtime-2.1 / gpt-realtime-2.1-mini / gpt-audio-1.5. Source: https://developers.openai.com/api/docs/deprecations
-URL:https://killedbyai.net/coming-soon/#openai-realtime-audio-model-family
+DESCRIPTION:OpenAI put its entire GA voice stack on death row: gpt-realti
+ me\, gpt-audio\, gpt-realtime-mini\, gpt-audio-mini and all four gpt-4o 
+ audio/realtime variants. gpt-realtime and gpt-audio went GA in August 20
+ 25 — the models that headlined 'production-ready voice agents' get rou
+ ghly 17 months. OpenAI is skipping its own intermediate generation: the 
+ 1.5 series shipped in February 2026 and the named replacement is already
+  2.1. Replacement: gpt-realtime-2.1 / gpt-realtime-2.1-mini / gpt-audio-
+ 1.5. Source: https://developers.openai.com/api/docs/deprecations
+URL:https://killedbyai.net/coming-soon/#openai-realtime-audio-model-famil
+ y
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-whisper-1-gpt-4o-transcribe@killedbyai.net
-DTSTAMP:20260909T054710Z
+DTSTAMP:20260909T062926Z
 DTSTART;VALUE=DATE:20270226
 DTEND;VALUE=DATE:20270227
 SUMMARY:🪦 OpenAI Whisper-1 & GPT-4o Transcribe shuts down
-DESCRIPTION:On August 26 OpenAI deprecated whisper-1 — its original speech-to-text API from March 2023 — together with gpt-4o-transcribe\, gpt-4o-mini-transcribe and gpt-4o-transcribe-diarize\, the last of which shipped in October 2025. All four die February 26\, 2027. The open-source Whisper weights are unaffected\; the hosted endpoint that made them a product is not. Replacement: gpt-transcribe / gpt-live-transcribe. Source: https://developers.openai.com/api/docs/deprecations#2026-08-26-transcription-models
-URL:https://killedbyai.net/coming-soon/#openai-whisper-1-gpt-4o-transcribe
+DESCRIPTION:On August 26 OpenAI deprecated whisper-1 — its original spe
+ ech-to-text API from March 2023 — together with gpt-4o-transcribe\, gp
+ t-4o-mini-transcribe and gpt-4o-transcribe-diarize\, the last of which s
+ hipped in October 2025. All four die February 26\, 2027. The open-source
+  Whisper weights are unaffected\; the hosted endpoint that made them a p
+ roduct is not. Replacement: gpt-transcribe / gpt-live-transcribe. Source
+ : https://developers.openai.com/api/docs/deprecations#2026-08-26-transcr
+ iption-models
+URL:https://killedbyai.net/coming-soon/#openai-whisper-1-gpt-4o-transcrib
+ e
 CATEGORIES:AI shutdown
 END:VEVENT
 END:VCALENDAR
