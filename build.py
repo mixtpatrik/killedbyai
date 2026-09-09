@@ -140,7 +140,7 @@ PERSON_REF = {"@id": PERSON_ID}
 
 def footer_links(active=None):
     links = [("/", "The AI graveyard"), ("/dead/", "All 111 tombstones A–Z"), ("/killed-by/", "By killer"),
-             ("/layoffs/", "AI layoffs tracker"), ("/coming-soon/", "Upcoming AI shutdowns"),
+             ("/layoffs/", "AI layoffs tracker"), ("/jobs/", "Jobs replaced by AI"), ("/coming-soon/", "Upcoming AI shutdowns"), ("/deprecations.ics", "Shutdown calendar (.ics)"),
              ("/funding/", "Failed AI startups"), ("/api/", "JSON API"), ("/about/", "About & methodology"), ("/feed.xml", "RSS")]
     return " · ".join(f'<a href="{h}">{t}</a>' for h, t in links)
 
@@ -299,6 +299,74 @@ def render_killer_page(killer, items, tpl, total):
                  "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(jsonld, indent=2, ensure_ascii=False)}.items():
         out = out.replace(k, v)
     return out
+
+
+def render_jobs_pages(ldata, list_tpl):
+    """/jobs/ and /jobs/<role>/ — layoffs re-indexed by the roles AI replaced."""
+    roles = json.loads((ROOT / "roles.json").read_text())
+    total_jobs = sum(l["jobs"] for l in ldata)
+    by_role = {}
+    for l in ldata:
+        for r in l.get("roleTags", ["various"]):
+            by_role.setdefault(r, []).append(l)
+    ranked = sorted(by_role.items(), key=lambda kv: -sum(x["jobs"] for x in kv[1]))
+    pages = []
+    for r, rows in ranked:
+        if r == "various" or len(rows) < 2:
+            continue
+        label = roles.get(r, r); n = len(rows); jobs = sum(x["jobs"] for x in rows)
+        rows = sorted(rows, key=lambda x: -x["jobs"])
+        url = f"{SITE_URL}jobs/{r}/"
+        title = f"{label} jobs replaced by AI: {jobs:,} cut at {n} companies"
+        if len(title) > 60: title = f"{label} jobs replaced by AI ({jobs:,} cut)"
+        meta = f"{jobs:,} {label.lower()} jobs cut at {n} companies that blamed AI, with the date, the reason given and a source for each: " + ", ".join(x["company"] for x in rows[:4]) + "."
+        intro = (f"{label} is one of the roles companies most often name when they attribute layoffs to AI. Across {n} companies tracked here, {jobs:,} jobs in this category were cut "
+                 f"(a company's total is counted once per role it named, so role totals overlap). Largest first; every row links its source on the layoffs tracker.")
+        rhtml = "".join(f'<a class="row" href="/layoffs/#{slugify(x["company"])}"><span><b>{esc(x["company"])}</b><small>{esc(x["roles"])}</small></span><span class="when">{x["jobs"]:,} · {x["date"][:7]}</span></a>' for x in rows)
+        ld = {"@context": "https://schema.org", "@graph": [
+            {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL}, {"@type": "ListItem", "position": 2, "name": "Jobs replaced by AI", "item": SITE_URL + "jobs/"}, {"@type": "ListItem", "position": 3, "name": label, "item": url}]},
+            webpage_node(url, title, meta, lm(["layoffs.json"]), {"@type": "CollectionPage"}),
+            {"@type": "ItemList", "numberOfItems": n, "itemListElement": [{"@type": "ListItem", "position": k + 1, "name": f'{x["company"]} — {x["jobs"]:,} jobs', "url": SITE_URL + "layoffs/#" + slugify(x["company"])} for k, x in enumerate(rows)]}]}
+        out = list_tpl
+        for k, v in {"{{TITLE}}": esc(title + " | Killed by AI") if len(title) <= 47 else esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": f'<a href="/jobs/">Jobs replaced by AI</a> › {esc(label)}',
+                     "{{H1}}": f"{esc(label)}: jobs replaced by AI", "{{INTRO}}": esc(intro), "{{ROWS}}": rhtml, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
+            out = out.replace(k, v)
+        d = ROOT / "jobs" / r; d.mkdir(parents=True, exist_ok=True); (d / "index.html").write_text(out); pages.append(r)
+    # index
+    url = SITE_URL + "jobs/"
+    rhtml = "".join(f'<a class="row" href="/jobs/{r}/"><span><b>{esc(roles.get(r, r))}</b><small>{len(rows)} companies</small></span><span class="when">{sum(x["jobs"] for x in rows):,}</span></a>' for r, rows in ranked if r in pages)
+    title = f"Jobs Replaced by AI: {total_jobs:,} Layoffs by Role | Killed by AI"
+    meta = f"Which jobs are being replaced by AI: {total_jobs:,} layoffs at {len(ldata)} companies that blamed AI, broken down by role — customer support, sales, engineering, middle management and more. Sourced."
+    ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL}, {"@type": "ListItem", "position": 2, "name": "Jobs replaced by AI", "item": url}]},
+        webpage_node(url, title, meta, lm(["layoffs.json"]), {"@type": "CollectionPage"}),
+        {"@type": "ItemList", "numberOfItems": len(pages), "itemListElement": [{"@type": "ListItem", "position": k + 1, "name": roles.get(r, r), "url": f"{SITE_URL}jobs/{r}/"} for k, r in enumerate(pages)]}]}
+    out = list_tpl
+    for k, v in {"{{TITLE}}": esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": "Jobs replaced by AI",
+                 "{{H1}}": "Jobs replaced by AI, by role", "{{INTRO}}": esc(f"The roles companies name when they blame layoffs on AI. {total_jobs:,} jobs across {len(ldata)} companies, re-indexed by the work that was replaced. Customer support leads by a distance. Role totals overlap because one layoff usually hits several roles; the per-company figures are on the layoffs tracker."),
+                 "{{ROWS}}": rhtml, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
+        out = out.replace(k, v)
+    d = ROOT / "jobs"; d.mkdir(exist_ok=True); (d / "index.html").write_text(out)
+    return pages
+
+
+def build_ics(cs_data):
+    """deprecations.ics — subscribe to upcoming AI shutdowns in any calendar app."""
+    def ics_escape(t):
+        return t.replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
+    stamp = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+    events = []
+    for c in sorted(cs_data, key=lambda x: x["dateShutdown"]):
+        d = c["dateShutdown"].replace("-", "")
+        nxt = (datetime.strptime(c["dateShutdown"], "%Y-%m-%d") + __import__("datetime").timedelta(days=1)).strftime("%Y%m%d")
+        uid = slugify(c["name"]) + "@killedbyai.net"
+        desc = f'{c["description"]} Replacement: {c["replacement"]}. Source: {c["link"]}'
+        events.append("BEGIN:VEVENT\r\nUID:" + uid + "\r\nDTSTAMP:" + stamp + "\r\nDTSTART;VALUE=DATE:" + d + "\r\nDTEND;VALUE=DATE:" + nxt
+                      + "\r\nSUMMARY:" + ics_escape("🪦 " + c["name"] + " shuts down") + "\r\nDESCRIPTION:" + ics_escape(desc)
+                      + "\r\nURL:" + SITE_URL + "coming-soon/#" + slugify(c["name"]) + "\r\nCATEGORIES:AI shutdown\r\nEND:VEVENT")
+    return ("BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Killed by AI//Upcoming AI shutdowns//EN\r\nCALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\n"
+            "X-WR-CALNAME:Upcoming AI shutdowns — Killed by AI\r\nX-WR-CALDESC:Confirmed shutdown and deprecation dates for AI products and models. Source: killedbyai.net/coming-soon/\r\nREFRESH-INTERVAL;VALUE=DURATION:P1D\r\n"
+            + "\r\n".join(events) + "\r\nEND:VCALENDAR\r\n")
 
 
 def render_index_pages(data, killer_counts, list_tpl):
@@ -960,6 +1028,7 @@ def main():
             (od / "index.html").write_text(REDIRECT_STUB.format(target=product_url(item)))
     list_tpl = (ROOT / "list-template.html").read_text()
     render_index_pages(data, killer_counts, list_tpl)
+    job_pages = render_jobs_pages(json.loads((ROOT / "layoffs.json").read_text()), list_tpl) if (ROOT / "layoffs.json").exists() else []
     killer_pages = []
     for killer, n in killer_counts.items():
         if n < 2:
@@ -1125,6 +1194,7 @@ def main():
                   .replace("{{LAST_UPDATED}}", fmt_date(lm(["coming-soon.json"])))
                   .replace("{{COUNT}}", str(len(cs_sorted))))
         publish("coming-soon", cs_out)
+        (ROOT / "deprecations.ics").write_text(build_ics(cs_data))
         print(f"Built coming-soon.html with {len(cs_sorted)} entries")
 
     # Build sitemap — lastmod derived from git so it changes only when content does
@@ -1137,6 +1207,9 @@ def main():
         (SITE_URL + "about/", "0.5", "monthly", lm(["about/index.html"])),
     ]
     mods = entry_lastmod_map()
+    pages.append((SITE_URL + "jobs/", "", "", lm(["layoffs.json"])))
+    for r in job_pages:
+        pages.append((f"{SITE_URL}jobs/{r}/", "", "", lm(["layoffs.json"])))
     pages.append((SITE_URL + "dead/", "", "", lm(["graveyard.json"])))
     pages.append((SITE_URL + "killed-by/", "", "", lm(["graveyard.json"])))
     for item in ordered:

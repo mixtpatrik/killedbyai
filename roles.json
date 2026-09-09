@@ -1,0 +1,22 @@
+{
+  "customer-support": "Customer support",
+  "sales": "Sales",
+  "marketing": "Marketing",
+  "engineering": "Software engineering",
+  "operations": "Operations",
+  "product": "Product management",
+  "middle-management": "Middle management",
+  "finance": "Finance & payroll",
+  "legal": "Legal & audit",
+  "content": "Content & editorial",
+  "content-moderation": "Content moderation",
+  "translation": "Translation",
+  "risk-fraud": "Fraud & risk analysis",
+  "hr": "HR & recruiting",
+  "it": "IT",
+  "compliance": "Compliance",
+  "professional-services": "Professional services",
+  "ad-operations": "Ad operations",
+  "admin": "Admin & back office",
+  "various": "Unspecified / company-wide"
+}

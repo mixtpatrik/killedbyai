@@ -5,7 +5,13 @@
     "date": "2026-05-20",
     "description": "Cut 10% of its 80,000 workforce. Zuckerberg's memo: 'success isn't a given' in the AI era. 7,000 more employees reassigned to AI-focused teams. 6,000 open roles scrapped. Nearly 1,400 cut in Seattle alone — 20% of its local workforce. His $300M superyacht docked in Seattle the same day.",
     "roles": "Sales, marketing, product, middle management (India, Seattle, Bay Area hardest hit). AI teams protected.",
-    "source": "https://fortune.com/2026/05/21/meta-10-percent-workforce-layoffs-ai-tech-success-is-not-a-given-8-thousand-employees-mark-zuckerberg/"
+    "source": "https://fortune.com/2026/05/21/meta-10-percent-workforce-layoffs-ai-tech-success-is-not-a-given-8-thousand-employees-mark-zuckerberg/",
+    "roleTags": [
+      "sales",
+      "marketing",
+      "product",
+      "middle-management"
+    ]
   },
   {
     "company": "Oracle",
@@ -13,7 +19,12 @@
     "date": "2026-04-01",
     "description": "Massive layoffs estimated at 30,000 staff, attributed to AI adoption and cloud infrastructure automation.",
     "roles": "Engineering, support, operations",
-    "source": "https://news.crunchbase.com/startups/tech-layoffs/"
+    "source": "https://news.crunchbase.com/startups/tech-layoffs/",
+    "roleTags": [
+      "engineering",
+      "customer-support",
+      "operations"
+    ]
   },
   {
     "company": "Block (Square)",
@@ -21,7 +32,12 @@
     "date": "2026-02-01",
     "description": "Jack Dorsey cut 40% of global workforce, explicitly tying job losses to AI advancements replacing human workflows.",
     "roles": "Engineering, operations, support",
-    "source": "https://tech.co/news/companies-replace-workers-with-ai"
+    "source": "https://tech.co/news/companies-replace-workers-with-ai",
+    "roleTags": [
+      "engineering",
+      "operations",
+      "customer-support"
+    ]
   },
   {
     "company": "Atlassian",
@@ -29,7 +45,10 @@
     "date": "2026-03-01",
     "description": "Cut 10% of workforce as the company doubled down on AI-powered project management and coding assistants.",
     "roles": "Various",
-    "source": "https://intellizence.com/insights/layoff-downsizing/major-companies-that-announced-mass-layoffs/"
+    "source": "https://intellizence.com/insights/layoff-downsizing/major-companies-that-announced-mass-layoffs/",
+    "roleTags": [
+      "various"
+    ]
   },
   {
     "company": "Cloudflare",
@@ -37,7 +56,12 @@
     "date": "2026-05-08",
     "description": "First mass layoff in 16-year history, cutting 20% of staff while posting record $639.8M revenue. CEO said AI made 'measurers' — middle management, finance, legal, auditing — obsolete. Internal AI usage surged 600% in 3 months.",
     "roles": "Middle management, finance, legal, auditing",
-    "source": "https://techcrunch.com/2026/05/08/cloudflare-says-ai-made-1100-jobs-obsolete-even-as-revenue-hit-a-record-high/"
+    "source": "https://techcrunch.com/2026/05/08/cloudflare-says-ai-made-1100-jobs-obsolete-even-as-revenue-hit-a-record-high/",
+    "roleTags": [
+      "middle-management",
+      "finance",
+      "legal"
+    ]
   },
   {
     "company": "Coinbase",
@@ -45,7 +69,10 @@
     "date": "2026-05-01",
     "description": "Cut 14% of workforce. CEO Brian Armstrong said the company needs to become 'AI-native' to compete.",
     "roles": "Various",
-    "source": "https://news.crunchbase.com/startups/tech-layoffs/"
+    "source": "https://news.crunchbase.com/startups/tech-layoffs/",
+    "roleTags": [
+      "various"
+    ]
   },
   {
     "company": "General Motors",
@@ -53,7 +80,11 @@
     "date": "2026-05-01",
     "description": "Cut 10% of IT department. Employees were told 'lack of AI skills' was the reason — learn AI or lose your job.",
     "roles": "IT, software engineering",
-    "source": "https://tech.co/news/companies-replace-workers-with-ai"
+    "source": "https://tech.co/news/companies-replace-workers-with-ai",
+    "roleTags": [
+      "it",
+      "engineering"
+    ]
   },
   {
     "company": "Salesforce",
@@ -61,7 +92,10 @@
     "date": "2025-09-01",
     "description": "Cut customer support roles. CEO Marc Benioff said bluntly: 'I need less heads.' Replaced with AI-powered Agentforce platform.",
     "roles": "Customer support, success managers",
-    "source": "https://tech.co/news/companies-replace-workers-with-ai"
+    "source": "https://tech.co/news/companies-replace-workers-with-ai",
+    "roleTags": [
+      "customer-support"
+    ]
   },
   {
     "company": "Chegg",
@@ -69,7 +103,11 @@
     "date": "2025-10-01",
     "description": "Cut 45% of workforce as students abandoned homework-help platforms for ChatGPT and Claude. Stock dropped 99% from peak.",
     "roles": "Content creators, editors, support",
-    "source": "https://tech.co/news/companies-replace-workers-with-ai"
+    "source": "https://tech.co/news/companies-replace-workers-with-ai",
+    "roleTags": [
+      "content",
+      "customer-support"
+    ]
   },
   {
     "company": "Snap",
@@ -77,7 +115,12 @@
     "date": "2025-12-01",
     "description": "Slashed 16% of workforce. CEO Evan Spiegel cited AI-driven efficiencies across content moderation and ad operations.",
     "roles": "Content moderation, ad ops, engineering",
-    "source": "https://tech.co/news/companies-replace-workers-with-ai"
+    "source": "https://tech.co/news/companies-replace-workers-with-ai",
+    "roleTags": [
+      "content-moderation",
+      "ad-operations",
+      "engineering"
+    ]
   },
   {
     "company": "HP",
@@ -85,7 +128,12 @@
     "date": "2025-11-01",
     "description": "Cut 4,000-6,000 employees as part of an AI productivity initiative across global operations.",
     "roles": "Operations, support, admin",
-    "source": "https://intellizence.com/insights/layoff-downsizing/major-companies-that-announced-mass-layoffs/"
+    "source": "https://intellizence.com/insights/layoff-downsizing/major-companies-that-announced-mass-layoffs/",
+    "roleTags": [
+      "operations",
+      "customer-support",
+      "admin"
+    ]
   },
   {
     "company": "Paycom",
@@ -93,7 +141,11 @@
     "date": "2025-10-01",
     "description": "Cut staff after automating payroll and back-office functions with AI. One of the clearest cases of AI directly replacing human jobs.",
     "roles": "Payroll processing, back-office",
-    "source": "https://programs.com/resources/ai-layoffs/"
+    "source": "https://programs.com/resources/ai-layoffs/",
+    "roleTags": [
+      "finance",
+      "admin"
+    ]
   },
   {
     "company": "CrowdStrike",
@@ -101,7 +153,10 @@
     "date": "2025-05-01",
     "description": "Cut 5% of staff citing 'AI efficiency' as a key driver alongside restructuring after the July 2024 global outage.",
     "roles": "Various",
-    "source": "https://programs.com/resources/ai-layoffs/"
+    "source": "https://programs.com/resources/ai-layoffs/",
+    "roleTags": [
+      "various"
+    ]
   },
   {
     "company": "Duolingo",
@@ -109,7 +164,11 @@
     "date": "2024-01-08",
     "description": "Offboarded 10% of contractors as the company declared itself 'AI-first.' Content translation work shifted to AI models. One of the first major 'replaced by AI' stories.",
     "roles": "Contract translators, content creators",
-    "source": "https://www.techrepublic.com/article/news-duolingo-replaces-contractors-ai/"
+    "source": "https://www.techrepublic.com/article/news-duolingo-replaces-contractors-ai/",
+    "roleTags": [
+      "translation",
+      "content"
+    ]
   },
   {
     "company": "Dell",
@@ -117,7 +176,12 @@
     "date": "2024-08-01",
     "description": "Cut 10% of workforce as it reorganized around demand for AI servers and infrastructure. Traditional PC and services roles eliminated.",
     "roles": "Sales, support, traditional infrastructure",
-    "source": "https://news.crunchbase.com/startups/tech-layoffs/"
+    "source": "https://news.crunchbase.com/startups/tech-layoffs/",
+    "roleTags": [
+      "sales",
+      "customer-support",
+      "it"
+    ]
   },
   {
     "company": "Dropbox",
@@ -125,7 +189,11 @@
     "date": "2024-10-01",
     "description": "Cut staff as it refocused the entire business around AI-powered search and document intelligence.",
     "roles": "Engineering, product, various",
-    "source": "https://programs.com/resources/ai-layoffs/"
+    "source": "https://programs.com/resources/ai-layoffs/",
+    "roleTags": [
+      "engineering",
+      "product"
+    ]
   },
   {
     "company": "PayPal",
@@ -133,7 +201,11 @@
     "date": "2024-01-30",
     "description": "Reduced 9% of staff as automation expanded across fraud detection, risk management, and customer support pipelines.",
     "roles": "Fraud analysts, risk management, support",
-    "source": "https://programs.com/resources/ai-layoffs/"
+    "source": "https://programs.com/resources/ai-layoffs/",
+    "roleTags": [
+      "risk-fraud",
+      "customer-support"
+    ]
   },
   {
     "company": "Klarna",
@@ -141,7 +213,10 @@
     "date": "2024-06-01",
     "description": "Replaced 700 customer service agents with an AI chatbot. Then quietly reversed course by 2026 as customer satisfaction tanked on complex issues. Now uses a hybrid model.",
     "roles": "Customer service agents",
-    "source": "https://www.digitalapplied.com/blog/klarna-reverses-ai-layoffs-replacing-700-workers-backfired"
+    "source": "https://www.digitalapplied.com/blog/klarna-reverses-ai-layoffs-replacing-700-workers-backfired",
+    "roleTags": [
+      "customer-support"
+    ]
   },
   {
     "company": "Citigroup",
@@ -149,7 +224,11 @@
     "date": "2026-01-15",
     "description": "CFO expects headcount down by 20,000 as part of a broad AI-driven overhaul of banking operations.",
     "roles": "Operations, middle office, compliance",
-    "source": "https://tech.co/news/companies-replace-workers-with-ai"
+    "source": "https://tech.co/news/companies-replace-workers-with-ai",
+    "roleTags": [
+      "operations",
+      "compliance"
+    ]
   },
   {
     "company": "Upwork",
@@ -157,7 +236,10 @@
     "date": "2026-05-07",
     "description": "Cut 24% of its 600-person workforce. CEO said AI is making teams smaller: 'Two pizza teams are dead.' Stock plunged 19%. Law firms launched securities investigations.",
     "roles": "Various across the company",
-    "source": "https://www.finalroundai.com/blog/upwork-layoffs-2026"
+    "source": "https://www.finalroundai.com/blog/upwork-layoffs-2026",
+    "roleTags": [
+      "various"
+    ]
   },
   {
     "company": "BILL Holdings",
@@ -165,7 +247,12 @@
     "date": "2026-05-07",
     "description": "Cut 30% of staff the same day it authorized a $1B stock buyback. CEO said 'AI presents an extraordinary opportunity' while eliminating the humans. Announced on the same day as Upwork's cuts.",
     "roles": "Engineering, operations, support",
-    "source": "https://layoffhedge.com/company/bill-holdings"
+    "source": "https://layoffhedge.com/company/bill-holdings",
+    "roleTags": [
+      "engineering",
+      "operations",
+      "customer-support"
+    ]
   },
   {
     "company": "PayPal (2026)",
@@ -173,7 +260,11 @@
     "date": "2026-05-01",
     "description": "Plans to eliminate 20% of its 23,800 workforce over the next 2-3 years as AI automates fraud detection, risk management, and support. Second round of AI-driven cuts after 2,500 in Jan 2024.",
     "roles": "Fraud detection, risk management, customer support",
-    "source": "https://programs.com/resources/ai-layoffs/"
+    "source": "https://programs.com/resources/ai-layoffs/",
+    "roleTags": [
+      "risk-fraud",
+      "customer-support"
+    ]
   },
   {
     "company": "Ticketmaster",
@@ -181,7 +272,11 @@
     "date": "2026-05-15",
     "description": "Cut 8% of global workforce across 25 countries as AI handles more customer service and event operations.",
     "roles": "Customer service, operations across 25 countries",
-    "source": "https://finance.yahoo.com/sectors/technology/articles/layoffs-accelerate-may-2026-firms-040430218.html"
+    "source": "https://finance.yahoo.com/sectors/technology/articles/layoffs-accelerate-may-2026-firms-040430218.html",
+    "roleTags": [
+      "customer-support",
+      "operations"
+    ]
   },
   {
     "company": "Intuit",
@@ -189,7 +284,11 @@
     "date": "2026-05-20",
     "description": "The TurboTax and QuickBooks maker cut 17% of its workforce to 'reduce complexity' and divert resources toward baking AI into its products. Announced the same day as Meta's 8,000 cuts. Signed multi-year deals with Anthropic and OpenAI while showing 3,000 humans the door.",
     "roles": "Corporate structure, product, various (US workers stay until July 31)",
-    "source": "https://techcrunch.com/2026/05/20/intuit-to-lay-off-over-3000-employees-to-refocus-on-ai/"
+    "source": "https://techcrunch.com/2026/05/20/intuit-to-lay-off-over-3000-employees-to-refocus-on-ai/",
+    "roleTags": [
+      "product",
+      "middle-management"
+    ]
   },
   {
     "company": "Cisco",
@@ -197,7 +296,10 @@
     "date": "2026-05-14",
     "description": "Cut nearly 4,000 jobs one day after reporting record $15.8B quarterly revenue and $5.3B in AI infrastructure orders. CFO said the restructuring realigns resources around silicon, optics, security, and AI. Up to $1B in charges to pay people to leave.",
     "roles": "Various — restructuring toward AI infrastructure",
-    "source": "https://techcrunch.com/2026/05/14/cisco-cuts-nearly-4000-jobs-to-spend-more-on-ai-reports-record-quarterly-revenue/"
+    "source": "https://techcrunch.com/2026/05/14/cisco-cuts-nearly-4000-jobs-to-spend-more-on-ai-reports-record-quarterly-revenue/",
+    "roleTags": [
+      "various"
+    ]
   },
   {
     "company": "Microsoft",
@@ -205,7 +307,13 @@
     "date": "2026-05-13",
     "description": "Cut ~3% of its global 228,000-person workforce. CEO Satya Nadella said Copilot and AI agents now handle work that previously required dedicated headcount — internal Copilot usage tripled year-over-year. Sales and customer-facing teams hit hardest as AI-first engagement replaces human touchpoints.",
     "roles": "Sales, marketing, customer success, engineering",
-    "source": "https://www.geekwire.com/2026/microsoft-lays-off-about-6000-employees/"
+    "source": "https://www.geekwire.com/2026/microsoft-lays-off-about-6000-employees/",
+    "roleTags": [
+      "sales",
+      "marketing",
+      "customer-support",
+      "engineering"
+    ]
   },
   {
     "company": "Workday",
@@ -213,7 +321,12 @@
     "date": "2026-01-13",
     "description": "Cut 8.5% of its 20,500-person workforce. CEO Carl Eschenbach said the company was 'eating its own cooking' — using Workday's own AI to automate the HR and finance work its employees once did. One of the more ironic AI layoffs: the company building workforce AI software replacing its own workforce with AI.",
     "roles": "Professional services, sales, HR operations",
-    "source": "https://techcrunch.com/2026/01/13/workday-to-cut-about-1750-jobs-as-it-doubles-down-on-ai/"
+    "source": "https://techcrunch.com/2026/01/13/workday-to-cut-about-1750-jobs-as-it-doubles-down-on-ai/",
+    "roleTags": [
+      "professional-services",
+      "sales",
+      "hr"
+    ]
   },
   {
     "company": "Uber",
@@ -221,7 +334,10 @@
     "date": "2026-07-22",
     "description": "Cut roughly 10% of Community Operations — the support arm covering riders, drivers and delivery partners — in the first headcount reduction Uber has ever attributed directly to AI. Bloomberg's headline: 'Uber Cuts 10% of Customer Service Jobs, Citing Embrace of AI.' Remaining remote staff in the division were also ordered to relocate to hub offices. Only the 41-person California WARN filing is public; the global total is undisclosed and larger.",
     "roles": "Customer support / Community Operations; remaining remote roles forced back to hub offices",
-    "source": "https://www.businessinsider.com/uber-layoffs-ai-prompts-cuts-to-customer-service-jobs-2026-7"
+    "source": "https://www.businessinsider.com/uber-layoffs-ai-prompts-cuts-to-customer-service-jobs-2026-7",
+    "roleTags": [
+      "customer-support"
+    ]
   },
   {
     "company": "Monday.com",
@@ -229,7 +345,12 @@
     "date": "2026-07-22",
     "description": "Cut 20% of its workforce — just over 600 people — in an SEC-filed restructuring tied to its 'AI-driven growth strategy,' at a cost of $45-55M in charges while still guiding to 19-20% revenue growth. Co-founder Eran Zinman told staff the move 'was not made to reduce costs or replace people with AI,' which is a difficult sentence to place next to the filing.",
     "roles": "Product, marketing, go-to-market",
-    "source": "https://techcrunch.com/2026/07/22/monday-com-lays-off-hundreds-to-focuses-on-ai/"
+    "source": "https://techcrunch.com/2026/07/22/monday-com-lays-off-hundreds-to-focuses-on-ai/",
+    "roleTags": [
+      "product",
+      "marketing",
+      "sales"
+    ]
   },
   {
     "company": "Angi",
@@ -237,7 +358,11 @@
     "date": "2026-01-01",
     "description": "The home-services marketplace formerly known as Angie's List cut 350 jobs — 12.5% of its 2,800 staff — explicitly 'in light of AI-driven efficiency improvements,' with AI taking over customer matching and contractor vetting. Expected to save $70-80M a year, at a one-time restructuring cost of about $30M.",
     "roles": "Customer matching, service provider vetting, operations",
-    "source": "https://www.ibj.com/articles/angi-to-eliminate-350-jobs"
+    "source": "https://www.ibj.com/articles/angi-to-eliminate-350-jobs",
+    "roleTags": [
+      "customer-support",
+      "operations"
+    ]
   },
   {
     "company": "Rapid7",
@@ -245,7 +370,10 @@
     "date": "2026-08-07",
     "roles": "Cross-company restructuring around the Command Platform (detection & response, exposure management)",
     "source": "https://www.sec.gov/Archives/edgar/data/0001560327/000156032726000043/rp-20260807.htm",
-    "description": "Cut about 12% of its 2,613 staff under a board-approved \"2026 Restructuring Plan\" with $10–11M in charges, mostly severance. New CEO Wael Mohamed called it \"a strategic shift in business operations to drive efficiency and focus\"; the 8-K frames the cuts as freeing capacity to increase investment in AI-driven security products."
+    "description": "Cut about 12% of its 2,613 staff under a board-approved \"2026 Restructuring Plan\" with $10–11M in charges, mostly severance. New CEO Wael Mohamed called it \"a strategic shift in business operations to drive efficiency and focus\"; the 8-K frames the cuts as freeing capacity to increase investment in AI-driven security products.",
+    "roleTags": [
+      "various"
+    ]
   },
   {
     "company": "ServiceNow",
@@ -253,6 +381,9 @@
     "date": "2026-07-30",
     "roles": "Overlapping roles from the Armis, Veza and Moveworks acquisitions, rolled out over several months",
     "source": "https://finance.yahoo.com/technology/articles/exclusive-servicenow-cut-1k-jobs-183242920.html",
-    "description": "Up to 1,000 jobs (~3%) cut as \"planned rightsizing\" so that ServiceNow ends 2026 at the ~29,000 headcount it started with — despite three acquisitions — on CEO Bill McDermott's logic that AI productivity means the company \"does not need to grow staff.\" Spokesperson: \"We are driving efficiencies across the business, actively investing in and hiring for AI-focused skills, and managing headcount with discipline to end 2026 where we started.\" Shares rose 9%."
+    "description": "Up to 1,000 jobs (~3%) cut as \"planned rightsizing\" so that ServiceNow ends 2026 at the ~29,000 headcount it started with — despite three acquisitions — on CEO Bill McDermott's logic that AI productivity means the company \"does not need to grow staff.\" Spokesperson: \"We are driving efficiencies across the business, actively investing in and hiring for AI-focused skills, and managing headcount with discipline to end 2026 where we started.\" Shares rose 9%.",
+    "roleTags": [
+      "various"
+    ]
   }
 ]

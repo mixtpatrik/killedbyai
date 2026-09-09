@@ -66,6 +66,7 @@
         @media (max-width: 600px) { .site-nav { justify-content: flex-start; -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); mask-image: linear-gradient(90deg, #000 90%, transparent); } .site-nav-item { font-size: .8125rem; padding: 0 .75rem; } .layoff-desc, .fund-desc, .doom-desc { font-size: .875rem; } }
         .doom-tomb{display:inline-flex;align-items:center;min-height:36px;padding:0 .625rem;border-radius:.25rem;background:rgba(239,68,68,.12);color:#f87171;text-decoration:none;font-size:.8125rem;font-weight:600}.doom-tomb:hover{background:rgba(239,68,68,.22)}
         .last-updated{display:block;text-align:center;margin-top:.5rem}
+        .ics-link{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}.ics-link:hover{color:#fbbf24}
     </style>
     <script type="application/ld+json">{{JSONLD}}</script>
     <script type="application/ld+json">{{BREADCRUMB}}</script>
@@ -82,7 +83,7 @@
     <header class="header">
         <h1>Upcoming AI <span>Shutdowns</span></h1>
         <p>Coming soon to the graveyard: the deprecation schedule for {{COUNT}} AI products with confirmed death dates. Already announced, just counting down.</p>
-        <span class="last-updated">Last updated: {{LAST_UPDATED}}</span>
+        <span class="last-updated">Last updated: {{LAST_UPDATED}} · <a href="/deprecations.ics" class="ics-link">📅 Subscribe to the shutdown calendar (.ics)</a></span>
     </header>
     <main class="list">
 {{ROWS}}
