@@ -354,7 +354,7 @@ def build_ics(cs_data):
     """deprecations.ics — subscribe to upcoming AI shutdowns in any calendar app."""
     def ics_escape(t):
         return t.replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
-    stamp = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+    stamp = lm(["coming-soon.json"]).replace("-", "") + "T000000Z"   # content date, so builds are reproducible
     events = []
     for c in sorted(cs_data, key=lambda x: x["dateShutdown"]):
         d = c["dateShutdown"].replace("-", "")
@@ -604,7 +604,7 @@ def build_faq(items):
 def build_rss(items):
     """Build an RSS 2.0 feed sorted by most recently ADDED (so backfilled older deaths still surface)."""
     sorted_items = sorted(items, key=lambda i: (i.get("dateAdded") or i["dateClose"], i["dateClose"]), reverse=True)[:30]
-    today = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S +0000")
+    today = datetime.strptime(max(lm(["graveyard.json"]), lm(["layoffs.json"]), lm(["coming-soon.json"])), "%Y-%m-%d").strftime("%a, %d %b %Y 00:00:00 +0000")
 
     rss_items = []
     for item in sorted_items:
