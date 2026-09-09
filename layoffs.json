@@ -238,5 +238,21 @@
     "description": "The home-services marketplace formerly known as Angie's List cut 350 jobs — 12.5% of its 2,800 staff — explicitly 'in light of AI-driven efficiency improvements,' with AI taking over customer matching and contractor vetting. Expected to save $70-80M a year, at a one-time restructuring cost of about $30M.",
     "roles": "Customer matching, service provider vetting, operations",
     "source": "https://www.ibj.com/articles/angi-to-eliminate-350-jobs"
+  },
+  {
+    "company": "Rapid7",
+    "jobs": 314,
+    "date": "2026-08-07",
+    "roles": "Cross-company restructuring around the Command Platform (detection & response, exposure management)",
+    "source": "https://www.sec.gov/Archives/edgar/data/0001560327/000156032726000043/rp-20260807.htm",
+    "description": "Cut about 12% of its 2,613 staff under a board-approved \"2026 Restructuring Plan\" with $10–11M in charges, mostly severance. New CEO Wael Mohamed called it \"a strategic shift in business operations to drive efficiency and focus\"; the 8-K frames the cuts as freeing capacity to increase investment in AI-driven security products."
+  },
+  {
+    "company": "ServiceNow",
+    "jobs": 1000,
+    "date": "2026-07-30",
+    "roles": "Overlapping roles from the Armis, Veza and Moveworks acquisitions, rolled out over several months",
+    "source": "https://finance.yahoo.com/technology/articles/exclusive-servicenow-cut-1k-jobs-183242920.html",
+    "description": "Up to 1,000 jobs (~3%) cut as \"planned rightsizing\" so that ServiceNow ends 2026 at the ~29,000 headcount it started with — despite three acquisitions — on CEO Bill McDermott's logic that AI productivity means the company \"does not need to grow staff.\" Spokesperson: \"We are driving efficiencies across the business, actively investing in and hiring for AI-focused skills, and managing headcount with discipline to end 2026 where we started.\" Shares rose 9%."
   }
 ]

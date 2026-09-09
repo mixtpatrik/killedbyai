@@ -11,7 +11,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Killed by AI — The AI Graveyard | {{COUNT}} Dead AI Products</title>
+    <title>Killed by AI — The AI Graveyard | {{COUNT}} Dead AI Tools &amp; Products</title>
     <meta name="description" content="{{COUNT}} AI products killed and counting. Every AI shutdown tracked — the Sora shutdown, GPT-4o, the Humane AI Pin, and the startups that died trying.">
     <meta name="keywords" content="killed by AI, AI graveyard, sora ai shutdown, discontinued AI, dead AI products, AI shutdown, deprecated AI models, failed AI startups, openai sora shutdown, humane ai pin failure, AI tool tracker, openai ai text classifier discontinued">
     <meta name="author" content="Patrik Rojan">
@@ -36,9 +36,6 @@
     <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪦</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <link rel="alternate" type="application/rss+xml" title="Killed by AI — RSS Feed" href="https://killedbyai.net/feed.xml">
 
@@ -62,7 +59,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -584,8 +581,6 @@
             transition: all 0.2s;
         }
 
-        .toggle-input { display: none; }
-
         .toggle-input:checked + .toggle-switch {
             background: var(--red);
         }
@@ -1004,6 +999,41 @@
             .insights-fold > summary::after { content: "▾"; color: var(--text-dim); }
             .insights-fold[open] > summary::after { content: "▴"; }
         }
+
+        /* ===== pass 2 (judge-verified residuals) ===== */
+        .insights-fold > summary { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; min-height: 44px; margin: .75rem auto 0; padding: 0 .875rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: .5rem; font-size: .875rem; font-weight: 600; color: var(--text-muted); cursor: pointer; list-style: none; }
+        .insights-fold > summary::-webkit-details-marker { display: none; }
+        .insights-fold > summary::after { content: "▾"; color: var(--text-dim); }
+        .insights-fold[open] > summary::after { content: "▴"; }
+        .insights-fold > summary:hover { border-color: var(--text-dim); }
+        .toggle-input { position: absolute; clip: rect(0 0 0 0); width: 1px; height: 1px; overflow: hidden; white-space: nowrap; }
+        .search-box input { min-height: 44px; }
+        .card-name a { display: inline-block; padding: .25rem 0; }
+        .stat-label, .pace-label, .pace-link-lbl, .bar-label, .bar-count, .card-lifespan, .card-age { font-size: .75rem; }
+        .lb-name, .toggle-label, .submit-cta { font-size: .8125rem; }
+        .lb-row { text-decoration: none; color: inherit; }
+        .bar { display: flex; flex-direction: column; height: 100%; }
+        .bar-count, .bar-label { flex: none; }
+        .bar-track { flex: 1; width: 100%; display: flex; align-items: flex-end; min-height: 0; }
+        .bar-fill { height: var(--bar-height, 0%); min-height: 2px; }
+        .card:target { border-color: var(--red); box-shadow: 0 0 0 3px var(--red-dim); }
+        .card-description { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }
+        .card.expanded .card-description { display: block; -webkit-line-clamp: unset; }
+        .card-link { align-self: flex-start; }
+        .card.beyond { display: none; }
+        .show-more-wrap { text-align: center; margin: 1rem 0 2rem; }
+        .show-more { min-height: 48px; padding: 0 1.5rem; border-radius: .5rem; border: 1px solid var(--border); background: var(--bg-card); color: var(--text); font: inherit; font-weight: 600; cursor: pointer; }
+        .show-more:hover { border-color: var(--red); color: var(--red); }
+        .faq-item summary h3 { display: inline; font-size: inherit; font-weight: inherit; margin: 0; }
+        .faq-answer a, .footer-links a { color: var(--text-muted); text-decoration: underline; text-underline-offset: 2px; }
+        .faq-answer a:hover, .footer-links a:hover { color: var(--red); }
+        .footer-links { margin-top: .5rem; font-size: .8125rem; }
+        @media (hover: none) { .card:hover { transform: none; } .search-hint { display: none; } }
+        @media (max-width: 600px) {
+            .search-box input, .sort-select { font-size: 16px; }
+            .filter-pills { flex-wrap: wrap; overflow: visible; -webkit-mask-image: none; mask-image: none; padding-right: 0; }
+            .insights-fold > summary { margin: .5rem .75rem 0; }
+        }
     </style>
 </head>
 <body>
@@ -1018,7 +1048,7 @@
 
     <header class="header">
         <h1>Killed by <span>AI</span></h1>
-        <p>The AI graveyard: a digital cemetery for the models, apps, and startups that didn't survive the artificial intelligence gold rush — every dead AI product, with a launch date, a death date, a killer and a source.</p>
+        <p>The AI graveyard: a digital cemetery for the models, apps, and startups that didn't survive the artificial intelligence gold rush — every dead AI tool and defunct AI product, sourced and dated, with a launch date, a death date, a killer and a link. Open data, CC BY 4.0.</p>
         <div class="counter">
             <span class="skull">💀</span>
             <span id="total-count">{{COUNT}}</span> products killed and counting
@@ -1026,7 +1056,7 @@
         <span class="last-updated">Last updated: {{LAST_UPDATED}}</span>
     </header>
 
-    <details class="insights-fold" id="insights" open>
+    <details class="insights-fold" id="insights">
         <summary>📊 Stats, deaths-per-year chart &amp; kill leaderboard</summary>
     <div class="stats-ribbon">
         <div class="stat-card">
@@ -1086,11 +1116,11 @@
             <div class="pace-links">
                 <a href="/funding/" class="pace-link">
                     <span class="pace-link-val" style="color:#f59e0b">${{FUNDING_B}}B</span>
-                    <span class="pace-link-lbl">🔥 VC funding burned</span>
+                    <span class="pace-link-lbl">🔥 Failed AI startups</span>
                 </a>
                 <a href="/layoffs/" class="pace-link">
                     <span class="pace-link-val" style="color:#f97316">{{TOTAL_JOBS_LOST}}</span>
-                    <span class="pace-link-lbl">💼 jobs killed by AI</span>
+                    <span class="pace-link-lbl">💼 AI layoffs tracker</span>
                 </a>
             </div>
         </div>
@@ -1130,14 +1160,15 @@
         <a class="submit-cta" href="https://github.com/mixtpatrik/killedbyai/issues/new?title=New+entry:+[Product+Name]&body=Name:%0ADate+launched:%0ADate+killed:%0ADescription:%0AKilled+by:%0ASource+link:" target="_blank" rel="noopener">+ Submit a death</a>
     </div>
     <div class="active-filters" id="active-filters" aria-live="polite"></div>
-    <h2 class="grid-title" id="graveyard">The AI graveyard: <span>{{COUNT}}</span> tombstones</h2>
+    <h2 class="grid-title" id="graveyard">The AI graveyard: <span>{{COUNT}}</span> dead AI tools that shut down</h2>
 
     <main class="grid" id="grid">
 {{CARDS}}
     </main>
+    <div class="show-more-wrap"><button type="button" class="show-more" id="show-more" hidden>Show 24 more tombstones</button></div>
 
-    <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
-        <h2 class="faq-title">Frequently Asked Questions</h2>
+    <section class="faq-section" aria-labelledby="faq-title">
+        <h2 class="faq-title" id="faq-title">Frequently Asked Questions</h2>
 {{FAQ_HTML}}
     </section>
 
@@ -1147,9 +1178,9 @@
         <p>
             Inspired by <a href="https://killedbygoogle.com/" target="_blank" rel="noopener">Killed by Google</a>.
             Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.
-            <br>Want to add a tombstone? <a href="https://github.com/mixtpatrik/killedbyai/issues/new?title=New+entry:+[Product+Name]" target="_blank" rel="noopener">Submit a death</a> or a pull request.
-            <br><a href="/about/">About &amp; methodology</a> · <a href="/api/">JSON API</a> · <a href="/feed.xml">RSS</a> · Data <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>
+            <br>Want to add a tombstone? <a href="https://github.com/mixtpatrik/killedbyai/issues/new?title=New+entry:+[Product+Name]" target="_blank" rel="noopener">Submit a death</a> or a pull request. Data <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
         </p>
+        <p class="footer-links">{{FOOTER_LINKS}}</p>
         <p class="quote">"I'm sorry, Dave. I'm afraid I can't do that anymore."</p>
     </footer>
 
@@ -1160,6 +1191,7 @@
               chipsEl = document.getElementById('active-filters'), backToTopBtn = document.getElementById('back-to-top'),
               hideUpgradesToggle = document.getElementById('hide-upgrades'), controlsEl = document.querySelector('.controls'), insights = document.getElementById('insights');
         let activeFilter = 'all', activeYear = null, activeKiller = null;
+        const PAGE = 24; let limit = PAGE; const showMore = document.getElementById('show-more');
         const cards = Array.from(grid.querySelectorAll('.card')), total = cards.length;
         const pillBase = {}; filtersEl.querySelectorAll('.filter-pill').forEach(p => { pillBase[p.dataset.filter] = p.textContent.replace(/\s*\(\d+\)\s*$/, ''); });
         const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1239,25 +1271,31 @@
                     default: return 0;
                 }
             });
-            vis.forEach(c => grid.appendChild(c));
+            vis.forEach((c, i) => { grid.appendChild(c); c.classList.toggle('beyond', i >= limit); });
+            const rest = Math.max(0, vis.length - limit);
+            showMore.hidden = rest === 0;
+            showMore.textContent = 'Show ' + Math.min(PAGE, rest) + ' more tombstones (' + rest + ' remaining)';
         }
-        function setFilter(f) { activeFilter = f; filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === f)); apply(); }
+        showMore.addEventListener('click', () => { limit += PAGE; apply(); });
+        function resetPage() { limit = PAGE; }
+        function setFilter(f) { resetPage(); activeFilter = f; filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === f)); apply(); }
         function clearYear() { activeYear = null; timelineEl.querySelectorAll('.bar').forEach(b => b.classList.remove('active')); yearClearBtn.classList.remove('visible'); apply(); }
         function clearAll() { searchInput.value = ''; activeKiller = null; hideUpgradesToggle.checked = false; activeFilter = 'all'; filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === 'all')); clearYear(); }
         const scrollToControls = () => controlsEl.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
 
-        searchInput.addEventListener('input', apply);
-        sortSelect.addEventListener('change', apply);
-        hideUpgradesToggle.addEventListener('change', apply);
+        searchInput.addEventListener('input', () => { resetPage(); apply(); });
+        sortSelect.addEventListener('change', () => { resetPage(); apply(); });
+        hideUpgradesToggle.addEventListener('change', () => { resetPage(); apply(); });
+        grid.addEventListener('click', e => { const d = e.target.closest('.card-description'); if (d) d.closest('.card').classList.toggle('expanded'); });
         filtersEl.addEventListener('click', e => { const p = e.target.closest('.filter-pill'); if (p && !p.disabled) setFilter(p.dataset.filter); });
         timelineEl.addEventListener('click', e => {
             const bar = e.target.closest('.bar'); if (!bar) return;
             const yr = bar.dataset.year; timelineEl.querySelectorAll('.bar').forEach(b => b.classList.remove('active'));
             if (activeYear === yr) { activeYear = null; yearClearBtn.classList.remove('visible'); } else { activeYear = yr; bar.classList.add('active'); yearClearBtn.classList.add('visible'); }
-            apply(); scrollToControls();
+            resetPage(); apply(); scrollToControls();
         });
         yearClearBtn.addEventListener('click', clearYear);
-        document.querySelectorAll('.lb-row').forEach(row => row.addEventListener('click', () => { activeKiller = activeKiller === row.dataset.killer ? null : row.dataset.killer; apply(); scrollToControls(); }));
+        document.querySelectorAll('.lb-row').forEach(row => row.addEventListener('click', e => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; e.preventDefault(); resetPage(); activeKiller = activeKiller === row.dataset.killer ? null : row.dataset.killer; apply(); scrollToControls(); }));
         document.addEventListener('keydown', e => {
             if (e.key === '/' && document.activeElement !== searchInput) { e.preventDefault(); searchInput.focus(); }
             if (e.key === 'Escape' && document.activeElement === searchInput) searchInput.blur();
@@ -1265,8 +1303,11 @@
         window.addEventListener('scroll', () => backToTopBtn.classList.toggle('visible', window.scrollY > 600), { passive: true });
         backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' }));
 
-        // Mobile: fold the dashboard so search and tombstones sit above the fold (keep it open if a year filter is in the URL)
-        if (insights && matchMedia('(max-width: 600px)').matches && !/[?&]year=/.test(location.search)) insights.removeAttribute('open');
+        // Dashboard is folded by default so search and tombstones are above the fold; remember the visitor's choice
+        if (insights) {
+            try { if (localStorage.getItem('kbai-insights') === 'open' || /[?&](year|killer)=/.test(location.search)) insights.open = true; } catch (e) {}
+            insights.addEventListener('toggle', () => { try { localStorage.setItem('kbai-insights', insights.open ? 'open' : 'closed'); } catch (e) {} });
+        }
 
         const params = new URLSearchParams(location.search);
         if (params.get('q')) searchInput.value = params.get('q');
@@ -1277,7 +1318,14 @@
         if (params.get('real')) hideUpgradesToggle.checked = true;
         apply();
         // Deep links: cards ship pre-sorted newest-first so the default sort is a no-op; scroll once layout settles
-        if (location.hash) { const el = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (el) requestAnimationFrame(() => el.scrollIntoView({ block: 'start' })); }
+        if (location.hash) {
+            const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+            if (el && el.classList.contains('card')) {
+                const vis = cards.filter(c => !c.classList.contains('hidden')); const i = vis.indexOf(el);
+                if (i >= limit) { limit = Math.ceil((i + 1) / PAGE) * PAGE; apply(); }
+            }
+            if (el) requestAnimationFrame(() => el.scrollIntoView({ block: 'start' }));
+        }
     })();
     </script>
     <script type="application/ld+json">{{JSONLD}}</script>

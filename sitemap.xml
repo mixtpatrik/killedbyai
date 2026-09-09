@@ -3,793 +3,573 @@
   <url>
     <loc>https://killedbyai.net/</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://killedbyai.net/layoffs/</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://killedbyai.net/coming-soon/</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://killedbyai.net/funding/</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://killedbyai.net/api/</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://killedbyai.net/about/</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/</loc>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/microsoft-clippy/</loc>
-    <lastmod>2026-05-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/microsoft-tay/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/facebook-ai-chatbots-bob-alice/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/ibm-watson-marketing/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/meta-galactica/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/replika-romantic-mode/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/openai-codex-api/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/midjourney-free-tier/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/neeva/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/meta-blenderbot-3/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/openai-ai-text-classifier/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/olive-ai/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/bing-chat/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-ai-test-kitchen/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/microsoft-cortana/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/github-copilot-x/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/gpt-3-original-models/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/openai-v1-edits-endpoint/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-bard/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-gemini-image-generation-people/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/coqui-ai/</loc>
-    <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-duplex-on-the-web/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/inflection-ai-pi/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/chatgpt-plugins/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/chatpdf-pdf-chat-wrappers/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/stability-ai-stable-diffusion-creator/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/cohere-generate-original/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/samsung-gauss/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/gpt-4-original/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/adept-ai-independent/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/copilot-gpt-builder/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/mcdonald-s-ai-drive-thru-ibm/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/character-ai-independent/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-palm-api/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/amazon-alexa-original-ai/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/claude-1/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/nyc-mycity-chatbot/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/moxie-robot/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/gpt-4-vision-preview/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-jamboard/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/writer-gpt-wrapper-era/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-assistant-classic/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/dall-e-2/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-gemini-1-0-pro/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-gemini-1-0-ultra/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/rabbit-r1/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/openai-gpt-store/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/humane-ai-pin/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/builder-ai/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/jasper-ai-original-platform/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/siri-classic/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/tune-ai/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/claude-3-opus/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/woebot/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/sourcegraph-cody-free-pro/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/gpt-4-5-preview/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/claude-2/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/claude-3-sonnet/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/openai-o1-preview/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/openai-gpt-3-5-turbo/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/openai-o1-mini/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/claude-3-5-sonnet/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/robin-ai/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/yara-ai/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/limitless-pendant-rewind-ai/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/gmailify/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-gemini-2-0-flash/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/kintsugi-ai/</loc>
-    <lastmod>2026-05-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/gpt-4o-api-snapshots/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/gpt-4o-chatgpt/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-dark-web-report/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/cydoc/</loc>
-    <lastmod>2026-05-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-assistant-on-mobile/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/adobe-animate/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-gemini-3-pro-preview/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/gpt-4o-realtime-preview/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/yupp-ai/</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/gpt-4o-api-2024-05-13-2024-08-06/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-interview-warmup/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/minimax-api-free-tier/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/qwen-code-free-tier/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/openai-for-science/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/openai-sora/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-whisk/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-doppl/</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-project-mariner/</loc>
-    <lastmod>2026-05-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/gpt-5-2-gpt-5-3-api-snapshots/</loc>
-    <lastmod>2026-05-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/claude-3-7-sonnet/</loc>
-    <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/openai-realtime-api-beta/</loc>
-    <lastmod>2026-05-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/dall-e-3-api-snapshots/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/xai-grok-legacy-models/</loc>
-    <lastmod>2026-05-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/stainless-sdk-generator/</loc>
-    <lastmod>2026-05-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/claude-fable-5-mythos-5-june-suspension/</loc>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/claude-sonnet-4-opus-4/</loc>
-    <lastmod>2026-05-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-imagen-vertex-ai/</loc>
-    <lastmod>2026-07-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/meta-llama-api/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/tv-time/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/doubao-qwen-ai-agent-builders/</loc>
-    <lastmod>2026-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/relay-app/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/groq-qwen3-32b-llama-4-scout/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/openai-operator-cua-preview/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/deepseek-deepseek-chat-deepseek-reasoner/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/github-models/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/amazon-bedrock-agents-classic/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/reforged-labs/</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/mistral-magistral/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/claude-opus-4-1/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/openai-atlas/</loc>
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/microsoft-mai-image-2-mai-image-2e/</loc>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/groq-llama-3-1-8b-instant-llama-3-3-70b-versatile/</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/anthropic-legacy-workbench/</loc>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-imagen-4-0-gemini-api/</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/cohere-command-r-command-r-on-amazon-bedrock/</loc>
-    <lastmod>2026-08-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://killedbyai.net/killed-by/aws/</loc>
+    <loc>https://killedbyai.net/dead/claude-3-haiku-on-google-cloud/</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/openai-assistants-api/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/dall-e-gpt-in-chatgpt/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/gemini-robotics-er-1-6-preview/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/mistral-medium-3-3-1/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/flowise/</loc>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/google/</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://killedbyai.net/killed-by/groq/</loc>
+    <loc>https://killedbyai.net/killed-by/mistral/</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/openai/</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/aws/</loc>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/anthropic/</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://killedbyai.net/killed-by/github/</loc>
+    <loc>https://killedbyai.net/killed-by/groq/</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/meta/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/market/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/google-gemini/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/fda/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/itself/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/reality/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/microsoft-copilot/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/amazon/</loc>
-    <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/microsoft/</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/github/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/meta/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/market/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/google-gemini/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/fda/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/itself/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/reality/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/microsoft-copilot/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/amazon/</loc>
+    <lastmod>2026-09-09</lastmod>
   </url>
 </urlset>

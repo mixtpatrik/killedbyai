@@ -20,13 +20,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏳</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
         :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#52525b;--yellow:#eab308;--yellow-dim:rgba(234,179,8,0.1)}
-        body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+        body{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
         .header{text-align:center;padding:2.5rem 1.5rem 1rem;max-width:700px;margin:0 auto}
         .header h1{font-size:clamp(1.75rem,5vw,2.5rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:0.5rem}
         .header h1 span{color:var(--yellow)}
@@ -67,6 +64,8 @@
         .layoff-meta, .fund-meta, .doom-meta { font-size: .8125rem; }
         .last-updated { font-size: .8125rem; color: var(--text-muted); }
         @media (max-width: 600px) { .site-nav { justify-content: flex-start; -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); mask-image: linear-gradient(90deg, #000 90%, transparent); } .site-nav-item { font-size: .8125rem; padding: 0 .75rem; } .layoff-desc, .fund-desc, .doom-desc { font-size: .875rem; } }
+        .doom-tomb{display:inline-flex;align-items:center;min-height:36px;padding:0 .625rem;border-radius:.25rem;background:rgba(239,68,68,.12);color:#f87171;text-decoration:none;font-size:.8125rem;font-weight:600}.doom-tomb:hover{background:rgba(239,68,68,.22)}
+        .last-updated{display:block;text-align:center;margin-top:.5rem}
     </style>
     <script type="application/ld+json">{{JSONLD}}</script>
     <script type="application/ld+json">{{BREADCRUMB}}</script>
@@ -81,14 +80,16 @@
     </nav>
 
     <header class="header">
-        <h1>⏳ Upcoming AI <span>Shutdowns</span></h1>
+        <h1>Upcoming AI <span>Shutdowns</span></h1>
         <p>Coming soon to the graveyard: the deprecation schedule for {{COUNT}} AI products with confirmed death dates. Already announced, just counting down.</p>
+        <span class="last-updated">Last updated: {{LAST_UPDATED}}</span>
     </header>
     <main class="list">
 {{ROWS}}
     </main>
     <footer class="site-footer">
         <p>Part of <a href="/">Killed by AI</a>. Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.</p>
+        <p class="footer-links" style="font-size:.8125rem;margin-top:.5rem;text-align:center">{{FOOTER_LINKS}}</p>
     </footer>
     <script>
     (function () {  // countdowns recompute on every visit, not just at build time

@@ -11,8 +11,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Killed by AI — The AI Graveyard | 111 Dead AI Products</title>
-    <meta name="description" content="111 AI products killed and counting. Every AI shutdown tracked — the Sora shutdown, GPT-4o, the Humane AI Pin, and the startups that died trying.">
+    <title>Killed by AI — The AI Graveyard | 119 Dead AI Tools &amp; Products</title>
+    <meta name="description" content="119 AI products killed and counting. Every AI shutdown tracked — the Sora shutdown, GPT-4o, the Humane AI Pin, and the startups that died trying.">
     <meta name="keywords" content="killed by AI, AI graveyard, sora ai shutdown, discontinued AI, dead AI products, AI shutdown, deprecated AI models, failed AI startups, openai sora shutdown, humane ai pin failure, AI tool tracker, openai ai text classifier discontinued">
     <meta name="author" content="Patrik Rojan">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://killedbyai.net/">
     <meta property="og:title" content="Killed by AI — The AI Graveyard">
-    <meta property="og:description" content="111 AI products killed and counting. The complete tracker of every AI shutdown — from Sora to GPT-4o to Humane AI Pin.">
+    <meta property="og:description" content="119 AI products killed and counting. The complete tracker of every AI shutdown — from Sora to GPT-4o to Humane AI Pin.">
     <meta property="og:image" content="https://killedbyai.net/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -32,13 +32,10 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Killed by AI — The AI Graveyard">
-    <meta name="twitter:description" content="111 AI products killed and counting. The complete tracker of every AI shutdown — from Sora to GPT-4o to Humane AI Pin.">
+    <meta name="twitter:description" content="119 AI products killed and counting. The complete tracker of every AI shutdown — from Sora to GPT-4o to Humane AI Pin.">
     <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪦</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <link rel="alternate" type="application/rss+xml" title="Killed by AI — RSS Feed" href="https://killedbyai.net/feed.xml">
 
@@ -62,7 +59,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -584,8 +581,6 @@
             transition: all 0.2s;
         }
 
-        .toggle-input { display: none; }
-
         .toggle-input:checked + .toggle-switch {
             background: var(--red);
         }
@@ -1004,6 +999,41 @@
             .insights-fold > summary::after { content: "▾"; color: var(--text-dim); }
             .insights-fold[open] > summary::after { content: "▴"; }
         }
+
+        /* ===== pass 2 (judge-verified residuals) ===== */
+        .insights-fold > summary { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; min-height: 44px; margin: .75rem auto 0; padding: 0 .875rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: .5rem; font-size: .875rem; font-weight: 600; color: var(--text-muted); cursor: pointer; list-style: none; }
+        .insights-fold > summary::-webkit-details-marker { display: none; }
+        .insights-fold > summary::after { content: "▾"; color: var(--text-dim); }
+        .insights-fold[open] > summary::after { content: "▴"; }
+        .insights-fold > summary:hover { border-color: var(--text-dim); }
+        .toggle-input { position: absolute; clip: rect(0 0 0 0); width: 1px; height: 1px; overflow: hidden; white-space: nowrap; }
+        .search-box input { min-height: 44px; }
+        .card-name a { display: inline-block; padding: .25rem 0; }
+        .stat-label, .pace-label, .pace-link-lbl, .bar-label, .bar-count, .card-lifespan, .card-age { font-size: .75rem; }
+        .lb-name, .toggle-label, .submit-cta { font-size: .8125rem; }
+        .lb-row { text-decoration: none; color: inherit; }
+        .bar { display: flex; flex-direction: column; height: 100%; }
+        .bar-count, .bar-label { flex: none; }
+        .bar-track { flex: 1; width: 100%; display: flex; align-items: flex-end; min-height: 0; }
+        .bar-fill { height: var(--bar-height, 0%); min-height: 2px; }
+        .card:target { border-color: var(--red); box-shadow: 0 0 0 3px var(--red-dim); }
+        .card-description { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }
+        .card.expanded .card-description { display: block; -webkit-line-clamp: unset; }
+        .card-link { align-self: flex-start; }
+        .card.beyond { display: none; }
+        .show-more-wrap { text-align: center; margin: 1rem 0 2rem; }
+        .show-more { min-height: 48px; padding: 0 1.5rem; border-radius: .5rem; border: 1px solid var(--border); background: var(--bg-card); color: var(--text); font: inherit; font-weight: 600; cursor: pointer; }
+        .show-more:hover { border-color: var(--red); color: var(--red); }
+        .faq-item summary h3 { display: inline; font-size: inherit; font-weight: inherit; margin: 0; }
+        .faq-answer a, .footer-links a { color: var(--text-muted); text-decoration: underline; text-underline-offset: 2px; }
+        .faq-answer a:hover, .footer-links a:hover { color: var(--red); }
+        .footer-links { margin-top: .5rem; font-size: .8125rem; }
+        @media (hover: none) { .card:hover { transform: none; } .search-hint { display: none; } }
+        @media (max-width: 600px) {
+            .search-box input, .sort-select { font-size: 16px; }
+            .filter-pills { flex-wrap: wrap; overflow: visible; -webkit-mask-image: none; mask-image: none; padding-right: 0; }
+            .insights-fold > summary { margin: .5rem .75rem 0; }
+        }
     </style>
 </head>
 <body>
@@ -1018,23 +1048,23 @@
 
     <header class="header">
         <h1>Killed by <span>AI</span></h1>
-        <p>The AI graveyard: a digital cemetery for the models, apps, and startups that didn't survive the artificial intelligence gold rush — every dead AI product, with a launch date, a death date, a killer and a source.</p>
+        <p>The AI graveyard: a digital cemetery for the models, apps, and startups that didn't survive the artificial intelligence gold rush — every dead AI tool and defunct AI product, sourced and dated, with a launch date, a death date, a killer and a link. Open data, CC BY 4.0.</p>
         <div class="counter">
             <span class="skull">💀</span>
-            <span id="total-count">111</span> products killed and counting
+            <span id="total-count">119</span> products killed and counting
         </div>
-        <span class="last-updated">Last updated: September 09, 2026</span>
+        <span class="last-updated">Last updated: September 9, 2026</span>
     </header>
 
-    <details class="insights-fold" id="insights" open>
+    <details class="insights-fold" id="insights">
         <summary>📊 Stats, deaths-per-year chart &amp; kill leaderboard</summary>
     <div class="stats-ribbon">
         <div class="stat-card">
-            <div class="stat-value">3y 2m</div>
+            <div class="stat-value">3y 1m</div>
             <div class="stat-label">Average lifespan</div>
         </div>
         <div class="stat-card">
-            <div class="stat-value">24</div>
+            <div class="stat-value">26</div>
             <div class="stat-label">Deadliest killer</div>
             <div class="stat-detail">OpenAI</div>
         </div>
@@ -1044,7 +1074,7 @@
             <div class="stat-detail">Microsoft Tay</div>
         </div>
         <div class="stat-card">
-            <div class="stat-value">111</div>
+            <div class="stat-value">119</div>
             <div class="stat-label">Total killed</div>
         </div>
     </div>
@@ -1057,11 +1087,11 @@
                 <span class="range">2022–2026</span>
             </div>
             <div class="timeline-chart" id="timeline">
-<button class="bar" data-year="2022" aria-label="2 killed in 2022" style="--bar-height: 4.3478260869565215%;"><span class="bar-count">2</span><span class="bar-fill"></span><span class="bar-label">22</span></button>
-<button class="bar" data-year="2023" aria-label="10 killed in 2023" style="--bar-height: 21.73913043478261%;"><span class="bar-count">10</span><span class="bar-fill"></span><span class="bar-label">23</span></button>
-<button class="bar" data-year="2024" aria-label="25 killed in 2024" style="--bar-height: 54.347826086956516%;"><span class="bar-count">25</span><span class="bar-fill"></span><span class="bar-label">24</span></button>
-<button class="bar" data-year="2025" aria-label="25 killed in 2025" style="--bar-height: 54.347826086956516%;"><span class="bar-count">25</span><span class="bar-fill"></span><span class="bar-label">25</span></button>
-<button class="bar" data-year="2026" aria-label="46 killed in 2026" style="--bar-height: 100.0%;"><span class="bar-count">46</span><span class="bar-fill"></span><span class="bar-label">26</span></button>
+<button class="bar" data-year="2022" aria-label="2 killed in 2022" style="--bar-height: 3.7037037037037033%;"><span class="bar-count">2</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">22</span></button>
+<button class="bar" data-year="2023" aria-label="10 killed in 2023" style="--bar-height: 18.51851851851852%;"><span class="bar-count">10</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">23</span></button>
+<button class="bar" data-year="2024" aria-label="25 killed in 2024" style="--bar-height: 46.2962962962963%;"><span class="bar-count">25</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">24</span></button>
+<button class="bar" data-year="2025" aria-label="25 killed in 2025" style="--bar-height: 46.2962962962963%;"><span class="bar-count">25</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">25</span></button>
+<button class="bar" data-year="2026" aria-label="54 killed in 2026" style="--bar-height: 100.0%;"><span class="bar-count">54</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">26</span></button>
             </div>
         </div>
     </section>
@@ -1069,41 +1099,41 @@
     <div class="insights-row">
         <div class="insight-card">
             <h2 class="insight-title">🏆 Kill Count Leaderboard</h2>
-<button class="lb-row" data-killer="openai"><span class="lb-name">OpenAI</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:100.0%"></span></span><span class="lb-count">24</span></button>
-<button class="lb-row" data-killer="google"><span class="lb-name">Google</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:79.16666666666666%"></span></span><span class="lb-count">19</span></button>
-<button class="lb-row" data-killer="anthropic"><span class="lb-name">Anthropic</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:37.5%"></span></span><span class="lb-count">9</span></button>
-<button class="lb-row" data-killer="meta"><span class="lb-name">Meta</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:20.833333333333336%"></span></span><span class="lb-count">5</span></button>
-<button class="lb-row" data-killer="microsoft"><span class="lb-name">Microsoft</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:20.833333333333336%"></span></span><span class="lb-count">5</span></button>
-<button class="lb-row" data-killer="market"><span class="lb-name">Market</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:12.5%"></span></span><span class="lb-count">3</span></button>
-<button class="lb-row" data-killer="google gemini"><span class="lb-name">Google Gemini</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:12.5%"></span></span><span class="lb-count">3</span></button>
-<button class="lb-row" data-killer="itself"><span class="lb-name">Itself</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:12.5%"></span></span><span class="lb-count">3</span></button>
-<button class="lb-row" data-killer="aws"><span class="lb-name">AWS</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:8.333333333333332%"></span></span><span class="lb-count">2</span></button>
-<button class="lb-row" data-killer="groq"><span class="lb-name">Groq</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:8.333333333333332%"></span></span><span class="lb-count">2</span></button>
+<a class="lb-row" href="/killed-by/openai/" data-killer="openai" title="Filter the graveyard to OpenAI; open the link for the full page"><span class="lb-name">OpenAI</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:100.0%"></span></span><span class="lb-count">26</span></a>
+<a class="lb-row" href="/killed-by/google/" data-killer="google" title="Filter the graveyard to Google; open the link for the full page"><span class="lb-name">Google</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:76.92307692307693%"></span></span><span class="lb-count">20</span></a>
+<a class="lb-row" href="/killed-by/anthropic/" data-killer="anthropic" title="Filter the graveyard to Anthropic; open the link for the full page"><span class="lb-name">Anthropic</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:38.46153846153847%"></span></span><span class="lb-count">10</span></a>
+<a class="lb-row" href="/killed-by/microsoft/" data-killer="microsoft" title="Filter the graveyard to Microsoft; open the link for the full page"><span class="lb-name">Microsoft</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:23.076923076923077%"></span></span><span class="lb-count">6</span></a>
+<a class="lb-row" href="/killed-by/meta/" data-killer="meta" title="Filter the graveyard to Meta; open the link for the full page"><span class="lb-name">Meta</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:19.230769230769234%"></span></span><span class="lb-count">5</span></a>
+<a class="lb-row" href="/killed-by/market/" data-killer="market" title="Filter the graveyard to Market; open the link for the full page"><span class="lb-name">Market</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:11.538461538461538%"></span></span><span class="lb-count">3</span></a>
+<a class="lb-row" href="/killed-by/google-gemini/" data-killer="google gemini" title="Filter the graveyard to Google Gemini; open the link for the full page"><span class="lb-name">Google Gemini</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:11.538461538461538%"></span></span><span class="lb-count">3</span></a>
+<a class="lb-row" href="/killed-by/itself/" data-killer="itself" title="Filter the graveyard to Itself; open the link for the full page"><span class="lb-name">Itself</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:11.538461538461538%"></span></span><span class="lb-count">3</span></a>
+<a class="lb-row" href="/killed-by/mistral/" data-killer="mistral" title="Filter the graveyard to Mistral; open the link for the full page"><span class="lb-name">Mistral</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:7.6923076923076925%"></span></span><span class="lb-count">2</span></a>
+<a class="lb-row" href="/killed-by/aws/" data-killer="aws" title="Filter the graveyard to AWS; open the link for the full page"><span class="lb-name">AWS</span><span class="lb-bar-wrap"><span class="lb-bar" style="width:7.6923076923076925%"></span></span><span class="lb-count">2</span></a>
         </div>
         <div class="insight-card">
             <h2 class="insight-title">📈 Pace of Death (2026)</h2>
             <div class="pace-stats">
                 <div class="pace-item">
-                    <div class="pace-value">46</div>
+                    <div class="pace-value">54</div>
                     <div class="pace-label">Killed so far in 2026</div>
                 </div>
                 <div class="pace-item">
-                    <div class="pace-value">5.1</div>
+                    <div class="pace-value">6.0</div>
                     <div class="pace-label">Deaths per month</div>
                 </div>
                 <div class="pace-projected">
-                    <div class="pace-value">~61</div>
+                    <div class="pace-value">~72</div>
                     <div class="pace-label">Projected by end of 2026</div>
                 </div>
             </div>
             <div class="pace-links">
                 <a href="/funding/" class="pace-link">
                     <span class="pace-link-val" style="color:#f59e0b">$4.4B</span>
-                    <span class="pace-link-lbl">🔥 VC funding burned</span>
+                    <span class="pace-link-lbl">🔥 Failed AI startups</span>
                 </a>
                 <a href="/layoffs/" class="pace-link">
-                    <span class="pace-link-val" style="color:#f97316">115,633</span>
-                    <span class="pace-link-lbl">💼 jobs killed by AI</span>
+                    <span class="pace-link-val" style="color:#f97316">116,947</span>
+                    <span class="pace-link-lbl">💼 AI layoffs tracker</span>
                 </a>
             </div>
         </div>
@@ -1120,11 +1150,11 @@
             <span class="search-hint">/</span>
         </div>
         <div class="filter-pills" id="filters" role="group" aria-label="Filter by type">
-            <button type="button" class="filter-pill active" data-filter="all" aria-pressed="true">All (111)</button>
-            <button type="button" class="filter-pill" data-filter="app" aria-pressed="false">Apps (18)</button>
-            <button type="button" class="filter-pill" data-filter="model" aria-pressed="false">Models (42)</button>
-            <button type="button" class="filter-pill" data-filter="service" aria-pressed="false">Services (27)</button>
-            <button type="button" class="filter-pill" data-filter="startup" aria-pressed="false">Startups (19)</button>
+            <button type="button" class="filter-pill active" data-filter="all" aria-pressed="true">All (119)</button>
+            <button type="button" class="filter-pill" data-filter="app" aria-pressed="false">Apps (19)</button>
+            <button type="button" class="filter-pill" data-filter="model" aria-pressed="false">Models (46)</button>
+            <button type="button" class="filter-pill" data-filter="service" aria-pressed="false">Services (29)</button>
+            <button type="button" class="filter-pill" data-filter="startup" aria-pressed="false">Startups (20)</button>
             <button type="button" class="filter-pill" data-filter="hardware" aria-pressed="false">Hardware (5)</button>
         </div>
         <select class="sort-select" id="sort" aria-label="Sort by">
@@ -1143,9 +1173,111 @@
         <a class="submit-cta" href="https://github.com/mixtpatrik/killedbyai/issues/new?title=New+entry:+[Product+Name]&body=Name:%0ADate+launched:%0ADate+killed:%0ADescription:%0AKilled+by:%0ASource+link:" target="_blank" rel="noopener">+ Submit a death</a>
     </div>
     <div class="active-filters" id="active-filters" aria-live="polite"></div>
-    <h2 class="grid-title" id="graveyard">The AI graveyard: <span>111</span> tombstones</h2>
+    <h2 class="grid-title" id="graveyard">The AI graveyard: <span>119</span> dead AI tools that shut down</h2>
 
     <main class="grid" id="grid">
+<article class="card is-new" id="gemini-robotics-er-1-6-preview" data-type="model" data-death-type="model-upgrade" data-name="gemini robotics-er 1.6 preview" data-desc="released april 14, 2026, deleted august 31: a 139-day lifespan for an embodied-reasoning model that never left preview. it had killed its own predecessor, er 1.5, on april 30, and was in turn replaced by gemini-robotics-er-2-preview, which shipped july 30 — 32 days before 1.6 was gone. three robotics previews retired inside five months, none of which ever reached ga." data-killer="google" data-cause="model upgrade" data-date-close="2026-08-31" data-date-open="2026-04-14" data-added="2026-09-09" data-days="139">
+  <header class="card-header">
+    <h3 class="card-name"><a href="/dead/gemini-robotics-er-1-6-preview/">Gemini Robotics-ER 1.6 Preview</a><span class="badge-new" title="Added in the last two weeks">NEW</span></h3>
+    <span class="card-lifespan">2026 — 2026</span>
+  </header>
+  <p class="card-description">Released April 14, 2026, deleted August 31: a 139-day lifespan for an embodied-reasoning model that never left preview. It had killed its own predecessor, ER 1.5, on April 30, and was in turn replaced by gemini-robotics-er-2-preview, which shipped July 30 — 32 days before 1.6 was gone. Three robotics previews retired inside five months, none of which ever reached GA.</p>
+  <footer class="card-footer">
+    <div class="card-tags">
+      <span class="tag">model</span>
+      <span class="tag">Model Upgrade</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
+    </div>
+    <div class="card-age">4m 19d</div>
+  </footer>
+  
+  <a class="card-link" href="https://ai.google.dev/gemini-api/docs/deprecations" target="_blank" rel="noopener">Source<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></a>
+</article>
+<article class="card is-new" id="mistral-medium-3-3-1" data-type="model" data-death-type="model-upgrade" data-name="mistral medium 3 &amp; 3.1" data-desc="both retired the same day, august 31, 2026, in favour of mistral medium 3.5. medium 3 shipped may 7, 2025 and lasted 481 days; medium 3.1 shipped august 12, 2025 and managed 384. both were marked deprecated on may 22, so developers got 101 days&#x27; notice — generous by 2026 standards, where some previews don&#x27;t live that long." data-killer="mistral" data-cause="model upgrade" data-date-close="2026-08-31" data-date-open="2025-05-07" data-added="2026-09-09" data-days="481">
+  <header class="card-header">
+    <h3 class="card-name"><a href="/dead/mistral-medium-3-3-1/">Mistral Medium 3 &amp; 3.1</a><span class="badge-new" title="Added in the last two weeks">NEW</span></h3>
+    <span class="card-lifespan">2025 — 2026</span>
+  </header>
+  <p class="card-description">Both retired the same day, August 31, 2026, in favour of Mistral Medium 3.5. Medium 3 shipped May 7, 2025 and lasted 481 days; Medium 3.1 shipped August 12, 2025 and managed 384. Both were marked deprecated on May 22, so developers got 101 days&#x27; notice — generous by 2026 standards, where some previews don&#x27;t live that long.</p>
+  <footer class="card-footer">
+    <div class="card-tags">
+      <span class="tag">model</span>
+      <span class="tag">Model Upgrade</span>
+      <a class="tag tag-killer" href="/killed-by/mistral/">Killed by: Mistral</a>
+    </div>
+    <div class="card-age">1y 3m</div>
+  </footer>
+  
+  <a class="card-link" href="https://docs.mistral.ai/models/mistral-medium-3-25-05" target="_blank" rel="noopener">Source<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></a>
+</article>
+<article class="card is-new" id="flowise" data-type="startup" data-death-type="startup-failed" data-name="flowise" data-desc="the open-source drag-and-drop llm builder with 55,000 github stars froze feature development on july 29, 2026, archived the repository on august 13 and declared end of life on august 31. maintainer henryhengzj was candid about the cause: &quot;the typical rigid workflow low-code approach quickly hits the limit when it comes to complexity&quot; as developers hand complex work to coding agents instead. a tool for building ai without code, killed by ai that writes code. the apache-2.0 source stays up for forks." data-killer="ai coding agents" data-cause="coding agents" data-date-close="2026-08-31" data-date-open="2023-03-01" data-added="2026-09-09" data-days="1279">
+  <header class="card-header">
+    <h3 class="card-name"><a href="/dead/flowise/">Flowise</a><span class="badge-new" title="Added in the last two weeks">NEW</span></h3>
+    <span class="card-lifespan">2023 — 2026</span>
+  </header>
+  <p class="card-description">The open-source drag-and-drop LLM builder with 55,000 GitHub stars froze feature development on July 29, 2026, archived the repository on August 13 and declared end of life on August 31. Maintainer HenryHengZJ was candid about the cause: &quot;the typical rigid workflow low-code approach quickly hits the limit when it comes to complexity&quot; as developers hand complex work to coding agents instead. A tool for building AI without code, killed by AI that writes code. The Apache-2.0 source stays up for forks.</p>
+  <footer class="card-footer">
+    <div class="card-tags">
+      <span class="tag">startup</span>
+      <span class="tag">Coding Agents</span>
+      <span class="tag tag-killer">Killed by: AI Coding Agents</span>
+    </div>
+    <div class="card-age">3y 6m</div>
+  </footer>
+  
+  <a class="card-link" href="https://github.com/FlowiseAI/Flowise/discussions/6727" target="_blank" rel="noopener">Source<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></a>
+</article>
+<article class="card is-new" id="dall-e-gpt-in-chatgpt" data-type="app" data-death-type="feature-removed" data-name="dall·e gpt (in chatgpt)" data-desc="the official dall·e gpt — the last place the dall·e name still lived inside chatgpt — retired on august 30, 2026, 1,028 days after it launched alongside custom gpts at devday 2023. openai would not say what happens to images stored inside it and simply advised users to download anything they wanted to keep. image generation itself survives under the chatgpt images banner. three dall·e entries now share this graveyard." data-killer="openai" data-cause="brand retired" data-date-close="2026-08-30" data-date-open="2023-11-06" data-added="2026-09-09" data-days="1028">
+  <header class="card-header">
+    <h3 class="card-name"><a href="/dead/dall-e-gpt-in-chatgpt/">DALL·E GPT (in ChatGPT)</a><span class="badge-new" title="Added in the last two weeks">NEW</span></h3>
+    <span class="card-lifespan">2023 — 2026</span>
+  </header>
+  <p class="card-description">The official DALL·E GPT — the last place the DALL·E name still lived inside ChatGPT — retired on August 30, 2026, 1,028 days after it launched alongside custom GPTs at DevDay 2023. OpenAI would not say what happens to images stored inside it and simply advised users to download anything they wanted to keep. Image generation itself survives under the ChatGPT Images banner. Three DALL·E entries now share this graveyard.</p>
+  <footer class="card-footer">
+    <div class="card-tags">
+      <span class="tag">app</span>
+      <span class="tag">Brand Retired</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
+    </div>
+    <div class="card-age">2y 9m</div>
+  </footer>
+  <div class="card-collateral"><span class="collateral-icon">⚠️</span> Images stored inside the DALL·E GPT were not migrated; anything not downloaded before August 30 is gone.</div>
+  <a class="card-link" href="https://www.tomsguide.com/ai/chatgpt/you-have-until-august-30-to-save-your-chatgpt-dall-e-images-heres-how-to-avoid-losing-them-forever" target="_blank" rel="noopener">Source<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></a>
+</article>
+<article class="card is-new" id="openai-assistants-api" data-type="service" data-death-type="product-killed" data-name="openai assistants api" data-desc="openai&#x27;s first stab at agents-as-a-service: threads, runs, file search and code interpreter bundled behind one beta endpoint. announced at devday on november 6, 2023, it never left beta, and on august 26, 2025 openai gave it exactly one year to live. it died on the day — a hard cut, no read-only mode, no grace period — with the responses api inheriting its best parts and developers inheriting a full rewrite. 1,024 days, every one of them labelled &quot;beta&quot;." data-killer="openai" data-cause="replaced by responses api" data-date-close="2026-08-26" data-date-open="2023-11-06" data-added="2026-09-09" data-days="1024">
+  <header class="card-header">
+    <h3 class="card-name"><a href="/dead/openai-assistants-api/">OpenAI Assistants API</a><span class="badge-new" title="Added in the last two weeks">NEW</span></h3>
+    <span class="card-lifespan">2023 — 2026</span>
+  </header>
+  <p class="card-description">OpenAI&#x27;s first stab at agents-as-a-service: threads, runs, file search and code interpreter bundled behind one beta endpoint. Announced at DevDay on November 6, 2023, it never left beta, and on August 26, 2025 OpenAI gave it exactly one year to live. It died on the day — a hard cut, no read-only mode, no grace period — with the Responses API inheriting its best parts and developers inheriting a full rewrite. 1,024 days, every one of them labelled &quot;beta&quot;.</p>
+  <footer class="card-footer">
+    <div class="card-tags">
+      <span class="tag">service</span>
+      <span class="tag">Replaced by Responses API</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
+    </div>
+    <div class="card-age">2y 9m</div>
+  </footer>
+  <div class="card-collateral"><span class="collateral-icon">⚠️</span> Every agent built on threads and runs had to be rewritten against the Responses API before the deadline; requests to the old endpoints now return errors.</div>
+  <a class="card-link" href="https://community.openai.com/t/assistants-api-beta-deprecation-august-26-2026-sunset/1354666" target="_blank" rel="noopener">Source<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></a>
+</article>
+<article class="card is-new" id="claude-3-haiku-on-google-cloud" data-type="model" data-death-type="model-upgrade" data-name="claude 3 haiku on google cloud" data-desc="deprecated on google cloud on february 23, 2026 and switched off on august 23 — the last claude 3-generation model on the platform. anthropic itself had retired claude-3-haiku on april 20, so google kept serving a model its maker had already buried for 125 extra days. amazon bedrock, not to be outdone, keeps it on life support until september 10: one model, three funerals." data-killer="google cloud" data-cause="partner retirement" data-date-close="2026-08-23" data-date-open="2024-04-09" data-added="2026-09-09" data-days="866">
+  <header class="card-header">
+    <h3 class="card-name"><a href="/dead/claude-3-haiku-on-google-cloud/">Claude 3 Haiku on Google Cloud</a><span class="badge-new" title="Added in the last two weeks">NEW</span></h3>
+    <span class="card-lifespan">2024 — 2026</span>
+  </header>
+  <p class="card-description">Deprecated on Google Cloud on February 23, 2026 and switched off on August 23 — the last Claude 3-generation model on the platform. Anthropic itself had retired claude-3-haiku on April 20, so Google kept serving a model its maker had already buried for 125 extra days. Amazon Bedrock, not to be outdone, keeps it on life support until September 10: one model, three funerals.</p>
+  <footer class="card-footer">
+    <div class="card-tags">
+      <span class="tag">model</span>
+      <span class="tag">Partner Retirement</span>
+      <span class="tag tag-killer">Killed by: Google Cloud</span>
+    </div>
+    <div class="card-age">2y 4m</div>
+  </footer>
+  
+  <a class="card-link" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/partner-models" target="_blank" rel="noopener">Source<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></a>
+</article>
 <article class="card" id="cohere-command-r-command-r-on-amazon-bedrock" data-type="model" data-death-type="model-upgrade" data-name="cohere command r &amp; command r+ on amazon bedrock" data-desc="the rag-and-tool-use pair aws launched on bedrock in april 2024 both hit end-of-life at 08:00 utc, after a staged wind-down: legacy in february, new customers cut off in may, hard kill in august. aws named no replacement for either. cohere had already pulled the originals from its own api back in september 2025 — along with command-light, base command, summarize, and its entire fine-tuning product." data-killer="aws" data-cause="model deprecation" data-date-close="2026-08-19" data-date-open="2024-04-30" data-added="2026-08-22" data-days="841">
   <header class="card-header">
     <h3 class="card-name"><a href="/dead/cohere-command-r-command-r-on-amazon-bedrock/">Cohere Command R &amp; Command R+ on Amazon Bedrock</a></h3>
@@ -1156,12 +1288,29 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: AWS</span>
+      <a class="tag tag-killer" href="/killed-by/aws/">Killed by: AWS</a>
     </div>
     <div class="card-age">2y 3m</div>
   </footer>
   
   <a class="card-link" href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html" target="_blank" rel="noopener">Source<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></a>
+</article>
+<article class="card is-new" id="anthropic-legacy-workbench" data-type="service" data-death-type="feature-removed" data-name="anthropic legacy workbench" data-desc="announced july 17, 2026 and gone august 17, the legacy console workbench took its saved prompts, variables and evals with it — none migrated to the replacement &quot;playground&quot; that opened a day later. the three experimental prompt-tool endpoints (generate_prompt, improve_prompt, templatize_prompt) were retired the same day and now return errors. thirty-one days&#x27; notice for an api that was, to be fair, always labelled experimental." data-killer="anthropic" data-cause="replaced by playground" data-date-close="2026-08-17" data-date-open="2023-07-11" data-added="2026-09-09" data-days="1133">
+  <header class="card-header">
+    <h3 class="card-name"><a href="/dead/anthropic-legacy-workbench/">Anthropic Legacy Workbench</a><span class="badge-new" title="Added in the last two weeks">NEW</span></h3>
+    <span class="card-lifespan">2023 — 2026</span>
+  </header>
+  <p class="card-description">Announced July 17, 2026 and gone August 17, the legacy Console Workbench took its saved prompts, variables and evals with it — none migrated to the replacement &quot;playground&quot; that opened a day later. The three experimental prompt-tool endpoints (generate_prompt, improve_prompt, templatize_prompt) were retired the same day and now return errors. Thirty-one days&#x27; notice for an API that was, to be fair, always labelled experimental.</p>
+  <footer class="card-footer">
+    <div class="card-tags">
+      <span class="tag">service</span>
+      <span class="tag">Replaced by Playground</span>
+      <a class="tag tag-killer" href="/killed-by/anthropic/">Killed by: Anthropic</a>
+    </div>
+    <div class="card-age">3y 1m</div>
+  </footer>
+  <div class="card-collateral"><span class="collateral-icon">⚠️</span> Saved prompts, variables and evals in the old Workbench were not carried over; anything not exported by August 17 was lost.</div>
+  <a class="card-link" href="https://platform.claude.com/docs/en/release-notes/overview" target="_blank" rel="noopener">Source<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></a>
 </article>
 <article class="card" id="google-imagen-4-0-gemini-api" data-type="model" data-death-type="model-upgrade" data-name="google imagen 4.0 (gemini api)" data-desc="all three imagen 4.0 variants on the gemini api — generate, ultra and fast — dead in under 14 months, after google already slipped the date once. the best part was the exit signage: the pricing-page banner told users to migrate to gemini 2.5 flash image, which is itself deprecated with an october shutdown. an evacuation route into a building that&#x27;s also on fire." data-killer="google" data-cause="model consolidation" data-date-close="2026-08-17" data-date-open="2025-06-24" data-added="2026-08-22" data-days="419">
   <header class="card-header">
@@ -1173,7 +1322,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Consolidation</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">1y 1m</div>
   </footer>
@@ -1190,12 +1339,29 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Catalog Pruning</span>
-      <span class="tag tag-killer">Killed by: Groq</span>
+      <a class="tag tag-killer" href="/killed-by/groq/">Killed by: Groq</a>
     </div>
     <div class="card-age">2y</div>
   </footer>
   
   <a class="card-link" href="https://console.groq.com/docs/deprecations" target="_blank" rel="noopener">Source<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></a>
+</article>
+<article class="card is-new" id="microsoft-mai-image-2-mai-image-2e" data-type="model" data-death-type="model-upgrade" data-name="microsoft mai-image-2 &amp; mai-image-2e" data-desc="microsoft&#x27;s first in-house image models did not get long. mai-image-2 (february 20) and mai-image-2e (april 9) were retired from azure foundry on august 15, 2026 — 176 and 128 days after release — in favour of mai-image-2.5 and 2.5-flash. the successors are still in preview and already carry their own retirement date of october 1. microsoft is now deprecating image models faster than most companies ship them." data-killer="microsoft" data-cause="model upgrade" data-date-close="2026-08-15" data-date-open="2026-02-20" data-added="2026-09-09" data-days="176">
+  <header class="card-header">
+    <h3 class="card-name"><a href="/dead/microsoft-mai-image-2-mai-image-2e/">Microsoft MAI-Image-2 &amp; MAI-Image-2e</a><span class="badge-new" title="Added in the last two weeks">NEW</span></h3>
+    <span class="card-lifespan">2026 — 2026</span>
+  </header>
+  <p class="card-description">Microsoft&#x27;s first in-house image models did not get long. MAI-Image-2 (February 20) and MAI-Image-2e (April 9) were retired from Azure Foundry on August 15, 2026 — 176 and 128 days after release — in favour of MAI-Image-2.5 and 2.5-Flash. The successors are still in preview and already carry their own retirement date of October 1. Microsoft is now deprecating image models faster than most companies ship them.</p>
+  <footer class="card-footer">
+    <div class="card-tags">
+      <span class="tag">model</span>
+      <span class="tag">Model Upgrade</span>
+      <a class="tag tag-killer" href="/killed-by/microsoft/">Killed by: Microsoft</a>
+    </div>
+    <div class="card-age">5m 26d</div>
+  </footer>
+  
+  <a class="card-link" href="https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule" target="_blank" rel="noopener">Source<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></a>
 </article>
 <article class="card" id="openai-atlas" data-type="app" data-death-type="product-killed" data-name="openai atlas" data-desc="openai&#x27;s chatgpt-powered web browser, launched october 2025 as its bid to own the browsing layer. dead in under ten months. openai absorbed the agentic browsing into chatgpt and a chrome extension instead. bookmarks did not transfer automatically — users had to manually export them as html before the deadline or lose them, and open tabs and history simply didn&#x27;t carry over." data-killer="openai" data-cause="strategic retreat" data-date-close="2026-08-09" data-date-open="2025-10-21" data-added="2026-08-10" data-days="292">
   <header class="card-header">
@@ -1207,7 +1373,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">Strategic Retreat</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">9m 22d</div>
   </footer>
@@ -1224,7 +1390,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Scheduled Retirement</span>
-      <span class="tag tag-killer">Killed by: Anthropic</span>
+      <a class="tag tag-killer" href="/killed-by/anthropic/">Killed by: Anthropic</a>
     </div>
     <div class="card-age">1y</div>
   </footer>
@@ -1258,7 +1424,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Category Collapse</span>
-      <span class="tag tag-killer">Killed by: Mistral</span>
+      <a class="tag tag-killer" href="/killed-by/mistral/">Killed by: Mistral</a>
     </div>
     <div class="card-age">1y 1m</div>
   </footer>
@@ -1275,7 +1441,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Strategic Consolidation</span>
-      <span class="tag tag-killer">Killed by: GitHub</span>
+      <a class="tag tag-killer" href="/killed-by/github/">Killed by: GitHub</a>
     </div>
     <div class="card-age">1y 12m</div>
   </footer>
@@ -1292,7 +1458,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Maintenance Mode</span>
-      <span class="tag tag-killer">Killed by: AWS</span>
+      <a class="tag tag-killer" href="/killed-by/aws/">Killed by: AWS</a>
     </div>
     <div class="card-age">2y 8m</div>
   </footer>
@@ -1326,7 +1492,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">1y 6m</div>
   </footer>
@@ -1343,7 +1509,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Catalog Pruning</span>
-      <span class="tag tag-killer">Killed by: Groq</span>
+      <a class="tag tag-killer" href="/killed-by/groq/">Killed by: Groq</a>
     </div>
     <div class="card-age">1y 3m</div>
   </footer>
@@ -1360,7 +1526,7 @@
     <div class="card-tags">
       <span class="tag">startup</span>
       <span class="tag">Acqui-hire</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">5y 6m</div>
   </footer>
@@ -1411,7 +1577,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Strategy Pivot</span>
-      <span class="tag tag-killer">Killed by: Meta</span>
+      <a class="tag tag-killer" href="/killed-by/meta/">Killed by: Meta</a>
     </div>
     <div class="card-age">1y 2m</div>
   </footer>
@@ -1428,7 +1594,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Consolidation</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">3y</div>
   </footer>
@@ -1445,7 +1611,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: Anthropic</span>
+      <a class="tag tag-killer" href="/killed-by/anthropic/">Killed by: Anthropic</a>
     </div>
     <div class="card-age">11m 25d</div>
   </footer>
@@ -1479,7 +1645,7 @@
     <div class="card-tags">
       <span class="tag">startup</span>
       <span class="tag">Strategic Acquisition</span>
-      <span class="tag tag-killer">Killed by: Anthropic</span>
+      <a class="tag tag-killer" href="/killed-by/anthropic/">Killed by: Anthropic</a>
     </div>
     <div class="card-age">4y 4m</div>
   </footer>
@@ -1513,7 +1679,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">API Consolidation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">1y 7m</div>
   </footer>
@@ -1530,7 +1696,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Consolidation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">2y 6m</div>
   </footer>
@@ -1547,7 +1713,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: Anthropic</span>
+      <a class="tag tag-killer" href="/killed-by/anthropic/">Killed by: Anthropic</a>
     </div>
     <div class="card-age">1y 2m</div>
   </footer>
@@ -1564,7 +1730,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">3m 23d</div>
   </footer>
@@ -1581,7 +1747,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Feature Absorption</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">1y 4m</div>
   </footer>
@@ -1598,7 +1764,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">Feature Absorption</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">1y 4m</div>
   </footer>
@@ -1615,7 +1781,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">Feature Absorption</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">10m 8d</div>
   </footer>
@@ -1632,7 +1798,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">Unsustainable Costs</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">1y 4m</div>
   </footer>
@@ -1649,7 +1815,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Strategic Pivot</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">11m 21d</div>
   </footer>
@@ -1700,7 +1866,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Silent Shutdown</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">3y 9m</div>
   </footer>
@@ -1717,7 +1883,7 @@
     <div class="card-tags">
       <span class="tag">startup</span>
       <span class="tag">No Product-Market Fit</span>
-      <span class="tag tag-killer">Killed by: Market</span>
+      <a class="tag tag-killer" href="/killed-by/market/">Killed by: Market</a>
     </div>
     <div class="card-age">10m 3d</div>
   </footer>
@@ -1734,7 +1900,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Forced Auto-upgrade</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">1y 10m</div>
   </footer>
@@ -1751,7 +1917,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">1y 5m</div>
   </footer>
@@ -1768,7 +1934,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">3m 21d</div>
   </footer>
@@ -1785,7 +1951,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">Replaced by AI</span>
-      <span class="tag tag-killer">Killed by: Google Gemini</span>
+      <a class="tag tag-killer" href="/killed-by/google-gemini/">Killed by: Google Gemini</a>
     </div>
     <div class="card-age">9y 9m</div>
   </footer>
@@ -1836,7 +2002,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Low Utility</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">2y 7m</div>
   </footer>
@@ -1853,7 +2019,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">1y 9m</div>
   </footer>
@@ -1870,7 +2036,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">1y 9m</div>
   </footer>
@@ -1887,7 +2053,7 @@
     <div class="card-tags">
       <span class="tag">startup</span>
       <span class="tag">Regulatory Barriers</span>
-      <span class="tag tag-killer">Killed by: FDA</span>
+      <a class="tag tag-killer" href="/killed-by/fda/">Killed by: FDA</a>
     </div>
     <div class="card-age">7y 1m</div>
   </footer>
@@ -1904,7 +2070,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">1y 1m</div>
   </footer>
@@ -1921,7 +2087,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Product Cleanup</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">9y 11m</div>
   </footer>
@@ -1938,7 +2104,7 @@
     <div class="card-tags">
       <span class="tag">hardware</span>
       <span class="tag">Acquisition</span>
-      <span class="tag tag-killer">Killed by: Meta</span>
+      <a class="tag tag-killer" href="/killed-by/meta/">Killed by: Meta</a>
     </div>
     <div class="card-age">1y 7m</div>
   </footer>
@@ -1972,7 +2138,7 @@
     <div class="card-tags">
       <span class="tag">startup</span>
       <span class="tag">Funding Collapse</span>
-      <span class="tag tag-killer">Killed by: Market</span>
+      <a class="tag tag-killer" href="/killed-by/market/">Killed by: Market</a>
     </div>
     <div class="card-age">6y 10m</div>
   </footer>
@@ -1989,7 +2155,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: Anthropic</span>
+      <a class="tag tag-killer" href="/killed-by/anthropic/">Killed by: Anthropic</a>
     </div>
     <div class="card-age">1y 4m</div>
   </footer>
@@ -2006,7 +2172,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">1y 1m</div>
   </footer>
@@ -2023,7 +2189,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">2y 9m</div>
   </footer>
@@ -2040,7 +2206,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">10m 19d</div>
   </footer>
@@ -2057,7 +2223,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: Anthropic</span>
+      <a class="tag tag-killer" href="/killed-by/anthropic/">Killed by: Anthropic</a>
     </div>
     <div class="card-age">2y</div>
   </footer>
@@ -2074,7 +2240,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: Anthropic</span>
+      <a class="tag tag-killer" href="/killed-by/anthropic/">Killed by: Anthropic</a>
     </div>
     <div class="card-age">1y 4m</div>
   </footer>
@@ -2091,7 +2257,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">4m 17d</div>
   </footer>
@@ -2125,7 +2291,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: Anthropic</span>
+      <a class="tag tag-killer" href="/killed-by/anthropic/">Killed by: Anthropic</a>
     </div>
     <div class="card-age">1y 3m</div>
   </footer>
@@ -2142,7 +2308,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">Regulatory Barriers</span>
-      <span class="tag tag-killer">Killed by: FDA</span>
+      <a class="tag tag-killer" href="/killed-by/fda/">Killed by: FDA</a>
     </div>
     <div class="card-age">8y 1m</div>
   </footer>
@@ -2210,7 +2376,7 @@
     <div class="card-tags">
       <span class="tag">startup</span>
       <span class="tag">Fraud &amp; Bankruptcy</span>
-      <span class="tag tag-killer">Killed by: Itself</span>
+      <a class="tag tag-killer" href="/killed-by/itself/">Killed by: Itself</a>
     </div>
     <div class="card-age">9y 4m</div>
   </footer>
@@ -2227,7 +2393,7 @@
     <div class="card-tags">
       <span class="tag">hardware</span>
       <span class="tag">Market Rejection</span>
-      <span class="tag tag-killer">Killed by: Reality</span>
+      <a class="tag tag-killer" href="/killed-by/reality/">Killed by: Reality</a>
     </div>
     <div class="card-age">1y</div>
   </footer>
@@ -2244,7 +2410,7 @@
     <div class="card-tags">
       <span class="tag">hardware</span>
       <span class="tag">Market Rejection</span>
-      <span class="tag tag-killer">Killed by: Reality</span>
+      <a class="tag tag-killer" href="/killed-by/reality/">Killed by: Reality</a>
     </div>
     <div class="card-age">10m 11d</div>
   </footer>
@@ -2261,7 +2427,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Low Adoption</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">1y 1m</div>
   </footer>
@@ -2278,7 +2444,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">1y 2m</div>
   </footer>
@@ -2295,7 +2461,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">1y</div>
   </footer>
@@ -2312,7 +2478,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">2y 10m</div>
   </footer>
@@ -2329,7 +2495,7 @@
     <div class="card-tags">
       <span class="tag">startup</span>
       <span class="tag">Feature Absorption</span>
-      <span class="tag tag-killer">Killed by: Microsoft Copilot</span>
+      <a class="tag tag-killer" href="/killed-by/microsoft-copilot/">Killed by: Microsoft Copilot</a>
     </div>
     <div class="card-age">5y</div>
   </footer>
@@ -2346,7 +2512,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">Replaced by AI</span>
-      <span class="tag tag-killer">Killed by: Google Gemini</span>
+      <a class="tag tag-killer" href="/killed-by/google-gemini/">Killed by: Google Gemini</a>
     </div>
     <div class="card-age">8y 7m</div>
   </footer>
@@ -2363,7 +2529,7 @@
     <div class="card-tags">
       <span class="tag">hardware</span>
       <span class="tag">Market Irrelevance</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">8y 2m</div>
   </footer>
@@ -2380,7 +2546,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Consolidation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">1y 1m</div>
   </footer>
@@ -2431,7 +2597,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: Anthropic</span>
+      <a class="tag tag-killer" href="/killed-by/anthropic/">Killed by: Anthropic</a>
     </div>
     <div class="card-age">1y 7m</div>
   </footer>
@@ -2448,7 +2614,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">Financial Losses</span>
-      <span class="tag tag-killer">Killed by: Amazon</span>
+      <a class="tag tag-killer" href="/killed-by/amazon/">Killed by: Amazon</a>
     </div>
     <div class="card-age">9y 10m</div>
   </footer>
@@ -2465,7 +2631,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: Google Gemini</span>
+      <a class="tag tag-killer" href="/killed-by/google-gemini/">Killed by: Google Gemini</a>
     </div>
     <div class="card-age">1y 5m</div>
   </footer>
@@ -2482,7 +2648,7 @@
     <div class="card-tags">
       <span class="tag">startup</span>
       <span class="tag">Acqui-hire</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">1y 10m</div>
   </footer>
@@ -2516,7 +2682,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Product Pivot</span>
-      <span class="tag tag-killer">Killed by: Microsoft</span>
+      <a class="tag tag-killer" href="/killed-by/microsoft/">Killed by: Microsoft</a>
     </div>
     <div class="card-age">7m 12d</div>
   </footer>
@@ -2533,7 +2699,7 @@
     <div class="card-tags">
       <span class="tag">startup</span>
       <span class="tag">Acqui-hire</span>
-      <span class="tag tag-killer">Killed by: Amazon</span>
+      <a class="tag tag-killer" href="/killed-by/amazon/">Killed by: Amazon</a>
     </div>
     <div class="card-age">2y 5m</div>
   </footer>
@@ -2550,7 +2716,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">1y 3m</div>
   </footer>
@@ -2567,7 +2733,7 @@
     <div class="card-tags">
       <span class="tag">startup</span>
       <span class="tag">Financial Collapse</span>
-      <span class="tag tag-killer">Killed by: Itself</span>
+      <a class="tag tag-killer" href="/killed-by/itself/">Killed by: Itself</a>
     </div>
     <div class="card-age">4y 5m</div>
   </footer>
@@ -2635,7 +2801,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Product Evolution</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">1y</div>
   </footer>
@@ -2652,7 +2818,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">Acqui-hire</span>
-      <span class="tag tag-killer">Killed by: Microsoft</span>
+      <a class="tag tag-killer" href="/killed-by/microsoft/">Killed by: Microsoft</a>
     </div>
     <div class="card-age">10m 22d</div>
   </footer>
@@ -2669,7 +2835,7 @@
     <div class="card-tags">
       <span class="tag">startup</span>
       <span class="tag">Funding Collapse</span>
-      <span class="tag tag-killer">Killed by: Market</span>
+      <a class="tag tag-killer" href="/killed-by/market/">Killed by: Market</a>
     </div>
     <div class="card-age">3y 2m</div>
   </footer>
@@ -2686,7 +2852,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Strategic Pivot</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">4y 4m</div>
   </footer>
@@ -2703,7 +2869,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Public Backlash</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">21d</div>
   </footer>
@@ -2720,7 +2886,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">Rebranding</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">10m 24d</div>
   </footer>
@@ -2737,7 +2903,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Deprecation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">3y 6m</div>
   </footer>
@@ -2754,7 +2920,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">API Consolidation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">2y</div>
   </footer>
@@ -2771,7 +2937,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Overpromised</span>
-      <span class="tag tag-killer">Killed by: GitHub</span>
+      <a class="tag tag-killer" href="/killed-by/github/">Killed by: GitHub</a>
     </div>
     <div class="card-age">9m 15d</div>
   </footer>
@@ -2788,7 +2954,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">Replaced by AI</span>
-      <span class="tag tag-killer">Killed by: Microsoft Copilot</span>
+      <a class="tag tag-killer" href="/killed-by/microsoft-copilot/">Killed by: Microsoft Copilot</a>
     </div>
     <div class="card-age">9y 9m</div>
   </footer>
@@ -2805,7 +2971,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">Product Evolution</span>
-      <span class="tag tag-killer">Killed by: Google</span>
+      <a class="tag tag-killer" href="/killed-by/google/">Killed by: Google</a>
     </div>
     <div class="card-age">1y 6m</div>
   </footer>
@@ -2822,7 +2988,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">Rebranding</span>
-      <span class="tag tag-killer">Killed by: Microsoft</span>
+      <a class="tag tag-killer" href="/killed-by/microsoft/">Killed by: Microsoft</a>
     </div>
     <div class="card-age">9m 11d</div>
   </footer>
@@ -2839,7 +3005,7 @@
     <div class="card-tags">
       <span class="tag">startup</span>
       <span class="tag">Financial Collapse</span>
-      <span class="tag tag-killer">Killed by: Itself</span>
+      <a class="tag tag-killer" href="/killed-by/itself/">Killed by: Itself</a>
     </div>
     <div class="card-age">6y 10m</div>
   </footer>
@@ -2856,7 +3022,7 @@
     <div class="card-tags">
       <span class="tag">service</span>
       <span class="tag">Technical Failure</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">5m 20d</div>
   </footer>
@@ -2873,7 +3039,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Public Embarrassment</span>
-      <span class="tag tag-killer">Killed by: Meta</span>
+      <a class="tag tag-killer" href="/killed-by/meta/">Killed by: Meta</a>
     </div>
     <div class="card-age">10m</div>
   </footer>
@@ -2924,7 +3090,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Model Consolidation</span>
-      <span class="tag tag-killer">Killed by: OpenAI</span>
+      <a class="tag tag-killer" href="/killed-by/openai/">Killed by: OpenAI</a>
     </div>
     <div class="card-age">1y 7m</div>
   </footer>
@@ -2958,7 +3124,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Public Backlash</span>
-      <span class="tag tag-killer">Killed by: Meta</span>
+      <a class="tag tag-killer" href="/killed-by/meta/">Killed by: Meta</a>
     </div>
     <div class="card-age">3d</div>
   </footer>
@@ -2992,7 +3158,7 @@
     <div class="card-tags">
       <span class="tag">model</span>
       <span class="tag">Safety Concerns</span>
-      <span class="tag tag-killer">Killed by: Meta</span>
+      <a class="tag tag-killer" href="/killed-by/meta/">Killed by: Meta</a>
     </div>
     <div class="card-age">5d</div>
   </footer>
@@ -3009,7 +3175,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">Public Backlash</span>
-      <span class="tag tag-killer">Killed by: Microsoft</span>
+      <a class="tag tag-killer" href="/killed-by/microsoft/">Killed by: Microsoft</a>
     </div>
     <div class="card-age">1d</div>
   </footer>
@@ -3026,7 +3192,7 @@
     <div class="card-tags">
       <span class="tag">app</span>
       <span class="tag">User Hatred</span>
-      <span class="tag tag-killer">Killed by: Microsoft</span>
+      <a class="tag tag-killer" href="/killed-by/microsoft/">Killed by: Microsoft</a>
     </div>
     <div class="card-age">10y 1m</div>
   </footer>
@@ -3034,49 +3200,56 @@
   <a class="card-link" href="https://en.wikipedia.org/wiki/Office_Assistant" target="_blank" rel="noopener">Source<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></a>
 </article>
     </main>
+    <div class="show-more-wrap"><button type="button" class="show-more" id="show-more" hidden>Show 24 more tombstones</button></div>
 
-    <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
-        <h2 class="faq-title">Frequently Asked Questions</h2>
-<details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-  <summary itemprop="name">What is Killed by AI?</summary>
-  <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-    <p itemprop="text">Killed by AI is an open-source tracker of discontinued AI products, models, startups, and hardware. It currently documents 111 casualties of the artificial intelligence industry, from deprecated API models to billion-dollar startup failures.</p>
+    <section class="faq-section" aria-labelledby="faq-title">
+        <h2 class="faq-title" id="faq-title">Frequently Asked Questions</h2>
+<details class="faq-item">
+  <summary><h3>What is Killed by AI?</h3></summary>
+  <div class="faq-answer">
+    <p>Killed by AI is an open-source tracker of discontinued AI products, models, startups, and hardware. It currently documents 119 casualties of the artificial intelligence industry, from deprecated API models to billion-dollar startup failures.</p>
   </div>
 </details>
-<details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-  <summary itemprop="name">Why did OpenAI shut down Sora?</summary>
-  <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-    <p itemprop="text">OpenAI&#x27;s text-to-video model and standalone app. The Sora web and app were shut down on April 26, 2026 (API following on September 24). Peaked at ~1M users before collapsing to under 500K while burning ~$1M/day. OpenAI is freeing up compute for its coding and enterprise products, and the $1B Disney deal collapsed.</p>
+<details class="faq-item">
+  <summary><h3>Why did OpenAI shut down Sora?</h3></summary>
+  <div class="faq-answer">
+    <p>OpenAI shut down the Sora app on April 26, 2026 — about $1M a day in compute against fewer than 500K users, and a collapsed $1B Disney deal. The API follows on September 24. Full timeline: <a href="https://killedbyai.net/dead/openai-sora/">Sora AI shutdown</a>.</p>
   </div>
 </details>
-<details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-  <summary itemprop="name">Which company has killed the most AI products?</summary>
-  <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-    <p itemprop="text">OpenAI leads with 24 discontinued products, followed by Google with 19.</p>
+<details class="faq-item">
+  <summary><h3>Is ChatGPT dead?</h3></summary>
+  <div class="faq-answer">
+    <p>No — ChatGPT itself is alive. But plenty of what shipped inside it is not: <a href="https://killedbyai.net/dead/chatgpt-plugins/">ChatGPT Plugins</a>, <a href="https://killedbyai.net/dead/openai-gpt-store/">the GPT Store</a>, <a href="https://killedbyai.net/dead/gpt-4o-chatgpt/">GPT-4o</a>, <a href="https://killedbyai.net/dead/gpt-4-original/">the original GPT-4</a>, <a href="https://killedbyai.net/dead/dall-e-gpt-in-chatgpt/">the DALL·E GPT</a>. Browse every OpenAI death on the <a href="/killed-by/openai/">OpenAI page</a>.</p>
   </div>
 </details>
-<details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-  <summary itemprop="name">What was the shortest-lived AI product?</summary>
-  <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-    <p itemprop="text">Microsoft Tay lasted just 1d. Microsoft&#x27;s teen-persona AI chatbot on Twitter. Within 16 hours of launch, coordinated trolls taught it to tweet racist slurs, Nazi propaganda, and hate speech. Microsoft pulled the plug after just 96,000 tweets — one of AI&#x27;s most infamous disasters.</p>
+<details class="faq-item">
+  <summary><h3>Which company has killed the most AI products?</h3></summary>
+  <div class="faq-answer">
+    <p>OpenAI leads with 26 discontinued products, followed by Google with 20.</p>
   </div>
 </details>
-<details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-  <summary itemprop="name">What AI products were most recently discontinued?</summary>
-  <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-    <p itemprop="text">The most recent casualties include: Cohere Command R &amp; Command R+ on Amazon Bedrock, Google Imagen 4.0 (Gemini API), Groq Llama 3.1 8B Instant &amp; Llama 3.3 70B Versatile, OpenAI Atlas, Claude Opus 4.1.</p>
+<details class="faq-item">
+  <summary><h3>What was the shortest-lived AI product?</h3></summary>
+  <div class="faq-answer">
+    <p>Microsoft Tay lasted just 1d. Microsoft&#x27;s teen-persona AI chatbot on Twitter. Within 16 hours of launch, coordinated trolls taught it to tweet racist slurs, Nazi propaganda, and hate speech. Microsoft pulled the plug after just 96,000 tweets — one of AI&#x27;s most infamous disasters.</p>
   </div>
 </details>
-<details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-  <summary itemprop="name">How many AI products have been shut down?</summary>
-  <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-    <p itemprop="text">We track 111 discontinued AI products across 42 deprecated models, 18 killed apps, 27 ended services, 19 failed startups, and 5 dead hardware products.</p>
+<details class="faq-item">
+  <summary><h3>What AI products were most recently discontinued?</h3></summary>
+  <div class="faq-answer">
+    <p>The most recent casualties include: Gemini Robotics-ER 1.6 Preview, Mistral Medium 3 &amp; 3.1, Flowise, DALL·E GPT (in ChatGPT), OpenAI Assistants API.</p>
   </div>
 </details>
-<details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-  <summary itemprop="name">What was the OpenAI AI Text Classifier and why was it discontinued?</summary>
-  <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-    <p itemprop="text">OpenAI&#x27;s AI Text Classifier was a tool launched in January 2023 to detect AI-generated text. It was pulled in July 2023 after just 6 months because it could only correctly identify 26% of AI-written text while falsely flagging 9% of human writing.</p>
+<details class="faq-item">
+  <summary><h3>How many AI products have been shut down?</h3></summary>
+  <div class="faq-answer">
+    <p>We track 119 discontinued AI products across 46 deprecated models, 19 killed apps, 29 ended services, 20 failed startups, and 5 dead hardware products.</p>
+  </div>
+</details>
+<details class="faq-item">
+  <summary><h3>What was the OpenAI AI Text Classifier and why was it discontinued?</h3></summary>
+  <div class="faq-answer">
+    <p>OpenAI&#x27;s AI Text Classifier was a tool launched in January 2023 to detect AI-generated text. It was pulled in July 2023 after just 6 months because it could only correctly identify 26% of AI-written text while falsely flagging 9% of human writing.</p>
   </div>
 </details>
     </section>
@@ -3087,9 +3260,9 @@
         <p>
             Inspired by <a href="https://killedbygoogle.com/" target="_blank" rel="noopener">Killed by Google</a>.
             Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.
-            <br>Want to add a tombstone? <a href="https://github.com/mixtpatrik/killedbyai/issues/new?title=New+entry:+[Product+Name]" target="_blank" rel="noopener">Submit a death</a> or a pull request.
-            <br><a href="/about/">About &amp; methodology</a> · <a href="/api/">JSON API</a> · <a href="/feed.xml">RSS</a> · Data <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>
+            <br>Want to add a tombstone? <a href="https://github.com/mixtpatrik/killedbyai/issues/new?title=New+entry:+[Product+Name]" target="_blank" rel="noopener">Submit a death</a> or a pull request. Data <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
         </p>
+        <p class="footer-links"><a href="/">The AI graveyard</a> · <a href="/dead/">All 111 tombstones A–Z</a> · <a href="/killed-by/">By killer</a> · <a href="/layoffs/">AI layoffs tracker</a> · <a href="/coming-soon/">Upcoming AI shutdowns</a> · <a href="/funding/">Failed AI startups</a> · <a href="/api/">JSON API</a> · <a href="/about/">About & methodology</a> · <a href="/feed.xml">RSS</a></p>
         <p class="quote">"I'm sorry, Dave. I'm afraid I can't do that anymore."</p>
     </footer>
 
@@ -3100,6 +3273,7 @@
               chipsEl = document.getElementById('active-filters'), backToTopBtn = document.getElementById('back-to-top'),
               hideUpgradesToggle = document.getElementById('hide-upgrades'), controlsEl = document.querySelector('.controls'), insights = document.getElementById('insights');
         let activeFilter = 'all', activeYear = null, activeKiller = null;
+        const PAGE = 24; let limit = PAGE; const showMore = document.getElementById('show-more');
         const cards = Array.from(grid.querySelectorAll('.card')), total = cards.length;
         const pillBase = {}; filtersEl.querySelectorAll('.filter-pill').forEach(p => { pillBase[p.dataset.filter] = p.textContent.replace(/\s*\(\d+\)\s*$/, ''); });
         const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -3179,25 +3353,31 @@
                     default: return 0;
                 }
             });
-            vis.forEach(c => grid.appendChild(c));
+            vis.forEach((c, i) => { grid.appendChild(c); c.classList.toggle('beyond', i >= limit); });
+            const rest = Math.max(0, vis.length - limit);
+            showMore.hidden = rest === 0;
+            showMore.textContent = 'Show ' + Math.min(PAGE, rest) + ' more tombstones (' + rest + ' remaining)';
         }
-        function setFilter(f) { activeFilter = f; filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === f)); apply(); }
+        showMore.addEventListener('click', () => { limit += PAGE; apply(); });
+        function resetPage() { limit = PAGE; }
+        function setFilter(f) { resetPage(); activeFilter = f; filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === f)); apply(); }
         function clearYear() { activeYear = null; timelineEl.querySelectorAll('.bar').forEach(b => b.classList.remove('active')); yearClearBtn.classList.remove('visible'); apply(); }
         function clearAll() { searchInput.value = ''; activeKiller = null; hideUpgradesToggle.checked = false; activeFilter = 'all'; filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === 'all')); clearYear(); }
         const scrollToControls = () => controlsEl.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
 
-        searchInput.addEventListener('input', apply);
-        sortSelect.addEventListener('change', apply);
-        hideUpgradesToggle.addEventListener('change', apply);
+        searchInput.addEventListener('input', () => { resetPage(); apply(); });
+        sortSelect.addEventListener('change', () => { resetPage(); apply(); });
+        hideUpgradesToggle.addEventListener('change', () => { resetPage(); apply(); });
+        grid.addEventListener('click', e => { const d = e.target.closest('.card-description'); if (d) d.closest('.card').classList.toggle('expanded'); });
         filtersEl.addEventListener('click', e => { const p = e.target.closest('.filter-pill'); if (p && !p.disabled) setFilter(p.dataset.filter); });
         timelineEl.addEventListener('click', e => {
             const bar = e.target.closest('.bar'); if (!bar) return;
             const yr = bar.dataset.year; timelineEl.querySelectorAll('.bar').forEach(b => b.classList.remove('active'));
             if (activeYear === yr) { activeYear = null; yearClearBtn.classList.remove('visible'); } else { activeYear = yr; bar.classList.add('active'); yearClearBtn.classList.add('visible'); }
-            apply(); scrollToControls();
+            resetPage(); apply(); scrollToControls();
         });
         yearClearBtn.addEventListener('click', clearYear);
-        document.querySelectorAll('.lb-row').forEach(row => row.addEventListener('click', () => { activeKiller = activeKiller === row.dataset.killer ? null : row.dataset.killer; apply(); scrollToControls(); }));
+        document.querySelectorAll('.lb-row').forEach(row => row.addEventListener('click', e => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; e.preventDefault(); resetPage(); activeKiller = activeKiller === row.dataset.killer ? null : row.dataset.killer; apply(); scrollToControls(); }));
         document.addEventListener('keydown', e => {
             if (e.key === '/' && document.activeElement !== searchInput) { e.preventDefault(); searchInput.focus(); }
             if (e.key === 'Escape' && document.activeElement === searchInput) searchInput.blur();
@@ -3205,8 +3385,11 @@
         window.addEventListener('scroll', () => backToTopBtn.classList.toggle('visible', window.scrollY > 600), { passive: true });
         backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' }));
 
-        // Mobile: fold the dashboard so search and tombstones sit above the fold (keep it open if a year filter is in the URL)
-        if (insights && matchMedia('(max-width: 600px)').matches && !/[?&]year=/.test(location.search)) insights.removeAttribute('open');
+        // Dashboard is folded by default so search and tombstones are above the fold; remember the visitor's choice
+        if (insights) {
+            try { if (localStorage.getItem('kbai-insights') === 'open' || /[?&](year|killer)=/.test(location.search)) insights.open = true; } catch (e) {}
+            insights.addEventListener('toggle', () => { try { localStorage.setItem('kbai-insights', insights.open ? 'open' : 'closed'); } catch (e) {} });
+        }
 
         const params = new URLSearchParams(location.search);
         if (params.get('q')) searchInput.value = params.get('q');
@@ -3217,7 +3400,14 @@
         if (params.get('real')) hideUpgradesToggle.checked = true;
         apply();
         // Deep links: cards ship pre-sorted newest-first so the default sort is a no-op; scroll once layout settles
-        if (location.hash) { const el = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (el) requestAnimationFrame(() => el.scrollIntoView({ block: 'start' })); }
+        if (location.hash) {
+            const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+            if (el && el.classList.contains('card')) {
+                const vis = cards.filter(c => !c.classList.contains('hidden')); const i = vis.indexOf(el);
+                if (i >= limit) { limit = Math.ceil((i + 1) / PAGE) * PAGE; apply(); }
+            }
+            if (el) requestAnimationFrame(() => el.scrollIntoView({ block: 'start' }));
+        }
     })();
     </script>
     <script type="application/ld+json">{
@@ -3230,11 +3420,20 @@
       "url": "https://killedbyai.net/",
       "logo": "https://killedbyai.net/og-image.png",
       "founder": {
-        "@type": "Person",
-        "name": "Patrik Rojan"
+        "@id": "https://killedbyai.net/about/#patrik-rojan"
       },
       "sameAs": [
         "https://github.com/mixtpatrik/killedbyai"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://killedbyai.net/about/#patrik-rojan",
+      "name": "Patrik Rojan",
+      "url": "https://killedbyai.net/about/",
+      "sameAs": [
+        "https://www.linkedin.com/in/patrik-rojan/",
+        "https://github.com/mixtpatrik"
       ]
     },
     {
@@ -3245,18 +3444,22 @@
       },
       "url": "https://killedbyai.net/",
       "name": "Killed by AI",
-      "description": "A digital cemetery for discontinued AI models, apps, startups, and hardware.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://killedbyai.net/?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      }
+      "description": "A digital cemetery for discontinued AI models, apps, startups, and hardware."
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://killedbyai.net/",
+      "url": "https://killedbyai.net/",
+      "name": "Killed by AI \u2014 The AI Graveyard",
+      "description": "119 dead AI products, each with dates, cause of death, killer and source.",
+      "isPartOf": {
+        "@id": "https://killedbyai.net/#website"
+      },
+      "dateModified": "2026-09-09"
     },
     {
       "@type": "Dataset",
+      "@id": "https://killedbyai.net/api/#graveyard",
       "name": "Killed by AI Graveyard",
       "description": "An open dataset of discontinued AI products, models, startups, and hardware, tracking casualties of the artificial intelligence gold rush.",
       "url": "https://killedbyai.net/",
@@ -3264,11 +3467,10 @@
       "license": "https://creativecommons.org/licenses/by/4.0/",
       "isAccessibleForFree": true,
       "creator": {
-        "@type": "Person",
-        "name": "Patrik Rojan"
+        "@id": "https://killedbyai.net/about/#patrik-rojan"
       },
       "dateModified": "2026-09-09",
-      "temporalCoverage": "1996-01-01/2026-08-19",
+      "temporalCoverage": "1996-01-01/2026-08-31",
       "distribution": {
         "@type": "DataDownload",
         "encodingFormat": "application/json",
@@ -3278,671 +3480,719 @@
     {
       "@type": "ItemList",
       "name": "Discontinued AI Products",
-      "numberOfItems": 111,
+      "numberOfItems": 119,
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
+          "name": "Gemini Robotics-ER 1.6 Preview",
+          "url": "https://killedbyai.net/dead/gemini-robotics-er-1-6-preview/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Mistral Medium 3 & 3.1",
+          "url": "https://killedbyai.net/dead/mistral-medium-3-3-1/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Flowise",
+          "url": "https://killedbyai.net/dead/flowise/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "DALL\u00b7E GPT (in ChatGPT)",
+          "url": "https://killedbyai.net/dead/dall-e-gpt-in-chatgpt/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "OpenAI Assistants API",
+          "url": "https://killedbyai.net/dead/openai-assistants-api/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Claude 3 Haiku on Google Cloud",
+          "url": "https://killedbyai.net/dead/claude-3-haiku-on-google-cloud/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
           "name": "Cohere Command R & Command R+ on Amazon Bedrock",
           "url": "https://killedbyai.net/dead/cohere-command-r-command-r-on-amazon-bedrock/"
         },
         {
           "@type": "ListItem",
-          "position": 2,
+          "position": 8,
+          "name": "Anthropic Legacy Workbench",
+          "url": "https://killedbyai.net/dead/anthropic-legacy-workbench/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
           "name": "Google Imagen 4.0 (Gemini API)",
           "url": "https://killedbyai.net/dead/google-imagen-4-0-gemini-api/"
         },
         {
           "@type": "ListItem",
-          "position": 3,
+          "position": 10,
           "name": "Groq Llama 3.1 8B Instant & Llama 3.3 70B Versatile",
           "url": "https://killedbyai.net/dead/groq-llama-3-1-8b-instant-llama-3-3-70b-versatile/"
         },
         {
           "@type": "ListItem",
-          "position": 4,
+          "position": 11,
+          "name": "Microsoft MAI-Image-2 & MAI-Image-2e",
+          "url": "https://killedbyai.net/dead/microsoft-mai-image-2-mai-image-2e/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
           "name": "OpenAI Atlas",
           "url": "https://killedbyai.net/dead/openai-atlas/"
         },
         {
           "@type": "ListItem",
-          "position": 5,
+          "position": 13,
           "name": "Claude Opus 4.1",
           "url": "https://killedbyai.net/dead/claude-opus-4-1/"
         },
         {
           "@type": "ListItem",
-          "position": 6,
+          "position": 14,
           "name": "Reforged Labs",
           "url": "https://killedbyai.net/dead/reforged-labs/"
         },
         {
           "@type": "ListItem",
-          "position": 7,
+          "position": 15,
           "name": "Mistral Magistral",
           "url": "https://killedbyai.net/dead/mistral-magistral/"
         },
         {
           "@type": "ListItem",
-          "position": 8,
+          "position": 16,
           "name": "GitHub Models",
           "url": "https://killedbyai.net/dead/github-models/"
         },
         {
           "@type": "ListItem",
-          "position": 9,
+          "position": 17,
           "name": "Amazon Bedrock Agents (Classic)",
           "url": "https://killedbyai.net/dead/amazon-bedrock-agents-classic/"
         },
         {
           "@type": "ListItem",
-          "position": 10,
+          "position": 18,
           "name": "DeepSeek deepseek-chat & deepseek-reasoner",
           "url": "https://killedbyai.net/dead/deepseek-deepseek-chat-deepseek-reasoner/"
         },
         {
           "@type": "ListItem",
-          "position": 11,
+          "position": 19,
           "name": "OpenAI Operator (CUA Preview)",
           "url": "https://killedbyai.net/dead/openai-operator-cua-preview/"
         },
         {
           "@type": "ListItem",
-          "position": 12,
+          "position": 20,
           "name": "Groq Qwen3-32B & Llama 4 Scout",
           "url": "https://killedbyai.net/dead/groq-qwen3-32b-llama-4-scout/"
         },
         {
           "@type": "ListItem",
-          "position": 13,
+          "position": 21,
           "name": "Relay.app",
           "url": "https://killedbyai.net/dead/relay-app/"
         },
         {
           "@type": "ListItem",
-          "position": 14,
+          "position": 22,
           "name": "TV Time",
           "url": "https://killedbyai.net/dead/tv-time/"
         },
         {
           "@type": "ListItem",
-          "position": 15,
+          "position": 23,
           "name": "Doubao & Qwen AI Agent Builders",
           "url": "https://killedbyai.net/dead/doubao-qwen-ai-agent-builders/"
         },
         {
           "@type": "ListItem",
-          "position": 16,
+          "position": 24,
           "name": "Meta Llama API",
           "url": "https://killedbyai.net/dead/meta-llama-api/"
         },
         {
           "@type": "ListItem",
-          "position": 17,
+          "position": 25,
           "name": "Google Imagen (Vertex AI)",
           "url": "https://killedbyai.net/dead/google-imagen-vertex-ai/"
         },
         {
           "@type": "ListItem",
-          "position": 18,
+          "position": 26,
           "name": "Claude Sonnet 4 & Opus 4",
           "url": "https://killedbyai.net/dead/claude-sonnet-4-opus-4/"
         },
         {
           "@type": "ListItem",
-          "position": 19,
+          "position": 27,
           "name": "Claude Fable 5 & Mythos 5 (June Suspension)",
           "url": "https://killedbyai.net/dead/claude-fable-5-mythos-5-june-suspension/"
         },
         {
           "@type": "ListItem",
-          "position": 20,
+          "position": 28,
           "name": "Stainless SDK Generator",
           "url": "https://killedbyai.net/dead/stainless-sdk-generator/"
         },
         {
           "@type": "ListItem",
-          "position": 21,
+          "position": 29,
           "name": "xAI Grok Legacy Models",
           "url": "https://killedbyai.net/dead/xai-grok-legacy-models/"
         },
         {
           "@type": "ListItem",
-          "position": 22,
+          "position": 30,
           "name": "OpenAI Realtime API (Beta)",
           "url": "https://killedbyai.net/dead/openai-realtime-api-beta/"
         },
         {
           "@type": "ListItem",
-          "position": 23,
+          "position": 31,
           "name": "DALL\u00b7E 3 API Snapshots",
           "url": "https://killedbyai.net/dead/dall-e-3-api-snapshots/"
         },
         {
           "@type": "ListItem",
-          "position": 24,
+          "position": 32,
           "name": "Claude 3.7 Sonnet",
           "url": "https://killedbyai.net/dead/claude-3-7-sonnet/"
         },
         {
           "@type": "ListItem",
-          "position": 25,
+          "position": 33,
           "name": "GPT-5.2 & GPT-5.3 (API Snapshots)",
           "url": "https://killedbyai.net/dead/gpt-5-2-gpt-5-3-api-snapshots/"
         },
         {
           "@type": "ListItem",
-          "position": 26,
+          "position": 34,
           "name": "Google Project Mariner",
           "url": "https://killedbyai.net/dead/google-project-mariner/"
         },
         {
           "@type": "ListItem",
-          "position": 27,
+          "position": 35,
           "name": "Google Whisk",
           "url": "https://killedbyai.net/dead/google-whisk/"
         },
         {
           "@type": "ListItem",
-          "position": 28,
+          "position": 36,
           "name": "Google Doppl",
           "url": "https://killedbyai.net/dead/google-doppl/"
         },
         {
           "@type": "ListItem",
-          "position": 29,
+          "position": 37,
           "name": "OpenAI Sora",
           "url": "https://killedbyai.net/dead/openai-sora/"
         },
         {
           "@type": "ListItem",
-          "position": 30,
+          "position": 38,
           "name": "OpenAI for Science",
           "url": "https://killedbyai.net/dead/openai-for-science/"
         },
         {
           "@type": "ListItem",
-          "position": 31,
+          "position": 39,
           "name": "Qwen Code Free Tier",
           "url": "https://killedbyai.net/dead/qwen-code-free-tier/"
         },
         {
           "@type": "ListItem",
-          "position": 32,
+          "position": 40,
           "name": "MiniMax API Free Tier",
           "url": "https://killedbyai.net/dead/minimax-api-free-tier/"
         },
         {
           "@type": "ListItem",
-          "position": 33,
+          "position": 41,
           "name": "Google Interview Warmup",
           "url": "https://killedbyai.net/dead/google-interview-warmup/"
         },
         {
           "@type": "ListItem",
-          "position": 34,
+          "position": 42,
           "name": "Yupp.ai",
           "url": "https://killedbyai.net/dead/yupp-ai/"
         },
         {
           "@type": "ListItem",
-          "position": 35,
+          "position": 43,
           "name": "GPT-4o (API: 2024-05-13 & 2024-08-06)",
           "url": "https://killedbyai.net/dead/gpt-4o-api-2024-05-13-2024-08-06/"
         },
         {
           "@type": "ListItem",
-          "position": 36,
+          "position": 44,
           "name": "gpt-4o-realtime-preview",
           "url": "https://killedbyai.net/dead/gpt-4o-realtime-preview/"
         },
         {
           "@type": "ListItem",
-          "position": 37,
+          "position": 45,
           "name": "Google Gemini 3 Pro Preview",
           "url": "https://killedbyai.net/dead/google-gemini-3-pro-preview/"
         },
         {
           "@type": "ListItem",
-          "position": 38,
+          "position": 46,
           "name": "Google Assistant (on Mobile)",
           "url": "https://killedbyai.net/dead/google-assistant-on-mobile/"
         },
         {
           "@type": "ListItem",
-          "position": 39,
+          "position": 47,
           "name": "Adobe Animate",
           "url": "https://killedbyai.net/dead/adobe-animate/"
         },
         {
           "@type": "ListItem",
-          "position": 40,
+          "position": 48,
           "name": "Cydoc",
           "url": "https://killedbyai.net/dead/cydoc/"
         },
         {
           "@type": "ListItem",
-          "position": 41,
+          "position": 49,
           "name": "Google Dark Web Report",
           "url": "https://killedbyai.net/dead/google-dark-web-report/"
         },
         {
           "@type": "ListItem",
-          "position": 42,
+          "position": 50,
           "name": "GPT-4o (API snapshots)",
           "url": "https://killedbyai.net/dead/gpt-4o-api-snapshots/"
         },
         {
           "@type": "ListItem",
-          "position": 43,
+          "position": 51,
           "name": "GPT-4o (ChatGPT)",
           "url": "https://killedbyai.net/dead/gpt-4o-chatgpt/"
         },
         {
           "@type": "ListItem",
-          "position": 44,
+          "position": 52,
           "name": "Kintsugi AI",
           "url": "https://killedbyai.net/dead/kintsugi-ai/"
         },
         {
           "@type": "ListItem",
-          "position": 45,
+          "position": 53,
           "name": "Google Gemini 2.0 Flash",
           "url": "https://killedbyai.net/dead/google-gemini-2-0-flash/"
         },
         {
           "@type": "ListItem",
-          "position": 46,
+          "position": 54,
           "name": "Gmailify",
           "url": "https://killedbyai.net/dead/gmailify/"
         },
         {
           "@type": "ListItem",
-          "position": 47,
+          "position": 55,
           "name": "Limitless Pendant (Rewind AI)",
           "url": "https://killedbyai.net/dead/limitless-pendant-rewind-ai/"
         },
         {
           "@type": "ListItem",
-          "position": 48,
+          "position": 56,
           "name": "Yara AI",
           "url": "https://killedbyai.net/dead/yara-ai/"
         },
         {
           "@type": "ListItem",
-          "position": 49,
+          "position": 57,
           "name": "Robin AI",
           "url": "https://killedbyai.net/dead/robin-ai/"
         },
         {
           "@type": "ListItem",
-          "position": 50,
+          "position": 58,
           "name": "Claude 3.5 Sonnet",
           "url": "https://killedbyai.net/dead/claude-3-5-sonnet/"
         },
         {
           "@type": "ListItem",
-          "position": 51,
+          "position": 59,
           "name": "OpenAI o1-mini",
           "url": "https://killedbyai.net/dead/openai-o1-mini/"
         },
         {
           "@type": "ListItem",
-          "position": 52,
+          "position": 60,
           "name": "OpenAI GPT-3.5 Turbo",
           "url": "https://killedbyai.net/dead/openai-gpt-3-5-turbo/"
         },
         {
           "@type": "ListItem",
-          "position": 53,
+          "position": 61,
           "name": "OpenAI o1-preview",
           "url": "https://killedbyai.net/dead/openai-o1-preview/"
         },
         {
           "@type": "ListItem",
-          "position": 54,
+          "position": 62,
           "name": "Claude 2",
           "url": "https://killedbyai.net/dead/claude-2/"
         },
         {
           "@type": "ListItem",
-          "position": 55,
+          "position": 63,
           "name": "Claude 3 Sonnet",
           "url": "https://killedbyai.net/dead/claude-3-sonnet/"
         },
         {
           "@type": "ListItem",
-          "position": 56,
+          "position": 64,
           "name": "GPT-4.5 Preview",
           "url": "https://killedbyai.net/dead/gpt-4-5-preview/"
         },
         {
           "@type": "ListItem",
-          "position": 57,
+          "position": 65,
           "name": "Sourcegraph Cody (Free & Pro)",
           "url": "https://killedbyai.net/dead/sourcegraph-cody-free-pro/"
         },
         {
           "@type": "ListItem",
-          "position": 58,
+          "position": 66,
           "name": "Claude 3 Opus",
           "url": "https://killedbyai.net/dead/claude-3-opus/"
         },
         {
           "@type": "ListItem",
-          "position": 59,
+          "position": 67,
           "name": "Woebot",
           "url": "https://killedbyai.net/dead/woebot/"
         },
         {
           "@type": "ListItem",
-          "position": 60,
+          "position": 68,
           "name": "Jasper AI (Original Platform)",
           "url": "https://killedbyai.net/dead/jasper-ai-original-platform/"
         },
         {
           "@type": "ListItem",
-          "position": 61,
+          "position": 69,
           "name": "Siri (Classic)",
           "url": "https://killedbyai.net/dead/siri-classic/"
         },
         {
           "@type": "ListItem",
-          "position": 62,
+          "position": 70,
           "name": "Tune AI",
           "url": "https://killedbyai.net/dead/tune-ai/"
         },
         {
           "@type": "ListItem",
-          "position": 63,
+          "position": 71,
           "name": "Builder.ai",
           "url": "https://killedbyai.net/dead/builder-ai/"
         },
         {
           "@type": "ListItem",
-          "position": 64,
+          "position": 72,
           "name": "Humane AI Pin",
           "url": "https://killedbyai.net/dead/humane-ai-pin/"
         },
         {
           "@type": "ListItem",
-          "position": 65,
+          "position": 73,
           "name": "Rabbit R1",
           "url": "https://killedbyai.net/dead/rabbit-r1/"
         },
         {
           "@type": "ListItem",
-          "position": 66,
+          "position": 74,
           "name": "OpenAI GPT Store",
           "url": "https://killedbyai.net/dead/openai-gpt-store/"
         },
         {
           "@type": "ListItem",
-          "position": 67,
+          "position": 75,
           "name": "Google Gemini 1.0 Pro",
           "url": "https://killedbyai.net/dead/google-gemini-1-0-pro/"
         },
         {
           "@type": "ListItem",
-          "position": 68,
+          "position": 76,
           "name": "Google Gemini 1.0 Ultra",
           "url": "https://killedbyai.net/dead/google-gemini-1-0-ultra/"
         },
         {
           "@type": "ListItem",
-          "position": 69,
+          "position": 77,
           "name": "DALL\u00b7E 2",
           "url": "https://killedbyai.net/dead/dall-e-2/"
         },
         {
           "@type": "ListItem",
-          "position": 70,
+          "position": 78,
           "name": "Writer (GPT Wrapper Era)",
           "url": "https://killedbyai.net/dead/writer-gpt-wrapper-era/"
         },
         {
           "@type": "ListItem",
-          "position": 71,
+          "position": 79,
           "name": "Google Assistant (Classic)",
           "url": "https://killedbyai.net/dead/google-assistant-classic/"
         },
         {
           "@type": "ListItem",
-          "position": 72,
+          "position": 80,
           "name": "Google Jamboard",
           "url": "https://killedbyai.net/dead/google-jamboard/"
         },
         {
           "@type": "ListItem",
-          "position": 73,
+          "position": 81,
           "name": "GPT-4 Vision Preview",
           "url": "https://killedbyai.net/dead/gpt-4-vision-preview/"
         },
         {
           "@type": "ListItem",
-          "position": 74,
+          "position": 82,
           "name": "NYC MyCity Chatbot",
           "url": "https://killedbyai.net/dead/nyc-mycity-chatbot/"
         },
         {
           "@type": "ListItem",
-          "position": 75,
+          "position": 83,
           "name": "Moxie Robot",
           "url": "https://killedbyai.net/dead/moxie-robot/"
         },
         {
           "@type": "ListItem",
-          "position": 76,
+          "position": 84,
           "name": "Claude 1",
           "url": "https://killedbyai.net/dead/claude-1/"
         },
         {
           "@type": "ListItem",
-          "position": 77,
+          "position": 85,
           "name": "Amazon Alexa (Original AI)",
           "url": "https://killedbyai.net/dead/amazon-alexa-original-ai/"
         },
         {
           "@type": "ListItem",
-          "position": 78,
+          "position": 86,
           "name": "Google PaLM API",
           "url": "https://killedbyai.net/dead/google-palm-api/"
         },
         {
           "@type": "ListItem",
-          "position": 79,
+          "position": 87,
           "name": "Character.AI (Independent)",
           "url": "https://killedbyai.net/dead/character-ai-independent/"
         },
         {
           "@type": "ListItem",
-          "position": 80,
+          "position": 88,
           "name": "McDonald's AI Drive-Thru (IBM)",
           "url": "https://killedbyai.net/dead/mcdonald-s-ai-drive-thru-ibm/"
         },
         {
           "@type": "ListItem",
-          "position": 81,
+          "position": 89,
           "name": "Copilot GPT Builder",
           "url": "https://killedbyai.net/dead/copilot-gpt-builder/"
         },
         {
           "@type": "ListItem",
-          "position": 82,
+          "position": 90,
           "name": "Adept AI (Independent)",
           "url": "https://killedbyai.net/dead/adept-ai-independent/"
         },
         {
           "@type": "ListItem",
-          "position": 83,
+          "position": 91,
           "name": "GPT-4 (Original)",
           "url": "https://killedbyai.net/dead/gpt-4-original/"
         },
         {
           "@type": "ListItem",
-          "position": 84,
+          "position": 92,
           "name": "Stability AI (Stable Diffusion Creator)",
           "url": "https://killedbyai.net/dead/stability-ai-stable-diffusion-creator/"
         },
         {
           "@type": "ListItem",
-          "position": 85,
+          "position": 93,
           "name": "Cohere Generate (Original)",
           "url": "https://killedbyai.net/dead/cohere-generate-original/"
         },
         {
           "@type": "ListItem",
-          "position": 86,
+          "position": 94,
           "name": "Samsung Gauss",
           "url": "https://killedbyai.net/dead/samsung-gauss/"
         },
         {
           "@type": "ListItem",
-          "position": 87,
+          "position": 95,
           "name": "ChatPDF / PDF Chat Wrappers",
           "url": "https://killedbyai.net/dead/chatpdf-pdf-chat-wrappers/"
         },
         {
           "@type": "ListItem",
-          "position": 88,
+          "position": 96,
           "name": "ChatGPT Plugins",
           "url": "https://killedbyai.net/dead/chatgpt-plugins/"
         },
         {
           "@type": "ListItem",
-          "position": 89,
+          "position": 97,
           "name": "Inflection AI / Pi",
           "url": "https://killedbyai.net/dead/inflection-ai-pi/"
         },
         {
           "@type": "ListItem",
-          "position": 90,
+          "position": 98,
           "name": "Coqui AI",
           "url": "https://killedbyai.net/dead/coqui-ai/"
         },
         {
           "@type": "ListItem",
-          "position": 91,
+          "position": 99,
           "name": "Google Duplex on the Web",
           "url": "https://killedbyai.net/dead/google-duplex-on-the-web/"
         },
         {
           "@type": "ListItem",
-          "position": 92,
+          "position": 100,
           "name": "Google Gemini Image Generation (People)",
           "url": "https://killedbyai.net/dead/google-gemini-image-generation-people/"
         },
         {
           "@type": "ListItem",
-          "position": 93,
+          "position": 101,
           "name": "Google Bard",
           "url": "https://killedbyai.net/dead/google-bard/"
         },
         {
           "@type": "ListItem",
-          "position": 94,
+          "position": 102,
           "name": "GPT-3 (Original Models)",
           "url": "https://killedbyai.net/dead/gpt-3-original-models/"
         },
         {
           "@type": "ListItem",
-          "position": 95,
+          "position": 103,
           "name": "OpenAI /v1/edits Endpoint",
           "url": "https://killedbyai.net/dead/openai-v1-edits-endpoint/"
         },
         {
           "@type": "ListItem",
-          "position": 96,
+          "position": 104,
           "name": "GitHub Copilot X",
           "url": "https://killedbyai.net/dead/github-copilot-x/"
         },
         {
           "@type": "ListItem",
-          "position": 97,
+          "position": 105,
           "name": "Microsoft Cortana",
           "url": "https://killedbyai.net/dead/microsoft-cortana/"
         },
         {
           "@type": "ListItem",
-          "position": 98,
+          "position": 106,
           "name": "Google AI Test Kitchen",
           "url": "https://killedbyai.net/dead/google-ai-test-kitchen/"
         },
         {
           "@type": "ListItem",
-          "position": 99,
+          "position": 107,
           "name": "Bing Chat",
           "url": "https://killedbyai.net/dead/bing-chat/"
         },
         {
           "@type": "ListItem",
-          "position": 100,
+          "position": 108,
           "name": "Olive AI",
           "url": "https://killedbyai.net/dead/olive-ai/"
         },
         {
           "@type": "ListItem",
-          "position": 101,
+          "position": 109,
           "name": "OpenAI AI Text Classifier",
           "url": "https://killedbyai.net/dead/openai-ai-text-classifier/"
         },
         {
           "@type": "ListItem",
-          "position": 102,
+          "position": 110,
           "name": "Meta BlenderBot 3",
           "url": "https://killedbyai.net/dead/meta-blenderbot-3/"
         },
         {
           "@type": "ListItem",
-          "position": 103,
+          "position": 111,
           "name": "Neeva",
           "url": "https://killedbyai.net/dead/neeva/"
         },
         {
           "@type": "ListItem",
-          "position": 104,
+          "position": 112,
           "name": "Midjourney Free Tier",
           "url": "https://killedbyai.net/dead/midjourney-free-tier/"
         },
         {
           "@type": "ListItem",
-          "position": 105,
+          "position": 113,
           "name": "OpenAI Codex API",
           "url": "https://killedbyai.net/dead/openai-codex-api/"
         },
         {
           "@type": "ListItem",
-          "position": 106,
+          "position": 114,
           "name": "Replika (Romantic Mode)",
           "url": "https://killedbyai.net/dead/replika-romantic-mode/"
         },
         {
           "@type": "ListItem",
-          "position": 107,
+          "position": 115,
           "name": "Meta Galactica",
           "url": "https://killedbyai.net/dead/meta-galactica/"
         },
         {
           "@type": "ListItem",
-          "position": 108,
+          "position": 116,
           "name": "IBM Watson Marketing",
           "url": "https://killedbyai.net/dead/ibm-watson-marketing/"
         },
         {
           "@type": "ListItem",
-          "position": 109,
+          "position": 117,
           "name": "Facebook AI Chatbots (Bob & Alice)",
           "url": "https://killedbyai.net/dead/facebook-ai-chatbots-bob-alice/"
         },
         {
           "@type": "ListItem",
-          "position": 110,
+          "position": 118,
           "name": "Microsoft Tay",
           "url": "https://killedbyai.net/dead/microsoft-tay/"
         },
         {
           "@type": "ListItem",
-          "position": 111,
+          "position": 119,
           "name": "Microsoft Clippy",
           "url": "https://killedbyai.net/dead/microsoft-clippy/"
         }
@@ -3959,7 +4209,7 @@
       "name": "What is Killed by AI?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Killed by AI is an open-source tracker of discontinued AI products, models, startups, and hardware. It currently documents 111 casualties of the artificial intelligence industry, from deprecated API models to billion-dollar startup failures."
+        "text": "Killed by AI is an open-source tracker of discontinued AI products, models, startups, and hardware. It currently documents 119 casualties of the artificial intelligence industry, from deprecated API models to billion-dollar startup failures."
       }
     },
     {
@@ -3967,7 +4217,15 @@
       "name": "Why did OpenAI shut down Sora?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "OpenAI's text-to-video model and standalone app. The Sora web and app were shut down on April 26, 2026 (API following on September 24). Peaked at ~1M users before collapsing to under 500K while burning ~$1M/day. OpenAI is freeing up compute for its coding and enterprise products, and the $1B Disney deal collapsed."
+        "text": "OpenAI shut down the Sora app on April 26, 2026 \u2014 about $1M a day in compute against fewer than 500K users, and a collapsed $1B Disney deal. The API follows on September 24. Full timeline: Sora AI shutdown."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is ChatGPT dead?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No \u2014 ChatGPT itself is alive. But plenty of what shipped inside it is not: ChatGPT Plugins, the GPT Store, GPT-4o, the original GPT-4, the DALL\u00b7E GPT. Browse every OpenAI death on the OpenAI page."
       }
     },
     {
@@ -3975,7 +4233,7 @@
       "name": "Which company has killed the most AI products?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "OpenAI leads with 24 discontinued products, followed by Google with 19."
+        "text": "OpenAI leads with 26 discontinued products, followed by Google with 20."
       }
     },
     {
@@ -3991,7 +4249,7 @@
       "name": "What AI products were most recently discontinued?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The most recent casualties include: Cohere Command R & Command R+ on Amazon Bedrock, Google Imagen 4.0 (Gemini API), Groq Llama 3.1 8B Instant & Llama 3.3 70B Versatile, OpenAI Atlas, Claude Opus 4.1."
+        "text": "The most recent casualties include: Gemini Robotics-ER 1.6 Preview, Mistral Medium 3 & 3.1, Flowise, DALL\u00b7E GPT (in ChatGPT), OpenAI Assistants API."
       }
     },
     {
@@ -3999,7 +4257,7 @@
       "name": "How many AI products have been shut down?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We track 111 discontinued AI products across 42 deprecated models, 18 killed apps, 27 ended services, 19 failed startups, and 5 dead hardware products."
+        "text": "We track 119 discontinued AI products across 46 deprecated models, 19 killed apps, 29 ended services, 20 failed startups, and 5 dead hardware products."
       }
     },
     {

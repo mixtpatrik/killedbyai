@@ -5,8 +5,8 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-MC3PM7NKRX');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funding Burned — ${{TOTAL_B}}B in AI Startup Funding Gone | Killed by AI</title>
-    <meta name="description" content="${{TOTAL_B}} billion in venture capital burned across {{COUNT}} failed AI startups. From Inflection's $1.5B to Olive AI's $902M — the most expensive graveyard in tech.">
+    <title>Failed AI Startups: ${{TOTAL_B}}B in VC Funding Burned ({{COUNT}} Companies)</title>
+    <meta name="description" content="Failed AI startups and the venture capital that died with them: ${{TOTAL_B}} billion across {{COUNT}} companies, from Inflection's $1.5B to Olive AI's $902M. What each raised, and how it ended.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://killedbyai.net/funding/">
     <meta property="og:url" content="https://killedbyai.net/funding/">
@@ -20,13 +20,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
         :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#52525b;--fire:#f59e0b;--fire-dim:rgba(245,158,11,0.12)}
-        body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+        body{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
         .header{text-align:center;padding:2.5rem 1.5rem 1rem;max-width:700px;margin:0 auto}
         .header h1{font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:0.5rem}
         .header h1 span{color:var(--fire)}
@@ -86,8 +83,8 @@
     </nav>
 
     <header class="header">
-        <h1>Funding <span>Burned</span> 🔥</h1>
-        <p>The most expensive graveyard in tech. How much venture capital went up in smoke when these AI startups died.</p>
+        <h1>Failed AI Startups <span>&amp; the Funding They Burned</span></h1>
+        <p>The most expensive corner of the graveyard: ${{TOTAL_B}} billion of venture capital raised by {{COUNT}} AI startups that shut down, were acqui-hired into oblivion, or ran out of money. Each row shows the total raised, when it died, and a source — the AI startup failures that cost investors the most, largest first.</p>
     </header>
     <div class="hero-stat">
         <div class="hero-val">${{TOTAL_B}}B</div>
@@ -99,6 +96,7 @@
     </main>
     <footer class="site-footer">
         <p>Part of <a href="/">Killed by AI</a>. Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.</p>
+        <p class="footer-links" style="font-size:.8125rem;margin-top:.5rem;text-align:center">{{FOOTER_LINKS}}</p>
     </footer>
 </body>
 </html>
