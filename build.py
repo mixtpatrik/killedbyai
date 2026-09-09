@@ -102,10 +102,13 @@ def render_product(item, ordered, idx, tpl, total, killer_counts):
         title = f"Is {name} dead? Shut down {mon}"
     if len(title) > 65:
         title = f"{name} shut down {mon}"
+    seo = item.get("seo") or {}
+    title = seo.get("title") or title
     first = re.split(r"(?<=[.!?])\s", item["description"].strip())[0]
     meta = f"{name} was shut down on {fmt_date(item['dateClose'])} after {lifespan}. Killed by {item['killedBy']}. {first}"
     if len(meta) > 155:
         meta = meta[:152].rsplit(" ", 1)[0] + "…"
+    meta = seo.get("description") or meta
     verdict = "Dead" if item.get("causeOfDeath", "").lower().find("reversed") < 0 else "Dead, then revived"
     subtitle = f"{DEATH_LABEL.get(item.get('deathType'), 'Killed')} · {item['causeOfDeath']} · shut down {fmt_date(item['dateClose'])}"
     ks = killer_slug(item["killedBy"])

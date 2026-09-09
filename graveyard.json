@@ -98,7 +98,11 @@
     "collateral": "Users who spent months building a personal relationship with Pi lost all conversation history and emotional context when the team left.",
     "deathType": "acqui-hired",
     "fundingM": 1500,
-    "dateAdded": "2026-03-26"
+    "dateAdded": "2026-03-26",
+    "seo": {
+      "title": "What Happened to Inflection AI and Pi? (Acqui-hired 2024)",
+      "description": "What happened to Inflection AI: Microsoft hired its CEO and most of the team in March 2024, leaving the $1.5B-funded Pi chatbot orphaned. Timeline and aftermath."
+    }
   },
   {
     "name": "Humane AI Pin",
@@ -112,7 +116,11 @@
     "collateral": "All $699 devices were remotely bricked when cloud services shut down. No refunds offered.",
     "deathType": "hardware-failed",
     "fundingM": 230,
-    "dateAdded": "2026-03-26"
+    "dateAdded": "2026-03-26",
+    "seo": {
+      "title": "Humane AI Pin Discontinued: What Happened to the AI Pin",
+      "description": "The Humane AI Pin was discontinued and every $699 device remotely bricked on February 28, 2025, ten months after launch. The full story of the shutdown."
+    }
   },
   {
     "name": "Rabbit R1",
@@ -126,7 +134,11 @@
     "collateral": "Buyers stuck with a $199 paperweight. No meaningful resale value.",
     "deathType": "hardware-failed",
     "fundingM": 30,
-    "dateAdded": "2026-03-26"
+    "dateAdded": "2026-03-26",
+    "seo": {
+      "title": "Rabbit R1 Discontinued? What Happened to the R1 Device",
+      "description": "Is the Rabbit R1 dead? Launch date, the shutdown, what the $199 device actually did, and what happened to the company behind it."
+    }
   },
   {
     "name": "Google Duplex on the Web",
@@ -387,7 +399,11 @@
     "link": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
     "collateral": "Users mid-project lost access to all generated videos. Creators who built audiences on the platform lost their portfolios overnight.",
     "deathType": "product-killed",
-    "dateAdded": "2026-03-26"
+    "dateAdded": "2026-03-26",
+    "seo": {
+      "title": "Sora AI Shutdown: Why OpenAI Killed Sora (April 2026)",
+      "description": "The Sora AI shutdown explained: OpenAI killed the Sora app on April 26, 2026, with the API following on September 24. What happened, why, and what replaced it."
+    }
   },
   {
     "name": "Google Doppl",
@@ -570,7 +586,11 @@
     "killedBy": "OpenAI",
     "link": "https://platform.openai.com/docs/deprecations",
     "deathType": "model-upgrade",
-    "dateAdded": "2026-03-26"
+    "dateAdded": "2026-03-26",
+    "seo": {
+      "title": "GPT-4 Deprecation: When OpenAI Retired the Original GPT-4",
+      "description": "The original GPT-4 was retired from ChatGPT on April 30, 2025, and its API model IDs follow on October 23, 2026. Every GPT-4 deprecation date in one place."
+    }
   },
   {
     "name": "OpenAI GPT Store",
@@ -632,7 +652,11 @@
     "killedBy": "OpenAI",
     "link": "https://openai.com/index/retiring-gpt-4o-and-older-models/",
     "deathType": "model-upgrade",
-    "dateAdded": "2026-03-26"
+    "dateAdded": "2026-03-26",
+    "seo": {
+      "title": "GPT-4o Deprecated: When OpenAI Retired GPT-4o From ChatGPT",
+      "description": "GPT-4o was retired from ChatGPT on February 13, 2026, after a user backlash the first time OpenAI tried. Deprecation date, what replaced it, and what users lost."
+    }
   },
   {
     "name": "GPT-4.5 Preview",
@@ -692,7 +716,11 @@
     "killedBy": "Anthropic",
     "link": "https://www.anthropic.com/research/deprecation-updates-opus-3",
     "deathType": "model-upgrade",
-    "dateAdded": "2026-03-26"
+    "dateAdded": "2026-03-26",
+    "seo": {
+      "title": "Claude 3 Opus Deprecated: Retirement Date and Replacement",
+      "description": "Claude 3 Opus was retired from the Claude API on January 5, 2026. The deprecation timeline, the recommended replacement, and why Anthropic preserved the weights."
+    }
   },
   {
     "name": "Olive AI",
