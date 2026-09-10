@@ -148,9 +148,14 @@ def footer_links(active=None):
     return " · ".join(f'<a href="{h}">{t}</a>' for h, t in links)
 
 
+WEBSITE_REF = {"@type": "WebSite", "@id": SITE_URL + "#website", "name": "Killed by AI", "url": SITE_URL}
+ORG_REF = {"@type": "Organization", "@id": SITE_URL + "#org", "name": "Killed by AI", "url": SITE_URL}
+GRAVEYARD_DATASET_REF = {"@type": "Dataset", "@id": SITE_URL + "api/#graveyard", "name": "Killed by AI Graveyard", "url": SITE_URL}
+
+
 def webpage_node(url, name, desc, modified, extra=None):
     node = {"@type": "WebPage", "@id": url, "url": url, "name": name, "description": desc,
-            "isPartOf": {"@id": SITE_URL + "#website"}, "dateModified": modified}
+            "isPartOf": WEBSITE_REF, "dateModified": modified}
     if extra:
         node.update(extra)
     return node
@@ -472,7 +477,7 @@ def build_jsonld(items):
             {
                 "@type": "WebSite",
                 "@id": SITE_URL + "#website",
-                "publisher": {"@id": SITE_URL + "#org"},
+                "publisher": ORG_REF,
                 "url": SITE_URL,
                 "name": "Killed by AI",
                 "description": "A digital cemetery for discontinued AI models, apps, startups, and hardware.",
@@ -939,7 +944,7 @@ def build_funding_jsonld(funded, total_b):
         "@context": "https://schema.org",
         "@type": "Dataset",
         "@id": SITE_URL + "api/#funding",
-        "isBasedOn": {"@id": SITE_URL + "api/#graveyard"},
+        "isBasedOn": GRAVEYARD_DATASET_REF,
         "name": "VC Funding Burned by Failed AI Startups",
         "description": (
             f"${total_b} billion in venture capital raised by {len(funded)} AI startups that shut down, "
