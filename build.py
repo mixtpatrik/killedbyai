@@ -135,7 +135,10 @@ def lm(paths):
 
 
 PERSON_ID = SITE_URL + "about/#patrik-rojan"
-PERSON_REF = {"@id": PERSON_ID}
+# Full node, not a bare {"@id"} reference: Google's Dataset validator only resolves @id within the same page's
+# graph, so sub-pages that referenced the Person defined on /about/ were flagged "Invalid object type for creator".
+PERSON_REF = {"@type": "Person", "@id": PERSON_ID, "name": "Patrik Rojan", "url": SITE_URL + "about/",
+              "sameAs": ["https://www.linkedin.com/in/patrik-rojan/", "https://github.com/mixtpatrik"]}
 
 
 def footer_links(active=None):
