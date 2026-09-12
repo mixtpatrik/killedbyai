@@ -1034,6 +1034,26 @@
             .filter-pills { flex-wrap: wrap; overflow: visible; -webkit-mask-image: none; mask-image: none; padding-right: 0; }
             .insights-fold > summary { margin: .5rem .75rem 0; }
         }
+
+        /* ===== mobile fold pass (real iPhone viewport ≈ 390×664 with Safari chrome) ===== */
+        @media (max-width: 600px) {
+            .header { padding: 1.25rem .75rem .25rem; }
+            .header h1 { font-size: 1.875rem; margin-bottom: .375rem; }
+            .header p { font-size: .9375rem; line-height: 1.45; }
+            .counter { margin-top: .625rem; font-size: .8125rem; padding: .3rem .75rem; }
+            .last-updated { margin-top: .375rem; font-size: .75rem; }
+            .insights-fold > summary { margin-top: .5rem; }
+            .controls { display: grid; grid-template-columns: 1fr auto; gap: .5rem; margin: .625rem auto .25rem; padding: 0 .75rem; align-items: center; }
+            .search-box { grid-column: 1 / -1; width: 100%; }
+            .filter-pills { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .375rem; }
+            .filter-pill { min-height: 40px; padding: 0 .625rem; font-size: .8125rem; flex: 1 1 auto; justify-content: center; }
+            .sort-select { grid-column: 1; width: 100%; margin: 0; min-height: 40px; }
+            .toggle-wrap { grid-column: 2; margin: 0; flex-basis: auto; justify-content: flex-end; gap: .5rem; }
+            .toggle-label { white-space: nowrap; }
+            .submit-cta { display: none; }              /* lives in the footer and the empty state on phones */
+            .active-filters { margin-bottom: .25rem; }
+            .grid-title { margin: .625rem auto .375rem; font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -1048,7 +1068,7 @@
 
     <header class="header">
         <h1>Killed by <span>AI</span></h1>
-        <p>The AI graveyard: a digital cemetery for the models, apps, and startups that didn't survive the artificial intelligence gold rush — every dead AI tool and defunct AI product, sourced and dated, with a launch date, a death date, a killer and a link. Open data, CC BY 4.0.</p>
+        <p>The AI graveyard: every dead AI tool, model and startup that didn't survive the gold rush — sourced and dated, with a launch, a death, a killer and a link.</p>
         <div class="counter">
             <span class="skull">💀</span>
             <span id="total-count">123</span> products killed and counting
@@ -1057,7 +1077,7 @@
     </header>
 
     <details class="insights-fold" id="insights">
-        <summary>📊 Stats, deaths-per-year chart &amp; kill leaderboard</summary>
+        <summary>📊 Stats, chart &amp; leaderboard</summary>
     <div class="stats-ribbon">
         <div class="stat-card">
             <div class="stat-value">3y</div>
