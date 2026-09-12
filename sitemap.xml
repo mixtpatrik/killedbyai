@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://killedbyai.net/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-12</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/layoffs/</loc>
@@ -10,11 +10,11 @@
   </url>
   <url>
     <loc>https://killedbyai.net/coming-soon/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-12</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/funding/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-12</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/api/</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://killedbyai.net/about/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-10</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/jobs/</loc>
@@ -78,11 +78,11 @@
   </url>
   <url>
     <loc>https://killedbyai.net/dead/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-12</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-12</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/microsoft-clippy/</loc>
@@ -571,6 +571,10 @@
   <url>
     <loc>https://killedbyai.net/dead/flowise/</loc>
     <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/mai-code-1-flash-github-copilot/</loc>
+    <lastmod>2026-09-12</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/google/</loc>

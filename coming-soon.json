@@ -118,15 +118,6 @@
     "description": "The 21-year-old marketplace Jeff Bezos once called \"artificial artificial intelligence\" — the humans who labelled a generation of training data — closes on September 30, 2026. New customers were cut off July 30. Amazon cites \"an internal assessment of its programs and services\"; everyone else notes that the models MTurk workers trained now do MTurk's job."
   },
   {
-    "name": "MAI-Code-1-Flash (GitHub Copilot)",
-    "dateAnnounced": "2026-08-21",
-    "dateShutdown": "2026-09-10",
-    "killedBy": "GitHub / Microsoft",
-    "replacement": "MAI-Code-1.1-Flash",
-    "link": "https://docs.github.com/en/copilot/reference/ai-models/supported-models",
-    "description": "Announced August 21, gone from Copilot September 10 — twenty days' notice for a model that was itself the named replacement for Raptor mini. The only Copilot retirement on the calendar after September 8."
-  },
-  {
     "name": "MAI-Transcribe-1 (Microsoft Foundry)",
     "dateAnnounced": "2026-08-17",
     "dateShutdown": "2026-09-15",

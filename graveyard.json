@@ -1725,5 +1725,18 @@
       "title": "HereAfter AI shutting down: what happened (2026)",
       "description": "HereAfter AI, the app that let families talk to a recorded relative, posted a farewell notice in July 2026 and went dark in August. What it was, why it wound down, and how to recover recordings."
     }
+  },
+  {
+    "name": "MAI-Code-1-Flash (GitHub Copilot)",
+    "slug": "mai-code-1-flash-github-copilot",
+    "dateOpen": "2026-06-02",
+    "dateClose": "2026-09-10",
+    "dateAdded": "2026-09-12",
+    "type": "model",
+    "causeOfDeath": "Model Upgrade",
+    "killedBy": "GitHub / Microsoft",
+    "deathType": "model-upgrade",
+    "link": "https://github.blog/changelog/2026-08-11-upcoming-deprecation-of-mai-code-1-flash/",
+    "description": "Microsoft's first purpose-built small coding model for GitHub Copilot, announced June 2, 2026 as \"the first in a new wave\" of Copilot-tuned models. On August 11 GitHub shipped MAI-Code-1.1-Flash (with vision) and, in the same day's changelog, put 1.0 on notice; it was removed from every Copilot surface on September 10. One hundred days from launch to retirement — the first wave lasted about as long as a summer."
   }
 ]
