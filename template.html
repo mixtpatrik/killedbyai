@@ -1054,6 +1054,51 @@
             .active-filters { margin-bottom: .25rem; }
             .grid-title { margin: .625rem auto .375rem; font-size: 1rem; }
         }
+
+        /* ===== sticky bar ===== */
+        .sticky-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 60; transform: translateY(-110%); transition: transform .22s ease; background: rgba(9, 9, 11, .88); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+        .sticky-bar.visible { transform: none; }
+        .sticky-inner { max-width: 1200px; margin: 0 auto; padding: .375rem .75rem; display: flex; align-items: center; gap: .5rem; min-height: 52px; }
+        .sticky-search-wrap { flex: 1; display: flex; align-items: center; gap: .5rem; min-height: 40px; padding: 0 .75rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: .5rem; color: var(--text-dim); }
+        .sticky-search-wrap:focus-within { border-color: var(--red); }
+        .sticky-search-wrap svg { width: 16px; height: 16px; flex: none; }
+        .sticky-search-wrap input { flex: 1; min-width: 0; background: transparent; border: 0; outline: 0; color: var(--text); font: inherit; font-size: 16px; }
+        .sticky-search-wrap input::-webkit-search-cancel-button { -webkit-appearance: none; }
+        .sticky-count { font-size: .75rem; color: var(--text-muted); white-space: nowrap; font-family: 'SF Mono', 'Cascadia Code', monospace; }
+        .sticky-btn { min-height: 40px; padding: 0 .75rem; border-radius: .5rem; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-muted); font: inherit; font-size: .8125rem; font-weight: 600; cursor: pointer; white-space: nowrap; }
+        .sticky-btn:hover { color: var(--red); border-color: var(--red); }
+        .sticky-clear { color: var(--red); border-color: rgba(239, 68, 68, .35); background: var(--red-dim); }
+        /* ===== view toggle + list view ===== */
+        .grid-head { max-width: 1200px; margin: 1.25rem auto .5rem; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .grid-head .grid-title { margin: 0; padding: 0; }
+        .view-toggle { display: inline-flex; flex: none; border: 1px solid var(--border); border-radius: .5rem; overflow: hidden; background: var(--bg-card); }
+        .view-btn { display: inline-flex; align-items: center; gap: .375rem; min-height: 40px; padding: 0 .75rem; border: 0; background: transparent; color: var(--text-dim); font: inherit; font-size: .8125rem; font-weight: 600; cursor: pointer; }
+        .view-btn + .view-btn { border-left: 1px solid var(--border); }
+        .view-btn:hover { color: var(--text); }
+        .view-btn.active { color: var(--red); background: var(--red-dim); }
+        .grid.list-view { grid-template-columns: 1fr; gap: .375rem; }
+        .grid.list-view .card { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "name meta" "tags meta"; align-items: center; column-gap: .75rem; row-gap: .125rem; padding: .625rem .875rem; min-height: 56px; }
+        .grid.list-view .card:hover { transform: none; }
+        .grid.list-view .card-header, .grid.list-view .card-footer { display: contents; }
+        .grid.list-view .card-name { grid-area: name; font-size: 1rem; line-height: 1.3; margin: 0; }
+        .grid.list-view .card-name a { padding: 0; }
+        .grid.list-view .card-lifespan { grid-area: meta; align-self: center; justify-self: end; }
+        .grid.list-view .card-tags { grid-area: tags; margin: 0; gap: .375rem; }
+        .grid.list-view .tag:not(.tag-killer) { display: none; }
+        .grid.list-view .tag-killer { font-size: .6875rem; padding: .1rem .5rem; }
+        .grid.list-view .card-description, .grid.list-view .card-collateral, .grid.list-view .card-link, .grid.list-view .card-age { display: none; }
+        @media (max-width: 600px) {
+            .grid-head { padding: 0 .75rem; margin: .625rem auto .375rem; flex-wrap: wrap; gap: .5rem; }
+            .view-btn span { display: none; }
+            .view-btn { padding: 0 .625rem; min-width: 44px; justify-content: center; }
+            .sticky-count { display: none; }
+            .sticky-btn { padding: 0 .625rem; }
+            /* list rows on phones: name spans the row, killer + years share the second line */
+            .grid.list-view .card { grid-template-columns: 1fr auto; grid-template-areas: "name name" "tags meta"; padding: .5rem .75rem; min-height: 0; }
+            .grid.list-view .card-name { font-size: .9375rem; }
+            .grid.list-view .card-lifespan { font-size: .6875rem; padding: .1rem .4rem; }
+            .grid.list-view .badge-new { font-size: .5625rem; padding: .05rem .375rem; margin-left: .375rem; }
+        }
     </style>
 </head>
 <body>
@@ -1065,6 +1110,18 @@
         <a href="/coming-soon/" class="site-nav-item">⏳ Dying soon</a>
         <a href="/api/" class="site-nav-item">{ } API</a>
     </nav>
+
+    <div class="sticky-bar" id="sticky-bar" aria-hidden="true">
+        <div class="sticky-inner">
+            <label class="sticky-search-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+                <input type="search" id="sticky-search" placeholder="Search the graveyard…" autocomplete="off" aria-label="Search the graveyard">
+            </label>
+            <span class="sticky-count" id="sticky-count" aria-live="polite"></span>
+            <button type="button" class="sticky-btn sticky-clear" id="sticky-clear" hidden>Clear</button>
+            <button type="button" class="sticky-btn" id="sticky-filters" aria-label="Back to filters">Filters ↑</button>
+        </div>
+    </div>
 
     <header class="header">
         <h1>Killed by <span>AI</span></h1>
@@ -1180,7 +1237,17 @@
         <a class="submit-cta" href="https://github.com/mixtpatrik/killedbyai/issues/new?title=New+entry:+[Product+Name]&body=Name:%0ADate+launched:%0ADate+killed:%0ADescription:%0AKilled+by:%0ASource+link:" target="_blank" rel="noopener">+ Submit a death</a>
     </div>
     <div class="active-filters" id="active-filters" aria-live="polite"></div>
-    <h2 class="grid-title" id="graveyard">The AI graveyard: <span>{{COUNT}}</span> dead AI tools that shut down</h2>
+    <div class="grid-head">
+        <h2 class="grid-title" id="graveyard">The AI graveyard: <span>{{COUNT}}</span> dead AI tools that shut down</h2>
+        <div class="view-toggle" role="group" aria-label="View">
+            <button type="button" class="view-btn active" data-view="cards" aria-pressed="true" title="Card view">
+                <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><rect x="2" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="2" y="11" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="11" width="7" height="7" rx="1.5" fill="currentColor"/></svg><span>Cards</span>
+            </button>
+            <button type="button" class="view-btn" data-view="list" aria-pressed="false" title="List view">
+                <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><rect x="2" y="3" width="16" height="3" rx="1.5" fill="currentColor"/><rect x="2" y="8.5" width="16" height="3" rx="1.5" fill="currentColor"/><rect x="2" y="14" width="16" height="3" rx="1.5" fill="currentColor"/></svg><span>List</span>
+            </button>
+        </div>
+    </div>
 
     <main class="grid" id="grid">
 {{CARDS}}
@@ -1211,7 +1278,13 @@
               chipsEl = document.getElementById('active-filters'), backToTopBtn = document.getElementById('back-to-top'),
               hideUpgradesToggle = document.getElementById('hide-upgrades'), controlsEl = document.querySelector('.controls'), insights = document.getElementById('insights');
         let activeFilter = 'all', activeYear = null, activeKiller = null;
-        const PAGE = 24; let limit = PAGE; const showMore = document.getElementById('show-more');
+        const showMore = document.getElementById('show-more');
+        let view = 'cards';
+        try { view = localStorage.getItem('kbai-view') === 'list' ? 'list' : 'cards'; } catch (e) {}
+        const pageSize = () => view === 'list' ? 48 : 24;
+        let limit = pageSize();
+        const bar = document.getElementById('sticky-bar'), sSearch = document.getElementById('sticky-search'), sCount = document.getElementById('sticky-count'),
+              sClear = document.getElementById('sticky-clear'), sFilters = document.getElementById('sticky-filters');
         const cards = Array.from(grid.querySelectorAll('.card')), total = cards.length;
         const pillBase = {}; filtersEl.querySelectorAll('.filter-pill').forEach(p => { pillBase[p.dataset.filter] = p.textContent.replace(/\s*\(\d+\)\s*$/, ''); });
         const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1225,6 +1298,7 @@
             if (activeKiller) p.set('killer', activeKiller);
             if (sortSelect.value !== 'recent') p.set('sort', sortSelect.value);
             if (hideUpgradesToggle.checked) p.set('real', '1');
+            if (view === 'list') p.set('view', 'list');
             const qs = p.toString();
             history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
         }
@@ -1252,6 +1326,8 @@
             chips.forEach(c => chipsEl.appendChild(c));
             if (chips.length) { const all = chip('Clear all', clearAll, 'chip-clear'); all.setAttribute('aria-label', 'Clear all filters'); chipsEl.appendChild(all); }
             if (chips.length || visible !== total) { const n = document.createElement('span'); n.className = 'result-count'; n.id = 'result-count'; n.textContent = 'Showing ' + visible + ' of ' + total; chipsEl.appendChild(n); }
+            sCount.textContent = (chips.length || visible !== total) ? visible + ' of ' + total : total + ' tombstones';
+            sClear.hidden = !chips.length;
         }
         function apply() {
             let visible = 0; const counts = {};
@@ -1294,16 +1370,31 @@
             vis.forEach((c, i) => { grid.appendChild(c); c.classList.toggle('beyond', i >= limit); });
             const rest = Math.max(0, vis.length - limit);
             showMore.hidden = rest === 0;
-            showMore.textContent = 'Show ' + Math.min(PAGE, rest) + ' more tombstones (' + rest + ' remaining)';
+            showMore.textContent = 'Show ' + Math.min(pageSize(), rest) + ' more tombstones (' + rest + ' remaining)';
         }
-        showMore.addEventListener('click', () => { limit += PAGE; apply(); });
-        function resetPage() { limit = PAGE; }
+        showMore.addEventListener('click', () => { limit += pageSize(); apply(); });
+        function resetPage() { limit = pageSize(); }
+        function setView(v, silent) {
+            view = v === 'list' ? 'list' : 'cards';
+            grid.classList.toggle('list-view', view === 'list');
+            document.querySelectorAll('.view-btn').forEach(b => { const on = b.dataset.view === view; b.classList.toggle('active', on); b.setAttribute('aria-pressed', String(on)); });
+            try { localStorage.setItem('kbai-view', view); } catch (e) {}
+            if (!silent) { resetPage(); apply(); }
+        }
+        document.querySelectorAll('.view-btn').forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
+        // Sticky bar: appears only once the main controls have scrolled off the top
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(([e]) => { const past = !e.isIntersecting && e.boundingClientRect.bottom < 0; bar.classList.toggle('visible', past); bar.setAttribute('aria-hidden', String(!past)); }, { threshold: 0 }).observe(controlsEl);
+        }
+        sSearch.addEventListener('input', () => { searchInput.value = sSearch.value; resetPage(); apply(); });
+        sClear.addEventListener('click', () => clearAll());
+        sFilters.addEventListener('click', () => scrollToControls());
         function setFilter(f) { resetPage(); activeFilter = f; filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === f)); apply(); }
         function clearYear() { activeYear = null; timelineEl.querySelectorAll('.bar').forEach(b => b.classList.remove('active')); yearClearBtn.classList.remove('visible'); apply(); }
-        function clearAll() { searchInput.value = ''; activeKiller = null; hideUpgradesToggle.checked = false; activeFilter = 'all'; filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === 'all')); clearYear(); }
+        function clearAll() { searchInput.value = ''; sSearch.value = ''; activeKiller = null; hideUpgradesToggle.checked = false; activeFilter = 'all'; filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === 'all')); clearYear(); }
         const scrollToControls = () => controlsEl.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
 
-        searchInput.addEventListener('input', () => { resetPage(); apply(); });
+        searchInput.addEventListener('input', () => { sSearch.value = searchInput.value; resetPage(); apply(); });
         sortSelect.addEventListener('change', () => { resetPage(); apply(); });
         hideUpgradesToggle.addEventListener('change', () => { resetPage(); apply(); });
         grid.addEventListener('click', e => { const d = e.target.closest('.card-description'); if (d) d.closest('.card').classList.toggle('expanded'); });
@@ -1317,7 +1408,7 @@
         yearClearBtn.addEventListener('click', clearYear);
         document.querySelectorAll('.lb-row').forEach(row => row.addEventListener('click', e => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; e.preventDefault(); resetPage(); activeKiller = activeKiller === row.dataset.killer ? null : row.dataset.killer; apply(); scrollToControls(); }));
         document.addEventListener('keydown', e => {
-            if (e.key === '/' && document.activeElement !== searchInput) { e.preventDefault(); searchInput.focus(); }
+            if (e.key === '/' && document.activeElement !== searchInput && document.activeElement !== sSearch) { e.preventDefault(); (bar.classList.contains('visible') ? sSearch : searchInput).focus(); }
             if (e.key === 'Escape' && document.activeElement === searchInput) searchInput.blur();
         });
         window.addEventListener('scroll', () => backToTopBtn.classList.toggle('visible', window.scrollY > 600), { passive: true });
@@ -1336,13 +1427,16 @@
         if (params.get('killer')) activeKiller = params.get('killer').toLowerCase();
         if (params.get('sort') && [...sortSelect.options].some(o => o.value === params.get('sort'))) sortSelect.value = params.get('sort');
         if (params.get('real')) hideUpgradesToggle.checked = true;
+        if (params.get('view') === 'list' || params.get('view') === 'cards') view = params.get('view');
+        setView(view, true); limit = pageSize();
+        if (params.get('q')) sSearch.value = params.get('q');
         apply();
         // Deep links: cards ship pre-sorted newest-first so the default sort is a no-op; scroll once layout settles
         if (location.hash) {
             const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
             if (el && el.classList.contains('card')) {
                 const vis = cards.filter(c => !c.classList.contains('hidden')); const i = vis.indexOf(el);
-                if (i >= limit) { limit = Math.ceil((i + 1) / PAGE) * PAGE; apply(); }
+                if (i >= limit) { limit = Math.ceil((i + 1) / pageSize()) * pageSize(); apply(); }
             }
             if (el) requestAnimationFrame(() => el.scrollIntoView({ block: 'start' }));
         }
