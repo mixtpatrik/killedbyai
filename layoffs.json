@@ -385,5 +385,17 @@
     "roleTags": [
       "various"
     ]
+  },
+  {
+    "company": "Apple",
+    "jobs": 200,
+    "date": "2026-08-21",
+    "roleTags": [
+      "engineering",
+      "product"
+    ],
+    "roles": "Vision Pro gaming and immersive video (~100); Siri and Intelligent Systems Experience software (~100)",
+    "source": "https://techcrunch.com/2026/08/21/apple-is-reportedly-cutting-hundreds-of-jobs-from-siri-vision-pro-teams/",
+    "description": "Rare mass layoffs at Apple: roughly 100 roles cut from Vision Pro — largely closing the gaming team and shrinking immersive video — and about 100 from Siri and related software, as the company moves money toward AI and new hardware. The Siri cuts follow the decision to rebuild the assistant on a new AI architecture that needs different expertise than the team it replaced. Apple said it is realigning teams \"to evolve our business.\""
   }
 ]

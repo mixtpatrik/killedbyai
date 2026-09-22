@@ -118,22 +118,13 @@
     "description": "The 21-year-old marketplace Jeff Bezos once called \"artificial artificial intelligence\" — the humans who labelled a generation of training data — closes on September 30, 2026. New customers were cut off July 30. Amazon cites \"an internal assessment of its programs and services\"; everyone else notes that the models MTurk workers trained now do MTurk's job."
   },
   {
-    "name": "MAI-Transcribe-1 (Microsoft Foundry)",
-    "dateAnnounced": "2026-08-17",
-    "dateShutdown": "2026-09-15",
-    "killedBy": "Microsoft",
-    "replacement": "MAI-Transcribe-1.5",
-    "link": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
-    "description": "Version 2026-01-23, retired September 15, 2026 — less than eight months old. Microsoft's first-party speech model line is now on the same accelerated churn as its image models."
-  },
-  {
-    "name": "Amazon Nova Gen-1 (Premier, Sonic, Canvas, Reel)",
+    "name": "Amazon Nova Canvas & Nova Reel",
     "dateAnnounced": "2026-03-13",
-    "dateShutdown": "2026-09-14",
+    "dateShutdown": "2026-09-30",
     "killedBy": "Amazon",
-    "replacement": "Nova 2 Sonic / Nova 2 Lite; Luma Ray v2 for video",
+    "replacement": "Nova 2 Lite; Luma Ray v2 for video",
     "link": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html",
-    "description": "Amazon's first-generation Nova line is being cleared off Bedrock: Premier and Sonic on September 14, Canvas and Reel on September 30. Nova launched at re:Invent in December 2024 as Amazon's answer to frontier models; the second generation replaces it inside two years."
+    "description": "The image and video half of Amazon's first Nova generation clears off Bedrock on September 30, two weeks after Premier and Sonic went on September 14. Both entered Legacy in March 2026; AWS migrates nothing automatically."
   },
   {
     "name": "Gemini Omni Flash Preview",
@@ -180,5 +171,14 @@
     "replacement": "gpt-transcribe / gpt-live-transcribe",
     "link": "https://developers.openai.com/api/docs/deprecations#2026-08-26-transcription-models",
     "description": "On August 26 OpenAI deprecated whisper-1 — its original speech-to-text API from March 2023 — together with gpt-4o-transcribe, gpt-4o-mini-transcribe and gpt-4o-transcribe-diarize, the last of which shipped in October 2025. All four die February 26, 2027. The open-source Whisper weights are unaffected; the hosted endpoint that made them a product is not."
+  },
+  {
+    "name": "Reve AI Image Generation",
+    "dateAnnounced": "2026-09-17",
+    "dateShutdown": "2026-09-27",
+    "killedBy": "OpenAI",
+    "replacement": "None — team joined OpenAI",
+    "link": "https://www.digitaltoday.co.kr/en/view/105109/startup-reve-to-end-image-generation-service-after-openai-investment-sept-27",
+    "description": "Reve shuts off image generation at noon Pacific on September 27 — the price of an investment from OpenAI, which also took its AI research team to lead multimodal work. The API went dark on August 14; sign-ups stopped September 17. Users have until October 31 to export their libraries, and September's subscription fees are being refunded in full. The company survives; the product everyone used it for does not."
   }
 ]

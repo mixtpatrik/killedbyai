@@ -5,8 +5,48 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>MAI-Transcribe-1 (Microsoft Foundry) — Killed by Microsoft (2026-09-15)</title>
+      <link>https://killedbyai.net/dead/mai-transcribe-1-microsoft-foundry/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/mai-transcribe-1-microsoft-foundry/</guid>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
+      <description>Microsoft&#x27;s first-party speech model, version 2026-01-23, retired from Foundry on September 15 — less than eight months old, replaced by MAI-Transcribe-1.5. The same accelerated churn that took MAI-Image-2 at 176 days and MAI-Code-1-Flash at 100.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>theGist — Killed by Itself (2026-09-15)</title>
+      <link>https://killedbyai.net/dead/thegist/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/thegist/</guid>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
+      <description>An Israeli startup that scanned Slack, email, CRM and analytics to hand each employee a personalised summary of what mattered — founded in 2022 by alumni of Wix, Blizzard, OpenWeb and Gong, with $7M pre-seed co-led by StageOne and Aleph. A pivot toward sales tooling never caught, and rather than spend the remainder the founders closed the company and returned the money to investors. ⚠ Closure reported mid-September 2026; no exact date was published.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>Amazon Nova Premier &amp; Nova Sonic — Killed by Amazon (2026-09-14)</title>
+      <link>https://killedbyai.net/dead/amazon-nova-premier-nova-sonic/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/amazon-nova-premier-nova-sonic/</guid>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
+      <description>Amazon&#x27;s flagship Nova model and its speech sibling, launched at re:Invent 2024 as AWS&#x27;s answer to frontier models. Both entered Legacy status in March 2026 and reached end of life on September 14 — inside two years. AWS migrated nothing automatically; Legacy models also cut off any customer inactive for 15 days, so some accounts lost access before the deadline arrived.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Huxe — Killed by Google / Spotify (2026-05-22)</title>
+      <link>https://killedbyai.net/dead/huxe/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/huxe/</guid>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
+      <description>An AI audio app from three former NotebookLM developers — prompt it and get a podcast, a personalised feed, or a live AI radio station you could interrupt mid-sentence. It raised $4.6M from Conviction, Dylan Field and Google&#x27;s own Jeff Dean. Spotify shipped a near-identical personal podcast feature one day before the wind-down notice, and Google&#x27;s Gemini Daily Brief had landed at I/O weeks earlier. Built by ex-Googlers, buried by Google.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>Figgs AI — Killed by Inference Bills (2024-12-30)</title>
+      <link>https://killedbyai.net/dead/figgs-ai/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/figgs-ai/</guid>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
+      <description>A character-chat platform for role-play and storytelling that reached more than a million users on a free tier, with no funding and no revenue at any point. Character chat is among the most expensive things to serve per user, and the developers shut it down at the end of 2024 rather than charge for it. Demand was never the problem; the bill was.</description>
+      <category>app</category>
+    </item>
     <item>
       <title>MAI-Code-1-Flash (GitHub Copilot) — Killed by GitHub / Microsoft (2026-09-10)</title>
       <link>https://killedbyai.net/dead/mai-code-1-flash-github-copilot/</link>
@@ -206,46 +246,6 @@
       <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
       <description>Groq deleted qwen/qwen3-32b and meta-llama/llama-4-scout-17b-16e-instruct on July 17, 2026 — the first half of a two-stage cull that takes Llama 3.1 8B Instant and Llama 3.3 70B Versatile in August. The best-documented failure mode: a retired Groq model fails quietly, so downstream apps didn&#x27;t break, they just started sounding generic.</description>
       <category>model</category>
-    </item>
-    <item>
-      <title>Relay.app — Killed by Google (2026-07-16)</title>
-      <link>https://killedbyai.net/dead/relay-app/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/relay-app/</guid>
-      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
-      <description>AI-agent workflow automation pitched as a Zapier alternative, founded by Jacob Bank — ex-Google Gmail and Calendar product lead whose previous startup Timeful was bought by Google. On July 16, 2026 the homepage was simply replaced with &#x27;Relay.app is shutting down,&#x27; with no reason given. A month later the answer arrived: Bank and part of the team joined Google&#x27;s Chrome division. The free tier stopped working August 15; paid accounts were given until September 14.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>Meta Llama API — Killed by Meta (2026-07-06)</title>
-      <link>https://killedbyai.net/dead/meta-llama-api/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/meta-llama-api/</guid>
-      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
-      <description>Meta&#x27;s own hosted home for Llama inference, unveiled at the first-ever LlamaCon in April 2025. Fourteen months later Meta retired the public preview and told developers to go rent Llama from AWS Bedrock, Together AI or Groq instead. Its replacement hosted service serves closed-weight models — cloud-only, no downloadable weights. The company that built its reputation on open models kept the API business and dropped the open part.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>TV Time — Killed by Its Own Parent Company (2026-07-15)</title>
-      <link>https://killedbyai.net/dead/tv-time/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/tv-time/</guid>
-      <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
-      <description>The beloved TV-tracking app used by millions to log episodes and get recommendations for 15 years. Shut down so its parent company could refocus on AI products — one of the clearest cases of a healthy, loved product dying not from AI competition, but from its owner chasing the AI gold rush.</description>
-      <category>app</category>
-    </item>
-    <item>
-      <title>Doubao &amp; Qwen AI Agent Builders — Killed by Chinese Government (2026-07-15)</title>
-      <link>https://killedbyai.net/dead/doubao-qwen-ai-agent-builders/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/doubao-qwen-ai-agent-builders/</guid>
-      <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
-      <description>ByteDance&#x27;s Doubao and Alibaba&#x27;s Qwen both killed their AI-agent creation features on the same day — July 15, 2026 — as China&#x27;s Interim Measures for Anthropomorphic AI Interaction Services took effect. Every user-created agent stopped functioning, not just new creation. Two of China&#x27;s biggest AI platforms amputated a flagship feature simultaneously under regulatory pressure.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Google Whisk — Killed by Google (2026-04-30)</title>
-      <link>https://killedbyai.net/dead/google-whisk/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/google-whisk/</guid>
-      <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
-      <description>Google Labs&#x27; viral image-remixing tool that let users blend a Subject, Scene, and Style image instead of writing prompts. Its Sticker and Plushie styles briefly took over social media. Killed after 17 months when Google folded it into Flow — continuing its pattern of absorbing experimental AI products into fewer surfaces.</description>
-      <category>app</category>
     </item>
   </channel>
 </rss>
