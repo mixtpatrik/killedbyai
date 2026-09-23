@@ -422,7 +422,7 @@
     "name": "OpenAI Sora",
     "dateOpen": "2024-12-09",
     "dateClose": "2026-04-26",
-    "description": "OpenAI's text-to-video model and standalone app. The Sora web and app were shut down on April 26, 2026 (API following on September 24). Peaked at ~1M users before collapsing to under 500K while burning ~$1M/day. OpenAI is freeing up compute for its coding and enterprise products, and the $1B Disney deal collapsed.",
+    "description": "OpenAI's text-to-video model and standalone app. The Sora web and app were shut down on April 26, 2026, and the API followed on September 24. Peaked at ~1M users before collapsing to under 500K while burning ~$1M/day. OpenAI freed the compute for its coding and enterprise products, and the $1B Disney deal collapsed.",
     "type": "app",
     "causeOfDeath": "Unsustainable Costs",
     "killedBy": "OpenAI",
@@ -463,11 +463,11 @@
     "faq": [
       {
         "q": "Is Sora shut down?",
-        "a": "Yes. The Sora app and website were shut down on April 26, 2026. The Sora API keeps working until September 24, 2026, after which OpenAI has no video-generation product."
+        "a": "Yes. The Sora app and website were shut down on April 26, 2026, and the Sora API was switched off on September 24, 2026. OpenAI no longer offers video generation; the last place Sora 2 runs is Microsoft's Azure OpenAI service, until October 15."
       },
       {
-        "q": "When does the Sora API shut down?",
-        "a": "September 24, 2026, six months after the March 24 discontinuation notice."
+        "q": "When did the Sora API shut down?",
+        "a": "September 24, 2026, six months after the March 24 discontinuation notice. Sora 2 on Azure OpenAI follows on October 15."
       },
       {
         "q": "Why did OpenAI shut down Sora?",
