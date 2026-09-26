@@ -141,12 +141,12 @@ DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:🪦 Sora 2 on Azure OpenAI / Foundry shuts down
-DESCRIPTION:Sora outlives its maker's own shutdown by three weeks: Micros
- oft pushed the Azure retirement from September 15 to October 15\, with n
- o replacement. OpenAI's own Sora API dies September 24. The last place t
- o generate a Sora video will be a Microsoft data centre. Replacement: No
- ne listed. Source: https://learn.microsoft.com/en-us/azure/foundry/opena
- i/concepts/model-retirement-schedule
+DESCRIPTION:Sora outlives its maker's own shutdown by three weeks: OpenAI
+  switched its Sora API off on September 24\, but Microsoft pushed the Az
+ ure retirement from September 15 to October 15\, with no replacement. Un
+ til then\, the last place to generate a Sora video is a Microsoft data c
+ entre. Replacement: None listed. Source: https://learn.microsoft.com/en-
+ us/azure/foundry/openai/concepts/model-retirement-schedule
 URL:https://killedbyai.net/coming-soon/#sora-2-on-azure-openai-foundry
 CATEGORIES:AI shutdown
 END:VEVENT

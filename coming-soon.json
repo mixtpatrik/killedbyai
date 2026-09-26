@@ -133,7 +133,7 @@
     "replacement": "None listed",
     "link": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "graveyardSlug": "openai-sora",
-    "description": "Sora outlives its maker's own shutdown by three weeks: Microsoft pushed the Azure retirement from September 15 to October 15, with no replacement. OpenAI's own Sora API dies September 24. The last place to generate a Sora video will be a Microsoft data centre."
+    "description": "Sora outlives its maker's own shutdown by three weeks: OpenAI switched its Sora API off on September 24, but Microsoft pushed the Azure retirement from September 15 to October 15, with no replacement. Until then, the last place to generate a Sora video is a Microsoft data centre."
   },
   {
     "name": "Vertex AI Open-Model MaaS (13 models)",
