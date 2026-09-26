@@ -9,16 +9,6 @@
     "link": "https://developers.openai.com/api/docs/deprecations"
   },
   {
-    "name": "Sora API",
-    "dateAnnounced": "2026-03-24",
-    "dateShutdown": "2026-09-24",
-    "description": "While the Sora app died in April, the API endpoint survives until September. Then it's gone completely.",
-    "replacement": "None (ChatGPT image gen only)",
-    "killedBy": "OpenAI",
-    "link": "https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation",
-    "graveyardSlug": "openai-sora"
-  },
-  {
     "name": "Gemini 2.5 Pro / Flash / Flash Lite (Vertex AI)",
     "dateAnnounced": "2026-04-01",
     "dateShutdown": "2026-10-16",

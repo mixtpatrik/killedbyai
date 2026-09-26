@@ -397,5 +397,17 @@
     "roles": "Vision Pro gaming and immersive video (~100); Siri and Intelligent Systems Experience software (~100)",
     "source": "https://techcrunch.com/2026/08/21/apple-is-reportedly-cutting-hundreds-of-jobs-from-siri-vision-pro-teams/",
     "description": "Rare mass layoffs at Apple: roughly 100 roles cut from Vision Pro — largely closing the gaming team and shrinking immersive video — and about 100 from Siri and related software, as the company moves money toward AI and new hardware. The Siri cuts follow the decision to rebuild the assistant on a new AI architecture that needs different expertise than the team it replaced. Apple said it is realigning teams \"to evolve our business.\""
+  },
+  {
+    "company": "Pinterest",
+    "jobs": 700,
+    "date": "2026-01-27",
+    "roleTags": [
+      "sales",
+      "various"
+    ],
+    "roles": "Company-wide, with sales and go-to-market restructured; headcount reallocated to AI-focused roles",
+    "source": "https://techcrunch.com/2026/01/27/pinterest-to-lay-off-15-of-staff-to-redirect-resources-to-ai/",
+    "description": "Cut about 15% of its ~4,700 staff to \"double down on an AI-forward approach,\" in CEO Bill Ready's words, reallocating money to AI-focused teams and AI-powered products at a cost of $35–45M in charges. The stock fell on the news. A week later Pinterest fired two engineers who had built an internal tool to track which colleagues had been laid off."
   }
 ]

@@ -8,21 +8,8 @@ X-WR-CALDESC:Confirmed shutdown and deprecation dates for AI products and
   models. Source: killedbyai.net/coming-soon/
 REFRESH-INTERVAL;VALUE=DURATION:P1D
 BEGIN:VEVENT
-UID:sora-api@killedbyai.net
-DTSTAMP:20260922T000000Z
-DTSTART;VALUE=DATE:20260924
-DTEND;VALUE=DATE:20260925
-SUMMARY:🪦 Sora API shuts down
-DESCRIPTION:While the Sora app died in April\, the API endpoint survives 
- until September. Then it's gone completely. Replacement: None (ChatGPT i
- mage gen only). Source: https://help.openai.com/en/articles/20001152-wha
- t-to-know-about-the-sora-discontinuation
-URL:https://killedbyai.net/coming-soon/#sora-api
-CATEGORIES:AI shutdown
-END:VEVENT
-BEGIN:VEVENT
 UID:reve-ai-image-generation@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20260927
 DTEND;VALUE=DATE:20260928
 SUMMARY:🪦 Reve AI Image Generation shuts down
@@ -40,7 +27,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20260928
 DTEND;VALUE=DATE:20260929
 SUMMARY:🪦 OpenAI davinci-002\, babbage-002 & gpt-3.5-turbo-instruct sh
@@ -57,7 +44,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:mistral-leanstral-1-5@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 SUMMARY:🪦 Mistral Leanstral 1.5 shuts down
@@ -71,7 +58,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:amazon-mechanical-turk@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 SUMMARY:🪦 Amazon Mechanical Turk shuts down
@@ -88,7 +75,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:amazon-nova-canvas-nova-reel@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 SUMMARY:🪦 Amazon Nova Canvas & Nova Reel shuts down
@@ -103,7 +90,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:gemini-omni-flash-preview@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20260930
 DTEND;VALUE=DATE:20261001
 SUMMARY:🪦 Gemini Omni Flash Preview shuts down
@@ -117,7 +104,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:google-gemini-2-5-flash-image-nano-banana@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20261002
 DTEND;VALUE=DATE:20261003
 SUMMARY:🪦 Google Gemini 2.5 Flash Image ("Nano Banana") shuts down
@@ -134,7 +121,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:azure-openai-gpt-4-1-4-1-mini-4-1-nano@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
 SUMMARY:🪦 Azure OpenAI GPT-4.1\, 4.1 mini & 4.1 nano shuts down
@@ -150,7 +137,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:sora-2-on-azure-openai-foundry@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
 SUMMARY:🪦 Sora 2 on Azure OpenAI / Foundry shuts down
@@ -165,7 +152,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:gemini-2-5-pro-flash-flash-lite-vertex-ai@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
 SUMMARY:🪦 Gemini 2.5 Pro / Flash / Flash Lite (Vertex AI) shuts down
@@ -180,7 +167,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:azure-openai-o-series-o1-o3-o4-mini-o3-pro@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20261021
 DTEND;VALUE=DATE:20261022
 SUMMARY:🪦 Azure OpenAI o-series (o1\, o3\, o4-mini\, o3-pro) shuts dow
@@ -199,7 +186,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:vertex-ai-open-model-maas-13-models@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20261021
 DTEND;VALUE=DATE:20261022
 SUMMARY:🪦 Vertex AI Open-Model MaaS (13 models) shuts down
@@ -216,7 +203,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-fine-tuning-new-orgs@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
 SUMMARY:🪦 OpenAI Fine-tuning (new orgs) shuts down
@@ -231,7 +218,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-gpt-4-gpt-4-turbo-gpt-3-5-turbo-the-o-series@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
 SUMMARY:🪦 OpenAI GPT-4\, GPT-4 Turbo\, GPT-3.5 Turbo & the o-series sh
@@ -250,7 +237,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:vertex-ai-extensions@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20261126
 DTEND;VALUE=DATE:20261127
 SUMMARY:🪦 Vertex AI Extensions shuts down
@@ -264,7 +251,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-legacy-gpt-image-models@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:🪦 OpenAI Legacy GPT Image Models shuts down
@@ -278,7 +265,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-gpt-5-original-snapshots-o3-o3-pro@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:🪦 OpenAI GPT-5 (original snapshots)\, o3 & o3-pro shuts down
@@ -294,7 +281,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-realtime-audio-model-family@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:🪦 OpenAI Realtime & Audio Model Family shuts down
@@ -312,7 +299,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-whisper-1-gpt-4o-transcribe@killedbyai.net
-DTSTAMP:20260922T000000Z
+DTSTAMP:20260926T000000Z
 DTSTART;VALUE=DATE:20270226
 DTEND;VALUE=DATE:20270227
 SUMMARY:🪦 OpenAI Whisper-1 & GPT-4o Transcribe shuts down
