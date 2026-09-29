@@ -598,10 +598,10 @@ def render_job_risk(ldata):
     def table(items, start=1):
         return ('<table class="rank-table"><thead><tr><th>#</th><th>Occupation</th><th>AI applicability</th><th></th></tr></thead><tbody>'
                 + "".join(f'<tr><td>{start + k}</td><td>{esc(t)}</td><td><span class="mini"><span style="--w:{s / top[0][2] * 100:.0f}%"></span></span>{s:.2f}</td>'
-                          f'<td><a href="?job={soc}#test" data-job="{soc}">Test →</a></td></tr>' for k, (soc, t, s) in enumerate(items))
+                          f'<td><a href="#test" data-job="{soc}" rel="nofollow">Test →</a></td></tr>' for k, (soc, t, s) in enumerate(items))
                 + "</tbody></table>")
 
-    all_rows = "".join(f'<tr><td>{k + 1}</td><td>{esc(t)}</td><td>{s:.2f}</td><td><a href="?job={soc}#test" data-job="{soc}">Test →</a></td></tr>' for k, (soc, t, s) in enumerate(top))
+    all_rows = "".join(f'<tr><td>{k + 1}</td><td>{esc(t)}</td><td>{s:.2f}</td><td><a href="#test" data-job="{soc}" rel="nofollow">Test →</a></td></tr>' for k, (soc, t, s) in enumerate(top))
     total_jobs = sum(l["jobs"] for l in ldata)
     url = SITE_URL + "will-ai-take-my-job/"
     faq = [
