@@ -150,7 +150,6 @@ def footer_links(active=None):
 
 WEBSITE_REF = {"@type": "WebSite", "@id": SITE_URL + "#website", "name": "Killed by AI", "url": SITE_URL}
 ORG_REF = {"@type": "Organization", "@id": SITE_URL + "#org", "name": "Killed by AI", "url": SITE_URL}
-GRAVEYARD_DATASET_REF = {"@type": "Dataset", "@id": SITE_URL + "api/#graveyard", "name": "Killed by AI Graveyard", "url": SITE_URL}
 
 
 def webpage_node(url, name, desc, modified, extra=None):
@@ -1079,7 +1078,7 @@ def build_funding_jsonld(funded, total_b):
         "@context": "https://schema.org",
         "@type": "Dataset",
         "@id": SITE_URL + "api/#funding",
-        "isBasedOn": GRAVEYARD_DATASET_REF,
+        "isBasedOn": SITE_URL + "api/",  # plain URL: a typed Dataset stub here is validated by Google as a second, incomplete Dataset
         "name": "Funding Burned by Failed AI Companies",
         "description": (
             f"${total_b} billion raised (venture, corporate and strategic funding) by {len(funded)} AI startups that shut down, "
