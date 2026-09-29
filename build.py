@@ -142,8 +142,8 @@ PERSON_REF = {"@type": "Person", "@id": PERSON_ID, "name": "Patrik Rojan", "url"
 
 
 def footer_links(active=None):
-    links = [("/", "The AI graveyard"), ("/dead/", "All 111 tombstones A–Z"), ("/killed-by/", "By killer"),
-             ("/layoffs/", "AI layoffs tracker"), ("/jobs/", "Jobs replaced by AI"), ("/coming-soon/", "Upcoming AI shutdowns"), ("/deprecations.ics", "Shutdown calendar (.ics)"),
+    links = [("/", "The AI graveyard"), ("/dead/", f"All {len(json.loads((ROOT / 'graveyard.json').read_text()))} tombstones A–Z"), ("/killed-by/", "By killer"),
+             ("/layoffs/", "AI layoffs tracker"), ("/will-ai-take-my-job/", "Will AI take my job?"), ("/jobs/", "Jobs replaced by AI"), ("/coming-soon/", "Upcoming AI shutdowns"), ("/deprecations.ics", "Shutdown calendar (.ics)"),
              ("/funding/", "Failed AI startups"), ("/api/", "JSON API"), ("/about/", "About & methodology"), ("/feed.xml", "RSS")]
     return " · ".join(f'<a href="{h}">{t}</a>' for h, t in links)
 
@@ -441,6 +441,201 @@ def fmt_k(n):
     if n >= 1000:
         return f"{n / 1000:.1f}k".replace(".0k", "k")
     return str(n)
+
+
+# ---------- /will-ai-take-my-job/ — the AI job risk test ----------
+# Search aliases for the SOC titles people actually type ("programmer", "nurse").
+JOB_ALIASES = {
+    "15-1252": "software engineer developer programmer coder backend frontend full stack",
+    "15-1253": "qa tester quality assurance test engineer",
+    "15-1251": "programmer coder",
+    "15-1254": "web developer frontend",
+    "15-1255": "ux ui designer product designer web designer",
+    "29-1141": "nurse rn",
+    "25-2021": "teacher primary school",
+    "25-2031": "teacher high school",
+    "23-1011": "lawyer attorney solicitor",
+    "13-2011": "accountant auditor cpa",
+    "27-1024": "graphic designer designer",
+    "53-3032": "truck driver trucker lorry driver",
+    "53-3054": "taxi driver uber lyft rideshare driver",
+    "41-2011": "cashier checkout",
+    "41-2031": "retail sales shop assistant store associate",
+    "35-2014": "cook chef",
+    "47-2111": "electrician",
+    "47-2152": "plumber",
+    "29-1215": "doctor physician gp family doctor",
+    "29-1051": "pharmacist",
+    "13-1071": "hr recruiter human resources talent acquisition",
+    "13-1161": "marketing specialist marketer seo digital marketing growth market research",
+    "11-2021": "marketing manager head of marketing cmo",
+    "15-2051": "data scientist machine learning ml engineer ai engineer",
+    "15-2041": "statistician data analyst",
+    "15-1211": "business analyst systems analyst it analyst",
+    "15-1212": "cybersecurity security analyst infosec",
+    "15-1232": "it support help desk tech support",
+    "15-1244": "sysadmin system administrator devops network admin",
+    "43-6014": "secretary admin assistant administrative assistant office assistant",
+    "43-6011": "executive assistant ea pa personal assistant",
+    "43-4171": "receptionist front desk",
+    "43-9021": "data entry typist",
+    "43-3031": "bookkeeper accounting clerk",
+    "23-2011": "paralegal legal assistant",
+    "27-3023": "journalist reporter news",
+    "27-3043": "writer author copywriter content writer blogger",
+    "27-3042": "technical writer documentation",
+    "27-3091": "translator interpreter localization",
+    "27-3041": "editor copy editor",
+    "27-3031": "pr public relations communications comms",
+    "13-2052": "financial advisor wealth manager planner",
+    "13-2051": "financial analyst investment analyst equity research",
+    "41-9022": "real estate agent realtor estate agent",
+    "11-1021": "manager general manager operations manager coo",
+    "11-3021": "it manager cto engineering manager head of engineering",
+    "11-2022": "sales manager head of sales",
+    "41-4012": "sales rep account executive salesperson b2b sales",
+    "41-3091": "sales representative saas sales account executive",
+    "13-1082": "project manager scrum master program manager product manager",
+    "27-1014": "animator vfx 3d artist motion designer",
+    "27-4021": "photographer",
+    "29-1123": "physiotherapist physical therapist",
+    "31-1131": "nursing assistant care assistant caregiver cna",
+    "33-3051": "police officer cop",
+    "33-2011": "firefighter",
+    "35-3031": "waiter waitress server",
+    "37-2011": "janitor cleaner",
+    "49-3023": "mechanic car mechanic auto technician",
+    "53-7062": "warehouse worker laborer mover",
+    "13-1111": "consultant management consultant strategy",
+    "17-2051": "civil engineer",
+    "17-2141": "mechanical engineer",
+    "17-1011": "architect",
+    "13-2072": "loan officer mortgage",
+    "13-2053": "underwriter insurance",
+    "25-9045": "teaching assistant ta",
+    "39-9011": "nanny childcare babysitter",
+    "39-5012": "hairdresser barber stylist",
+    "43-4051": "customer service support agent call center customer support customer success",
+    "41-9041": "telemarketer cold caller sdr bdr",
+    "11-1011": "ceo founder chief executive",
+    "13-1041": "compliance officer",
+    "13-2041": "credit analyst risk analyst fraud analyst",
+    "11-3121": "hr manager people manager head of people",
+    "43-3051": "payroll",
+    "11-9111": "healthcare manager hospital administrator",
+    "29-1292": "dental hygienist",
+    "27-2012": "producer director film",
+    "27-1011": "art director creative director",
+    "21-1018": "therapist counselor mental health",
+    "19-3033": "psychologist",
+    "25-1011": "professor lecturer university teacher",
+    "13-1151": "trainer learning and development l&d",
+    "15-1242": "dba database administrator",
+    "13-1081": "logistics supply chain",
+    "27-3011": "radio dj broadcaster presenter",
+}
+POPULAR_JOBS = [["15-1252", "Software developer"], ["43-4051", "Customer service"], ["13-1161", "Marketing"], ["13-2011", "Accountant"], ["27-1024", "Graphic designer"],
+                ["29-1141", "Nurse"], ["25-2031", "Teacher"], ["27-3043", "Writer"], ["13-1071", "HR / recruiter"], ["53-3032", "Truck driver"]]
+
+
+def soc_role(soc):
+    """Map a SOC code onto the role tags used in layoffs.json (roles.json)."""
+    exact = {
+        "43-4051": "customer-support", "41-9041": "sales", "27-3091": "translation", "13-1041": "compliance",
+        "27-3041": "content", "27-3042": "content", "27-3043": "content", "27-3023": "content", "27-3031": "marketing", "43-9081": "content",
+        "11-2011": "marketing", "11-2021": "marketing", "11-2032": "marketing", "11-2033": "marketing", "13-1161": "marketing", "41-3011": "ad-operations",
+        "13-2011": "finance", "43-3031": "finance", "43-3051": "finance", "13-2051": "finance", "11-3031": "finance",
+        "13-1071": "hr", "11-3121": "hr", "13-1141": "hr", "43-4161": "hr", "13-1151": "hr",
+        "13-2041": "risk-fraud", "13-2061": "risk-fraud", "13-2053": "risk-fraud", "13-1031": "risk-fraud",
+        "13-1111": "professional-services", "13-1081": "operations", "11-3013": "operations", "11-3071": "operations", "11-1021": "middle-management",
+        "13-1082": "product", "15-1255": "product",
+    }
+    if soc in exact:
+        return exact[soc]
+    if soc.startswith(("15-125",)):
+        return "engineering"
+    if soc.startswith("15-12"):
+        return "it"
+    if soc.startswith("23-"):
+        return "legal"
+    if soc.startswith("41-") and not soc.startswith(("41-2",)):
+        return "sales"
+    if soc.startswith("43-5"):
+        return "operations"
+    if soc.startswith("43-"):
+        return "admin"
+    if soc.startswith("11-"):
+        return "middle-management"
+    return ""
+
+
+def render_job_risk(ldata):
+    import csv
+    roles_map = json.loads((ROOT / "roles.json").read_text())
+    rows = list(csv.DictReader((ROOT / "data" / "microsoft-ai-applicability-scores.csv").open()))
+    rows = [(r["SOC Code"], r["title"], float(r["ai_applicability_score"])) for r in rows]
+    n = len(rows)
+    ranked = sorted(rows, key=lambda r: r[2])
+    pct = {}
+    for k, r in enumerate(ranked):  # share of occupations with a strictly lower score
+        pct[r[0]] = round(100 * sum(1 for x in ranked if x[2] < r[2]) / (n - 1))
+    by_role = {}
+    for l in ldata:
+        for r in l.get("roleTags", []):
+            if r != "various":
+                by_role.setdefault(r, []).append(l)
+    role_info = {r: {"label": roles_map.get(r, r), "jobs": sum(x["jobs"] for x in ls), "n": len(ls), "page": len(ls) >= 2,
+                     "top": [[x["company"], x["jobs"], fmt_month(x["date"])] for x in sorted(ls, key=lambda x: -x["jobs"])[:4]]}
+                 for r, ls in by_role.items()}
+    occ = [[soc, title, round(score, 3), pct[soc], soc_role(soc) if soc_role(soc) in role_info else "", JOB_ALIASES.get(soc, "")]
+           for soc, title, score in sorted(rows, key=lambda r: r[1])]
+    missing = [s for s in list(JOB_ALIASES) + [j for j, _ in POPULAR_JOBS] if s not in pct]
+    if missing:
+        print(f"⚠️  job risk: aliases for unknown SOC codes {missing}")
+    top = sorted(rows, key=lambda r: -r[2])
+    bottom = sorted(rows, key=lambda r: r[2])
+
+    def table(items, start=1):
+        return ('<table class="rank-table"><thead><tr><th>#</th><th>Occupation</th><th>AI applicability</th><th></th></tr></thead><tbody>'
+                + "".join(f'<tr><td>{start + k}</td><td>{esc(t)}</td><td><span class="mini"><span style="--w:{s / top[0][2] * 100:.0f}%"></span></span>{s:.2f}</td>'
+                          f'<td><a href="?job={soc}#test" data-job="{soc}">Test →</a></td></tr>' for k, (soc, t, s) in enumerate(items))
+                + "</tbody></table>")
+
+    all_rows = "".join(f'<tr><td>{k + 1}</td><td>{esc(t)}</td><td>{s:.2f}</td><td><a href="?job={soc}#test" data-job="{soc}">Test →</a></td></tr>' for k, (soc, t, s) in enumerate(top))
+    total_jobs = sum(l["jobs"] for l in ldata)
+    url = SITE_URL + "will-ai-take-my-job/"
+    faq = [
+        ("Will AI take my job?", f"Probably not all of it, and not all at once — but some jobs are far more exposed than others. Microsoft's analysis of 200,000 real Copilot conversations found the highest AI overlap in interpreters and translators, writers, customer service representatives and sales roles, and almost none in hands-on work such as dredge operators, roofers or nursing assistants. Meanwhile {len(ldata)} companies have already cut {total_jobs:,} jobs while explicitly blaming AI. The test on this page combines both with how you actually work."),
+        ("Which jobs are most at risk from AI?", "By Microsoft's AI applicability score, the most exposed occupations are " + ", ".join(t for _, t, _ in top[:6]) + ". Among real layoffs where employers named AI as the reason, customer support is hit hardest by far, followed by operations, software engineering and sales."),
+        ("Which jobs are safest from AI?", "Jobs built on physical, on-site work in unpredictable environments score lowest: " + ", ".join(t for _, t, _ in bottom[:6]) + ". Work that needs a licence, legal accountability or in-person trust is also slower to automate."),
+        ("Are young workers more at risk?", "So far, yes. Stanford's Digital Economy Lab found that by mid-2026 employment for 22–25-year-olds in the most AI-exposed occupations was about 19% below where it would have been had it kept pace with less-exposed jobs — mostly through fewer hires rather than firings. Experienced workers show no comparable gap."),
+        ("How accurate is this AI job risk score?", "It is an informed estimate, not a prediction. The occupation part is Microsoft's measured overlap between AI and the tasks of each job — which its authors stress is not the same as displacement. The personal part reflects findings on early-career exposure, codified versus tacit knowledge, physical work and employer signals. Use it to see where you are exposed, not as a verdict."),
+    ]
+    faq_html = "".join(f'<details class="faq"><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in faq)
+    jsonld = {"@context": "https://schema.org", "@graph": [
+        webpage_node(url, "Will AI Take My Job? The AI Job Risk Test", f"Free AI job risk test: score your job against {n} occupations using Microsoft's AI applicability data and {total_jobs:,} real AI layoffs.", lm(["job-risk-template.html", "data/microsoft-ai-applicability-scores.csv"])),
+        {"@type": "WebApplication", "@id": url + "#app", "name": "AI Job Risk Test", "url": url, "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any",
+         "isAccessibleForFree": True, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "creator": PERSON_REF,
+         "description": f"Answer 8 quick questions to see how exposed your job is to AI, scored against {n} US occupations and {total_jobs:,} AI-attributed layoffs."},
+        {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]},
+        {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL}, {"@type": "ListItem", "position": 2, "name": "Will AI take my job?", "item": url}]},
+    ]}
+    tpl = (ROOT / "job-risk-template.html").read_text()
+    out = (tpl.replace("{{JSONLD}}", json.dumps(jsonld, indent=1))
+           .replace("{{OCC_JSON}}", json.dumps(occ, separators=(",", ":")).replace("</", "<\\/"))
+           .replace("{{ROLE_JSON}}", json.dumps(role_info, separators=(",", ":")).replace("</", "<\\/"))
+           .replace("{{POPULAR_JSON}}", json.dumps(POPULAR_JOBS))
+           .replace("{{TOP_TABLE}}", table(top[:20]))
+           .replace("{{BOTTOM_TABLE}}", table(bottom[:20]))
+           .replace("{{ALL_ROWS}}", all_rows)
+           .replace("{{FAQ}}", faq_html)
+           .replace("{{N_OCC}}", str(n))
+           .replace("{{TOTAL_JOBS}}", f"{total_jobs:,}")
+           .replace("{{TOTAL_COMPANIES}}", str(len(ldata)))
+           .replace("{{FOOTER_LINKS}}", footer_links())
+           .replace("{{LAST_UPDATED}}", fmt_date(lm(["layoffs.json"]))))
+    publish("will-ai-take-my-job", out)
+    print(f"Built will-ai-take-my-job/ with {n} occupations")
 
 
 def render_jobs_pages(ldata, list_tpl):
@@ -1171,6 +1366,8 @@ def main():
     list_tpl = (ROOT / "list-template.html").read_text()
     render_index_pages(data, killer_counts, list_tpl)
     job_pages = render_jobs_pages(json.loads((ROOT / "layoffs.json").read_text()), list_tpl) if (ROOT / "layoffs.json").exists() else []
+    if (ROOT / "layoffs.json").exists():
+        render_job_risk(json.loads((ROOT / "layoffs.json").read_text()))
     killer_pages = []
     for killer, n in killer_counts.items():
         if n < 2:
@@ -1487,6 +1684,7 @@ def main():
         (SITE_URL + "layoffs/", "0.9", "weekly", lm(["layoffs.json", "layoffs-template.html"])),
         (SITE_URL + "coming-soon/", "0.8", "weekly", lm(["coming-soon.json", "coming-soon-template.html"])),
         (SITE_URL + "funding/", "0.8", "weekly", lm(["graveyard.json", "funding-template.html"])),
+        (SITE_URL + "will-ai-take-my-job/", "0.9", "weekly", lm(["layoffs.json", "job-risk-template.html", "data/microsoft-ai-applicability-scores.csv"])),
         (SITE_URL + "api/", "0.6", "monthly", lm(["api/index.html"])),
         (SITE_URL + "about/", "0.5", "monthly", lm(["about/index.html"])),
     ]

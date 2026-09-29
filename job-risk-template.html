@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MC3PM7NKRX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-MC3PM7NKRX');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will AI Take My Job? Free AI Job Risk Test ({{N_OCC}} Jobs Ranked)</title>
+    <meta name="description" content="Will AI replace your job? Take the 60-second test: your job scored against {{N_OCC}} occupations with Microsoft's AI data, adjusted for how you work, and checked against {{TOTAL_JOBS}} real AI layoffs.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://killedbyai.net/will-ai-take-my-job/">
+    <meta property="og:url" content="https://killedbyai.net/will-ai-take-my-job/">
+    <meta property="og:title" content="Will AI take your job? Take the 60-second test">
+    <meta property="og:description" content="Score your job against {{N_OCC}} occupations and {{TOTAL_JOBS}} real AI layoffs. Then guess before you look.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://killedbyai.net/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Killed by AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#09090b">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{--bg:#09090b;--bg-card:#111113;--bg-2:#18181b;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#8f8f99;--acc:#ef4444;--acc-dim:rgba(239,68,68,.14);--mono:'SF Mono','Cascadia Code',ui-monospace,monospace}
+        html{-webkit-text-size-adjust:100%}
+        body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+        :focus-visible{outline:2px solid currentColor;outline-offset:2px}
+        @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+        a{color:inherit}
+        .site-nav{display:flex;justify-content:center;gap:.25rem;padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+        .site-nav-item{min-height:44px;display:inline-flex;align-items:center;padding:0 .875rem;font-size:.875rem;font-weight:500;color:var(--text-muted);text-decoration:none;border-radius:.375rem;white-space:nowrap}
+        .site-nav-item:hover{color:var(--text);background:var(--bg-card)}
+        .site-nav-item.active{color:var(--acc);background:var(--acc-dim);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+        .header{text-align:center;padding:2.5rem 1.5rem .5rem;max-width:760px;margin:0 auto}
+        .header h1{font-size:clamp(2.125rem,6vw,3.5rem);font-weight:900;letter-spacing:-.035em;line-height:1.05;margin-bottom:.75rem}
+        .header h1 span{color:var(--acc)}
+        .header p{color:var(--text-muted);font-size:1.0625rem;max-width:620px;margin:0 auto}
+        .proof{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-top:1rem;font-size:.8125rem;color:var(--text-dim)}
+        .proof b{color:var(--text);font-family:var(--mono)}
+
+        /* ---------- the test ---------- */
+        .app{max-width:720px;margin:1.5rem auto 0;padding:0 1.5rem;scroll-margin-top:1rem}
+        .card{background:var(--bg-card);border:1px solid var(--border);border-radius:1rem;padding:1.5rem;position:relative;overflow:hidden}
+        .card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#22c55e,#f59e0b,#ef4444);opacity:.9}
+        .progress{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;font-size:.8125rem;color:var(--text-dim)}
+        .progress-track{flex:1;height:6px;background:var(--bg-2);border-radius:1rem;overflow:hidden}
+        .progress-fill{height:100%;width:0;background:var(--acc);border-radius:1rem;transition:width .3s ease}
+        .back{background:none;border:0;color:var(--text-muted);font:inherit;font-size:.8125rem;cursor:pointer;min-height:36px;padding:0 .25rem}
+        .back:hover{color:var(--text)}
+        .back[hidden]{display:none}
+        .step h2{font-size:clamp(1.25rem,3.5vw,1.625rem);font-weight:800;letter-spacing:-.02em;line-height:1.25;margin-bottom:.375rem}
+        .step .hint{color:var(--text-dim);font-size:.875rem;margin-bottom:1.125rem}
+        .step{animation:in .25s ease}
+        @keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+        .opts{display:flex;flex-direction:column;gap:.5rem}
+        .opt{display:flex;align-items:center;gap:.75rem;width:100%;text-align:left;min-height:56px;padding:.75rem 1rem;background:var(--bg-2);border:1px solid var(--border);border-radius:.75rem;color:var(--text);font:inherit;font-size:1rem;cursor:pointer;transition:border-color .15s,background .15s}
+        .opt:hover{border-color:var(--text-dim)}
+        .opt.sel{border-color:var(--acc);background:var(--acc-dim)}
+        .opt .k{flex:none;width:1.75rem;height:1.75rem;border-radius:.375rem;border:1px solid var(--border);display:grid;place-items:center;font-size:.75rem;color:var(--text-dim);font-family:var(--mono)}
+        .search-wrap{position:relative}
+        .job-input{width:100%;height:56px;background:var(--bg-2);border:1px solid var(--border);border-radius:.75rem;color:var(--text);font-size:17px;padding:0 1rem 0 2.75rem}
+        .job-input:focus{outline:none;border-color:var(--acc)}
+        .search-wrap::before{content:"🔎";position:absolute;left:1rem;top:50%;transform:translateY(-50%);font-size:1rem;opacity:.7}
+        .sugg{list-style:none;margin-top:.5rem;display:flex;flex-direction:column;gap:.25rem;max-height:340px;overflow:auto}
+        .sugg button{width:100%;text-align:left;display:flex;justify-content:space-between;gap:.75rem;align-items:center;min-height:48px;padding:.5rem .875rem;background:transparent;border:1px solid transparent;border-radius:.5rem;color:var(--text);font:inherit;font-size:.9375rem;cursor:pointer}
+        .sugg button:hover,.sugg button.hl{background:var(--bg-2);border-color:var(--border)}
+        .sugg small{color:var(--text-dim);font-family:var(--mono);font-size:.75rem;white-space:nowrap}
+        .sugg .none{color:var(--text-dim);font-size:.875rem;padding:.5rem .875rem}
+        .popular{display:flex;flex-wrap:wrap;gap:.375rem;margin-top:1rem}
+        .popular span{width:100%;font-size:.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+        .pill{min-height:40px;padding:0 .875rem;border-radius:2rem;border:1px solid var(--border);background:var(--bg-2);color:var(--text-muted);font:inherit;font-size:.875rem;cursor:pointer}
+        .pill:hover{color:var(--text);border-color:var(--text-dim)}
+        .chosen{display:inline-flex;align-items:center;gap:.5rem;font-size:.8125rem;color:var(--text-muted);background:var(--bg-2);border:1px solid var(--border);border-radius:2rem;padding:.25rem .75rem;margin-bottom:1rem;max-width:100%}
+        .chosen b{color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .guess-val{font-size:3.5rem;font-weight:900;font-family:var(--mono);text-align:center;line-height:1;margin:.5rem 0 .25rem;color:var(--acc)}
+        .guess-lbl{text-align:center;color:var(--text-muted);font-size:.9375rem;min-height:1.5em}
+        input[type=range]{width:100%;margin:1.25rem 0 .25rem;accent-color:var(--acc);height:32px}
+        .range-ends{display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-dim)}
+        .cta{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;padding:0 1.5rem;border-radius:.75rem;border:0;background:var(--acc);color:#fff;font:inherit;font-size:1rem;font-weight:800;cursor:pointer;text-decoration:none;width:100%;margin-top:1.25rem}
+        .cta:hover{filter:brightness(1.1)}
+        .cta.ghost{background:var(--bg-2);border:1px solid var(--border);color:var(--text);font-weight:600}
+
+        /* ---------- result ---------- */
+        .shared-banner{background:var(--acc-dim);border:1px solid var(--acc);color:var(--text);border-radius:.75rem;padding:.75rem 1rem;margin-bottom:1rem;font-size:.9375rem;display:flex;gap:.75rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+        .shared-banner button{min-height:40px}
+        .res-head{text-align:center}
+        .res-job{font-size:.8125rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+        .res-job b{display:block;color:var(--text);font-size:1.125rem;text-transform:none;letter-spacing:0;margin-top:.125rem}
+        .gauge{position:relative;width:min(320px,100%);margin:1rem auto 0}
+        .gauge svg{display:block;width:100%;height:auto}
+        .gauge-num{position:absolute;left:0;right:0;bottom:4%;text-align:center}
+        .gauge-num b{display:block;font-size:4rem;font-weight:900;font-family:var(--mono);line-height:1;letter-spacing:-.04em}
+        .gauge-num span{font-size:.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em}
+        .tier{font-size:1.5rem;font-weight:900;letter-spacing:-.02em;margin-top:.75rem}
+        .tier-blurb{color:var(--text-muted);max-width:520px;margin:.375rem auto 0;font-size:.9375rem}
+        .vs{margin:1.25rem auto 0;max-width:520px;background:var(--bg-2);border:1px solid var(--border);border-radius:.75rem;padding:.875rem 1rem;font-size:.9375rem;text-align:left}
+        .vs-bars{display:grid;grid-template-columns:auto 1fr auto;gap:.375rem .625rem;align-items:center;margin-top:.625rem;font-size:.8125rem;color:var(--text-muted)}
+        .vs-track{height:.5rem;background:var(--bg);border-radius:1rem;overflow:hidden}
+        .vs-fill{height:100%;border-radius:1rem;width:0;transition:width .8s ease}
+        .vs-bars b{font-family:var(--mono);color:var(--text)}
+        .res-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;margin-top:1.25rem}
+        .rstat{background:var(--bg-2);border:1px solid var(--border);border-radius:.75rem;padding:.75rem .875rem}
+        .rstat b{display:block;font-size:1.375rem;font-family:var(--mono);font-weight:800;line-height:1.2}
+        .rstat span{font-size:.8125rem;color:var(--text-muted);line-height:1.35;display:block;margin-top:.125rem}
+        .res-sec{margin-top:1.5rem}
+        .res-sec h3{font-size:1rem;font-weight:800;margin-bottom:.625rem}
+        .factors{list-style:none;display:flex;flex-direction:column;gap:.375rem}
+        .factors li{display:grid;grid-template-columns:3.25rem 1fr;gap:.75rem;align-items:start;background:var(--bg-2);border:1px solid var(--border);border-radius:.625rem;padding:.625rem .75rem;font-size:.875rem}
+        .factors .pts{font-family:var(--mono);font-weight:800;text-align:center;border-radius:.375rem;padding:.125rem 0;font-size:.8125rem}
+        .pts.up{background:rgba(239,68,68,.15);color:#f87171}.pts.down{background:rgba(34,197,94,.14);color:#4ade80}.pts.zero{background:var(--bg);color:var(--text-dim)}
+        .factors small{display:block;color:var(--text-dim);font-size:.8125rem;margin-top:.125rem}
+        .ladder{list-style:none;display:flex;flex-direction:column;border:1px solid var(--border);border-radius:.625rem;overflow:hidden}
+        .ladder li{display:grid;grid-template-columns:1fr auto;gap:.75rem;padding:.5rem .75rem;font-size:.875rem;border-bottom:1px solid var(--border)}
+        .ladder li:last-child{border-bottom:0}
+        .ladder li.me{background:var(--acc-dim);font-weight:700}
+        .ladder span{font-family:var(--mono);color:var(--text-muted);font-size:.8125rem}
+        .evidence{background:linear-gradient(135deg,rgba(249,115,22,.1),var(--bg-2) 60%);border:1px solid rgba(249,115,22,.4);border-radius:.75rem;padding:1rem}
+        .evidence p{font-size:.9375rem;color:var(--text-muted)}
+        .evidence b.big{color:#fb923c;font-family:var(--mono)}
+        .evidence ul{list-style:none;margin:.625rem 0;display:flex;flex-direction:column;gap:.25rem;font-size:.875rem}
+        .evidence li{display:flex;justify-content:space-between;gap:.75rem}
+        .evidence li span{color:var(--text-dim);font-family:var(--mono);font-size:.8125rem}
+        .evidence a{color:#fb923c;font-weight:600}
+        .tips{list-style:none;display:flex;flex-direction:column;gap:.5rem;counter-reset:t}
+        .tips li{position:relative;padding-left:2rem;font-size:.9375rem;color:var(--text-muted)}
+        .tips li::before{counter-increment:t;content:counter(t);position:absolute;left:0;top:.125rem;width:1.375rem;height:1.375rem;border-radius:50%;background:var(--bg-2);border:1px solid var(--border);font-size:.75rem;display:grid;place-items:center;color:var(--text)}
+        .tips b{color:var(--text)}
+        .share{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;margin-top:1.5rem}
+        .share .cta{margin-top:0}
+        .share .cta.full{grid-column:1/-1}
+        .toast{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%) translateY(1rem);opacity:0;pointer-events:none;background:var(--text);color:var(--bg);padding:.625rem 1rem;border-radius:.5rem;font-weight:700;font-size:.875rem;transition:transform .25s,opacity .25s;z-index:20}
+        .toast.show{transform:translateX(-50%);opacity:1}
+        .disclaimer{font-size:.75rem;color:var(--text-dim);margin-top:1.25rem;text-align:center}
+
+        /* ---------- stats & content ---------- */
+        .section{max-width:1000px;margin:3.5rem auto 0;padding:0 1.5rem}
+        .section>h2{font-size:clamp(1.375rem,3.5vw,1.875rem);font-weight:900;letter-spacing:-.025em;margin-bottom:.375rem}
+        .section>p.lead{color:var(--text-muted);margin-bottom:1.25rem;max-width:720px}
+        .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.625rem}
+        .scard{background:var(--bg-card);border:1px solid var(--border);border-radius:.875rem;padding:1.125rem;display:flex;flex-direction:column;gap:.25rem}
+        .scard b{font-size:2.25rem;font-weight:900;font-family:var(--mono);letter-spacing:-.03em;line-height:1.1;color:var(--acc)}
+        .scard.o b{color:#f97316}.scard.a b{color:#f59e0b}.scard.v b{color:#a78bfa}.scard.g b{color:#22c55e}.scard.b b{color:#38bdf8}
+        .scard p{font-size:.9375rem;color:var(--text);line-height:1.45}
+        .scard cite{font-style:normal;font-size:.75rem;color:var(--text-dim);margin-top:auto;padding-top:.375rem}
+        .scard cite a{color:var(--text-muted)}
+        .two{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+        .tcard{background:var(--bg-card);border:1px solid var(--border);border-radius:.875rem;padding:1rem 1.125rem;min-width:0}
+        .tcard h3{font-size:1rem;font-weight:800}
+        .tcard .dnote{font-size:.8125rem;color:var(--text-dim);margin-bottom:.5rem}
+        .rank-table{width:100%;border-collapse:collapse;font-size:.875rem}
+        .rank-table th{font-size:.6875rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-dim);text-align:left;font-weight:600;padding:.375rem .375rem;border-bottom:1px solid var(--border)}
+        .rank-table td{padding:.4375rem .375rem;border-bottom:1px solid var(--border);vertical-align:middle}
+        .rank-table td:first-child{color:var(--text-dim);font-family:var(--mono);font-size:.75rem;width:2rem}
+        .rank-table td:nth-child(3){font-family:var(--mono);font-size:.8125rem;white-space:nowrap;color:var(--text-muted)}
+        .rank-table td:last-child{text-align:right;white-space:nowrap}
+        .rank-table td a{color:var(--text-muted);font-size:.8125rem;text-decoration:none;display:inline-flex;min-height:32px;align-items:center}
+        .rank-table td a:hover{color:var(--acc)}
+        .mini{display:inline-block;width:48px;height:6px;background:var(--bg-2);border-radius:1rem;overflow:hidden;margin-right:.5rem;vertical-align:middle}
+        .mini span{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,#f59e0b,#ef4444)}
+        .all{margin-top:.75rem;background:var(--bg-card);border:1px solid var(--border);border-radius:.875rem}
+        .all>summary{cursor:pointer;min-height:52px;display:flex;align-items:center;padding:0 1.125rem;font-weight:700;list-style:none}
+        .all>summary::-webkit-details-marker{display:none}
+        .all>summary::after{content:"Show ▾";margin-left:auto;color:var(--text-dim);font-weight:500;font-size:.8125rem}
+        .all[open]>summary::after{content:"Hide ▴"}
+        .all-inner{padding:0 1.125rem 1rem;max-height:560px;overflow:auto}
+        .all-filter{width:100%;height:44px;background:var(--bg-2);border:1px solid var(--border);border-radius:.5rem;color:var(--text);padding:0 .875rem;font-size:16px;margin-bottom:.5rem;position:sticky;top:0}
+        .prose p{color:var(--text-muted);margin-bottom:.875rem;max-width:760px}
+        .prose a{color:var(--text)}
+        .faq{background:var(--bg-card);border:1px solid var(--border);border-radius:.75rem;margin-bottom:.5rem}
+        .faq summary{cursor:pointer;min-height:52px;display:flex;align-items:center;padding:.5rem 1.125rem;font-weight:700;list-style:none}
+        .faq summary::-webkit-details-marker{display:none}
+        .faq summary::after{content:"+";margin-left:auto;padding-left:1rem;color:var(--text-dim);font-size:1.25rem}
+        .faq[open] summary::after{content:"–"}
+        .faq p{padding:0 1.125rem 1rem;color:var(--text-muted);font-size:.9375rem}
+        .site-footer{text-align:center;padding:2rem 1.5rem 3rem;border-top:1px solid var(--border);max-width:760px;margin:3.5rem auto 0}
+        .site-footer p{color:var(--text-dim);font-size:.8125rem;line-height:1.8}
+        .site-footer a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
+        @media(max-width:760px){.stats{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}}
+        @media(max-width:600px){
+            .site-nav{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent)}
+            .site-nav::-webkit-scrollbar{display:none}.site-nav-item{flex-shrink:0;font-size:.8125rem;padding:0 .75rem}
+            .header{padding:1.75rem .75rem .25rem}.header p{font-size:.9375rem}
+            .app,.section{padding:0 .75rem}.card{padding:1.125rem;border-radius:.875rem}
+            .res-grid{grid-template-columns:1fr}.rstat{display:flex;align-items:baseline;gap:.625rem}.rstat b{font-size:1.125rem;flex:none}
+            .stats{grid-template-columns:1fr}.scard b{font-size:1.875rem}
+            .gauge-num b{font-size:3.25rem}
+            .rank-table .mini{display:none}
+        }
+    </style>
+    <script type="application/ld+json">{{JSONLD}}</script>
+</head>
+<body>
+    <nav class="site-nav" aria-label="Site">
+        <a href="/" class="site-nav-item">💀 Graveyard</a>
+        <a href="/layoffs/" class="site-nav-item">💼 AI Layoffs</a>
+        <a href="/funding/" class="site-nav-item">🔥 Funding</a>
+        <a href="/coming-soon/" class="site-nav-item">⏳ Dying soon</a>
+        <a href="/will-ai-take-my-job/" class="site-nav-item active" aria-current="page">🎯 Will AI take my job?</a>
+        <a href="/api/" class="site-nav-item">{ } API</a>
+    </nav>
+
+    <header class="header">
+        <h1>Will AI take <span>your job?</span></h1>
+        <p>Eight quick questions, about 60 seconds. Your job is scored against {{N_OCC}} occupations using Microsoft's study of 200,000 real AI conversations, adjusted for how you actually work, and checked against {{TOTAL_JOBS}} jobs companies have already cut in AI's name.</p>
+        <div class="proof"><span><b>{{N_OCC}}</b> occupations</span><span><b>{{TOTAL_JOBS}}</b> AI layoffs tracked</span><span><b>0</b> sign-ups</span></div>
+    </header>
+
+    <section class="app" id="test" aria-live="polite">
+        <div class="card" id="card">
+            <noscript><p>The test needs JavaScript. The full ranking of {{N_OCC}} occupations is below.</p></noscript>
+        </div>
+    </section>
+
+    <section class="section" id="stats">
+        <h2>The numbers behind the fear</h2>
+        <p class="lead">What the latest research and layoff filings actually say — every figure sourced.</p>
+        <div class="stats">
+            <div class="scard"><b>71%</b><p>of Americans expect AI to mean fewer jobs over the next 20 years — up from 64% in 2024.</p><cite><a href="https://www.pewresearch.org/short-reads/2026/08/18/young-adults-in-the-us-are-increasingly-wary-of-ai-concerned-it-will-take-jobs/" target="_blank" rel="noopener">Pew Research, June 2026</a></cite></div>
+            <div class="scard v"><b>34 of 37</b><p>countries surveyed lean toward AI causing job losses rather than gains.</p><cite><a href="https://www.pewresearch.org/global/2026/09/17/globally-more-people-expect-ai-to-cause-job-loss-than-growth/" target="_blank" rel="noopener">Pew global survey, Sept 2026</a></cite></div>
+            <div class="scard o"><b>116,175</b><p>US job cuts attributed to AI in 2026 through August — 22% of all announced cuts, the #1 reason this year.</p><cite><a href="https://www.challengergray.com/blog/challenger-report-august-job-cuts-up-58-consumer-products-food-lead/" target="_blank" rel="noopener">Challenger, Gray &amp; Christmas</a></cite></div>
+            <div class="scard a"><b>−19%</b><p>employment gap for 22–25-year-olds in the most AI-exposed jobs versus less-exposed ones. Experienced workers show no such gap.</p><cite><a href="https://digitaleconomy.stanford.edu/news/canariesaug26/" target="_blank" rel="noopener">Stanford Digital Economy Lab, Aug 2026</a></cite></div>
+            <div class="scard b"><b>{{TOTAL_JOBS}}</b><p>jobs cut at {{TOTAL_COMPANIES}} companies that explicitly named AI as the reason, each with a source.</p><cite><a href="/layoffs/">Killed by AI layoffs tracker</a></cite></div>
+            <div class="scard g"><b>0.00</b><p>AI applicability for dredge operators, bridge tenders and floor sanders. Interpreters score 0.49 — the highest of {{N_OCC}} jobs.</p><cite><a href="https://github.com/microsoft/working-with-ai" target="_blank" rel="noopener">Microsoft Research, 2025</a></cite></div>
+        </div>
+    </section>
+
+    <section class="section" id="ranking">
+        <h2>Jobs most and least exposed to AI</h2>
+        <p class="lead">Microsoft Research's AI applicability score measures how much of an occupation's work overlaps with what people successfully use AI for — from 0 (none) to about 0.5. High overlap is exposure, not a death sentence.</p>
+        <div class="two">
+            <div class="tcard"><h3>🪦 Most exposed to AI</h3><p class="dnote">Top 20 of {{N_OCC}} occupations</p>{{TOP_TABLE}}</div>
+            <div class="tcard"><h3>🌱 Least exposed to AI</h3><p class="dnote">Bottom 20 of {{N_OCC}} occupations</p>{{BOTTOM_TABLE}}</div>
+        </div>
+        <details class="all" id="all-jobs">
+            <summary>All {{N_OCC}} occupations ranked by AI exposure</summary>
+            <div class="all-inner">
+                <input class="all-filter" type="search" placeholder="Filter occupations…" aria-label="Filter occupations">
+                <table class="rank-table"><thead><tr><th>#</th><th>Occupation</th><th>Score</th><th></th></tr></thead><tbody>{{ALL_ROWS}}</tbody></table>
+            </div>
+        </details>
+    </section>
+
+    <section class="section prose" id="method">
+        <h2>How the score works</h2>
+        <p><b>55% is your occupation.</b> We take the <a href="https://arxiv.org/abs/2507.07935" target="_blank" rel="noopener">AI applicability score</a> Microsoft Research computed for {{N_OCC}} US occupations from 200,000 anonymized Bing Copilot conversations — how often AI is used for each work activity, how successfully, and how much of the job it covers — and convert it to a percentile: how many occupations are less exposed than yours. The authors stress that applicability is not displacement; a job is more than its task list.</p>
+        <p><b>45% is how you work.</b> Seven questions shift the score up or down using what has predicted real losses so far: early-career workers in exposed jobs are being hired less (Stanford), roles built on codified, rule-following knowledge have shrunk while tacit, experience-based ones have not, physical and on-site work sits largely outside what chatbots can do, licences and legal accountability slow automation down, and employers that announce "AI-first" strategies are the ones in our <a href="/layoffs/">layoffs tracker</a>.</p>
+        <p>Your guess is not part of the score — it is there so you can see whether you are over- or under-estimating your exposure. Nothing you enter leaves your browser except anonymous totals in our analytics. Occupation data: Microsoft Research, <a href="https://github.com/microsoft/working-with-ai" target="_blank" rel="noopener">working-with-ai</a>, CC BY 4.0. Layoff data updated {{LAST_UPDATED}}.</p>
+    </section>
+
+    <section class="section" id="faq">
+        <h2>Questions</h2>
+        {{FAQ}}
+    </section>
+
+    <footer class="site-footer">
+        <p>Part of <a href="/">Killed by AI</a> — the graveyard of dead AI products, <a href="/layoffs/">AI layoffs</a> and <a href="/jobs/">the jobs AI replaced</a>. Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.</p>
+        <p class="footer-links" style="margin-top:.5rem">{{FOOTER_LINKS}}</p>
+    </footer>
+    <div class="toast" id="toast" role="status"></div>
+
+<script>
+(function () {
+  var OCC = {{OCC_JSON}};           // [soc, title, score, percentile, roleTag, aliases]
+  var ROLES = {{ROLE_JSON}};
+  var POPULAR = {{POPULAR_JSON}};
+  var BY = {}; OCC.forEach(function (o) { BY[o[0]] = o; });
+  var POP = {}; POPULAR.forEach(function (x) { POP[x[0]] = 1; });
+  var MAXS = Math.max.apply(null, OCC.map(function (o) { return o[2]; }));
+  var RANKED = OCC.slice().sort(function (a, b) { return b[2] - a[2]; });
+
+  // [label, points, why it matters, how to fight back]
+  var Q = [
+    { id: 'stage', q: 'Where are you in your career?', hint: 'AI is showing up first in who gets hired, not who gets fired.', o: [
+      ['Entry level (0–3 years)', 10, 'Early-career roles in exposed jobs are where AI hits first: Stanford measured a 19% employment gap for 22–25-year-olds.', 'Get <b>hands-on experience fast</b> — the tacit, learned-on-the-job knowledge AI lacks is what has protected senior workers.'],
+      ['Mid-level', 3, 'Mid-level work mixes routine output with judgment — the routine half is exposed.', 'Shift your week toward <b>decisions, reviews and ownership</b>, away from first drafts.'],
+      ['Senior / specialist', -5, 'Experienced workers in exposed jobs have shown no employment gap so far.', ''],
+      ['I manage people', -3, 'People management is hard to hand to a chatbot — but "flattening" management layers is a common AI-era cut.', 'Make your team measurably better with AI — managers who <b>run AI-augmented teams</b> are the ones being kept.']] },
+    { id: 'screen', q: 'How much of your working day is on a computer?', hint: 'Screens are where today’s AI lives.', o: [
+      ['Almost all of it', 10, 'Fully digital work is fully reachable by AI tools.', 'Spend more time on the <b>offline parts</b>: clients, stakeholders, the room where decisions get made.'],
+      ['Most of it', 5, 'Most of your work happens where AI operates.', ''],
+      ['Some of it', -3, 'A good share of your work happens off-screen.', ''],
+      ['Hardly any', -12, 'Chatbots cannot do what happens away from a screen.', '']] },
+    { id: 'codified', q: 'How much of your work follows a set process, template or playbook?', hint: 'Stanford: jobs built on codified knowledge shrank; tacit-knowledge jobs grew.', o: [
+      ['Most of it — clear rules, repeatable steps', 10, 'Rule-based, documented work is exactly what AI learns from.', 'Become the person who <b>writes and fixes the playbook</b>, not the one who follows it.'],
+      ['A mix', 3, 'Part of your work is codified and automatable.', ''],
+      ['Little — every case needs judgment', -8, 'Judgment calls on messy, one-off situations are still hard for AI.', '']] },
+    { id: 'physical', q: 'Does your job need you physically there?', hint: 'Physical tasks are largely outside what generative AI can do.', o: [
+      ['No — it could be done 100% remotely', 8, 'If it can be done from anywhere, it can increasingly be done by anything.', 'Build <b>in-person value</b>: site visits, workshops, being the face clients know.'],
+      ['Partly — some meetings or site visits', 2, 'Some of your work needs you in the room.', ''],
+      ['Yes — hands-on or on-site work is the job', -12, 'Hands-on work in the real world is the strongest protection there is.', '']] },
+    { id: 'trust', q: 'What do people rely on you for?', hint: 'Output can be automated. Accountability is harder.', o: [
+      ['The output — anyone competent could deliver it', 8, 'Interchangeable output is the easiest thing to swap for AI output.', 'Attach your name to outcomes: <b>own a client, a number or a sign-off</b>.'],
+      ['My relationships and knowledge of the people involved', -4, 'Relationships and context are slow to automate.', ''],
+      ['My signature — I’m licensed or legally accountable', -10, 'Licences and legal liability keep a human in the loop.', '']] },
+    { id: 'aiuse', q: 'How does AI show up in your work today?', hint: 'Augmenting beats being automated.', o: [
+      ['It already does whole tasks I used to do', 10, 'Automation of whole tasks is where employment has fallen, not augmentation.', 'Move up a level: <b>be the person who runs, checks and improves</b> the AI’s work.'],
+      ['I use it as an assistant — I still do the work', 0, 'Using AI to augment your work has been associated with steadier employment.', ''],
+      ['I don’t use it yet', 4, 'Peers who use AI well are the competition, not the AI itself.', '<b>Start using AI on your own tasks this week</b> — the people who replace you will be the ones who did.']] },
+    { id: 'employer', q: 'What is your employer saying about AI?', hint: 'The companies in our layoffs tracker said it out loud first.', o: [
+      ['“AI-first”, hiring freeze or AI-linked cuts', 10, 'Companies announcing AI-first strategies are the ones in our layoffs tracker.', '<b>Keep your options warm</b>: update your CV, portfolio and network before you need them.'],
+      ['Talking up AI efficiency', 4, 'Efficiency talk often precedes restructuring.', ''],
+      ['Nothing much', -2, 'No signals from your employer yet.', ''],
+      ['I’m self-employed', 2, 'Your competition is anyone with the same AI tools and lower prices.', 'Sell <b>outcomes and trust</b>, not hours — hourly work is what AI undercuts.']] }
+  ];
+  var MIN = 0, MAX = 0;
+  Q.forEach(function (q) { var p = q.o.map(function (o) { return o[1]; }); MIN += Math.min.apply(null, p); MAX += Math.max.apply(null, p); });
+  var TIERS = [
+    [20, 'Safe (for now)', '🌱', '#22c55e', 'Little of what you do overlaps with what AI can do today. Stay curious — the frontier moves every quarter.'],
+    [40, 'Augmented, not replaced', '🛠️', '#84cc16', 'AI will change how you work more than whether you work. The people who learn it will set the pace.'],
+    [60, 'Exposed', '⚠️', '#f59e0b', 'A real share of your work is automatable. Your job likely changes shape before it disappears — make sure you pick the new shape.'],
+    [80, 'On the chopping block', '🪓', '#f97316', 'Your work sits squarely in AI’s path and employers in your field are already acting on it. Time to move up the value chain.'],
+    [101, 'Grave already dug', '🪦', '#ef4444', 'Your occupation and the way you work both line up with where companies are cutting. Start the next chapter before someone else writes it.']
+  ];
+  var GUESS = [[15, 'No way'], [35, 'Unlikely'], [60, 'Could happen'], [85, 'Probably'], [101, 'It’s already happening']];
+
+  var card = document.getElementById('card'), state = { job: null, a: [], guess: 50, shared: false };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var track = function (name, p) { try { gtag('event', name, p || {}); } catch (e) {} };
+  function tierOf(s) { for (var i = 0; i < TIERS.length; i++) if (s <= TIERS[i][0]) return TIERS[i]; }
+  function score() {
+    var o = BY[state.job], p = 0;
+    state.a.forEach(function (ai, qi) { p += Q[qi].o[ai][1]; });
+    var personal = (p - MIN) / (MAX - MIN) * 100;
+    return Math.max(1, Math.min(99, Math.round(0.55 * o[3] + 0.45 * personal)));
+  }
+  function totalSteps() { return Q.length + 2; }
+  function frame(stepNo, inner) {
+    var pct = Math.round(stepNo / totalSteps() * 100);
+    card.innerHTML = '<div class="progress"><button class="back" type="button" ' + (stepNo ? '' : 'hidden') + '>← Back</button><div class="progress-track"><div class="progress-fill"></div></div><span>' + (stepNo + 1) + ' / ' + totalSteps() + '</span></div><div class="step">' + inner + '</div>';
+    requestAnimationFrame(function () { card.querySelector('.progress-fill').style.width = pct + '%'; });
+    var back = card.querySelector('.back');
+    if (back) back.onclick = function () { if (stepNo === 1) { state.a = []; renderJob(); } else if (stepNo <= Q.length) { state.a.length = stepNo - 2; renderQ(stepNo - 2); } else { state.a.length = Q.length - 1; renderQ(Q.length - 1); } };
+  }
+  function focusCard() { var h = card.querySelector('h2'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); } }
+  function scrollToCard() { var r = card.getBoundingClientRect(); if (r.top < 0 || r.top > innerHeight * 0.4) card.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); }
+
+  // ----- step 0: pick a job -----
+  function search(term) {
+    term = term.trim().toLowerCase(); if (!term) return [];
+    var words = term.split(/\s+/), out = [];
+    OCC.forEach(function (o) {
+      var t = o[1].toLowerCase(), al = o[5], hay = t + ' ' + al;
+      if (!words.every(function (w) { return hay.indexOf(w) > -1; })) return;
+      var rank = t.indexOf(term) === 0 ? 0 : (' ' + al + ' ').indexOf(' ' + term) > -1 ? 1 : t.indexOf(term) > -1 ? 2 : 3;
+      out.push([rank, o]);
+    });
+    out.sort(function (a, b) { return a[0] - b[0] || (POP[b[1][0]] || 0) - (POP[a[1][0]] || 0) || a[1][1].length - b[1][1].length; });
+    return out.slice(0, 8).map(function (x) { return x[1]; });
+  }
+  function renderJob() {
+    frame(0, '<h2>What do you do for work?</h2><p class="hint">Search {{N_OCC}} occupations — try “developer”, “nurse”, “recruiter” or “copywriter”.</p>' +
+      '<div class="search-wrap"><input class="job-input" type="search" placeholder="Your job title…" aria-label="Your job title" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="sugg" aria-autocomplete="list"></div>' +
+      '<ul class="sugg" id="sugg" role="listbox"></ul><div class="popular"><span>Popular</span>' +
+      POPULAR.filter(function (x) { return BY[x[0]]; }).map(function (x) { return '<button class="pill" type="button" data-job="' + x[0] + '">' + esc(x[1]) + '</button>'; }).join('') + '</div>');
+    var inp = card.querySelector('.job-input'), list = card.querySelector('.sugg'), hl = -1, res = [];
+    function draw() {
+      var v = inp.value.trim();
+      res = search(v); hl = res.length ? 0 : -1;
+      inp.setAttribute('aria-expanded', res.length ? 'true' : 'false');
+      list.innerHTML = !v ? '' : res.length ? res.map(function (o, i) { return '<li><button type="button" role="option" data-job="' + o[0] + '"' + (i === hl ? ' class="hl"' : '') + '>' + esc(o[1]) + '<small>top ' + (100 - o[3]) + '%</small></button></li>'; }).join('')
+        : '<li class="none">No match. Try a broader word — “manager”, “analyst”, “designer”, “engineer”.</li>';
+    }
+    inp.addEventListener('input', draw);
+    inp.addEventListener('keydown', function (e) {
+      var b = list.querySelectorAll('button');
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); if (!b.length) return; hl = (hl + (e.key === 'ArrowDown' ? 1 : -1) + b.length) % b.length; b.forEach(function (x, i) { x.classList.toggle('hl', i === hl); }); b[hl].scrollIntoView({ block: 'nearest' }); }
+      else if (e.key === 'Enter' && hl > -1 && res[hl]) { e.preventDefault(); pick(res[hl][0]); }
+    });
+    card.addEventListener('click', onPick);
+    if (!('ontouchstart' in window)) inp.focus({ preventScroll: true });
+  }
+  function onPick(e) { var b = e.target.closest('[data-job]'); if (b && card.contains(b) && !state.job) pick(b.dataset.job); }
+  function pick(soc) {
+    if (!BY[soc]) return;
+    card.removeEventListener('click', onPick);
+    state.job = soc; state.a = [];
+    track('job_risk_start', { soc: soc, occupation: BY[soc][1] });
+    renderQ(0); scrollToCard();
+  }
+
+  // ----- steps 1..7: questions -----
+  function renderQ(i) {
+    var q = Q[i];
+    frame(i + 1, '<div class="chosen">Job: <b>' + esc(BY[state.job][1]) + '</b></div><h2>' + q.q + '</h2><p class="hint">' + q.hint + '</p><div class="opts" role="group" aria-label="' + esc(q.q) + '">' +
+      q.o.map(function (o, k) { return '<button type="button" class="opt' + (state.a[i] === k ? ' sel' : '') + '" data-k="' + k + '"><span class="k">' + 'ABCD'[k] + '</span>' + o[0] + '</button>'; }).join('') + '</div>');
+    var back = card.querySelector('.back');
+    if (back) back.onclick = function () { if (i === 0) { state.job = null; state.a = []; renderJob(); } else renderQ(i - 1); };
+    card.querySelectorAll('.opt').forEach(function (b) {
+      b.onclick = function () {
+        state.a[i] = +b.dataset.k; state.a.length = i + 1;
+        b.classList.add('sel');
+        setTimeout(function () { i + 1 < Q.length ? renderQ(i + 1) : renderGuess(); }, 140);
+      };
+    });
+    focusCard();
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.target.closest && e.target.closest('input,textarea,select')) return;
+    var k = { a: 0, b: 1, c: 2, d: 3, '1': 0, '2': 1, '3': 2, '4': 3 }[e.key.toLowerCase()];
+    if (k === undefined) return;
+    var b = card.querySelectorAll('.opt')[k]; if (b) b.click();
+  });
+
+  // ----- step 8: guess -----
+  function guessLabel(v) { for (var i = 0; i < GUESS.length; i++) if (v < GUESS[i][0]) return GUESS[i][1]; }
+  function renderGuess() {
+    frame(Q.length + 1, '<div class="chosen">Job: <b>' + esc(BY[state.job][1]) + '</b></div><h2>Before we show you: what’s your gut feeling?</h2><p class="hint">How likely is it that AI takes your job within 5 years? We’ll compare your guess with the data.</p>' +
+      '<div class="guess-val" id="gv">' + state.guess + '%</div><div class="guess-lbl" id="gl">' + guessLabel(state.guess) + '</div>' +
+      '<input type="range" min="0" max="100" step="1" value="' + state.guess + '" aria-label="Your guess, percent" id="gr"><div class="range-ends"><span>No chance</span><span>Certain</span></div>' +
+      '<button class="cta" type="button" id="reveal">Reveal my AI risk score →</button>');
+    var back = card.querySelector('.back'); if (back) back.onclick = function () { renderQ(Q.length - 1); };
+    var r = document.getElementById('gr');
+    r.oninput = function () { state.guess = +r.value; document.getElementById('gv').textContent = r.value + '%'; document.getElementById('gl').textContent = guessLabel(+r.value); };
+    document.getElementById('reveal').onclick = function () { renderResult(); scrollToCard(); };
+    focusCard();
+  }
+
+  // ----- result -----
+  function code() { return state.job + '.' + state.a.join('') + '.' + state.guess; }
+  function gauge(s, color) {
+    var a = Math.PI * (1 - s / 100), x = 100 + 80 * Math.cos(a), y = 100 - 80 * Math.sin(a), len = Math.PI * 80;
+    return '<svg viewBox="0 0 200 112" aria-hidden="true"><defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#22c55e"/><stop offset=".5" stop-color="#f59e0b"/><stop offset="1" stop-color="#ef4444"/></linearGradient></defs>' +
+      '<path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="#27272a" stroke-width="14" stroke-linecap="round"/>' +
+      '<path id="garc" d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="url(#gg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="' + len + '" stroke-dashoffset="' + len + '" style="transition:stroke-dashoffset 1.1s cubic-bezier(.2,.8,.2,1)" data-to="' + (len * (1 - s / 100)) + '"/>' +
+      '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="6" fill="' + color + '" stroke="#09090b" stroke-width="3"/></svg>';
+  }
+  function renderResult() {
+    var o = BY[state.job], s = score(), t = tierOf(s), role = o[4] && ROLES[o[4]], idx = RANKED.indexOf(o), gap = s - state.guess;
+    var ladder = RANKED.slice(Math.max(0, idx - 3), idx + 4);
+    var ups = [];
+    var factors = state.a.map(function (ai, qi) { var op = Q[qi].o[ai]; if (op[3]) ups.push([op[1], op[3]]); return '<li><span class="pts ' + (op[1] > 0 ? 'up' : op[1] < 0 ? 'down' : 'zero') + '">' + (op[1] > 0 ? '+' : '') + op[1] + '</span><div>' + op[0] + '<small>' + op[2] + '</small></div></li>'; }).join('');
+    ups.sort(function (a, b) { return b[0] - a[0]; });
+    var tips = ups.slice(0, 3).map(function (u) { return '<li>' + u[1] + '</li>'; });
+    if (tips.length < 3) tips.push('<li><b>Track the signals.</b> Watch the <a href="/layoffs/">AI layoffs tracker</a> for your industry — cuts come in waves, and the first movers tell you where it goes next.</li>');
+    var vsText = Math.abs(gap) <= 7 ? 'Spot on. Your gut is well calibrated.' : gap > 0 ? 'You’re <b>more exposed than you think</b> — by ' + gap + ' points.' : 'You’re <b>less exposed than you fear</b> — by ' + (-gap) + ' points.';
+    var html = (state.shared ? '<div class="shared-banner"><span>Someone shared their result with you. What’s yours?</span><button class="cta" type="button" data-act="retake" style="width:auto;margin:0">Take the test →</button></div>' : '') +
+      '<div class="res-head"><div class="res-job">AI job risk score<b>' + esc(o[1]) + '</b></div>' +
+      '<div class="gauge">' + gauge(s, t[3]) + '<div class="gauge-num"><b style="color:' + t[3] + '" id="snum">0</b><span>out of 100</span></div></div>' +
+      '<div class="tier" style="color:' + t[3] + '">' + t[2] + ' ' + t[1] + '</div><p class="tier-blurb">' + t[4] + '</p></div>' +
+      '<div class="vs">' + (state.shared ? 'They guessed ' + state.guess + '%.' : vsText) + '<div class="vs-bars"><span>' + (state.shared ? 'Their guess' : 'Your guess') + '</span><div class="vs-track"><div class="vs-fill" style="background:#71717a" data-w="' + state.guess + '"></div></div><b>' + state.guess + '</b><span>The data</span><div class="vs-track"><div class="vs-fill" style="background:' + t[3] + '" data-w="' + s + '"></div></div><b>' + s + '</b></div></div>' +
+      '<div class="res-grid"><div class="rstat"><b>' + o[3] + '%</b><span>of {{N_OCC}} occupations are less exposed to AI than yours</span></div>' +
+      '<div class="rstat"><b>#' + (idx + 1) + '</b><span>most AI-exposed job of {{N_OCC}} (Microsoft score ' + o[2].toFixed(2) + ')</span></div>' +
+      '<div class="rstat"><b>' + (role ? role.jobs.toLocaleString('en-US') : '0') + '</b><span>' + (role ? esc(role.label.toLowerCase()) + ' jobs already cut by companies citing AI' : 'AI-attributed layoffs tracked for this kind of role — so far') + '</span></div></div>' +
+      (role ? '<div class="res-sec"><div class="evidence"><p><b class="big">' + role.n + ' compan' + (role.n === 1 ? 'y' : 'ies') + '</b> have cut ' + esc(role.label.toLowerCase()) + ' jobs and said AI was the reason:</p><ul>' +
+        role.top.map(function (x) { return '<li>' + esc(x[0]) + ' <span>' + x[1].toLocaleString('en-US') + ' · ' + x[2] + '</span></li>'; }).join('') + '</ul>' +
+        (role.page ? '<a href="/jobs/' + o[4] + '/">See every ' + esc(role.label.toLowerCase()) + ' layoff →</a>' : '<a href="/layoffs/">See all AI layoffs →</a>') + '</div></div>' : '') +
+      '<div class="res-sec"><h3>What moved your score</h3><ul class="factors"><li><span class="pts ' + (o[3] >= 50 ? 'up' : 'down') + '">' + (o[3] >= 50 ? 'HIGH' : 'LOW') + '</span><div>Your occupation<small>' + esc(o[1]) + ' is more AI-exposed than ' + o[3] + '% of occupations. This is 55% of your score.</small></div></li>' + factors + '</ul></div>' +
+      '<div class="res-sec"><h3>Jobs next to yours on the exposure ladder</h3><ol class="ladder">' + ladder.map(function (x) { return '<li' + (x === o ? ' class="me"' : '') + '>' + esc(x[1]) + '<span>' + x[2].toFixed(2) + '</span></li>'; }).join('') + '</ol></div>' +
+      '<div class="res-sec"><h3>How to be harder to replace</h3><ol class="tips">' + tips.join('') + '</ol></div>' +
+      '<div class="share"><button class="cta full" type="button" data-act="share">Share my result</button><button class="cta ghost" type="button" data-act="image">⬇ Save image</button><button class="cta ghost" type="button" data-act="copy">🔗 Copy link</button><button class="cta ghost full" type="button" data-act="retake">↺ ' + (state.shared ? 'Take the test' : 'Try another job') + '</button></div>' +
+      '<p class="disclaimer">An informed estimate, not a prediction. Occupation data: Microsoft Research (CC BY 4.0). <a href="#method">How the score works</a></p>';
+    card.innerHTML = html;
+    requestAnimationFrame(function () { requestAnimationFrame(function () {
+      var arc = document.getElementById('garc'); arc.style.strokeDashoffset = arc.dataset.to;
+      card.querySelectorAll('.vs-fill').forEach(function (f) { f.style.width = f.dataset.w + '%'; });
+      var n = document.getElementById('snum'), t0 = performance.now();
+      (function tick(now) { var p = Math.min(1, (now - t0) / 1000); n.textContent = Math.round(s * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(tick); })(t0);
+    }); });
+    card.querySelector('.share').addEventListener('click', act);
+    var sb = card.querySelector('.shared-banner'); if (sb) sb.addEventListener('click', act);
+    if (!state.shared) {
+      try { history.replaceState(null, '', location.pathname + '?r=' + code() + '#test'); sessionStorage.setItem('kbai-risk-own', code()); } catch (e) {}
+      track('job_risk_complete', { soc: state.job, occupation: o[1], score: s, tier: t[1], guess: state.guess, gap: gap, stage: Q[0].o[state.a[0]][0] });
+    }
+    focusCard();
+  }
+  function shareText() { var o = BY[state.job], s = score(); return 'My AI job risk score as a ' + o[1] + ': ' + s + '/100 — ' + tierOf(s)[1] + '. What’s yours?'; }
+  function shareUrl() { return location.origin + location.pathname + '?r=' + code(); }
+  function toast(m) { var t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); setTimeout(function () { t.classList.remove('show'); }, 2200); }
+  function copy() { var u = shareUrl(); (navigator.clipboard ? navigator.clipboard.writeText(shareText() + ' ' + u) : Promise.reject()).then(function () { toast('Link copied'); }, function () { prompt('Copy this link', u); }); }
+  function act(e) {
+    var b = e.target.closest('[data-act]'); if (!b) return;
+    var a = b.dataset.act;
+    if (a === 'retake') { state = { job: null, a: [], guess: 50, shared: false }; try { history.replaceState(null, '', location.pathname + '#test'); } catch (e2) {} renderJob(); scrollToCard(); track('job_risk_retake'); }
+    else if (a === 'copy') { copy(); track('job_risk_share', { method: 'copy' }); }
+    else if (a === 'share') { if (navigator.share) navigator.share({ title: 'Will AI take my job?', text: shareText(), url: shareUrl() }).catch(function () {}); else copy(); track('job_risk_share', { method: navigator.share ? 'native' : 'copy' }); }
+    else if (a === 'image') { saveImage(); track('job_risk_share', { method: 'image' }); }
+  }
+  function wrap(ctx, text, x, y, maxW, lh, maxLines) {
+    var words = text.split(' '), line = '', lines = 0;
+    for (var i = 0; i < words.length; i++) {
+      var test = line + words[i] + ' ';
+      if (ctx.measureText(test).width > maxW && line) { ctx.fillText(line.trim(), x, y); y += lh; line = words[i] + ' '; if (++lines >= maxLines - 1) { var rest = words.slice(i).join(' '); while (ctx.measureText(rest + '…').width > maxW && rest.length) rest = rest.slice(0, -1); ctx.fillText(rest + (rest.length < words.slice(i).join(' ').length ? '…' : ''), x, y); return; } }
+      else line = test;
+    }
+    ctx.fillText(line.trim(), x, y);
+  }
+  function saveImage() {
+    var o = BY[state.job], s = score(), t = tierOf(s), c = document.createElement('canvas'); c.width = 1200; c.height = 630;
+    var x = c.getContext('2d'), F = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif';
+    x.fillStyle = '#09090b'; x.fillRect(0, 0, 1200, 630);
+    var g = x.createLinearGradient(0, 0, 1200, 0); g.addColorStop(0, '#22c55e'); g.addColorStop(.5, '#f59e0b'); g.addColorStop(1, '#ef4444'); x.fillStyle = g; x.fillRect(0, 0, 1200, 10);
+    x.fillStyle = '#a1a1aa'; x.font = '600 30px ' + F; x.fillText('💀 Killed by AI · AI job risk test', 70, 90);
+    x.fillStyle = '#fafafa'; x.font = '800 54px ' + F; wrap(x, o[1], 70, 175, 640, 62, 3);
+    x.fillStyle = t[3]; x.font = '800 44px ' + F; x.fillText(t[2] + ' ' + t[1], 70, 440);
+    x.fillStyle = '#a1a1aa'; x.font = '400 28px ' + F; x.fillText('More AI-exposed than ' + o[3] + '% of {{N_OCC}} occupations', 70, 500);
+    x.fillStyle = '#71717a'; x.font = '600 26px ' + F; x.fillText('What’s yours? killedbyai.net/will-ai-take-my-job', 70, 575);
+    x.lineCap = 'round'; x.lineWidth = 34; x.strokeStyle = '#27272a'; x.beginPath(); x.arc(945, 380, 170, Math.PI, 2 * Math.PI); x.stroke();
+    var ag = x.createLinearGradient(775, 0, 1115, 0); ag.addColorStop(0, '#22c55e'); ag.addColorStop(.5, '#f59e0b'); ag.addColorStop(1, '#ef4444');
+    x.strokeStyle = ag; x.beginPath(); x.arc(945, 380, 170, Math.PI, Math.PI + Math.PI * s / 100); x.stroke();
+    x.fillStyle = t[3]; x.font = '900 150px ui-monospace,"SF Mono",Menlo,monospace'; x.textAlign = 'center'; x.fillText(String(s), 945, 390);
+    x.fillStyle = '#8f8f99'; x.font = '600 24px ' + F; x.fillText('OUT OF 100', 945, 440);
+    c.toBlob(function (blob) {
+      var file = new File([blob], 'my-ai-job-risk.png', { type: 'image/png' });
+      if (navigator.canShare && navigator.canShare({ files: [file] }) && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) { navigator.share({ files: [file], text: shareText() + ' ' + shareUrl() }).catch(function () {}); return; }
+      var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'my-ai-job-risk.png'; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500); toast('Image saved');
+    }, 'image/png');
+  }
+
+  // ----- the all-jobs table filter and "Test →" links -----
+  var allF = document.querySelector('.all-filter');
+  if (allF) allF.addEventListener('input', function () { var v = allF.value.trim().toLowerCase(); document.querySelectorAll('#all-jobs tbody tr').forEach(function (r) { r.hidden = v && r.children[1].textContent.toLowerCase().indexOf(v) < 0; }); });
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('.rank-table a[data-job]'); if (!a) return;
+    e.preventDefault(); state = { job: null, a: [], guess: 50, shared: false }; pick(a.dataset.job);
+    document.getElementById('test').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // ----- boot: ?r= shared result, ?job= preselected occupation -----
+  var p = new URLSearchParams(location.search), r = p.get('r'), m = r && r.match(/^(\d\d-\d{4})\.(\d{7})\.(\d{1,3})$/);
+  if (m && BY[m[1]] && m[2].split('').every(function (d, i) { return +d < Q[i].o.length; })) {
+    state = { job: m[1], a: m[2].split('').map(Number), guess: Math.min(100, +m[3]), shared: true };
+    try { if (sessionStorage.getItem('kbai-risk-own') === r) state.shared = false; } catch (e) {}
+    renderResult();
+  } else if (p.get('job') && BY[p.get('job')]) { renderJob(); pick(p.get('job')); }
+  else renderJob();
+})();
+</script>
+</body>
+</html>

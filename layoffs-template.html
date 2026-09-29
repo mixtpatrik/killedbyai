@@ -180,6 +180,7 @@
         @media(max-width:600px){.prose{padding:0 .75rem}}
         .list{max-width:1000px}.prose{max-width:1000px}
 .header p a{color:var(--text);text-decoration:underline;text-underline-offset:2px}.header p a:hover{color:var(--orange)}
+.risk-cta{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap;max-width:1000px;margin:1rem auto 0;padding:.75rem 1rem;border:1px solid rgba(239,68,68,.45);background:linear-gradient(90deg,rgba(239,68,68,.12),rgba(245,158,11,.08));border-radius:.75rem;color:#fafafa;text-decoration:none;font-weight:700;font-size:.9375rem;text-align:center}.risk-cta:hover{border-color:#ef4444}.risk-cta span{color:#f87171}
 {{DASH_CSS}}
     </style>
     <script type="application/ld+json">{{JSONLD}}</script>
@@ -191,6 +192,7 @@
         <a href="/layoffs/" class="site-nav-item active" aria-current="page">💼 AI Layoffs</a>
         <a href="/funding/" class="site-nav-item">🔥 Funding</a>
         <a href="/coming-soon/" class="site-nav-item">⏳ Dying soon</a>
+        <a href="/will-ai-take-my-job/" class="site-nav-item">🎯 Will AI take my job?</a>
         <a href="/api/" class="site-nav-item">{ } API</a>
     </nav>
 
@@ -200,6 +202,7 @@
     </header>
 
     {{DASHBOARD}}
+    <div style="padding:0 .75rem"><a class="risk-cta" href="/will-ai-take-my-job/">🎯 Is your job next? <span>Score it against 785 occupations in 60 seconds →</span></a></div>
     <span class="last-updated">Last updated: {{LAST_UPDATED}} · every number sourced · <a href="/api/" style="color:inherit">free JSON</a></span>
     {{CONTROLS}}
 
