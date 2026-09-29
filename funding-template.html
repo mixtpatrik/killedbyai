@@ -5,13 +5,13 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-MC3PM7NKRX');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Failed AI Startups: ${{TOTAL_B}}B in VC Funding Burned ({{COUNT}} Companies)</title>
-    <meta name="description" content="Failed AI startups and the venture capital that died with them: ${{TOTAL_B}} billion across {{COUNT}} companies, from Inflection's $1.5B to Olive AI's $902M. What each raised, and how it ended.">
+    <title>Failed AI Startups: ${{TOTAL_B}}B Burned by {{COUNT}} Dead AI Companies</title>
+    <meta name="description" content="${{TOTAL_B}} billion raised by {{COUNT}} AI companies that died — from {{TOP1}} to {{TOP2}}. Ranked by money burned, burn rate per day, lifespan and cause of death, with sources.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://killedbyai.net/funding/">
     <meta property="og:url" content="https://killedbyai.net/funding/">
     <meta property="og:title" content="Funding Burned — The Most Expensive AI Graveyard">
-    <meta property="og:description" content="${{TOTAL_B}} billion in venture capital burned across {{COUNT}} failed AI startups.">
+    <meta property="og:description" content="${{TOTAL_B}} billion burned across {{COUNT}} failed AI companies — ranked by money lost, burn rate and cause of death.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://killedbyai.net/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#09090b">
     <style>
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#52525b;--fire:#f59e0b;--fire-dim:rgba(245,158,11,0.12)}
+        :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#52525b;--fire:#f59e0b;--fire-dim:rgba(245,158,11,0.12);--acc:#f59e0b;--acc2:#b45309;--acc-dim:rgba(245,158,11,0.14)}
         body{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
         .header{text-align:center;padding:2.5rem 1.5rem 1rem;max-width:700px;margin:0 auto}
         .header h1{font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:0.5rem}
@@ -74,6 +74,8 @@
         .layoff-meta, .fund-meta, .doom-meta { font-size: .8125rem; }
         .last-updated { font-size: .8125rem; color: var(--text-muted); }
         @media (max-width: 600px) { .site-nav { justify-content: flex-start; -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); mask-image: linear-gradient(90deg, #000 90%, transparent); } .site-nav-item { font-size: .8125rem; padding: 0 .75rem; } .layoff-desc, .fund-desc, .doom-desc { font-size: .875rem; } }
+        .list{max-width:1000px}.fund-name a{color:inherit;text-decoration:none}.fund-name a:hover{color:var(--fire)}
+{{DASH_CSS}}
     </style>
     <script type="application/ld+json">{{JSONLD}}</script>
     <script type="application/ld+json">{{BREADCRUMB}}</script>
@@ -89,19 +91,19 @@
 
     <header class="header">
         <h1>Failed AI Startups <span>&amp; the Funding They Burned</span></h1>
-        <p>The most expensive corner of the graveyard: ${{TOTAL_B}} billion of venture capital raised by {{COUNT}} AI startups that shut down, were acqui-hired into oblivion, or ran out of money. Each row shows the total raised, when it died, and a source — the AI startup failures that cost investors the most, largest first.</p>
+        <p>The most expensive corner of the graveyard: ${{TOTAL_B}} billion raised by {{COUNT}} AI companies that shut down, were acqui-hired into oblivion, or ran out of money — from self-driving moonshots to AI gadgets. Ranked by money burned, with how fast they burned it and what killed them.</p>
     </header>
-    <div class="hero-stat">
-        <div class="hero-val">${{TOTAL_B}}B</div>
-        <div class="hero-lbl">Total VC funding burned</div>
-        <div class="hero-sub">Across {{COUNT}} startups that didn't make it</div>
-    </div>
-    <main class="list">
+    {{DASHBOARD}}
+    <span class="last-updated" style="display:block;text-align:center;margin-top:.75rem">Last updated: {{LAST_UPDATED}} · funding = total raised before death (VC, corporate or strategic) · <a href="/api/" style="color:inherit">free JSON</a></span>
+    {{CONTROLS}}
+
+    <main class="list" data-sortable>
 {{ROWS}}
     </main>
     <footer class="site-footer">
         <p>Part of <a href="/">Killed by AI</a>. Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.</p>
         <p class="footer-links" style="font-size:.8125rem;margin-top:.5rem;text-align:center">{{FOOTER_LINKS}}</p>
     </footer>
+{{DASH_JS}}
 </body>
 </html>

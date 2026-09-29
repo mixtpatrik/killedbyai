@@ -892,7 +892,8 @@
     "link": "https://techcrunch.com/2025/12/05/meta-acquires-ai-device-startup-limitless/",
     "deathType": "hardware-failed",
     "dateAdded": "2026-03-26",
-    "slug": "limitless-pendant-rewind-ai"
+    "slug": "limitless-pendant-rewind-ai",
+    "fundingM": 33
   },
   {
     "name": "Google Jamboard",
@@ -1496,7 +1497,8 @@
     "deathType": "acqui-hired",
     "collateral": "Free accounts lost access August 15 with paid access ending September 14 — automations built on Relay had to be rebuilt elsewhere.",
     "dateAdded": "2026-08-10",
-    "slug": "relay-app"
+    "slug": "relay-app",
+    "fundingM": 8.1
   },
   {
     "name": "Groq Llama 3.1 8B Instant & Llama 3.3 70B Versatile",
@@ -1688,7 +1690,8 @@
     "seo": {
       "title": "Weights AI shut down: what happened to weights.gg (2026)",
       "description": "Weights.gg closed on March 31, 2026 after announcing it was never profitable; OpenAI then acquired its voice-cloning tech and engineers. Timeline, reasons, and what happened to user voice models."
-    }
+    },
+    "fundingM": 4
   },
   {
     "name": "Wsup AI",
@@ -1810,5 +1813,104 @@
     "collateral": "Returning capital instead of burning it is rare enough to be worth noting: investors got their money back.",
     "dateAdded": "2026-09-22",
     "slug": "thegist"
+  },
+  {
+    "name": "GM Cruise",
+    "dateOpen": "2013-01-01",
+    "dateClose": "2024-12-10",
+    "type": "startup",
+    "causeOfDeath": "Parent Pulled Funding",
+    "killedBy": "General Motors",
+    "deathType": "product-killed",
+    "fundingM": 10000,
+    "link": "https://www.cnbc.com/2024/12/10/gm-halts-funding-of-robotaxi-development-by-cruise.html",
+    "description": "The robotaxi startup GM bought in 2016 and then poured more than $10 billion into, with Honda ($852M), Microsoft and SoftBank alongside. Driverless paid rides began in San Francisco in 2022; a 2023 crash in which a Cruise car dragged a pedestrian, and the company's handling of it, cost it its California permit. In December 2024 Mary Barra ended the program, citing the 'incremental time and capital' still needed. The most expensive AI product death on record.",
+    "collateral": "About 1,000 Cruise staff were cut in February 2025; Microsoft took an $800M write-down on its stake.",
+    "dateAdded": "2026-09-29",
+    "slug": "gm-cruise"
+  },
+  {
+    "name": "Argo AI",
+    "dateOpen": "2016-12-01",
+    "dateClose": "2022-10-26",
+    "type": "startup",
+    "causeOfDeath": "Backers Pulled Out",
+    "killedBy": "Ford & Volkswagen",
+    "deathType": "startup-failed",
+    "fundingM": 3600,
+    "link": "https://techcrunch.com/2022/10/26/ford-vw-backed-argo-ai-is-shutting-down/",
+    "description": "Pittsburgh's self-driving champion, backed by roughly $1 billion from Ford and $2.6 billion from Volkswagen. Six years in, both backers decided that fully driverless cars were further away than they could keep paying for, declined to invest further, and absorbed its assets. Around 2,000 employees were offered jobs at the two carmakers; the company itself simply stopped.",
+    "collateral": "Roughly 2,000 staff were split between Ford and VW or let go; Ford took a $2.7B write-down.",
+    "dateAdded": "2026-09-29",
+    "slug": "argo-ai"
+  },
+  {
+    "name": "Forward (CarePods)",
+    "dateOpen": "2016-01-01",
+    "dateClose": "2024-11-12",
+    "type": "startup",
+    "causeOfDeath": "Overpromised",
+    "killedBy": "Itself",
+    "deathType": "startup-failed",
+    "fundingM": 657,
+    "link": "https://www.fiercehealthcare.com/health-tech/primary-care-player-forward-shutters-after-raising-400m-rolling-out-carepods",
+    "description": "A primary-care startup that raised $657M on the promise of AI-run doctor's offices, culminating in 'CarePods' — self-serve kiosks meant to automate check-ups. Only three pods ever launched, one was pulled soon after installation, and former staff described patients getting stuck inside. Forward shut down in November 2024 with a few weeks' notice.",
+    "collateral": "Members lost their primary-care provider mid-treatment, with medical support ending December 13.",
+    "dateAdded": "2026-09-29",
+    "slug": "forward-carepods"
+  },
+  {
+    "name": "Embark Trucks",
+    "dateOpen": "2016-01-01",
+    "dateClose": "2023-03-03",
+    "type": "startup",
+    "causeOfDeath": "Capital Dried Up",
+    "killedBy": "Market",
+    "deathType": "startup-failed",
+    "fundingM": 400,
+    "link": "https://techcrunch.com/2023/03/03/embark-trucks-lays-off-workers-explores-liquidation-of-self-driving-truck-assets/",
+    "description": "An autonomous-trucking company that went public via SPAC in 2021 and raised more than $400 million. With no revenue and capital markets closed to pre-revenue companies, it cut 70% of staff and began liquidating its self-driving truck assets in March 2023. Its timeline for driverless freight never arrived; the money did run out.",
+    "dateAdded": "2026-09-29",
+    "slug": "embark-trucks"
+  },
+  {
+    "name": "Ghost Autonomy",
+    "dateOpen": "2017-01-01",
+    "dateClose": "2024-04-03",
+    "type": "startup",
+    "causeOfDeath": "Funding Collapse",
+    "killedBy": "Market",
+    "deathType": "startup-failed",
+    "fundingM": 220,
+    "link": "https://techcrunch.com/2024/04/03/openai-backed-ghost-autonomy-shuts-down/",
+    "description": "A self-driving software startup that raised about $220M and, months before closing, landed an investment from OpenAI's startup fund to bring large language models to autonomous driving. It shut down worldwide on April 3, 2024, unable to secure the long-term funding its plan required.",
+    "dateAdded": "2026-09-29",
+    "slug": "ghost-autonomy"
+  },
+  {
+    "name": "OpenAI davinci-002, babbage-002 & gpt-3.5-turbo-instruct",
+    "dateOpen": "2023-08-22",
+    "dateClose": "2026-09-28",
+    "type": "model",
+    "causeOfDeath": "Model Upgrade",
+    "killedBy": "OpenAI",
+    "deathType": "model-upgrade",
+    "link": "https://developers.openai.com/api/docs/deprecations",
+    "description": "The end of the GPT-3 base-model lineage, retired September 28. The three shipped in August 2023, inherited the job when the original ada/babbage/curie/davinci died in January 2024, and were the last models served over the legacy /v1/completions endpoint. OpenAI's suggested replacement is gpt-5.6-terra; their fine-tuned versions outlive them by 25 days.",
+    "dateAdded": "2026-09-29",
+    "slug": "openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct"
+  },
+  {
+    "name": "Reve AI Image Generation",
+    "dateOpen": "2025-03-24",
+    "dateClose": "2026-09-27",
+    "type": "service",
+    "causeOfDeath": "Acqui-hired",
+    "killedBy": "OpenAI",
+    "deathType": "acqui-hired",
+    "link": "https://www.digitaltoday.co.kr/en/view/105109/startup-reve-to-end-image-generation-service-after-openai-investment-sept-27",
+    "description": "Reve's image generator — briefly the top-ranked text-to-image model on launch in March 2025 — shut off at noon Pacific on September 27, the price of an investment from OpenAI, which also took its AI research team to lead multimodal work. The API went dark on August 14 and sign-ups stopped September 17; users have until October 31 to export, and September fees are refunded. The company survives; the product does not.",
+    "dateAdded": "2026-09-29",
+    "slug": "reve-ai-image-generation"
   }
 ]

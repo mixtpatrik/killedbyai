@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Layoffs Tracker 2026: {{TOTAL_JOBS}} Jobs Replaced by AI</title>
-    <meta name="description" content="AI layoffs tracker: {{TOTAL_JOBS}} jobs replaced by AI across {{TOTAL_COMPANIES}} companies that explicitly blamed AI — from Cloudflare's 1,100 'measurers' to Block's 40% cut. A source on every entry.">
+    <meta name="description" content="{{TOTAL_JOBS}} jobs cut by {{TOTAL_COMPANIES}} companies that blamed AI — {{THIS_YEAR_JOBS}} in {{THIS_YEAR}} alone. Charts by quarter and role, the biggest cuts ({{BIGGEST}}), and a source on every entry. Updated {{LAST_UPDATED}}.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://killedbyai.net/layoffs/">
     <meta property="og:url" content="https://killedbyai.net/layoffs/">
@@ -23,7 +23,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
     <meta property="og:title" content="AI Layoffs Tracker — {{TOTAL_JOBS}} Jobs Cut by AI">
-    <meta property="og:description" content="{{TOTAL_JOBS}} jobs cut across {{TOTAL_COMPANIES}} companies because of AI.">
+    <meta property="og:description" content="{{TOTAL_JOBS}} jobs cut across {{TOTAL_COMPANIES}} companies that blamed AI — {{THIS_YEAR_JOBS}} in {{THIS_YEAR}}. Charts, rankings, sources.">
     <meta property="og:type" content="website">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -37,6 +37,7 @@
             --bg: #09090b; --bg-card: #111113; --border: #27272a;
             --text: #fafafa; --text-muted: #a1a1aa; --text-dim: #52525b;
             --orange: #f97316; --orange-dim: rgba(249, 115, 22, 0.15);
+            --acc: #f97316; --acc2: #c2410c; --acc-dim: rgba(249, 115, 22, 0.15);
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -177,6 +178,9 @@
         .largest{padding-left:1.25rem}.largest li{margin:.375rem 0;font-size:1rem}.largest a{text-decoration:none;color:var(--text)}.largest a:hover{color:var(--orange)}.largest span{color:var(--text-dim);font-size:.875rem;margin-left:.375rem}
         .footer-links{font-size:.8125rem;margin-top:.5rem}
         @media(max-width:600px){.prose{padding:0 .75rem}}
+        .list{max-width:1000px}.prose{max-width:1000px}
+.header p a{color:var(--text);text-decoration:underline;text-underline-offset:2px}.header p a:hover{color:var(--orange)}
+{{DASH_CSS}}
     </style>
     <script type="application/ld+json">{{JSONLD}}</script>
     <script type="application/ld+json">{{BREADCRUMB}}</script>
@@ -192,27 +196,14 @@
 
     <header class="header">
         <h1>AI Layoffs <span>Tracker</span></h1>
-        <p>The AI layoffs tracker: {{TOTAL_JOBS}} jobs lost to AI across {{TOTAL_COMPANIES}} companies — every cut where the company itself named artificial intelligence, automation or an "AI-first" strategy as the reason. Each entry records the announcement date, the roles replaced by AI, the quote, and a source. Numbers are what companies disclosed, not estimates. See the same data <a href="/jobs/">re-indexed by the jobs AI replaced</a>.</p>
+        <p>Every layoff where the company itself named AI, automation or an "AI-first" strategy as the reason — {{TOTAL_JOBS}} jobs at {{TOTAL_COMPANIES}} companies, with the date, the roles replaced, the quote and a source. Numbers are what companies disclosed, not estimates. Hardest hit so far: {{TOP_ROLE}}. See it <a href="/jobs/">by the jobs AI replaced</a>.</p>
     </header>
 
-    <div class="stats-row">
-        <div class="stat">
-            <div class="stat-val">{{TOTAL_JOBS}}</div>
-            <div class="stat-lbl">Jobs killed by AI</div>
-        </div>
-        <div class="stat">
-            <div class="stat-val">{{TOTAL_COMPANIES}}</div>
-            <div class="stat-lbl">Companies</div>
-        </div>
-        <div class="stat">
-            <div class="stat-val">{{THIS_YEAR_JOBS}}</div>
-            <div class="stat-lbl">Cut in {{THIS_YEAR}}, AI cited</div>
-            <div class="stat-sub">from the entries below</div>
-        </div>
-    </div>
-    <span class="last-updated">Last updated: {{LAST_UPDATED}} | {{YEAR_STATS}}</span>
+    {{DASHBOARD}}
+    <span class="last-updated">Last updated: {{LAST_UPDATED}} · every number sourced · <a href="/api/" style="color:inherit">free JSON</a></span>
+    {{CONTROLS}}
 
-    <main class="list">
+    <main class="list" data-sortable>
 {{ROWS}}
     </main>
 
@@ -236,5 +227,6 @@
         </p>
         <p class="footer-links">{{FOOTER_LINKS}}</p>
     </footer>
+{{DASH_JS}}
 </body>
 </html>

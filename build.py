@@ -309,6 +309,141 @@ def render_killer_page(killer, items, tpl, total):
     return out
 
 
+# ---------- Dashboards for /layoffs/ and /funding/ ----------
+DASH_CSS = """
+.dash{max-width:1000px;margin:1.25rem auto 0;padding:0 1.5rem}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem}
+.tile{background:var(--bg-card);border:1px solid var(--border);border-radius:.625rem;padding:.875rem 1rem;display:flex;flex-direction:column;gap:.125rem;text-decoration:none;color:inherit;min-width:0}
+a.tile:hover{border-color:var(--acc)}
+.tile-val{font-size:1.625rem;font-weight:900;color:var(--acc);font-family:'SF Mono','Cascadia Code',monospace;line-height:1.15;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile-lbl{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.tile-sub{font-size:.8125rem;color:var(--text-dim)}
+.tile.txt .tile-val{font-size:1.25rem;white-space:normal;line-height:1.25;padding:.25rem 0}
+.tile.hero{background:linear-gradient(135deg,var(--acc-dim),var(--bg-card) 70%)}
+.tile.hero .tile-val{font-size:2.5rem}
+.dash-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-top:.75rem}
+.dcard{background:var(--bg-card);border:1px solid var(--border);border-radius:.625rem;padding:1rem 1.125rem;min-width:0}
+.dcard.wide{grid-column:1/-1}
+.dcard h2{font-size:.9375rem;font-weight:800;margin-bottom:.125rem}
+.dcard .dnote{font-size:.8125rem;color:var(--text-dim);margin-bottom:.75rem}
+.vbars{display:flex;align-items:flex-end;gap:.375rem;height:170px;padding-top:1.25rem}
+.vbar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
+.vbar-track{flex:1;width:100%;display:flex;align-items:flex-end;position:relative}
+.vbar-fill{width:100%;height:var(--h);min-height:2px;background:linear-gradient(180deg,var(--acc),var(--acc2));border-radius:.25rem .25rem 0 0;position:relative}
+.vbar-fill b{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);font-size:.6875rem;font-weight:700;color:var(--text);white-space:nowrap;padding-bottom:.125rem;font-family:'SF Mono','Cascadia Code',monospace}
+.vbar-lbl{font-size:.6875rem;color:var(--text-dim);margin-top:.375rem;white-space:nowrap;text-align:center;line-height:1.2;font-family:'SF Mono','Cascadia Code',monospace}
+.vbar.now .vbar-fill{box-shadow:0 0 0 2px var(--acc-dim)}
+.vbar.now .vbar-lbl{color:var(--acc);font-weight:700}
+.hbars{display:flex;flex-direction:column;gap:.5rem;list-style:none}
+.hbar{display:grid;grid-template-columns:minmax(0,9.5rem) minmax(0,1fr) auto;align-items:center;gap:.625rem;font-size:.875rem;text-decoration:none;color:var(--text)}
+a.hbar:hover .hbar-name{color:var(--acc)}
+.hbar-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hbar-track{height:.625rem;background:#1c1c1f;border-radius:1rem;overflow:hidden}
+.hbar-fill{height:100%;width:var(--w);min-width:3px;background:linear-gradient(90deg,var(--acc2),var(--acc));border-radius:1rem}
+.hbar-val{font-family:'SF Mono','Cascadia Code',monospace;font-size:.8125rem;color:var(--text-muted);text-align:right;min-width:3.5rem}
+.recent{list-style:none;display:flex;flex-direction:column}
+.recent li{display:flex;justify-content:space-between;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.875rem}
+.recent li:last-child{border-bottom:0}
+.recent a{color:var(--text);text-decoration:none;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.recent a:hover{color:var(--acc)}
+.recent span{color:var(--text-dim);font-family:'SF Mono','Cascadia Code',monospace;font-size:.8125rem;white-space:nowrap}
+.recent em{font-style:normal;color:var(--acc);font-weight:700}
+.lctrl{max-width:1000px;margin:1.75rem auto 0;padding:0 1.5rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;position:sticky;top:0;z-index:5;background:var(--bg);padding-top:.625rem;padding-bottom:.625rem;border-bottom:1px solid var(--border)}
+.lctrl h2{font-size:1.125rem;font-weight:800;width:100%;margin-bottom:.125rem}
+.lsearch{flex:1 1 220px;min-width:0;height:44px;background:var(--bg-card);border:1px solid var(--border);border-radius:.5rem;color:var(--text);padding:0 .875rem;font-size:16px}
+.lsearch:focus{outline:none;border-color:var(--acc)}
+.lsort{height:44px;background:var(--bg-card);border:1px solid var(--border);border-radius:.5rem;color:var(--text);padding:0 .625rem;font-size:.875rem}
+.chips{display:flex;gap:.375rem;flex-wrap:wrap;width:100%}
+.chipf{height:36px;padding:0 .875rem;border-radius:2rem;border:1px solid var(--border);background:var(--bg-card);color:var(--text-muted);font-size:.8125rem;cursor:pointer;font-family:inherit}
+.chipf:hover{color:var(--text)}
+.chipf.on{background:var(--acc-dim);border-color:var(--acc);color:var(--acc);font-weight:700}
+.chipf small{opacity:.7;margin-left:.25rem}
+.lcount{font-size:.8125rem;color:var(--text-dim);width:100%}
+.list .empty{text-align:center;color:var(--text-dim);padding:2rem 0}
+.rank{font-family:'SF Mono','Cascadia Code',monospace;color:var(--text-dim);font-size:.8125rem;margin-right:.375rem;font-weight:600}
+.badge-new{display:inline-block;background:var(--acc);color:#09090b;font-size:.625rem;font-weight:800;padding:.0625rem .375rem;border-radius:.25rem;margin-left:.375rem;vertical-align:middle;letter-spacing:.04em}
+.mchip{color:var(--text-muted);background:#1c1c1f;padding:.125rem .5rem;border-radius:.25rem;text-decoration:none}
+a.mchip:hover{color:var(--acc)}
+@media(max-width:700px){.dash-grid{grid-template-columns:1fr}.dcard.wide{grid-column:auto}}
+@media(max-width:600px){.dash,.lctrl{padding-left:.75rem;padding-right:.75rem}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tile{padding:.75rem}.tile-val{font-size:1.25rem}.tile.hero .tile-val{font-size:1.5rem}.tile.txt .tile-val{font-size:1rem}.tile-sub{font-size:.75rem}.hbar{grid-template-columns:minmax(0,7rem) minmax(0,1fr) auto;font-size:.8125rem}.vbars{height:140px;gap:.25rem}.vbar-fill b{font-size:.5625rem}.vbar-lbl{font-size:.5625rem}.lsort{flex:1 1 100%}.lctrl{position:static}}
+"""
+
+DASH_JS = """<script>
+(function(){
+  var list=document.querySelector('.list[data-sortable]'); if(!list) return;
+  var rows=[].slice.call(list.querySelectorAll('[data-sort-row]'));
+  var q=document.querySelector('.lsearch'), s=document.querySelector('.lsort'), chips=[].slice.call(document.querySelectorAll('.chipf')), cnt=document.querySelector('.lcount');
+  var empty=document.createElement('p'); empty.className='empty'; empty.textContent='Nothing matches. Try another search or filter.'; empty.hidden=true; list.appendChild(empty);
+  var filt='all';
+  function apply(push){
+    var term=(q.value||'').trim().toLowerCase(), key=s.value, n=0;
+    var keyed=rows.map(function(r,i){return {r:r,i:i}});
+    var parts=key.split(':'), f=parts[0], dir=parts[1]==='asc'?1:-1;
+    keyed.sort(function(a,b){var x=a.r.dataset[f],y=b.r.dataset[f]; if(f==='name') return x.localeCompare(y)*dir; x=parseFloat(x)||0; y=parseFloat(y)||0; return x===y? a.i-b.i : (x-y)*dir;});
+    keyed.forEach(function(o){ var r=o.r, ok=(filt==='all'||(' '+r.dataset.f+' ').indexOf(' '+filt+' ')>-1)&&(!term||r.dataset.text.indexOf(term)>-1); r.hidden=!ok; if(ok){n++;} list.insertBefore(r,empty); });
+    empty.hidden=n>0; cnt.textContent='Showing '+n+' of '+rows.length;
+    if(push){ try{ var u=new URL(location.href); term?u.searchParams.set('q',term):u.searchParams.delete('q'); key!==s.options[0].value?u.searchParams.set('sort',key):u.searchParams.delete('sort'); filt!=='all'?u.searchParams.set('f',filt):u.searchParams.delete('f'); history.replaceState(null,'',u.pathname+u.search+u.hash);}catch(e){} }
+  }
+  chips.forEach(function(c){c.addEventListener('click',function(){filt=c.dataset.f; chips.forEach(function(x){var on=x===c; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on)}); apply(true);});});
+  q.addEventListener('input',function(){apply(true)}); s.addEventListener('change',function(){apply(true)});
+  try{ var p=new URLSearchParams(location.search); if(p.get('q')) q.value=p.get('q'); if(p.get('sort')&&[].some.call(s.options,function(o){return o.value===p.get('sort')})) s.value=p.get('sort');
+    if(p.get('f')){ chips.forEach(function(c){ if(c.dataset.f===p.get('f')){ filt=c.dataset.f; chips.forEach(function(x){x.classList.toggle('on',x===c); x.setAttribute('aria-pressed',x===c)}); } }); } }catch(e){}
+  apply(false);
+})();
+</script>"""
+
+
+def dash_tile(val, label, sub="", href=None, hero=False, txt=False):
+    tag = f'a href="{href}"' if href else "div"
+    cls = "tile" + (" hero" if hero else "") + (" txt" if txt else "")
+    return (f'<{tag} class="{cls}"><span class="tile-lbl">{label}</span><span class="tile-val">{val}</span>'
+            + (f'<span class="tile-sub">{sub}</span>' if sub else "") + f'</{tag.split()[0]}>')
+
+
+def dash_vbars(items, now_label=None):
+    mx = max((v for _, v, _ in items), default=1) or 1
+    return '<div class="vbars" role="img" aria-label="' + esc(", ".join(f"{l}: {d}" for l, _, d in items)) + '">' + "".join(
+        f'<div class="vbar{" now" if l == now_label else ""}"><div class="vbar-track"><div class="vbar-fill" style="--h:{v / mx * 100:.1f}%">'
+        f'{f"<b>{d}</b>" if v else ""}</div></div><span class="vbar-lbl">{esc(l).replace(" ", "<br>")}</span></div>' for l, v, d in items) + "</div>"
+
+
+def dash_hbars(items):
+    mx = max((v for _, v, _, _ in items), default=1) or 1
+    out = []
+    for l, v, d, href in items:
+        tag = f'a class="hbar" href="{href}"' if href else 'div class="hbar"'
+        out.append(f'<li><{tag}><span class="hbar-name">{esc(l)}</span><span class="hbar-track"><span class="hbar-fill" style="--w:{v / mx * 100:.1f}%"></span></span>'
+                   f'<span class="hbar-val">{d}</span></{tag.split()[0]}></li>')
+    return '<ol class="hbars">' + "".join(out) + "</ol>"
+
+
+def dash_card(title, note, body, wide=False):
+    return f'<section class="dcard{" wide" if wide else ""}"><h2>{title}</h2>' + (f'<p class="dnote">{note}</p>' if note else "") + body + "</section>"
+
+
+def dash_controls(title, placeholder, sorts, chips):
+    opts = "".join(f'<option value="{v}">{esc(l)}</option>' for v, l in sorts)
+    ch = "".join(f'<button type="button" class="chipf{" on" if i == 0 else ""}" data-f="{v}" aria-pressed="{"true" if i == 0 else "false"}">{esc(l)}{f"<small>{n}</small>" if n is not None else ""}</button>'
+                 for i, (v, l, n) in enumerate(chips))
+    return (f'<div class="lctrl" role="search"><h2 id="list">{title}</h2>'
+            f'<input class="lsearch" type="search" placeholder="{esc(placeholder)}" aria-label="{esc(placeholder)}" autocomplete="off">'
+            f'<select class="lsort" aria-label="Sort by">{opts}</select><div class="chips" role="group" aria-label="Filter">{ch}</div>'
+            f'<p class="lcount" aria-live="polite"></p></div>')
+
+
+def fmt_money_m(m):
+    if m >= 1000:
+        return f"${m / 1000:.1f}B".replace(".0B", "B")
+    if m >= 1:
+        return f"${m:,.0f}M"
+    return f"${m * 1000:,.0f}K"
+
+
+def fmt_k(n):
+    if n >= 1000:
+        return f"{n / 1000:.1f}k".replace(".0k", "k")
+    return str(n)
+
+
 def render_jobs_pages(ldata, list_tpl):
     """/jobs/ and /jobs/<role>/ — layoffs re-indexed by the roles AI replaced."""
     roles = json.loads((ROOT / "roles.json").read_text())
@@ -945,13 +1080,13 @@ def build_funding_jsonld(funded, total_b):
         "@type": "Dataset",
         "@id": SITE_URL + "api/#funding",
         "isBasedOn": GRAVEYARD_DATASET_REF,
-        "name": "VC Funding Burned by Failed AI Startups",
+        "name": "Funding Burned by Failed AI Companies",
         "description": (
-            f"${total_b} billion in venture capital raised by {len(funded)} AI startups that shut down, "
+            f"${total_b} billion raised (venture, corporate and strategic funding) by {len(funded)} AI startups that shut down, "
             "were acqui-hired into oblivion, or ran out of money."
         ),
         "url": SITE_URL + "funding/",
-        "keywords": "failed AI startups, AI startup failures, VC funding burned, AI bubble, wasted venture capital",
+        "keywords": "failed AI startups, AI startup failures, AI funding burned, AI bubble, failed self-driving companies, wasted venture capital",
         "license": DATA_LICENSE,
         "isAccessibleForFree": True,
         "dateModified": lm(["graveyard.json"]),
@@ -1053,54 +1188,120 @@ def main():
     if layoffs_path.exists():
         layoffs = json.loads(layoffs_path.read_text())
         layoffs_template = (ROOT / "layoffs-template.html").read_text()
+        roles_map = json.loads((ROOT / "roles.json").read_text())
         total_jobs = sum(l["jobs"] for l in layoffs)
         total_companies = len(layoffs)
         layoffs_sorted = sorted(layoffs, key=lambda l: l["jobs"], reverse=True)
         max_jobs = layoffs_sorted[0]["jobs"] if layoffs_sorted else 1
+        now = datetime.utcnow()
+        this_year = str(now.year)
 
-        rows_html = "\n".join(
-            f'''<article class="layoff-row" id="{slugify(l["company"])}">
+        by_role = {}
+        for l in layoffs:
+            for r in l.get("roleTags", []):
+                by_role.setdefault(r, []).append(l)
+        role_pages = {r for r, rows in by_role.items() if r != "various" and len(rows) >= 2}
+
+        def role_chips(l):
+            return " ".join(f'<a class="mchip" href="/jobs/{r}/">{esc(roles_map.get(r, r))}</a>' if r in role_pages else f'<span class="mchip">{esc(roles_map.get(r, r))}</span>'
+                            for r in l.get("roleTags", []) if r != "various")
+
+        def lrow(rank, l):
+            fresh = (now - datetime.strptime(l["date"], "%Y-%m-%d")).days <= 45
+            text = " ".join([l["company"], l["description"], l["roles"], " ".join(roles_map.get(r, r) for r in l.get("roleTags", []))]).lower()
+            return f'''<article class="layoff-row" id="{slugify(l["company"])}" data-sort-row data-jobs="{l["jobs"]}" data-date="{l["date"].replace("-", "")}" data-name="{esc(l["company"].lower())}" data-f="{l["date"][:4]} {" ".join(l.get("roleTags", []))}" data-text="{esc(text)}">
   <div class="layoff-bar-wrap">
-    <div class="layoff-bar" style="width: {l["jobs"] / max_jobs * 100}%"></div>
+    <div class="layoff-bar" style="width: {l["jobs"] / max_jobs * 100:.1f}%"></div>
   </div>
   <div class="layoff-info">
     <div class="layoff-header">
-      <h2 class="layoff-company">{esc(l["company"])}</h2>
+      <h2 class="layoff-company"><span class="rank">#{rank}</span>{esc(l["company"])}{'<span class="badge-new">NEW</span>' if fresh else ""}</h2>
       <span class="layoff-count">{l["jobs"]:,}</span>
     </div>
     <p class="layoff-desc">{esc(l["description"])}</p>
     <div class="layoff-meta">
-      <span class="layoff-roles">{esc(l["roles"])}</span>
-      <span class="layoff-date">{l["date"][:7]}</span>
-      <a class="layoff-source" href="{esc(l["source"])}" target="_blank" rel="noopener">Source</a>
+      <span class="layoff-date">{fmt_month(l["date"])}</span>
+      {role_chips(l)}
+      <a class="layoff-source" href="{esc(l["source"])}" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>'''
-            for l in layoffs_sorted
-        )
+
+        rows_html = "\n".join(lrow(k + 1, l) for k, l in enumerate(layoffs_sorted))
 
         by_year = {}
+        by_year_n = {}
         for l in layoffs:
             y = l["date"][:4]
             by_year[y] = by_year.get(y, 0) + l["jobs"]
+            by_year_n[y] = by_year_n.get(y, 0) + 1
         year_stats = " | ".join(f"{y}: {c:,}" for y, c in sorted(by_year.items()))
-        by_year_n = {}
-        for l in layoffs:
-            by_year_n[l["date"][:4]] = by_year_n.get(l["date"][:4], 0) + 1
         year_table = ("<table class=\"year-table\"><thead><tr><th>Year</th><th>Companies</th><th>Jobs cut, AI cited</th></tr></thead><tbody>"
                       + "".join(f"<tr><td>{y}</td><td>{by_year_n[y]}</td><td>{c:,}</td></tr>" for y, c in sorted(by_year.items()))
                       + f"<tr><th>Total</th><th>{len(layoffs)}</th><th>{total_jobs:,}</th></tr></tbody></table>")
-        this_year = str(datetime.utcnow().year)
         largest = sorted([l for l in layoffs if l["date"].startswith(this_year)], key=lambda l: -l["jobs"])[:5]
         largest_html = "<ol class=\"largest\">" + "".join(f'<li><a href="#{slugify(l["company"])}"><b>{esc(l["company"])}</b> — {l["jobs"]:,} jobs</a> <span>{fmt_month(l["date"])}</span></li>' for l in largest) + "</ol>"
         year_2026_jobs = by_year.get(this_year, 0)
 
+        # --- dashboard ---
+        jobs_sorted = sorted(l["jobs"] for l in layoffs)
+        median_jobs = jobs_sorted[len(jobs_sorted) // 2] if len(jobs_sorted) % 2 else (jobs_sorted[len(jobs_sorted) // 2 - 1] + jobs_sorted[len(jobs_sorted) // 2]) // 2
+        biggest = layoffs_sorted[0]
+        role_rank = sorted(((r, sum(x["jobs"] for x in rows), len(rows)) for r, rows in by_role.items() if r != "various"), key=lambda t: -t[1])
+        top_role = role_rank[0]
+        latest = sorted(layoffs, key=lambda l: l["date"], reverse=True)
+        prev_year = str(now.year - 1)
+        ytd_prev = sum(l["jobs"] for l in layoffs if l["date"][:4] == prev_year and l["date"][5:] <= now.strftime("%m-%d"))
+        tiles = "".join([
+            dash_tile(f"{total_jobs:,}", "Jobs cut, AI blamed", f"across {total_companies} companies since 2024", hero=True),
+            dash_tile(f"{year_2026_jobs:,}", f"Cut in {this_year}", f"{by_year_n.get(this_year, 0)} companies · {prev_year}: {by_year.get(prev_year, 0):,}"),
+            dash_tile(f"{biggest['jobs']:,}", "Biggest single cut", f"{esc(biggest['company'])}, {fmt_month(biggest['date'])}", href=f"#{slugify(biggest['company'])}"),
+            dash_tile(f"{median_jobs:,}", "Median cut", "jobs per announcement"),
+            dash_tile(esc(roles_map.get(top_role[0], top_role[0])), "Most-replaced role", f"{top_role[1]:,} jobs · {top_role[2]} companies", href=f"/jobs/{top_role[0]}/" if top_role[0] in role_pages else None, txt=True),
+            dash_tile(esc(latest[0]["company"]), "Latest AI layoff", f"{latest[0]['jobs']:,} jobs · {fmt_month(latest[0]['date'])}", href=f"#{slugify(latest[0]['company'])}", txt=True),
+        ])
+        first_q = min(l["date"] for l in layoffs)
+        qy, qq = int(first_q[:4]), (int(first_q[5:7]) - 1) // 3 + 1
+        cur_q = (now.year, (now.month - 1) // 3 + 1)
+        q_items = []
+        while (qy, qq) <= cur_q:
+            v = sum(l["jobs"] for l in layoffs if int(l["date"][:4]) == qy and (int(l["date"][5:7]) - 1) // 3 + 1 == qq)
+            q_items.append((f"Q{qq} '{str(qy)[2:]}", v, fmt_k(v) if v else ""))
+            qq += 1
+            if qq == 5:
+                qy, qq = qy + 1, 1
+        now_q = f"Q{cur_q[1]} '{str(cur_q[0])[2:]}"
+        peak_q = max(q_items, key=lambda t: t[1])
+        cards = "".join([
+            dash_card("AI layoffs by quarter", f"Jobs cut where the employer blamed AI. Peak: {peak_q[0]} with {peak_q[1]:,}.", dash_vbars(q_items, now_q), wide=True),
+            dash_card("Biggest AI layoffs", "Top 10 single announcements", dash_hbars([(l["company"], l["jobs"], fmt_k(l["jobs"]), f"#{slugify(l['company'])}") for l in layoffs_sorted[:10]])),
+            dash_card("Jobs AI replaced, by role", "Jobs cut per role tag (a layoff can hit several roles)",
+                      dash_hbars([(roles_map.get(r, r), j, fmt_k(j), f"/jobs/{r}/" if r in role_pages else None) for r, j, _ in role_rank[:10]])),
+            dash_card("Latest AI layoffs", "Most recent announcements first",
+                      '<ul class="recent">' + "".join(f'<li><a href="#{slugify(l["company"])}">{esc(l["company"])} <em>{l["jobs"]:,}</em></a><span>{fmt_month(l["date"])}</span></li>' for l in latest[:8]) + "</ul>"),
+            dash_card(f"{this_year} so far vs. {prev_year}", f"Same calendar window, Jan 1 – {now.strftime('%b %-d')}",
+                      dash_hbars([(this_year, year_2026_jobs, f"{year_2026_jobs:,}", None), (prev_year, ytd_prev, f"{ytd_prev:,}", None)])
+                      + f'<p class="dnote" style="margin:.75rem 0 0">{"Up" if year_2026_jobs >= ytd_prev else "Down"} {abs(year_2026_jobs - ytd_prev) / max(ytd_prev, 1) * 100:.0f}% on the same point last year. Companies citing AI in {this_year}: {by_year_n.get(this_year, 0)}.</p>'),
+        ])
+        dashboard = f'<div class="dash"><div class="tiles">{tiles}</div><div class="dash-grid">{cards}</div></div>'
+        years_desc = sorted(by_year_n, reverse=True)
+        controls = dash_controls(f"All {total_companies} AI layoffs", "Search company, role or reason…",
+                                 [("jobs:desc", "Biggest first"), ("date:desc", "Newest first"), ("date:asc", "Oldest first"), ("name:asc", "A–Z")],
+                                 [("all", "All", total_companies)] + [(y, y, by_year_n[y]) for y in years_desc]
+                                 + [(r, roles_map.get(r, r), n) for r, _, n in sorted(role_rank, key=lambda t: -t[2])[:4]])
+
         layoffs_out = (layoffs_template
                        .replace("{{JSONLD}}", json.dumps(build_layoffs_jsonld(ldata), indent=2))
-                  .replace("{{BREADCRUMB}}", json.dumps(build_breadcrumb("AI Layoffs Tracker", "layoffs"), indent=2))
-                  .replace("{{ROWS}}", rows_html)
+                       .replace("{{BREADCRUMB}}", json.dumps(build_breadcrumb("AI Layoffs Tracker", "layoffs"), indent=2))
+                       .replace("{{DASH_CSS}}", DASH_CSS)
+                       .replace("{{DASH_JS}}", DASH_JS)
+                       .replace("{{DASHBOARD}}", dashboard)
+                       .replace("{{CONTROLS}}", controls)
+                       .replace("{{ROWS}}", rows_html)
                        .replace("{{TOTAL_JOBS}}", f"{total_jobs:,}")
                        .replace("{{TOTAL_COMPANIES}}", str(total_companies))
+                       .replace("{{BIGGEST}}", esc(f"{biggest['company']}'s {biggest['jobs']:,}"))
+                       .replace("{{TOP_ROLE}}", esc(roles_map.get(top_role[0], top_role[0]).lower()))
                        .replace("{{YEAR_STATS}}", year_stats)
                        .replace("{{YEAR_TABLE}}", year_table)
                        .replace("{{LARGEST_HTML}}", largest_html)
@@ -1123,32 +1324,98 @@ def main():
         total_b = f"{total_m / 1000:.1f}"
         max_fund = funded[0]["fundingM"]
 
-        fund_rows = "\n".join(
-            f'''<article class="fund-row" id="{item.get("slug") or slugify(item["name"])}">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:{i["fundingM"]/max_fund*100}%"></div></div>
+        def days_alive(i):
+            return max((datetime.strptime(i["dateClose"], "%Y-%m-%d") - datetime.strptime(i["dateOpen"], "%Y-%m-%d")).days, 1)
+
+        def burn_day(i):
+            return i["fundingM"] * 1e6 / days_alive(i)
+
+        def fmt_burn(v):
+            return f"${v / 1e6:.1f}M" if v >= 1e6 else f"${v / 1e3:,.0f}K"
+
+        def frow(rank, i):
+            slug = i.get("slug") or slugify(i["name"])
+            yrs = days_alive(i) / 365.25
+            text = " ".join([i["name"], i["description"], i.get("killedBy", ""), i.get("causeOfDeath", "")]).lower()
+            killer = i.get("killedBy", "")
+            return f'''<article class="fund-row" id="{slug}" data-sort-row data-fund="{i["fundingM"]}" data-date="{i["dateClose"].replace("-", "")}" data-burn="{burn_day(i):.0f}" data-life="{days_alive(i)}" data-name="{esc(i["name"].lower())}" data-f="{i.get("deathType", "")} {i["dateClose"][:4]}" data-text="{esc(text)}">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:{i["fundingM"] / max_fund * 100:.1f}%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">{esc(i["name"])}</h2>
-      <span class="fund-amount">${i["fundingM"]:,.0f}M</span>
+      <h2 class="fund-name"><span class="rank">#{rank}</span><a href="/dead/{slug}/">{esc(i["name"])}</a></h2>
+      <span class="fund-amount">{fmt_money_m(i["fundingM"])}</span>
     </div>
     <p class="fund-desc">{esc(i["description"])}</p>
     <div class="fund-meta">
-      <span class="fund-type">{esc(i["type"])}</span>
-      <span class="fund-dates">{i["dateOpen"][:4]}–{i["dateClose"][:4]}</span>
-      {f'<a class="fund-source" href="{esc(i["link"])}" target="_blank" rel="noopener">Source</a>' if i.get("link") else ""}
+      <span class="mchip">{esc(DEATH_LABEL.get(i.get("deathType"), "Killed"))}</span>
+      <span class="fund-dates">{i["dateOpen"][:4]}–{fmt_month(i["dateClose"])} · {yrs:.1f} yrs</span>
+      <span class="fund-dates">{fmt_burn(burn_day(i))}/day</span>
+      {f'<span class="fund-dates">Killed by {esc(killer)}</span>' if killer else ""}
+      {f'<a class="fund-source" href="{esc(i["link"])}" target="_blank" rel="noopener">Source ↗</a>' if i.get("link") else ""}
     </div>
   </div>
 </article>'''
-            for i in funded
-        )
+
+        fund_rows = "\n".join(frow(k + 1, i) for k, i in enumerate(funded))
+
+        # --- dashboard ---
+        fm = sorted(i["fundingM"] for i in funded)
+        median_m = fm[len(fm) // 2] if len(fm) % 2 else (fm[len(fm) // 2 - 1] + fm[len(fm) // 2]) / 2
+        top = funded[0]
+        fastest = max(funded, key=burn_day)
+        avg_life = sum(days_alive(i) for i in funded) / len(funded) / 365.25
+        this_year = str(datetime.utcnow().year)
+        ytd = [i for i in funded if i["dateClose"][:4] == this_year]
+        slug_of = lambda i: i.get("slug") or slugify(i["name"])
+        tiles = "".join([
+            dash_tile(f"${total_b}B", "Funding burned", f"raised by {len(funded)} dead AI companies", hero=True),
+            dash_tile(fmt_money_m(sum(i["fundingM"] for i in ytd)), f"Died in {this_year}", f"{len(ytd)} companies so far"),
+            dash_tile(fmt_money_m(top["fundingM"]), "Most expensive death", esc(top["name"]), href=f"/dead/{slug_of(top)}/"),
+            dash_tile(fmt_money_m(median_m), "Median raise", "for a failed AI startup"),
+            dash_tile(fmt_burn(burn_day(fastest)) + "/day", "Fastest burn", esc(fastest["name"]), href=f"/dead/{slug_of(fastest)}/"),
+            dash_tile(f"{avg_life:.1f} yrs", "Average lifespan", "founding to shutdown"),
+        ])
+        years = sorted({i["dateClose"][:4] for i in funded})
+        y_items = [(y, sum(i["fundingM"] for i in funded if i["dateClose"][:4] == y), "") for y in years]
+        y_items = [(y, v, fmt_money_m(v)) for y, v, _ in y_items]
+        by_death = {}
+        for i in funded:
+            k = i.get("deathType", "startup-failed")
+            m, n = by_death.get(k, (0, 0))
+            by_death[k] = (m + i["fundingM"], n + 1)
+        by_killer = {}
+        for i in funded:
+            k = i.get("killedBy") or "Unknown"
+            by_killer[k] = by_killer.get(k, 0) + i["fundingM"]
+        burners = sorted(funded, key=burn_day, reverse=True)[:10]
+        cards = "".join([
+            dash_card("Funding burned, by year of death", "Total raised by AI companies that died that year", dash_vbars(y_items, this_year), wide=True),
+            dash_card("Most expensive AI failures", "Top 10 by total funding raised", dash_hbars([(i["name"], i["fundingM"], fmt_money_m(i["fundingM"]), f"/dead/{slug_of(i)}/") for i in funded[:10]])),
+            dash_card("Fastest cash burn", "Funding raised ÷ days alive", dash_hbars([(i["name"], burn_day(i), fmt_burn(burn_day(i)) + "/d", f"/dead/{slug_of(i)}/") for i in burners])),
+            dash_card("How they died", "Funding lost by cause of death",
+                      dash_hbars([(f"{DEATH_LABEL.get(k, k)} ({n})", m, fmt_money_m(m), None) for k, (m, n) in sorted(by_death.items(), key=lambda kv: -kv[1][0])])),
+            dash_card("Who killed the money", "Funding lost, by what killed it",
+                      dash_hbars([(k, m, fmt_money_m(m), f"/killed-by/{killer_slug(k)}/" if killer_counts.get(k, 0) >= 2 else None) for k, m in sorted(by_killer.items(), key=lambda kv: -kv[1])[:8]])),
+        ])
+        dashboard = f'<div class="dash"><div class="tiles">{tiles}</div><div class="dash-grid">{cards}</div></div>'
+        controls = dash_controls(f"All {len(funded)} failed AI companies", "Search company, cause or killer…",
+                                 [("fund:desc", "Most raised"), ("date:desc", "Most recent death"), ("burn:desc", "Fastest burn"), ("life:desc", "Longest-lived"), ("life:asc", "Shortest-lived"), ("name:asc", "A–Z")],
+                                 [("all", "All", len(funded))] + [(k, DEATH_LABEL.get(k, k), n) for k, (m, n) in sorted(by_death.items(), key=lambda kv: -kv[1][1])]
+                                 + [(y, y, sum(1 for i in funded if i["dateClose"][:4] == y)) for y in sorted(years, reverse=True)[:3]])
 
         fund_out = (fund_template
                     .replace("{{JSONLD}}", json.dumps(build_funding_jsonld(funded, total_b), indent=2))
                     .replace("{{BREADCRUMB}}", json.dumps(build_breadcrumb("Funding Burned", "funding"), indent=2))
+                    .replace("{{DASH_CSS}}", DASH_CSS)
+                    .replace("{{DASH_JS}}", DASH_JS)
+                    .replace("{{DASHBOARD}}", dashboard)
+                    .replace("{{CONTROLS}}", controls)
                     .replace("{{ROWS}}", fund_rows)
                     .replace("{{FOOTER_LINKS}}", footer_links())
                     .replace("{{TOTAL_B}}", total_b)
                     .replace("{{COUNT}}", str(len(funded)))
+                    .replace("{{TOP1}}", esc(f"{top['name']}'s {fmt_money_m(top['fundingM'])}"))
+                    .replace("{{TOP2}}", esc(f"{funded[1]['name']}'s {fmt_money_m(funded[1]['fundingM'])}"))
                     .replace("{{LAST_UPDATED}}", fmt_date(lm(["graveyard.json"]))))
         publish("funding", fund_out)
         print(f"Built funding.html: ${total_b}B across {len(funded)} startups")

@@ -5,8 +5,64 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>OpenAI davinci-002, babbage-002 &amp; gpt-3.5-turbo-instruct — Killed by OpenAI (2026-09-28)</title>
+      <link>https://killedbyai.net/dead/openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct/</guid>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
+      <description>The end of the GPT-3 base-model lineage, retired September 28. The three shipped in August 2023, inherited the job when the original ada/babbage/curie/davinci died in January 2024, and were the last models served over the legacy /v1/completions endpoint. OpenAI&#x27;s suggested replacement is gpt-5.6-terra; their fine-tuned versions outlive them by 25 days.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Reve AI Image Generation — Killed by OpenAI (2026-09-27)</title>
+      <link>https://killedbyai.net/dead/reve-ai-image-generation/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/reve-ai-image-generation/</guid>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
+      <description>Reve&#x27;s image generator — briefly the top-ranked text-to-image model on launch in March 2025 — shut off at noon Pacific on September 27, the price of an investment from OpenAI, which also took its AI research team to lead multimodal work. The API went dark on August 14 and sign-ups stopped September 17; users have until October 31 to export, and September fees are refunded. The company survives; the product does not.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>GM Cruise — Killed by General Motors (2024-12-10)</title>
+      <link>https://killedbyai.net/dead/gm-cruise/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/gm-cruise/</guid>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
+      <description>The robotaxi startup GM bought in 2016 and then poured more than $10 billion into, with Honda ($852M), Microsoft and SoftBank alongside. Driverless paid rides began in San Francisco in 2022; a 2023 crash in which a Cruise car dragged a pedestrian, and the company&#x27;s handling of it, cost it its California permit. In December 2024 Mary Barra ended the program, citing the &#x27;incremental time and capital&#x27; still needed. The most expensive AI product death on record.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>Forward (CarePods) — Killed by Itself (2024-11-12)</title>
+      <link>https://killedbyai.net/dead/forward-carepods/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/forward-carepods/</guid>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
+      <description>A primary-care startup that raised $657M on the promise of AI-run doctor&#x27;s offices, culminating in &#x27;CarePods&#x27; — self-serve kiosks meant to automate check-ups. Only three pods ever launched, one was pulled soon after installation, and former staff described patients getting stuck inside. Forward shut down in November 2024 with a few weeks&#x27; notice.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>Ghost Autonomy — Killed by Market (2024-04-03)</title>
+      <link>https://killedbyai.net/dead/ghost-autonomy/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/ghost-autonomy/</guid>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
+      <description>A self-driving software startup that raised about $220M and, months before closing, landed an investment from OpenAI&#x27;s startup fund to bring large language models to autonomous driving. It shut down worldwide on April 3, 2024, unable to secure the long-term funding its plan required.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>Embark Trucks — Killed by Market (2023-03-03)</title>
+      <link>https://killedbyai.net/dead/embark-trucks/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/embark-trucks/</guid>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
+      <description>An autonomous-trucking company that went public via SPAC in 2021 and raised more than $400 million. With no revenue and capital markets closed to pre-revenue companies, it cut 70% of staff and began liquidating its self-driving truck assets in March 2023. Its timeline for driverless freight never arrived; the money did run out.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>Argo AI — Killed by Ford &amp; Volkswagen (2022-10-26)</title>
+      <link>https://killedbyai.net/dead/argo-ai/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/argo-ai/</guid>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
+      <description>Pittsburgh&#x27;s self-driving champion, backed by roughly $1 billion from Ford and $2.6 billion from Volkswagen. Six years in, both backers decided that fully driverless cars were further away than they could keep paying for, declined to invest further, and absorbed its assets. Around 2,000 employees were offered jobs at the two carmakers; the company itself simply stopped.</description>
+      <category>startup</category>
+    </item>
     <item>
       <title>MAI-Transcribe-1 (Microsoft Foundry) — Killed by Microsoft (2026-09-15)</title>
       <link>https://killedbyai.net/dead/mai-transcribe-1-microsoft-foundry/</link>
@@ -190,62 +246,6 @@
       <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
       <description>OpenAI&#x27;s ChatGPT-powered web browser, launched October 2025 as its bid to own the browsing layer. Dead in under ten months. OpenAI absorbed the agentic browsing into ChatGPT and a Chrome extension instead. Bookmarks did not transfer automatically — users had to manually export them as HTML before the deadline or lose them, and open tabs and history simply didn&#x27;t carry over.</description>
       <category>app</category>
-    </item>
-    <item>
-      <title>Claude Opus 4.1 — Killed by Anthropic (2026-08-05)</title>
-      <link>https://killedbyai.net/dead/claude-opus-4-1/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/claude-opus-4-1/</guid>
-      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
-      <description>Retired exactly one year to the day after release — the model ID carries its own birthday, claude-opus-4-1-20250805. Anthropic gave 61 days&#x27; notice, one day above its stated 60-day minimum. It was the second flagship retirement in under two months after Sonnet 4 and Opus 4 both died June 15. Anthropic&#x27;s own deprecation page concedes that retirement means researchers lose access for comparative studies and that it &#x27;introduces safety- and model welfare-related risks.&#x27;</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Mistral Magistral — Killed by Mistral (2026-07-31)</title>
-      <link>https://killedbyai.net/dead/mistral-magistral/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/mistral-magistral/</guid>
-      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
-      <description>Mistral&#x27;s first reasoning models, shipped June 2025 as a separate product line. On July 31, 2026 the last two snapshots were retired — and with them the entire category. Reasoning at Mistral is now just a request parameter, reasoning_effort, on general-purpose models. The official migration path runs from magistral-small-latest to mistral-small-latest, a one-letter difference, at roughly 70% less on input.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>GitHub Models — Killed by GitHub (2026-07-30)</title>
-      <link>https://killedbyai.net/dead/github-models/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/github-models/</guid>
-      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
-      <description>GitHub&#x27;s free multi-model playground and inference API — Llama 3.1, GPT-4o, Cohere Command and Mistral Large, all callable with just a GitHub token. GitHub closed it to new customers in June 2026, then ran two deliberate &#x27;brownouts&#x27; on July 16 and 23 where requests simply returned errors, to smoke out anyone still depending on it. On July 30 everything went dark, including for existing paying customers. Free model experimentation went back to being a cloud-procurement decision.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Amazon Bedrock Agents (Classic) — Killed by AWS (2026-07-30)</title>
-      <link>https://killedbyai.net/dead/amazon-bedrock-agents-classic/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/amazon-bedrock-agents-classic/</guid>
-      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
-      <description>AWS&#x27;s flagship managed AI-agent product, launched at re:Invent 2023, was renamed &#x27;Bedrock Agents Classic&#x27; and shoved into maintenance mode — closed to new customers, model catalog frozen, superseded by Bedrock AgentCore. New accounts calling CreateAgent now get a 403 citing maintenance mode. AWS broke its own CDK integration tests in the process and swapped the agent resource for a CloudWatch dashboard. One of roughly 20 services swept into maintenance in a single bulletin.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>DeepSeek deepseek-chat &amp; deepseek-reasoner — Killed by DeepSeek (2026-07-24)</title>
-      <link>https://killedbyai.net/dead/deepseek-deepseek-chat-deepseek-reasoner/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/deepseek-deepseek-chat-deepseek-reasoner/</guid>
-      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
-      <description>The two API names the entire January 2025 DeepSeek boom was written against. DeepSeek killed them at 15:59 UTC on July 24, telling developers to call deepseek-v4-flash and toggle thinking mode in the request instead of switching model IDs. The migration notes promised the retired names would &#x27;return 404.&#x27; They never did — weeks past the hard cutoff, third-party clients still had both names working as silent aliases, priced identically.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>OpenAI Operator (CUA Preview) — Killed by OpenAI (2026-07-23)</title>
-      <link>https://killedbyai.net/dead/openai-operator-cua-preview/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/openai-operator-cua-preview/</guid>
-      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
-      <description>OpenAI&#x27;s Computer-Using Agent — the model that clicked, scrolled and typed its way around websites on your behalf. Shut down July 23, 2026 as part of a 14-model cull that also took gpt-5-codex, gpt-5.1-codex-max and gpt-5.2-codex. The whole computer-use preview line died in a single afternoon, eighteen months after it was billed as the future of agentic AI.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Groq Qwen3-32B &amp; Llama 4 Scout — Killed by Groq (2026-07-17)</title>
-      <link>https://killedbyai.net/dead/groq-qwen3-32b-llama-4-scout/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/groq-qwen3-32b-llama-4-scout/</guid>
-      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
-      <description>Groq deleted qwen/qwen3-32b and meta-llama/llama-4-scout-17b-16e-instruct on July 17, 2026 — the first half of a two-stage cull that takes Llama 3.1 8B Instant and Llama 3.3 70B Versatile in August. The best-documented failure mode: a retired Groq model fails quietly, so downstream apps didn&#x27;t break, they just started sounding generic.</description>
-      <category>model</category>
     </item>
   </channel>
 </rss>

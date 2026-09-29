@@ -1001,15 +1001,15 @@
             .grid-title, .active-filters { padding: 0 .75rem; }
             .insights-fold > summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; margin: .5rem .75rem 0; padding: 0 .875rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: .5rem; font-size: .875rem; font-weight: 600; color: var(--text-muted); cursor: pointer; list-style: none; }
             .insights-fold > summary::-webkit-details-marker { display: none; }
-            .insights-fold > summary::after { content: "▾"; color: var(--text-dim); }
-            .insights-fold[open] > summary::after { content: "▴"; }
+            .insights-fold > summary::after { content: "Show ▾"; color: var(--text-dim); font-weight: 500; font-size: .8125rem; }
+            .insights-fold[open] > summary::after { content: "Hide ▴"; }
         }
 
         /* ===== pass 2 (judge-verified residuals) ===== */
         .insights-fold > summary { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; min-height: 44px; margin: .75rem auto 0; padding: 0 .875rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: .5rem; font-size: .875rem; font-weight: 600; color: var(--text-muted); cursor: pointer; list-style: none; }
         .insights-fold > summary::-webkit-details-marker { display: none; }
-        .insights-fold > summary::after { content: "▾"; color: var(--text-dim); }
-        .insights-fold[open] > summary::after { content: "▴"; }
+        .insights-fold > summary::after { content: "Show ▾"; color: var(--text-dim); font-weight: 500; font-size: .8125rem; }
+        .insights-fold[open] > summary::after { content: "Hide ▴"; }
         .insights-fold > summary:hover { border-color: var(--text-dim); }
         .toggle-input { position: absolute; clip: rect(0 0 0 0); width: 1px; height: 1px; overflow: hidden; white-space: nowrap; }
         .search-box input { min-height: 44px; }
@@ -1138,8 +1138,9 @@
         <span class="last-updated">Last updated: {{LAST_UPDATED}}</span>
     </header>
 
-    <details class="insights-fold" id="insights">
+    <details class="insights-fold" id="insights" open>
         <summary>📊 Stats, chart &amp; leaderboard</summary>
+        <script>try { if (localStorage.getItem('kbai-insights-v2') === 'closed' && !/[?&](year|killer)=/.test(location.search)) document.getElementById('insights').open = false; } catch (e) {}</script>
     <div class="stats-ribbon">
         <div class="stat-card">
             <div class="stat-value">{{AVG_LIFESPAN}}</div>
@@ -1419,10 +1420,9 @@
         window.addEventListener('scroll', () => backToTopBtn.classList.toggle('visible', window.scrollY > 600), { passive: true });
         backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' }));
 
-        // Dashboard is folded by default so search and tombstones are above the fold; remember the visitor's choice
+        // Dashboard is open by default; a visitor who hides it keeps it hidden (the inline script under <summary> applies that before paint)
         if (insights) {
-            try { if (localStorage.getItem('kbai-insights') === 'open' || /[?&](year|killer)=/.test(location.search)) insights.open = true; } catch (e) {}
-            insights.addEventListener('toggle', () => { try { localStorage.setItem('kbai-insights', insights.open ? 'open' : 'closed'); } catch (e) {} });
+            insights.addEventListener('toggle', () => { try { localStorage.setItem('kbai-insights-v2', insights.open ? 'open' : 'closed'); } catch (e) {} });
         }
 
         const params = new URLSearchParams(location.search);

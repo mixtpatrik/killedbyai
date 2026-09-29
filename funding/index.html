@@ -5,13 +5,13 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-MC3PM7NKRX');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Failed AI Startups: $4.4B in VC Funding Burned (24 Companies)</title>
-    <meta name="description" content="Failed AI startups and the venture capital that died with them: $4.4 billion across 24 companies, from Inflection's $1.5B to Olive AI's $902M. What each raised, and how it ended.">
+    <title>Failed AI Startups: $19.3B Burned by 32 Dead AI Companies</title>
+    <meta name="description" content="$19.3 billion raised by 32 AI companies that died — from GM Cruise&#x27;s $10B to Argo AI&#x27;s $3.6B. Ranked by money burned, burn rate per day, lifespan and cause of death, with sources.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://killedbyai.net/funding/">
     <meta property="og:url" content="https://killedbyai.net/funding/">
     <meta property="og:title" content="Funding Burned — The Most Expensive AI Graveyard">
-    <meta property="og:description" content="$4.4 billion in venture capital burned across 24 failed AI startups.">
+    <meta property="og:description" content="$19.3 billion burned across 32 failed AI companies — ranked by money lost, burn rate and cause of death.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://killedbyai.net/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -27,7 +27,7 @@
     <meta name="theme-color" content="#09090b">
     <style>
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#52525b;--fire:#f59e0b;--fire-dim:rgba(245,158,11,0.12)}
+        :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#52525b;--fire:#f59e0b;--fire-dim:rgba(245,158,11,0.12);--acc:#f59e0b;--acc2:#b45309;--acc-dim:rgba(245,158,11,0.14)}
         body{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
         .header{text-align:center;padding:2.5rem 1.5rem 1rem;max-width:700px;margin:0 auto}
         .header h1{font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:0.5rem}
@@ -74,6 +74,63 @@
         .layoff-meta, .fund-meta, .doom-meta { font-size: .8125rem; }
         .last-updated { font-size: .8125rem; color: var(--text-muted); }
         @media (max-width: 600px) { .site-nav { justify-content: flex-start; -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); mask-image: linear-gradient(90deg, #000 90%, transparent); } .site-nav-item { font-size: .8125rem; padding: 0 .75rem; } .layoff-desc, .fund-desc, .doom-desc { font-size: .875rem; } }
+        .list{max-width:1000px}.fund-name a{color:inherit;text-decoration:none}.fund-name a:hover{color:var(--fire)}
+
+.dash{max-width:1000px;margin:1.25rem auto 0;padding:0 1.5rem}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem}
+.tile{background:var(--bg-card);border:1px solid var(--border);border-radius:.625rem;padding:.875rem 1rem;display:flex;flex-direction:column;gap:.125rem;text-decoration:none;color:inherit;min-width:0}
+a.tile:hover{border-color:var(--acc)}
+.tile-val{font-size:1.625rem;font-weight:900;color:var(--acc);font-family:'SF Mono','Cascadia Code',monospace;line-height:1.15;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile-lbl{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.tile-sub{font-size:.8125rem;color:var(--text-dim)}
+.tile.txt .tile-val{font-size:1.25rem;white-space:normal;line-height:1.25;padding:.25rem 0}
+.tile.hero{background:linear-gradient(135deg,var(--acc-dim),var(--bg-card) 70%)}
+.tile.hero .tile-val{font-size:2.5rem}
+.dash-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-top:.75rem}
+.dcard{background:var(--bg-card);border:1px solid var(--border);border-radius:.625rem;padding:1rem 1.125rem;min-width:0}
+.dcard.wide{grid-column:1/-1}
+.dcard h2{font-size:.9375rem;font-weight:800;margin-bottom:.125rem}
+.dcard .dnote{font-size:.8125rem;color:var(--text-dim);margin-bottom:.75rem}
+.vbars{display:flex;align-items:flex-end;gap:.375rem;height:170px;padding-top:1.25rem}
+.vbar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
+.vbar-track{flex:1;width:100%;display:flex;align-items:flex-end;position:relative}
+.vbar-fill{width:100%;height:var(--h);min-height:2px;background:linear-gradient(180deg,var(--acc),var(--acc2));border-radius:.25rem .25rem 0 0;position:relative}
+.vbar-fill b{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);font-size:.6875rem;font-weight:700;color:var(--text);white-space:nowrap;padding-bottom:.125rem;font-family:'SF Mono','Cascadia Code',monospace}
+.vbar-lbl{font-size:.6875rem;color:var(--text-dim);margin-top:.375rem;white-space:nowrap;text-align:center;line-height:1.2;font-family:'SF Mono','Cascadia Code',monospace}
+.vbar.now .vbar-fill{box-shadow:0 0 0 2px var(--acc-dim)}
+.vbar.now .vbar-lbl{color:var(--acc);font-weight:700}
+.hbars{display:flex;flex-direction:column;gap:.5rem;list-style:none}
+.hbar{display:grid;grid-template-columns:minmax(0,9.5rem) minmax(0,1fr) auto;align-items:center;gap:.625rem;font-size:.875rem;text-decoration:none;color:var(--text)}
+a.hbar:hover .hbar-name{color:var(--acc)}
+.hbar-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hbar-track{height:.625rem;background:#1c1c1f;border-radius:1rem;overflow:hidden}
+.hbar-fill{height:100%;width:var(--w);min-width:3px;background:linear-gradient(90deg,var(--acc2),var(--acc));border-radius:1rem}
+.hbar-val{font-family:'SF Mono','Cascadia Code',monospace;font-size:.8125rem;color:var(--text-muted);text-align:right;min-width:3.5rem}
+.recent{list-style:none;display:flex;flex-direction:column}
+.recent li{display:flex;justify-content:space-between;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.875rem}
+.recent li:last-child{border-bottom:0}
+.recent a{color:var(--text);text-decoration:none;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.recent a:hover{color:var(--acc)}
+.recent span{color:var(--text-dim);font-family:'SF Mono','Cascadia Code',monospace;font-size:.8125rem;white-space:nowrap}
+.recent em{font-style:normal;color:var(--acc);font-weight:700}
+.lctrl{max-width:1000px;margin:1.75rem auto 0;padding:0 1.5rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;position:sticky;top:0;z-index:5;background:var(--bg);padding-top:.625rem;padding-bottom:.625rem;border-bottom:1px solid var(--border)}
+.lctrl h2{font-size:1.125rem;font-weight:800;width:100%;margin-bottom:.125rem}
+.lsearch{flex:1 1 220px;min-width:0;height:44px;background:var(--bg-card);border:1px solid var(--border);border-radius:.5rem;color:var(--text);padding:0 .875rem;font-size:16px}
+.lsearch:focus{outline:none;border-color:var(--acc)}
+.lsort{height:44px;background:var(--bg-card);border:1px solid var(--border);border-radius:.5rem;color:var(--text);padding:0 .625rem;font-size:.875rem}
+.chips{display:flex;gap:.375rem;flex-wrap:wrap;width:100%}
+.chipf{height:36px;padding:0 .875rem;border-radius:2rem;border:1px solid var(--border);background:var(--bg-card);color:var(--text-muted);font-size:.8125rem;cursor:pointer;font-family:inherit}
+.chipf:hover{color:var(--text)}
+.chipf.on{background:var(--acc-dim);border-color:var(--acc);color:var(--acc);font-weight:700}
+.chipf small{opacity:.7;margin-left:.25rem}
+.lcount{font-size:.8125rem;color:var(--text-dim);width:100%}
+.list .empty{text-align:center;color:var(--text-dim);padding:2rem 0}
+.rank{font-family:'SF Mono','Cascadia Code',monospace;color:var(--text-dim);font-size:.8125rem;margin-right:.375rem;font-weight:600}
+.badge-new{display:inline-block;background:var(--acc);color:#09090b;font-size:.625rem;font-weight:800;padding:.0625rem .375rem;border-radius:.25rem;margin-left:.375rem;vertical-align:middle;letter-spacing:.04em}
+.mchip{color:var(--text-muted);background:#1c1c1f;padding:.125rem .5rem;border-radius:.25rem;text-decoration:none}
+a.mchip:hover{color:var(--acc)}
+@media(max-width:700px){.dash-grid{grid-template-columns:1fr}.dcard.wide{grid-column:auto}}
+@media(max-width:600px){.dash,.lctrl{padding-left:.75rem;padding-right:.75rem}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tile{padding:.75rem}.tile-val{font-size:1.25rem}.tile.hero .tile-val{font-size:1.5rem}.tile.txt .tile-val{font-size:1rem}.tile-sub{font-size:.75rem}.hbar{grid-template-columns:minmax(0,7rem) minmax(0,1fr) auto;font-size:.8125rem}.vbars{height:140px;gap:.25rem}.vbar-fill b{font-size:.5625rem}.vbar-lbl{font-size:.5625rem}.lsort{flex:1 1 100%}.lctrl{position:static}}
+
     </style>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -85,13 +142,13 @@
     "name": "Killed by AI Graveyard",
     "url": "https://killedbyai.net/"
   },
-  "name": "VC Funding Burned by Failed AI Startups",
-  "description": "$4.4 billion in venture capital raised by 24 AI startups that shut down, were acqui-hired into oblivion, or ran out of money.",
+  "name": "Funding Burned by Failed AI Companies",
+  "description": "$19.3 billion raised (venture, corporate and strategic funding) by 32 AI startups that shut down, were acqui-hired into oblivion, or ran out of money.",
   "url": "https://killedbyai.net/funding/",
-  "keywords": "failed AI startups, AI startup failures, VC funding burned, AI bubble, wasted venture capital",
+  "keywords": "failed AI startups, AI startup failures, AI funding burned, AI bubble, failed self-driving companies, wasted venture capital",
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "isAccessibleForFree": true,
-  "dateModified": "2026-09-23",
+  "dateModified": "2026-09-29",
   "creator": {
     "@type": "Person",
     "@id": "https://killedbyai.net/about/#patrik-rojan",
@@ -138,371 +195,554 @@
 
     <header class="header">
         <h1>Failed AI Startups <span>&amp; the Funding They Burned</span></h1>
-        <p>The most expensive corner of the graveyard: $4.4 billion of venture capital raised by 24 AI startups that shut down, were acqui-hired into oblivion, or ran out of money. Each row shows the total raised, when it died, and a source — the AI startup failures that cost investors the most, largest first.</p>
+        <p>The most expensive corner of the graveyard: $19.3 billion raised by 32 AI companies that shut down, were acqui-hired into oblivion, or ran out of money — from self-driving moonshots to AI gadgets. Ranked by money burned, with how fast they burned it and what killed them.</p>
     </header>
-    <div class="hero-stat">
-        <div class="hero-val">$4.4B</div>
-        <div class="hero-lbl">Total VC funding burned</div>
-        <div class="hero-sub">Across 24 startups that didn't make it</div>
-    </div>
-    <main class="list">
-<article class="fund-row" id="thegist">
+    <div class="dash"><div class="tiles"><div class="tile hero"><span class="tile-lbl">Funding burned</span><span class="tile-val">$19.3B</span><span class="tile-sub">raised by 32 dead AI companies</span></div><div class="tile"><span class="tile-lbl">Died in 2026</span><span class="tile-val">$95M</span><span class="tile-sub">9 companies so far</span></div><a href="/dead/gm-cruise/" class="tile"><span class="tile-lbl">Most expensive death</span><span class="tile-val">$10B</span><span class="tile-sub">GM Cruise</span></a><div class="tile"><span class="tile-lbl">Median raise</span><span class="tile-val">$66M</span><span class="tile-sub">for a failed AI startup</span></div><a href="/dead/inflection-ai-pi/" class="tile"><span class="tile-lbl">Fastest burn</span><span class="tile-val">$4.7M/day</span><span class="tile-sub">Inflection AI / Pi</span></a><div class="tile"><span class="tile-lbl">Average lifespan</span><span class="tile-val">4.8 yrs</span><span class="tile-sub">founding to shutdown</span></div></div><div class="dash-grid"><section class="dcard wide"><h2>Funding burned, by year of death</h2><p class="dnote">Total raised by AI companies that died that year</p><div class="vbars" role="img" aria-label="2022: $3.6B, 2023: $1.4B, 2024: $13.1B, 2025: $1.1B, 2026: $95M"><div class="vbar"><div class="vbar-track"><div class="vbar-fill" style="--h:27.5%"><b>$3.6B</b></div></div><span class="vbar-lbl">2022</span></div><div class="vbar"><div class="vbar-track"><div class="vbar-fill" style="--h:10.5%"><b>$1.4B</b></div></div><span class="vbar-lbl">2023</span></div><div class="vbar"><div class="vbar-track"><div class="vbar-fill" style="--h:100.0%"><b>$13.1B</b></div></div><span class="vbar-lbl">2024</span></div><div class="vbar"><div class="vbar-track"><div class="vbar-fill" style="--h:8.7%"><b>$1.1B</b></div></div><span class="vbar-lbl">2025</span></div><div class="vbar now"><div class="vbar-track"><div class="vbar-fill" style="--h:0.7%"><b>$95M</b></div></div><span class="vbar-lbl">2026</span></div></div></section><section class="dcard"><h2>Most expensive AI failures</h2><p class="dnote">Top 10 by total funding raised</p><ol class="hbars"><li><a class="hbar" href="/dead/gm-cruise/"><span class="hbar-name">GM Cruise</span><span class="hbar-track"><span class="hbar-fill" style="--w:100.0%"></span></span><span class="hbar-val">$10B</span></a></li><li><a class="hbar" href="/dead/argo-ai/"><span class="hbar-name">Argo AI</span><span class="hbar-track"><span class="hbar-fill" style="--w:36.0%"></span></span><span class="hbar-val">$3.6B</span></a></li><li><a class="hbar" href="/dead/inflection-ai-pi/"><span class="hbar-name">Inflection AI / Pi</span><span class="hbar-track"><span class="hbar-fill" style="--w:15.0%"></span></span><span class="hbar-val">$1.5B</span></a></li><li><a class="hbar" href="/dead/olive-ai/"><span class="hbar-name">Olive AI</span><span class="hbar-track"><span class="hbar-fill" style="--w:9.0%"></span></span><span class="hbar-val">$902M</span></a></li><li><a class="hbar" href="/dead/forward-carepods/"><span class="hbar-name">Forward (CarePods)</span><span class="hbar-track"><span class="hbar-fill" style="--w:6.6%"></span></span><span class="hbar-val">$657M</span></a></li><li><a class="hbar" href="/dead/builder-ai/"><span class="hbar-name">Builder.ai</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.5%"></span></span><span class="hbar-val">$445M</span></a></li><li><a class="hbar" href="/dead/adept-ai-independent/"><span class="hbar-name">Adept AI (Independent)</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.2%"></span></span><span class="hbar-val">$415M</span></a></li><li><a class="hbar" href="/dead/embark-trucks/"><span class="hbar-name">Embark Trucks</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.0%"></span></span><span class="hbar-val">$400M</span></a></li><li><a class="hbar" href="/dead/humane-ai-pin/"><span class="hbar-name">Humane AI Pin</span><span class="hbar-track"><span class="hbar-fill" style="--w:2.3%"></span></span><span class="hbar-val">$230M</span></a></li><li><a class="hbar" href="/dead/ghost-autonomy/"><span class="hbar-name">Ghost Autonomy</span><span class="hbar-track"><span class="hbar-fill" style="--w:2.2%"></span></span><span class="hbar-val">$220M</span></a></li></ol></section><section class="dcard"><h2>Fastest cash burn</h2><p class="dnote">Funding raised ÷ days alive</p><ol class="hbars"><li><a class="hbar" href="/dead/inflection-ai-pi/"><span class="hbar-name">Inflection AI / Pi</span><span class="hbar-track"><span class="hbar-fill" style="--w:100.0%"></span></span><span class="hbar-val">$4.7M/d</span></a></li><li><a class="hbar" href="/dead/gm-cruise/"><span class="hbar-name">GM Cruise</span><span class="hbar-track"><span class="hbar-fill" style="--w:49.2%"></span></span><span class="hbar-val">$2.3M/d</span></a></li><li><a class="hbar" href="/dead/argo-ai/"><span class="hbar-name">Argo AI</span><span class="hbar-track"><span class="hbar-fill" style="--w:35.9%"></span></span><span class="hbar-val">$1.7M/d</span></a></li><li><a class="hbar" href="/dead/humane-ai-pin/"><span class="hbar-name">Humane AI Pin</span><span class="hbar-track"><span class="hbar-fill" style="--w:12.8%"></span></span><span class="hbar-val">$597K/d</span></a></li><li><a class="hbar" href="/dead/adept-ai-independent/"><span class="hbar-name">Adept AI (Independent)</span><span class="hbar-track"><span class="hbar-fill" style="--w:9.8%"></span></span><span class="hbar-val">$457K/d</span></a></li><li><a class="hbar" href="/dead/olive-ai/"><span class="hbar-name">Olive AI</span><span class="hbar-track"><span class="hbar-fill" style="--w:7.8%"></span></span><span class="hbar-val">$362K/d</span></a></li><li><a class="hbar" href="/dead/character-ai-independent/"><span class="hbar-name">Character.AI (Independent)</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.7%"></span></span><span class="hbar-val">$219K/d</span></a></li><li><a class="hbar" href="/dead/forward-carepods/"><span class="hbar-name">Forward (CarePods)</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.4%"></span></span><span class="hbar-val">$203K/d</span></a></li><li><a class="hbar" href="/dead/embark-trucks/"><span class="hbar-name">Embark Trucks</span><span class="hbar-track"><span class="hbar-fill" style="--w:3.3%"></span></span><span class="hbar-val">$153K/d</span></a></li><li><a class="hbar" href="/dead/builder-ai/"><span class="hbar-name">Builder.ai</span><span class="hbar-track"><span class="hbar-fill" style="--w:2.8%"></span></span><span class="hbar-val">$130K/d</span></a></li></ol></section><section class="dcard"><h2>How they died</h2><p class="dnote">Funding lost by cause of death</p><ol class="hbars"><li><div class="hbar"><span class="hbar-name">Product killed (1)</span><span class="hbar-track"><span class="hbar-fill" style="--w:100.0%"></span></span><span class="hbar-val">$10B</span></div></li><li><div class="hbar"><span class="hbar-name">Startup failed (20)</span><span class="hbar-track"><span class="hbar-fill" style="--w:68.1%"></span></span><span class="hbar-val">$6.8B</span></div></li><li><div class="hbar"><span class="hbar-name">Acqui-hired (7)</span><span class="hbar-track"><span class="hbar-fill" style="--w:21.6%"></span></span><span class="hbar-val">$2.2B</span></div></li><li><div class="hbar"><span class="hbar-name">Hardware discontinued (4)</span><span class="hbar-track"><span class="hbar-fill" style="--w:3.5%"></span></span><span class="hbar-val">$347M</span></div></li></ol></section><section class="dcard"><h2>Who killed the money</h2><p class="dnote">Funding lost, by what killed it</p><ol class="hbars"><li><div class="hbar"><span class="hbar-name">General Motors</span><span class="hbar-track"><span class="hbar-fill" style="--w:100.0%"></span></span><span class="hbar-val">$10B</span></div></li><li><div class="hbar"><span class="hbar-name">Ford &amp; Volkswagen</span><span class="hbar-track"><span class="hbar-fill" style="--w:36.0%"></span></span><span class="hbar-val">$3.6B</span></div></li><li><a class="hbar" href="/killed-by/itself/"><span class="hbar-name">Itself</span><span class="hbar-track"><span class="hbar-fill" style="--w:21.1%"></span></span><span class="hbar-val">$2.1B</span></a></li><li><a class="hbar" href="/killed-by/microsoft/"><span class="hbar-name">Microsoft</span><span class="hbar-track"><span class="hbar-fill" style="--w:15.0%"></span></span><span class="hbar-val">$1.5B</span></a></li><li><a class="hbar" href="/killed-by/market/"><span class="hbar-name">Market</span><span class="hbar-track"><span class="hbar-fill" style="--w:7.0%"></span></span><span class="hbar-val">$700M</span></a></li><li><a class="hbar" href="/killed-by/amazon/"><span class="hbar-name">Amazon</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.2%"></span></span><span class="hbar-val">$415M</span></a></li><li><a class="hbar" href="/killed-by/reality/"><span class="hbar-name">Reality</span><span class="hbar-track"><span class="hbar-fill" style="--w:2.6%"></span></span><span class="hbar-val">$260M</span></a></li><li><a class="hbar" href="/killed-by/google/"><span class="hbar-name">Google</span><span class="hbar-track"><span class="hbar-fill" style="--w:1.6%"></span></span><span class="hbar-val">$158M</span></a></li></ol></section></div></div>
+    <span class="last-updated" style="display:block;text-align:center;margin-top:.75rem">Last updated: September 29, 2026 · funding = total raised before death (VC, corporate or strategic) · <a href="/api/" style="color:inherit">free JSON</a></span>
+    <div class="lctrl" role="search"><h2 id="list">All 32 failed AI companies</h2><input class="lsearch" type="search" placeholder="Search company, cause or killer…" aria-label="Search company, cause or killer…" autocomplete="off"><select class="lsort" aria-label="Sort by"><option value="fund:desc">Most raised</option><option value="date:desc">Most recent death</option><option value="burn:desc">Fastest burn</option><option value="life:desc">Longest-lived</option><option value="life:asc">Shortest-lived</option><option value="name:asc">A–Z</option></select><div class="chips" role="group" aria-label="Filter"><button type="button" class="chipf on" data-f="all" aria-pressed="true">All<small>32</small></button><button type="button" class="chipf" data-f="startup-failed" aria-pressed="false">Startup failed<small>20</small></button><button type="button" class="chipf" data-f="acqui-hired" aria-pressed="false">Acqui-hired<small>7</small></button><button type="button" class="chipf" data-f="hardware-failed" aria-pressed="false">Hardware discontinued<small>4</small></button><button type="button" class="chipf" data-f="product-killed" aria-pressed="false">Product killed<small>1</small></button><button type="button" class="chipf" data-f="2026" aria-pressed="false">2026<small>9</small></button><button type="button" class="chipf" data-f="2025" aria-pressed="false">2025<small>10</small></button><button type="button" class="chipf" data-f="2024" aria-pressed="false">2024<small>9</small></button></div><p class="lcount" aria-live="polite"></p></div>
+
+    <main class="list" data-sortable>
+<article class="fund-row" id="gm-cruise" data-sort-row data-fund="10000" data-date="20241210" data-burn="2293052" data-life="4361" data-name="gm cruise" data-f="product-killed 2024" data-text="gm cruise the robotaxi startup gm bought in 2016 and then poured more than $10 billion into, with honda ($852m), microsoft and softbank alongside. driverless paid rides began in san francisco in 2022; a 2023 crash in which a cruise car dragged a pedestrian, and the company&#x27;s handling of it, cost it its california permit. in december 2024 mary barra ended the program, citing the &#x27;incremental time and capital&#x27; still needed. the most expensive ai product death on record. general motors parent pulled funding">
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:100.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Inflection AI / Pi</h2>
-      <span class="fund-amount">$1,500M</span>
+      <h2 class="fund-name"><span class="rank">#1</span><a href="/dead/gm-cruise/">GM Cruise</a></h2>
+      <span class="fund-amount">$10B</span>
     </div>
-    <p class="fund-desc">A &#x27;personal AI&#x27; focused on emotional intelligence and empathy, backed by $1.5B in funding. Effectively killed when Microsoft hired CEO Mustafa Suleyman and most of the engineering team, leaving Pi as an orphaned product.</p>
+    <p class="fund-desc">The robotaxi startup GM bought in 2016 and then poured more than $10 billion into, with Honda ($852M), Microsoft and SoftBank alongside. Driverless paid rides began in San Francisco in 2022; a 2023 crash in which a Cruise car dragged a pedestrian, and the company&#x27;s handling of it, cost it its California permit. In December 2024 Mary Barra ended the program, citing the &#x27;incremental time and capital&#x27; still needed. The most expensive AI product death on record.</p>
     <div class="fund-meta">
-      <span class="fund-type">app</span>
-      <span class="fund-dates">2023–2024</span>
-      <a class="fund-source" href="https://www.theverge.com/2024/3/19/24105263/microsoft-inflection-mustafa-suleyman-hire" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Product killed</span>
+      <span class="fund-dates">2013–Dec 2024 · 11.9 yrs</span>
+      <span class="fund-dates">$2.3M/day</span>
+      <span class="fund-dates">Killed by General Motors</span>
+      <a class="fund-source" href="https://www.cnbc.com/2024/12/10/gm-halts-funding-of-robotaxi-development-by-cruise.html" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:60.13333333333334%"></div></div>
+<article class="fund-row" id="argo-ai" data-sort-row data-fund="3600" data-date="20221026" data-burn="1670534" data-life="2155" data-name="argo ai" data-f="startup-failed 2022" data-text="argo ai pittsburgh&#x27;s self-driving champion, backed by roughly $1 billion from ford and $2.6 billion from volkswagen. six years in, both backers decided that fully driverless cars were further away than they could keep paying for, declined to invest further, and absorbed its assets. around 2,000 employees were offered jobs at the two carmakers; the company itself simply stopped. ford &amp; volkswagen backers pulled out">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:36.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Olive AI</h2>
+      <h2 class="fund-name"><span class="rank">#2</span><a href="/dead/argo-ai/">Argo AI</a></h2>
+      <span class="fund-amount">$3.6B</span>
+    </div>
+    <p class="fund-desc">Pittsburgh&#x27;s self-driving champion, backed by roughly $1 billion from Ford and $2.6 billion from Volkswagen. Six years in, both backers decided that fully driverless cars were further away than they could keep paying for, declined to invest further, and absorbed its assets. Around 2,000 employees were offered jobs at the two carmakers; the company itself simply stopped.</p>
+    <div class="fund-meta">
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2016–Oct 2022 · 5.9 yrs</span>
+      <span class="fund-dates">$1.7M/day</span>
+      <span class="fund-dates">Killed by Ford &amp; Volkswagen</span>
+      <a class="fund-source" href="https://techcrunch.com/2022/10/26/ford-vw-backed-argo-ai-is-shutting-down/" target="_blank" rel="noopener">Source ↗</a>
+    </div>
+  </div>
+</article>
+<article class="fund-row" id="inflection-ai-pi" data-sort-row data-fund="1500" data-date="20240319" data-burn="4658385" data-life="322" data-name="inflection ai / pi" data-f="acqui-hired 2024" data-text="inflection ai / pi a &#x27;personal ai&#x27; focused on emotional intelligence and empathy, backed by $1.5b in funding. effectively killed when microsoft hired ceo mustafa suleyman and most of the engineering team, leaving pi as an orphaned product. microsoft acqui-hire">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:15.0%"></div></div>
+  <div class="fund-info">
+    <div class="fund-header">
+      <h2 class="fund-name"><span class="rank">#3</span><a href="/dead/inflection-ai-pi/">Inflection AI / Pi</a></h2>
+      <span class="fund-amount">$1.5B</span>
+    </div>
+    <p class="fund-desc">A &#x27;personal AI&#x27; focused on emotional intelligence and empathy, backed by $1.5B in funding. Effectively killed when Microsoft hired CEO Mustafa Suleyman and most of the engineering team, leaving Pi as an orphaned product.</p>
+    <div class="fund-meta">
+      <span class="mchip">Acqui-hired</span>
+      <span class="fund-dates">2023–Mar 2024 · 0.9 yrs</span>
+      <span class="fund-dates">$4.7M/day</span>
+      <span class="fund-dates">Killed by Microsoft</span>
+      <a class="fund-source" href="https://www.theverge.com/2024/3/19/24105263/microsoft-inflection-mustafa-suleyman-hire" target="_blank" rel="noopener">Source ↗</a>
+    </div>
+  </div>
+</article>
+<article class="fund-row" id="olive-ai" data-sort-row data-fund="902" data-date="20231031" data-burn="361668" data-life="2494" data-name="olive ai" data-f="startup-failed 2023" data-text="olive ai a healthcare ai startup once valued at $4 billion that promised to automate hospital admin tasks. despite raising $902m, investigations revealed its &#x27;ai&#x27; relied heavily on manual human labor behind the scenes. after mass layoffs, it shut down and sold its assets for a fraction of its valuation. itself financial collapse">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:9.0%"></div></div>
+  <div class="fund-info">
+    <div class="fund-header">
+      <h2 class="fund-name"><span class="rank">#4</span><a href="/dead/olive-ai/">Olive AI</a></h2>
       <span class="fund-amount">$902M</span>
     </div>
     <p class="fund-desc">A healthcare AI startup once valued at $4 billion that promised to automate hospital admin tasks. Despite raising $902M, investigations revealed its &#x27;AI&#x27; relied heavily on manual human labor behind the scenes. After mass layoffs, it shut down and sold its assets for a fraction of its valuation.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2017–2023</span>
-      <a class="fund-source" href="https://www.healthcaredive.com/news/olive-ai-shuts-down/698455/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2017–Oct 2023 · 6.8 yrs</span>
+      <span class="fund-dates">$362K/day</span>
+      <span class="fund-dates">Killed by Itself</span>
+      <a class="fund-source" href="https://www.healthcaredive.com/news/olive-ai-shuts-down/698455/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:29.666666666666668%"></div></div>
+<article class="fund-row" id="forward-carepods" data-sort-row data-fund="657" data-date="20241112" data-burn="202903" data-life="3238" data-name="forward (carepods)" data-f="startup-failed 2024" data-text="forward (carepods) a primary-care startup that raised $657m on the promise of ai-run doctor&#x27;s offices, culminating in &#x27;carepods&#x27; — self-serve kiosks meant to automate check-ups. only three pods ever launched, one was pulled soon after installation, and former staff described patients getting stuck inside. forward shut down in november 2024 with a few weeks&#x27; notice. itself overpromised">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:6.6%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Builder.ai</h2>
+      <h2 class="fund-name"><span class="rank">#5</span><a href="/dead/forward-carepods/">Forward (CarePods)</a></h2>
+      <span class="fund-amount">$657M</span>
+    </div>
+    <p class="fund-desc">A primary-care startup that raised $657M on the promise of AI-run doctor&#x27;s offices, culminating in &#x27;CarePods&#x27; — self-serve kiosks meant to automate check-ups. Only three pods ever launched, one was pulled soon after installation, and former staff described patients getting stuck inside. Forward shut down in November 2024 with a few weeks&#x27; notice.</p>
+    <div class="fund-meta">
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2016–Nov 2024 · 8.9 yrs</span>
+      <span class="fund-dates">$203K/day</span>
+      <span class="fund-dates">Killed by Itself</span>
+      <a class="fund-source" href="https://www.fiercehealthcare.com/health-tech/primary-care-player-forward-shutters-after-raising-400m-rolling-out-carepods" target="_blank" rel="noopener">Source ↗</a>
+    </div>
+  </div>
+</article>
+<article class="fund-row" id="builder-ai" data-sort-row data-fund="445" data-date="20250520" data-burn="129851" data-life="3427" data-name="builder.ai" data-f="startup-failed 2025" data-text="builder.ai microsoft-backed &#x27;ai app builder&#x27; valued at $1.5b. its &#x27;neural network&#x27; turned out to be 700 engineers in india writing code manually. after inflating revenue 300% ($55m real vs $220m claimed), a creditor seized $37m from its accounts, triggering bankruptcy across five countries. itself fraud &amp; bankruptcy">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:4.5%"></div></div>
+  <div class="fund-info">
+    <div class="fund-header">
+      <h2 class="fund-name"><span class="rank">#6</span><a href="/dead/builder-ai/">Builder.ai</a></h2>
       <span class="fund-amount">$445M</span>
     </div>
     <p class="fund-desc">Microsoft-backed &#x27;AI app builder&#x27; valued at $1.5B. Its &#x27;neural network&#x27; turned out to be 700 engineers in India writing code manually. After inflating revenue 300% ($55M real vs $220M claimed), a creditor seized $37M from its accounts, triggering bankruptcy across five countries.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2016–2025</span>
-      <a class="fund-source" href="https://techcrunch.com/2025/05/20/once-worth-over-1b-microsoft-backed-builder-ai-is-running-out-of-money/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2016–May 2025 · 9.4 yrs</span>
+      <span class="fund-dates">$130K/day</span>
+      <span class="fund-dates">Killed by Itself</span>
+      <a class="fund-source" href="https://techcrunch.com/2025/05/20/once-worth-over-1b-microsoft-backed-builder-ai-is-running-out-of-money/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:27.666666666666668%"></div></div>
+<article class="fund-row" id="adept-ai-independent" data-sort-row data-fund="415" data-date="20240628" data-burn="456546" data-life="909" data-name="adept ai (independent)" data-f="acqui-hired 2024" data-text="adept ai (independent) an ai startup building autonomous agents that could use software tools, valued at $1b with $415m raised. amazon hired 80% of the team including the ceo and co-founders — a &#x27;reverse acqui-hire&#x27; that drew ftc scrutiny as a pattern of big tech absorbing ai startups without triggering antitrust review. amazon acqui-hire">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:4.2%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Adept AI (Independent)</h2>
+      <h2 class="fund-name"><span class="rank">#7</span><a href="/dead/adept-ai-independent/">Adept AI (Independent)</a></h2>
       <span class="fund-amount">$415M</span>
     </div>
     <p class="fund-desc">An AI startup building autonomous agents that could use software tools, valued at $1B with $415M raised. Amazon hired 80% of the team including the CEO and co-founders — a &#x27;reverse acqui-hire&#x27; that drew FTC scrutiny as a pattern of Big Tech absorbing AI startups without triggering antitrust review.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2022–2024</span>
-      <a class="fund-source" href="https://techcrunch.com/2024/06/28/amazon-hires-founders-away-from-ai-startup-adept/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Acqui-hired</span>
+      <span class="fund-dates">2022–Jun 2024 · 2.5 yrs</span>
+      <span class="fund-dates">$457K/day</span>
+      <span class="fund-dates">Killed by Amazon</span>
+      <a class="fund-source" href="https://techcrunch.com/2024/06/28/amazon-hires-founders-away-from-ai-startup-adept/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:15.333333333333332%"></div></div>
+<article class="fund-row" id="embark-trucks" data-sort-row data-fund="400" data-date="20230303" data-burn="152788" data-life="2618" data-name="embark trucks" data-f="startup-failed 2023" data-text="embark trucks an autonomous-trucking company that went public via spac in 2021 and raised more than $400 million. with no revenue and capital markets closed to pre-revenue companies, it cut 70% of staff and began liquidating its self-driving truck assets in march 2023. its timeline for driverless freight never arrived; the money did run out. market capital dried up">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:4.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Humane AI Pin</h2>
+      <h2 class="fund-name"><span class="rank">#8</span><a href="/dead/embark-trucks/">Embark Trucks</a></h2>
+      <span class="fund-amount">$400M</span>
+    </div>
+    <p class="fund-desc">An autonomous-trucking company that went public via SPAC in 2021 and raised more than $400 million. With no revenue and capital markets closed to pre-revenue companies, it cut 70% of staff and began liquidating its self-driving truck assets in March 2023. Its timeline for driverless freight never arrived; the money did run out.</p>
+    <div class="fund-meta">
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2016–Mar 2023 · 7.2 yrs</span>
+      <span class="fund-dates">$153K/day</span>
+      <span class="fund-dates">Killed by Market</span>
+      <a class="fund-source" href="https://techcrunch.com/2023/03/03/embark-trucks-lays-off-workers-explores-liquidation-of-self-driving-truck-assets/" target="_blank" rel="noopener">Source ↗</a>
+    </div>
+  </div>
+</article>
+<article class="fund-row" id="humane-ai-pin" data-sort-row data-fund="230" data-date="20250501" data-burn="597403" data-life="385" data-name="humane ai pin" data-f="hardware-failed 2025" data-text="humane ai pin the $699 screenless ai wearable that was supposed to replace smartphones. plagued by overheating, terrible battery life, and painfully slow responses. humane sought a buyer after disastrous reviews and abysmal sales. reality market rejection">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:2.3%"></div></div>
+  <div class="fund-info">
+    <div class="fund-header">
+      <h2 class="fund-name"><span class="rank">#9</span><a href="/dead/humane-ai-pin/">Humane AI Pin</a></h2>
       <span class="fund-amount">$230M</span>
     </div>
     <p class="fund-desc">The $699 screenless AI wearable that was supposed to replace smartphones. Plagued by overheating, terrible battery life, and painfully slow responses. Humane sought a buyer after disastrous reviews and abysmal sales.</p>
     <div class="fund-meta">
-      <span class="fund-type">hardware</span>
-      <span class="fund-dates">2024–2025</span>
-      <a class="fund-source" href="https://www.theverge.com/24126502/humane-ai-pin-review" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Hardware discontinued</span>
+      <span class="fund-dates">2024–May 2025 · 1.1 yrs</span>
+      <span class="fund-dates">$597K/day</span>
+      <span class="fund-dates">Killed by Reality</span>
+      <a class="fund-source" href="https://www.theverge.com/24126502/humane-ai-pin-review" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:10.0%"></div></div>
+<article class="fund-row" id="ghost-autonomy" data-sort-row data-fund="220" data-date="20240403" data-burn="83050" data-life="2649" data-name="ghost autonomy" data-f="startup-failed 2024" data-text="ghost autonomy a self-driving software startup that raised about $220m and, months before closing, landed an investment from openai&#x27;s startup fund to bring large language models to autonomous driving. it shut down worldwide on april 3, 2024, unable to secure the long-term funding its plan required. market funding collapse">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:2.2%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Character.AI (Independent)</h2>
+      <h2 class="fund-name"><span class="rank">#10</span><a href="/dead/ghost-autonomy/">Ghost Autonomy</a></h2>
+      <span class="fund-amount">$220M</span>
+    </div>
+    <p class="fund-desc">A self-driving software startup that raised about $220M and, months before closing, landed an investment from OpenAI&#x27;s startup fund to bring large language models to autonomous driving. It shut down worldwide on April 3, 2024, unable to secure the long-term funding its plan required.</p>
+    <div class="fund-meta">
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2017–Apr 2024 · 7.3 yrs</span>
+      <span class="fund-dates">$83K/day</span>
+      <span class="fund-dates">Killed by Market</span>
+      <a class="fund-source" href="https://techcrunch.com/2024/04/03/openai-backed-ghost-autonomy-shuts-down/" target="_blank" rel="noopener">Source ↗</a>
+    </div>
+  </div>
+</article>
+<article class="fund-row" id="character-ai-independent" data-sort-row data-fund="150" data-date="20240802" data-burn="218659" data-life="686" data-name="character.ai (independent)" data-f="acqui-hired 2024" data-text="character.ai (independent) the viral ai chatbot platform where users created and talked to ai &#x27;characters.&#x27; after safety controversies and intense competition, google effectively acqui-hired the founders and key staff, leaving the company a shell of its former self. google acqui-hire">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:1.5%"></div></div>
+  <div class="fund-info">
+    <div class="fund-header">
+      <h2 class="fund-name"><span class="rank">#11</span><a href="/dead/character-ai-independent/">Character.AI (Independent)</a></h2>
       <span class="fund-amount">$150M</span>
     </div>
     <p class="fund-desc">The viral AI chatbot platform where users created and talked to AI &#x27;characters.&#x27; After safety controversies and intense competition, Google effectively acqui-hired the founders and key staff, leaving the company a shell of its former self.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2022–2024</span>
-      <a class="fund-source" href="https://www.theverge.com/2024/8/2/24212348/google-character-ai-noam-shazeer" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Acqui-hired</span>
+      <span class="fund-dates">2022–Aug 2024 · 1.9 yrs</span>
+      <span class="fund-dates">$219K/day</span>
+      <span class="fund-dates">Killed by Google</span>
+      <a class="fund-source" href="https://www.theverge.com/2024/8/2/24212348/google-character-ai-noam-shazeer" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:8.333333333333332%"></div></div>
+<article class="fund-row" id="jasper-ai-original-platform" data-sort-row data-fund="125" data-date="20250601" data-burn="77543" data-life="1612" data-name="jasper ai (original platform)" data-f="startup-failed 2025" data-text="jasper ai (original platform) one of the first ai writing unicorns, valued at $1.5b. jasper&#x27;s &#x27;wrapper&#x27; business model collapsed as gpt-4o and claude made its core features available for free or at a fraction of the cost. openai / anthropic feature parity">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:1.2%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Jasper AI (Original Platform)</h2>
+      <h2 class="fund-name"><span class="rank">#12</span><a href="/dead/jasper-ai-original-platform/">Jasper AI (Original Platform)</a></h2>
       <span class="fund-amount">$125M</span>
     </div>
     <p class="fund-desc">One of the first AI writing unicorns, valued at $1.5B. Jasper&#x27;s &#x27;wrapper&#x27; business model collapsed as GPT-4o and Claude made its core features available for free or at a fraction of the cost.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2021–2025</span>
-      <a class="fund-source" href="https://www.jasper.ai/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2021–Jun 2025 · 4.4 yrs</span>
+      <span class="fund-dates">$78K/day</span>
+      <span class="fund-dates">Killed by OpenAI / Anthropic</span>
+      <a class="fund-source" href="https://www.jasper.ai/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:7.6%"></div></div>
+<article class="fund-row" id="woebot" data-sort-row data-fund="114" data-date="20250630" data-burn="38631" data-life="2951" data-name="woebot" data-f="startup-failed 2025" data-text="woebot a pioneering ai therapy chatbot used by 1.5 million people that delivered cognitive behavioral therapy via smartphone. despite fda breakthrough device designation, the company shut down because the regulatory process for ai mental health tools proved too costly and slow as llms outpaced the fda&#x27;s ability to regulate them. fda regulatory barriers">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:1.1%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Woebot</h2>
+      <h2 class="fund-name"><span class="rank">#13</span><a href="/dead/woebot/">Woebot</a></h2>
       <span class="fund-amount">$114M</span>
     </div>
     <p class="fund-desc">A pioneering AI therapy chatbot used by 1.5 million people that delivered cognitive behavioral therapy via smartphone. Despite FDA Breakthrough Device designation, the company shut down because the regulatory process for AI mental health tools proved too costly and slow as LLMs outpaced the FDA&#x27;s ability to regulate them.</p>
     <div class="fund-meta">
-      <span class="fund-type">app</span>
-      <span class="fund-dates">2017–2025</span>
-      <a class="fund-source" href="https://www.statnews.com/2025/07/02/woebot-therapy-chatbot-shuts-down-founder-says-ai-moving-faster-than-regulators/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2017–Jun 2025 · 8.1 yrs</span>
+      <span class="fund-dates">$39K/day</span>
+      <span class="fund-dates">Killed by FDA</span>
+      <a class="fund-source" href="https://www.statnews.com/2025/07/02/woebot-therapy-chatbot-shuts-down-founder-says-ai-moving-faster-than-regulators/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:6.7333333333333325%"></div></div>
+<article class="fund-row" id="stability-ai-stable-diffusion-creator" data-sort-row data-fund="101" data-date="20240601" data-burn="62616" data-life="1613" data-name="stability ai (stable diffusion creator)" data-f="startup-failed 2024" data-text="stability ai (stable diffusion creator) the company behind stable diffusion, the open-source model that democratized ai image generation. after ceo emad mostaque resigned amid financial turmoil and copyright lawsuits, the company struggled to survive as a going concern. itself financial collapse">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:1.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Stability AI (Stable Diffusion Creator)</h2>
+      <h2 class="fund-name"><span class="rank">#14</span><a href="/dead/stability-ai-stable-diffusion-creator/">Stability AI (Stable Diffusion Creator)</a></h2>
       <span class="fund-amount">$101M</span>
     </div>
     <p class="fund-desc">The company behind Stable Diffusion, the open-source model that democratized AI image generation. After CEO Emad Mostaque resigned amid financial turmoil and copyright lawsuits, the company struggled to survive as a going concern.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2020–2024</span>
-      <a class="fund-source" href="https://www.forbes.com/sites/kenrickcai/2024/03/29/stability-ai-ceo-emad-mostaque-resigns/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2020–Jun 2024 · 4.4 yrs</span>
+      <span class="fund-dates">$63K/day</span>
+      <span class="fund-dates">Killed by Itself</span>
+      <a class="fund-source" href="https://www.forbes.com/sites/kenrickcai/2024/03/29/stability-ai-ceo-emad-mostaque-resigns/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:6.666666666666667%"></div></div>
+<article class="fund-row" id="writer-gpt-wrapper-era" data-sort-row data-fund="100" data-date="20250101" data-burn="54735" data-life="1827" data-name="writer (gpt wrapper era)" data-f="startup-failed 2025" data-text="writer (gpt wrapper era) originally an ai writing assistant for enterprises built on gpt. pivoted multiple times as the &#x27;wrapper&#x27; model died, eventually trying to become a full ai platform. struggled as enterprises adopted native copilot and gemini integrations. microsoft copilot feature absorption">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:1.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Writer (GPT Wrapper Era)</h2>
+      <h2 class="fund-name"><span class="rank">#15</span><a href="/dead/writer-gpt-wrapper-era/">Writer (GPT Wrapper Era)</a></h2>
       <span class="fund-amount">$100M</span>
     </div>
     <p class="fund-desc">Originally an AI writing assistant for enterprises built on GPT. Pivoted multiple times as the &#x27;wrapper&#x27; model died, eventually trying to become a full AI platform. Struggled as enterprises adopted native Copilot and Gemini integrations.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2020–2025</span>
-      <a class="fund-source" href="https://writer.com/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2020–Jan 2025 · 5.0 yrs</span>
+      <span class="fund-dates">$55K/day</span>
+      <span class="fund-dates">Killed by Microsoft Copilot</span>
+      <a class="fund-source" href="https://writer.com/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:5.166666666666667%"></div></div>
+<article class="fund-row" id="neeva" data-sort-row data-fund="77.5" data-date="20230520" data-burn="48438" data-life="1600" data-name="neeva" data-f="acqui-hired 2023" data-text="neeva an ad-free, ai-powered search engine founded by ex-google executives. despite raising $77.5m, it couldn&#x27;t compete with free alternatives. acquired by snowflake for its ai talent, and the search engine was shut down. snowflake acqui-hire">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.8%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Neeva</h2>
+      <h2 class="fund-name"><span class="rank">#16</span><a href="/dead/neeva/">Neeva</a></h2>
       <span class="fund-amount">$78M</span>
     </div>
     <p class="fund-desc">An ad-free, AI-powered search engine founded by ex-Google executives. Despite raising $77.5M, it couldn&#x27;t compete with free alternatives. Acquired by Snowflake for its AI talent, and the search engine was shut down.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2019–2023</span>
-      <a class="fund-source" href="https://neeva.com/blog/may-announcement" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Acqui-hired</span>
+      <span class="fund-dates">2019–May 2023 · 4.4 yrs</span>
+      <span class="fund-dates">$48K/day</span>
+      <span class="fund-dates">Killed by Snowflake</span>
+      <a class="fund-source" href="https://neeva.com/blog/may-announcement" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:3.5999999999999996%"></div></div>
+<article class="fund-row" id="moxie-robot" data-sort-row data-fund="54" data-date="20241201" data-burn="34794" data-life="1552" data-name="moxie robot" data-f="hardware-failed 2024" data-text="moxie robot an $800 ai social robot designed to help children develop emotional skills, particularly popular with autistic kids. when funding collapsed, the company shut down abruptly — bricking all devices and leaving heartbroken children saying goodbye to their companion on camera. no refunds were offered. embodied inc. funding collapse">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.5%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Moxie Robot</h2>
+      <h2 class="fund-name"><span class="rank">#17</span><a href="/dead/moxie-robot/">Moxie Robot</a></h2>
       <span class="fund-amount">$54M</span>
     </div>
     <p class="fund-desc">An $800 AI social robot designed to help children develop emotional skills, particularly popular with autistic kids. When funding collapsed, the company shut down abruptly — bricking all devices and leaving heartbroken children saying goodbye to their companion on camera. No refunds were offered.</p>
     <div class="fund-meta">
-      <span class="fund-type">hardware</span>
-      <span class="fund-dates">2020–2024</span>
-      <a class="fund-source" href="https://www.axios.com/2024/12/10/moxie-kids-robot-shuts-down" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Hardware discontinued</span>
+      <span class="fund-dates">2020–Dec 2024 · 4.2 yrs</span>
+      <span class="fund-dates">$35K/day</span>
+      <span class="fund-dates">Killed by Embodied Inc.</span>
+      <a class="fund-source" href="https://www.axios.com/2024/12/10/moxie-kids-robot-shuts-down" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:2.933333333333333%"></div></div>
+<article class="fund-row" id="robin-ai" data-sort-row data-fund="44" data-date="20251101" data-burn="17628" data-life="2496" data-name="robin ai" data-f="startup-failed 2025" data-text="robin ai uk legal tech startup that raised $44m to build ai-powered contract review tools used by pwc and kpmg. after failing to close a $50m series c, the company cut a third of its staff and was listed on an insolvency marketplace — just 9 months after making the sunday times 100 tech list. market funding collapse">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.4%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Robin AI</h2>
+      <h2 class="fund-name"><span class="rank">#18</span><a href="/dead/robin-ai/">Robin AI</a></h2>
       <span class="fund-amount">$44M</span>
     </div>
     <p class="fund-desc">UK legal tech startup that raised $44M to build AI-powered contract review tools used by PwC and KPMG. After failing to close a $50M Series C, the company cut a third of its staff and was listed on an insolvency marketplace — just 9 months after making the Sunday Times 100 Tech list.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2019–2025</span>
-      <a class="fund-source" href="https://www.legalcheek.com/2025/10/uk-lawtech-business-seeks-buyer-following-38-million-fundraising-setback/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2019–Nov 2025 · 6.8 yrs</span>
+      <span class="fund-dates">$18K/day</span>
+      <span class="fund-dates">Killed by Market</span>
+      <a class="fund-source" href="https://www.legalcheek.com/2025/10/uk-lawtech-business-seeks-buyer-following-38-million-fundraising-setback/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:2.1999999999999997%"></div></div>
+<article class="fund-row" id="yupp-ai" data-sort-row data-fund="33" data-date="20260331" data-burn="108911" data-life="303" data-name="yupp.ai" data-f="startup-failed 2026" data-text="yupp.ai a crowdsourced ai-evaluation platform that paid users to compare model outputs, backed by $33m from a16z crypto. it reached 1.3 million users and still died inside a year. the labs had moved on to expert-sourced data and agentic evaluation — broad consumer preference signal simply stopped being the scarce input anyone would pay for. co-founders pankaj gupta and gilad mishne kept it accessible for two weeks after the announcement, then closed signups permanently. market no product-market fit">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.3%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Yupp.ai</h2>
+      <h2 class="fund-name"><span class="rank">#19</span><a href="/dead/yupp-ai/">Yupp.ai</a></h2>
       <span class="fund-amount">$33M</span>
     </div>
     <p class="fund-desc">A crowdsourced AI-evaluation platform that paid users to compare model outputs, backed by $33M from a16z crypto. It reached 1.3 million users and still died inside a year. The labs had moved on to expert-sourced data and agentic evaluation — broad consumer preference signal simply stopped being the scarce input anyone would pay for. Co-founders Pankaj Gupta and Gilad Mishne kept it accessible for two weeks after the announcement, then closed signups permanently.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2025–2026</span>
-      <a class="fund-source" href="https://www.techbuzz.ai/articles/yupp-ai-shuts-down-after-33m-a16z-crypto-raise" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2025–Mar 2026 · 0.8 yrs</span>
+      <span class="fund-dates">$109K/day</span>
+      <span class="fund-dates">Killed by Market</span>
+      <a class="fund-source" href="https://www.techbuzz.ai/articles/yupp-ai-shuts-down-after-33m-a16z-crypto-raise" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:2.0%"></div></div>
+<article class="fund-row" id="limitless-pendant-rewind-ai" data-sort-row data-fund="33" data-date="20251205" data-burn="56604" data-life="583" data-name="limitless pendant (rewind ai)" data-f="hardware-failed 2025" data-text="limitless pendant (rewind ai) a $99 ai wearable pendant that recorded and transcribed in-person conversations, previously known as rewind. meta acquired the company and immediately ended hardware sales, sunset the desktop app, and cut off eu/uk service entirely due to gdpr concerns. meta acquisition">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.3%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Kintsugi AI</h2>
+      <h2 class="fund-name"><span class="rank">#20</span><a href="/dead/limitless-pendant-rewind-ai/">Limitless Pendant (Rewind AI)</a></h2>
+      <span class="fund-amount">$33M</span>
+    </div>
+    <p class="fund-desc">A $99 AI wearable pendant that recorded and transcribed in-person conversations, previously known as Rewind. Meta acquired the company and immediately ended hardware sales, sunset the desktop app, and cut off EU/UK service entirely due to GDPR concerns.</p>
+    <div class="fund-meta">
+      <span class="mchip">Hardware discontinued</span>
+      <span class="fund-dates">2024–Dec 2025 · 1.6 yrs</span>
+      <span class="fund-dates">$57K/day</span>
+      <span class="fund-dates">Killed by Meta</span>
+      <a class="fund-source" href="https://techcrunch.com/2025/12/05/meta-acquires-ai-device-startup-limitless/" target="_blank" rel="noopener">Source ↗</a>
+    </div>
+  </div>
+</article>
+<article class="fund-row" id="kintsugi-ai" data-sort-row data-fund="30" data-date="20260211" data-burn="11547" data-life="2598" data-name="kintsugi ai" data-f="startup-failed 2026" data-text="kintsugi ai an ai startup that spent 7 years and $30m developing voice biomarker technology to detect depression and anxiety from how people speak. shut down after nearly 4 years waiting for fda de novo clearance that never came. open-sourced all code and research before closing — a rare act of scientific integrity in an industry of quiet deaths. fda regulatory barriers">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.3%"></div></div>
+  <div class="fund-info">
+    <div class="fund-header">
+      <h2 class="fund-name"><span class="rank">#21</span><a href="/dead/kintsugi-ai/">Kintsugi AI</a></h2>
       <span class="fund-amount">$30M</span>
     </div>
     <p class="fund-desc">An AI startup that spent 7 years and $30M developing voice biomarker technology to detect depression and anxiety from how people speak. Shut down after nearly 4 years waiting for FDA De Novo clearance that never came. Open-sourced all code and research before closing — a rare act of scientific integrity in an industry of quiet deaths.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2019–2026</span>
-      <a class="fund-source" href="https://endpoints.news/why-clinical-ai-startup-kintsugi-shut-down/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2019–Feb 2026 · 7.1 yrs</span>
+      <span class="fund-dates">$12K/day</span>
+      <span class="fund-dates">Killed by FDA</span>
+      <a class="fund-source" href="https://endpoints.news/why-clinical-ai-startup-kintsugi-shut-down/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:2.0%"></div></div>
+<article class="fund-row" id="rabbit-r1" data-sort-row data-fund="30" data-date="20250301" data-burn="96463" data-life="311" data-name="rabbit r1" data-f="hardware-failed 2025" data-text="rabbit r1 a $199 &#x27;ai-native&#x27; gadget designed to replace apps with a &#x27;large action model.&#x27; widely panned as a repackaged android app with a $199 price tag. the hardware became essentially abandoned after the company pivoted to software-only. reality market rejection">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.3%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Rabbit R1</h2>
+      <h2 class="fund-name"><span class="rank">#22</span><a href="/dead/rabbit-r1/">Rabbit R1</a></h2>
       <span class="fund-amount">$30M</span>
     </div>
     <p class="fund-desc">A $199 &#x27;AI-native&#x27; gadget designed to replace apps with a &#x27;Large Action Model.&#x27; Widely panned as a repackaged Android app with a $199 price tag. The hardware became essentially abandoned after the company pivoted to software-only.</p>
     <div class="fund-meta">
-      <span class="fund-type">hardware</span>
-      <span class="fund-dates">2024–2025</span>
-      <a class="fund-source" href="https://www.theverge.com/24133200/rabbit-r1-review-ai-gadget" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Hardware discontinued</span>
+      <span class="fund-dates">2024–Mar 2025 · 0.9 yrs</span>
+      <span class="fund-dates">$96K/day</span>
+      <span class="fund-dates">Killed by Reality</span>
+      <a class="fund-source" href="https://www.theverge.com/24133200/rabbit-r1-review-ai-gadget" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:1.3333333333333335%"></div></div>
+<article class="fund-row" id="tune-ai" data-sort-row data-fund="20" data-date="20250601" data-burn="7386" data-life="2708" data-name="tune ai" data-f="startup-failed 2025" data-text="tune ai backed by accel and flipkart, this genai platform offered llm fine-tuning tools via tune chat and tune studio. killed when major cloud providers released identical tooling at lower cost, and most users were free developers who never converted to paying customers. aws / google / azure feature absorption">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.2%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Tune AI</h2>
+      <h2 class="fund-name"><span class="rank">#23</span><a href="/dead/tune-ai/">Tune AI</a></h2>
       <span class="fund-amount">$20M</span>
     </div>
     <p class="fund-desc">Backed by Accel and Flipkart, this GenAI platform offered LLM fine-tuning tools via Tune Chat and Tune Studio. Killed when major cloud providers released identical tooling at lower cost, and most users were free developers who never converted to paying customers.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2018–2025</span>
-      <a class="fund-source" href="https://techstartups.com/2025/12/09/top-ai-startups-that-shut-down-in-2025-what-founders-can-learn/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2018–Jun 2025 · 7.4 yrs</span>
+      <span class="fund-dates">$7K/day</span>
+      <span class="fund-dates">Killed by AWS / Google / Azure</span>
+      <a class="fund-source" href="https://techstartups.com/2025/12/09/top-ai-startups-that-shut-down-in-2025-what-founders-can-learn/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.46666666666666673%"></div></div>
+<article class="fund-row" id="relay-app" data-sort-row data-fund="8.1" data-date="20260716" data-burn="4006" data-life="2022" data-name="relay.app" data-f="acqui-hired 2026" data-text="relay.app ai-agent workflow automation pitched as a zapier alternative, founded by jacob bank — ex-google gmail and calendar product lead whose previous startup timeful was bought by google. on july 16, 2026 the homepage was simply replaced with &#x27;relay.app is shutting down,&#x27; with no reason given. a month later the answer arrived: bank and part of the team joined google&#x27;s chrome division. the free tier stopped working august 15; paid accounts were given until september 14. google acqui-hire">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.1%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">theGist</h2>
+      <h2 class="fund-name"><span class="rank">#24</span><a href="/dead/relay-app/">Relay.app</a></h2>
+      <span class="fund-amount">$8M</span>
+    </div>
+    <p class="fund-desc">AI-agent workflow automation pitched as a Zapier alternative, founded by Jacob Bank — ex-Google Gmail and Calendar product lead whose previous startup Timeful was bought by Google. On July 16, 2026 the homepage was simply replaced with &#x27;Relay.app is shutting down,&#x27; with no reason given. A month later the answer arrived: Bank and part of the team joined Google&#x27;s Chrome division. The free tier stopped working August 15; paid accounts were given until September 14.</p>
+    <div class="fund-meta">
+      <span class="mchip">Acqui-hired</span>
+      <span class="fund-dates">2021–Jul 2026 · 5.5 yrs</span>
+      <span class="fund-dates">$4K/day</span>
+      <span class="fund-dates">Killed by Google</span>
+      <a class="fund-source" href="https://techcrunch.com/2026/08/17/ai-automation-startup-relay-shuts-down-staff-joins-googles-chrome-team/" target="_blank" rel="noopener">Source ↗</a>
+    </div>
+  </div>
+</article>
+<article class="fund-row" id="thegist" data-sort-row data-fund="7" data-date="20260915" data-burn="4075" data-life="1718" data-name="thegist" data-f="startup-failed 2026" data-text="thegist an israeli startup that scanned slack, email, crm and analytics to hand each employee a personalised summary of what mattered — founded in 2022 by alumni of wix, blizzard, openweb and gong, with $7m pre-seed co-led by stageone and aleph. a pivot toward sales tooling never caught, and rather than spend the remainder the founders closed the company and returned the money to investors. ⚠ closure reported mid-september 2026; no exact date was published. itself no product-market fit">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.1%"></div></div>
+  <div class="fund-info">
+    <div class="fund-header">
+      <h2 class="fund-name"><span class="rank">#25</span><a href="/dead/thegist/">theGist</a></h2>
       <span class="fund-amount">$7M</span>
     </div>
     <p class="fund-desc">An Israeli startup that scanned Slack, email, CRM and analytics to hand each employee a personalised summary of what mattered — founded in 2022 by alumni of Wix, Blizzard, OpenWeb and Gong, with $7M pre-seed co-led by StageOne and Aleph. A pivot toward sales tooling never caught, and rather than spend the remainder the founders closed the company and returned the money to investors. ⚠ Closure reported mid-September 2026; no exact date was published.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2022–2026</span>
-      <a class="fund-source" href="https://www.calcalistech.com/ctechnews/article/jeyngl375" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2022–Sep 2026 · 4.7 yrs</span>
+      <span class="fund-dates">$4K/day</span>
+      <span class="fund-dates">Killed by Itself</span>
+      <a class="fund-source" href="https://www.calcalistech.com/ctechnews/article/jeyngl375" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.30666666666666664%"></div></div>
+<article class="fund-row" id="huxe" data-sort-row data-fund="4.6" data-date="20260522" data-burn="7692" data-life="598" data-name="huxe" data-f="startup-failed 2026" data-text="huxe an ai audio app from three former notebooklm developers — prompt it and get a podcast, a personalised feed, or a live ai radio station you could interrupt mid-sentence. it raised $4.6m from conviction, dylan field and google&#x27;s own jeff dean. spotify shipped a near-identical personal podcast feature one day before the wind-down notice, and google&#x27;s gemini daily brief had landed at i/o weeks earlier. built by ex-googlers, buried by google. google / spotify feature absorption">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Huxe</h2>
+      <h2 class="fund-name"><span class="rank">#26</span><a href="/dead/huxe/">Huxe</a></h2>
       <span class="fund-amount">$5M</span>
     </div>
     <p class="fund-desc">An AI audio app from three former NotebookLM developers — prompt it and get a podcast, a personalised feed, or a live AI radio station you could interrupt mid-sentence. It raised $4.6M from Conviction, Dylan Field and Google&#x27;s own Jeff Dean. Spotify shipped a near-identical personal podcast feature one day before the wind-down notice, and Google&#x27;s Gemini Daily Brief had landed at I/O weeks earlier. Built by ex-Googlers, buried by Google.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2024–2026</span>
-      <a class="fund-source" href="https://techcrunch.com/2026/05/22/audio-generation-app-huxe-founded-by-former-notebooklm-developers-shuts-down/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2024–May 2026 · 1.6 yrs</span>
+      <span class="fund-dates">$8K/day</span>
+      <span class="fund-dates">Killed by Google / Spotify</span>
+      <a class="fund-source" href="https://techcrunch.com/2026/05/22/audio-generation-app-huxe-founded-by-former-notebooklm-developers-shuts-down/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.26%"></div></div>
+<article class="fund-row" id="weights-gg" data-sort-row data-fund="4" data-date="20260331" data-burn="3868" data-life="1034" data-name="weights (weights.gg)" data-f="acqui-hired 2026" data-text="weights (weights.gg) the community voice-cloning and ai-music platform where thousands of celebrity and character voice models lived. weights announced in january 2026 that it had never been profitable and closed on march 31; two months later the new york times reported that openai had quietly bought its technology and roughly six engineers. its library of consent-free celebrity voices had become a liability as deepfake laws tightened — the thing that made it popular was the thing that made it unsellable as a product. openai acqui-hire">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Reforged Labs</h2>
+      <h2 class="fund-name"><span class="rank">#27</span><a href="/dead/weights-gg/">Weights (weights.gg)</a></h2>
+      <span class="fund-amount">$4M</span>
+    </div>
+    <p class="fund-desc">The community voice-cloning and AI-music platform where thousands of celebrity and character voice models lived. Weights announced in January 2026 that it had never been profitable and closed on March 31; two months later The New York Times reported that OpenAI had quietly bought its technology and roughly six engineers. Its library of consent-free celebrity voices had become a liability as deepfake laws tightened — the thing that made it popular was the thing that made it unsellable as a product.</p>
+    <div class="fund-meta">
+      <span class="mchip">Acqui-hired</span>
+      <span class="fund-dates">2023–Mar 2026 · 2.8 yrs</span>
+      <span class="fund-dates">$4K/day</span>
+      <span class="fund-dates">Killed by OpenAI</span>
+      <a class="fund-source" href="https://www.techtimes.com/articles/317405/20260529/openai-acquires-weightsgg-voice-cloning-tech-deepfake-law-claims-arrests-losses-hit-893m.htm" target="_blank" rel="noopener">Source ↗</a>
+    </div>
+  </div>
+</article>
+<article class="fund-row" id="reforged-labs" data-sort-row data-fund="3.9" data-date="20260731" data-burn="2984" data-life="1307" data-name="reforged labs" data-f="startup-failed 2026" data-text="reforged labs built ai-generated video ad creative for mobile game studios and won real customers — supercell, king, ubisoft, playtika, scopely — with 17 staff across vietnam and the us. ceo robert huynh shut it down after three years because foundation models got good enough for studios to build the same tooling in-house: &#x27;the gap we were selling into is closing.&#x27; its biggest customers signed six-figure contracts; there were simply too few studios at that scale to sustain a company. foundation models feature absorption">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
+  <div class="fund-info">
+    <div class="fund-header">
+      <h2 class="fund-name"><span class="rank">#28</span><a href="/dead/reforged-labs/">Reforged Labs</a></h2>
       <span class="fund-amount">$4M</span>
     </div>
     <p class="fund-desc">Built AI-generated video ad creative for mobile game studios and won real customers — Supercell, King, Ubisoft, Playtika, Scopely — with 17 staff across Vietnam and the US. CEO Robert Huynh shut it down after three years because foundation models got good enough for studios to build the same tooling in-house: &#x27;the gap we were selling into is closing.&#x27; Its biggest customers signed six-figure contracts; there were simply too few studios at that scale to sustain a company.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2023–2026</span>
-      <a class="fund-source" href="https://www.pocketgamer.biz/reforged-labs-shuts-down-as-ceo-says-ai-is-closing-its-market-opportunity/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2023–Jul 2026 · 3.6 yrs</span>
+      <span class="fund-dates">$3K/day</span>
+      <span class="fund-dates">Killed by Foundation Models</span>
+      <a class="fund-source" href="https://www.pocketgamer.biz/reforged-labs-shuts-down-as-ceo-says-ai-is-closing-its-market-opportunity/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.23333333333333336%"></div></div>
+<article class="fund-row" id="stainless-sdk-generator" data-sort-row data-fund="3.5" data-date="20260518" data-burn="2190" data-life="1598" data-name="stainless sdk generator" data-f="acqui-hired 2026" data-text="stainless sdk generator the startup that auto-generated production-ready api sdks in python, typescript, go, java, and kotlin. used by openai, google, cloudflare, replicate, runway, and meta. anthropic acquired it for $300m+ and immediately announced it would wind down all hosted products — a strategic kill to deny competitors access to critical infrastructure. anthropic strategic acquisition">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Stainless SDK Generator</h2>
+      <h2 class="fund-name"><span class="rank">#29</span><a href="/dead/stainless-sdk-generator/">Stainless SDK Generator</a></h2>
       <span class="fund-amount">$4M</span>
     </div>
     <p class="fund-desc">The startup that auto-generated production-ready API SDKs in Python, TypeScript, Go, Java, and Kotlin. Used by OpenAI, Google, Cloudflare, Replicate, Runway, and Meta. Anthropic acquired it for $300M+ and immediately announced it would wind down all hosted products — a strategic kill to deny competitors access to critical infrastructure.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2022–2026</span>
-      <a class="fund-source" href="https://techcrunch.com/2026/05/18/anthropic-has-acquired-the-dev-tools-startup-used-by-openai-google-and-cloudflare/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Acqui-hired</span>
+      <span class="fund-dates">2022–May 2026 · 4.4 yrs</span>
+      <span class="fund-dates">$2K/day</span>
+      <span class="fund-dates">Killed by Anthropic</span>
+      <a class="fund-source" href="https://techcrunch.com/2026/05/18/anthropic-has-acquired-the-dev-tools-startup-used-by-openai-google-and-cloudflare/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.21999999999999997%"></div></div>
+<article class="fund-row" id="coqui-ai" data-sort-row data-fund="3.3" data-date="20240301" data-burn="2857" data-life="1155" data-name="coqui ai" data-f="startup-failed 2024" data-text="coqui ai an open-source text-to-speech startup that built the popular coqui tts library. despite being a go-to for developers wanting voice synthesis, the company ran out of funding and shut down, releasing its final models to the community before going dark. market funding collapse">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Coqui AI</h2>
+      <h2 class="fund-name"><span class="rank">#30</span><a href="/dead/coqui-ai/">Coqui AI</a></h2>
       <span class="fund-amount">$3M</span>
     </div>
     <p class="fund-desc">An open-source text-to-speech startup that built the popular Coqui TTS library. Despite being a go-to for developers wanting voice synthesis, the company ran out of funding and shut down, releasing its final models to the community before going dark.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2021–2024</span>
-      <a class="fund-source" href="https://github.com/coqui-ai/TTS" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2021–Mar 2024 · 3.2 yrs</span>
+      <span class="fund-dates">$3K/day</span>
+      <span class="fund-dates">Killed by Market</span>
+      <a class="fund-source" href="https://github.com/coqui-ai/TTS" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.13333333333333333%"></div></div>
+<article class="fund-row" id="yara-ai" data-sort-row data-fund="2" data-date="20251128" data-burn="2869" data-life="697" data-name="yara ai" data-f="startup-failed 2025" data-text="yara ai uk-based ai mental health companion offering cbt-style exercises and conversational support. the founder voluntarily shut it down after deciding ai chatbots aren&#x27;t safe enough for people in real mental health crises — a rare case of ethical self-termination. its own founder safety concerns">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Yara AI</h2>
+      <h2 class="fund-name"><span class="rank">#31</span><a href="/dead/yara-ai/">Yara AI</a></h2>
       <span class="fund-amount">$2M</span>
     </div>
     <p class="fund-desc">UK-based AI mental health companion offering CBT-style exercises and conversational support. The founder voluntarily shut it down after deciding AI chatbots aren&#x27;t safe enough for people in real mental health crises — a rare case of ethical self-termination.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2024–2025</span>
-      <a class="fund-source" href="https://fortune.com/2025/11/28/yara-ai-therapy-app-founder-shut-down-startup-decided-too-dangerous-serious-mental-health-issues/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2024–Nov 2025 · 1.9 yrs</span>
+      <span class="fund-dates">$3K/day</span>
+      <span class="fund-dates">Killed by Its Own Founder</span>
+      <a class="fund-source" href="https://fortune.com/2025/11/28/yara-ai-therapy-app-founder-shut-down-startup-decided-too-dangerous-serious-mental-health-issues/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.03333333333333333%"></div></div>
+<article class="fund-row" id="cydoc" data-sort-row data-fund="0.5" data-date="20260221" data-burn="194" data-life="2577" data-name="cydoc" data-f="startup-failed 2026" data-text="cydoc a bootstrapped health ai startup that operated for 7 years trying to build clinical ai tools. the founder published a detailed postmortem explaining why even technically sound health ai products die: the regulatory maze, slow hospital sales cycles, and the impossibility of competing with big tech&#x27;s free ai offerings. big tech market conditions">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name">Cydoc</h2>
-      <span class="fund-amount">$0M</span>
+      <h2 class="fund-name"><span class="rank">#32</span><a href="/dead/cydoc/">Cydoc</a></h2>
+      <span class="fund-amount">$500K</span>
     </div>
     <p class="fund-desc">A bootstrapped health AI startup that operated for 7 years trying to build clinical AI tools. The founder published a detailed postmortem explaining why even technically sound health AI products die: the regulatory maze, slow hospital sales cycles, and the impossibility of competing with Big Tech&#x27;s free AI offerings.</p>
     <div class="fund-meta">
-      <span class="fund-type">startup</span>
-      <span class="fund-dates">2019–2026</span>
-      <a class="fund-source" href="https://glassboxmedicine.com/2026/02/21/why-i-shut-down-my-bootstrapped-health-ai-startup-after-7-years-a-founders-postmortem/" target="_blank" rel="noopener">Source</a>
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2019–Feb 2026 · 7.1 yrs</span>
+      <span class="fund-dates">$0K/day</span>
+      <span class="fund-dates">Killed by Big Tech</span>
+      <a class="fund-source" href="https://glassboxmedicine.com/2026/02/21/why-i-shut-down-my-bootstrapped-health-ai-startup-after-7-years-a-founders-postmortem/" target="_blank" rel="noopener">Source ↗</a>
     </div>
   </div>
 </article>
@@ -511,5 +751,28 @@
         <p>Part of <a href="/">Killed by AI</a>. Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.</p>
         <p class="footer-links" style="font-size:.8125rem;margin-top:.5rem;text-align:center"><a href="/">The AI graveyard</a> · <a href="/dead/">All 111 tombstones A–Z</a> · <a href="/killed-by/">By killer</a> · <a href="/layoffs/">AI layoffs tracker</a> · <a href="/jobs/">Jobs replaced by AI</a> · <a href="/coming-soon/">Upcoming AI shutdowns</a> · <a href="/deprecations.ics">Shutdown calendar (.ics)</a> · <a href="/funding/">Failed AI startups</a> · <a href="/api/">JSON API</a> · <a href="/about/">About & methodology</a> · <a href="/feed.xml">RSS</a></p>
     </footer>
+<script>
+(function(){
+  var list=document.querySelector('.list[data-sortable]'); if(!list) return;
+  var rows=[].slice.call(list.querySelectorAll('[data-sort-row]'));
+  var q=document.querySelector('.lsearch'), s=document.querySelector('.lsort'), chips=[].slice.call(document.querySelectorAll('.chipf')), cnt=document.querySelector('.lcount');
+  var empty=document.createElement('p'); empty.className='empty'; empty.textContent='Nothing matches. Try another search or filter.'; empty.hidden=true; list.appendChild(empty);
+  var filt='all';
+  function apply(push){
+    var term=(q.value||'').trim().toLowerCase(), key=s.value, n=0;
+    var keyed=rows.map(function(r,i){return {r:r,i:i}});
+    var parts=key.split(':'), f=parts[0], dir=parts[1]==='asc'?1:-1;
+    keyed.sort(function(a,b){var x=a.r.dataset[f],y=b.r.dataset[f]; if(f==='name') return x.localeCompare(y)*dir; x=parseFloat(x)||0; y=parseFloat(y)||0; return x===y? a.i-b.i : (x-y)*dir;});
+    keyed.forEach(function(o){ var r=o.r, ok=(filt==='all'||(' '+r.dataset.f+' ').indexOf(' '+filt+' ')>-1)&&(!term||r.dataset.text.indexOf(term)>-1); r.hidden=!ok; if(ok){n++;} list.insertBefore(r,empty); });
+    empty.hidden=n>0; cnt.textContent='Showing '+n+' of '+rows.length;
+    if(push){ try{ var u=new URL(location.href); term?u.searchParams.set('q',term):u.searchParams.delete('q'); key!==s.options[0].value?u.searchParams.set('sort',key):u.searchParams.delete('sort'); filt!=='all'?u.searchParams.set('f',filt):u.searchParams.delete('f'); history.replaceState(null,'',u.pathname+u.search+u.hash);}catch(e){} }
+  }
+  chips.forEach(function(c){c.addEventListener('click',function(){filt=c.dataset.f; chips.forEach(function(x){var on=x===c; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on)}); apply(true);});});
+  q.addEventListener('input',function(){apply(true)}); s.addEventListener('change',function(){apply(true)});
+  try{ var p=new URLSearchParams(location.search); if(p.get('q')) q.value=p.get('q'); if(p.get('sort')&&[].some.call(s.options,function(o){return o.value===p.get('sort')})) s.value=p.get('sort');
+    if(p.get('f')){ chips.forEach(function(c){ if(c.dataset.f===p.get('f')){ filt=c.dataset.f; chips.forEach(function(x){x.classList.toggle('on',x===c); x.setAttribute('aria-pressed',x===c)}); } }); } }catch(e){}
+  apply(false);
+})();
+</script>
 </body>
 </html>
