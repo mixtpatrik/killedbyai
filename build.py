@@ -616,7 +616,7 @@ def render_job_risk(ldata):
         webpage_node(url, "Will AI Take My Job? The AI Job Risk Test", f"Free AI job risk test: score your job against {n} occupations using Microsoft's AI applicability data and {total_jobs:,} real AI layoffs.", lm(["job-risk-template.html", "data/microsoft-ai-applicability-scores.csv"])),
         {"@type": "WebApplication", "@id": url + "#app", "name": "AI Job Risk Test", "url": url, "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any",
          "isAccessibleForFree": True, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "creator": PERSON_REF,
-         "description": f"Answer 8 quick questions to see how exposed your job is to AI, scored against {n} US occupations and {total_jobs:,} AI-attributed layoffs."},
+         "description": f"Answer 3 quick questions to see how exposed your job is to AI, scored against {n} US occupations and {total_jobs:,} AI-attributed layoffs."},
         {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]},
         {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL}, {"@type": "ListItem", "position": 2, "name": "Will AI take my job?", "item": url}]},
     ]}

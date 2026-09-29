@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Will AI Take My Job? Free AI Job Risk Test (785 Jobs Ranked)</title>
-    <meta name="description" content="Will AI replace your job? Take the 60-second test: your job scored against 785 occupations with Microsoft's AI data, adjusted for how you work, and checked against 117,847 real AI layoffs.">
+    <meta name="description" content="Will AI replace your job? 3 questions, 20 seconds: your job scored against 785 occupations and 117,847 real AI layoffs.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://killedbyai.net/will-ai-take-my-job/">
     <meta property="og:url" content="https://killedbyai.net/will-ai-take-my-job/">
-    <meta property="og:title" content="Will AI take your job? Take the 60-second test">
-    <meta property="og:description" content="Score your job against 785 occupations and 117,847 real AI layoffs. Then guess before you look.">
+    <meta property="og:title" content="Will AI take your job? 3 questions, 20 seconds">
+    <meta property="og:description" content="Score your job against 785 occupations and 117,847 real AI layoffs. 3 questions, 20 seconds.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://killedbyai.net/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -233,7 +233,7 @@
      "https://github.com/mixtpatrik"
     ]
    },
-   "description": "Answer 8 quick questions to see how exposed your job is to AI, scored against 785 US occupations and 117,847 AI-attributed layoffs."
+   "description": "Answer 3 quick questions to see how exposed your job is to AI, scored against 785 US occupations and 117,847 AI-attributed layoffs."
   },
   {
    "@type": "FAQPage",
@@ -313,7 +313,7 @@
 
     <header class="header">
         <h1>Will AI take <span>your job?</span></h1>
-        <p>Eight quick questions, about 60 seconds. Your job is scored against 785 occupations using Microsoft's study of 200,000 real AI conversations, adjusted for how you actually work, and checked against 117,847 jobs companies have already cut in AI's name.</p>
+        <p>Pick your job, answer 3 questions, get your score. Based on 785 occupations and 117,847 real AI layoffs.</p>
         <div class="proof"><span><b>785</b> occupations</span><span><b>117,847</b> AI layoffs tracked</span><span><b>0</b> sign-ups</span></div>
     </header>
 
@@ -355,8 +355,8 @@
     <section class="section prose" id="method">
         <h2>How the score works</h2>
         <p><b>55% is your occupation.</b> We take the <a href="https://arxiv.org/abs/2507.07935" target="_blank" rel="noopener">AI applicability score</a> Microsoft Research computed for 785 US occupations from 200,000 anonymized Bing Copilot conversations — how often AI is used for each work activity, how successfully, and how much of the job it covers — and convert it to a percentile: how many occupations are less exposed than yours. The authors stress that applicability is not displacement; a job is more than its task list.</p>
-        <p><b>45% is how you work.</b> Seven questions shift the score up or down using what has predicted real losses so far: early-career workers in exposed jobs are being hired less (Stanford), roles built on codified, rule-following knowledge have shrunk while tacit, experience-based ones have not, physical and on-site work sits largely outside what chatbots can do, licences and legal accountability slow automation down, and employers that announce "AI-first" strategies are the ones in our <a href="/layoffs/">layoffs tracker</a>.</p>
-        <p>Your guess is not part of the score — it is there so you can see whether you are over- or under-estimating your exposure. Nothing you enter leaves your browser except anonymous totals in our analytics. Occupation data: Microsoft Research, <a href="https://github.com/microsoft/working-with-ai" target="_blank" rel="noopener">working-with-ai</a>, CC BY 4.0. Layoff data updated September 26, 2026.</p>
+        <p><b>45% is how you work.</b> Three questions shift the score up or down using what has predicted real losses so far: early-career workers in exposed jobs are being hired less (Stanford), roles built on codified, rule-following knowledge have shrunk while tacit, experience-based ones have not, physical and on-site work sits largely outside what chatbots can do, and licences and legal accountability slow automation down.</p>
+        <p>Nothing you enter leaves your browser except anonymous totals in our analytics. Occupation data: Microsoft Research, <a href="https://github.com/microsoft/working-with-ai" target="_blank" rel="noopener">working-with-ai</a>, CC BY 4.0. Layoff data updated September 26, 2026.</p>
     </section>
 
     <section class="section" id="faq">
@@ -382,37 +382,18 @@
 
   // [label, points, why it matters, how to fight back]
   var Q = [
-    { id: 'stage', q: 'Where are you in your career?', hint: 'AI is showing up first in who gets hired, not who gets fired.', o: [
-      ['Entry level (0–3 years)', 10, 'Early-career roles in exposed jobs are where AI hits first: Stanford measured a 19% employment gap for 22–25-year-olds.', 'Get <b>hands-on experience fast</b> — the tacit, learned-on-the-job knowledge AI lacks is what has protected senior workers.'],
-      ['Mid-level', 3, 'Mid-level work mixes routine output with judgment — the routine half is exposed.', 'Shift your week toward <b>decisions, reviews and ownership</b>, away from first drafts.'],
-      ['Senior / specialist', -5, 'Experienced workers in exposed jobs have shown no employment gap so far.', ''],
-      ['I manage people', -3, 'People management is hard to hand to a chatbot — but "flattening" management layers is a common AI-era cut.', 'Make your team measurably better with AI — managers who <b>run AI-augmented teams</b> are the ones being kept.']] },
-    { id: 'screen', q: 'How much of your working day is on a computer?', hint: 'Screens are where today’s AI lives.', o: [
-      ['Almost all of it', 10, 'Fully digital work is fully reachable by AI tools.', 'Spend more time on the <b>offline parts</b>: clients, stakeholders, the room where decisions get made.'],
-      ['Most of it', 5, 'Most of your work happens where AI operates.', ''],
-      ['Some of it', -3, 'A good share of your work happens off-screen.', ''],
-      ['Hardly any', -12, 'Chatbots cannot do what happens away from a screen.', '']] },
-    { id: 'codified', q: 'How much of your work follows a set process, template or playbook?', hint: 'Stanford: jobs built on codified knowledge shrank; tacit-knowledge jobs grew.', o: [
-      ['Most of it — clear rules, repeatable steps', 10, 'Rule-based, documented work is exactly what AI learns from.', 'Become the person who <b>writes and fixes the playbook</b>, not the one who follows it.'],
-      ['A mix', 3, 'Part of your work is codified and automatable.', ''],
-      ['Little — every case needs judgment', -8, 'Judgment calls on messy, one-off situations are still hard for AI.', '']] },
-    { id: 'physical', q: 'Does your job need you physically there?', hint: 'Physical tasks are largely outside what generative AI can do.', o: [
-      ['No — it could be done 100% remotely', 8, 'If it can be done from anywhere, it can increasingly be done by anything.', 'Build <b>in-person value</b>: site visits, workshops, being the face clients know.'],
-      ['Partly — some meetings or site visits', 2, 'Some of your work needs you in the room.', ''],
-      ['Yes — hands-on or on-site work is the job', -12, 'Hands-on work in the real world is the strongest protection there is.', '']] },
-    { id: 'trust', q: 'What do people rely on you for?', hint: 'Output can be automated. Accountability is harder.', o: [
-      ['The output — anyone competent could deliver it', 8, 'Interchangeable output is the easiest thing to swap for AI output.', 'Attach your name to outcomes: <b>own a client, a number or a sign-off</b>.'],
-      ['My relationships and knowledge of the people involved', -4, 'Relationships and context are slow to automate.', ''],
-      ['My signature — I’m licensed or legally accountable', -10, 'Licences and legal liability keep a human in the loop.', '']] },
-    { id: 'aiuse', q: 'How does AI show up in your work today?', hint: 'Augmenting beats being automated.', o: [
-      ['It already does whole tasks I used to do', 10, 'Automation of whole tasks is where employment has fallen, not augmentation.', 'Move up a level: <b>be the person who runs, checks and improves</b> the AI’s work.'],
-      ['I use it as an assistant — I still do the work', 0, 'Using AI to augment your work has been associated with steadier employment.', ''],
-      ['I don’t use it yet', 4, 'Peers who use AI well are the competition, not the AI itself.', '<b>Start using AI on your own tasks this week</b> — the people who replace you will be the ones who did.']] },
-    { id: 'employer', q: 'What is your employer saying about AI?', hint: 'The companies in our layoffs tracker said it out loud first.', o: [
-      ['“AI-first”, hiring freeze or AI-linked cuts', 10, 'Companies announcing AI-first strategies are the ones in our layoffs tracker.', '<b>Keep your options warm</b>: update your CV, portfolio and network before you need them.'],
-      ['Talking up AI efficiency', 4, 'Efficiency talk often precedes restructuring.', ''],
-      ['Nothing much', -2, 'No signals from your employer yet.', ''],
-      ['I’m self-employed', 2, 'Your competition is anyone with the same AI tools and lower prices.', 'Sell <b>outcomes and trust</b>, not hours — hourly work is what AI undercuts.']] }
+    { q: 'How experienced are you?', o: [
+      ['Just starting out (0–3 years)', 12, 'AI hits hiring first: Stanford found a 19% jobs gap for 22–25-year-olds in exposed work.', 'Get <b>hands-on experience fast</b> — learned-on-the-job know-how is what has protected senior workers.'],
+      ['Mid-level', 3, 'The routine half of mid-level work is exposed.', 'Shift toward <b>decisions and ownership</b>, away from first drafts.'],
+      ['Senior or managing people', -6, 'Experienced workers show no AI jobs gap so far.', '']] },
+    { q: 'Where does your work happen?', o: [
+      ['On a screen — could be fully remote', 14, 'If it can be done from anywhere, it can increasingly be done by AI.', 'Build <b>in-person value</b>: clients, workshops, the room where decisions get made.'],
+      ['Mostly screen, some in person', 5, 'Most of your work happens where AI operates.', ''],
+      ['Hands-on or on-site', -18, 'Physical, real-world work is the strongest protection there is.', '']] },
+    { q: 'What is your work mostly?', o: [
+      ['Following set processes', 12, 'Rule-based, repeatable work is exactly what AI learns from.', 'Become the person who <b>writes and fixes the playbook</b>, not the one who follows it.'],
+      ['Judgment calls and relationships', -4, 'Messy one-off decisions and relationships are slow to automate.', ''],
+      ['Signing off — I’m licensed or accountable', -10, 'Licences and legal liability keep a human in the loop.', '']] }
   ];
   var MIN = 0, MAX = 0;
   Q.forEach(function (q) { var p = q.o.map(function (o) { return o[1]; }); MIN += Math.min.apply(null, p); MAX += Math.max.apply(null, p); });
@@ -423,9 +404,8 @@
     [80, 'On the chopping block', '🪓', '#f97316', 'Your work sits squarely in AI’s path and employers in your field are already acting on it. Time to move up the value chain.'],
     [101, 'Grave already dug', '🪦', '#ef4444', 'Your occupation and the way you work both line up with where companies are cutting. Start the next chapter before someone else writes it.']
   ];
-  var GUESS = [[15, 'No way'], [35, 'Unlikely'], [60, 'Could happen'], [85, 'Probably'], [101, 'It’s already happening']];
 
-  var card = document.getElementById('card'), state = { job: null, a: [], guess: 50, shared: false };
+  var card = document.getElementById('card'), state = { job: null, a: [], shared: false };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var track = function (name, p) { try { gtag('event', name, p || {}); } catch (e) {} };
   function tierOf(s) { for (var i = 0; i < TIERS.length; i++) if (s <= TIERS[i][0]) return TIERS[i]; }
@@ -435,13 +415,13 @@
     var personal = (p - MIN) / (MAX - MIN) * 100;
     return Math.max(1, Math.min(99, Math.round(0.55 * o[3] + 0.45 * personal)));
   }
-  function totalSteps() { return Q.length + 2; }
+  function totalSteps() { return Q.length + 1; }
   function frame(stepNo, inner) {
     var pct = Math.round(stepNo / totalSteps() * 100);
     card.innerHTML = '<div class="progress"><button class="back" type="button" ' + (stepNo ? '' : 'hidden') + '>← Back</button><div class="progress-track"><div class="progress-fill"></div></div><span>' + (stepNo + 1) + ' / ' + totalSteps() + '</span></div><div class="step">' + inner + '</div>';
     requestAnimationFrame(function () { card.querySelector('.progress-fill').style.width = pct + '%'; });
     var back = card.querySelector('.back');
-    if (back) back.onclick = function () { if (stepNo === 1) { state.a = []; renderJob(); } else if (stepNo <= Q.length) { state.a.length = stepNo - 2; renderQ(stepNo - 2); } else { state.a.length = Q.length - 1; renderQ(Q.length - 1); } };
+    if (back) back.onclick = function () { if (stepNo === 1) { state.a = []; renderJob(); } else if (stepNo <= Q.length) { state.a.length = stepNo - 2; renderQ(stepNo - 2); } else { renderQ(Q.length - 1); } };
   }
   function focusCard() { var h = card.querySelector('h2'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); } }
   function scrollToCard() { var r = card.getBoundingClientRect(); if (r.top < 0 || r.top > innerHeight * 0.4) card.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); }
@@ -493,7 +473,7 @@
   // ----- steps 1..7: questions -----
   function renderQ(i) {
     var q = Q[i];
-    frame(i + 1, '<div class="chosen">Job: <b>' + esc(BY[state.job][1]) + '</b></div><h2>' + q.q + '</h2><p class="hint">' + q.hint + '</p><div class="opts" role="group" aria-label="' + esc(q.q) + '">' +
+    frame(i + 1, '<div class="chosen">Job: <b>' + esc(BY[state.job][1]) + '</b></div><h2>' + q.q + '</h2><div class="opts" role="group" aria-label="' + esc(q.q) + '">' +
       q.o.map(function (o, k) { return '<button type="button" class="opt' + (state.a[i] === k ? ' sel' : '') + '" data-k="' + k + '"><span class="k">' + 'ABCD'[k] + '</span>' + o[0] + '</button>'; }).join('') + '</div>');
     var back = card.querySelector('.back');
     if (back) back.onclick = function () { if (i === 0) { state.job = null; state.a = []; renderJob(); } else renderQ(i - 1); };
@@ -501,34 +481,20 @@
       b.onclick = function () {
         state.a[i] = +b.dataset.k; state.a.length = i + 1;
         b.classList.add('sel');
-        setTimeout(function () { i + 1 < Q.length ? renderQ(i + 1) : renderGuess(); }, 140);
+        setTimeout(function () { if (i + 1 < Q.length) renderQ(i + 1); else { renderResult(); scrollToCard(); } }, 140);
       };
     });
     focusCard();
   }
   document.addEventListener('keydown', function (e) {
     if (e.target.closest && e.target.closest('input,textarea,select')) return;
-    var k = { a: 0, b: 1, c: 2, d: 3, '1': 0, '2': 1, '3': 2, '4': 3 }[e.key.toLowerCase()];
+    var k = { a: 0, b: 1, c: 2, '1': 0, '2': 1, '3': 2 }[e.key.toLowerCase()];
     if (k === undefined) return;
     var b = card.querySelectorAll('.opt')[k]; if (b) b.click();
   });
 
-  // ----- step 8: guess -----
-  function guessLabel(v) { for (var i = 0; i < GUESS.length; i++) if (v < GUESS[i][0]) return GUESS[i][1]; }
-  function renderGuess() {
-    frame(Q.length + 1, '<div class="chosen">Job: <b>' + esc(BY[state.job][1]) + '</b></div><h2>Before we show you: what’s your gut feeling?</h2><p class="hint">How likely is it that AI takes your job within 5 years? We’ll compare your guess with the data.</p>' +
-      '<div class="guess-val" id="gv">' + state.guess + '%</div><div class="guess-lbl" id="gl">' + guessLabel(state.guess) + '</div>' +
-      '<input type="range" min="0" max="100" step="1" value="' + state.guess + '" aria-label="Your guess, percent" id="gr"><div class="range-ends"><span>No chance</span><span>Certain</span></div>' +
-      '<button class="cta" type="button" id="reveal">Reveal my AI risk score →</button>');
-    var back = card.querySelector('.back'); if (back) back.onclick = function () { renderQ(Q.length - 1); };
-    var r = document.getElementById('gr');
-    r.oninput = function () { state.guess = +r.value; document.getElementById('gv').textContent = r.value + '%'; document.getElementById('gl').textContent = guessLabel(+r.value); };
-    document.getElementById('reveal').onclick = function () { renderResult(); scrollToCard(); };
-    focusCard();
-  }
-
   // ----- result -----
-  function code() { return state.job + '.' + state.a.join('') + '.' + state.guess; }
+  function code() { return state.job + '.' + state.a.join(''); }
   function gauge(s, color) {
     var a = Math.PI * (1 - s / 100), x = 100 + 80 * Math.cos(a), y = 100 - 80 * Math.sin(a), len = Math.PI * 80;
     return '<svg viewBox="0 0 200 112" aria-hidden="true"><defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#22c55e"/><stop offset=".5" stop-color="#f59e0b"/><stop offset="1" stop-color="#ef4444"/></linearGradient></defs>' +
@@ -537,19 +503,16 @@
       '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="6" fill="' + color + '" stroke="#09090b" stroke-width="3"/></svg>';
   }
   function renderResult() {
-    var o = BY[state.job], s = score(), t = tierOf(s), role = o[4] && ROLES[o[4]], idx = RANKED.indexOf(o), gap = s - state.guess;
-    var ladder = RANKED.slice(Math.max(0, idx - 3), idx + 4);
+    var o = BY[state.job], s = score(), t = tierOf(s), role = o[4] && ROLES[o[4]], idx = RANKED.indexOf(o);
     var ups = [];
     var factors = state.a.map(function (ai, qi) { var op = Q[qi].o[ai]; if (op[3]) ups.push([op[1], op[3]]); return '<li><span class="pts ' + (op[1] > 0 ? 'up' : op[1] < 0 ? 'down' : 'zero') + '">' + (op[1] > 0 ? '+' : '') + op[1] + '</span><div>' + op[0] + '<small>' + op[2] + '</small></div></li>'; }).join('');
     ups.sort(function (a, b) { return b[0] - a[0]; });
-    var tips = ups.slice(0, 3).map(function (u) { return '<li>' + u[1] + '</li>'; });
-    if (tips.length < 3) tips.push('<li><b>Track the signals.</b> Watch the <a href="/layoffs/">AI layoffs tracker</a> for your industry — cuts come in waves, and the first movers tell you where it goes next.</li>');
-    var vsText = Math.abs(gap) <= 7 ? 'Spot on. Your gut is well calibrated.' : gap > 0 ? 'You’re <b>more exposed than you think</b> — by ' + gap + ' points.' : 'You’re <b>less exposed than you fear</b> — by ' + (-gap) + ' points.';
+    var tips = ups.slice(0, 2).map(function (u) { return '<li>' + u[1] + '</li>'; });
+    if (tips.length < 2) tips.push('<li><b>Track the signals.</b> Watch the <a href="/layoffs/">AI layoffs tracker</a> for your industry — cuts come in waves, and the first movers tell you where it goes next.</li>');
     var html = (state.shared ? '<div class="shared-banner"><span>Someone shared their result with you. What’s yours?</span><button class="cta" type="button" data-act="retake" style="width:auto;margin:0">Take the test →</button></div>' : '') +
       '<div class="res-head"><div class="res-job">AI job risk score<b>' + esc(o[1]) + '</b></div>' +
       '<div class="gauge">' + gauge(s, t[3]) + '<div class="gauge-num"><b style="color:' + t[3] + '" id="snum">0</b><span>out of 100</span></div></div>' +
       '<div class="tier" style="color:' + t[3] + '">' + t[2] + ' ' + t[1] + '</div><p class="tier-blurb">' + t[4] + '</p></div>' +
-      '<div class="vs">' + (state.shared ? 'They guessed ' + state.guess + '%.' : vsText) + '<div class="vs-bars"><span>' + (state.shared ? 'Their guess' : 'Your guess') + '</span><div class="vs-track"><div class="vs-fill" style="background:#71717a" data-w="' + state.guess + '"></div></div><b>' + state.guess + '</b><span>The data</span><div class="vs-track"><div class="vs-fill" style="background:' + t[3] + '" data-w="' + s + '"></div></div><b>' + s + '</b></div></div>' +
       '<div class="res-grid"><div class="rstat"><b>' + o[3] + '%</b><span>of 785 occupations are less exposed to AI than yours</span></div>' +
       '<div class="rstat"><b>#' + (idx + 1) + '</b><span>most AI-exposed job of 785 (Microsoft score ' + o[2].toFixed(2) + ')</span></div>' +
       '<div class="rstat"><b>' + (role ? role.jobs.toLocaleString('en-US') : '0') + '</b><span>' + (role ? esc(role.label.toLowerCase()) + ' jobs already cut by companies citing AI' : 'AI-attributed layoffs tracked for this kind of role — so far') + '</span></div></div>' +
@@ -557,14 +520,12 @@
         role.top.map(function (x) { return '<li>' + esc(x[0]) + ' <span>' + x[1].toLocaleString('en-US') + ' · ' + x[2] + '</span></li>'; }).join('') + '</ul>' +
         (role.page ? '<a href="/jobs/' + o[4] + '/">See every ' + esc(role.label.toLowerCase()) + ' layoff →</a>' : '<a href="/layoffs/">See all AI layoffs →</a>') + '</div></div>' : '') +
       '<div class="res-sec"><h3>What moved your score</h3><ul class="factors"><li><span class="pts ' + (o[3] >= 50 ? 'up' : 'down') + '">' + (o[3] >= 50 ? 'HIGH' : 'LOW') + '</span><div>Your occupation<small>' + esc(o[1]) + ' is more AI-exposed than ' + o[3] + '% of occupations. This is 55% of your score.</small></div></li>' + factors + '</ul></div>' +
-      '<div class="res-sec"><h3>Jobs next to yours on the exposure ladder</h3><ol class="ladder">' + ladder.map(function (x) { return '<li' + (x === o ? ' class="me"' : '') + '>' + esc(x[1]) + '<span>' + x[2].toFixed(2) + '</span></li>'; }).join('') + '</ol></div>' +
       '<div class="res-sec"><h3>How to be harder to replace</h3><ol class="tips">' + tips.join('') + '</ol></div>' +
       '<div class="share"><button class="cta full" type="button" data-act="share">Share my result</button><button class="cta ghost" type="button" data-act="image">⬇ Save image</button><button class="cta ghost" type="button" data-act="copy">🔗 Copy link</button><button class="cta ghost full" type="button" data-act="retake">↺ ' + (state.shared ? 'Take the test' : 'Try another job') + '</button></div>' +
       '<p class="disclaimer">An informed estimate, not a prediction. Occupation data: Microsoft Research (CC BY 4.0). <a href="#method">How the score works</a></p>';
     card.innerHTML = html;
     requestAnimationFrame(function () { requestAnimationFrame(function () {
       var arc = document.getElementById('garc'); arc.style.strokeDashoffset = arc.dataset.to;
-      card.querySelectorAll('.vs-fill').forEach(function (f) { f.style.width = f.dataset.w + '%'; });
       var n = document.getElementById('snum'), t0 = performance.now();
       (function tick(now) { var p = Math.min(1, (now - t0) / 1000); n.textContent = Math.round(s * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(tick); })(t0);
     }); });
@@ -572,7 +533,7 @@
     var sb = card.querySelector('.shared-banner'); if (sb) sb.addEventListener('click', act);
     if (!state.shared) {
       try { history.replaceState(null, '', location.pathname + '?r=' + code() + '#test'); sessionStorage.setItem('kbai-risk-own', code()); } catch (e) {}
-      track('job_risk_complete', { soc: state.job, occupation: o[1], score: s, tier: t[1], guess: state.guess, gap: gap, stage: Q[0].o[state.a[0]][0] });
+      track('job_risk_complete', { soc: state.job, occupation: o[1], score: s, tier: t[1], stage: Q[0].o[state.a[0]][0], place: Q[1].o[state.a[1]][0], work: Q[2].o[state.a[2]][0] });
     }
     focusCard();
   }
@@ -583,7 +544,7 @@
   function act(e) {
     var b = e.target.closest('[data-act]'); if (!b) return;
     var a = b.dataset.act;
-    if (a === 'retake') { state = { job: null, a: [], guess: 50, shared: false }; try { history.replaceState(null, '', location.pathname + '#test'); } catch (e2) {} renderJob(); scrollToCard(); track('job_risk_retake'); }
+    if (a === 'retake') { state = { job: null, a: [], shared: false }; try { history.replaceState(null, '', location.pathname + '#test'); } catch (e2) {} renderJob(); scrollToCard(); track('job_risk_retake'); }
     else if (a === 'copy') { copy(); track('job_risk_share', { method: 'copy' }); }
     else if (a === 'share') { if (navigator.share) navigator.share({ title: 'Will AI take my job?', text: shareText(), url: shareUrl() }).catch(function () {}); else copy(); track('job_risk_share', { method: navigator.share ? 'native' : 'copy' }); }
     else if (a === 'image') { saveImage(); track('job_risk_share', { method: 'image' }); }
@@ -624,14 +585,14 @@
   if (allF) allF.addEventListener('input', function () { var v = allF.value.trim().toLowerCase(); document.querySelectorAll('#all-jobs tbody tr').forEach(function (r) { r.hidden = v && r.children[1].textContent.toLowerCase().indexOf(v) < 0; }); });
   document.addEventListener('click', function (e) {
     var a = e.target.closest('.rank-table a[data-job]'); if (!a) return;
-    e.preventDefault(); state = { job: null, a: [], guess: 50, shared: false }; pick(a.dataset.job);
+    e.preventDefault(); state = { job: null, a: [], shared: false }; pick(a.dataset.job);
     document.getElementById('test').scrollIntoView({ behavior: 'smooth' });
   });
 
   // ----- boot: ?r= shared result, ?job= preselected occupation -----
-  var p = new URLSearchParams(location.search), r = p.get('r'), m = r && r.match(/^(\d\d-\d{4})\.(\d{7})\.(\d{1,3})$/);
+  var p = new URLSearchParams(location.search), r = p.get('r'), m = r && r.match(/^(\d\d-\d{4})\.(\d{3})$/);
   if (m && BY[m[1]] && m[2].split('').every(function (d, i) { return +d < Q[i].o.length; })) {
-    state = { job: m[1], a: m[2].split('').map(Number), guess: Math.min(100, +m[3]), shared: true };
+    state = { job: m[1], a: m[2].split('').map(Number), shared: true };
     try { if (sessionStorage.getItem('kbai-risk-own') === r) state.shared = false; } catch (e) {}
     renderResult();
   } else if (p.get('job') && BY[p.get('job')]) { renderJob(); pick(p.get('job')); }
