@@ -27,15 +27,6 @@
     "link": "https://platform.openai.com/docs/deprecations"
   },
   {
-    "name": "Mistral Leanstral 1.5",
-    "dateAnnounced": "2026-06-30",
-    "dateShutdown": "2026-09-30",
-    "description": "Mistral announced this Lean 4 formal-proof model's death in the same sentence that announced its birth. The changelog reads: 'We released Leanstral 1.5... This model will be retired on September 30, 2026.' A 92-day advertised lifespan, dead on arrival by design.",
-    "replacement": "None named",
-    "killedBy": "Mistral",
-    "link": "https://github.com/mistralai/platform-docs-public"
-  },
-  {
     "name": "Google Gemini 2.5 Flash Image (\"Nano Banana\")",
     "dateAnnounced": "2026-05-26",
     "dateShutdown": "2026-10-02",
@@ -90,33 +81,6 @@
     "link": "https://developers.openai.com/api/docs/deprecations"
   },
   {
-    "name": "Amazon Mechanical Turk",
-    "dateAnnounced": "2026-08-25",
-    "dateShutdown": "2026-09-30",
-    "killedBy": "Amazon",
-    "replacement": "None — Scale AI, Mercor and Prolific absorbed the market",
-    "link": "https://www.cnbc.com/2026/08/25/amazon-service-that-jeff-bezos-called-artificial-ai-is-shutting-down.html",
-    "description": "The 21-year-old marketplace Jeff Bezos once called \"artificial artificial intelligence\" — the humans who labelled a generation of training data — closes on September 30, 2026. New customers were cut off July 30. Amazon cites \"an internal assessment of its programs and services\"; everyone else notes that the models MTurk workers trained now do MTurk's job."
-  },
-  {
-    "name": "Amazon Nova Canvas & Nova Reel",
-    "dateAnnounced": "2026-03-13",
-    "dateShutdown": "2026-09-30",
-    "killedBy": "Amazon",
-    "replacement": "Nova 2 Lite; Luma Ray v2 for video",
-    "link": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html",
-    "description": "The image and video half of Amazon's first Nova generation clears off Bedrock on September 30, two weeks after Premier and Sonic went on September 14. Both entered Legacy in March 2026; AWS migrates nothing automatically."
-  },
-  {
-    "name": "Gemini Omni Flash Preview",
-    "dateAnnounced": "2026-08-27",
-    "dateShutdown": "2026-09-30",
-    "killedBy": "Google",
-    "replacement": "gemini-omni-1.1-flash",
-    "link": "https://ai.google.dev/gemini-api/docs/changelog",
-    "description": "Google's text-and-image-to-video model shipped June 30, 2026 and was deprecated on August 27, the day gemini-omni-1.1-flash went GA. Shutdown September 30 — a 92-day life, with the successor announced and the death date set in the same changelog entry."
-  },
-  {
     "name": "Sora 2 on Azure OpenAI / Foundry",
     "dateAnnounced": "2026-08-24",
     "dateShutdown": "2026-10-15",
@@ -152,5 +116,23 @@
     "replacement": "gpt-transcribe / gpt-live-transcribe",
     "link": "https://developers.openai.com/api/docs/deprecations#2026-08-26-transcription-models",
     "description": "On August 26 OpenAI deprecated whisper-1 — its original speech-to-text API from March 2023 — together with gpt-4o-transcribe, gpt-4o-mini-transcribe and gpt-4o-transcribe-diarize, the last of which shipped in October 2025. All four die February 26, 2027. The open-source Whisper weights are unaffected; the hosted endpoint that made them a product is not."
+  },
+  {
+    "name": "Claude Sonnet 4.5",
+    "dateAnnounced": "2026-09-30",
+    "dateShutdown": "2026-11-30",
+    "killedBy": "Anthropic",
+    "replacement": "claude-sonnet-5-5",
+    "link": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+    "description": "Anthropic's September 2025 coding model, billed at launch as the best in the world for agents and computer use, retires from the Claude API on November 30 — announced on its first birthday. Opus 4.5 is next in line: 'not sooner than November 24, 2026.'"
+  },
+  {
+    "name": "OpenAI Agent Builder, Evals & Reusable Prompts",
+    "dateAnnounced": "2026-06-03",
+    "dateShutdown": "2026-11-30",
+    "killedBy": "OpenAI",
+    "replacement": "Agents SDK; Workspace Agents in ChatGPT; prompts in your own code; Promptfoo for evals",
+    "link": "https://developers.openai.com/api/docs/deprecations",
+    "description": "The visual agent canvas OpenAI unveiled at DevDay 2025 as the centrepiece of AgentKit dies on November 30, along with the Evals platform and the /v1/prompts API. Evals goes read-only on October 31. Agent Builder lasted eight months in beta before its death was announced."
   }
 ]

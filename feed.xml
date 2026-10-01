@@ -5,8 +5,48 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>OpenAI GPT-5.4-Cyber — Killed by OpenAI (2026-10-01)</title>
+      <link>https://killedbyai.net/dead/openai-gpt-5-4-cyber/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/openai-gpt-5-4-cyber/</guid>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
+      <description>The &#x27;cyber-permissive&#x27; GPT-5.4 variant built for vetted security defenders — the model that could reverse-engineer binaries and anchored OpenAI&#x27;s Trusted Access for Cyber program — was shut down October 1 after five and a half months, with three weeks&#x27; notice. OpenAI&#x27;s replacement advice: &#x27;the most capable cyber model available to you.&#x27;</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Mistral Leanstral 1.5 — Killed by Mistral (2026-09-30)</title>
+      <link>https://killedbyai.net/dead/mistral-leanstral-1-5/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/mistral-leanstral-1-5/</guid>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Mistral&#x27;s Lean 4 formal-proof model was retired on September 30, exactly as its own launch note promised: &#x27;We released Leanstral 1.5... This model will be retired on September 30, 2026.&#x27; A 92-day advertised lifespan, announced in the same sentence as its birth, with no replacement named.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Amazon Mechanical Turk — Killed by Amazon (2026-09-30)</title>
+      <link>https://killedbyai.net/dead/amazon-mechanical-turk/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/amazon-mechanical-turk/</guid>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
+      <description>The marketplace Jeff Bezos called &quot;artificial artificial intelligence&quot; closed on September 30 after 21 years — the human crowd, 500,000 strong at its peak, that labelled a generation of AI training data. Amazon shut SageMaker Ground Truth and Amazon Augmented AI the same day, leaving human-data work entirely. The official reason was an internal review of its programs; the obvious one is that the models MTurk workers trained now do MTurk&#x27;s work.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Amazon Nova Canvas &amp; Nova Reel — Killed by Amazon (2026-09-30)</title>
+      <link>https://killedbyai.net/dead/amazon-nova-canvas-nova-reel/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/amazon-nova-canvas-nova-reel/</guid>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
+      <description>The image and video half of Amazon&#x27;s first Nova generation, launched at re:Invent 2024, left Bedrock on September 30 — two weeks after Nova Premier and Sonic. AWS pointed image users to Nova 2 Lite and video users to a rival&#x27;s model, Luma Ray v2.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Gemini Omni Flash Preview — Killed by Google (2026-09-30)</title>
+      <link>https://killedbyai.net/dead/gemini-omni-flash-preview/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/gemini-omni-flash-preview/</guid>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Google&#x27;s text-and-image-to-video preview shipped June 30 and was shut down September 30 — a 92-day life. Its deprecation was posted on August 27, the same day gemini-omni-1.1-flash went GA.</description>
+      <category>model</category>
+    </item>
     <item>
       <title>OpenAI davinci-002, babbage-002 &amp; gpt-3.5-turbo-instruct — Killed by OpenAI (2026-09-28)</title>
       <link>https://killedbyai.net/dead/openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct/</link>
@@ -206,46 +246,6 @@
       <pubDate>Sat, 22 Aug 2026 00:00:00 +0000</pubDate>
       <description>The RAG-and-tool-use pair AWS launched on Bedrock in April 2024 both hit end-of-life at 08:00 UTC, after a staged wind-down: legacy in February, new customers cut off in May, hard kill in August. AWS named no replacement for either. Cohere had already pulled the originals from its own API back in September 2025 — along with command-light, base command, summarize, and its entire fine-tuning product.</description>
       <category>model</category>
-    </item>
-    <item>
-      <title>Google Imagen 4.0 (Gemini API) — Killed by Google (2026-08-17)</title>
-      <link>https://killedbyai.net/dead/google-imagen-4-0-gemini-api/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/google-imagen-4-0-gemini-api/</guid>
-      <pubDate>Sat, 22 Aug 2026 00:00:00 +0000</pubDate>
-      <description>All three Imagen 4.0 variants on the Gemini API — generate, ultra and fast — dead in under 14 months, after Google already slipped the date once. The best part was the exit signage: the pricing-page banner told users to migrate to Gemini 2.5 Flash Image, which is itself deprecated with an October shutdown. An evacuation route into a building that&#x27;s also on fire.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Groq Llama 3.1 8B Instant &amp; Llama 3.3 70B Versatile — Killed by Groq (2026-08-16)</title>
-      <link>https://killedbyai.net/dead/groq-llama-3-1-8b-instant-llama-3-3-70b-versatile/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/groq-llama-3-1-8b-instant-llama-3-3-70b-versatile/</guid>
-      <pubDate>Sat, 22 Aug 2026 00:00:00 +0000</pubDate>
-      <description>The second half of Groq&#x27;s two-stage catalog cull, after Qwen3-32B and Llama 4 Scout went in July. Free and developer tiers only — committed-spend enterprise contracts were exempt. llama-3.3-70b-versatile was the only free-tier model with enough context headroom for a lot of real production prompts, and nothing left in the free catalog replaced it.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Reforged Labs — Killed by Foundation Models (2026-07-31)</title>
-      <link>https://killedbyai.net/dead/reforged-labs/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/reforged-labs/</guid>
-      <pubDate>Sat, 22 Aug 2026 00:00:00 +0000</pubDate>
-      <description>Built AI-generated video ad creative for mobile game studios and won real customers — Supercell, King, Ubisoft, Playtika, Scopely — with 17 staff across Vietnam and the US. CEO Robert Huynh shut it down after three years because foundation models got good enough for studios to build the same tooling in-house: &#x27;the gap we were selling into is closing.&#x27; Its biggest customers signed six-figure contracts; there were simply too few studios at that scale to sustain a company.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>Yupp.ai — Killed by Market (2026-03-31)</title>
-      <link>https://killedbyai.net/dead/yupp-ai/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/yupp-ai/</guid>
-      <pubDate>Sat, 22 Aug 2026 00:00:00 +0000</pubDate>
-      <description>A crowdsourced AI-evaluation platform that paid users to compare model outputs, backed by $33M from a16z crypto. It reached 1.3 million users and still died inside a year. The labs had moved on to expert-sourced data and agentic evaluation — broad consumer preference signal simply stopped being the scarce input anyone would pay for. Co-founders Pankaj Gupta and Gilad Mishne kept it accessible for two weeks after the announcement, then closed signups permanently.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>OpenAI Atlas — Killed by OpenAI (2026-08-09)</title>
-      <link>https://killedbyai.net/dead/openai-atlas/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/openai-atlas/</guid>
-      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
-      <description>OpenAI&#x27;s ChatGPT-powered web browser, launched October 2025 as its bid to own the browsing layer. Dead in under ten months. OpenAI absorbed the agentic browsing into ChatGPT and a Chrome extension instead. Bookmarks did not transfer automatically — users had to manually export them as HTML before the deadline or lose them, and open tabs and history simply didn&#x27;t carry over.</description>
-      <category>app</category>
     </item>
   </channel>
 </rss>

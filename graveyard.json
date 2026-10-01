@@ -1912,5 +1912,70 @@
     "description": "Reve's image generator — briefly the top-ranked text-to-image model on launch in March 2025 — shut off at noon Pacific on September 27, the price of an investment from OpenAI, which also took its AI research team to lead multimodal work. The API went dark on August 14 and sign-ups stopped September 17; users have until October 31 to export, and September fees are refunded. The company survives; the product does not.",
     "dateAdded": "2026-09-29",
     "slug": "reve-ai-image-generation"
+  },
+  {
+    "name": "Mistral Leanstral 1.5",
+    "dateOpen": "2026-06-30",
+    "dateClose": "2026-09-30",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Mistral",
+    "deathType": "model-upgrade",
+    "link": "https://github.com/mistralai/platform-docs-public",
+    "description": "Mistral's Lean 4 formal-proof model was retired on September 30, exactly as its own launch note promised: 'We released Leanstral 1.5... This model will be retired on September 30, 2026.' A 92-day advertised lifespan, announced in the same sentence as its birth, with no replacement named.",
+    "dateAdded": "2026-10-01",
+    "slug": "mistral-leanstral-1-5"
+  },
+  {
+    "name": "Amazon Mechanical Turk",
+    "dateOpen": "2005-11-02",
+    "dateClose": "2026-09-30",
+    "type": "service",
+    "causeOfDeath": "Replaced by AI",
+    "killedBy": "Amazon",
+    "deathType": "product-killed",
+    "link": "https://www.cnbc.com/2026/08/25/amazon-service-that-jeff-bezos-called-artificial-ai-is-shutting-down.html",
+    "description": "The marketplace Jeff Bezos called \"artificial artificial intelligence\" closed on September 30 after 21 years — the human crowd, 500,000 strong at its peak, that labelled a generation of AI training data. Amazon shut SageMaker Ground Truth and Amazon Augmented AI the same day, leaving human-data work entirely. The official reason was an internal review of its programs; the obvious one is that the models MTurk workers trained now do MTurk's work.",
+    "dateAdded": "2026-10-01",
+    "slug": "amazon-mechanical-turk"
+  },
+  {
+    "name": "Amazon Nova Canvas & Nova Reel",
+    "dateOpen": "2024-12-03",
+    "dateClose": "2026-09-30",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Amazon",
+    "deathType": "model-upgrade",
+    "link": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.html",
+    "description": "The image and video half of Amazon's first Nova generation, launched at re:Invent 2024, left Bedrock on September 30 — two weeks after Nova Premier and Sonic. AWS pointed image users to Nova 2 Lite and video users to a rival's model, Luma Ray v2.",
+    "dateAdded": "2026-10-01",
+    "slug": "amazon-nova-canvas-nova-reel"
+  },
+  {
+    "name": "Gemini Omni Flash Preview",
+    "dateOpen": "2026-06-30",
+    "dateClose": "2026-09-30",
+    "type": "model",
+    "causeOfDeath": "Model Upgrade",
+    "killedBy": "Google",
+    "deathType": "model-upgrade",
+    "link": "https://ai.google.dev/gemini-api/docs/changelog",
+    "description": "Google's text-and-image-to-video preview shipped June 30 and was shut down September 30 — a 92-day life. Its deprecation was posted on August 27, the same day gemini-omni-1.1-flash went GA.",
+    "dateAdded": "2026-10-01",
+    "slug": "gemini-omni-flash-preview"
+  },
+  {
+    "name": "OpenAI GPT-5.4-Cyber",
+    "dateOpen": "2026-04-14",
+    "dateClose": "2026-10-01",
+    "type": "model",
+    "causeOfDeath": "Model Upgrade",
+    "killedBy": "OpenAI",
+    "deathType": "model-upgrade",
+    "link": "https://developers.openai.com/api/docs/deprecations",
+    "description": "The 'cyber-permissive' GPT-5.4 variant built for vetted security defenders — the model that could reverse-engineer binaries and anchored OpenAI's Trusted Access for Cyber program — was shut down October 1 after five and a half months, with three weeks' notice. OpenAI's replacement advice: 'the most capable cyber model available to you.'",
+    "dateAdded": "2026-10-01",
+    "slug": "openai-gpt-5-4-cyber"
   }
 ]

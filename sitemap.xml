@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://killedbyai.net/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/layoffs/</loc>
@@ -10,11 +10,11 @@
   </url>
   <url>
     <loc>https://killedbyai.net/coming-soon/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/funding/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/will-ai-take-my-job/</loc>
@@ -82,11 +82,11 @@
   </url>
   <url>
     <loc>https://killedbyai.net/dead/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/microsoft-clippy/</loc>
@@ -629,8 +629,40 @@
     <lastmod>2026-09-29</lastmod>
   </url>
   <url>
+    <loc>https://killedbyai.net/dead/mistral-leanstral-1-5/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/amazon-mechanical-turk/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/amazon-nova-canvas-nova-reel/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/gemini-omni-flash-preview/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/openai-gpt-5-4-cyber/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
     <loc>https://killedbyai.net/killed-by/openai/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/mistral/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/amazon/</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/google/</loc>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/microsoft/</loc>
@@ -639,18 +671,6 @@
   <url>
     <loc>https://killedbyai.net/killed-by/itself/</loc>
     <lastmod>2026-09-29</lastmod>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/amazon/</loc>
-    <lastmod>2026-09-22</lastmod>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/google/</loc>
-    <lastmod>2026-09-29</lastmod>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/mistral/</loc>
-    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/aws/</loc>
