@@ -5,8 +5,24 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Google Gemini 2.5 Flash Image (&quot;Nano Banana&quot;) — Killed by Google (2026-10-02)</title>
+      <link>https://killedbyai.net/dead/google-gemini-2-5-flash-image-nano-banana/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/google-gemini-2-5-flash-image-nano-banana/</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 +0000</pubDate>
+      <description>The image model that went viral as &#x27;Nano Banana&#x27; — 3D figurine selfies, a #1 spot in the App Store for Gemini — was shut off on the Gemini API on October 2, a year and five weeks after launch. Google&#x27;s first recommended replacement, gemini-3.1-flash-image-preview, had already died in June; developers were pointed to gemini-3.1-flash-image instead.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Notion Mail — Killed by Notion (2026-09-22)</title>
+      <link>https://killedbyai.net/dead/notion-mail/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/notion-mail/</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Notion&#x27;s AI email client lasted 17 months. Notion shut the web, desktop and iOS apps on September 22, explaining that more than half its users were already handling email through agents without ever opening the inbox. The Gmail connector and email-writing agents live on; the inbox does not.</description>
+      <category>app</category>
+    </item>
     <item>
       <title>OpenAI GPT-5.4-Cyber — Killed by OpenAI (2026-10-01)</title>
       <link>https://killedbyai.net/dead/openai-gpt-5-4-cyber/</link>
@@ -230,22 +246,6 @@
       <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
       <description>A no-sign-up AI character-chat app that briefly found an audience in the gap beneath Character.AI and Replika. In May 2026 it announced a wind-down: chats worked until May 24, accounts went read-only from May 25, and the service closed on June 19. No reason was given beyond the obvious one — an 18-month-old companion app cannot outspend incumbents with multi-year head starts. An unrelated operator has since launched a look-alike under the same name.</description>
       <category>app</category>
-    </item>
-    <item>
-      <title>Weights (weights.gg) — Killed by OpenAI (2026-03-31)</title>
-      <link>https://killedbyai.net/dead/weights-gg/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/weights-gg/</guid>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
-      <description>The community voice-cloning and AI-music platform where thousands of celebrity and character voice models lived. Weights announced in January 2026 that it had never been profitable and closed on March 31; two months later The New York Times reported that OpenAI had quietly bought its technology and roughly six engineers. Its library of consent-free celebrity voices had become a liability as deepfake laws tightened — the thing that made it popular was the thing that made it unsellable as a product.</description>
-      <category>app</category>
-    </item>
-    <item>
-      <title>Cohere Command R &amp; Command R+ on Amazon Bedrock — Killed by AWS (2026-08-19)</title>
-      <link>https://killedbyai.net/dead/cohere-command-r-command-r-on-amazon-bedrock/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/cohere-command-r-command-r-on-amazon-bedrock/</guid>
-      <pubDate>Sat, 22 Aug 2026 00:00:00 +0000</pubDate>
-      <description>The RAG-and-tool-use pair AWS launched on Bedrock in April 2024 both hit end-of-life at 08:00 UTC, after a staged wind-down: legacy in February, new customers cut off in May, hard kill in August. AWS named no replacement for either. Cohere had already pulled the originals from its own API back in September 2025 — along with command-light, base command, summarize, and its entire fine-tuning product.</description>
-      <category>model</category>
     </item>
   </channel>
 </rss>

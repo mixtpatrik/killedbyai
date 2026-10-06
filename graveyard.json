@@ -1977,5 +1977,31 @@
     "description": "The 'cyber-permissive' GPT-5.4 variant built for vetted security defenders — the model that could reverse-engineer binaries and anchored OpenAI's Trusted Access for Cyber program — was shut down October 1 after five and a half months, with three weeks' notice. OpenAI's replacement advice: 'the most capable cyber model available to you.'",
     "dateAdded": "2026-10-01",
     "slug": "openai-gpt-5-4-cyber"
+  },
+  {
+    "name": "Google Gemini 2.5 Flash Image (\"Nano Banana\")",
+    "dateOpen": "2025-08-26",
+    "dateClose": "2026-10-02",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Google",
+    "deathType": "model-upgrade",
+    "link": "https://ai.google.dev/gemini-api/docs/deprecations",
+    "description": "The image model that went viral as 'Nano Banana' — 3D figurine selfies, a #1 spot in the App Store for Gemini — was shut off on the Gemini API on October 2, a year and five weeks after launch. Google's first recommended replacement, gemini-3.1-flash-image-preview, had already died in June; developers were pointed to gemini-3.1-flash-image instead.",
+    "dateAdded": "2026-10-06",
+    "slug": "google-gemini-2-5-flash-image-nano-banana"
+  },
+  {
+    "name": "Notion Mail",
+    "dateOpen": "2025-04-15",
+    "dateClose": "2026-09-22",
+    "type": "app",
+    "causeOfDeath": "Replaced by AI",
+    "killedBy": "Notion",
+    "deathType": "product-killed",
+    "link": "https://www.heise.de/en/news/Notion-Mail-is-shutting-down-What-users-need-to-do-now-11345988.html",
+    "description": "Notion's AI email client lasted 17 months. Notion shut the web, desktop and iOS apps on September 22, explaining that more than half its users were already handling email through agents without ever opening the inbox. The Gmail connector and email-writing agents live on; the inbox does not.",
+    "dateAdded": "2026-10-06",
+    "slug": "notion-mail"
   }
 ]

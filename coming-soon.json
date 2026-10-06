@@ -27,15 +27,6 @@
     "link": "https://platform.openai.com/docs/deprecations"
   },
   {
-    "name": "Google Gemini 2.5 Flash Image (\"Nano Banana\")",
-    "dateAnnounced": "2026-05-26",
-    "dateShutdown": "2026-10-02",
-    "description": "The image model that went viral as 'Nano Banana' and briefly made Gemini the #1 free iPhone app shuts down exactly one year after release, to the day. Google's officially recommended replacement, gemini-3.1-flash-image-preview, was itself shut down in June 2026. The migration target is dead; the model isn't yet.",
-    "replacement": "gemini-3.1-flash-image-preview (already retired)",
-    "killedBy": "Google",
-    "link": "https://ai.google.dev/gemini-api/docs/deprecations"
-  },
-  {
     "name": "Azure OpenAI GPT-4.1, 4.1 mini & 4.1 nano",
     "dateAnnounced": "2026-04-14",
     "dateShutdown": "2026-10-14",
@@ -134,5 +125,14 @@
     "replacement": "Agents SDK; Workspace Agents in ChatGPT; prompts in your own code; Promptfoo for evals",
     "link": "https://developers.openai.com/api/docs/deprecations",
     "description": "The visual agent canvas OpenAI unveiled at DevDay 2025 as the centrepiece of AgentKit dies on November 30, along with the Evals platform and the /v1/prompts API. Evals goes read-only on October 31. Agent Builder lasted eight months in beta before its death was announced."
+  },
+  {
+    "name": "Reddit RSS Feeds & Public API",
+    "dateAnnounced": "2026-09-30",
+    "dateShutdown": "2026-11-13",
+    "killedBy": "Reddit",
+    "replacement": "None for outside readers; registered apps only (deadline Jan 12, 2027)",
+    "link": "https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/",
+    "description": "Killed by AI in the literal sense. Reddit turns off RSS on November 13 — 'RSS has now become a common surface for large-scale scraping and automated abuse' — stops new public API requests on October 31 and closes the remaining public endpoints in March 2027. The data now goes to paying AI licensees instead; that revenue line grew 24% last quarter."
   }
 ]

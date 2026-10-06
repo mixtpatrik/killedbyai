@@ -85,7 +85,7 @@
       "keywords": "AI deprecation schedule, upcoming AI shutdowns, model retirement dates, AI sunset",
       "license": "https://creativecommons.org/licenses/by/4.0/",
       "isAccessibleForFree": true,
-      "dateModified": "2026-10-01",
+      "dateModified": "2026-10-06",
       "creator": {
         "@type": "Person",
         "@id": "https://killedbyai.net/about/#patrik-rojan",
@@ -114,19 +114,11 @@
         "name": "Killed by AI",
         "url": "https://killedbyai.net/"
       },
-      "dateModified": "2026-10-01"
+      "dateModified": "2026-10-06"
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "When does Google Gemini 2.5 Flash Image (\"Nano Banana\") shut down?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Google Gemini 2.5 Flash Image (\"Nano Banana\") is scheduled to shut down on October 2, 2026 (announced May 26, 2026). Replacement: gemini-3.1-flash-image-preview (already retired)."
-          }
-        },
         {
           "@type": "Question",
           "name": "When does Azure OpenAI GPT-4.1, 4.1 mini & 4.1 nano shut down?",
@@ -181,6 +173,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "OpenAI GPT-4, GPT-4 Turbo, GPT-3.5 Turbo & the o-series is scheduled to shut down on October 23, 2026 (announced April 22, 2026). Replacement: gpt-5.5 / gpt-5.4-mini / gpt-5.4-nano / gpt-image-2."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When does Reddit RSS Feeds & Public API shut down?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reddit RSS Feeds & Public API is scheduled to shut down on November 13, 2026 (announced September 30, 2026). Replacement: None for outside readers; registered apps only (deadline Jan 12, 2027)."
           }
         },
         {
@@ -250,38 +250,6 @@
           "position": 1,
           "item": {
             "@type": "Thing",
-            "name": "Google Gemini 2.5 Flash Image (\"Nano Banana\")",
-            "url": "https://killedbyai.net/coming-soon/#google-gemini-2-5-flash-image-nano-banana",
-            "description": "The image model that went viral as 'Nano Banana' and briefly made Gemini the #1 free iPhone app shuts down exactly one year after release, to the day. Google's officially recommended replacement, gemini-3.1-flash-image-preview, was itself shut down in June 2026. The migration target is dead; the model isn't yet.",
-            "additionalProperty": [
-              {
-                "@type": "PropertyValue",
-                "name": "Shutdown date",
-                "value": "2026-10-02"
-              },
-              {
-                "@type": "PropertyValue",
-                "name": "Announced",
-                "value": "2026-05-26"
-              },
-              {
-                "@type": "PropertyValue",
-                "name": "Replacement",
-                "value": "gemini-3.1-flash-image-preview (already retired)"
-              },
-              {
-                "@type": "PropertyValue",
-                "name": "Killed by",
-                "value": "Google"
-              }
-            ]
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "item": {
-            "@type": "Thing",
             "name": "Azure OpenAI GPT-4.1, 4.1 mini & 4.1 nano",
             "url": "https://killedbyai.net/coming-soon/#azure-openai-gpt-4-1-4-1-mini-4-1-nano",
             "description": "GPT-4.1 launched April 2025 as OpenAI's 'best model for coding' with a 1M-token context window. Azure retires it, plus mini and nano, after 18 months. Fine-tuned deployments on the same bases get a one-year stay of execution.",
@@ -311,7 +279,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 3,
+          "position": 2,
           "item": {
             "@type": "Thing",
             "name": "Sora 2 on Azure OpenAI / Foundry",
@@ -343,7 +311,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 4,
+          "position": 3,
           "item": {
             "@type": "Thing",
             "name": "Gemini 2.5 Pro / Flash / Flash Lite (Vertex AI)",
@@ -375,7 +343,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 5,
+          "position": 4,
           "item": {
             "@type": "Thing",
             "name": "Azure OpenAI o-series (o1, o3, o4-mini, o3-pro)",
@@ -407,7 +375,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 6,
+          "position": 5,
           "item": {
             "@type": "Thing",
             "name": "Vertex AI Open-Model MaaS (13 models)",
@@ -439,7 +407,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 7,
+          "position": 6,
           "item": {
             "@type": "Thing",
             "name": "OpenAI Fine-tuning (new orgs)",
@@ -471,7 +439,7 @@
         },
         {
           "@type": "ListItem",
-          "position": 8,
+          "position": 7,
           "item": {
             "@type": "Thing",
             "name": "OpenAI GPT-4, GPT-4 Turbo, GPT-3.5 Turbo & the o-series",
@@ -497,6 +465,38 @@
                 "@type": "PropertyValue",
                 "name": "Killed by",
                 "value": "OpenAI"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "Thing",
+            "name": "Reddit RSS Feeds & Public API",
+            "url": "https://killedbyai.net/coming-soon/#reddit-rss-feeds-public-api",
+            "description": "Killed by AI in the literal sense. Reddit turns off RSS on November 13 \u2014 'RSS has now become a common surface for large-scale scraping and automated abuse' \u2014 stops new public API requests on October 31 and closes the remaining public endpoints in March 2027. The data now goes to paying AI licensees instead; that revenue line grew 24% last quarter.",
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Shutdown date",
+                "value": "2026-11-13"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Announced",
+                "value": "2026-09-30"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Replacement",
+                "value": "None for outside readers; registered apps only (deadline Jan 12, 2027)"
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Killed by",
+                "value": "Reddit"
               }
             ]
           }
@@ -761,26 +761,13 @@
     <header class="header">
         <h1>Upcoming AI <span>Shutdowns</span></h1>
         <p>Coming soon to the graveyard: the deprecation schedule for 15 AI products with confirmed death dates. Already announced, just counting down.</p>
-        <span class="last-updated">Last updated: October 1, 2026 · <a href="/deprecations.ics" class="ics-link">📅 Subscribe to the shutdown calendar (.ics)</a></span>
+        <span class="last-updated">Last updated: October 6, 2026 · <a href="/deprecations.ics" class="ics-link">📅 Subscribe to the shutdown calendar (.ics)</a></span>
     </header>
     <main class="list">
-<article class="doom-card" id="google-gemini-2-5-flash-image-nano-banana">
-  <div class="doom-header">
-    <h2 class="doom-name">Google Gemini 2.5 Flash Image (&quot;Nano Banana&quot;)</h2>
-    <span class="doom-countdown" data-shutdown="2026-10-02">1d left</span>
-  </div>
-  <p class="doom-desc">The image model that went viral as &#x27;Nano Banana&#x27; and briefly made Gemini the #1 free iPhone app shuts down exactly one year after release, to the day. Google&#x27;s officially recommended replacement, gemini-3.1-flash-image-preview, was itself shut down in June 2026. The migration target is dead; the model isn&#x27;t yet.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Google</span>
-    <span>Shutdown: 2026-10-02</span>
-    <span>Replacement: gemini-3.1-flash-image-preview (already retired)</span>
-    <a class="doom-source" href="https://ai.google.dev/gemini-api/docs/deprecations" target="_blank" rel="noopener">Source</a>
-  </div>
-</article>
 <article class="doom-card" id="azure-openai-gpt-4-1-4-1-mini-4-1-nano">
   <div class="doom-header">
     <h2 class="doom-name">Azure OpenAI GPT-4.1, 4.1 mini &amp; 4.1 nano</h2>
-    <span class="doom-countdown" data-shutdown="2026-10-14">13d left</span>
+    <span class="doom-countdown" data-shutdown="2026-10-14">8d left</span>
   </div>
   <p class="doom-desc">GPT-4.1 launched April 2025 as OpenAI&#x27;s &#x27;best model for coding&#x27; with a 1M-token context window. Azure retires it, plus mini and nano, after 18 months. Fine-tuned deployments on the same bases get a one-year stay of execution.</p>
   <div class="doom-meta">
@@ -793,7 +780,7 @@
 <article class="doom-card" id="sora-2-on-azure-openai-foundry">
   <div class="doom-header">
     <h2 class="doom-name">Sora 2 on Azure OpenAI / Foundry</h2>
-    <span class="doom-countdown" data-shutdown="2026-10-15">14d left</span>
+    <span class="doom-countdown" data-shutdown="2026-10-15">9d left</span>
   </div>
   <p class="doom-desc">Sora outlives its maker&#x27;s own shutdown by three weeks: OpenAI switched its Sora API off on September 24, but Microsoft pushed the Azure retirement from September 15 to October 15, with no replacement. Until then, the last place to generate a Sora video is a Microsoft data centre.</p>
   <div class="doom-meta">
@@ -806,7 +793,7 @@
 <article class="doom-card" id="gemini-2-5-pro-flash-flash-lite-vertex-ai">
   <div class="doom-header">
     <h2 class="doom-name">Gemini 2.5 Pro / Flash / Flash Lite (Vertex AI)</h2>
-    <span class="doom-countdown" data-shutdown="2026-10-16">15d left</span>
+    <span class="doom-countdown" data-shutdown="2026-10-16">10d left</span>
   </div>
   <p class="doom-desc">Google&#x27;s entire Gemini 2.5 family retires on Vertex AI no earlier than October 16, 2026. Note this is Vertex-only — the Gemini Developer API still lists no shutdown date for the same three models.</p>
   <div class="doom-meta">
@@ -819,7 +806,7 @@
 <article class="doom-card" id="azure-openai-o-series-o1-o3-o4-mini-o3-pro">
   <div class="doom-header">
     <h2 class="doom-name">Azure OpenAI o-series (o1, o3, o4-mini, o3-pro)</h2>
-    <span class="doom-countdown" data-shutdown="2026-10-21">20d left</span>
+    <span class="doom-countdown" data-shutdown="2026-10-21">15d left</span>
   </div>
   <p class="doom-desc">Azure deletes an entire generation of reasoning models in under 90 days: o3-mini October 1, o4-mini October 16, o1/o1-pro/o3 October 21, codex-mini November 15, o3-pro December 17. Four have no named replacement — Microsoft declares one only 90 to 120 days out, because &#x27;declaring a replacement too early risks directing customers to a model that is no longer the best available option.&#x27;</p>
   <div class="doom-meta">
@@ -832,7 +819,7 @@
 <article class="doom-card" id="vertex-ai-open-model-maas-13-models">
   <div class="doom-header">
     <h2 class="doom-name">Vertex AI Open-Model MaaS (13 models)</h2>
-    <span class="doom-countdown" data-shutdown="2026-10-21">20d left</span>
+    <span class="doom-countdown" data-shutdown="2026-10-21">15d left</span>
   </div>
   <p class="doom-desc">Google Cloud drops managed serving for 13 open models on October 21 — DeepSeek V3.1, GLM-5 and 4.7, gpt-oss-20b, Kimi K2 Thinking, Llama 3.3 70B, MiniMax M2, two e5 embedding models and four Qwen3 variants. You can still run them; you just have to host them yourself.</p>
   <div class="doom-meta">
@@ -845,7 +832,7 @@
 <article class="doom-card" id="openai-fine-tuning-new-orgs">
   <div class="doom-header">
     <h2 class="doom-name">OpenAI Fine-tuning (new orgs)</h2>
-    <span class="doom-countdown" data-shutdown="2026-10-23">22d left</span>
+    <span class="doom-countdown" data-shutdown="2026-10-23">17d left</span>
   </div>
   <p class="doom-desc">New organizations can no longer create fine-tuning jobs. The first wave executed on schedule July 23, 2026; the second takes every remaining fine-tuned model — ft-gpt-3.5-turbo, ft-gpt-4, ft-gpt-4.1-nano, ft-babbage-002 and ft-davinci-002 — on October 23.</p>
   <div class="doom-meta">
@@ -858,7 +845,7 @@
 <article class="doom-card" id="openai-gpt-4-gpt-4-turbo-gpt-3-5-turbo-the-o-series">
   <div class="doom-header">
     <h2 class="doom-name">OpenAI GPT-4, GPT-4 Turbo, GPT-3.5 Turbo &amp; the o-series</h2>
-    <span class="doom-countdown" data-shutdown="2026-10-23">22d left</span>
+    <span class="doom-countdown" data-shutdown="2026-10-23">17d left</span>
   </div>
   <p class="doom-desc">One date kills three eras. On October 23, OpenAI removes gpt-3.5-turbo (the engine that launched ChatGPT), gpt-4 and gpt-4-0613 (the model that defined 2023), and its entire first generation of reasoning models — o1, o1-pro, o3-mini, o4-mini — plus gpt-4o-2024-05-13 and gpt-image-1. Every fine-tune built on them dies the same day. Seventeen table rows, six months&#x27; notice.</p>
   <div class="doom-meta">
@@ -868,10 +855,23 @@
     <a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a>
   </div>
 </article>
+<article class="doom-card" id="reddit-rss-feeds-public-api">
+  <div class="doom-header">
+    <h2 class="doom-name">Reddit RSS Feeds &amp; Public API</h2>
+    <span class="doom-countdown" data-shutdown="2026-11-13">38d left</span>
+  </div>
+  <p class="doom-desc">Killed by AI in the literal sense. Reddit turns off RSS on November 13 — &#x27;RSS has now become a common surface for large-scale scraping and automated abuse&#x27; — stops new public API requests on October 31 and closes the remaining public endpoints in March 2027. The data now goes to paying AI licensees instead; that revenue line grew 24% last quarter.</p>
+  <div class="doom-meta">
+    <span class="doom-tag">Killed by: Reddit</span>
+    <span>Shutdown: 2026-11-13</span>
+    <span>Replacement: None for outside readers; registered apps only (deadline Jan 12, 2027)</span>
+    <a class="doom-source" href="https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/" target="_blank" rel="noopener">Source</a>
+  </div>
+</article>
 <article class="doom-card" id="vertex-ai-extensions">
   <div class="doom-header">
     <h2 class="doom-name">Vertex AI Extensions</h2>
-    <span class="doom-countdown" data-shutdown="2026-11-26">56d left</span>
+    <span class="doom-countdown" data-shutdown="2026-11-26">51d left</span>
   </div>
   <p class="doom-desc">Google&#x27;s managed tool-calling framework for Gemini, deprecated with the standard six-month window and switched off after November 26, 2026. The replacement is the Agent Platform — the third name for this idea in as many years.</p>
   <div class="doom-meta">
@@ -884,7 +884,7 @@
 <article class="doom-card" id="claude-sonnet-4-5">
   <div class="doom-header">
     <h2 class="doom-name">Claude Sonnet 4.5</h2>
-    <span class="doom-countdown" data-shutdown="2026-11-30">60d left</span>
+    <span class="doom-countdown" data-shutdown="2026-11-30">55d left</span>
   </div>
   <p class="doom-desc">Anthropic&#x27;s September 2025 coding model, billed at launch as the best in the world for agents and computer use, retires from the Claude API on November 30 — announced on its first birthday. Opus 4.5 is next in line: &#x27;not sooner than November 24, 2026.&#x27;</p>
   <div class="doom-meta">
@@ -897,7 +897,7 @@
 <article class="doom-card" id="openai-agent-builder-evals-reusable-prompts">
   <div class="doom-header">
     <h2 class="doom-name">OpenAI Agent Builder, Evals &amp; Reusable Prompts</h2>
-    <span class="doom-countdown" data-shutdown="2026-11-30">60d left</span>
+    <span class="doom-countdown" data-shutdown="2026-11-30">55d left</span>
   </div>
   <p class="doom-desc">The visual agent canvas OpenAI unveiled at DevDay 2025 as the centrepiece of AgentKit dies on November 30, along with the Evals platform and the /v1/prompts API. Evals goes read-only on October 31. Agent Builder lasted eight months in beta before its death was announced.</p>
   <div class="doom-meta">
@@ -910,7 +910,7 @@
 <article class="doom-card" id="openai-legacy-gpt-image-models">
   <div class="doom-header">
     <h2 class="doom-name">OpenAI Legacy GPT Image Models</h2>
-    <span class="doom-countdown" data-shutdown="2026-12-01">61d left</span>
+    <span class="doom-countdown" data-shutdown="2026-12-01">56d left</span>
   </div>
   <p class="doom-desc">Older GPT Image model snapshots were flagged for removal from the API on December 1, 2026, just months after they replaced DALL·E. The endpoint that buried DALL·E is already on its own deprecation clock.</p>
   <div class="doom-meta">
@@ -923,7 +923,7 @@
 <article class="doom-card" id="openai-gpt-5-original-snapshots-o3-o3-pro">
   <div class="doom-header">
     <h2 class="doom-name">OpenAI GPT-5 (original snapshots), o3 &amp; o3-pro</h2>
-    <span class="doom-countdown" data-shutdown="2026-12-11">71d left</span>
+    <span class="doom-countdown" data-shutdown="2026-12-11">66d left</span>
   </div>
   <p class="doom-desc">The original GPT-5 launch snapshots — gpt-5-2025-08-07 and its mini, nano and pro siblings — plus o3 and o3-pro shut down December 11. GPT-5 launched in August 2025 as the &#x27;PhD-level expert&#x27; model. Its launch snapshot gets 16 months before it starts returning errors.</p>
   <div class="doom-meta">
@@ -936,7 +936,7 @@
 <article class="doom-card" id="openai-realtime-audio-model-family">
   <div class="doom-header">
     <h2 class="doom-name">OpenAI Realtime &amp; Audio Model Family</h2>
-    <span class="doom-countdown" data-shutdown="2027-01-20">111d left</span>
+    <span class="doom-countdown" data-shutdown="2027-01-20">106d left</span>
   </div>
   <p class="doom-desc">OpenAI put its entire GA voice stack on death row: gpt-realtime, gpt-audio, gpt-realtime-mini, gpt-audio-mini and all four gpt-4o audio/realtime variants. gpt-realtime and gpt-audio went GA in August 2025 — the models that headlined &#x27;production-ready voice agents&#x27; get roughly 17 months. OpenAI is skipping its own intermediate generation: the 1.5 series shipped in February 2026 and the named replacement is already 2.1.</p>
   <div class="doom-meta">
@@ -949,7 +949,7 @@
 <article class="doom-card" id="openai-whisper-1-gpt-4o-transcribe">
   <div class="doom-header">
     <h2 class="doom-name">OpenAI Whisper-1 &amp; GPT-4o Transcribe</h2>
-    <span class="doom-countdown" data-shutdown="2027-02-26">148d left</span>
+    <span class="doom-countdown" data-shutdown="2027-02-26">143d left</span>
   </div>
   <p class="doom-desc">On August 26 OpenAI deprecated whisper-1 — its original speech-to-text API from March 2023 — together with gpt-4o-transcribe, gpt-4o-mini-transcribe and gpt-4o-transcribe-diarize, the last of which shipped in October 2025. All four die February 26, 2027. The open-source Whisper weights are unaffected; the hosted endpoint that made them a product is not.</p>
   <div class="doom-meta">
@@ -962,7 +962,7 @@
     </main>
     <footer class="site-footer">
         <p>Part of <a href="/">Killed by AI</a>. Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.</p>
-        <p class="footer-links" style="font-size:.8125rem;margin-top:.5rem;text-align:center"><a href="/">The AI graveyard</a> · <a href="/dead/">All 140 tombstones A–Z</a> · <a href="/killed-by/">By killer</a> · <a href="/layoffs/">AI layoffs tracker</a> · <a href="/will-ai-take-my-job/">Will AI take my job?</a> · <a href="/jobs/">Jobs replaced by AI</a> · <a href="/coming-soon/">Upcoming AI shutdowns</a> · <a href="/deprecations.ics">Shutdown calendar (.ics)</a> · <a href="/funding/">Failed AI startups</a> · <a href="/api/">JSON API</a> · <a href="/about/">About & methodology</a> · <a href="/feed.xml">RSS</a></p>
+        <p class="footer-links" style="font-size:.8125rem;margin-top:.5rem;text-align:center"><a href="/">The AI graveyard</a> · <a href="/dead/">All 142 tombstones A–Z</a> · <a href="/killed-by/">By killer</a> · <a href="/layoffs/">AI layoffs tracker</a> · <a href="/will-ai-take-my-job/">Will AI take my job?</a> · <a href="/jobs/">Jobs replaced by AI</a> · <a href="/coming-soon/">Upcoming AI shutdowns</a> · <a href="/deprecations.ics">Shutdown calendar (.ics)</a> · <a href="/funding/">Failed AI startups</a> · <a href="/api/">JSON API</a> · <a href="/about/">About & methodology</a> · <a href="/feed.xml">RSS</a></p>
     </footer>
     <script>
     (function () {  // countdowns recompute on every visit, not just at build time

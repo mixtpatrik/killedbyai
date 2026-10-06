@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://killedbyai.net/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/layoffs/</loc>
@@ -10,11 +10,11 @@
   </url>
   <url>
     <loc>https://killedbyai.net/coming-soon/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/funding/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/will-ai-take-my-job/</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://killedbyai.net/api/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/about/</loc>
@@ -82,11 +82,11 @@
   </url>
   <url>
     <loc>https://killedbyai.net/dead/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-06</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/microsoft-clippy/</loc>
@@ -621,6 +621,10 @@
     <lastmod>2026-09-22</lastmod>
   </url>
   <url>
+    <loc>https://killedbyai.net/dead/notion-mail/</loc>
+    <lastmod>2026-10-06</lastmod>
+  </url>
+  <url>
     <loc>https://killedbyai.net/dead/reve-ai-image-generation/</loc>
     <lastmod>2026-09-29</lastmod>
   </url>
@@ -649,6 +653,14 @@
     <lastmod>2026-10-01</lastmod>
   </url>
   <url>
+    <loc>https://killedbyai.net/dead/google-gemini-2-5-flash-image-nano-banana/</loc>
+    <lastmod>2026-10-06</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/google/</loc>
+    <lastmod>2026-10-06</lastmod>
+  </url>
+  <url>
     <loc>https://killedbyai.net/killed-by/openai/</loc>
     <lastmod>2026-10-01</lastmod>
   </url>
@@ -658,10 +670,6 @@
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/amazon/</loc>
-    <lastmod>2026-10-01</lastmod>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/google/</loc>
     <lastmod>2026-10-01</lastmod>
   </url>
   <url>
