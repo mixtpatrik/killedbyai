@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Failed AI Startups: ${{TOTAL_B}}B Burned by {{COUNT}} Dead AI Companies</title>
-    <meta name="description" content="${{TOTAL_B}} billion raised by {{COUNT}} AI companies that died — from {{TOP1}} to {{TOP2}}. Ranked by money burned, burn rate per day, lifespan and cause of death, with sources.">
+    <meta name="description" content="${{TOTAL_B}}B raised by {{COUNT}} AI companies that died, from {{TOP1}} to {{TOP2}}. Ranked by money burned, burn rate, lifespan and cause of death.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://killedbyai.net/funding/">
     <meta property="og:url" content="https://killedbyai.net/funding/">
@@ -96,11 +96,13 @@
     </header>
     {{DASHBOARD}}
     <span class="last-updated" style="display:block;text-align:center;margin-top:.75rem">Last updated: {{LAST_UPDATED}} · funding = total raised before death (VC, corporate or strategic) · <a href="/api/" style="color:inherit">free JSON</a></span>
+    <div class="list-wrap">  <!-- the sticky filter bar stops where the list ends -->
     {{CONTROLS}}
 
     <main class="list" data-sortable>
 {{ROWS}}
     </main>
+    </div>
     <footer class="site-footer">
         <p>Part of <a href="/">Killed by AI</a>. Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.</p>
         <p class="footer-links" style="font-size:.8125rem;margin-top:.5rem;text-align:center">{{FOOTER_LINKS}}</p>

@@ -111,11 +111,11 @@
 
         <h2>What this is</h2>
         <p>Killed by AI is a graveyard for the AI industry's own casualties: the models, apps, services, startups and devices that were launched during the generative-AI gold rush and then shut down, deprecated, acquired into oblivion or bricked. It started in March 2026 with thirty entries, the week OpenAI announced the Sora shutdown, and has been kept current since. It is inspired by <a href="https://killedbygoogle.com/" rel="noopener">Killed by Google</a>, and it exists because nobody else was keeping the list.</p>
-        <p>Alongside the graveyard it tracks <a href="/layoffs/">layoffs that companies themselves blamed on AI</a>, <a href="/funding/">the venture capital that died with failed AI startups</a>, and <a href="/coming-soon/">products with a published shutdown date that hasn't arrived yet</a>.</p>
+        <p>Alongside the graveyard it tracks <a href="/layoffs/">layoffs that companies themselves blamed on AI</a>, <a href="/funding/">the money that died with failed AI startups</a>, and <a href="/coming-soon/">products with a published shutdown date that hasn't arrived yet</a>.</p>
 
         <h2>What counts as a death</h2>
-        <div class="rule"><strong>A product enters the graveyard when</strong> it stops working for the people who used it: the app is gone, the API returns errors, the device is bricked, or the company that made it no longer exists. An announcement alone is not a death — announced shutdowns wait on the <a href="/coming-soon/">Dying soon</a> page until the date passes, then move.</div>
-        <p>Every entry is tagged with one of six death types, and the <em>Hide model upgrades</em> toggle on the homepage exists because reasonable people disagree about the first one:</p>
+        <div class="rule"><strong>A product enters the graveyard when</strong> it stops working for the people who used it: the app is gone, the API returns errors, the device is bricked, or the company that made it no longer exists. An announcement alone is not a death — announced shutdowns wait on the <a href="/coming-soon/">Dying soon</a> page until the date passes, then move. When the casualty is one channel of something already buried (Sora on Azure), the existing tombstone gets a timeline entry instead of a new one.</div>
+        <p>Every entry is tagged with one of six death types, and the <em>Hide deprecations</em> toggle on the homepage exists because reasonable people disagree about the first one:</p>
         <ul>
             <li><code>model-upgrade</code> — a model retired in favour of its successor (GPT-4.5 Preview, Claude 3 Opus). Real to anyone who built on it; routine to everyone else.</li>
             <li><code>product-killed</code> — a shipping product deliberately shut down (Sora, OpenAI Atlas, GitHub Models).</li>
@@ -127,6 +127,13 @@
         <p>Also in, deliberately: products with no AI in them that were killed <em>to make room for</em> AI, like TV Time. And products that died and came back, like Claude Fable 5's 19-day government-ordered suspension — those stay in the graveyard with the reversal recorded, because the outage happened.</p>
         <p>Not in: rumours, "maintenance mode" with no end date (noted on the entry, not counted as a death), rebrands, and price changes.</p>
 
+        <h2>What counts as an AI layoff</h2>
+        <div class="rule"><strong>A layoff is listed only when</strong> the company, its CEO, or a regulatory filing explicitly attributes the cut to AI, automation or an AI strategy. Job cuts that merely happened at an AI company, or were reported alongside AI news, don't qualify. Counts are what the company disclosed; when only a WARN filing is public, that smaller number is used and the entry says the real total is larger. Reversals are recorded too (Klarna's 700 replaced agents, and Klarna's retreat).</div>
+        <p>Each layoff is tagged with the roles it named. On the <a href="/jobs/">jobs-by-role pages</a> a layoff's full job count appears under every role it named, because companies rarely say how many of each role went, so role figures overlap and do not add up to the total.</p>
+
+        <h2>Failed-startup funding</h2>
+        <p>Funding on the <a href="/funding/">failed AI startups page</a> is the total raised before death (venture, corporate or strategic investment) in US dollars, as disclosed by the company or reported by outlets that name their sources.</p>
+
         <h2>How dates are chosen</h2>
         <ul>
             <li><strong>Born</strong> is the public launch or general-availability date, not the announcement.</li>
@@ -135,18 +142,19 @@
         </ul>
 
         <h2>How entries are verified</h2>
-        <p>Every tombstone links to its source. Preference order: the vendor's own deprecation page or shutdown notice; then the company's blog or SEC filing; then reporting from outlets that name their sources (TechCrunch, The Verge, Reuters, Bloomberg). Aggregator blogs are not used as the only source for a date or a number. Layoff counts are whatever the company disclosed — when only a WARN filing is public, that smaller number is used and the entry says the real total is larger.</p>
+        <p>Every tombstone links to its source. Preference order: the vendor's own deprecation page or shutdown notice; then the company's blog or SEC filing; then reporting from outlets that name their sources (TechCrunch, The Verge, Reuters, Bloomberg). Aggregator blogs are not used as the only source for a date or a number. Layoff counts follow the rule above.</p>
         <p>Entries are re-checked when the underlying facts change. Relay.app was first recorded as an unexplained shutdown; when TechCrunch reported a month later that the team had joined Google Chrome, the entry was rewritten and its death type changed.</p>
 
         <h2>Corrections and submissions</h2>
-        <p>If a date, number or cause is wrong, or a death is missing, <a href="https://github.com/mixtpatrik/killedbyai/issues/new?title=Correction:+[Product]" rel="noopener">open an issue</a> with a source link, or send a pull request against <code>graveyard.json</code>. Corrections are usually live within a few days; the full edit history is public in the <a href="https://github.com/mixtpatrik/killedbyai/commits/main" rel="noopener">git log</a>.</p>
+        <p>If a date, number or cause is wrong, or a death is missing, <a href="https://github.com/mixtpatrik/killedbyai/issues/new?title=Correction:+[Product]" rel="noopener">open an issue</a> with a source link, or send a pull request against <code>graveyard.json</code>, <code>layoffs.json</code> or <code>coming-soon.json</code>. Corrections are usually live within a few days; the full edit history is public in the <a href="https://github.com/mixtpatrik/killedbyai/commits/main" rel="noopener">git log</a>.</p>
 
         <h2>Data and reuse</h2>
-        <p>The data is published under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a> as plain JSON — <a href="/api/">no key, no rate limit</a>. Use it in articles, dashboards or research; credit "Killed by AI" with a link to <code>killedbyai.net</code>. The site itself is a Python build script and static HTML, MIT-licensed on <a href="https://github.com/mixtpatrik/killedbyai" rel="noopener">GitHub</a>.</p>
+        <p>The data is published under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a> as plain JSON — <a href="/api/">no key, no rate limit</a>. There is also a subscribable <a href="/coming-soon/#calendar">shutdown calendar</a> (<code>/deprecations.ics</code>). Use it in articles, dashboards or research; credit "Killed by AI" with a link to <code>killedbyai.net</code>. The site itself is a Python build script and static HTML, MIT-licensed on <a href="https://github.com/mixtpatrik/killedbyai" rel="noopener">GitHub</a>.</p>
 
         <h2>Who runs it</h2>
         <p>Killed by AI is built and maintained by <a href="https://www.linkedin.com/in/patrik-rojan/" rel="noopener me">Patrik Rojan</a> (<a href="https://github.com/mixtpatrik" rel="noopener me">@mixtpatrik</a>), who works in search and digital marketing and started keeping the list for his own reference. It is independent, carries no advertising, and takes no money from any company that appears on it.</p>
     </main>
-    <footer class="site-footer"><p><a href="/">Killed by AI</a> · <a href="/about/">About</a> · <a href="/api/">JSON API</a> · <a href="/feed.xml">RSS</a> · <a href="https://github.com/mixtpatrik/killedbyai" rel="noopener">GitHub</a> · Data <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a></p></footer>
+    <footer class="site-footer"><p><a href="/">Killed by AI</a> · <a href="/about/">About</a> · <a href="/api/">JSON API</a> · <a href="/feed.xml">RSS</a> · <a href="https://github.com/mixtpatrik/killedbyai" rel="noopener">GitHub</a> · Data <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a></p>
+        <p class="footer-links" style="font-size:.8125rem;margin-top:.5rem;text-align:center"><!--FOOTER_LINKS--><a href="/">The AI graveyard</a> · <a href="/dead/">All 162 tombstones A–Z</a> · <a href="/killed-by/">By killer</a> · <a href="/layoffs/">AI layoffs tracker</a> · <a href="/will-ai-take-my-job/">Will AI take my job?</a> · <a href="/jobs/">Jobs replaced by AI</a> · <a href="/coming-soon/">Upcoming AI shutdowns</a> · <a href="/deprecations.ics">Shutdown calendar (.ics)</a> · <a href="/funding/">Failed AI startups</a> · <a href="/api/">JSON API</a> · <a href="/about/">About & methodology</a> · <a href="/feed.xml">RSS</a><!--/FOOTER_LINKS--></p></footer>
 </body>
 </html>

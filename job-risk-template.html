@@ -70,10 +70,13 @@
         .job-input:focus{outline:none;border-color:var(--acc)}
         .search-wrap::before{content:"🔎";position:absolute;left:1rem;top:50%;transform:translateY(-50%);font-size:1rem;opacity:.7}
         .sugg{list-style:none;margin-top:.5rem;display:flex;flex-direction:column;gap:.25rem;max-height:340px;overflow:auto}
-        .sugg button{width:100%;text-align:left;display:flex;justify-content:space-between;gap:.75rem;align-items:center;min-height:48px;padding:.5rem .875rem;background:transparent;border:1px solid transparent;border-radius:.5rem;color:var(--text);font:inherit;font-size:.9375rem;cursor:pointer}
-        .sugg button:hover,.sugg button.hl{background:var(--bg-2);border-color:var(--border)}
+        .sugg [role=option]{flex:none;width:100%;text-align:left;display:flex;justify-content:space-between;gap:.75rem;align-items:center;min-height:48px;padding:.5rem .875rem;background:transparent;border:1px solid transparent;border-radius:.5rem;color:var(--text);font-size:.9375rem;cursor:pointer}
+        .sugg [role=option]:hover,.sugg [role=option].hl{background:var(--bg-2);border-color:var(--border)}
         .sugg small{color:var(--text-dim);font-family:var(--mono);font-size:.75rem;white-space:nowrap}
-        .sugg .none{color:var(--text-dim);font-size:.875rem;padding:.5rem .875rem}
+        .sugg small.lv-h{color:#f87171}.sugg small.lv-m{color:#fbbf24}.sugg small.lv-l{color:#4ade80}
+        .sugg-none{color:var(--text-dim);font-size:.875rem;padding:.5rem .875rem}
+        .sugg-none[hidden]{display:none}
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
         .popular{display:flex;flex-wrap:wrap;gap:.375rem;margin-top:1rem}
         .popular span{width:100%;font-size:.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
         .pill{min-height:40px;padding:0 .875rem;border-radius:2rem;border:1px solid var(--border);background:var(--bg-2);color:var(--text-muted);font:inherit;font-size:.875rem;cursor:pointer}
@@ -129,6 +132,7 @@
         .evidence li{display:flex;justify-content:space-between;gap:.75rem}
         .evidence li span{color:var(--text-dim);font-family:var(--mono);font-size:.8125rem}
         .evidence a{color:#fb923c;font-weight:600}
+        .evidence>a{display:inline-flex;align-items:center;min-height:44px}
         .tips{list-style:none;display:flex;flex-direction:column;gap:.5rem;counter-reset:t}
         .tips li{position:relative;padding-left:2rem;font-size:.9375rem;color:var(--text-muted)}
         .tips li::before{counter-increment:t;content:counter(t);position:absolute;left:0;top:.125rem;width:1.375rem;height:1.375rem;border-radius:50%;background:var(--bg-2);border:1px solid var(--border);font-size:.75rem;display:grid;place-items:center;color:var(--text)}
@@ -171,6 +175,7 @@
         .all>summary::after{content:"Show ▾";margin-left:auto;color:var(--text-dim);font-weight:500;font-size:.8125rem}
         .all[open]>summary::after{content:"Hide ▴"}
         .all-inner{padding:0 1.125rem 1rem;max-height:560px;overflow:auto}
+        .all-none{font-size:.875rem;color:var(--text-dim);padding:.25rem 0 .5rem}
         .all-filter{width:100%;height:44px;background:var(--bg-2);border:1px solid var(--border);border-radius:.5rem;color:var(--text);padding:0 .875rem;font-size:16px;margin-bottom:.5rem;position:sticky;top:0}
         .prose p{color:var(--text-muted);margin-bottom:.875rem;max-width:760px}
         .prose a{color:var(--text)}
@@ -213,7 +218,7 @@
         <div class="proof"><span>⏱ <b>20</b> seconds</span><span>✓ Free</span><span>✓ No sign-up or email</span></div>
     </header>
 
-    <section class="app" id="test" aria-live="polite">
+    <section class="app" id="test">
         <div class="card" id="card">
             <noscript><p>The test needs JavaScript. The full ranking of {{N_OCC}} occupations is below.</p></noscript>
         </div>
@@ -225,7 +230,7 @@
         <div class="stats">
             <div class="scard"><b>71%</b><p>of Americans expect AI to mean fewer jobs over the next 20 years — up from 64% in 2024.</p><cite><a href="https://www.pewresearch.org/short-reads/2026/08/18/young-adults-in-the-us-are-increasingly-wary-of-ai-concerned-it-will-take-jobs/" target="_blank" rel="noopener">Pew Research, June 2026</a></cite></div>
             <div class="scard v"><b>34 of 37</b><p>countries surveyed lean toward AI causing job losses rather than gains.</p><cite><a href="https://www.pewresearch.org/global/2026/09/17/globally-more-people-expect-ai-to-cause-job-loss-than-growth/" target="_blank" rel="noopener">Pew global survey, Sept 2026</a></cite></div>
-            <div class="scard o"><b>116,175</b><p>US job cuts attributed to AI in 2026 through August — 22% of all announced cuts, the #1 reason this year.</p><cite><a href="https://www.challengergray.com/blog/challenger-report-august-job-cuts-up-58-consumer-products-food-lead/" target="_blank" rel="noopener">Challenger, Gray &amp; Christmas</a></cite></div>
+            <div class="scard o"><b>120,136</b><p>US job cuts attributed to AI in 2026 through September — about 21% of all announced cuts, still the #1 reason this year.</p><cite><a href="https://www.challengergray.com/blog/job-cuts-fall-in-september-hiring-plans-up-3-over-2025-on-weak-early-seasonal-hiring/" target="_blank" rel="noopener">Challenger, Gray &amp; Christmas, Oct 2026</a></cite></div>
             <div class="scard a"><b>−19%</b><p>employment gap for 22–25-year-olds in the most AI-exposed jobs versus less-exposed ones. Experienced workers show no such gap.</p><cite><a href="https://digitaleconomy.stanford.edu/news/canariesaug26/" target="_blank" rel="noopener">Stanford Digital Economy Lab, Aug 2026</a></cite></div>
             <div class="scard b"><b>{{TOTAL_JOBS}}</b><p>jobs cut at {{TOTAL_COMPANIES}} companies that explicitly named AI as the reason, each with a source.</p><cite><a href="/layoffs/">Killed by AI layoffs tracker</a></cite></div>
             <div class="scard g"><b>0.00</b><p>AI applicability for dredge operators, bridge tenders and floor sanders. Interpreters score 0.49 — the highest of {{N_OCC}} jobs.</p><cite><a href="https://github.com/microsoft/working-with-ai" target="_blank" rel="noopener">Microsoft Research, 2025</a></cite></div>
@@ -250,13 +255,13 @@
 
     <section class="section prose" id="method">
         <h2>How the score works</h2>
-        <p><b>55% is your occupation.</b> We take the <a href="https://arxiv.org/abs/2507.07935" target="_blank" rel="noopener">AI applicability score</a> Microsoft Research computed for {{N_OCC}} US occupations from 200,000 anonymized Bing Copilot conversations — how often AI is used for each work activity, how successfully, and how much of the job it covers — and convert it to a percentile: how many occupations are less exposed than yours. The authors stress that applicability is not displacement; a job is more than its task list.</p>
+        <p><b>55% is your occupation.</b> We take the <a href="https://arxiv.org/abs/2507.07935" target="_blank" rel="noopener">AI applicability score</a> Microsoft Research computed for {{N_OCC}} US occupations from 200,000 anonymized Bing Copilot conversations — how often AI is used for each work activity, how successfully, and how much of the job it covers — and convert it to a percentile: how many occupations are less exposed than yours. The authors stress that applicability is not displacement; a job is more than its task list. If your work is hands-on, the occupation part counts 40% less, because Microsoft's score measures overlap with chatbot use, not physical work.</p>
         <p><b>45% is how you work.</b> Three questions shift the score up or down using what has predicted real losses so far: early-career workers in exposed jobs are being hired less (Stanford), roles built on codified, rule-following knowledge have shrunk while tacit, experience-based ones have not, physical and on-site work sits largely outside what chatbots can do, and licences and legal accountability slow automation down.</p>
         <p>Nothing you enter leaves your browser except anonymous totals in our analytics. Occupation data: Microsoft Research, <a href="https://github.com/microsoft/working-with-ai" target="_blank" rel="noopener">working-with-ai</a>, CC BY 4.0. Layoff data updated {{LAST_UPDATED}}.</p>
     </section>
 
     <section class="section" id="faq">
-        <h2>Questions</h2>
+        <h2>Will AI take my job? FAQ</h2>
         {{FAQ}}
     </section>
 
@@ -265,6 +270,7 @@
         <p class="footer-links" style="margin-top:.5rem">{{FOOTER_LINKS}}</p>
     </footer>
     <div class="toast" id="toast" role="status"></div>
+    <p class="sr-only" id="risk-status" role="status"></p>
 
 <script>
 (function () {
@@ -281,15 +287,15 @@
     { q: 'How experienced are you?', o: [
       ['Just starting out (0–3 years)', 12, 'AI hits hiring first: Stanford found a 19% jobs gap for 22–25-year-olds in exposed work.', 'Get <b>hands-on experience fast</b> — learned-on-the-job know-how is what has protected senior workers.'],
       ['Mid-level', 3, 'The routine half of mid-level work is exposed.', 'Shift toward <b>decisions and ownership</b>, away from first drafts.'],
-      ['Senior or managing people', -6, 'Experienced workers show no AI jobs gap so far.', '']] },
+      ['Senior or managing people', -6, 'Experienced workers show no AI jobs gap so far.', '<b>Own outcomes, not output.</b> Be the person who decides which AI drafts are good enough to ship.']] },
     { q: 'Where does your work happen?', o: [
       ['On a screen — could be fully remote', 14, 'If it can be done from anywhere, it can increasingly be done by AI.', 'Build <b>in-person value</b>: clients, workshops, the room where decisions get made.'],
-      ['Mostly screen, some in person', 5, 'Most of your work happens where AI operates.', ''],
-      ['Hands-on or on-site', -18, 'Physical, real-world work is the strongest protection there is.', '']] },
+      ['Mostly screen, some in person', 5, 'Most of your work happens where AI operates.', '<b>Grow the in-person half.</b> Client meetings, site visits and workshops are where AI is weakest.'],
+      ['Hands-on or on-site', -18, 'Physical, real-world work is the strongest protection there is.', '<b>Let AI do the paperwork.</b> Use it for quotes, reports and scheduling so you spend more time on the work only you can do.']] },
     { q: 'What is your work mostly?', o: [
       ['Following set processes', 12, 'Rule-based, repeatable work is exactly what AI learns from.', 'Become the person who <b>writes and fixes the playbook</b>, not the one who follows it.'],
-      ['Judgment calls and relationships', -4, 'Messy one-off decisions and relationships are slow to automate.', ''],
-      ['Signing off — I’m licensed or accountable', -10, 'Licences and legal liability keep a human in the loop.', '']] }
+      ['Judgment calls and relationships', -4, 'Messy one-off decisions and relationships are slow to automate.', '<b>Make your judgment visible.</b> Write down the calls you made and why — context only you hold is your moat.'],
+      ['Signing off — I’m licensed or accountable', -10, 'Licences and legal liability keep a human in the loop.', '<b>Stay the accountable signature.</b> Let AI do the prep while you keep the sign-off.']] }
   ];
   var MIN = 0, MAX = 0;
   Q.forEach(function (q) { var p = q.o.map(function (o) { return o[1]; }); MIN += Math.min.apply(null, p); MAX += Math.max.apply(null, p); });
@@ -301,88 +307,145 @@
     [101, 'Grave already dug', '🪦', '#ef4444', 'Your occupation and the way you work both line up with where companies are cutting. Start the next chapter before someone else writes it.']
   ];
 
-  var card = document.getElementById('card'), state = { job: null, a: [], shared: false };
+  var HANDS_ON = 0.6;  // Microsoft's score measures overlap with chatbot use, not physical work: hands-on work shrinks the occupation part
+  var card = document.getElementById('card'), state = { job: null, a: [], shared: false }, seq = 0;
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var track = function (name, p) { try { gtag('event', name, p || {}); } catch (e) {} };
+  var statusEl = document.getElementById('risk-status'), sayT;
+  function say(m, wait) { clearTimeout(sayT); sayT = setTimeout(function () { statusEl.textContent = m; }, wait || 50); }
+  // history: every step of the test is an entry, so the browser / Android Back button steps back through it
+  function depth() { var h = history.state; return h && h.kbai ? h.n || 0 : 0; }
+  function nav(st, url, push) { st.kbai = 1; try { history[push ? 'pushState' : 'replaceState'](st, '', url); } catch (e) {} }
+  function ownCodes() { try { return JSON.parse(localStorage.getItem('kbai-risk-own') || '[]') || []; } catch (e) { return []; } }
   function tierOf(s) { for (var i = 0; i < TIERS.length; i++) if (s <= TIERS[i][0]) return TIERS[i]; }
   function score() {
     var o = BY[state.job], p = 0;
     state.a.forEach(function (ai, qi) { p += Q[qi].o[ai][1]; });
     var personal = (p - MIN) / (MAX - MIN) * 100;
-    return Math.max(1, Math.min(99, Math.round(0.55 * o[3] + 0.45 * personal)));
+    return Math.max(1, Math.min(99, Math.round(0.55 * o[3] * (state.a[1] === 2 ? HANDS_ON : 1) + 0.45 * personal)));
   }
   function totalSteps() { return Q.length + 1; }
   function frame(stepNo, inner) {
     var pct = Math.round(stepNo / totalSteps() * 100);
     card.innerHTML = '<div class="progress"><button class="back" type="button" ' + (stepNo ? '' : 'hidden') + '>← Back</button><div class="progress-track"><div class="progress-fill"></div></div><span>' + (stepNo + 1) + ' / ' + totalSteps() + '</span></div><div class="step">' + inner + '</div>';
     requestAnimationFrame(function () { card.querySelector('.progress-fill').style.width = pct + '%'; });
-    var back = card.querySelector('.back');
-    if (back) back.onclick = function () { if (stepNo === 1) { state.a = []; renderJob(); } else if (stepNo <= Q.length) { state.a.length = stepNo - 2; renderQ(stepNo - 2); } else { renderQ(Q.length - 1); } };
   }
   function focusCard() { var h = card.querySelector('h2'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); } }
   function scrollToCard() { var r = card.getBoundingClientRect(); if (r.top < 0 || r.top > innerHeight * 0.4) card.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); }
 
   // ----- step 0: pick a job -----
-  function search(term) {
-    term = term.trim().toLowerCase(); if (!term) return [];
-    var words = term.split(/\s+/), out = [];
+  // Words match at word starts only ("writer" never finds Underwriters), with an optional plural. norm() leaves only
+  // [a-z0-9&], so query words are safe inside a RegExp. Aliases are comma-separated phrases; each becomes " phrase ".
+  var norm = function (s) { return ' ' + String(s).toLowerCase().replace(/[^a-z0-9&]+/g, ' ').trim() + ' '; };
+  var IDX = {}; OCC.forEach(function (o) { var al = o[5] ? o[5].split(',').map(norm) : []; IDX[o[0]] = { o: o, t: norm(o[1]), al: al, a: al.join('') }; });
+  var FILLER = /^(senior|snr|sr|junior|jnr|jr|lead|principal|staff|head|chief|entry|level|mid|i|ii|iii|iv|intern|trainee|of|the|a|an)$/;
+  function wordPat(w) { var c = [w]; if (w.length > 3 && /[^s]s$/.test(w)) c.push(w.slice(0, -1)); if (/(ch|sh|x|ss|z)es$/.test(w)) c.push(w.slice(0, -2)); return '(?:' + c.join('|') + ')(?:s|es)?'; }
+  function words(term) { return norm(term).trim().split(' ').filter(Boolean); }
+  function prefixes(ws) { return ws.map(function (w) { return new RegExp(' ' + wordPat(w).replace(/\(\?:s\|es\)\?$/, '')); }); }
+  function byRank(a, b) { return a[0] - b[0] || (POP[b[1][0]] || 0) - (POP[a[1][0]] || 0) || a[1][1].length - b[1][1].length; }
+  function rank(ws) {
+    var pats = ws.map(wordPat), pre = prefixes(ws), whole = pats.map(function (p) { return new RegExp(' ' + p + ' '); }),
+      phrase = new RegExp(' ' + pats.join(' ') + ' '), exact = new RegExp('^' + phrase.source + '$'), out = [];
+    var all = function (s) { return whole.every(function (r) { return r.test(s); }); };
     OCC.forEach(function (o) {
-      var t = o[1].toLowerCase(), al = o[5], hay = t + ' ' + al;
-      if (!words.every(function (w) { return hay.indexOf(w) > -1; })) return;
-      var rank = t.indexOf(term) === 0 ? 0 : (' ' + al + ' ').indexOf(' ' + term) > -1 ? 1 : t.indexOf(term) > -1 ? 2 : 3;
-      out.push([rank, o]);
+      var x = IDX[o[0]], hay = x.t + x.a;
+      if (!pre.every(function (r) { return r.test(hay); })) return;
+      // 0 title is the query, 1 an alias is the query, 2 a popular job's alias contains it, 3 all words in the title,
+      // 4 another alias contains it, 5 all words in title + aliases, 6 only a word start (the user is still typing)
+      out.push([exact.test(x.t) ? 0 : x.al.some(function (a) { return exact.test(a); }) ? 1 : POP[o[0]] && phrase.test(x.a) ? 2
+        : all(x.t) ? 3 : phrase.test(x.a) ? 4 : all(hay) ? 5 : 6, o]);
     });
-    out.sort(function (a, b) { return a[0] - b[0] || (POP[b[1][0]] || 0) - (POP[a[1][0]] || 0) || a[1][1].length - b[1][1].length; });
+    out.sort(byRank);
+    return out.length && out[0][0] < 6 ? out.filter(function (x) { return x[0] < 6; }) : out;
+  }
+  function loose(ws) {  // nothing matches every word: keep the jobs that match the most of them
+    var pre = prefixes(ws), whole = ws.map(function (w) { return new RegExp(' ' + wordPat(w) + ' '); }), best = 1, out = [];
+    OCC.forEach(function (o) {
+      var x = IDX[o[0]], hay = x.t + x.a, n = 0;
+      ws.forEach(function (w, i) { n += whole[i].test(hay) ? 2 : pre[i].test(hay) ? 1 : 0; });
+      if (n > best) { best = n; out = []; }
+      if (n === best) out.push([7, o]);
+    });
+    return out.sort(byRank);
+  }
+  function search(term) {
+    var ws = words(term); if (!ws.length) return [];
+    var out = rank(ws), core = ws.filter(function (w) { return !FILLER.test(w); });
+    // "senior developer", "head of sales": try without seniority words too, and keep whichever finds the closer match
+    if (core.length && core.length < ws.length) { var alt = rank(core); if (alt.length && (!out.length || alt[0][0] < out[0][0])) out = alt; }
+    if (!out.length && ws.length > 1) out = loose(core.length ? core : ws);
     return out.slice(0, 8).map(function (x) { return x[1]; });
   }
-  function renderJob() {
+  function renderJob(focus) {
+    seq++;
     frame(0, '<h2>What do you do for work?</h2><p class="hint">Search {{N_OCC}} occupations — try “developer”, “nurse”, “recruiter” or “copywriter”.</p>' +
       '<div class="search-wrap"><input class="job-input" type="search" placeholder="Your job title…" aria-label="Your job title" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="sugg" aria-autocomplete="list"></div>' +
-      '<ul class="sugg" id="sugg" role="listbox"></ul><div class="popular"><span>Popular</span>' +
+      '<ul class="sugg" id="sugg" role="listbox" aria-label="Matching occupations"></ul><p class="sugg-none" hidden>No match. Try a broader word — “manager”, “analyst”, “designer”, “engineer” — or pick a popular job below.</p><div class="popular"><span>Popular</span>' +
       POPULAR.filter(function (x) { return BY[x[0]]; }).map(function (x) { return '<button class="pill" type="button" data-job="' + x[0] + '">' + esc(x[1]) + '</button>'; }).join('') + '</div>');
-    var inp = card.querySelector('.job-input'), list = card.querySelector('.sugg'), hl = -1, res = [];
+    var inp = card.querySelector('.job-input'), list = card.querySelector('.sugg'), none = card.querySelector('.sugg-none'), hl = -1, res = [];
+    function setHl(i, active) {  // active: arrow keys moved it, so screen readers announce the option
+      hl = i;
+      list.querySelectorAll('[role=option]').forEach(function (x, j) { x.classList.toggle('hl', j === hl); x.setAttribute('aria-selected', j === hl ? 'true' : 'false'); });
+      if (active && hl > -1) inp.setAttribute('aria-activedescendant', 'opt-' + hl); else inp.removeAttribute('aria-activedescendant');
+    }
     function draw() {
       var v = inp.value.trim();
-      res = search(v); hl = res.length ? 0 : -1;
+      res = search(v);
       inp.setAttribute('aria-expanded', res.length ? 'true' : 'false');
-      list.innerHTML = !v ? '' : res.length ? res.map(function (o, i) { return '<li><button type="button" role="option" data-job="' + o[0] + '"' + (i === hl ? ' class="hl"' : '') + '>' + esc(o[1]) + '<small>top ' + (100 - o[3]) + '%</small></button></li>'; }).join('')
-        : '<li class="none">No match. Try a broader word — “manager”, “analyst”, “designer”, “engineer”.</li>';
+      list.innerHTML = res.map(function (o, i) { var lv = o[3] >= 67 ? ['h', 'High'] : o[3] >= 34 ? ['m', 'Mid'] : ['l', 'Low']; return '<li role="option" id="opt-' + i + '" data-job="' + o[0] + '" aria-selected="false">' + esc(o[1]) + '<small class="lv-' + lv[0] + '" title="More AI-exposed than ' + o[3] + '% of occupations">' + lv[1] + ' exposure</small></li>'; }).join('');
+      setHl(res.length ? 0 : -1);
+      none.hidden = !v || res.length > 0;
+      say(!v ? '' : res.length ? res.length + (res.length === 1 ? ' match' : ' matches') + ', first: ' + res[0][1] : 'No match', 700);
     }
     inp.addEventListener('input', draw);
     inp.addEventListener('keydown', function (e) {
-      var b = list.querySelectorAll('button');
-      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); if (!b.length) return; hl = (hl + (e.key === 'ArrowDown' ? 1 : -1) + b.length) % b.length; b.forEach(function (x, i) { x.classList.toggle('hl', i === hl); }); b[hl].scrollIntoView({ block: 'nearest' }); }
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); if (!res.length) return; setHl((hl + (e.key === 'ArrowDown' ? 1 : -1) + res.length) % res.length, true); list.children[hl].scrollIntoView({ block: 'nearest' }); }
       else if (e.key === 'Enter' && hl > -1 && res[hl]) { e.preventDefault(); pick(res[hl][0]); }
+      else if (e.key === 'Escape' && res.length) { e.preventDefault(); res = []; list.innerHTML = ''; setHl(-1); inp.setAttribute('aria-expanded', 'false'); }
     });
     card.addEventListener('click', onPick);
-    if (!('ontouchstart' in window)) inp.focus({ preventScroll: true });
+    if (!('ontouchstart' in window)) inp.focus({ preventScroll: true }); else if (focus) focusCard();
   }
   function onPick(e) { var b = e.target.closest('[data-job]'); if (b && card.contains(b) && !state.job) pick(b.dataset.job); }
-  function pick(soc) {
+  function pick(soc, replace) {
     if (!BY[soc]) return;
     card.removeEventListener('click', onPick);
-    state.job = soc; state.a = [];
+    state.job = soc; state.a = []; state.shared = false;
+    // a clean URL: no stale ?r= (someone else's result) or ?job= survives into the new test or a mid-test reload
+    nav({ s: 0, job: soc, a: [], n: depth() + (replace ? 0 : 1) }, location.pathname + '#test', !replace);
     track('job_risk_start', { soc: soc, occupation: BY[soc][1] });
     renderQ(0); scrollToCard();
   }
 
   // ----- steps 1..7: questions -----
   function renderQ(i) {
-    var q = Q[i];
+    var q = Q[i], my = ++seq, done = false;
     frame(i + 1, '<div class="chosen">Job: <b>' + esc(BY[state.job][1]) + '</b></div><h2>' + q.q + '</h2><div class="opts" role="group" aria-label="' + esc(q.q) + '">' +
       q.o.map(function (o, k) { return '<button type="button" class="opt' + (state.a[i] === k ? ' sel' : '') + '" data-k="' + k + '"><span class="k">' + 'ABCD'[k] + '</span>' + o[0] + '</button>'; }).join('') + '</div>');
     var back = card.querySelector('.back');
-    if (back) back.onclick = function () { if (i === 0) { state.job = null; state.a = []; renderJob(); } else renderQ(i - 1); };
+    if (back) back.onclick = function () {
+      var h = history.state;
+      if (h && h.kbai && h.n > 0 && h.s === i) { history.back(); return; }  // popstate redraws, so both Back buttons agree
+      if (i === 0) { state.job = null; state.a = []; nav({ s: 'job', n: depth() }, location.pathname + '#test'); renderJob(true); }
+      else { nav({ s: i - 1, job: state.job, a: state.a.slice(0, i - 1), n: depth() }, location.pathname + '#test'); renderQ(i - 1); }
+    };
     card.querySelectorAll('.opt').forEach(function (b) {
       b.onclick = function () {
-        state.a[i] = +b.dataset.k; state.a.length = i + 1;
+        if (done) return; done = true;  // a double tap or a held key answers once
+        var k = +b.dataset.k;
+        if (state.a[i] !== k) { state.a[i] = k; state.a.length = i + 1; }
         b.classList.add('sel');
-        setTimeout(function () { if (i + 1 < Q.length) renderQ(i + 1); else { renderResult(); scrollToCard(); } }, 140);
+        setTimeout(function () {
+          if (seq !== my) return;  // Back, Retake or a history step happened in the meantime
+          if (i + 1 < Q.length) { nav({ s: i + 1, job: state.job, a: state.a.slice(0, i + 1), n: depth() + 1 }, location.pathname + '#test', true); renderQ(i + 1); }
+          else { renderResult('fresh'); scrollToCard(); }
+        }, 140);
       };
     });
     focusCard();
   }
   document.addEventListener('keydown', function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey || e.isComposing || e.repeat || !e.key) return;  // Ctrl/Cmd+C or +A is not an answer
     if (e.target.closest && e.target.closest('input,textarea,select')) return;
     var k = { a: 0, b: 1, c: 2, '1': 0, '2': 1, '3': 2 }[e.key.toLowerCase()];
     if (k === undefined) return;
@@ -398,26 +461,31 @@
       '<path id="garc" d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="url(#gg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="' + len + '" stroke-dashoffset="' + len + '" style="transition:stroke-dashoffset 1.1s cubic-bezier(.2,.8,.2,1)" data-to="' + (len * (1 - s / 100)) + '"/>' +
       '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="6" fill="' + color + '" stroke="#09090b" stroke-width="3"/></svg>';
   }
-  function renderResult() {
+  // mode: 'fresh' (just answered: new history entry, analytics, focus), 'pop' (history step: focus only), 'boot' (?r= link)
+  function renderResult(mode) {
+    seq++;
     var o = BY[state.job], s = score(), t = tierOf(s), role = o[4] && ROLES[o[4]], idx = RANKED.indexOf(o);
     var ups = [];
     var factors = state.a.map(function (ai, qi) { var op = Q[qi].o[ai]; if (op[3]) ups.push([op[1], op[3]]); return '<li><span class="pts ' + (op[1] > 0 ? 'up' : op[1] < 0 ? 'down' : 'zero') + '">' + (op[1] > 0 ? '+' : '') + op[1] + '</span><div>' + op[0] + '<small>' + op[2] + '</small></div></li>'; }).join('');
     ups.sort(function (a, b) { return b[0] - a[0]; });
     var tips = ups.slice(0, 2).map(function (u) { return '<li>' + u[1] + '</li>'; });
-    if (tips.length < 2) tips.push('<li><b>Track the signals.</b> Watch the <a href="/layoffs/">AI layoffs tracker</a> for your industry — cuts come in waves, and the first movers tell you where it goes next.</li>');
+    if (tips.length < 2) tips.push('<li><b>Learn the AI tools in your field</b> before your employer picks them for you.</li>');
+    tips.push('<li><b>Track the signals.</b> Watch the <a href="/layoffs/">AI layoffs tracker</a> for your industry — cuts come in waves, and the first movers tell you where it goes next.</li>');
     var html = (state.shared ? '<div class="shared-banner"><span>Someone shared their result with you. What’s yours?</span><button class="cta" type="button" data-act="retake" style="width:auto;margin:0">Take the test →</button></div>' : '') +
-      '<div class="res-head"><div class="res-job">AI job risk score<b>' + esc(o[1]) + '</b></div>' +
-      '<div class="gauge">' + gauge(s, t[3]) + '<div class="gauge-num"><b style="color:' + t[3] + '" id="snum">0</b><span>out of 100</span></div></div>' +
+      '<div class="res-head"><h2 class="res-job">AI job risk score <b>' + esc(o[1]) + '</b></h2>' +
+      '<div class="gauge">' + gauge(s, t[3]) + '<div class="gauge-num"><b style="color:' + t[3] + '" id="snum" aria-hidden="true">0</b><span class="sr-only">' + s + ' </span><span>out of 100</span></div></div>' +
       '<div class="tier" style="color:' + t[3] + '">' + t[2] + ' ' + t[1] + '</div><p class="tier-blurb">' + t[4] + '</p></div>' +
       '<div class="res-grid"><div class="rstat"><b>' + o[3] + '%</b><span>of {{N_OCC}} occupations are less exposed to AI than yours</span></div>' +
       '<div class="rstat"><b>#' + (idx + 1) + '</b><span>most AI-exposed job of {{N_OCC}} (Microsoft score ' + o[2].toFixed(2) + ')</span></div>' +
-      '<div class="rstat"><b>' + (role ? role.jobs.toLocaleString('en-US') : '0') + '</b><span>' + (role ? esc(role.label.toLowerCase()) + ' jobs already cut by companies citing AI' : 'AI-attributed layoffs tracked for this kind of role — so far') + '</span></div></div>' +
+      '<div class="rstat"><b>' + (role ? role.jobs.toLocaleString('en-US') : '0') + '</b><span>' + (role ? 'jobs cut in AI-attributed layoffs that hit ' + esc(role.label) + ' (whole layoffs, not only this role)' : 'AI-attributed layoffs tracked for this kind of role — so far') + '</span></div></div>' +
       (role ? '<div class="res-sec"><div class="evidence"><p><b class="big">' + role.n + ' compan' + (role.n === 1 ? 'y' : 'ies') + '</b> have cut ' + esc(role.label.toLowerCase()) + ' jobs and said AI was the reason:</p><ul>' +
         role.top.map(function (x) { return '<li>' + esc(x[0]) + ' <span>' + x[1].toLocaleString('en-US') + ' · ' + x[2] + '</span></li>'; }).join('') + '</ul>' +
         (role.page ? '<a href="/jobs/' + o[4] + '/">See every ' + esc(role.label.toLowerCase()) + ' layoff →</a>' : '<a href="/layoffs/">See all AI layoffs →</a>') + '</div></div>' : '') +
-      '<div class="res-sec"><h3>What moved your score</h3><ul class="factors"><li><span class="pts ' + (o[3] >= 50 ? 'up' : 'down') + '">' + (o[3] >= 50 ? 'HIGH' : 'LOW') + '</span><div>Your occupation<small>' + esc(o[1]) + ' is more AI-exposed than ' + o[3] + '% of occupations. This is 55% of your score.</small></div></li>' + factors + '</ul></div>' +
+      '<div class="res-sec"><h3>What moved your score</h3><ul class="factors"><li><span class="pts ' + (o[3] >= 50 ? 'up' : 'down') + '">' + (o[3] >= 50 ? 'HIGH' : 'LOW') + '</span><div>Your occupation<small>' + esc(o[1]) + ' is more AI-exposed than ' + o[3] + '% of occupations. This is 55% of your score' + (state.a[1] === 2 ? ', cut by 40% because your work is hands-on' : '') + '.</small></div></li>' + factors + '</ul></div>' +
       '<div class="res-sec"><h3>How to be harder to replace</h3><ol class="tips">' + tips.join('') + '</ol></div>' +
-      '<div class="share"><button class="cta full" type="button" data-act="share">Share my result</button><button class="cta ghost" type="button" data-act="image">⬇ Save image</button><button class="cta ghost" type="button" data-act="copy">🔗 Copy link</button><button class="cta ghost full" type="button" data-act="retake">↺ ' + (state.shared ? 'Take the test' : 'Try another job') + '</button></div>' +
+      '<div class="share">' + (state.shared ? '<button class="cta full" type="button" data-act="retake">Take the test →</button>' : '<button class="cta full" type="button" data-act="share">Share my result</button>') +
+      '<button class="cta ghost" type="button" data-act="image">⬇ Save image</button><button class="cta ghost" type="button" data-act="copy">🔗 Copy link</button>' +
+      (state.shared ? '' : '<button class="cta ghost full" type="button" data-act="retake">↺ Try another job</button>') + '</div>' +
       '<p class="disclaimer">An informed estimate, not a prediction. Occupation data: Microsoft Research (CC BY 4.0). <a href="#method">How the score works</a></p>';
     card.innerHTML = html;
     requestAnimationFrame(function () { requestAnimationFrame(function () {
@@ -427,20 +495,21 @@
     }); });
     card.querySelector('.share').addEventListener('click', act);
     var sb = card.querySelector('.shared-banner'); if (sb) sb.addEventListener('click', act);
-    if (!state.shared) {
-      try { history.replaceState(null, '', location.pathname + '?r=' + code() + '#test'); sessionStorage.setItem('kbai-risk-own', code()); } catch (e) {}
+    if (mode === 'fresh') {  // only a finished test counts: not a reload of your own link, a double tap or a Back/Forward step
+      nav({ s: 'r', job: state.job, a: state.a.slice(), n: depth() + 1 }, location.pathname + '?r=' + code() + '#test', true);
+      try { var own = ownCodes().filter(function (c) { return c !== code(); }); own.unshift(code()); localStorage.setItem('kbai-risk-own', JSON.stringify(own.slice(0, 5))); } catch (e) {}
       track('job_risk_complete', { soc: state.job, occupation: o[1], score: s, tier: t[1], stage: Q[0].o[state.a[0]][0], place: Q[1].o[state.a[1]][0], work: Q[2].o[state.a[2]][0] });
     }
-    focusCard();
+    if (mode !== 'boot') { focusCard(); say(o[1] + ': AI job risk score ' + s + ' out of 100, ' + t[1] + '.'); }
   }
-  function shareText() { var o = BY[state.job], s = score(); return 'My AI job risk score as a ' + o[1] + ': ' + s + '/100 — ' + tierOf(s)[1] + '. What’s yours?'; }
+  function shareText() { var o = BY[state.job], s = score(); return (state.shared ? 'AI job risk score for ' + o[1] + ': ' + s + '/100 — ' + tierOf(s)[1] : 'My AI job risk score: ' + s + '/100 — ' + tierOf(s)[1] + ' (' + o[1] + ')') + '. What’s yours?'; }
   function shareUrl() { return location.origin + location.pathname + '?r=' + code(); }
   function toast(m) { var t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); setTimeout(function () { t.classList.remove('show'); }, 2200); }
   function copy() { var u = shareUrl(); (navigator.clipboard ? navigator.clipboard.writeText(shareText() + ' ' + u) : Promise.reject()).then(function () { toast('Link copied'); }, function () { prompt('Copy this link', u); }); }
   function act(e) {
     var b = e.target.closest('[data-act]'); if (!b) return;
     var a = b.dataset.act;
-    if (a === 'retake') { state = { job: null, a: [], shared: false }; try { history.replaceState(null, '', location.pathname + '#test'); } catch (e2) {} renderJob(); scrollToCard(); track('job_risk_retake'); }
+    if (a === 'retake') { state = { job: null, a: [], shared: false }; nav({ s: 'job', n: depth() + 1 }, location.pathname + '#test', true); renderJob(true); scrollToCard(); track('job_risk_retake'); }
     else if (a === 'copy') { copy(); track('job_risk_share', { method: 'copy' }); }
     else if (a === 'share') { if (navigator.share) navigator.share({ title: 'Will AI take my job?', text: shareText(), url: shareUrl() }).catch(function () {}); else copy(); track('job_risk_share', { method: navigator.share ? 'native' : 'copy' }); }
     else if (a === 'image') { saveImage(); track('job_risk_share', { method: 'image' }); }
@@ -470,15 +539,27 @@
     x.fillStyle = t[3]; x.font = '900 150px ui-monospace,"SF Mono",Menlo,monospace'; x.textAlign = 'center'; x.fillText(String(s), 945, 390);
     x.fillStyle = '#8f8f99'; x.font = '600 24px ' + F; x.fillText('OUT OF 100', 945, 440);
     c.toBlob(function (blob) {
-      var file = new File([blob], 'my-ai-job-risk.png', { type: 'image/png' });
+      var name = state.shared ? 'ai-job-risk.png' : 'my-ai-job-risk.png', file = new File([blob], name, { type: 'image/png' });
       if (navigator.canShare && navigator.canShare({ files: [file] }) && /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) { navigator.share({ files: [file], text: shareText() + ' ' + shareUrl() }).catch(function () {}); return; }
-      var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'my-ai-job-risk.png'; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500); toast('Image saved');
+      var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500); toast('Image saved');
     }, 'image/png');
   }
 
   // ----- the all-jobs table filter and "Test →" links -----
-  var allF = document.querySelector('.all-filter');
-  if (allF) allF.addEventListener('input', function () { var v = allF.value.trim().toLowerCase(); document.querySelectorAll('#all-jobs tbody tr').forEach(function (r) { r.hidden = v && r.children[1].textContent.toLowerCase().indexOf(v) < 0; }); });
+  var allF = document.querySelector('.all-filter'), allNone = document.createElement('p');
+  allNone.className = 'all-none'; allNone.hidden = true; allNone.setAttribute('role', 'status'); allNone.textContent = 'No occupations match. Try a broader word — “manager”, “analyst”, “engineer”.';
+  if (allF) {
+    allF.parentNode.insertBefore(allNone, allF.nextSibling);
+    allF.addEventListener('input', function () {
+      var pre = prefixes(words(allF.value)), n = 0;  // same word-start rule as the test's search, aliases included ("recruiter")
+      document.querySelectorAll('#all-jobs tbody tr').forEach(function (r) {
+        var a = r.querySelector('[data-job]'), x = a && IDX[a.dataset.job], hay = x ? x.t + x.a : norm(r.children[1].textContent);
+        r.hidden = !pre.every(function (re) { return re.test(hay); });
+        if (!r.hidden) n++;
+      });
+      allNone.hidden = n > 0;
+    });
+  }
   document.addEventListener('click', function (e) {
     var a = e.target.closest('.rank-table a[data-job]'); if (!a) return;
     e.preventDefault(); state = { job: null, a: [], shared: false }; pick(a.dataset.job);
@@ -486,13 +567,24 @@
   });
 
   // ----- boot: ?r= shared result, ?job= preselected occupation -----
-  var p = new URLSearchParams(location.search), r = p.get('r'), m = r && r.match(/^(\d\d-\d{4})\.(\d{3})$/);
+  addEventListener('popstate', function (e) {
+    var st = e.state; if (!st || !st.kbai) return;  // in-page anchors such as #method carry no state
+    var ok = BY[st.job] && (st.s === 'r' ? st.a.length === Q.length : Q[st.s]);
+    if (!ok) { state = { job: null, a: [], shared: false }; renderJob(true); return; }
+    if (st.s === 'r' && card.querySelector('.res-head') && state.job + '.' + state.a.join('') === st.job + '.' + st.a.join('')) return;  // back from #method
+    // keep later answers already given for the same job, so stepping back still shows them highlighted
+    state = { job: st.job, a: st.s !== 'r' && st.job === state.job ? st.a.concat(state.a.slice(st.a.length)) : st.a.slice(), shared: !!st.shared };
+    card.removeEventListener('click', onPick);
+    if (st.s === 'r') renderResult('pop'); else renderQ(st.s);
+  });
+  var p = new URLSearchParams(location.search), r = p.get('r'), m = r && r.match(/^(\d\d-\d{4})\.(\d{3})$/), hs = history.state && history.state.kbai ? history.state : null;
   if (m && BY[m[1]] && m[2].split('').every(function (d, i) { return +d < Q[i].o.length; })) {
-    state = { job: m[1], a: m[2].split('').map(Number), shared: true };
-    try { if (sessionStorage.getItem('kbai-risk-own') === r) state.shared = false; } catch (e) {}
-    renderResult();
-  } else if (p.get('job') && BY[p.get('job')]) { renderJob(); pick(p.get('job')); }
-  else renderJob();
+    state = { job: m[1], a: m[2].split('').map(Number), shared: ownCodes().indexOf(r) < 0 };
+    nav({ s: 'r', job: state.job, a: state.a.slice(), shared: state.shared, n: hs ? hs.n || 0 : 0 }, location.href);
+    renderResult('boot');
+  } else if (p.get('job') && BY[p.get('job')]) { renderJob(); pick(p.get('job'), true); }
+  else if (hs && typeof hs.s === 'number' && Q[hs.s] && BY[hs.job]) { state = { job: hs.job, a: hs.a.slice(), shared: false }; renderQ(hs.s); }  // reload mid-test
+  else { renderJob(); nav({ s: 'job', n: hs ? hs.n || 0 : 0 }, location.href); }
 })();
 </script>
 </body>

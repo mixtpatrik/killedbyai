@@ -5,20 +5,20 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MC3PM7NKRX');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenAI o1-mini deprecated: retirement date and replacement</title>
-    <meta name="description" content="OpenAI o1-mini was shut down on October 27, 2025 after 1y 1m. Killed by OpenAI. A smaller, faster, cheaper version of OpenAI&#x27;s o1 reasoning model…">
+    <title>OpenAI o1-mini deprecated (Oct 2025)</title>
+    <meta name="description" content="OpenAI o1-mini was shut down on October 27, 2025 after 1 year, 1 month; it was killed by OpenAI. A smaller, faster, cheaper version of OpenAI&#x27;s o1…">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <link rel="canonical" href="https://killedbyai.net/dead/openai-o1-mini/">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://killedbyai.net/dead/openai-o1-mini/">
     <meta property="og:title" content="OpenAI o1-mini — Killed by AI">
-    <meta property="og:description" content="OpenAI o1-mini was shut down on October 27, 2025 after 1y 1m. Killed by OpenAI. A smaller, faster, cheaper version of OpenAI&#x27;s o1 reasoning model…">
+    <meta property="og:description" content="OpenAI o1-mini was shut down on October 27, 2025 after 1 year, 1 month; it was killed by OpenAI. A smaller, faster, cheaper version of OpenAI&#x27;s o1…">
     <meta property="og:image" content="https://killedbyai.net/og-image.png">
     <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Killed by AI">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="OpenAI o1-mini — Killed by AI">
-    <meta name="twitter:description" content="OpenAI o1-mini was shut down on October 27, 2025 after 1y 1m. Killed by OpenAI. A smaller, faster, cheaper version of OpenAI&#x27;s o1 reasoning model…">
+    <meta name="twitter:description" content="OpenAI o1-mini was shut down on October 27, 2025 after 1 year, 1 month; it was killed by OpenAI. A smaller, faster, cheaper version of OpenAI&#x27;s o1…">
     <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
     <link rel="alternate" type="application/rss+xml" title="Killed by AI — RSS" href="https://killedbyai.net/feed.xml">
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -29,7 +29,7 @@
     <meta name="theme-color" content="#09090b">
     <style>
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#8f8f99;--line-dim:#52525b;--red:#ef4444;--red-dim:rgba(239,68,68,.15);--amber:#f59e0b}
+        :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#8f8f99;--line-dim:#52525b;--red:#ef4444;--red-text:#f87171;--red-dim:rgba(239,68,68,.15);--amber:#f59e0b}
         html{-webkit-text-size-adjust:100%}
         body{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;font-size:16px}
         a{color:var(--text-muted)} a:hover{color:var(--red)}
@@ -46,7 +46,7 @@
         .crumbs a:hover{color:var(--red)}
         .stone{background:var(--bg-card);border:1px solid var(--border);border-radius:.75rem;padding:1.5rem;position:relative;overflow:hidden}
         .stone::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--red),#7f1d1d)}
-        .verdict{display:inline-flex;align-items:center;gap:.5rem;min-height:36px;padding:0 .875rem;border-radius:999px;background:var(--red-dim);border:1px solid rgba(239,68,68,.3);color:var(--red);font-weight:700;font-size:.9375rem;margin-bottom:1rem}
+        .verdict{display:inline-flex;align-items:center;gap:.5rem;min-height:36px;padding:0 .875rem;border-radius:999px;background:var(--red-dim);border:1px solid rgba(239,68,68,.3);color:var(--red-text);font-weight:700;font-size:.9375rem;margin-bottom:1rem}
         h1{font-size:clamp(1.75rem,6vw,2.5rem);font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:.5rem}
         .sub{color:var(--text-muted);font-size:1.0625rem;margin-bottom:1.25rem}
         .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.75rem;margin:1.25rem 0}
@@ -59,7 +59,7 @@
         .actions{display:flex;flex-wrap:wrap;gap:.625rem;margin-top:1.25rem}
         .btn{display:inline-flex;align-items:center;gap:.375rem;min-height:44px;padding:0 1rem;border-radius:.5rem;border:1px solid var(--border);background:var(--bg);color:var(--text);text-decoration:none;font-weight:600;font-size:.9375rem}
         .btn:hover{border-color:var(--red);color:var(--red)}
-        .btn-red{background:var(--red-dim);border-color:rgba(239,68,68,.35);color:var(--red)}
+        .btn-red,.btn-red:hover{background:var(--red-dim);border-color:rgba(239,68,68,.35);color:var(--red-text)}
         h2{font-size:1.25rem;font-weight:800;margin:2rem 0 .75rem;letter-spacing:-.01em}
         .qa{background:var(--bg-card);border:1px solid var(--border);border-radius:.75rem;padding:1.25rem}
         .qa h2{margin:0 0 .5rem;font-size:1.125rem}
@@ -119,8 +119,8 @@
       "@type": "WebPage",
       "@id": "https://killedbyai.net/dead/openai-o1-mini/",
       "url": "https://killedbyai.net/dead/openai-o1-mini/",
-      "name": "OpenAI o1-mini deprecated: retirement date and replacement",
-      "description": "OpenAI o1-mini was shut down on October 27, 2025 after 1y 1m. Killed by OpenAI. A smaller, faster, cheaper version of OpenAI's o1 reasoning model…",
+      "name": "OpenAI o1-mini deprecated (Oct 2025)",
+      "description": "OpenAI o1-mini was shut down on October 27, 2025 after 1 year, 1 month; it was killed by OpenAI. A smaller, faster, cheaper version of OpenAI's o1…",
       "isPartOf": {
         "@type": "WebSite",
         "@id": "https://killedbyai.net/#website",
@@ -176,7 +176,7 @@
           "name": "Is OpenAI o1-mini dead?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. OpenAI o1-mini was shut down on October 27, 2025, 1y 1m after its launch on September 12, 2024. The cause of death was model deprecation; it was killed by OpenAI. Classification: model deprecation. Details and the source are above."
+            "text": "Yes. OpenAI o1-mini was shut down on October 27, 2025, 1 year, 1 month after its launch on September 12, 2024. The cause of death was model deprecation; it was killed by OpenAI. Classification: model deprecation. Details and the source are above."
           }
         }
       ]
@@ -186,15 +186,10 @@
 </head>
 <body>
     <nav class="site-nav" aria-label="Site">
-        <a href="/" class="site-nav-item active">💀 Graveyard</a>
-        <a href="/layoffs/" class="site-nav-item">💼 AI Layoffs</a>
-        <a href="/funding/" class="site-nav-item">🔥 Funding</a>
-        <a href="/coming-soon/" class="site-nav-item">⏳ Dying soon</a>
-        <a href="/will-ai-take-my-job/" class="site-nav-item">🎯 Will AI take my job?</a>
-        <a href="/api/" class="site-nav-item">{ } API</a>
+        <a href="/" class="site-nav-item active" aria-current="true">💀 Graveyard</a><a href="/layoffs/" class="site-nav-item">💼 AI Layoffs</a><a href="/funding/" class="site-nav-item">🔥 Funding</a><a href="/coming-soon/" class="site-nav-item">⏳ Dying soon</a><a href="/will-ai-take-my-job/" class="site-nav-item">🎯 Will AI take my job?</a><a href="/api/" class="site-nav-item">{ } API</a>
     </nav>
     <main class="wrap">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Killed by AI</a> › <a href="/#openai-o1-mini">Graveyard</a> › OpenAI o1-mini</nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Killed by AI</a> › <a href="/dead/">All tombstones</a> › OpenAI o1-mini</nav>
         <article class="stone">
             <div class="verdict">🪦 Dead</div>
             <h1>OpenAI o1-mini</h1>
@@ -214,14 +209,14 @@
         
         <section class="qa" style="margin-top:1.5rem">
             <h2>Questions about OpenAI o1-mini</h2>
-            <details class="qa-item"><summary>Is OpenAI o1-mini dead?</summary><p>Yes. OpenAI o1-mini was shut down on October 27, 2025, 1y 1m after its launch on September 12, 2024. The cause of death was model deprecation; it was killed by OpenAI. Classification: model deprecation. Details and the source are above.</p></details>
+            <details class="qa-item"><summary>Is OpenAI o1-mini dead?</summary><p>Yes. OpenAI o1-mini was shut down on October 27, 2025, 1 year, 1 month after its launch on September 12, 2024. The cause of death was model deprecation; it was killed by OpenAI. Classification: model deprecation. Details and the source are above.</p></details>
         </section>
-        <h2>Also killed by OpenAI <a class="more" href="/killed-by/openai/">All 30 →</a></h2><div class="related"><a class="rel" href="https://killedbyai.net/dead/openai-gpt-5-4-cyber/"><b>OpenAI GPT-5.4-Cyber</b><span>2026</span></a><a class="rel" href="https://killedbyai.net/dead/openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct/"><b>OpenAI davinci-002, babbage-002 &amp; gpt-3.5-turbo-instruct</b><span>2026</span></a><a class="rel" href="https://killedbyai.net/dead/reve-ai-image-generation/"><b>Reve AI Image Generation</b><span>2026</span></a><a class="rel" href="https://killedbyai.net/dead/dall-e-gpt-in-chatgpt/"><b>DALL·E GPT (in ChatGPT)</b><span>2026</span></a></div>
-        <nav class="prevnext" aria-label="Chronological"><a class="prev" href="https://killedbyai.net/dead/openai-gpt-3-5-turbo/"><small>← Died before</small>OpenAI GPT-3.5 Turbo</a><a class="next" href="https://killedbyai.net/dead/claude-3-5-sonnet/"><small>Died after →</small>Claude 3.5 Sonnet</a></nav>
+        <h2>Also killed by OpenAI <a class="more" href="/killed-by/openai/">All 29 →</a></h2><div class="related"><a class="rel" href="https://killedbyai.net/dead/openai-gpt-5-4-cyber/"><b>OpenAI GPT-5.4-Cyber</b><span>2026</span></a><a class="rel" href="https://killedbyai.net/dead/openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct/"><b>OpenAI davinci-002, babbage-002 &amp; gpt-3.5-turbo-instruct</b><span>2026</span></a><a class="rel" href="https://killedbyai.net/dead/reve-ai-image-generation/"><b>Reve AI Image Generation</b><span>2026</span></a><a class="rel" href="https://killedbyai.net/dead/dall-e-gpt-in-chatgpt/"><b>DALL·E GPT (in ChatGPT)</b><span>2026</span></a></div>
+        <nav class="prevnext" aria-label="Chronological"><a class="prev" href="https://killedbyai.net/dead/dot-new-computer/"><small>← Died before</small>Dot (New Computer)</a><a class="next" href="https://killedbyai.net/dead/claude-3-5-sonnet/"><small>Died after →</small>Claude 3.5 Sonnet</a></nav>
     </main>
     <footer class="site-footer">
-        <p>One of 142 tombstones. Entry last updated <time datetime="2026-09-09">September 9, 2026</time>. Data is <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a> — reuse it, link back.</p>
-        <p><a href="/">The AI graveyard</a> · <a href="/dead/">All 142 tombstones A–Z</a> · <a href="/killed-by/">By killer</a> · <a href="/layoffs/">AI layoffs tracker</a> · <a href="/will-ai-take-my-job/">Will AI take my job?</a> · <a href="/jobs/">Jobs replaced by AI</a> · <a href="/coming-soon/">Upcoming AI shutdowns</a> · <a href="/deprecations.ics">Shutdown calendar (.ics)</a> · <a href="/funding/">Failed AI startups</a> · <a href="/api/">JSON API</a> · <a href="/about/">About & methodology</a> · <a href="/feed.xml">RSS</a></p>
+        <p>One of 162 tombstones. Entry last updated <time datetime="2026-09-09">September 9, 2026</time>. Data is <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a> — reuse it, link back.</p>
+        <p><a href="/">The AI graveyard</a> · <a href="/dead/">All 162 tombstones A–Z</a> · <a href="/killed-by/">By killer</a> · <a href="/layoffs/">AI layoffs tracker</a> · <a href="/will-ai-take-my-job/">Will AI take my job?</a> · <a href="/jobs/">Jobs replaced by AI</a> · <a href="/coming-soon/">Upcoming AI shutdowns</a> · <a href="/deprecations.ics">Shutdown calendar (.ics)</a> · <a href="/funding/">Failed AI startups</a> · <a href="/api/">JSON API</a> · <a href="/about/">About & methodology</a> · <a href="/feed.xml">RSS</a></p>
     </footer>
 </body>
 </html>

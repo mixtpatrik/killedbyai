@@ -5,8 +5,8 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-MC3PM7NKRX');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upcoming AI Shutdowns &amp; Model Deprecation Dates (2026–27)</title>
-    <meta name="description" content="The AI deprecation schedule: {{COUNT}} AI products, APIs and models with confirmed shutdown dates, counting down. From OpenAI's October 23 cull to the last of Sora on Azure. Coming soon to the graveyard.">
+    <title>Upcoming AI Shutdowns &amp; Model Deprecation Dates ({{YEAR_SPAN}})</title>
+    <meta name="description" content="The AI deprecation schedule: {{COUNT}} AI products, APIs and models with confirmed shutdown dates, {{SHUTDOWN_RANGE}}. Coming soon to the graveyard.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://killedbyai.net/coming-soon/">
     <meta property="og:url" content="https://killedbyai.net/coming-soon/">
@@ -89,7 +89,7 @@
     <header class="header">
         <h1>Upcoming AI <span>Shutdowns</span></h1>
         <p>Coming soon to the graveyard: the deprecation schedule for {{COUNT}} AI products with confirmed death dates. Already announced, just counting down.</p>
-        <span class="last-updated">Last updated: {{LAST_UPDATED}} · <a href="/deprecations.ics" class="ics-link">📅 Subscribe to the shutdown calendar (.ics)</a></span>
+        <span class="last-updated" id="calendar">Last updated: {{LAST_UPDATED}} · 📅 Shutdown calendar: <a href="webcal://killedbyai.net/deprecations.ics" class="ics-link">Subscribe (Apple / Outlook)</a> · <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fkilledbyai.net%2Fdeprecations.ics" class="ics-link" target="_blank" rel="noopener">Add to Google Calendar (desktop)</a> · <a href="/deprecations.ics" class="ics-link" download>Download .ics</a></span>
     </header>
     <main class="list">
 {{ROWS}}
@@ -99,12 +99,14 @@
         <p class="footer-links" style="font-size:.8125rem;margin-top:.5rem;text-align:center">{{FOOTER_LINKS}}</p>
     </footer>
     <script>
-    (function () {  // countdowns recompute on every visit, not just at build time
-        const now = Date.now();
+    (function () {  // countdowns recompute on every visit, in the visitor's own calendar days ("Today" on the shutdown day)
+        const t = new Date(), today = Date.UTC(t.getFullYear(), t.getMonth(), t.getDate());
         document.querySelectorAll('.doom-countdown[data-shutdown]').forEach(el => {
-            const d = Math.ceil((Date.parse(el.dataset.shutdown + 'T00:00:00Z') - now) / 864e5);
-            if (d > 0) { el.textContent = d + 'd left'; el.classList.remove('dead'); }
-            else { el.textContent = 'DEAD'; el.classList.add('dead'); }
+            const [y, m, day] = el.dataset.shutdown.split('-').map(Number);
+            const n = Math.round((Date.UTC(y, m - 1, day) - today) / 864e5);
+            if (!Number.isFinite(n)) return;   // keep the build-time text
+            el.textContent = n > 0 ? n + 'd left' : n === 0 ? 'Today' : 'DEAD';
+            el.classList.toggle('dead', n < 0);
         });
     })();
     </script>

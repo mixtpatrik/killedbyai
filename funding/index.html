@@ -5,13 +5,13 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-MC3PM7NKRX');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Failed AI Startups: $19.3B Burned by 32 Dead AI Companies</title>
-    <meta name="description" content="$19.3 billion raised by 32 AI companies that died — from GM Cruise&#x27;s $10B to Argo AI&#x27;s $3.6B. Ranked by money burned, burn rate per day, lifespan and cause of death, with sources.">
+    <title>Failed AI Startups: $19.7B Burned by 37 Dead AI Companies</title>
+    <meta name="description" content="$19.7B raised by 37 AI companies that died, from GM Cruise&#x27;s $10B to Argo AI&#x27;s $3.6B. Ranked by money burned, burn rate, lifespan and cause of death.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://killedbyai.net/funding/">
     <meta property="og:url" content="https://killedbyai.net/funding/">
     <meta property="og:title" content="Funding Burned — The Most Expensive AI Graveyard">
-    <meta property="og:description" content="$19.3 billion burned across 32 failed AI companies — ranked by money lost, burn rate and cause of death.">
+    <meta property="og:description" content="$19.7 billion burned across 37 failed AI companies — ranked by money lost, burn rate and cause of death.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://killedbyai.net/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -102,9 +102,9 @@ a.tile:hover{border-color:var(--acc)}
 .hbars{display:flex;flex-direction:column;gap:.5rem;list-style:none}
 .hbar{display:grid;grid-template-columns:minmax(0,9.5rem) minmax(0,1fr) auto;align-items:center;gap:.625rem;font-size:.875rem;text-decoration:none;color:var(--text)}
 a.hbar:hover .hbar-name{color:var(--acc)}
-.hbar-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hbar-track{height:.625rem;background:#1c1c1f;border-radius:1rem;overflow:hidden}
-.hbar-fill{height:100%;width:var(--w);min-width:3px;background:linear-gradient(90deg,var(--acc2),var(--acc));border-radius:1rem}
+.hbar-name{min-width:0;line-height:1.25;overflow-wrap:break-word}
+.hbar-track{display:block;height:.625rem;background:#1c1c1f;border-radius:1rem;overflow:hidden}
+.hbar-fill{display:block;height:100%;width:var(--w);min-width:3px;background:linear-gradient(90deg,var(--acc2),var(--acc));border-radius:1rem}
 .hbar-val{font-family:'SF Mono','Cascadia Code',monospace;font-size:.8125rem;color:var(--text-muted);text-align:right;min-width:3.5rem}
 .recent{list-style:none;display:flex;flex-direction:column}
 .recent li{display:flex;justify-content:space-between;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.875rem}
@@ -121,15 +121,22 @@ a.hbar:hover .hbar-name{color:var(--acc)}
 .chipf{height:36px;padding:0 .875rem;border-radius:2rem;border:1px solid var(--border);background:var(--bg-card);color:var(--text-muted);font-size:.8125rem;cursor:pointer;font-family:inherit}
 .chipf:hover{color:var(--text)}
 .chipf.on{background:var(--acc-dim);border-color:var(--acc);color:var(--acc);font-weight:700}
-.chipf small{opacity:.7;margin-left:.25rem}
+.chipf small{color:var(--text-muted);margin-left:.25rem;font-weight:400}
+.chipf:hover small,.chipf.on small{color:inherit}
 .lcount{font-size:.8125rem;color:var(--text-dim);width:100%}
 .list .empty{text-align:center;color:var(--text-dim);padding:2rem 0}
-.rank{font-family:'SF Mono','Cascadia Code',monospace;color:var(--text-dim);font-size:.8125rem;margin-right:.375rem;font-weight:600}
+.rank{font-family:'SF Mono','Cascadia Code',monospace;color:var(--text-dim);font-size:.8125rem;margin-right:.125rem;font-weight:600}
+.list.unranked .rank{display:none}
+.layoff-row:target,.fund-row:target{border-color:var(--acc)}
+@media(min-width:601px){.layoff-row,.fund-row{scroll-margin-top:calc(var(--lctrl-h,240px) + .75rem)}}
+.to-filters{position:fixed;right:1rem;bottom:1rem;z-index:50;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--bg-card);color:var(--text);font-size:1.125rem;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.45);font-family:inherit}
+.to-filters:hover{border-color:var(--acc);color:var(--acc)}
 .badge-new{display:inline-block;background:var(--acc);color:#09090b;font-size:.625rem;font-weight:800;padding:.0625rem .375rem;border-radius:.25rem;margin-left:.375rem;vertical-align:middle;letter-spacing:.04em}
 .mchip{color:var(--text-muted);background:#1c1c1f;padding:.125rem .5rem;border-radius:.25rem;text-decoration:none}
 a.mchip:hover{color:var(--acc)}
 @media(max-width:700px){.dash-grid{grid-template-columns:1fr}.dcard.wide{grid-column:auto}}
-@media(max-width:600px){.dash,.lctrl{padding-left:.75rem;padding-right:.75rem}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tile{padding:.75rem}.tile-val{font-size:1.25rem}.tile.hero .tile-val{font-size:1.5rem}.tile.txt .tile-val{font-size:1rem}.tile-sub{font-size:.75rem}.hbar{grid-template-columns:minmax(0,7rem) minmax(0,1fr) auto;font-size:.8125rem}.vbars{height:140px;gap:.25rem}.vbar-fill b{font-size:.5625rem}.vbar-lbl{font-size:.5625rem}.lsort{flex:1 1 100%}.lctrl{position:static}}
+@media(max-width:600px){.dash,.lctrl{padding-left:.75rem;padding-right:.75rem}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tile{padding:.75rem}.tile-val{font-size:1.25rem}.tile.hero .tile-val{font-size:1.5rem}.tile.txt .tile-val{font-size:1rem}.tile-sub{font-size:.75rem}.hbar{grid-template-columns:minmax(0,7rem) minmax(0,1fr) auto;font-size:.8125rem}.vbars{height:140px;gap:.25rem}.vbar-fill b{font-size:.625rem}.vbar-lbl{font-size:.625rem}.lsort{flex:1 1 100%}.lctrl{position:static}.to-filters.visible{display:flex}}
+@media(max-width:380px){.vbar-fill b{display:none}}
 
     </style>
     <script type="application/ld+json">{
@@ -138,12 +145,12 @@ a.mchip:hover{color:var(--acc)}
   "@id": "https://killedbyai.net/api/#funding",
   "isBasedOn": "https://killedbyai.net/api/",
   "name": "Funding Burned by Failed AI Companies",
-  "description": "$19.3 billion raised (venture, corporate and strategic funding) by 32 AI startups that shut down, were acqui-hired into oblivion, or ran out of money.",
+  "description": "$19.7 billion raised (venture, corporate and strategic funding) by 37 AI startups that shut down, were acqui-hired into oblivion, or ran out of money.",
   "url": "https://killedbyai.net/funding/",
   "keywords": "failed AI startups, AI startup failures, AI funding burned, AI bubble, failed self-driving companies, wasted venture capital",
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "isAccessibleForFree": true,
-  "dateModified": "2026-10-06",
+  "dateModified": "2026-10-08",
   "creator": {
     "@type": "Person",
     "@id": "https://killedbyai.net/about/#patrik-rojan",
@@ -191,18 +198,19 @@ a.mchip:hover{color:var(--acc)}
 
     <header class="header">
         <h1>Failed AI Startups <span>&amp; the Funding They Burned</span></h1>
-        <p>The most expensive corner of the graveyard: $19.3 billion raised by 32 AI companies that shut down, were acqui-hired into oblivion, or ran out of money — from self-driving moonshots to AI gadgets. Ranked by money burned, with how fast they burned it and what killed them.</p>
+        <p>The most expensive corner of the graveyard: $19.7 billion raised by 37 AI companies that shut down, were acqui-hired into oblivion, or ran out of money — from self-driving moonshots to AI gadgets. Ranked by money burned, with how fast they burned it and what killed them.</p>
     </header>
-    <div class="dash"><div class="tiles"><div class="tile hero"><span class="tile-lbl">Funding burned</span><span class="tile-val">$19.3B</span><span class="tile-sub">raised by 32 dead AI companies</span></div><div class="tile"><span class="tile-lbl">Died in 2026</span><span class="tile-val">$95M</span><span class="tile-sub">9 companies so far</span></div><a href="/dead/gm-cruise/" class="tile"><span class="tile-lbl">Most expensive death</span><span class="tile-val">$10B</span><span class="tile-sub">GM Cruise</span></a><div class="tile"><span class="tile-lbl">Median raise</span><span class="tile-val">$66M</span><span class="tile-sub">for a failed AI startup</span></div><a href="/dead/inflection-ai-pi/" class="tile"><span class="tile-lbl">Fastest burn</span><span class="tile-val">$4.7M/day</span><span class="tile-sub">Inflection AI / Pi</span></a><div class="tile"><span class="tile-lbl">Average lifespan</span><span class="tile-val">4.8 yrs</span><span class="tile-sub">founding to shutdown</span></div></div><div class="dash-grid"><section class="dcard wide"><h2>Funding burned, by year of death</h2><p class="dnote">Total raised by AI companies that died that year</p><div class="vbars" role="img" aria-label="2022: $3.6B, 2023: $1.4B, 2024: $13.1B, 2025: $1.1B, 2026: $95M"><div class="vbar"><div class="vbar-track"><div class="vbar-fill" style="--h:27.5%"><b>$3.6B</b></div></div><span class="vbar-lbl">2022</span></div><div class="vbar"><div class="vbar-track"><div class="vbar-fill" style="--h:10.5%"><b>$1.4B</b></div></div><span class="vbar-lbl">2023</span></div><div class="vbar"><div class="vbar-track"><div class="vbar-fill" style="--h:100.0%"><b>$13.1B</b></div></div><span class="vbar-lbl">2024</span></div><div class="vbar"><div class="vbar-track"><div class="vbar-fill" style="--h:8.7%"><b>$1.1B</b></div></div><span class="vbar-lbl">2025</span></div><div class="vbar now"><div class="vbar-track"><div class="vbar-fill" style="--h:0.7%"><b>$95M</b></div></div><span class="vbar-lbl">2026</span></div></div></section><section class="dcard"><h2>Most expensive AI failures</h2><p class="dnote">Top 10 by total funding raised</p><ol class="hbars"><li><a class="hbar" href="/dead/gm-cruise/"><span class="hbar-name">GM Cruise</span><span class="hbar-track"><span class="hbar-fill" style="--w:100.0%"></span></span><span class="hbar-val">$10B</span></a></li><li><a class="hbar" href="/dead/argo-ai/"><span class="hbar-name">Argo AI</span><span class="hbar-track"><span class="hbar-fill" style="--w:36.0%"></span></span><span class="hbar-val">$3.6B</span></a></li><li><a class="hbar" href="/dead/inflection-ai-pi/"><span class="hbar-name">Inflection AI / Pi</span><span class="hbar-track"><span class="hbar-fill" style="--w:15.0%"></span></span><span class="hbar-val">$1.5B</span></a></li><li><a class="hbar" href="/dead/olive-ai/"><span class="hbar-name">Olive AI</span><span class="hbar-track"><span class="hbar-fill" style="--w:9.0%"></span></span><span class="hbar-val">$902M</span></a></li><li><a class="hbar" href="/dead/forward-carepods/"><span class="hbar-name">Forward (CarePods)</span><span class="hbar-track"><span class="hbar-fill" style="--w:6.6%"></span></span><span class="hbar-val">$657M</span></a></li><li><a class="hbar" href="/dead/builder-ai/"><span class="hbar-name">Builder.ai</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.5%"></span></span><span class="hbar-val">$445M</span></a></li><li><a class="hbar" href="/dead/adept-ai-independent/"><span class="hbar-name">Adept AI (Independent)</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.2%"></span></span><span class="hbar-val">$415M</span></a></li><li><a class="hbar" href="/dead/embark-trucks/"><span class="hbar-name">Embark Trucks</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.0%"></span></span><span class="hbar-val">$400M</span></a></li><li><a class="hbar" href="/dead/humane-ai-pin/"><span class="hbar-name">Humane AI Pin</span><span class="hbar-track"><span class="hbar-fill" style="--w:2.3%"></span></span><span class="hbar-val">$230M</span></a></li><li><a class="hbar" href="/dead/ghost-autonomy/"><span class="hbar-name">Ghost Autonomy</span><span class="hbar-track"><span class="hbar-fill" style="--w:2.2%"></span></span><span class="hbar-val">$220M</span></a></li></ol></section><section class="dcard"><h2>Fastest cash burn</h2><p class="dnote">Funding raised ÷ days alive</p><ol class="hbars"><li><a class="hbar" href="/dead/inflection-ai-pi/"><span class="hbar-name">Inflection AI / Pi</span><span class="hbar-track"><span class="hbar-fill" style="--w:100.0%"></span></span><span class="hbar-val">$4.7M/d</span></a></li><li><a class="hbar" href="/dead/gm-cruise/"><span class="hbar-name">GM Cruise</span><span class="hbar-track"><span class="hbar-fill" style="--w:49.2%"></span></span><span class="hbar-val">$2.3M/d</span></a></li><li><a class="hbar" href="/dead/argo-ai/"><span class="hbar-name">Argo AI</span><span class="hbar-track"><span class="hbar-fill" style="--w:35.9%"></span></span><span class="hbar-val">$1.7M/d</span></a></li><li><a class="hbar" href="/dead/humane-ai-pin/"><span class="hbar-name">Humane AI Pin</span><span class="hbar-track"><span class="hbar-fill" style="--w:12.8%"></span></span><span class="hbar-val">$597K/d</span></a></li><li><a class="hbar" href="/dead/adept-ai-independent/"><span class="hbar-name">Adept AI (Independent)</span><span class="hbar-track"><span class="hbar-fill" style="--w:9.8%"></span></span><span class="hbar-val">$457K/d</span></a></li><li><a class="hbar" href="/dead/olive-ai/"><span class="hbar-name">Olive AI</span><span class="hbar-track"><span class="hbar-fill" style="--w:7.8%"></span></span><span class="hbar-val">$362K/d</span></a></li><li><a class="hbar" href="/dead/character-ai-independent/"><span class="hbar-name">Character.AI (Independent)</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.7%"></span></span><span class="hbar-val">$219K/d</span></a></li><li><a class="hbar" href="/dead/forward-carepods/"><span class="hbar-name">Forward (CarePods)</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.4%"></span></span><span class="hbar-val">$203K/d</span></a></li><li><a class="hbar" href="/dead/embark-trucks/"><span class="hbar-name">Embark Trucks</span><span class="hbar-track"><span class="hbar-fill" style="--w:3.3%"></span></span><span class="hbar-val">$153K/d</span></a></li><li><a class="hbar" href="/dead/builder-ai/"><span class="hbar-name">Builder.ai</span><span class="hbar-track"><span class="hbar-fill" style="--w:2.8%"></span></span><span class="hbar-val">$130K/d</span></a></li></ol></section><section class="dcard"><h2>How they died</h2><p class="dnote">Funding lost by cause of death</p><ol class="hbars"><li><div class="hbar"><span class="hbar-name">Product killed (1)</span><span class="hbar-track"><span class="hbar-fill" style="--w:100.0%"></span></span><span class="hbar-val">$10B</span></div></li><li><div class="hbar"><span class="hbar-name">Startup failed (20)</span><span class="hbar-track"><span class="hbar-fill" style="--w:68.1%"></span></span><span class="hbar-val">$6.8B</span></div></li><li><div class="hbar"><span class="hbar-name">Acqui-hired (7)</span><span class="hbar-track"><span class="hbar-fill" style="--w:21.6%"></span></span><span class="hbar-val">$2.2B</span></div></li><li><div class="hbar"><span class="hbar-name">Hardware discontinued (4)</span><span class="hbar-track"><span class="hbar-fill" style="--w:3.5%"></span></span><span class="hbar-val">$347M</span></div></li></ol></section><section class="dcard"><h2>Who killed the money</h2><p class="dnote">Funding lost, by what killed it</p><ol class="hbars"><li><div class="hbar"><span class="hbar-name">General Motors</span><span class="hbar-track"><span class="hbar-fill" style="--w:100.0%"></span></span><span class="hbar-val">$10B</span></div></li><li><div class="hbar"><span class="hbar-name">Ford &amp; Volkswagen</span><span class="hbar-track"><span class="hbar-fill" style="--w:36.0%"></span></span><span class="hbar-val">$3.6B</span></div></li><li><a class="hbar" href="/killed-by/itself/"><span class="hbar-name">Itself</span><span class="hbar-track"><span class="hbar-fill" style="--w:21.1%"></span></span><span class="hbar-val">$2.1B</span></a></li><li><a class="hbar" href="/killed-by/microsoft/"><span class="hbar-name">Microsoft</span><span class="hbar-track"><span class="hbar-fill" style="--w:15.0%"></span></span><span class="hbar-val">$1.5B</span></a></li><li><a class="hbar" href="/killed-by/market/"><span class="hbar-name">Market</span><span class="hbar-track"><span class="hbar-fill" style="--w:7.0%"></span></span><span class="hbar-val">$700M</span></a></li><li><a class="hbar" href="/killed-by/amazon/"><span class="hbar-name">Amazon</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.2%"></span></span><span class="hbar-val">$415M</span></a></li><li><a class="hbar" href="/killed-by/reality/"><span class="hbar-name">Reality</span><span class="hbar-track"><span class="hbar-fill" style="--w:2.6%"></span></span><span class="hbar-val">$260M</span></a></li><li><a class="hbar" href="/killed-by/google/"><span class="hbar-name">Google</span><span class="hbar-track"><span class="hbar-fill" style="--w:1.6%"></span></span><span class="hbar-val">$158M</span></a></li></ol></section></div></div>
-    <span class="last-updated" style="display:block;text-align:center;margin-top:.75rem">Last updated: October 6, 2026 · funding = total raised before death (VC, corporate or strategic) · <a href="/api/" style="color:inherit">free JSON</a></span>
-    <div class="lctrl" role="search"><h2 id="list">All 32 failed AI companies</h2><input class="lsearch" type="search" placeholder="Search company, cause or killer…" aria-label="Search company, cause or killer…" autocomplete="off"><select class="lsort" aria-label="Sort by"><option value="fund:desc">Most raised</option><option value="date:desc">Most recent death</option><option value="burn:desc">Fastest burn</option><option value="life:desc">Longest-lived</option><option value="life:asc">Shortest-lived</option><option value="name:asc">A–Z</option></select><div class="chips" role="group" aria-label="Filter"><button type="button" class="chipf on" data-f="all" aria-pressed="true">All<small>32</small></button><button type="button" class="chipf" data-f="startup-failed" aria-pressed="false">Startup failed<small>20</small></button><button type="button" class="chipf" data-f="acqui-hired" aria-pressed="false">Acqui-hired<small>7</small></button><button type="button" class="chipf" data-f="hardware-failed" aria-pressed="false">Hardware discontinued<small>4</small></button><button type="button" class="chipf" data-f="product-killed" aria-pressed="false">Product killed<small>1</small></button><button type="button" class="chipf" data-f="2026" aria-pressed="false">2026<small>9</small></button><button type="button" class="chipf" data-f="2025" aria-pressed="false">2025<small>10</small></button><button type="button" class="chipf" data-f="2024" aria-pressed="false">2024<small>9</small></button></div><p class="lcount" aria-live="polite"></p></div>
+    <div class="dash"><div class="tiles"><div class="tile hero"><span class="tile-lbl">Funding burned</span><span class="tile-val">$19.7B</span><span class="tile-sub">raised by 37 dead AI companies</span></div><div class="tile"><span class="tile-lbl">Died in 2026</span><span class="tile-val">$224M</span><span class="tile-sub">10 companies so far</span></div><a href="/dead/gm-cruise/" class="tile"><span class="tile-lbl">Most expensive death</span><span class="tile-val">$10B</span><span class="tile-sub">GM Cruise</span></a><div class="tile"><span class="tile-lbl">Median raise</span><span class="tile-val">$63M</span><span class="tile-sub">for a failed AI startup</span></div><a href="/dead/inflection-ai-pi/" class="tile"><span class="tile-lbl">Fastest burn</span><span class="tile-val">$4.7M/day</span><span class="tile-sub">Inflection AI / Pi</span></a><div class="tile"><span class="tile-lbl">Average lifespan</span><span class="tile-val">5.2 yrs</span><span class="tile-sub">founding to shutdown</span></div></div><div class="dash-grid"><section class="dcard wide"><h2>Funding burned, by year of death</h2><p class="dnote">Total raised by AI companies that died that year</p><div class="vbars" role="img" aria-label="2022: $3.6B, 2023: $1.4B, 2024: $13.1B, 2025: $1.4B, 2026: $224M"><div class="vbar"><div class="vbar-track"><div class="vbar-fill" style="--h:27.5%"><b>$3.6B</b></div></div><span class="vbar-lbl">2022</span></div><div class="vbar"><div class="vbar-track"><div class="vbar-fill" style="--h:10.5%"><b>$1.4B</b></div></div><span class="vbar-lbl">2023</span></div><div class="vbar"><div class="vbar-track"><div class="vbar-fill" style="--h:100.0%"><b>$13.1B</b></div></div><span class="vbar-lbl">2024</span></div><div class="vbar"><div class="vbar-track"><div class="vbar-fill" style="--h:10.7%"><b>$1.4B</b></div></div><span class="vbar-lbl">2025</span></div><div class="vbar now"><div class="vbar-track"><div class="vbar-fill" style="--h:1.7%"><b>$224M</b></div></div><span class="vbar-lbl">2026</span></div></div></section><section class="dcard"><h2>Most expensive AI failures</h2><p class="dnote">Top 10 by total funding raised</p><ol class="hbars"><li><a class="hbar" href="/dead/gm-cruise/"><span class="hbar-name" title="GM Cruise">GM Cruise</span><span class="hbar-track"><span class="hbar-fill" style="--w:100.0%"></span></span><span class="hbar-val">$10B</span></a></li><li><a class="hbar" href="/dead/argo-ai/"><span class="hbar-name" title="Argo AI">Argo AI</span><span class="hbar-track"><span class="hbar-fill" style="--w:36.0%"></span></span><span class="hbar-val">$3.6B</span></a></li><li><a class="hbar" href="/dead/inflection-ai-pi/"><span class="hbar-name" title="Inflection AI / Pi">Inflection AI / Pi</span><span class="hbar-track"><span class="hbar-fill" style="--w:15.0%"></span></span><span class="hbar-val">$1.5B</span></a></li><li><a class="hbar" href="/dead/olive-ai/"><span class="hbar-name" title="Olive AI">Olive AI</span><span class="hbar-track"><span class="hbar-fill" style="--w:9.0%"></span></span><span class="hbar-val">$902M</span></a></li><li><a class="hbar" href="/dead/forward-carepods/"><span class="hbar-name" title="Forward (CarePods)">Forward (CarePods)</span><span class="hbar-track"><span class="hbar-fill" style="--w:6.6%"></span></span><span class="hbar-val">$657M</span></a></li><li><a class="hbar" href="/dead/builder-ai/"><span class="hbar-name" title="Builder.ai">Builder.ai</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.5%"></span></span><span class="hbar-val">$445M</span></a></li><li><a class="hbar" href="/dead/adept-ai-independent/"><span class="hbar-name" title="Adept AI (Independent)">Adept AI (Independent)</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.2%"></span></span><span class="hbar-val">$415M</span></a></li><li><a class="hbar" href="/dead/embark-trucks/"><span class="hbar-name" title="Embark Trucks">Embark Trucks</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.0%"></span></span><span class="hbar-val">$400M</span></a></li><li><a class="hbar" href="/dead/humane-ai-pin/"><span class="hbar-name" title="Humane AI Pin">Humane AI Pin</span><span class="hbar-track"><span class="hbar-fill" style="--w:2.3%"></span></span><span class="hbar-val">$230M</span></a></li><li><a class="hbar" href="/dead/ghost-autonomy/"><span class="hbar-name" title="Ghost Autonomy">Ghost Autonomy</span><span class="hbar-track"><span class="hbar-fill" style="--w:2.2%"></span></span><span class="hbar-val">$220M</span></a></li></ol></section><section class="dcard"><h2>Fastest cash burn</h2><p class="dnote">Funding raised ÷ days alive</p><ol class="hbars"><li><a class="hbar" href="/dead/inflection-ai-pi/"><span class="hbar-name" title="Inflection AI / Pi">Inflection AI / Pi</span><span class="hbar-track"><span class="hbar-fill" style="--w:100.0%"></span></span><span class="hbar-val">$4.7M/d</span></a></li><li><a class="hbar" href="/dead/gm-cruise/"><span class="hbar-name" title="GM Cruise">GM Cruise</span><span class="hbar-track"><span class="hbar-fill" style="--w:49.2%"></span></span><span class="hbar-val">$2.3M/d</span></a></li><li><a class="hbar" href="/dead/argo-ai/"><span class="hbar-name" title="Argo AI">Argo AI</span><span class="hbar-track"><span class="hbar-fill" style="--w:35.9%"></span></span><span class="hbar-val">$1.7M/d</span></a></li><li><a class="hbar" href="/dead/humane-ai-pin/"><span class="hbar-name" title="Humane AI Pin">Humane AI Pin</span><span class="hbar-track"><span class="hbar-fill" style="--w:12.8%"></span></span><span class="hbar-val">$597K/d</span></a></li><li><a class="hbar" href="/dead/adept-ai-independent/"><span class="hbar-name" title="Adept AI (Independent)">Adept AI (Independent)</span><span class="hbar-track"><span class="hbar-fill" style="--w:9.8%"></span></span><span class="hbar-val">$457K/d</span></a></li><li><a class="hbar" href="/dead/olive-ai/"><span class="hbar-name" title="Olive AI">Olive AI</span><span class="hbar-track"><span class="hbar-fill" style="--w:7.8%"></span></span><span class="hbar-val">$362K/d</span></a></li><li><a class="hbar" href="/dead/character-ai-independent/"><span class="hbar-name" title="Character.AI (Independent)">Character.AI (Independent)</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.7%"></span></span><span class="hbar-val">$219K/d</span></a></li><li><a class="hbar" href="/dead/forward-carepods/"><span class="hbar-name" title="Forward (CarePods)">Forward (CarePods)</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.4%"></span></span><span class="hbar-val">$203K/d</span></a></li><li><a class="hbar" href="/dead/embark-trucks/"><span class="hbar-name" title="Embark Trucks">Embark Trucks</span><span class="hbar-track"><span class="hbar-fill" style="--w:3.3%"></span></span><span class="hbar-val">$153K/d</span></a></li><li><a class="hbar" href="/dead/builder-ai/"><span class="hbar-name" title="Builder.ai">Builder.ai</span><span class="hbar-track"><span class="hbar-fill" style="--w:2.8%"></span></span><span class="hbar-val">$130K/d</span></a></li></ol></section><section class="dcard"><h2>How they died</h2><p class="dnote">Funding lost by cause of death</p><ol class="hbars"><li><div class="hbar"><span class="hbar-name" title="Product killed (1)">Product killed (1)</span><span class="hbar-track"><span class="hbar-fill" style="--w:100.0%"></span></span><span class="hbar-val">$10B</span></div></li><li><div class="hbar"><span class="hbar-name" title="Startup failed (22)">Startup failed (22)</span><span class="hbar-track"><span class="hbar-fill" style="--w:70.1%"></span></span><span class="hbar-val">$7B</span></div></li><li><div class="hbar"><span class="hbar-name" title="Acqui-hired (10)">Acqui-hired (10)</span><span class="hbar-track"><span class="hbar-fill" style="--w:23.5%"></span></span><span class="hbar-val">$2.3B</span></div></li><li><div class="hbar"><span class="hbar-name" title="Hardware discontinued (4)">Hardware discontinued (4)</span><span class="hbar-track"><span class="hbar-fill" style="--w:3.5%"></span></span><span class="hbar-val">$347M</span></div></li></ol></section><section class="dcard"><h2>Who killed the money</h2><p class="dnote">Funding lost, by what killed it</p><ol class="hbars"><li><div class="hbar"><span class="hbar-name" title="General Motors">General Motors</span><span class="hbar-track"><span class="hbar-fill" style="--w:100.0%"></span></span><span class="hbar-val">$10B</span></div></li><li><div class="hbar"><span class="hbar-name" title="Ford &amp; Volkswagen">Ford &amp; Volkswagen</span><span class="hbar-track"><span class="hbar-fill" style="--w:36.0%"></span></span><span class="hbar-val">$3.6B</span></div></li><li><a class="hbar" href="/killed-by/itself/"><span class="hbar-name" title="Itself">Itself</span><span class="hbar-track"><span class="hbar-fill" style="--w:22.5%"></span></span><span class="hbar-val">$2.2B</span></a></li><li><a class="hbar" href="/killed-by/microsoft/"><span class="hbar-name" title="Microsoft">Microsoft</span><span class="hbar-track"><span class="hbar-fill" style="--w:15.0%"></span></span><span class="hbar-val">$1.5B</span></a></li><li><a class="hbar" href="/killed-by/market/"><span class="hbar-name" title="Market">Market</span><span class="hbar-track"><span class="hbar-fill" style="--w:7.0%"></span></span><span class="hbar-val">$700M</span></a></li><li><a class="hbar" href="/killed-by/amazon/"><span class="hbar-name" title="Amazon">Amazon</span><span class="hbar-track"><span class="hbar-fill" style="--w:4.2%"></span></span><span class="hbar-val">$415M</span></a></li><li><a class="hbar" href="/killed-by/reality/"><span class="hbar-name" title="Reality">Reality</span><span class="hbar-track"><span class="hbar-fill" style="--w:2.6%"></span></span><span class="hbar-val">$260M</span></a></li><li><div class="hbar"><span class="hbar-name" title="AMD">AMD</span><span class="hbar-track"><span class="hbar-fill" style="--w:1.7%"></span></span><span class="hbar-val">$168M</span></div></li></ol></section></div></div>
+    <span class="last-updated" style="display:block;text-align:center;margin-top:.75rem">Last updated: October 8, 2026 · funding = total raised before death (VC, corporate or strategic) · <a href="/api/" style="color:inherit">free JSON</a></span>
+    <div class="list-wrap">  <!-- the sticky filter bar stops where the list ends -->
+    <div class="lctrl" role="search"><h2 id="list">All 37 failed AI companies</h2><input class="lsearch" type="search" placeholder="Search company, cause or killer…" aria-label="Search company, cause or killer…" autocomplete="off"><select class="lsort" aria-label="Sort by"><option value="fund:desc">Most raised</option><option value="date:desc">Most recent death</option><option value="burn:desc">Fastest burn</option><option value="life:desc">Longest-lived</option><option value="life:asc">Shortest-lived</option><option value="name:asc">A–Z</option></select><div class="chips" role="group" aria-label="Filter"><button type="button" class="chipf on" data-f="all" aria-pressed="true">All<small>37</small></button><button type="button" class="chipf" data-f="startup-failed" aria-pressed="false">Startup failed<small>22</small></button><button type="button" class="chipf" data-f="acqui-hired" aria-pressed="false">Acqui-hired<small>10</small></button><button type="button" class="chipf" data-f="hardware-failed" aria-pressed="false">Hardware discontinued<small>4</small></button><button type="button" class="chipf" data-f="product-killed" aria-pressed="false">Product killed<small>1</small></button><button type="button" class="chipf" data-f="2026" aria-pressed="false">2026<small>10</small></button><button type="button" class="chipf" data-f="2025" aria-pressed="false">2025<small>14</small></button><button type="button" class="chipf" data-f="2024" aria-pressed="false">2024<small>9</small></button></div><p class="lcount" aria-live="polite"></p></div>
 
     <main class="list" data-sortable>
 <article class="fund-row" id="gm-cruise" data-sort-row data-fund="10000" data-date="20241210" data-burn="2293052" data-life="4361" data-name="gm cruise" data-f="product-killed 2024" data-text="gm cruise the robotaxi startup gm bought in 2016 and then poured more than $10 billion into, with honda ($852m), microsoft and softbank alongside. driverless paid rides began in san francisco in 2022; a 2023 crash in which a cruise car dragged a pedestrian, and the company&#x27;s handling of it, cost it its california permit. in december 2024 mary barra ended the program, citing the &#x27;incremental time and capital&#x27; still needed. the most expensive ai product death on record. general motors parent pulled funding">
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:100.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#1</span><a href="/dead/gm-cruise/">GM Cruise</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#1</span> <a href="/dead/gm-cruise/">GM Cruise</a></h2>
       <span class="fund-amount">$10B</span>
     </div>
     <p class="fund-desc">The robotaxi startup GM bought in 2016 and then poured more than $10 billion into, with Honda ($852M), Microsoft and SoftBank alongside. Driverless paid rides began in San Francisco in 2022; a 2023 crash in which a Cruise car dragged a pedestrian, and the company&#x27;s handling of it, cost it its California permit. In December 2024 Mary Barra ended the program, citing the &#x27;incremental time and capital&#x27; still needed. The most expensive AI product death on record.</p>
@@ -219,7 +227,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:36.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#2</span><a href="/dead/argo-ai/">Argo AI</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#2</span> <a href="/dead/argo-ai/">Argo AI</a></h2>
       <span class="fund-amount">$3.6B</span>
     </div>
     <p class="fund-desc">Pittsburgh&#x27;s self-driving champion, backed by roughly $1 billion from Ford and $2.6 billion from Volkswagen. Six years in, both backers decided that fully driverless cars were further away than they could keep paying for, declined to invest further, and absorbed its assets. Around 2,000 employees were offered jobs at the two carmakers; the company itself simply stopped.</p>
@@ -236,7 +244,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:15.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#3</span><a href="/dead/inflection-ai-pi/">Inflection AI / Pi</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#3</span> <a href="/dead/inflection-ai-pi/">Inflection AI / Pi</a></h2>
       <span class="fund-amount">$1.5B</span>
     </div>
     <p class="fund-desc">A &#x27;personal AI&#x27; focused on emotional intelligence and empathy, backed by $1.5B in funding. Effectively killed when Microsoft hired CEO Mustafa Suleyman and most of the engineering team, leaving Pi as an orphaned product.</p>
@@ -253,7 +261,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:9.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#4</span><a href="/dead/olive-ai/">Olive AI</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#4</span> <a href="/dead/olive-ai/">Olive AI</a></h2>
       <span class="fund-amount">$902M</span>
     </div>
     <p class="fund-desc">A healthcare AI startup once valued at $4 billion that promised to automate hospital admin tasks. Despite raising $902M, investigations revealed its &#x27;AI&#x27; relied heavily on manual human labor behind the scenes. After mass layoffs, it shut down and sold its assets for a fraction of its valuation.</p>
@@ -270,7 +278,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:6.6%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#5</span><a href="/dead/forward-carepods/">Forward (CarePods)</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#5</span> <a href="/dead/forward-carepods/">Forward (CarePods)</a></h2>
       <span class="fund-amount">$657M</span>
     </div>
     <p class="fund-desc">A primary-care startup that raised $657M on the promise of AI-run doctor&#x27;s offices, culminating in &#x27;CarePods&#x27; — self-serve kiosks meant to automate check-ups. Only three pods ever launched, one was pulled soon after installation, and former staff described patients getting stuck inside. Forward shut down in November 2024 with a few weeks&#x27; notice.</p>
@@ -287,7 +295,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:4.5%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#6</span><a href="/dead/builder-ai/">Builder.ai</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#6</span> <a href="/dead/builder-ai/">Builder.ai</a></h2>
       <span class="fund-amount">$445M</span>
     </div>
     <p class="fund-desc">Microsoft-backed &#x27;AI app builder&#x27; valued at $1.5B. Its &#x27;neural network&#x27; turned out to be 700 engineers in India writing code manually. After inflating revenue 300% ($55M real vs $220M claimed), a creditor seized $37M from its accounts, triggering bankruptcy across five countries.</p>
@@ -304,7 +312,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:4.2%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#7</span><a href="/dead/adept-ai-independent/">Adept AI (Independent)</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#7</span> <a href="/dead/adept-ai-independent/">Adept AI (Independent)</a></h2>
       <span class="fund-amount">$415M</span>
     </div>
     <p class="fund-desc">An AI startup building autonomous agents that could use software tools, valued at $1B with $415M raised. Amazon hired 80% of the team including the CEO and co-founders — a &#x27;reverse acqui-hire&#x27; that drew FTC scrutiny as a pattern of Big Tech absorbing AI startups without triggering antitrust review.</p>
@@ -321,7 +329,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:4.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#8</span><a href="/dead/embark-trucks/">Embark Trucks</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#8</span> <a href="/dead/embark-trucks/">Embark Trucks</a></h2>
       <span class="fund-amount">$400M</span>
     </div>
     <p class="fund-desc">An autonomous-trucking company that went public via SPAC in 2021 and raised more than $400 million. With no revenue and capital markets closed to pre-revenue companies, it cut 70% of staff and began liquidating its self-driving truck assets in March 2023. Its timeline for driverless freight never arrived; the money did run out.</p>
@@ -338,7 +346,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:2.3%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#9</span><a href="/dead/humane-ai-pin/">Humane AI Pin</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#9</span> <a href="/dead/humane-ai-pin/">Humane AI Pin</a></h2>
       <span class="fund-amount">$230M</span>
     </div>
     <p class="fund-desc">The $699 screenless AI wearable that was supposed to replace smartphones. Plagued by overheating, terrible battery life, and painfully slow responses. Humane sought a buyer after disastrous reviews and abysmal sales.</p>
@@ -355,7 +363,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:2.2%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#10</span><a href="/dead/ghost-autonomy/">Ghost Autonomy</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#10</span> <a href="/dead/ghost-autonomy/">Ghost Autonomy</a></h2>
       <span class="fund-amount">$220M</span>
     </div>
     <p class="fund-desc">A self-driving software startup that raised about $220M and, months before closing, landed an investment from OpenAI&#x27;s startup fund to bring large language models to autonomous driving. It shut down worldwide on April 3, 2024, unable to secure the long-term funding its plan required.</p>
@@ -368,11 +376,28 @@ a.mchip:hover{color:var(--acc)}
     </div>
   </div>
 </article>
+<article class="fund-row" id="untether-ai" data-sort-row data-fund="168" data-date="20250605" data-burn="61947" data-life="2712" data-name="untether ai" data-f="acqui-hired 2025" data-text="untether ai a toronto ai-inference chip startup selling speedai accelerators and the imaigine sdk. pitchbook data cited by the logic puts its funding at us$168m from backers including cpp investments, intel capital and radical ventures, with the last major round in july 2021. in early june 2025 amd took its engineering team in an undisclosed deal, and untether said it would &#x27;no longer be supplying or supporting our speedai products and imaigine software development kit.&#x27; the engineers went to work on amd&#x27;s ai compiler, kernel and chip-design efforts. amd acqui-hire">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:1.7%"></div></div>
+  <div class="fund-info">
+    <div class="fund-header">
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#11</span> <a href="/dead/untether-ai/">Untether AI</a></h2>
+      <span class="fund-amount">$168M</span>
+    </div>
+    <p class="fund-desc">A Toronto AI-inference chip startup selling speedAI accelerators and the imAIgine SDK. PitchBook data cited by The Logic puts its funding at US$168M from backers including CPP Investments, Intel Capital and Radical Ventures, with the last major round in July 2021. In early June 2025 AMD took its engineering team in an undisclosed deal, and Untether said it would &#x27;no longer be supplying or supporting our speedAI products and imAIgine software development kit.&#x27; The engineers went to work on AMD&#x27;s AI compiler, kernel and chip-design efforts.</p>
+    <div class="fund-meta">
+      <span class="mchip">Acqui-hired</span>
+      <span class="fund-dates">2018–Jun 2025 · 7.4 yrs</span>
+      <span class="fund-dates">$62K/day</span>
+      <span class="fund-dates">Killed by AMD</span>
+      <a class="fund-source" href="https://thelogic.co/briefing/toronto-chipmaker-untether-ai-shuts-down-sells-team-to-amd/" target="_blank" rel="noopener">Source ↗</a>
+    </div>
+  </div>
+</article>
 <article class="fund-row" id="character-ai-independent" data-sort-row data-fund="150" data-date="20240802" data-burn="218659" data-life="686" data-name="character.ai (independent)" data-f="acqui-hired 2024" data-text="character.ai (independent) the viral ai chatbot platform where users created and talked to ai &#x27;characters.&#x27; after safety controversies and intense competition, google effectively acqui-hired the founders and key staff, leaving the company a shell of its former self. google acqui-hire">
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:1.5%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#11</span><a href="/dead/character-ai-independent/">Character.AI (Independent)</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#12</span> <a href="/dead/character-ai-independent/">Character.AI (Independent)</a></h2>
       <span class="fund-amount">$150M</span>
     </div>
     <p class="fund-desc">The viral AI chatbot platform where users created and talked to AI &#x27;characters.&#x27; After safety controversies and intense competition, Google effectively acqui-hired the founders and key staff, leaving the company a shell of its former self.</p>
@@ -385,11 +410,28 @@ a.mchip:hover{color:var(--acc)}
     </div>
   </div>
 </article>
+<article class="fund-row" id="soul-machines" data-sort-row data-fund="135" data-date="20260205" data-burn="36605" data-life="3688" data-name="soul machines" data-f="startup-failed 2026" data-text="soul machines a new zealand maker of ai &#x27;digital people&#x27; avatars, co-founded in 2016 by greg cross and mark sagar, a two-time sci-tech academy award winner for facial-capture work at weta digital. it raised more than us$135m (about nz$225m) from backers including horizons ventures, softbank vision fund 2, salesforce ventures and temasek. on february 5, 2026 kpmg&#x27;s leon bowker and luke norman were appointed receivers. on september 28, 2026 appdirect announced it had acquired soul machines on undisclosed terms and would build the avatars into devs.ai, so the faces live on with a different employer. itself funding collapse">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:1.4%"></div></div>
+  <div class="fund-info">
+    <div class="fund-header">
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#13</span> <a href="/dead/soul-machines/">Soul Machines</a></h2>
+      <span class="fund-amount">$135M</span>
+    </div>
+    <p class="fund-desc">A New Zealand maker of AI &#x27;Digital People&#x27; avatars, co-founded in 2016 by Greg Cross and Mark Sagar, a two-time Sci-Tech Academy Award winner for facial-capture work at Weta Digital. It raised more than US$135M (about NZ$225M) from backers including Horizons Ventures, SoftBank Vision Fund 2, Salesforce Ventures and Temasek. On February 5, 2026 KPMG&#x27;s Leon Bowker and Luke Norman were appointed receivers. On September 28, 2026 AppDirect announced it had acquired Soul Machines on undisclosed terms and would build the avatars into Devs.ai, so the faces live on with a different employer.</p>
+    <div class="fund-meta">
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2016–Feb 2026 · 10.1 yrs</span>
+      <span class="fund-dates">$37K/day</span>
+      <span class="fund-dates">Killed by Itself</span>
+      <a class="fund-source" href="https://www.nzherald.co.nz/business/ai-casualty-once-high-flying-soul-machines-in-receivership/YCN66TQ7BJDFLAMSWGKQCIJNN4/" target="_blank" rel="noopener">Source ↗</a>
+    </div>
+  </div>
+</article>
 <article class="fund-row" id="jasper-ai-original-platform" data-sort-row data-fund="125" data-date="20250601" data-burn="77543" data-life="1612" data-name="jasper ai (original platform)" data-f="startup-failed 2025" data-text="jasper ai (original platform) one of the first ai writing unicorns, valued at $1.5b. jasper&#x27;s &#x27;wrapper&#x27; business model collapsed as gpt-4o and claude made its core features available for free or at a fraction of the cost. openai / anthropic feature parity">
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:1.2%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#12</span><a href="/dead/jasper-ai-original-platform/">Jasper AI (Original Platform)</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#14</span> <a href="/dead/jasper-ai-original-platform/">Jasper AI (Original Platform)</a></h2>
       <span class="fund-amount">$125M</span>
     </div>
     <p class="fund-desc">One of the first AI writing unicorns, valued at $1.5B. Jasper&#x27;s &#x27;wrapper&#x27; business model collapsed as GPT-4o and Claude made its core features available for free or at a fraction of the cost.</p>
@@ -406,7 +448,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:1.1%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#13</span><a href="/dead/woebot/">Woebot</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#15</span> <a href="/dead/woebot/">Woebot</a></h2>
       <span class="fund-amount">$114M</span>
     </div>
     <p class="fund-desc">A pioneering AI therapy chatbot used by 1.5 million people that delivered cognitive behavioral therapy via smartphone. Despite FDA Breakthrough Device designation, the company shut down because the regulatory process for AI mental health tools proved too costly and slow as LLMs outpaced the FDA&#x27;s ability to regulate them.</p>
@@ -423,7 +465,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:1.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#14</span><a href="/dead/stability-ai-stable-diffusion-creator/">Stability AI (Stable Diffusion Creator)</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#16</span> <a href="/dead/stability-ai-stable-diffusion-creator/">Stability AI (Stable Diffusion Creator)</a></h2>
       <span class="fund-amount">$101M</span>
     </div>
     <p class="fund-desc">The company behind Stable Diffusion, the open-source model that democratized AI image generation. After CEO Emad Mostaque resigned amid financial turmoil and copyright lawsuits, the company struggled to survive as a going concern.</p>
@@ -440,7 +482,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:1.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#15</span><a href="/dead/writer-gpt-wrapper-era/">Writer (GPT Wrapper Era)</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#17</span> <a href="/dead/writer-gpt-wrapper-era/">Writer (GPT Wrapper Era)</a></h2>
       <span class="fund-amount">$100M</span>
     </div>
     <p class="fund-desc">Originally an AI writing assistant for enterprises built on GPT. Pivoted multiple times as the &#x27;wrapper&#x27; model died, eventually trying to become a full AI platform. Struggled as enterprises adopted native Copilot and Gemini integrations.</p>
@@ -457,7 +499,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.8%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#16</span><a href="/dead/neeva/">Neeva</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#18</span> <a href="/dead/neeva/">Neeva</a></h2>
       <span class="fund-amount">$78M</span>
     </div>
     <p class="fund-desc">An ad-free, AI-powered search engine founded by ex-Google executives. Despite raising $77.5M, it couldn&#x27;t compete with free alternatives. Acquired by Snowflake for its AI talent, and the search engine was shut down.</p>
@@ -470,11 +512,28 @@ a.mchip:hover{color:var(--acc)}
     </div>
   </div>
 </article>
+<article class="fund-row" id="esperanto-technologies" data-sort-row data-fund="63" data-date="20250701" data-burn="15004" data-life="4199" data-name="esperanto technologies" data-f="startup-failed 2025" data-text="esperanto technologies a risc-v ai-inference chipmaker founded in 2014 by transmeta co-founder dave ditzel. its 7nm et-soc-1 packed 1,088 small et-minion cores and four larger et-maxion cores onto one chip. a $58m series b in november 2018 brought equity funding to $63m, plus a $1.5m ppp loan in 2020. in july 2025 it closed most operations, keeping only the staff needed to sell its ip, after rivals offered prospective employees up to four times its pay. ainekko (nekko.ai) bought the ip that october and is open-sourcing it. deep-pocketed rivals talent poaching">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.6%"></div></div>
+  <div class="fund-info">
+    <div class="fund-header">
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#19</span> <a href="/dead/esperanto-technologies/">Esperanto Technologies</a></h2>
+      <span class="fund-amount">$63M</span>
+    </div>
+    <p class="fund-desc">A RISC-V AI-inference chipmaker founded in 2014 by Transmeta co-founder Dave Ditzel. Its 7nm ET-SoC-1 packed 1,088 small ET-Minion cores and four larger ET-Maxion cores onto one chip. A $58M Series B in November 2018 brought equity funding to $63M, plus a $1.5M PPP loan in 2020. In July 2025 it closed most operations, keeping only the staff needed to sell its IP, after rivals offered prospective employees up to four times its pay. Ainekko (Nekko.ai) bought the IP that October and is open-sourcing it.</p>
+    <div class="fund-meta">
+      <span class="mchip">Startup failed</span>
+      <span class="fund-dates">2014–Jul 2025 · 11.5 yrs</span>
+      <span class="fund-dates">$15K/day</span>
+      <span class="fund-dates">Killed by Deep-Pocketed Rivals</span>
+      <a class="fund-source" href="https://www.eetimes.com/ai-startup-esperanto-winds-down-silicon-business/" target="_blank" rel="noopener">Source ↗</a>
+    </div>
+  </div>
+</article>
 <article class="fund-row" id="moxie-robot" data-sort-row data-fund="54" data-date="20241201" data-burn="34794" data-life="1552" data-name="moxie robot" data-f="hardware-failed 2024" data-text="moxie robot an $800 ai social robot designed to help children develop emotional skills, particularly popular with autistic kids. when funding collapsed, the company shut down abruptly — bricking all devices and leaving heartbroken children saying goodbye to their companion on camera. no refunds were offered. embodied inc. funding collapse">
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.5%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#17</span><a href="/dead/moxie-robot/">Moxie Robot</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#20</span> <a href="/dead/moxie-robot/">Moxie Robot</a></h2>
       <span class="fund-amount">$54M</span>
     </div>
     <p class="fund-desc">An $800 AI social robot designed to help children develop emotional skills, particularly popular with autistic kids. When funding collapsed, the company shut down abruptly — bricking all devices and leaving heartbroken children saying goodbye to their companion on camera. No refunds were offered.</p>
@@ -491,7 +550,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.4%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#18</span><a href="/dead/robin-ai/">Robin AI</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#21</span> <a href="/dead/robin-ai/">Robin AI</a></h2>
       <span class="fund-amount">$44M</span>
     </div>
     <p class="fund-desc">UK legal tech startup that raised $44M to build AI-powered contract review tools used by PwC and KPMG. After failing to close a $50M Series C, the company cut a third of its staff and was listed on an insolvency marketplace — just 9 months after making the Sunday Times 100 Tech list.</p>
@@ -508,7 +567,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.3%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#19</span><a href="/dead/yupp-ai/">Yupp.ai</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#22</span> <a href="/dead/yupp-ai/">Yupp.ai</a></h2>
       <span class="fund-amount">$33M</span>
     </div>
     <p class="fund-desc">A crowdsourced AI-evaluation platform that paid users to compare model outputs, backed by $33M from a16z crypto. It reached 1.3 million users and still died inside a year. The labs had moved on to expert-sourced data and agentic evaluation — broad consumer preference signal simply stopped being the scarce input anyone would pay for. Co-founders Pankaj Gupta and Gilad Mishne kept it accessible for two weeks after the announcement, then closed signups permanently.</p>
@@ -525,7 +584,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.3%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#20</span><a href="/dead/limitless-pendant-rewind-ai/">Limitless Pendant (Rewind AI)</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#23</span> <a href="/dead/limitless-pendant-rewind-ai/">Limitless Pendant (Rewind AI)</a></h2>
       <span class="fund-amount">$33M</span>
     </div>
     <p class="fund-desc">A $99 AI wearable pendant that recorded and transcribed in-person conversations, previously known as Rewind. Meta acquired the company and immediately ended hardware sales, sunset the desktop app, and cut off EU/UK service entirely due to GDPR concerns.</p>
@@ -542,7 +601,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.3%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#21</span><a href="/dead/kintsugi-ai/">Kintsugi AI</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#24</span> <a href="/dead/kintsugi-ai/">Kintsugi AI</a></h2>
       <span class="fund-amount">$30M</span>
     </div>
     <p class="fund-desc">An AI startup that spent 7 years and $30M developing voice biomarker technology to detect depression and anxiety from how people speak. Shut down after nearly 4 years waiting for FDA De Novo clearance that never came. Open-sourced all code and research before closing — a rare act of scientific integrity in an industry of quiet deaths.</p>
@@ -559,7 +618,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.3%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#22</span><a href="/dead/rabbit-r1/">Rabbit R1</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#25</span> <a href="/dead/rabbit-r1/">Rabbit R1</a></h2>
       <span class="fund-amount">$30M</span>
     </div>
     <p class="fund-desc">A $199 &#x27;AI-native&#x27; gadget designed to replace apps with a &#x27;Large Action Model.&#x27; Widely panned as a repackaged Android app with a $199 price tag. The hardware became essentially abandoned after the company pivoted to software-only.</p>
@@ -572,11 +631,28 @@ a.mchip:hover{color:var(--acc)}
     </div>
   </div>
 </article>
+<article class="fund-row" id="playai-playht" data-sort-row data-fund="21" data-date="20251231" data-burn="5750" data-life="3652" data-name="playai (playht)" data-f="acqui-hired 2025" data-text="playai (playht) playht began in 2016 as a browser extension that read articles aloud and grew into a text-to-speech, voice-cloning and voice-agent platform, later renamed playai. founders hammad syed and mahmoud felfel went through y combinator and raised a $21m seed round in november 2024 led by kindred ventures and 500 global. in july 2025 meta acquired the company and took the entire team to work on voice for meta ai, ai characters and wearables. the api was given until december 31, 2025, and voice-agent frameworks such as pipecat deprecated their playht integrations ahead of the cutoff. meta acqui-hire">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.2%"></div></div>
+  <div class="fund-info">
+    <div class="fund-header">
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#26</span> <a href="/dead/playai-playht/">PlayAI (PlayHT)</a></h2>
+      <span class="fund-amount">$21M</span>
+    </div>
+    <p class="fund-desc">PlayHT began in 2016 as a browser extension that read articles aloud and grew into a text-to-speech, voice-cloning and voice-agent platform, later renamed PlayAI. Founders Hammad Syed and Mahmoud Felfel went through Y Combinator and raised a $21M seed round in November 2024 led by Kindred Ventures and 500 Global. In July 2025 Meta acquired the company and took the entire team to work on voice for Meta AI, AI Characters and wearables. The API was given until December 31, 2025, and voice-agent frameworks such as Pipecat deprecated their PlayHT integrations ahead of the cutoff.</p>
+    <div class="fund-meta">
+      <span class="mchip">Acqui-hired</span>
+      <span class="fund-dates">2016–Dec 2025 · 10.0 yrs</span>
+      <span class="fund-dates">$6K/day</span>
+      <span class="fund-dates">Killed by Meta</span>
+      <a class="fund-source" href="https://techcrunch.com/2025/07/13/meta-acquires-voice-startup-play-ai/" target="_blank" rel="noopener">Source ↗</a>
+    </div>
+  </div>
+</article>
 <article class="fund-row" id="tune-ai" data-sort-row data-fund="20" data-date="20250601" data-burn="7386" data-life="2708" data-name="tune ai" data-f="startup-failed 2025" data-text="tune ai backed by accel and flipkart, this genai platform offered llm fine-tuning tools via tune chat and tune studio. killed when major cloud providers released identical tooling at lower cost, and most users were free developers who never converted to paying customers. aws / google / azure feature absorption">
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.2%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#23</span><a href="/dead/tune-ai/">Tune AI</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#27</span> <a href="/dead/tune-ai/">Tune AI</a></h2>
       <span class="fund-amount">$20M</span>
     </div>
     <p class="fund-desc">Backed by Accel and Flipkart, this GenAI platform offered LLM fine-tuning tools via Tune Chat and Tune Studio. Killed when major cloud providers released identical tooling at lower cost, and most users were free developers who never converted to paying customers.</p>
@@ -593,7 +669,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.1%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#24</span><a href="/dead/relay-app/">Relay.app</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#28</span> <a href="/dead/relay-app/">Relay.app</a></h2>
       <span class="fund-amount">$8M</span>
     </div>
     <p class="fund-desc">AI-agent workflow automation pitched as a Zapier alternative, founded by Jacob Bank — ex-Google Gmail and Calendar product lead whose previous startup Timeful was bought by Google. On July 16, 2026 the homepage was simply replaced with &#x27;Relay.app is shutting down,&#x27; with no reason given. A month later the answer arrived: Bank and part of the team joined Google&#x27;s Chrome division. The free tier stopped working August 15; paid accounts were given until September 14.</p>
@@ -606,18 +682,18 @@ a.mchip:hover{color:var(--acc)}
     </div>
   </div>
 </article>
-<article class="fund-row" id="thegist" data-sort-row data-fund="7" data-date="20260915" data-burn="4075" data-life="1718" data-name="thegist" data-f="startup-failed 2026" data-text="thegist an israeli startup that scanned slack, email, crm and analytics to hand each employee a personalised summary of what mattered — founded in 2022 by alumni of wix, blizzard, openweb and gong, with $7m pre-seed co-led by stageone and aleph. a pivot toward sales tooling never caught, and rather than spend the remainder the founders closed the company and returned the money to investors. ⚠ closure reported mid-september 2026; no exact date was published. itself no product-market fit">
+<article class="fund-row" id="thegist" data-sort-row data-fund="7" data-date="20250903" data-burn="5220" data-life="1341" data-name="thegist" data-f="startup-failed 2025" data-text="thegist an israeli startup that scanned slack, email, crm and analytics to hand each employee a personalised summary of what mattered — founded in 2022 by alumni of wix, blizzard, openweb and gong, with a $7m pre-seed co-led by stageone and aleph. a pivot toward sales tooling never caught, and rather than spend the remainder the founders closed the company and said they would return the money to investors. ⚠ closure announced september 3, 2025 (calcalist/ctech); no exact shutdown date was published. itself no product-market fit">
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.1%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#25</span><a href="/dead/thegist/">theGist</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#29</span> <a href="/dead/thegist/">theGist</a></h2>
       <span class="fund-amount">$7M</span>
     </div>
-    <p class="fund-desc">An Israeli startup that scanned Slack, email, CRM and analytics to hand each employee a personalised summary of what mattered — founded in 2022 by alumni of Wix, Blizzard, OpenWeb and Gong, with $7M pre-seed co-led by StageOne and Aleph. A pivot toward sales tooling never caught, and rather than spend the remainder the founders closed the company and returned the money to investors. ⚠ Closure reported mid-September 2026; no exact date was published.</p>
+    <p class="fund-desc">An Israeli startup that scanned Slack, email, CRM and analytics to hand each employee a personalised summary of what mattered — founded in 2022 by alumni of Wix, Blizzard, OpenWeb and Gong, with a $7M pre-seed co-led by StageOne and Aleph. A pivot toward sales tooling never caught, and rather than spend the remainder the founders closed the company and said they would return the money to investors. ⚠ Closure announced September 3, 2025 (Calcalist/CTech); no exact shutdown date was published.</p>
     <div class="fund-meta">
       <span class="mchip">Startup failed</span>
-      <span class="fund-dates">2022–Sep 2026 · 4.7 yrs</span>
-      <span class="fund-dates">$4K/day</span>
+      <span class="fund-dates">2022–Sep 2025 · 3.7 yrs</span>
+      <span class="fund-dates">$5K/day</span>
       <span class="fund-dates">Killed by Itself</span>
       <a class="fund-source" href="https://www.calcalistech.com/ctechnews/article/jeyngl375" target="_blank" rel="noopener">Source ↗</a>
     </div>
@@ -627,7 +703,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#26</span><a href="/dead/huxe/">Huxe</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#30</span> <a href="/dead/huxe/">Huxe</a></h2>
       <span class="fund-amount">$5M</span>
     </div>
     <p class="fund-desc">An AI audio app from three former NotebookLM developers — prompt it and get a podcast, a personalised feed, or a live AI radio station you could interrupt mid-sentence. It raised $4.6M from Conviction, Dylan Field and Google&#x27;s own Jeff Dean. Spotify shipped a near-identical personal podcast feature one day before the wind-down notice, and Google&#x27;s Gemini Daily Brief had landed at I/O weeks earlier. Built by ex-Googlers, buried by Google.</p>
@@ -644,7 +720,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#27</span><a href="/dead/weights-gg/">Weights (weights.gg)</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#31</span> <a href="/dead/weights-gg/">Weights (weights.gg)</a></h2>
       <span class="fund-amount">$4M</span>
     </div>
     <p class="fund-desc">The community voice-cloning and AI-music platform where thousands of celebrity and character voice models lived. Weights announced in January 2026 that it had never been profitable and closed on March 31; two months later The New York Times reported that OpenAI had quietly bought its technology and roughly six engineers. Its library of consent-free celebrity voices had become a liability as deepfake laws tightened — the thing that made it popular was the thing that made it unsellable as a product.</p>
@@ -661,7 +737,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#28</span><a href="/dead/reforged-labs/">Reforged Labs</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#32</span> <a href="/dead/reforged-labs/">Reforged Labs</a></h2>
       <span class="fund-amount">$4M</span>
     </div>
     <p class="fund-desc">Built AI-generated video ad creative for mobile game studios and won real customers — Supercell, King, Ubisoft, Playtika, Scopely — with 17 staff across Vietnam and the US. CEO Robert Huynh shut it down after three years because foundation models got good enough for studios to build the same tooling in-house: &#x27;the gap we were selling into is closing.&#x27; Its biggest customers signed six-figure contracts; there were simply too few studios at that scale to sustain a company.</p>
@@ -678,7 +754,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#29</span><a href="/dead/stainless-sdk-generator/">Stainless SDK Generator</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#33</span> <a href="/dead/stainless-sdk-generator/">Stainless SDK Generator</a></h2>
       <span class="fund-amount">$4M</span>
     </div>
     <p class="fund-desc">The startup that auto-generated production-ready API SDKs in Python, TypeScript, Go, Java, and Kotlin. Used by OpenAI, Google, Cloudflare, Replicate, Runway, and Meta. Anthropic acquired it for $300M+ and immediately announced it would wind down all hosted products — a strategic kill to deny competitors access to critical infrastructure.</p>
@@ -695,7 +771,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#30</span><a href="/dead/coqui-ai/">Coqui AI</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#34</span> <a href="/dead/coqui-ai/">Coqui AI</a></h2>
       <span class="fund-amount">$3M</span>
     </div>
     <p class="fund-desc">An open-source text-to-speech startup that built the popular Coqui TTS library. Despite being a go-to for developers wanting voice synthesis, the company ran out of funding and shut down, releasing its final models to the community before going dark.</p>
@@ -712,7 +788,7 @@ a.mchip:hover{color:var(--acc)}
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#31</span><a href="/dead/yara-ai/">Yara AI</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#35</span> <a href="/dead/yara-ai/">Yara AI</a></h2>
       <span class="fund-amount">$2M</span>
     </div>
     <p class="fund-desc">UK-based AI mental health companion offering CBT-style exercises and conversational support. The founder voluntarily shut it down after deciding AI chatbots aren&#x27;t safe enough for people in real mental health crises — a rare case of ethical self-termination.</p>
@@ -725,11 +801,28 @@ a.mchip:hover{color:var(--acc)}
     </div>
   </div>
 </article>
+<article class="fund-row" id="rilo" data-sort-row data-fund="1" data-date="20260902" data-burn="1642" data-life="609" data-name="rilo" data-f="acqui-hired 2026" data-text="rilo an indian startup founded in 2025 by iit bombay alumni dhruv jaglan and georgi boby, selling ai agents for marketing work described in plain english: competitor intelligence, campaign research, social outreach, content repurposing and sales-call analysis. it raised $1m from peak xv partners, devc and day zero ventures at a $10m valuation and, by jaglan&#x27;s account, reached 10,000 users within months of launch. on september 2, 2026 adobe acquired it in an undisclosed deal that licensed its technology and brought its six-person team into adobe. the platform shut down after the deal; no switch-off date was published. adobe acqui-hire">
+  <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
+  <div class="fund-info">
+    <div class="fund-header">
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#36</span> <a href="/dead/rilo/">Rilo</a></h2>
+      <span class="fund-amount">$1M</span>
+    </div>
+    <p class="fund-desc">An Indian startup founded in 2025 by IIT Bombay alumni Dhruv Jaglan and Georgi Boby, selling AI agents for marketing work described in plain English: competitor intelligence, campaign research, social outreach, content repurposing and sales-call analysis. It raised $1M from Peak XV Partners, DeVC and Day Zero Ventures at a $10M valuation and, by Jaglan&#x27;s account, reached 10,000 users within months of launch. On September 2, 2026 Adobe acquired it in an undisclosed deal that licensed its technology and brought its six-person team into Adobe. The platform shut down after the deal; no switch-off date was published.</p>
+    <div class="fund-meta">
+      <span class="mchip">Acqui-hired</span>
+      <span class="fund-dates">2025–Sep 2026 · 1.7 yrs</span>
+      <span class="fund-dates">$2K/day</span>
+      <span class="fund-dates">Killed by Adobe</span>
+      <a class="fund-source" href="https://inc42.com/buzz/adobe-acquires-peak-xv-backed-ai-martech-startup-rilo/" target="_blank" rel="noopener">Source ↗</a>
+    </div>
+  </div>
+</article>
 <article class="fund-row" id="cydoc" data-sort-row data-fund="0.5" data-date="20260221" data-burn="194" data-life="2577" data-name="cydoc" data-f="startup-failed 2026" data-text="cydoc a bootstrapped health ai startup that operated for 7 years trying to build clinical ai tools. the founder published a detailed postmortem explaining why even technically sound health ai products die: the regulatory maze, slow hospital sales cycles, and the impossibility of competing with big tech&#x27;s free ai offerings. big tech market conditions">
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:0.0%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#32</span><a href="/dead/cydoc/">Cydoc</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#37</span> <a href="/dead/cydoc/">Cydoc</a></h2>
       <span class="fund-amount">$500K</span>
     </div>
     <p class="fund-desc">A bootstrapped health AI startup that operated for 7 years trying to build clinical AI tools. The founder published a detailed postmortem explaining why even technically sound health AI products die: the regulatory maze, slow hospital sales cycles, and the impossibility of competing with Big Tech&#x27;s free AI offerings.</p>
@@ -743,9 +836,10 @@ a.mchip:hover{color:var(--acc)}
   </div>
 </article>
     </main>
+    </div>
     <footer class="site-footer">
         <p>Part of <a href="/">Killed by AI</a>. Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.</p>
-        <p class="footer-links" style="font-size:.8125rem;margin-top:.5rem;text-align:center"><a href="/">The AI graveyard</a> · <a href="/dead/">All 142 tombstones A–Z</a> · <a href="/killed-by/">By killer</a> · <a href="/layoffs/">AI layoffs tracker</a> · <a href="/will-ai-take-my-job/">Will AI take my job?</a> · <a href="/jobs/">Jobs replaced by AI</a> · <a href="/coming-soon/">Upcoming AI shutdowns</a> · <a href="/deprecations.ics">Shutdown calendar (.ics)</a> · <a href="/funding/">Failed AI startups</a> · <a href="/api/">JSON API</a> · <a href="/about/">About & methodology</a> · <a href="/feed.xml">RSS</a></p>
+        <p class="footer-links" style="font-size:.8125rem;margin-top:.5rem;text-align:center"><a href="/">The AI graveyard</a> · <a href="/dead/">All 162 tombstones A–Z</a> · <a href="/killed-by/">By killer</a> · <a href="/layoffs/">AI layoffs tracker</a> · <a href="/will-ai-take-my-job/">Will AI take my job?</a> · <a href="/jobs/">Jobs replaced by AI</a> · <a href="/coming-soon/">Upcoming AI shutdowns</a> · <a href="/deprecations.ics">Shutdown calendar (.ics)</a> · <a href="/funding/">Failed AI startups</a> · <a href="/api/">JSON API</a> · <a href="/about/">About & methodology</a> · <a href="/feed.xml">RSS</a></p>
     </footer>
 <script>
 (function(){
@@ -761,6 +855,7 @@ a.mchip:hover{color:var(--acc)}
     keyed.sort(function(a,b){var x=a.r.dataset[f],y=b.r.dataset[f]; if(f==='name') return x.localeCompare(y)*dir; x=parseFloat(x)||0; y=parseFloat(y)||0; return x===y? a.i-b.i : (x-y)*dir;});
     keyed.forEach(function(o){ var r=o.r, ok=(filt==='all'||(' '+r.dataset.f+' ').indexOf(' '+filt+' ')>-1)&&(!term||r.dataset.text.indexOf(term)>-1); r.hidden=!ok; if(ok){n++;} list.insertBefore(r,empty); });
     empty.hidden=n>0; cnt.textContent='Showing '+n+' of '+rows.length;
+    list.classList.toggle('unranked', key!==s.options[0].value);  // #N badges are rank by the default sort only
     if(push){ try{ var u=new URL(location.href); term?u.searchParams.set('q',term):u.searchParams.delete('q'); key!==s.options[0].value?u.searchParams.set('sort',key):u.searchParams.delete('sort'); filt!=='all'?u.searchParams.set('f',filt):u.searchParams.delete('f'); history.replaceState(null,'',u.pathname+u.search+u.hash);}catch(e){} }
   }
   chips.forEach(function(c){c.addEventListener('click',function(){filt=c.dataset.f; chips.forEach(function(x){var on=x===c; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on)}); apply(true);});});
@@ -768,6 +863,24 @@ a.mchip:hover{color:var(--acc)}
   try{ var p=new URLSearchParams(location.search); if(p.get('q')) q.value=p.get('q'); if(p.get('sort')&&[].some.call(s.options,function(o){return o.value===p.get('sort')})) s.value=p.get('sort');
     if(p.get('f')){ chips.forEach(function(c){ if(c.dataset.f===p.get('f')){ filt=c.dataset.f; chips.forEach(function(x){x.classList.toggle('on',x===c); x.setAttribute('aria-pressed',x===c)}); } }); } }catch(e){}
   apply(false);
+  // #anchor targets: keep them clear of the sticky bar, and un-filter the list if the target row is hidden
+  var bar=document.querySelector('.lctrl'), root=document.documentElement;
+  function barH(){ if(bar) root.style.setProperty('--lctrl-h', bar.offsetHeight+'px'); }
+  barH(); if(window.ResizeObserver&&bar) new ResizeObserver(barH).observe(bar);
+  function unhide(id){ var el=null; try{ el=id&&document.getElementById(decodeURIComponent(id)); }catch(e){}
+    if(!el||!el.hasAttribute('data-sort-row')||!el.hidden) return null;
+    q.value=''; filt='all'; chips.forEach(function(x){var on=x.dataset.f==='all'; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on)}); apply(true); return el; }
+  document.addEventListener('click',function(e){ var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(a) unhide(a.getAttribute('href').slice(1)); });
+  window.addEventListener('hashchange',function(){ var el=unhide(location.hash.slice(1)); if(el) el.scrollIntoView(); });
+  if(location.hash){ var t=unhide(location.hash.slice(1)); if(t) requestAnimationFrame(function(){ t.scrollIntoView(); }); }
+  // phones: the filter bar is not sticky there, so offer a way back to it from deep in the list
+  if(bar){
+    var btn=document.createElement('button'); btn.type='button'; btn.className='to-filters'; btn.setAttribute('aria-label','Back to filters'); btn.title='Back to filters'; btn.textContent='↑';
+    btn.addEventListener('click',function(){ var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches; bar.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); });
+    document.body.appendChild(btn);
+    var tick=false; function vis(){ tick=false; btn.classList.toggle('visible', bar.getBoundingClientRect().bottom<0); }
+    window.addEventListener('scroll',function(){ if(!tick){ tick=true; requestAnimationFrame(vis); } },{passive:true}); vis();
+  }
 })();
 </script>
 </body>

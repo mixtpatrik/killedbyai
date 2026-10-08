@@ -61,6 +61,7 @@
             --red: #ef4444;
             --red-dim: rgba(239, 68, 68, 0.15);
             --red-glow: rgba(239, 68, 68, 0.08);
+            --red-text: #f87171;
         }
 
         body {
@@ -660,7 +661,7 @@
             font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
             font-weight: 600;
             background: var(--red-dim);
-            color: var(--red);
+            color: var(--red-text);
             padding: 0.25rem 0.5rem;
             border-radius: 0.25rem;
             white-space: nowrap;
@@ -702,7 +703,7 @@
 
         .tag-killer {
             background: var(--red-dim);
-            color: #f87171;
+            color: var(--red-text);
         }
 
         .card-age {
@@ -894,25 +895,6 @@
         }
         .year-filter-clear.visible { display: inline-block; }
 
-        /* Scroll hint */
-        .scroll-hint {
-            text-align: center;
-            padding: 0.5rem 0 0.25rem;
-            color: var(--text-dim);
-            font-size: 0.6875rem;
-            animation: bounce 2s ease infinite;
-        }
-
-        .scroll-hint span {
-            display: inline-block;
-            font-size: 1.25rem;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(4px); }
-        }
-
         @media (max-width: 768px) {
             .insights-row { grid-template-columns: 1fr; }
             .grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
@@ -977,7 +959,7 @@
         .timeline-chart { height: 110px; }
         .card-name a { color: inherit; text-decoration: none; }
         .card-name a:hover, .card-name a:focus-visible { color: var(--red); }
-        .badge-new { display: inline-block; margin-left: .5rem; padding: .125rem .5rem; border-radius: 999px; background: var(--red); color: #fff; font-size: .6875rem; font-weight: 800; letter-spacing: .06em; vertical-align: middle; }
+        .badge-new { display: inline-block; margin-left: .5rem; padding: .125rem .5rem; border-radius: 999px; background: #b91c1c; color: #fff; font-size: .6875rem; font-weight: 800; letter-spacing: .06em; vertical-align: middle; }
         .card-description { font-size: .875rem; line-height: 1.6; }
         .tag { font-size: .75rem; }
         .grid-title { max-width: 1200px; margin: 1.25rem auto .5rem; padding: 0 1.5rem; font-size: 1.125rem; font-weight: 800; letter-spacing: -.01em; }
@@ -1014,7 +996,7 @@
         .toggle-input { position: absolute; clip: rect(0 0 0 0); width: 1px; height: 1px; overflow: hidden; white-space: nowrap; }
         .search-box input { min-height: 44px; }
         .card-name a { display: inline-block; padding: .25rem 0; }
-        .stat-label, .pace-label, .pace-link-lbl, .bar-label, .bar-count, .card-lifespan, .card-age { font-size: .75rem; }
+        .stat-label, .stat-detail, .pace-label, .pace-link-lbl, .bar-label, .bar-count, .card-lifespan, .card-age { font-size: .75rem; }
         .lb-name, .toggle-label, .submit-cta { font-size: .8125rem; }
         .lb-row { text-decoration: none; color: inherit; }
         .bar { display: flex; flex-direction: column; height: 100%; }
@@ -1022,6 +1004,7 @@
         .bar-track { flex: 1; width: 100%; display: flex; align-items: flex-end; min-height: 0; }
         .bar-fill { height: var(--bar-height, 0%); min-height: 2px; }
         .card:target { border-color: var(--red); box-shadow: 0 0 0 3px var(--red-dim); }
+        .card { scroll-margin-top: 4.5rem; }
         .card-description { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }
         .card.expanded .card-description { display: block; -webkit-line-clamp: unset; }
         .card-link { align-self: flex-start; }
@@ -1064,7 +1047,7 @@
         .sticky-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 60; transform: translateY(-110%); transition: transform .22s ease; background: rgba(9, 9, 11, .88); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
         .sticky-bar.visible { transform: none; }
         .sticky-inner { max-width: 1200px; margin: 0 auto; padding: .375rem .75rem; display: flex; align-items: center; gap: .5rem; min-height: 52px; }
-        .sticky-search-wrap { flex: 1; display: flex; align-items: center; gap: .5rem; min-height: 40px; padding: 0 .75rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: .5rem; color: var(--text-dim); }
+        .sticky-search-wrap { flex: 1; min-width: 0; display: flex; align-items: center; gap: .5rem; min-height: 40px; padding: 0 .75rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: .5rem; color: var(--text-dim); }
         .sticky-search-wrap:focus-within { border-color: var(--red); }
         .sticky-search-wrap svg { width: 16px; height: 16px; flex: none; }
         .sticky-search-wrap input { flex: 1; min-width: 0; background: transparent; border: 0; outline: 0; color: var(--text); font: inherit; font-size: 16px; }
@@ -1080,7 +1063,7 @@
         .view-btn { display: inline-flex; align-items: center; gap: .375rem; min-height: 40px; padding: 0 .75rem; border: 0; background: transparent; color: var(--text-dim); font: inherit; font-size: .8125rem; font-weight: 600; cursor: pointer; }
         .view-btn + .view-btn { border-left: 1px solid var(--border); }
         .view-btn:hover { color: var(--text); }
-        .view-btn.active { color: var(--red); background: var(--red-dim); }
+        .view-btn.active { color: var(--red-text); background: var(--red-dim); }
         .grid.list-view { grid-template-columns: 1fr; gap: .375rem; }
         .grid.list-view .card { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "name meta" "tags meta"; align-items: center; column-gap: .75rem; row-gap: .125rem; padding: .625rem .875rem; min-height: 56px; }
         .grid.list-view .card:hover { transform: none; }
@@ -1098,16 +1081,25 @@
             .view-btn { padding: 0 .625rem; min-width: 44px; justify-content: center; }
             .sticky-count { display: none; }
             .sticky-btn { padding: 0 .625rem; }
+            .back-to-top.visible { display: none; }   /* overlaps rows; the sticky bar's "Filters ↑" does the job */
             /* list rows on phones: name spans the row, killer + years share the second line */
             .grid.list-view .card { grid-template-columns: 1fr auto; grid-template-areas: "name name" "tags meta"; padding: .5rem .75rem; min-height: 0; }
             .grid.list-view .card-name { font-size: .9375rem; }
             .grid.list-view .card-lifespan { font-size: .6875rem; padding: .1rem .4rem; }
-            .grid.list-view .badge-new { font-size: .5625rem; padding: .05rem .375rem; margin-left: .375rem; }
+            .grid.list-view .badge-new { font-size: .6875rem; padding: .05rem .375rem; margin-left: .375rem; }
         }
         .risk-cta{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap;max-width:1000px;margin:1rem auto 0;padding:.75rem 1rem;border:1px solid rgba(239,68,68,.45);background:linear-gradient(90deg,rgba(239,68,68,.12),rgba(245,158,11,.08));border-radius:.75rem;color:#fafafa;text-decoration:none;font-weight:700;font-size:.9375rem;text-align:center}.risk-cta:hover{border-color:#ef4444}.risk-cta span{color:#f87171}
+        /* ===== state + a11y utilities (keep last: must beat .grid.list-view .card { display: grid }) ===== */
+        .card.hidden, .card.beyond { display: none !important; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+        .skip-link { position: absolute; left: .5rem; top: .5rem; z-index: 100; transform: translateY(-200%); padding: .5rem .875rem; background: #b91c1c; color: #fff; border-radius: .375rem; font-weight: 700; text-decoration: none; }
+        .skip-link:focus { transform: none; }
+        .controls { scroll-margin-top: .75rem; }
+        a.chip { text-decoration: none; }
     </style>
 </head>
 <body>
+    <a class="skip-link" id="skip-link" href="#search">Skip to search</a>
 
     <nav class="site-nav" aria-label="Site">
         <a href="/" class="site-nav-item active" aria-current="page">💀 Graveyard</a>
@@ -1118,13 +1110,13 @@
         <a href="/api/" class="site-nav-item">{ } API</a>
     </nav>
 
-    <div class="sticky-bar" id="sticky-bar" aria-hidden="true">
+    <div class="sticky-bar" id="sticky-bar" aria-hidden="true" inert>
         <div class="sticky-inner">
             <label class="sticky-search-wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
-                <input type="search" id="sticky-search" placeholder="Search the graveyard…" autocomplete="off" aria-label="Search the graveyard">
+                <input type="search" id="sticky-search" placeholder="Search the graveyard…" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="search" aria-label="Search the graveyard">
             </label>
-            <span class="sticky-count" id="sticky-count" aria-live="polite"></span>
+            <span class="sticky-count" id="sticky-count"></span>
             <button type="button" class="sticky-btn sticky-clear" id="sticky-clear" hidden>Clear</button>
             <button type="button" class="sticky-btn" id="sticky-filters" aria-label="Back to filters">Filters ↑</button>
         </div>
@@ -1219,7 +1211,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
             </svg>
-            <input type="text" id="search" placeholder="Search the graveyard..." autocomplete="off" aria-label="Search">
+            <input type="text" id="search" placeholder="Search the graveyard..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="search" aria-label="Search the graveyard">
             <span class="search-hint">/</span>
         </div>
         <div class="filter-pills" id="filters" role="group" aria-label="Filter by type">
@@ -1238,14 +1230,15 @@
             <option value="longest">Longest Lived</option>
             <option value="name">A — Z</option>
         </select>
-        <label class="toggle-wrap">
-            <span class="toggle-label">Hide model upgrades</span>
+        <label class="toggle-wrap" title="Hides retired or replaced AI model and API versions">
+            <span class="toggle-label">Hide deprecations</span>
             <input type="checkbox" class="toggle-input" id="hide-upgrades">
             <span class="toggle-switch"></span>
         </label>
         <a class="submit-cta" href="https://github.com/mixtpatrik/killedbyai/issues/new?title=New+entry:+[Product+Name]&body=Name:%0ADate+launched:%0ADate+killed:%0ADescription:%0AKilled+by:%0ASource+link:" target="_blank" rel="noopener">+ Submit a death</a>
     </div>
-    <div class="active-filters" id="active-filters" aria-live="polite"></div>
+    <div class="active-filters" id="active-filters"></div>
+    <p class="sr-only" id="sr-status" role="status" aria-atomic="true"></p>
     <div class="grid-head">
         <h2 class="grid-title" id="graveyard">The AI graveyard: <span>{{COUNT}}</span> dead AI tools that shut down</h2>
         <div class="view-toggle" role="group" aria-label="View">
@@ -1298,6 +1291,15 @@
         const pillBase = {}; filtersEl.querySelectorAll('.filter-pill').forEach(p => { pillBase[p.dataset.filter] = p.textContent.replace(/\s*\(\d+\)\s*$/, ''); });
         const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
         const killerLabel = k => { const c = cards.find(x => x.dataset.killer === k); const t = c && c.querySelector('.tag-killer'); return t ? t.textContent.replace(/^Killed by:\s*/, '') : k; };
+        // Search: every word must match; case, accents, spaces, hyphens and dots are ignored ('gpt 4o' = 'gpt4o' = 'GPT-4o')
+        const fold = s => s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '');
+        const rawText = new Map(cards.map(c => { const d = c.dataset; return [c, [d.name, d.desc, d.killer, d.cause].join('|')]; }));
+        const foldText = new Map(cards.map(c => { const d = c.dataset; return [c, [d.name, d.desc, d.killer, d.cause, d.type, pillBase[d.type] || ''].map(fold).join('|')]; }));
+        let qRaw = '', qToks = [];
+        function readQuery() { qRaw = searchInput.value.toLowerCase().trim(); qToks = qRaw.split(/\s+/).map(fold).filter(Boolean); }
+        const textMatch = card => !qRaw || (qToks.length ? qToks.every(t => foldText.get(card).includes(t)) : rawText.get(card).includes(qRaw));
+        const setQuery = v => { searchInput.value = v; sSearch.value = v; };
+        const srStatus = document.getElementById('sr-status'); let srTimer = 0, announce = false;
 
         function updateURL() {
             const p = new URLSearchParams();
@@ -1309,15 +1311,14 @@
             if (hideUpgradesToggle.checked) p.set('real', '1');
             if (view === 'list') p.set('view', 'list');
             const qs = p.toString();
-            history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
+            history.replaceState({ limit, view }, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
         }
         function matches(card, ignoreType) {
-            const q = searchInput.value.toLowerCase().trim();
             return (ignoreType || activeFilter === 'all' || card.dataset.type === activeFilter)
                 && (!activeYear || card.dataset.dateClose.slice(0, 4) === activeYear)
                 && (!activeKiller || card.dataset.killer === activeKiller)
                 && !(hideUpgradesToggle.checked && card.dataset.deathType === 'model-upgrade')
-                && (!q || card.dataset.name.includes(q) || card.dataset.desc.includes(q) || card.dataset.killer.includes(q) || card.dataset.cause.includes(q));
+                && textMatch(card);
         }
         function chip(label, onClear, cls) {
             const b = document.createElement('button'); b.type = 'button'; b.className = 'chip' + (cls ? ' ' + cls : '');
@@ -1329,16 +1330,19 @@
             const chips = [];
             if (activeFilter !== 'all') chips.push(chip('Type: ' + pillBase[activeFilter], () => setFilter('all')));
             if (activeYear) chips.push(chip('Year: ' + activeYear, clearYear));
-            if (activeKiller) chips.push(chip('Killed by: ' + killerLabel(activeKiller), () => { activeKiller = null; apply(); }));
-            if (searchInput.value.trim()) chips.push(chip('Search: “' + searchInput.value.trim() + '”', () => { searchInput.value = ''; apply(); }));
-            if (hideUpgradesToggle.checked) chips.push(chip('Hiding model upgrades', () => { hideUpgradesToggle.checked = false; apply(); }));
+            if (activeKiller) chips.push(chip('Killed by: ' + killerLabel(activeKiller), () => { activeKiller = null; resetPage(); apply(); }));
+            if (searchInput.value.trim()) chips.push(chip('Search: “' + searchInput.value.trim() + '”', () => { setQuery(''); resetPage(); apply(); }));
+            if (hideUpgradesToggle.checked) chips.push(chip('Hiding model deprecations', () => { hideUpgradesToggle.checked = false; resetPage(); apply(); }));
             chips.forEach(c => chipsEl.appendChild(c));
             if (chips.length) { const all = chip('Clear all', clearAll, 'chip-clear'); all.setAttribute('aria-label', 'Clear all filters'); chipsEl.appendChild(all); }
             if (chips.length || visible !== total) { const n = document.createElement('span'); n.className = 'result-count'; n.id = 'result-count'; n.textContent = 'Showing ' + visible + ' of ' + total; chipsEl.appendChild(n); }
             sCount.textContent = (chips.length || visible !== total) ? visible + ' of ' + total : total + ' tombstones';
             sClear.hidden = !chips.length;
+            // one debounced screen-reader announcement instead of re-reading the chip bar on every keystroke
+            if (announce) { clearTimeout(srTimer); srTimer = setTimeout(() => { srStatus.textContent = chips.length ? visible + (visible === 1 ? ' tombstone matches' : ' tombstones match') : 'All ' + total + ' tombstones shown'; }, 400); }
         }
         function apply() {
+            readQuery();
             let visible = 0; const counts = {};
             cards.forEach(card => {
                 const show = matches(card, false); card.classList.toggle('hidden', !show); if (show) visible++;
@@ -1350,16 +1354,29 @@
                 p.disabled = n === 0 && p.dataset.filter !== activeFilter;
                 p.setAttribute('aria-pressed', String(p.dataset.filter === activeFilter));
             });
+            timelineEl.querySelectorAll('.bar').forEach(b => { const on = b.dataset.year === activeYear; b.classList.toggle('active', on); b.setAttribute('aria-pressed', String(on)); });
             let empty = grid.querySelector('.empty');
             if (visible === 0) {
                 if (!empty) { empty = document.createElement('div'); empty.className = 'empty'; grid.appendChild(empty); }
-                empty.innerHTML = '<div class="icon">🪦</div><p>Nothing buried here — no tombstones match those filters.</p><div class="actions"></div>';
+                // static skeleton only: the query comes from ?q= and is set via textContent (never innerHTML)
+                empty.innerHTML = '<div class="icon">🪦</div><p></p><div class="actions"></div>';
+                const q = searchInput.value.trim(), missing = q.length >= 2 && !cards.some(c => textMatch(c));
+                empty.querySelector('p').textContent = missing ? 'No tombstone matches “' + q.slice(0, 80) + '”.' : 'Nothing buried here — no tombstones match those filters.';
                 const a = empty.querySelector('.actions');
-                if (activeYear) a.appendChild(chip('Clear year', clearYear));
-                if (activeKiller) a.appendChild(chip('Clear killer', () => { activeKiller = null; apply(); }));
-                if (activeFilter !== 'all') a.appendChild(chip('All types', () => setFilter('all')));
-                if (hideUpgradesToggle.checked) a.appendChild(chip('Show model upgrades', () => { hideUpgradesToggle.checked = false; apply(); }));
-                a.appendChild(chip('Clear all filters', clearAll, 'chip-clear'));
+                if (missing) {
+                    const link = document.createElement('a'); link.className = 'chip'; link.target = '_blank'; link.rel = 'noopener';
+                    link.href = 'https://github.com/mixtpatrik/killedbyai/issues/new?' + new URLSearchParams({ title: 'New entry: ' + q.slice(0, 80), body: 'Name: ' + q.slice(0, 80) + '\nDate launched:\nDate killed:\nDescription:\nKilled by:\nSource link:' });
+                    link.textContent = 'Missing one? Submit “' + q.slice(0, 40) + '” as a death';
+                    a.appendChild(link);
+                }
+                if (q && !missing) a.appendChild(chip('Clear search', () => { setQuery(''); resetPage(); apply(); }));
+                if (!missing) {
+                    if (activeYear) a.appendChild(chip('Clear year', clearYear));
+                    if (activeKiller) a.appendChild(chip('Clear killer', () => { activeKiller = null; resetPage(); apply(); }));
+                    if (activeFilter !== 'all') a.appendChild(chip('All types', () => setFilter('all')));
+                    if (hideUpgradesToggle.checked) a.appendChild(chip('Show model deprecations', () => { hideUpgradesToggle.checked = false; resetPage(); apply(); }));
+                }
+                a.appendChild(missing ? chip('Clear search', () => { setQuery(''); resetPage(); apply(); }, 'chip-clear') : chip('Clear all filters', clearAll, 'chip-clear'));
             } else if (empty) empty.remove();
             renderChips(visible); sortCards(); updateURL();
         }
@@ -1376,12 +1393,18 @@
                     default: return 0;
                 }
             });
+            cards.forEach(c => { if (c.classList.contains('hidden')) c.classList.remove('beyond'); });
             vis.forEach((c, i) => { grid.appendChild(c); c.classList.toggle('beyond', i >= limit); });
             const rest = Math.max(0, vis.length - limit);
             showMore.hidden = rest === 0;
             showMore.textContent = 'Show ' + Math.min(pageSize(), rest) + ' more tombstones (' + rest + ' remaining)';
         }
-        showMore.addEventListener('click', () => { limit += pageSize(); apply(); });
+        showMore.addEventListener('click', () => {
+            const old = limit; limit += pageSize(); apply();
+            // move focus to the first newly revealed tombstone so keyboard users don't skip past it
+            const next = grid.querySelectorAll('.card:not(.hidden)')[old], link = next && next.querySelector('.card-name a');
+            if (link) link.focus();
+        });
         function resetPage() { limit = pageSize(); }
         function setView(v, silent) {
             view = v === 'list' ? 'list' : 'cards';
@@ -1392,15 +1415,25 @@
         }
         document.querySelectorAll('.view-btn').forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
         // Sticky bar: appears only once the main controls have scrolled off the top
+        // (the huge bottom rootMargin means "not intersecting" == scrolled past the top edge, so instant jumps are caught too)
         if ('IntersectionObserver' in window) {
-            new IntersectionObserver(([e]) => { const past = !e.isIntersecting && e.boundingClientRect.bottom < 0; bar.classList.toggle('visible', past); bar.setAttribute('aria-hidden', String(!past)); }, { threshold: 0 }).observe(controlsEl);
+            new IntersectionObserver(([e]) => {
+                const past = !e.isIntersecting, had = !past && bar.contains(document.activeElement) ? document.activeElement : null;
+                bar.classList.toggle('visible', past); bar.setAttribute('aria-hidden', String(!past)); bar.inert = !past;
+                // hidden bar is inert: hand focus to the matching main control instead of dropping it to <body>
+                if (had) (had === sSearch ? searchInput : (filtersEl.querySelector('.filter-pill.active') || searchInput)).focus({ preventScroll: true });
+            }, { rootMargin: '0px 0px 100000px 0px' }).observe(controlsEl);
         }
-        sSearch.addEventListener('input', () => { searchInput.value = sSearch.value; resetPage(); apply(); });
+        sSearch.addEventListener('input', () => {
+            searchInput.value = sSearch.value; resetPage(); apply();
+            // results shrank: keep the first match just under the bar instead of above the viewport
+            const b = controlsEl.getBoundingClientRect().bottom; if (b < -1) window.scrollTo({ top: scrollY + b + 1 });
+        });
         sClear.addEventListener('click', () => clearAll());
         sFilters.addEventListener('click', () => scrollToControls());
         function setFilter(f) { resetPage(); activeFilter = f; filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === f)); apply(); }
         function clearYear() { activeYear = null; timelineEl.querySelectorAll('.bar').forEach(b => b.classList.remove('active')); yearClearBtn.classList.remove('visible'); apply(); }
-        function clearAll() { searchInput.value = ''; sSearch.value = ''; activeKiller = null; hideUpgradesToggle.checked = false; activeFilter = 'all'; filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === 'all')); clearYear(); }
+        function clearAll() { setQuery(''); resetPage(); activeKiller = null; hideUpgradesToggle.checked = false; activeFilter = 'all'; filtersEl.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.filter === 'all')); clearYear(); }
         const scrollToControls = () => controlsEl.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
 
         searchInput.addEventListener('input', () => { sSearch.value = searchInput.value; resetPage(); apply(); });
@@ -1419,7 +1452,10 @@
         document.addEventListener('keydown', e => {
             if (e.key === '/' && document.activeElement !== searchInput && document.activeElement !== sSearch) { e.preventDefault(); (bar.classList.contains('visible') ? sSearch : searchInput).focus(); }
             if (e.key === 'Escape' && document.activeElement === searchInput) searchInput.blur();
+            // Enter/"Search" key: close the phone keyboard so the results are visible (not mid-IME composition)
+            if (e.key === 'Enter' && !e.isComposing && (document.activeElement === searchInput || document.activeElement === sSearch)) { e.preventDefault(); document.activeElement.blur(); }
         });
+        document.getElementById('skip-link').addEventListener('click', e => { e.preventDefault(); scrollToControls(); searchInput.focus({ preventScroll: true }); });
         window.addEventListener('scroll', () => backToTopBtn.classList.toggle('visible', window.scrollY > 600), { passive: true });
         backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' }));
 
@@ -1437,6 +1473,8 @@
         if (params.get('real')) hideUpgradesToggle.checked = true;
         if (params.get('view') === 'list' || params.get('view') === 'cards') view = params.get('view');
         setView(view, true); limit = pageSize();
+        // Back from a product page without bfcache: restore the "Show more" progress so scroll restoration lands on the same card
+        { const hs = history.state; if (hs && hs.view === view && Number.isInteger(hs.limit) && hs.limit > limit) limit = Math.min(hs.limit, Math.ceil(total / pageSize()) * pageSize()); }
         if (params.get('q')) sSearch.value = params.get('q');
         apply();
         // Deep links: cards ship pre-sorted newest-first so the default sort is a no-op; scroll once layout settles
@@ -1448,6 +1486,7 @@
             }
             if (el) requestAnimationFrame(() => el.scrollIntoView({ block: 'start' }));
         }
+        announce = true;   // only user-driven changes are announced, not the initial render
     })();
     </script>
     <script type="application/ld+json">{{JSONLD}}</script>

@@ -6,12 +6,14 @@ Reads graveyard.json and generates index.html with:
 - Inline JSON data (for JS-based search/filter/sort)
 - JSON-LD structured data
 """
+import calendar
 import json
 import html
 import re
 import subprocess
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import quote_plus
 
 ROOT = Path(__file__).parent
 SITE_URL = "https://killedbyai.net/"
@@ -30,10 +32,16 @@ def days_between(a, b):
     return max(0, (d2 - d1).days)
 
 
+def _lifespan_parts(days):
+    years, rem = divmod(days, 365)
+    months, d = divmod(rem, 30)
+    if months >= 12:  # rem 360-364: round up to the next full year instead of printing "12m"
+        years, months, d = years + 1, 0, 0
+    return years, months, d
+
+
 def format_lifespan(days):
-    years = days // 365
-    months = (days % 365) // 30
-    d = days % 30
+    years, months, d = _lifespan_parts(days)
     if years and months:
         return f"{years}y {months}m"
     if years:
@@ -43,6 +51,27 @@ def format_lifespan(days):
     if months:
         return f"{months}m"
     return f"{d}d"
+
+
+def format_lifespan_long(days):
+    """Prose form of format_lifespan ("2 years, 5 months", "1 day") for meta descriptions and FAQ answers."""
+    years, months, d = _lifespan_parts(days)
+    unit = lambda n, w: f"{n} {w}{'' if n == 1 else 's'}"
+    if years:
+        return unit(years, "year") + (f", {unit(months, 'month')}" if months else "")
+    if months:
+        return unit(months, "month") + (f", {unit(d, 'day')}" if d else "")
+    return unit(d, "day")
+
+
+def lc_label(s):
+    """Title Case label -> mid-sentence form, keeping acronyms (AI, API, IT, HR)."""
+    return re.sub(r"[A-Za-z]+", lambda m: m[0] if len(m[0]) > 1 and m[0].isupper() else m[0].lower(), s)
+
+
+def company_key(name):
+    """'PayPal (2026)' -> 'PayPal': a repeat layoff at the same company is a second row, not a second company."""
+    return re.sub(r"\s*\([^()]*\b(?:19|20)\d\d\)$", "", name).strip()
 
 
 def year(date_str):
@@ -148,6 +177,41 @@ def footer_links(active=None):
     return " · ".join(f'<a href="{h}">{t}</a>' for h, t in links)
 
 
+NAV_LINKS = [("/", "💀 Graveyard"), ("/layoffs/", "💼 AI Layoffs"), ("/funding/", "🔥 Funding"), ("/coming-soon/", "⏳ Dying soon"),
+             ("/will-ai-take-my-job/", "🎯 Will AI take my job?"), ("/api/", "{ } API")]
+
+
+def site_nav(active, page_path=None):
+    """Top nav links with the section `active` highlighted; aria-current="page" only on the section's own URL."""
+    out = []
+    for h, t in NAV_LINKS:
+        if h == active:
+            out.append(f'<a href="{h}" class="site-nav-item active" aria-current="{"page" if page_path == h else "true"}">{t}</a>')
+        else:
+            out.append(f'<a href="{h}" class="site-nav-item">{t}</a>')
+    return "".join(out)
+
+
+# killedBy values that are causes, not companies: how to say "killed by X" in running text (None = it died on its own).
+KILLER_PROSE = {"Itself": None, "Market": "the market", "Reality": "reality", "Inference Bills": "inference bills",
+                "Its Own Founder": "its own founder", "Its Own Parent Company": "its own parent company", "Big Tech": "Big Tech",
+                "AI Coding Agents": "AI coding agents", "Foundation Models": "foundation models"}
+
+
+def killed_by_clause(killer):
+    """'it was killed by OpenAI' / 'it was killed by the market' / 'it collapsed on its own'."""
+    if killer in KILLER_PROSE and KILLER_PROSE[killer] is None:
+        return "it collapsed on its own"
+    return f"it was killed by {KILLER_PROSE.get(killer, killer)}"
+
+
+def killer_label(killer):
+    """Heading form: 'Killed by OpenAI', 'Killed by the market', 'Killed by itself'."""
+    if killer in KILLER_PROSE:
+        return f"Killed by {KILLER_PROSE[killer] or 'itself'}"
+    return f"Killed by {killer}"
+
+
 WEBSITE_REF = {"@type": "WebSite", "@id": SITE_URL + "#website", "name": "Killed by AI", "url": SITE_URL}
 ORG_REF = {"@type": "Organization", "@id": SITE_URL + "#org", "name": "Killed by AI", "url": SITE_URL}
 
@@ -177,19 +241,31 @@ def git_lastmod(paths, needle=None):
         return None
 
 
+def is_revived(item):
+    cause = item.get("causeOfDeath", "").lower()
+    return "reversed" in cause or "revived" in cause
+
+
 def product_title(item):
     name, dt, mon, yr = item["name"], item.get("deathType"), fmt_month(item["dateClose"]), item["dateClose"][:4]
-    cands = {
-        "model-upgrade": [f"{name} deprecated: retirement date and replacement", f"{name} deprecated ({mon})", f"{name} retired {mon}"],
-        "feature-removed": [f"{name} removed: what happened and what replaced it", f"{name} removed ({mon})", f"{name} shut down {mon}"],
-        "startup-failed": [f"What happened to {name}? ({yr})", f"{name} shut down ({yr})"],
-        "acqui-hired": [f"What happened to {name}? (acqui-hired {yr})", f"What happened to {name}? ({yr})", f"{name} acquired ({yr})"],
-        "hardware-failed": [f"{name} discontinued: what happened", f"{name} discontinued ({mon})"],
-    }.get(dt, [f"Is {name} dead? Shut down {mon} | Killed by AI", f"Is {name} dead? Shut down {mon}", f"{name} shut down {mon}"])
+    has_r = bool(item.get("replacement"))   # only promise "what replaced it" when the page has that section
+    verb = {"model-upgrade": "retired", "hardware-failed": "discontinued", "acqui-hired": "acquired"}.get(dt, "shut down")
+    if is_revived(item):
+        cands = [f"Is {name} dead? No, shutdown reversed ({yr})", f"{name}: shutdown reversed ({yr})", f"{name} revived ({yr})"]
+    else:
+        cands = {
+            "model-upgrade": ([f"{name} deprecated: retirement date and replacement"] if has_r else []) + [f"{name} deprecated ({mon})", f"{name} retired {mon}"],
+            "feature-removed": ([f"{name} removed: what happened and what replaced it"] if has_r else []) + [f"{name} removed ({mon})", f"{name} shut down {mon}"],
+            "startup-failed": [f"What happened to {name}? ({yr})", f"{name} shut down ({yr})"],
+            "acqui-hired": [f"What happened to {name}? (acqui-hired {yr})", f"What happened to {name}? ({yr})", f"{name} acquired ({yr})"],
+            "hardware-failed": [f"{name} discontinued: what happened", f"{name} discontinued ({mon})"],
+        }.get(dt, [f"Is {name} dead? Shut down {mon} | Killed by AI", f"Is {name} dead? Shut down {mon}", f"{name} shut down {mon}"])
+    # Shorter fallbacks that keep every word and date whole — never slice mid-word or mid-date ("retired Oct 20").
+    cands += [f"{name} {verb} {yr}", f"{name} ({yr})", name]
     for t in cands:
         if len(t) <= 60:
             return t
-    return cands[-1][:60]
+    return name[:59].rsplit(" ", 1)[0].rstrip(" ,&-:(") + "…"
 
 
 def render_product(item, ordered, idx, tpl, total, killer_counts):
@@ -202,10 +278,15 @@ def render_product(item, ordered, idx, tpl, total, killer_counts):
     sentences = re.split(r"(?<=[.!?])\s+", item["description"].strip())
     first = sentences[0]
     dlabel = DEATH_LABEL.get(item.get("deathType"), "Killed")
-    meta = seo.get("description") or f"{name} was shut down on {fmt_date(item['dateClose'])} after {lifespan}. Killed by {item['killedBy']}. {first}"
+    revived = is_revived(item)
+    if revived:
+        auto_meta = f"{name}: killed on {fmt_date(item['dateClose'])}, then the decision was reversed. {first}"
+    else:
+        clause = killed_by_clause(item["killedBy"])
+        auto_meta = f"{name} was shut down on {fmt_date(item['dateClose'])} after {format_lifespan_long(days)}; {clause}. {first}"
+    meta = seo.get("description") or auto_meta
     if len(meta) > 155:
         meta = meta[:152].rsplit(" ", 1)[0] + "…"
-    revived = "reversed" in item.get("causeOfDeath", "").lower() or "revived" in item.get("causeOfDeath", "").lower()
     verdict = "Dead, then revived" if revived else "Dead"
     subtitle = f"{dlabel} · {item['causeOfDeath']} · shut down {fmt_date(item['dateClose'])}"
     ks = killer_slug(item["killedBy"])
@@ -215,10 +296,14 @@ def render_product(item, ordered, idx, tpl, total, killer_counts):
     source = f'<a class="btn btn-red" href="{esc(item["link"])}" target="_blank" rel="noopener">Source ↗</a>' if item.get("link") else ""
     # The answer states the verdict and the facts; it does not re-print the description the reader just saw.
     if revived:
-        answer = f"It was, briefly. {name} went dark on {fmt_date(item['dateClose'])} — {item['causeOfDeath'].lower()} — and later came back. The timeline above records the outage."
+        tail = (" The timeline above records the outage." if item.get("timeline")
+                else " Details and the source are above." if item.get("link") else "")
+        cause = lc_label(re.sub(r"\s*\((?:reversed|revived)\)", "", item["causeOfDeath"], flags=re.I))
+        answer = (f"Not right now. {name} was killed on {fmt_date(item['dateClose'])} "
+                  f"({cause}), but that decision was later reversed.{tail}")
     else:
-        answer = (f"Yes. {name} was shut down on {fmt_date(item['dateClose'])}, {lifespan} after its launch on {fmt_date(item['dateOpen'])}. "
-                  f"The cause of death was {item['causeOfDeath'].lower()}; it was killed by {item['killedBy']}. "
+        answer = (f"Yes. {name} was shut down on {fmt_date(item['dateClose'])}, {format_lifespan_long(days)} after its launch on {fmt_date(item['dateOpen'])}. "
+                  f"The cause of death was {lc_label(item['causeOfDeath'])}; {killed_by_clause(item['killedBy'])}. "
                   f"Classification: {dlabel.lower()}." + (" Details and the source are above." if item.get("link") else ""))
     # optional long-form sections
     sections = []
@@ -237,7 +322,7 @@ def render_product(item, ordered, idx, tpl, total, killer_counts):
     if related:
         rows = "".join(f'<a class="rel" href="{product_url(o)}"><b>{esc(o["name"])}</b><span>{o["dateClose"][:4]}</span></a>' for o in related)
         more = f' <a class="more" href="/killed-by/{ks}/">All {killer_counts[item["killedBy"]]} →</a>' if has_killer_page else ""
-        related_html = f'<h2>Also killed by {esc(item["killedBy"])}{more}</h2><div class="related">{rows}</div>'
+        related_html = f'<h2>Also {esc(killer_label(item["killedBy"]).replace("Killed", "killed", 1))}{more}</h2><div class="related">{rows}</div>'
     prev_ = ordered[idx - 1] if idx > 0 else None
     next_ = ordered[idx + 1] if idx + 1 < len(ordered) else None
     pn = ""
@@ -263,7 +348,8 @@ def render_product(item, ordered, idx, tpl, total, killer_counts):
     out = tpl
     for k, v in {
         "{{TITLE}}": esc(title), "{{OG_TITLE}}": esc(f"{h1} — Killed by AI" if h1 != name else f"{name} — Killed by AI"), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{SLUG}}": slug,
-        "{{NAME}}": esc(name), "{{H1}}": esc(h1), "{{H1_SUB}}": h1_sub, "{{NAME_URL}}": html.escape(name.replace(" ", "+"), quote=True), "{{VERDICT}}": verdict, "{{SUBTITLE}}": esc(subtitle),
+        "{{NAME}}": esc(name), "{{H1}}": esc(h1), "{{H1_SUB}}": h1_sub, "{{NAME_URL}}": esc(quote_plus(name)), "{{VERDICT}}": verdict, "{{SUBTITLE}}": esc(subtitle),
+        "{{NAV}}": site_nav("/"),
         "{{DATE_OPEN}}": item["dateOpen"], "{{DATE_OPEN_FMT}}": fmt_date(item["dateOpen"]),
         "{{DATE_CLOSE}}": item["dateClose"], "{{DATE_CLOSE_FMT}}": fmt_date(item["dateClose"]),
         "{{LIFESPAN}}": lifespan, "{{CAUSE}}": esc(item["causeOfDeath"]), "{{KILLER_HTML}}": killer_html,
@@ -280,16 +366,28 @@ def render_killer_page(killer, items, tpl, total):
     slug = killer_slug(killer); url = f"{SITE_URL}killed-by/{slug}/"
     items = sorted(items, key=lambda i: i["dateClose"], reverse=True)
     n = len(items)
-    title = f"{killer}: {n} AI products it killed | Killed by AI"
-    if len(title) > 65: title = f"{killer}: {n} AI products killed"
-    years = f"{min(i['dateClose'] for i in items)[:4]}–{max(i['dateClose'] for i in items)[:4]}"
-    meta = f"Every AI product, model or startup killed by {killer}: {n} deaths between {years}, each with launch date, shutdown date, cause of death and source."
+    label = killer_label(killer)   # "Killed by OpenAI" / "Killed by the market" / "Killed by itself"
+    if killer in KILLER_PROSE:     # a cause, not a company: no "Itself has shut down…" copy
+        title = f"Self-inflicted: {n} AI products that killed themselves" if KILLER_PROSE[killer] is None else f"{label}: {n} AI products"
+        who = "collapsed on their own, with no outside killer" if KILLER_PROSE[killer] is None else f"were {label[0].lower() + label[1:]}"
+        lead = f"{n} AI products tracked here {who}"
+        meta_lead = f"Every AI product that {'collapsed on its own' if KILLER_PROSE[killer] is None else 'was ' + label[0].lower() + label[1:]}"
+    else:
+        title = f"{killer}: {n} AI products it killed"
+        lead = f"{killer} has shut down {n} AI products tracked here"
+        meta_lead = f"Every AI product, model or startup killed by {killer}"
+    if len(title) <= 45: title += " | Killed by AI"
+    y0, y1 = min(i["dateClose"] for i in items)[:4], max(i["dateClose"] for i in items)[:4]
+    span = f"in {y0}" if y0 == y1 else f"between {y0} and {y1}"
+    meta = f"{meta_lead}: {n} deaths {span}, each with launch date, shutdown date, cause of death and source."
     from collections import Counter as _C
-    by_type = _C(TYPE_LABEL.get(i["type"], i["type"]).lower() + "s" for i in items)
+    type_noun = {"app": ("app", "apps"), "model": ("model", "models"), "service": ("service", "services"),
+                 "startup": ("startup", "startups"), "hardware": ("hardware device", "hardware devices")}
+    by_type = _C(i["type"] for i in items)
     by_year = _C(i["dateClose"][:4] for i in items)
     oldest, newest = items[-1], items[0]
-    intro = (f"{killer} has shut down {n} AI products tracked here — "
-             + ", ".join(f"{v} {k}" for k, v in by_type.most_common()) + ". "
+    intro = (f"{lead} — "
+             + ", ".join(f"{v} {type_noun.get(k, (k, k + 's'))[v != 1]}" for k, v in by_type.most_common()) + ". "
              + "By year: " + ", ".join(f"{y}: {v}" for y, v in sorted(by_year.items())) + ". "
              + f"The first was {oldest['name']} ({fmt_date(oldest['dateClose'])}); the most recent is {newest['name']} ({fmt_date(newest['dateClose'])}). "
              + f"Each tombstone links its source.")
@@ -297,12 +395,13 @@ def render_killer_page(killer, items, tpl, total):
     jsonld = {"@context": "https://schema.org", "@graph": [
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL},
-            {"@type": "ListItem", "position": 2, "name": f"Killed by {killer}", "item": url}]},
-        {"@type": "ItemList", "name": f"AI products killed by {killer}", "numberOfItems": n,
+            {"@type": "ListItem", "position": 2, "name": "By killer", "item": SITE_URL + "killed-by/"},
+            {"@type": "ListItem", "position": 3, "name": label, "item": url}]},
+        {"@type": "ItemList", "name": f"AI products {label[0].lower() + label[1:]}", "numberOfItems": n,
          "itemListElement": [{"@type": "ListItem", "position": k + 1, "name": i["name"], "url": product_url(i)} for k, i in enumerate(items)]}]}
     out = tpl
-    for k, v in {"{{TITLE}}": esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": f"Killed by {esc(killer)}",
-                 "{{H1}}": f"Killed by {esc(killer)}", "{{INTRO}}": esc(intro),
+    for k, v in {"{{TITLE}}": esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": f'<a href="/killed-by/">By killer</a> › {esc(label)}',
+                 "{{H1}}": esc(label), "{{INTRO}}": esc(intro), "{{NAV}}": site_nav("/"), "{{AFTER}}": "",
                  "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(jsonld, indent=2, ensure_ascii=False)}.items():
         out = out.replace(k, v)
     return out
@@ -336,9 +435,9 @@ a.tile:hover{border-color:var(--acc)}
 .hbars{display:flex;flex-direction:column;gap:.5rem;list-style:none}
 .hbar{display:grid;grid-template-columns:minmax(0,9.5rem) minmax(0,1fr) auto;align-items:center;gap:.625rem;font-size:.875rem;text-decoration:none;color:var(--text)}
 a.hbar:hover .hbar-name{color:var(--acc)}
-.hbar-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hbar-track{height:.625rem;background:#1c1c1f;border-radius:1rem;overflow:hidden}
-.hbar-fill{height:100%;width:var(--w);min-width:3px;background:linear-gradient(90deg,var(--acc2),var(--acc));border-radius:1rem}
+.hbar-name{min-width:0;line-height:1.25;overflow-wrap:break-word}
+.hbar-track{display:block;height:.625rem;background:#1c1c1f;border-radius:1rem;overflow:hidden}
+.hbar-fill{display:block;height:100%;width:var(--w);min-width:3px;background:linear-gradient(90deg,var(--acc2),var(--acc));border-radius:1rem}
 .hbar-val{font-family:'SF Mono','Cascadia Code',monospace;font-size:.8125rem;color:var(--text-muted);text-align:right;min-width:3.5rem}
 .recent{list-style:none;display:flex;flex-direction:column}
 .recent li{display:flex;justify-content:space-between;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.875rem}
@@ -355,15 +454,22 @@ a.hbar:hover .hbar-name{color:var(--acc)}
 .chipf{height:36px;padding:0 .875rem;border-radius:2rem;border:1px solid var(--border);background:var(--bg-card);color:var(--text-muted);font-size:.8125rem;cursor:pointer;font-family:inherit}
 .chipf:hover{color:var(--text)}
 .chipf.on{background:var(--acc-dim);border-color:var(--acc);color:var(--acc);font-weight:700}
-.chipf small{opacity:.7;margin-left:.25rem}
+.chipf small{color:var(--text-muted);margin-left:.25rem;font-weight:400}
+.chipf:hover small,.chipf.on small{color:inherit}
 .lcount{font-size:.8125rem;color:var(--text-dim);width:100%}
 .list .empty{text-align:center;color:var(--text-dim);padding:2rem 0}
-.rank{font-family:'SF Mono','Cascadia Code',monospace;color:var(--text-dim);font-size:.8125rem;margin-right:.375rem;font-weight:600}
+.rank{font-family:'SF Mono','Cascadia Code',monospace;color:var(--text-dim);font-size:.8125rem;margin-right:.125rem;font-weight:600}
+.list.unranked .rank{display:none}
+.layoff-row:target,.fund-row:target{border-color:var(--acc)}
+@media(min-width:601px){.layoff-row,.fund-row{scroll-margin-top:calc(var(--lctrl-h,240px) + .75rem)}}
+.to-filters{position:fixed;right:1rem;bottom:1rem;z-index:50;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--bg-card);color:var(--text);font-size:1.125rem;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.45);font-family:inherit}
+.to-filters:hover{border-color:var(--acc);color:var(--acc)}
 .badge-new{display:inline-block;background:var(--acc);color:#09090b;font-size:.625rem;font-weight:800;padding:.0625rem .375rem;border-radius:.25rem;margin-left:.375rem;vertical-align:middle;letter-spacing:.04em}
 .mchip{color:var(--text-muted);background:#1c1c1f;padding:.125rem .5rem;border-radius:.25rem;text-decoration:none}
 a.mchip:hover{color:var(--acc)}
 @media(max-width:700px){.dash-grid{grid-template-columns:1fr}.dcard.wide{grid-column:auto}}
-@media(max-width:600px){.dash,.lctrl{padding-left:.75rem;padding-right:.75rem}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tile{padding:.75rem}.tile-val{font-size:1.25rem}.tile.hero .tile-val{font-size:1.5rem}.tile.txt .tile-val{font-size:1rem}.tile-sub{font-size:.75rem}.hbar{grid-template-columns:minmax(0,7rem) minmax(0,1fr) auto;font-size:.8125rem}.vbars{height:140px;gap:.25rem}.vbar-fill b{font-size:.5625rem}.vbar-lbl{font-size:.5625rem}.lsort{flex:1 1 100%}.lctrl{position:static}}
+@media(max-width:600px){.dash,.lctrl{padding-left:.75rem;padding-right:.75rem}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tile{padding:.75rem}.tile-val{font-size:1.25rem}.tile.hero .tile-val{font-size:1.5rem}.tile.txt .tile-val{font-size:1rem}.tile-sub{font-size:.75rem}.hbar{grid-template-columns:minmax(0,7rem) minmax(0,1fr) auto;font-size:.8125rem}.vbars{height:140px;gap:.25rem}.vbar-fill b{font-size:.625rem}.vbar-lbl{font-size:.625rem}.lsort{flex:1 1 100%}.lctrl{position:static}.to-filters.visible{display:flex}}
+@media(max-width:380px){.vbar-fill b{display:none}}
 """
 
 DASH_JS = """<script>
@@ -380,6 +486,7 @@ DASH_JS = """<script>
     keyed.sort(function(a,b){var x=a.r.dataset[f],y=b.r.dataset[f]; if(f==='name') return x.localeCompare(y)*dir; x=parseFloat(x)||0; y=parseFloat(y)||0; return x===y? a.i-b.i : (x-y)*dir;});
     keyed.forEach(function(o){ var r=o.r, ok=(filt==='all'||(' '+r.dataset.f+' ').indexOf(' '+filt+' ')>-1)&&(!term||r.dataset.text.indexOf(term)>-1); r.hidden=!ok; if(ok){n++;} list.insertBefore(r,empty); });
     empty.hidden=n>0; cnt.textContent='Showing '+n+' of '+rows.length;
+    list.classList.toggle('unranked', key!==s.options[0].value);  // #N badges are rank by the default sort only
     if(push){ try{ var u=new URL(location.href); term?u.searchParams.set('q',term):u.searchParams.delete('q'); key!==s.options[0].value?u.searchParams.set('sort',key):u.searchParams.delete('sort'); filt!=='all'?u.searchParams.set('f',filt):u.searchParams.delete('f'); history.replaceState(null,'',u.pathname+u.search+u.hash);}catch(e){} }
   }
   chips.forEach(function(c){c.addEventListener('click',function(){filt=c.dataset.f; chips.forEach(function(x){var on=x===c; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on)}); apply(true);});});
@@ -387,6 +494,24 @@ DASH_JS = """<script>
   try{ var p=new URLSearchParams(location.search); if(p.get('q')) q.value=p.get('q'); if(p.get('sort')&&[].some.call(s.options,function(o){return o.value===p.get('sort')})) s.value=p.get('sort');
     if(p.get('f')){ chips.forEach(function(c){ if(c.dataset.f===p.get('f')){ filt=c.dataset.f; chips.forEach(function(x){x.classList.toggle('on',x===c); x.setAttribute('aria-pressed',x===c)}); } }); } }catch(e){}
   apply(false);
+  // #anchor targets: keep them clear of the sticky bar, and un-filter the list if the target row is hidden
+  var bar=document.querySelector('.lctrl'), root=document.documentElement;
+  function barH(){ if(bar) root.style.setProperty('--lctrl-h', bar.offsetHeight+'px'); }
+  barH(); if(window.ResizeObserver&&bar) new ResizeObserver(barH).observe(bar);
+  function unhide(id){ var el=null; try{ el=id&&document.getElementById(decodeURIComponent(id)); }catch(e){}
+    if(!el||!el.hasAttribute('data-sort-row')||!el.hidden) return null;
+    q.value=''; filt='all'; chips.forEach(function(x){var on=x.dataset.f==='all'; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on)}); apply(true); return el; }
+  document.addEventListener('click',function(e){ var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(a) unhide(a.getAttribute('href').slice(1)); });
+  window.addEventListener('hashchange',function(){ var el=unhide(location.hash.slice(1)); if(el) el.scrollIntoView(); });
+  if(location.hash){ var t=unhide(location.hash.slice(1)); if(t) requestAnimationFrame(function(){ t.scrollIntoView(); }); }
+  // phones: the filter bar is not sticky there, so offer a way back to it from deep in the list
+  if(bar){
+    var btn=document.createElement('button'); btn.type='button'; btn.className='to-filters'; btn.setAttribute('aria-label','Back to filters'); btn.title='Back to filters'; btn.textContent='↑';
+    btn.addEventListener('click',function(){ var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches; bar.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); });
+    document.body.appendChild(btn);
+    var tick=false; function vis(){ tick=false; btn.classList.toggle('visible', bar.getBoundingClientRect().bottom<0); }
+    window.addEventListener('scroll',function(){ if(!tick){ tick=true; requestAnimationFrame(vis); } },{passive:true}); vis();
+  }
 })();
 </script>"""
 
@@ -400,7 +525,7 @@ def dash_tile(val, label, sub="", href=None, hero=False, txt=False):
 
 def dash_vbars(items, now_label=None):
     mx = max((v for _, v, _ in items), default=1) or 1
-    return '<div class="vbars" role="img" aria-label="' + esc(", ".join(f"{l}: {d}" for l, _, d in items)) + '">' + "".join(
+    return '<div class="vbars" role="img" aria-label="' + esc(", ".join(f"{l}: {d or 0}" for l, _, d in items)) + '">' + "".join(
         f'<div class="vbar{" now" if l == now_label else ""}"><div class="vbar-track"><div class="vbar-fill" style="--h:{v / mx * 100:.1f}%">'
         f'{f"<b>{d}</b>" if v else ""}</div></div><span class="vbar-lbl">{esc(l).replace(" ", "<br>")}</span></div>' for l, v, d in items) + "</div>"
 
@@ -410,7 +535,7 @@ def dash_hbars(items):
     out = []
     for l, v, d, href in items:
         tag = f'a class="hbar" href="{href}"' if href else 'div class="hbar"'
-        out.append(f'<li><{tag}><span class="hbar-name">{esc(l)}</span><span class="hbar-track"><span class="hbar-fill" style="--w:{v / mx * 100:.1f}%"></span></span>'
+        out.append(f'<li><{tag}><span class="hbar-name" title="{esc(l)}">{esc(l)}</span><span class="hbar-track"><span class="hbar-fill" style="--w:{v / mx * 100:.1f}%"></span></span>'
                    f'<span class="hbar-val">{d}</span></{tag.split()[0]}></li>')
     return '<ol class="hbars">' + "".join(out) + "</ol>"
 
@@ -444,95 +569,101 @@ def fmt_k(n):
 
 
 # ---------- /will-ai-take-my-job/ — the AI job risk test ----------
-# Search aliases for the SOC titles people actually type ("programmer", "nurse").
+# Search aliases for the SOC titles people actually type ("programmer", "nurse"), comma-separated: the search
+# ranks a query that equals a whole alias first, so each comma-separated phrase is one thing a person might type.
 JOB_ALIASES = {
-    "15-1252": "software engineer developer programmer coder backend frontend full stack",
-    "15-1253": "qa tester quality assurance test engineer",
-    "15-1251": "programmer coder",
-    "15-1254": "web developer frontend",
-    "15-1255": "ux ui designer product designer web designer",
-    "29-1141": "nurse rn",
-    "25-2021": "teacher primary school",
-    "25-2031": "teacher high school",
-    "23-1011": "lawyer attorney solicitor",
-    "13-2011": "accountant auditor cpa",
-    "27-1024": "graphic designer designer",
-    "53-3032": "truck driver trucker lorry driver",
-    "53-3054": "taxi driver uber lyft rideshare driver",
-    "41-2011": "cashier checkout",
-    "41-2031": "retail sales shop assistant store associate",
-    "35-2014": "cook chef",
+    "15-1252": "software engineer, software developer, developer, engineer, programmer, coder, backend, back end, frontend, front end, full stack, game developer, prompt engineer",
+    "15-1253": "qa, tester, quality assurance, test engineer",
+    "15-1251": "programmer, coder",
+    "15-1254": "web developer, frontend",
+    "15-1255": "ux designer, ui designer, product designer, web designer",
+    "29-1141": "nurse, rn, registered nurse",
+    "25-2021": "teacher, primary school teacher, elementary teacher",
+    "25-2031": "teacher, high school teacher, secondary teacher",
+    "23-1011": "lawyer, attorney, solicitor",
+    "13-2011": "accountant, auditor, cpa",
+    "27-1024": "graphic designer, designer",
+    "53-3032": "truck driver, driver, trucker, lorry driver, hgv driver",
+    "53-3054": "taxi driver, uber driver, lyft driver, rideshare driver",
+    "53-3033": "delivery driver, van driver",
+    "41-2011": "cashier, checkout",
+    "41-2031": "sales, sales associate, retail sales, shop assistant, store associate",
+    "35-2014": "cook, line cook",
+    "35-3023": "barista",
     "47-2111": "electrician",
     "47-2152": "plumber",
-    "29-1215": "doctor physician gp family doctor",
+    "29-1215": "doctor, physician, gp, family doctor",
     "29-1051": "pharmacist",
-    "13-1071": "hr recruiter human resources talent acquisition",
-    "13-1161": "marketing specialist marketer seo digital marketing growth market research",
-    "11-2021": "marketing manager head of marketing cmo",
-    "15-2051": "data scientist machine learning ml engineer ai engineer",
-    "15-2041": "statistician data analyst",
-    "15-1211": "business analyst systems analyst it analyst",
-    "15-1212": "cybersecurity security analyst infosec",
-    "15-1232": "it support help desk tech support",
-    "15-1244": "sysadmin system administrator devops network admin",
-    "43-6014": "secretary admin assistant administrative assistant office assistant",
-    "43-6011": "executive assistant ea pa personal assistant",
-    "43-4171": "receptionist front desk",
-    "43-9021": "data entry typist",
-    "43-3031": "bookkeeper accounting clerk",
-    "23-2011": "paralegal legal assistant",
-    "27-3023": "journalist reporter news",
-    "27-3043": "writer author copywriter content writer blogger",
-    "27-3042": "technical writer documentation",
-    "27-3091": "translator interpreter localization",
-    "27-3041": "editor copy editor",
-    "27-3031": "pr public relations communications comms",
-    "13-2052": "financial advisor wealth manager planner",
-    "13-2051": "financial analyst investment analyst equity research",
-    "41-9022": "real estate agent realtor estate agent",
-    "11-1021": "manager general manager operations manager coo",
-    "11-3021": "it manager cto engineering manager head of engineering",
-    "11-2022": "sales manager head of sales",
-    "41-4012": "sales rep account executive salesperson b2b sales",
-    "41-3091": "sales representative saas sales account executive",
-    "13-1082": "project manager scrum master program manager product manager",
-    "27-1014": "animator vfx 3d artist motion designer",
+    "13-1071": "hr, recruiter, human resources, talent acquisition",
+    "13-1161": "marketing, marketing specialist, marketer, seo, digital marketing, growth marketing, market research, social media, content creator, influencer",
+    "11-2021": "marketing manager, head of marketing, cmo",
+    "15-2051": "data scientist, data analyst, analytics, machine learning, ml engineer, ai engineer, data engineer",
+    "15-2041": "statistician",
+    "15-1211": "analyst, business analyst, systems analyst, it analyst",
+    "15-1212": "cybersecurity, security analyst, infosec",
+    "15-1232": "it support, help desk, tech support",
+    "15-1244": "sysadmin, system administrator, devops, network admin",
+    "43-6014": "secretary, admin assistant, administrative assistant, office assistant, virtual assistant, va",
+    "43-6011": "executive assistant, ea, pa, personal assistant",
+    "43-4171": "receptionist, front desk",
+    "43-9021": "data entry, typist",
+    "43-3031": "bookkeeper, accounting clerk",
+    "43-3071": "bank teller, teller",
+    "43-1011": "office manager, office supervisor",
+    "23-2011": "paralegal, legal assistant",
+    "27-3023": "journalist, reporter, news",
+    "27-3043": "writer, author, copywriter, content writer, blogger, content creator",
+    "27-3042": "technical writer, documentation",
+    "27-3091": "translator, interpreter, localization",
+    "27-3041": "editor, copy editor",
+    "27-3031": "pr, public relations, communications, comms",
+    "13-2052": "financial advisor, wealth manager, financial planner",
+    "13-2051": "financial analyst, investment analyst, equity research",
+    "41-9022": "real estate agent, realtor, estate agent",
+    "11-1021": "manager, general manager, operations manager, coo",
+    "11-3021": "it manager, cto, engineering manager, head of engineering",
+    "11-3031": "cfo, finance manager, finance director, finance",
+    "11-2022": "sales manager, head of sales",
+    "41-4012": "sales rep, account executive, salesperson, b2b sales",
+    "41-3091": "sales representative, saas sales, account executive, account manager",
+    "13-1082": "project manager, scrum master, program manager, product manager",
+    "27-1014": "animator, vfx, 3d artist, motion designer",
     "27-4021": "photographer",
-    "29-1123": "physiotherapist physical therapist",
-    "31-1131": "nursing assistant care assistant caregiver cna",
-    "33-3051": "police officer cop",
+    "29-1123": "physiotherapist, physical therapist",
+    "31-1131": "nursing assistant, care assistant, caregiver, cna",
+    "33-3051": "police officer, cop",
     "33-2011": "firefighter",
-    "35-3031": "waiter waitress server",
-    "37-2011": "janitor cleaner",
-    "49-3023": "mechanic car mechanic auto technician",
-    "53-7062": "warehouse worker laborer mover",
-    "13-1111": "consultant management consultant strategy",
+    "35-3031": "waiter, waitress, server",
+    "37-2011": "janitor, cleaner",
+    "49-3023": "mechanic, car mechanic, auto technician",
+    "53-7062": "warehouse worker, laborer, mover",
+    "13-1111": "consultant, management consultant, strategy consultant",
     "17-2051": "civil engineer",
     "17-2141": "mechanical engineer",
     "17-1011": "architect",
-    "13-2072": "loan officer mortgage",
-    "13-2053": "underwriter insurance",
-    "25-9045": "teaching assistant ta",
-    "39-9011": "nanny childcare babysitter",
-    "39-5012": "hairdresser barber stylist",
-    "43-4051": "customer service support agent call center customer support customer success",
-    "41-9041": "telemarketer cold caller sdr bdr",
-    "11-1011": "ceo founder chief executive",
+    "13-2072": "loan officer, mortgage advisor",
+    "13-2053": "underwriter, insurance underwriter",
+    "25-9045": "teaching assistant, ta, teacher assistant, teacher aide",
+    "39-9011": "nanny, childcare, babysitter",
+    "39-5012": "hairdresser, barber, stylist",
+    "43-4051": "customer service, support agent, call center, customer support, customer success",
+    "41-9041": "telemarketer, cold caller, sdr, bdr",
+    "11-1011": "ceo, founder, chief executive, entrepreneur, business owner, self employed",
+    "11-9032": "principal, school principal, head teacher",
     "13-1041": "compliance officer",
-    "13-2041": "credit analyst risk analyst fraud analyst",
-    "11-3121": "hr manager people manager head of people",
+    "13-2041": "credit analyst, risk analyst, fraud analyst",
+    "11-3121": "hr manager, people manager, head of people",
     "43-3051": "payroll",
-    "11-9111": "healthcare manager hospital administrator",
+    "11-9111": "healthcare manager, hospital administrator",
     "29-1292": "dental hygienist",
-    "27-2012": "producer director film",
-    "27-1011": "art director creative director",
-    "21-1018": "therapist counselor mental health",
+    "27-2012": "producer, director, film director",
+    "27-1011": "art director, creative director",
+    "21-1018": "therapist, counselor, mental health",
     "19-3033": "psychologist",
-    "25-1011": "professor lecturer university teacher",
-    "13-1151": "trainer learning and development l&d",
-    "15-1242": "dba database administrator",
-    "13-1081": "logistics supply chain",
-    "27-3011": "radio dj broadcaster presenter",
+    "13-1151": "trainer, learning and development, l&d",
+    "15-1242": "dba, database administrator",
+    "13-1081": "logistics, supply chain",
+    "27-3011": "radio dj, broadcaster, presenter",
 }
 POPULAR_JOBS = [["15-1252", "Software developer"], ["43-4051", "Customer service"], ["13-1161", "Marketing"], ["13-2011", "Accountant"], ["27-1024", "Graphic designer"],
                 ["29-1141", "Nurse"], ["25-2031", "Teacher"], ["27-3043", "Writer"], ["13-1071", "HR / recruiter"], ["53-3032", "Truck driver"]]
@@ -550,6 +681,12 @@ def soc_role(soc):
         "13-1111": "professional-services", "13-1081": "operations", "11-3013": "operations", "11-3071": "operations", "11-1021": "middle-management",
         "13-1082": "product", "15-1255": "product",
     }
+    # Codes the prefix fallbacks below would pair with unrelated layoffs (a CEO is not middle management, a mail
+    # carrier is not Oracle's operations cut, a judge is not a law-firm job): no role, so the page says "0 so far".
+    exact.update(dict.fromkeys([
+        "11-1011", "11-1031", "11-9013", "11-9021", "11-9031", "11-9032", "11-9033", "11-9051", "11-9071", "11-9072", "11-9081",
+        "11-9131", "11-9151", "11-9161", "11-9171", "11-9179", "41-9011", "41-9012", "43-5021", "43-5031", "43-5041", "43-5051",
+        "43-5052", "43-5053", "43-5111", "23-1012", "23-1021", "23-1022", "23-1023"], ""))
     if soc in exact:
         return exact[soc]
     if soc.startswith(("15-125",)):
@@ -570,15 +707,19 @@ def soc_role(soc):
 
 
 def render_job_risk(ldata):
+    import bisect
     import csv
     roles_map = json.loads((ROOT / "roles.json").read_text())
     rows = list(csv.DictReader((ROOT / "data" / "microsoft-ai-applicability-scores.csv").open()))
     rows = [(r["SOC Code"], r["title"], float(r["ai_applicability_score"])) for r in rows]
     n = len(rows)
-    ranked = sorted(rows, key=lambda r: r[2])
-    pct = {}
-    for k, r in enumerate(ranked):  # share of occupations with a strictly lower score
-        pct[r[0]] = round(100 * sum(1 for x in ranked if x[2] < r[2]) / (n - 1))
+    scores_sorted = sorted(r[2] for r in rows)
+    # share of the n occupations with a strictly lower score, rounded down: at most 99, so never "100% are less exposed"
+    pct = {r[0]: 100 * bisect.bisect_left(scores_sorted, r[2]) // n for r in rows}
+
+    def job_alias(soc):  # every postsecondary field answers to "professor" (no "teacher": the titles already say Teachers)
+        a = JOB_ALIASES.get(soc, "")
+        return (a + ", " if a else "") + "professor, lecturer, university lecturer, college professor, faculty, academic" if soc.startswith("25-1") else a
     by_role = {}
     for l in ldata:
         for r in l.get("roleTags", []):
@@ -587,7 +728,7 @@ def render_job_risk(ldata):
     role_info = {r: {"label": roles_map.get(r, r), "jobs": sum(x["jobs"] for x in ls), "n": len(ls), "page": len(ls) >= 2,
                      "top": [[x["company"], x["jobs"], fmt_month(x["date"])] for x in sorted(ls, key=lambda x: -x["jobs"])[:4]]}
                  for r, ls in by_role.items()}
-    occ = [[soc, title, round(score, 3), pct[soc], soc_role(soc) if soc_role(soc) in role_info else "", JOB_ALIASES.get(soc, "")]
+    occ = [[soc, title, round(score, 3), pct[soc], soc_role(soc) if soc_role(soc) in role_info else "", job_alias(soc)]
            for soc, title, score in sorted(rows, key=lambda r: r[1])]
     missing = [s for s in list(JOB_ALIASES) + [j for j, _ in POPULAR_JOBS] if s not in pct]
     if missing:
@@ -605,7 +746,7 @@ def render_job_risk(ldata):
     total_jobs = sum(l["jobs"] for l in ldata)
     url = SITE_URL + "will-ai-take-my-job/"
     faq = [
-        ("Will AI take my job?", f"Probably not all of it, and not all at once — but some jobs are far more exposed than others. Microsoft's analysis of 200,000 real Copilot conversations found the highest AI overlap in interpreters and translators, writers, customer service representatives and sales roles, and almost none in hands-on work such as dredge operators, roofers or nursing assistants. Meanwhile {len(ldata)} companies have already cut {total_jobs:,} jobs while explicitly blaming AI. The test on this page combines both with how you actually work."),
+        ("Will AI take my job?", f"Probably not all of it, and not all at once — but some jobs are far more exposed than others. Microsoft's analysis of 200,000 real Copilot conversations found the highest AI overlap in interpreters and translators, writers, customer service representatives and sales roles, and almost none in hands-on work such as dredge operators, roofers or nursing assistants. Meanwhile {len({company_key(l['company']) for l in ldata})} companies have already cut {total_jobs:,} jobs while explicitly blaming AI. The test on this page combines both with how you actually work."),
         ("Which jobs are most at risk from AI?", "By Microsoft's AI applicability score, the most exposed occupations are " + ", ".join(t for _, t, _ in top[:6]) + ". Among real layoffs where employers named AI as the reason, customer support is hit hardest by far, followed by operations, software engineering and sales."),
         ("Which jobs are safest from AI?", "Jobs built on physical, on-site work in unpredictable environments score lowest: " + ", ".join(t for _, t, _ in bottom[:6]) + ". Work that needs a licence, legal accountability or in-person trust is also slower to automate."),
         ("Are young workers more at risk?", "So far, yes. Stanford's Digital Economy Lab found that by mid-2026 employment for 22–25-year-olds in the most AI-exposed occupations was about 19% below where it would have been had it kept pace with less-exposed jobs — mostly through fewer hires rather than firings. Experienced workers show no comparable gap."),
@@ -613,10 +754,7 @@ def render_job_risk(ldata):
     ]
     faq_html = "".join(f'<details class="faq"><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in faq)
     jsonld = {"@context": "https://schema.org", "@graph": [
-        webpage_node(url, "Will AI Take My Job? The AI Job Risk Test", f"Free AI job risk test: score your job against {n} occupations using Microsoft's AI applicability data and {total_jobs:,} real AI layoffs.", lm(["job-risk-template.html", "data/microsoft-ai-applicability-scores.csv"])),
-        {"@type": "WebApplication", "@id": url + "#app", "name": "AI Job Risk Test", "url": url, "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any",
-         "isAccessibleForFree": True, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "creator": PERSON_REF,
-         "description": f"Answer 3 quick questions to see how exposed your job is to AI, scored against {n} US occupations and {total_jobs:,} AI-attributed layoffs."},
+        webpage_node(url, "Will AI Take My Job? The AI Job Risk Test", f"Free AI job risk test: score your job against {n} occupations using Microsoft's AI applicability data and {total_jobs:,} real AI layoffs.", lm(["layoffs.json", "job-risk-template.html", "data/microsoft-ai-applicability-scores.csv"])),
         {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]},
         {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL}, {"@type": "ListItem", "position": 2, "name": "Will AI take my job?", "item": url}]},
     ]}
@@ -631,7 +769,7 @@ def render_job_risk(ldata):
            .replace("{{FAQ}}", faq_html)
            .replace("{{N_OCC}}", str(n))
            .replace("{{TOTAL_JOBS}}", f"{total_jobs:,}")
-           .replace("{{TOTAL_COMPANIES}}", str(len(ldata)))
+           .replace("{{TOTAL_COMPANIES}}", str(len({company_key(l["company"]) for l in ldata})))
            .replace("{{FOOTER_LINKS}}", footer_links())
            .replace("{{LAST_UPDATED}}", fmt_date(lm(["layoffs.json"]))))
     publish("will-ai-take-my-job", out)
@@ -639,49 +777,73 @@ def render_job_risk(ldata):
 
 
 def render_jobs_pages(ldata, list_tpl):
-    """/jobs/ and /jobs/<role>/ — layoffs re-indexed by the roles AI replaced."""
+    """/jobs/ and /jobs/<role>/ — layoffs re-indexed by the roles AI replaced.
+
+    A layoff's job count is the company-wide figure, so it is counted in full under every role it names:
+    role figures are "jobs cut in layoffs that named this role", never "jobs in this role"."""
     roles = json.loads((ROOT / "roles.json").read_text())
     total_jobs = sum(l["jobs"] for l in ldata)
+    n_companies = len({company_key(l["company"]) for l in ldata})
+    this_year = str(datetime.utcnow().year)
     by_role = {}
     for l in ldata:
         for r in l.get("roleTags", ["various"]):
             by_role.setdefault(r, []).append(l)
-    ranked = sorted(by_role.items(), key=lambda kv: -sum(x["jobs"] for x in kv[1]))
-    pages = []
-    for r, rows in ranked:
-        if r == "various" or len(rows) < 2:
-            continue
-        label = roles.get(r, r); n = len(rows); jobs = sum(x["jobs"] for x in rows)
+    # rank by how many layoffs named the role (summed totals overweight whichever roles the mega-layoffs listed)
+    ranked = sorted(by_role.items(), key=lambda kv: (-len(kv[1]), -sum(x["jobs"] for x in kv[1])))
+    page_roles = [(r, rows) for r, rows in ranked if r != "various" and len(rows) >= 2]
+    pages = [r for r, _ in page_roles]
+    for r, rows in page_roles:
+        label = roles.get(r, r); lc = lc_label(label); L = len(rows); jobs = sum(x["jobs"] for x in rows)
+        names = list(dict.fromkeys(company_key(x["company"]) for x in sorted(rows, key=lambda x: -x["jobs"])))
+        n = len(names)
         rows = sorted(rows, key=lambda x: -x["jobs"])
         url = f"{SITE_URL}jobs/{r}/"
-        title = f"{label} jobs replaced by AI: {jobs:,} cut at {n} companies"
-        if len(title) > 60: title = f"{label} jobs replaced by AI ({jobs:,} cut)"
-        meta = f"{jobs:,} {label.lower()} jobs cut at {n} companies that blamed AI, with the date, the reason given and a source for each: " + ", ".join(x["company"] for x in rows[:4]) + "."
-        intro = (f"{label} is one of the roles companies most often name when they attribute layoffs to AI. Across {n} companies tracked here, {jobs:,} jobs in this category were cut "
-                 f"(a company's total is counted once per role it named, so role totals overlap). Largest first; every row links its source on the layoffs tracker.")
+        title = f"{label} jobs replaced by AI: {L} layoffs"
+
+        def meta_for(k):
+            who = f"{L} rounds at {names[0]}" if n == 1 else ", ".join(names[:k]) + (" and more" if k < n else "")
+            return f"{L} AI-blamed layoffs named {lc} roles: {who}. {jobs:,} jobs cut in those layoffs (company-wide totals), each sourced."
+        meta = next((meta_for(k) for k in range(min(n, 4), 0, -1) if len(meta_for(k)) <= 155), meta_for(1))
+        if len(meta) > 155:
+            meta = meta[:152].rsplit(" ", 1)[0] + "…"
+        by_date = sorted(rows, key=lambda x: x["date"])
+        big = rows[0]
+        ytd = sum(1 for x in rows if x["date"][:4] == this_year)
+        intro = (f"{L} layoffs where the company blamed AI named {lc} among the roles cut"
+                 + ("" if n == L else f", all at {names[0]}" if n == 1 else f", at {n} companies") + ". "
+                 + f"Together those layoffs cut {jobs:,} jobs. That is the company-wide total, not only {lc} roles, so figures for different roles overlap. "
+                 + f"The largest was {company_key(big['company'])} ({big['jobs']:,} jobs, {fmt_month(big['date'])}); "
+                 + f"the first was {company_key(by_date[0]['company'])} in {fmt_month(by_date[0]['date'])} and the latest {company_key(by_date[-1]['company'])} in {fmt_month(by_date[-1]['date'])}. "
+                 + (f"{ytd} of the {L} came in {this_year}. " if ytd else "")
+                 + "Largest first; every row links to its entry and source on the layoffs tracker.")
         rhtml = "".join(f'<a class="row" href="/layoffs/#{slugify(x["company"])}"><span><b>{esc(x["company"])}</b><small>{esc(x["roles"])}</small></span><span class="when">{x["jobs"]:,} · {x["date"][:7]}</span></a>' for x in rows)
+        siblings = "".join(f'<a href="/jobs/{o}/">{esc(roles.get(o, o))} <small>{len(orows)}</small></a>' for o, orows in page_roles if o != r)
+        after = f'<nav class="siblings" aria-label="Other roles"><h2>Other roles hit by AI layoffs</h2><div>{siblings}</div></nav>' if siblings else ""
         ld = {"@context": "https://schema.org", "@graph": [
             {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL}, {"@type": "ListItem", "position": 2, "name": "Jobs replaced by AI", "item": SITE_URL + "jobs/"}, {"@type": "ListItem", "position": 3, "name": label, "item": url}]},
             webpage_node(url, title, meta, lm(["layoffs.json"]), {"@type": "CollectionPage"}),
-            {"@type": "ItemList", "numberOfItems": n, "itemListElement": [{"@type": "ListItem", "position": k + 1, "name": f'{x["company"]} — {x["jobs"]:,} jobs', "url": SITE_URL + "layoffs/#" + slugify(x["company"])} for k, x in enumerate(rows)]}]}
+            {"@type": "ItemList", "numberOfItems": L, "itemListElement": [{"@type": "ListItem", "position": k + 1, "name": f'{x["company"]} — {x["jobs"]:,} jobs', "url": SITE_URL + "layoffs/#" + slugify(x["company"])} for k, x in enumerate(rows)]}]}
         out = list_tpl
-        for k, v in {"{{TITLE}}": esc(title + " | Killed by AI") if len(title) <= 47 else esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": f'<a href="/jobs/">Jobs replaced by AI</a> › {esc(label)}',
-                     "{{H1}}": f"{esc(label)}: jobs replaced by AI", "{{INTRO}}": esc(intro), "{{ROWS}}": rhtml, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
+        for k, v in {"{{TITLE}}": esc(title + " | Killed by AI") if len(title) <= 45 else esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": f'<a href="/jobs/">Jobs replaced by AI</a> › {esc(label)}',
+                     "{{H1}}": f"{esc(label)}: jobs replaced by AI", "{{INTRO}}": esc(intro), "{{ROWS}}": rhtml, "{{AFTER}}": after, "{{NAV}}": site_nav("/layoffs/"),
+                     "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
             out = out.replace(k, v)
-        d = ROOT / "jobs" / r; d.mkdir(parents=True, exist_ok=True); (d / "index.html").write_text(out); pages.append(r)
+        d = ROOT / "jobs" / r; d.mkdir(parents=True, exist_ok=True); (d / "index.html").write_text(out)
     # index
     url = SITE_URL + "jobs/"
-    rhtml = "".join(f'<a class="row" href="/jobs/{r}/"><span><b>{esc(roles.get(r, r))}</b><small>{len(rows)} companies</small></span><span class="when">{sum(x["jobs"] for x in rows):,}</span></a>' for r, rows in ranked if r in pages)
+    rhtml = "".join(f'<a class="row" href="/jobs/{r}/"><span><b>{esc(roles.get(r, r))}</b><small>{len({company_key(x["company"]) for x in rows})} companies · {sum(x["jobs"] for x in rows):,} jobs in those layoffs</small></span><span class="when">{len(rows)} layoffs</span></a>' for r, rows in page_roles)
     title = f"Jobs Replaced by AI: {total_jobs:,} Layoffs by Role | Killed by AI"
-    meta = f"Which jobs are being replaced by AI: {total_jobs:,} layoffs at {len(ldata)} companies that blamed AI, broken down by role — customer support, sales, engineering, middle management and more. Sourced."
+    meta = f"Which jobs AI is replacing: {total_jobs:,} jobs cut at {n_companies} companies that blamed AI, by role, from customer support and sales to engineering. Sourced."
+    top_label = roles.get(pages[0], pages[0]) if pages else "Customer support"
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL}, {"@type": "ListItem", "position": 2, "name": "Jobs replaced by AI", "item": url}]},
         webpage_node(url, title, meta, lm(["layoffs.json"]), {"@type": "CollectionPage"}),
         {"@type": "ItemList", "numberOfItems": len(pages), "itemListElement": [{"@type": "ListItem", "position": k + 1, "name": roles.get(r, r), "url": f"{SITE_URL}jobs/{r}/"} for k, r in enumerate(pages)]}]}
     out = list_tpl
     for k, v in {"{{TITLE}}": esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": "Jobs replaced by AI",
-                 "{{H1}}": "Jobs replaced by AI, by role", "{{INTRO}}": esc(f"The roles companies name when they blame layoffs on AI. {total_jobs:,} jobs across {len(ldata)} companies, re-indexed by the work that was replaced. Customer support leads by a distance. Role totals overlap because one layoff usually hits several roles; the per-company figures are on the layoffs tracker."),
-                 "{{ROWS}}": rhtml, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
+                 "{{H1}}": "Jobs replaced by AI, by role", "{{INTRO}}": esc(f"The roles companies name when they blame layoffs on AI. {total_jobs:,} jobs across {n_companies} companies, re-indexed by the work that was replaced, most-named role first. {top_label} leads by a distance. Each layoff's job count is the company-wide total and is counted under every role it named, so role figures overlap; the per-company figures are on the layoffs tracker."),
+                 "{{ROWS}}": rhtml, "{{AFTER}}": "", "{{NAV}}": site_nav("/layoffs/"), "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
         out = out.replace(k, v)
     d = ROOT / "jobs"; d.mkdir(exist_ok=True); (d / "index.html").write_text(out)
     return pages
@@ -699,7 +861,7 @@ def build_ics(cs_data):
         uid = slugify(c["name"]) + "@killedbyai.net"
         desc = f'{c["description"]} Replacement: {c["replacement"]}. Source: {c["link"]}'
         events.append("BEGIN:VEVENT\r\nUID:" + uid + "\r\nDTSTAMP:" + stamp + "\r\nDTSTART;VALUE=DATE:" + d + "\r\nDTEND;VALUE=DATE:" + nxt
-                      + "\r\nSUMMARY:" + ics_escape("🪦 " + c["name"] + " shuts down") + "\r\nDESCRIPTION:" + ics_escape(desc)
+                      + "\r\nSUMMARY:" + ics_escape("🪦 Shutdown: " + c["name"]) + "\r\nDESCRIPTION:" + ics_escape(desc)
                       + "\r\nURL:" + SITE_URL + "coming-soon/#" + slugify(c["name"]) + "\r\nCATEGORIES:AI shutdown\r\nEND:VEVENT")
     return ("BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Killed by AI//Upcoming AI shutdowns//EN\r\nCALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\n"
             "X-WR-CALNAME:Upcoming AI shutdowns — Killed by AI\r\nX-WR-CALDESC:Confirmed shutdown and deprecation dates for AI products and models. Source: killedbyai.net/coming-soon/\r\nREFRESH-INTERVAL;VALUE=DURATION:P1D\r\n"
@@ -709,7 +871,7 @@ def build_ics(cs_data):
 def render_index_pages(data, killer_counts, list_tpl):
     """/dead/ (A–Z, every tombstone) and /killed-by/ (every killer with a page)."""
     az = sorted(data, key=lambda i: i["name"].lower())
-    rows = "".join(f'<a class="row" href="{product_url(i)}"><span><b>{esc(i["name"])}</b><small>{esc(i["causeOfDeath"])} · killed by {esc(i["killedBy"])}</small></span><span class="when">{i["dateClose"]}</span></a>' for i in az)
+    rows = "".join(f'<a class="row" href="{product_url(i)}"><span><b>{esc(i["name"])}</b><small>{esc(i["causeOfDeath"])} · {esc(killer_label(i["killedBy"]).replace("Killed", "killed", 1))}</small></span><span class="when">{i["dateClose"]}</span></a>' for i in az)
     url = SITE_URL + "dead/"
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL}, {"@type": "ListItem", "position": 2, "name": "All tombstones", "item": url}]},
@@ -718,20 +880,20 @@ def render_index_pages(data, killer_counts, list_tpl):
     out = list_tpl
     for k, v in {"{{TITLE}}": f"All {len(data)} Dead AI Products, A–Z | Killed by AI", "{{META_DESC}}": esc(f"Every one of the {len(data)} tombstones in the AI graveyard, alphabetically — models, apps, services, startups and hardware, each with dates, cause of death and source."),
                  "{{URL}}": url, "{{CRUMB}}": "All tombstones", "{{H1}}": f"All {len(data)} tombstones, A–Z", "{{INTRO}}": esc("Every dead AI product tracked here, alphabetically. Each page has the launch and death dates, the cause, the killer, and a source."),
-                 "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
+                 "{{NAV}}": site_nav("/"), "{{AFTER}}": "", "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
         out = out.replace(k, v)
     d = ROOT / "dead"; d.mkdir(exist_ok=True); (d / "index.html").write_text(out)
 
     killers = sorted([(k, n) for k, n in killer_counts.items() if n >= 2], key=lambda x: -x[1])
-    rows = "".join(f'<a class="row" href="/killed-by/{killer_slug(k)}/"><span><b>{esc(k)}</b><small>{n} AI products killed</small></span><span class="when">{n}</span></a>' for k, n in killers)
+    rows = "".join(f'<a class="row" href="/killed-by/{killer_slug(k)}/"><span><b>{esc(k)}</b><small>{n} AI products killed{" · a cause, not a company" if k in KILLER_PROSE else ""}</small></span><span class="when">{n}</span></a>' for k, n in killers)
     url = SITE_URL + "killed-by/"
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL}, {"@type": "ListItem", "position": 2, "name": "By killer", "item": url}]},
         webpage_node(url, "Who kills the most AI products?", "AI product deaths by the company responsible.", lm(["graveyard.json"]), {"@type": "CollectionPage"})]}
     out = list_tpl
-    for k, v in {"{{TITLE}}": "Who Kills the Most AI Products? Deaths by Company | Killed by AI", "{{META_DESC}}": esc(f"AI product shutdowns by the company responsible — {killers[0][0]} leads with {killers[0][1]}. Every killer with two or more dead products has its own page."),
-                 "{{URL}}": url, "{{CRUMB}}": "By killer", "{{H1}}": "Killed by whom?", "{{INTRO}}": esc(f"Companies ranked by how many AI products they have shut down. {killers[0][0]} leads with {killers[0][1]}; every company with two or more kills has its own page listing them."),
-                 "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
+    for k, v in {"{{TITLE}}": "Who Kills the Most AI Products? | Killed by AI", "{{META_DESC}}": esc(f"AI product shutdowns by the company responsible — {killers[0][0]} leads with {killers[0][1]}. Every killer with two or more dead products has its own page."),
+                 "{{URL}}": url, "{{CRUMB}}": "By killer", "{{H1}}": "Killed by whom?", "{{INTRO}}": esc(f"Killers ranked by how many AI products they have shut down. {killers[0][0]} leads with {killers[0][1]}; every killer with two or more kills has its own page listing them. A few are causes rather than companies: products that collapsed on their own, or were killed by the market or by reality."),
+                 "{{NAV}}": site_nav("/"), "{{AFTER}}": "", "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
         out = out.replace(k, v)
     d = ROOT / "killed-by"; d.mkdir(exist_ok=True); (d / "index.html").write_text(out)
 
@@ -795,7 +957,7 @@ def build_jsonld(items):
                 "@id": SITE_URL + "#org",
                 "name": "Killed by AI",
                 "url": SITE_URL,
-                "logo": SITE_URL + "og-image.png",
+                "logo": {"@type": "ImageObject", "url": SITE_URL + "icon-512.png", "width": 512, "height": 512},
                 "founder": PERSON_REF,
                 "sameAs": ["https://github.com/mixtpatrik/killedbyai"],
             },
@@ -864,7 +1026,7 @@ def build_faq(items):
     recent_list = ", ".join(i["name"] for i in recent_5)
 
     sora = next((i for i in items if i.get("slug") == "openai-sora"), None)
-    sora_answer = (f"OpenAI shut down the Sora app on April 26, 2026 — about $1M a day in compute against fewer than 500K users, and a collapsed $1B Disney deal. The API follows on September 24. "
+    sora_answer = (f"OpenAI shut down the Sora app on April 26, 2026 — about $1M a day in compute against fewer than 500K users, and a collapsed $1B Disney deal. The API followed on September 24, 2026. "
                    f"Full timeline: <a href=\"{product_url(sora)}\">Sora AI shutdown</a>.") if sora else "OpenAI shut down Sora in April 2026 due to unsustainable compute costs."
     def link_for(slug, text):
         it = next((i for i in items if i.get("slug") == slug), None)
@@ -893,7 +1055,7 @@ def build_faq(items):
         },
         {
             "q": "What was the shortest-lived AI product?",
-            "a": f"{shortest['name']} lasted just {format_lifespan(shortest_days)}. {shortest['description']}"
+            "a": f"{shortest['name']} lasted just {format_lifespan_long(shortest_days)}. {shortest['description']}"
         },
         {
             "q": "What AI products were most recently discontinued?",
@@ -952,7 +1114,7 @@ def build_rss(items):
         url = product_url(item)
         rss_items.append(
             f"""    <item>
-      <title>{esc(item["name"])} — Killed by {esc(item["killedBy"])} ({item["dateClose"]})</title>
+      <title>{esc(item["name"])} — {esc(killer_label(item["killedBy"]))} ({item["dateClose"]})</title>
       <link>{url}</link>
       <guid isPermaLink="true">{url}</guid>
       <pubDate>{pub_date}</pubDate>
@@ -997,11 +1159,16 @@ def build_killer_leaderboard(items):
 def build_pace(items):
     from collections import Counter
     years = Counter(int(year(i["dateClose"])) for i in items)
-    current_year = datetime.utcnow().year
+    now = datetime.utcnow()
+    current_year = now.year
     kills_this_year = years.get(current_year, 0)
-    month_now = datetime.utcnow().month
-    pace_per_month = round(kills_this_year / max(month_now, 1), 1)
-    projected = round(pace_per_month * 12)
+    # Scale by elapsed days, not whole calendar months (Oct 7 is not 10/12 of the year). The floor keeps an
+    # early-January rebuild from extrapolating one death into hundreds.
+    days_in_year = 366 if calendar.isleap(current_year) else 365
+    elapsed = max(now.timetuple().tm_yday, 31)
+    per_day = kills_this_year / elapsed
+    pace_per_month = round(per_day * days_in_year / 12, 1)
+    projected = max(kills_this_year, round(per_day * days_in_year))
     return kills_this_year, pace_per_month, projected
 
 
@@ -1078,13 +1245,12 @@ def validate(data, ldata, cs_data):
         if name in seen:
             warnings.append(f"graveyard: duplicate entry '{name}'")
         seen.add(name)
-        s = item.get("slug")
-        if s:
-            if s in slugs:
-                warnings.append(f"graveyard: slug '{s}' used by both '{slugs[s]}' and '{name}'")
-            slugs[s] = name
-            if s != slugify(s):
-                warnings.append(f"graveyard: '{name}' slug '{s}' is not URL-safe")
+        s = item.get("slug") or slugify(name)   # the dead/<slug>/ directory the page is written to
+        if s in slugs:
+            warnings.append(f"graveyard: slug '{s}' used by both '{slugs[s]}' and '{name}'")
+        slugs[s] = name
+        if s != slugify(s):
+            warnings.append(f"graveyard: '{name}' slug '{s}' is not URL-safe")
 
         for field in GRAVEYARD_REQUIRED:
             if not item.get(field):
@@ -1104,6 +1270,11 @@ def validate(data, ldata, cs_data):
         if item.get("type") not in VALID_TYPES:
             warnings.append(f"graveyard: '{name}' has invalid type '{item.get('type')}'")
 
+    for item in data:   # an alias dir would overwrite a live product page with a redirect stub
+        for old in item.get("aliases", []):
+            if old in slugs:
+                warnings.append(f"graveyard: alias '{old}' of '{item.get('name')}' is used by both a live page and a redirect")
+
     graveyard_names = {i.get("name", "").lower() for i in data}
     for item in cs_data:
         name = item.get("name", "<unnamed>")
@@ -1113,8 +1284,17 @@ def validate(data, ldata, cs_data):
             )
         if name.lower() in graveyard_names:
             warnings.append(f"coming-soon: '{name}' is already in the graveyard — remove one")
+        elif not item.get("graveyardSlug") and not item.get("notInGraveyard"):
+            # renamed duplicates: whole slug words in either direction ('Nano Banana' vs 'google-gemini-…-nano-banana')
+            b = f"-{slugify(name)}-"
+            hits = [g for g in slugs if b in f"-{g}-" or f"-{g}-" in b]
+            if hits:
+                warnings.append(f"coming-soon: '{name}' looks like graveyard entr{'y' if len(hits) == 1 else 'ies'} {', '.join(hits)} — "
+                                f"remove one, or set graveyardSlug (related tombstone) / notInGraveyard: true")
+        if item.get("graveyardSlug") and item["graveyardSlug"] not in slugs:
+            warnings.append(f"coming-soon: '{name}' graveyardSlug '{item['graveyardSlug']}' matches no tombstone (would publish a 404 link)")
 
-    layoff_keys = set()
+    layoff_keys = set(); anchors = {}
     for item in ldata:
         key = (item.get("company"), item.get("date"))
         if key in layoff_keys:
@@ -1122,9 +1302,24 @@ def validate(data, ldata, cs_data):
                 f"layoffs: duplicate '{item.get('company')}' on {item.get('date')} — inflates the job total"
             )
         layoff_keys.add(key)
+        a = slugify(item.get("company", ""))
+        if a in anchors:
+            warnings.append(f"layoffs: '{anchors[a]}' and '{item.get('company')}' share the anchor #{a} — "
+                            f"label the repeat with its year, e.g. '{company_key(item.get('company', ''))} ({item.get('date', '')[:4]})'")
+        anchors[a] = item.get("company")
 
     return warnings
 
+
+# Warnings that mean the published site would be wrong (duplicate pages/ids, a death in the future): fail the build.
+HARD_WARNING = re.compile(r"duplicate|used by both|\(future\)|already in the graveyard|share the anchor")
+
+
+RETIRED_TOMBSTONES = {  # slug -> coming-soon.json name it now redirects to
+    "google-gemini-2-5-flash-image-nano-banana": 'Google Gemini 2.5 Flash Image ("Nano Banana")',
+    "gemini-omni-flash-preview": "Gemini Omni Flash Preview & Veo 3.1 Previews",
+    "gpt-4o-api-2024-05-13-2024-08-06": "OpenAI GPT-4, GPT-4 Turbo, GPT-3.5 Turbo, o1, o3-mini & o4-mini",
+}
 
 REDIRECT_STUB = """<!DOCTYPE html>
 <html lang="en">
@@ -1196,7 +1391,7 @@ def build_layoffs_jsonld(ldata):
                 "@id": SITE_URL + "api/#layoffs",
                 "name": "AI-Attributed Layoffs Tracker",
                 "description": (
-                    f"{total:,} jobs cut across {len(ldata)} companies that explicitly cited AI, "
+                    f"{total:,} jobs cut in {len(ldata)} layoffs at {len({company_key(l['company']) for l in ldata})} companies that explicitly cited AI, "
                     "automation, or an AI-first strategy as a reason."
                 ),
                 "url": SITE_URL + "layoffs/",
@@ -1211,7 +1406,7 @@ def build_layoffs_jsonld(ldata):
                     "contentUrl": SITE_URL + "layoffs.json",
                 },
             },
-            webpage_node(SITE_URL + "layoffs/", "AI Layoffs Tracker", f"{total:,} jobs cut by AI at {len(ldata)} companies.", lm(["layoffs.json", "layoffs-template.html"]), {"@type": "CollectionPage"}),
+            webpage_node(SITE_URL + "layoffs/", "AI Layoffs Tracker", f"{total:,} jobs cut by AI at {len({company_key(l['company']) for l in ldata})} companies.", lm(["layoffs.json", "layoffs-template.html"]), {"@type": "CollectionPage"}),
             {"@type": "ItemList", "numberOfItems": len(ldata), "itemListElement": items},
         ],
     }
@@ -1259,8 +1454,8 @@ def build_coming_soon_jsonld(cs_data):
                 },
             },
             webpage_node(SITE_URL + "coming-soon/", "Upcoming AI Shutdowns & Model Deprecation Dates", f"{len(cs_data)} AI products with confirmed shutdown dates.", lm(["coming-soon.json", "coming-soon-template.html"]), {"@type": "CollectionPage"}),
-            {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f"When does {c['name']} shut down?",
-                "acceptedAnswer": {"@type": "Answer", "text": f"{c['name']} is scheduled to shut down on {fmt_date(c['dateShutdown'])} (announced {fmt_date(c['dateAnnounced'])}). Replacement: {c['replacement']}."}}
+            {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f"What is the shutdown date for {c['name']}?",
+                "acceptedAnswer": {"@type": "Answer", "text": f"{c['name']}: scheduled shutdown on {fmt_date(c['dateShutdown'])} (announced {fmt_date(c['dateAnnounced'])}). Replacement: {c['replacement']}."}}
                 for c in sorted(cs_data, key=lambda x: x["dateShutdown"])]},
             {"@type": "ItemList", "numberOfItems": len(cs_data), "itemListElement": items},
         ],
@@ -1293,9 +1488,33 @@ def build_funding_jsonld(funded, total_b):
     }
 
 
+def check_data(data):
+    """Run validate() before anything is written, so a bad data commit fails without touching the built pages."""
+    ldata = json.loads((ROOT / "layoffs.json").read_text()) if (ROOT / "layoffs.json").exists() else []
+    cs_data = json.loads((ROOT / "coming-soon.json").read_text()) if (ROOT / "coming-soon.json").exists() else []
+    warnings = validate(data, ldata, cs_data)
+    if warnings:
+        print(f"\n⚠️  {len(warnings)} data warning(s):")
+        for w in warnings:
+            print(f"   - {w}")
+    else:
+        print("✓ Data checks passed")
+    hard = [w for w in warnings if HARD_WARNING.search(w)]
+    if hard:
+        print(f"\n✗ BUILD FAILED: {len(hard)} data error(s) would publish duplicate or premature pages — fix the data first.")
+        raise SystemExit(1)
+    # A scheduled death that is two weeks past its date and still has no tombstone is a content bug, not a warning.
+    cutoff = (datetime.utcnow() - __import__("datetime").timedelta(days=14)).strftime("%Y-%m-%d")
+    stale = [c["name"] for c in cs_data if c.get("dateShutdown", "") < cutoff]
+    if stale:
+        print(f"\n✗ BUILD FAILED: {len(stale)} coming-soon entr{'y is' if len(stale)==1 else 'ies are'} 14+ days past shutdown — migrate to graveyard.json: {', '.join(stale)}")
+        raise SystemExit(1)
+
+
 def main():
     data = json.loads((ROOT / "graveyard.json").read_text())
     data.sort(key=lambda i: (i["dateClose"], i.get("dateAdded", "")), reverse=True)
+    check_data(data)
     template = (ROOT / "template.html").read_text()
 
     from collections import Counter as _Counter
@@ -1348,7 +1567,7 @@ def main():
         total_jobs_lost = sum(l["jobs"] for l in ldata)
         output = (output
                   .replace("{{TOTAL_JOBS_LOST}}", f"{total_jobs_lost:,}")
-                  .replace("{{TOTAL_COMPANIES_LAYOFFS}}", str(len(ldata))))
+                  .replace("{{TOTAL_COMPANIES_LAYOFFS}}", str(len({company_key(l["company"]) for l in ldata}))))
     else:
         output = output.replace("{{TOTAL_JOBS_LOST}}", "0").replace("{{TOTAL_COMPANIES_LAYOFFS}}", "0")
 
@@ -1375,6 +1594,13 @@ def main():
         d = ROOT / "killed-by" / killer_slug(killer); d.mkdir(parents=True, exist_ok=True)
         (d / "index.html").write_text(render_killer_page(killer, [i for i in data if i["killedBy"] == killer], list_tpl, len(data)))
         killer_pages.append(killer)
+    # Tombstones published too early (the product turned out not to be dead yet) keep their URL as a redirect
+    # to the matching Dying-soon card instead of 404ing or still claiming a death.
+    for slug, cs_name in RETIRED_TOMBSTONES.items():
+        if any(i.get("slug") == slug for i in data):
+            continue
+        d = ROOT / "dead" / slug; d.mkdir(parents=True, exist_ok=True)
+        (d / "index.html").write_text(REDIRECT_STUB.format(target=f"{SITE_URL}coming-soon/#{slugify(cs_name)}"))
     print(f"Built {len(ordered)} product pages and {len(killer_pages)} killer pages")
     (ROOT / "robots.txt").write_text(build_robots())
     (ROOT / "feed.xml").write_text(build_rss(data))
@@ -1386,7 +1612,9 @@ def main():
         layoffs_template = (ROOT / "layoffs-template.html").read_text()
         roles_map = json.loads((ROOT / "roles.json").read_text())
         total_jobs = sum(l["jobs"] for l in layoffs)
-        total_companies = len(layoffs)
+        total_entries = len(layoffs)                                       # rows: "All 34 AI layoffs"
+        total_companies = len({company_key(l["company"]) for l in layoffs})  # PayPal + PayPal (2026) = one company
+        first_year = min(l["date"] for l in layoffs)[:4]
         layoffs_sorted = sorted(layoffs, key=lambda l: l["jobs"], reverse=True)
         max_jobs = layoffs_sorted[0]["jobs"] if layoffs_sorted else 1
         now = datetime.utcnow()
@@ -1411,7 +1639,7 @@ def main():
   </div>
   <div class="layoff-info">
     <div class="layoff-header">
-      <h2 class="layoff-company"><span class="rank">#{rank}</span>{esc(l["company"])}{'<span class="badge-new">NEW</span>' if fresh else ""}</h2>
+      <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#{rank}</span> {esc(l["company"])}{'<span class="badge-new">NEW</span>' if fresh else ""}</h2>
       <span class="layoff-count">{l["jobs"]:,}</span>
     </div>
     <p class="layoff-desc">{esc(l["description"])}</p>
@@ -1427,12 +1655,14 @@ def main():
 
         by_year = {}
         by_year_n = {}
+        by_year_c = {}
         for l in layoffs:
             y = l["date"][:4]
             by_year[y] = by_year.get(y, 0) + l["jobs"]
             by_year_n[y] = by_year_n.get(y, 0) + 1
+            by_year_c.setdefault(y, set()).add(company_key(l["company"]))
         year_stats = " | ".join(f"{y}: {c:,}" for y, c in sorted(by_year.items()))
-        year_table = ("<table class=\"year-table\"><thead><tr><th>Year</th><th>Companies</th><th>Jobs cut, AI cited</th></tr></thead><tbody>"
+        year_table = ("<table class=\"year-table\"><thead><tr><th>Year</th><th>Layoffs</th><th>Jobs cut, AI cited</th></tr></thead><tbody>"
                       + "".join(f"<tr><td>{y}</td><td>{by_year_n[y]}</td><td>{c:,}</td></tr>" for y, c in sorted(by_year.items()))
                       + f"<tr><th>Total</th><th>{len(layoffs)}</th><th>{total_jobs:,}</th></tr></tbody></table>")
         largest = sorted([l for l in layoffs if l["date"].startswith(this_year)], key=lambda l: -l["jobs"])[:5]
@@ -1444,16 +1674,16 @@ def main():
         median_jobs = jobs_sorted[len(jobs_sorted) // 2] if len(jobs_sorted) % 2 else (jobs_sorted[len(jobs_sorted) // 2 - 1] + jobs_sorted[len(jobs_sorted) // 2]) // 2
         biggest = layoffs_sorted[0]
         role_rank = sorted(((r, sum(x["jobs"] for x in rows), len(rows)) for r, rows in by_role.items() if r != "various"), key=lambda t: -t[1])
-        top_role = role_rank[0]
+        top_role = max(role_rank, key=lambda t: (t[2], t[1]))   # most often named; its job figure is the size of those layoffs
         latest = sorted(layoffs, key=lambda l: l["date"], reverse=True)
         prev_year = str(now.year - 1)
         ytd_prev = sum(l["jobs"] for l in layoffs if l["date"][:4] == prev_year and l["date"][5:] <= now.strftime("%m-%d"))
         tiles = "".join([
-            dash_tile(f"{total_jobs:,}", "Jobs cut, AI blamed", f"across {total_companies} companies since 2024", hero=True),
-            dash_tile(f"{year_2026_jobs:,}", f"Cut in {this_year}", f"{by_year_n.get(this_year, 0)} companies · {prev_year}: {by_year.get(prev_year, 0):,}"),
+            dash_tile(f"{total_jobs:,}", "Jobs cut, AI blamed", f"across {total_companies} companies since {first_year}", hero=True),
+            dash_tile(f"{year_2026_jobs:,}", f"Cut in {this_year}", f"{len(by_year_c.get(this_year, ()))} companies · {prev_year}: {by_year.get(prev_year, 0):,}"),
             dash_tile(f"{biggest['jobs']:,}", "Biggest single cut", f"{esc(biggest['company'])}, {fmt_month(biggest['date'])}", href=f"#{slugify(biggest['company'])}"),
             dash_tile(f"{median_jobs:,}", "Median cut", "jobs per announcement"),
-            dash_tile(esc(roles_map.get(top_role[0], top_role[0])), "Most-replaced role", f"{top_role[1]:,} jobs · {top_role[2]} companies", href=f"/jobs/{top_role[0]}/" if top_role[0] in role_pages else None, txt=True),
+            dash_tile(esc(roles_map.get(top_role[0], top_role[0])), "Most-cited role", f"named in {top_role[2]} layoffs · {top_role[1]:,} jobs in those cuts", href=f"/jobs/{top_role[0]}/" if top_role[0] in role_pages else None, txt=True),
             dash_tile(esc(latest[0]["company"]), "Latest AI layoff", f"{latest[0]['jobs']:,} jobs · {fmt_month(latest[0]['date'])}", href=f"#{slugify(latest[0]['company'])}", txt=True),
         ])
         first_q = min(l["date"] for l in layoffs)
@@ -1469,21 +1699,21 @@ def main():
         now_q = f"Q{cur_q[1]} '{str(cur_q[0])[2:]}"
         peak_q = max(q_items, key=lambda t: t[1])
         cards = "".join([
-            dash_card("AI layoffs by quarter", f"Jobs cut where the employer blamed AI. Peak: {peak_q[0]} with {peak_q[1]:,}.", dash_vbars(q_items, now_q), wide=True),
+            dash_card("AI layoffs by quarter", f"Jobs cut where the employer blamed AI. Peak: {peak_q[0]} with {peak_q[1]:,}. {now_q} is in progress: {q_items[-1][1]:,} so far.", dash_vbars(q_items, now_q), wide=True),
             dash_card("Biggest AI layoffs", "Top 10 single announcements", dash_hbars([(l["company"], l["jobs"], fmt_k(l["jobs"]), f"#{slugify(l['company'])}") for l in layoffs_sorted[:10]])),
-            dash_card("Jobs AI replaced, by role", "Jobs cut per role tag (a layoff can hit several roles)",
+            dash_card("Layoffs that named each role", "Total size of the layoffs naming each role; a layoff that names several roles counts in full under each",
                       dash_hbars([(roles_map.get(r, r), j, fmt_k(j), f"/jobs/{r}/" if r in role_pages else None) for r, j, _ in role_rank[:10]])),
             dash_card("Latest AI layoffs", "Most recent announcements first",
                       '<ul class="recent">' + "".join(f'<li><a href="#{slugify(l["company"])}">{esc(l["company"])} <em>{l["jobs"]:,}</em></a><span>{fmt_month(l["date"])}</span></li>' for l in latest[:8]) + "</ul>"),
             dash_card(f"{this_year} so far vs. {prev_year}", f"Same calendar window, Jan 1 – {now.strftime('%b %-d')}",
                       dash_hbars([(this_year, year_2026_jobs, f"{year_2026_jobs:,}", None), (prev_year, ytd_prev, f"{ytd_prev:,}", None)])
-                      + f'<p class="dnote" style="margin:.75rem 0 0">{"Up" if year_2026_jobs >= ytd_prev else "Down"} {abs(year_2026_jobs - ytd_prev) / max(ytd_prev, 1) * 100:.0f}% on the same point last year. Companies citing AI in {this_year}: {by_year_n.get(this_year, 0)}.</p>'),
+                      + f'<p class="dnote" style="margin:.75rem 0 0">{"Up" if year_2026_jobs >= ytd_prev else "Down"} {abs(year_2026_jobs - ytd_prev) / max(ytd_prev, 1) * 100:.0f}% on the same point last year. Companies citing AI in {this_year}: {len(by_year_c.get(this_year, ()))}.</p>'),
         ])
         dashboard = f'<div class="dash"><div class="tiles">{tiles}</div><div class="dash-grid">{cards}</div></div>'
         years_desc = sorted(by_year_n, reverse=True)
-        controls = dash_controls(f"All {total_companies} AI layoffs", "Search company, role or reason…",
+        controls = dash_controls(f"All {total_entries} AI layoffs", "Search company, role or reason…",
                                  [("jobs:desc", "Biggest first"), ("date:desc", "Newest first"), ("date:asc", "Oldest first"), ("name:asc", "A–Z")],
-                                 [("all", "All", total_companies)] + [(y, y, by_year_n[y]) for y in years_desc]
+                                 [("all", "All", total_entries)] + [(y, y, by_year_n[y]) for y in years_desc]
                                  + [(r, roles_map.get(r, r), n) for r, _, n in sorted(role_rank, key=lambda t: -t[2])[:4]])
 
         layoffs_out = (layoffs_template
@@ -1497,7 +1727,8 @@ def main():
                        .replace("{{TOTAL_JOBS}}", f"{total_jobs:,}")
                        .replace("{{TOTAL_COMPANIES}}", str(total_companies))
                        .replace("{{BIGGEST}}", esc(f"{biggest['company']}'s {biggest['jobs']:,}"))
-                       .replace("{{TOP_ROLE}}", esc(roles_map.get(top_role[0], top_role[0]).lower()))
+                       .replace("{{TOP_ROLE}}", esc(lc_label(roles_map.get(top_role[0], top_role[0]))))
+                       .replace("{{FIRST_YEAR}}", first_year)
                        .replace("{{YEAR_STATS}}", year_stats)
                        .replace("{{YEAR_TABLE}}", year_table)
                        .replace("{{LARGEST_HTML}}", largest_html)
@@ -1538,7 +1769,7 @@ def main():
   <div class="fund-bar-wrap"><div class="fund-bar" style="width:{i["fundingM"] / max_fund * 100:.1f}%"></div></div>
   <div class="fund-info">
     <div class="fund-header">
-      <h2 class="fund-name"><span class="rank">#{rank}</span><a href="/dead/{slug}/">{esc(i["name"])}</a></h2>
+      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#{rank}</span> <a href="/dead/{slug}/">{esc(i["name"])}</a></h2>
       <span class="fund-amount">{fmt_money_m(i["fundingM"])}</span>
     </div>
     <p class="fund-desc">{esc(i["description"])}</p>
@@ -1623,6 +1854,15 @@ def main():
         cs_template = (ROOT / "coming-soon-template.html").read_text()
         cs_sorted = sorted(cs_data, key=lambda i: i["dateShutdown"])
         now = datetime.utcnow()
+        gy_names = {(g.get("slug") or slugify(g["name"])): g["name"] for g in data}
+        upcoming = [i for i in cs_sorted if i["dateShutdown"] >= now.strftime("%Y-%m-%d")] or cs_sorted
+        if upcoming:
+            y0, y1 = upcoming[0]["dateShutdown"][:4], upcoming[-1]["dateShutdown"][:4]
+            cs_span = y0 if y0 == y1 else f"{y0}–{y1[2:]}"
+            first_m, last_m = fmt_month(upcoming[0]["dateShutdown"]), fmt_month(upcoming[-1]["dateShutdown"])
+            cs_range = first_m if first_m == last_m else f"{first_m} to {last_m}"
+        else:
+            cs_span, cs_range = str(now.year), "none scheduled"
 
         cs_rows = []
         for item in cs_sorted:
@@ -1639,8 +1879,8 @@ def main():
                 dead_class = " dead"
 
             tomb = ""
-            if item.get("graveyardSlug"):
-                tomb = f'<a class="doom-tomb" href="/dead/{esc(item["graveyardSlug"])}/">🪦 Read the tombstone →</a>'
+            if item.get("graveyardSlug") in gy_names:   # a related tombstone (e.g. the app died, this channel still lives)
+                tomb = f'<a class="doom-tomb" href="/dead/{esc(item["graveyardSlug"])}/">🪦 Related: the {esc(gy_names[item["graveyardSlug"]])} tombstone →</a>'
             cs_rows.append(
                 f'''<article class="doom-card" id="{slugify(item["name"])}">
   <div class="doom-header">
@@ -1650,7 +1890,7 @@ def main():
   <p class="doom-desc">{esc(item["description"])}</p>
   <div class="doom-meta">
     <span class="doom-tag">Killed by: {esc(item["killedBy"])}</span>
-    <span>Shutdown: {item["dateShutdown"]}</span>
+    <span>Shutdown: <time datetime="{item["dateShutdown"]}">{fmt_date(item["dateShutdown"])}</time></span>
     <span>Replacement: {esc(item["replacement"])}</span>
     <a class="doom-source" href="{esc(item["link"])}" target="_blank" rel="noopener">Source</a>{tomb}
   </div>
@@ -1663,6 +1903,8 @@ def main():
                   .replace("{{ROWS}}", "\n".join(cs_rows))
                   .replace("{{FOOTER_LINKS}}", footer_links())
                   .replace("{{LAST_UPDATED}}", fmt_date(lm(["coming-soon.json"])))
+                  .replace("{{YEAR_SPAN}}", cs_span)
+                  .replace("{{SHUTDOWN_RANGE}}", esc(cs_range))
                   .replace("{{COUNT}}", str(len(cs_sorted))))
         publish("coming-soon", cs_out)
         # RFC 5545 requires CRLF line endings; also fold lines at 75 octets so strict clients (Google Calendar) accept it
@@ -1712,28 +1954,34 @@ def main():
     print(f"Built index.html with {len(data)} entries")
     print("Generated sitemap.xml, robots.txt, feed.xml")
 
-    api_page = ROOT / "api" / "index.html"
-    if api_page.exists():
-        api_html = re.sub(r'"dateModified": "\d{4}-\d{2}-\d{2}"',
-                          '"dateModified": "%s"' % max(lm(["graveyard.json"]), lm(["layoffs.json"]), lm(["coming-soon.json"])),
-                          api_page.read_text())
-        api_page.write_text(api_html)
+    # Hand-written pages: refresh the generated bits between markers so they can't drift from the rest of the site.
+    fl = footer_links()
+    latest = sorted(data, key=lambda i: (i.get("dateAdded") or i["dateClose"], i["dateClose"]), reverse=True)[:5]
+    latest_html = ('<h2>Recently buried</h2><div class="related">'
+                   + "".join(f'<a class="rel" href="{product_url(i)}"><b>{esc(i["name"])}</b><span>{fmt_month(i["dateClose"])}</span></a>' for i in latest)
+                   + f'</div><p style="margin-top:1rem"><a href="/dead/">All {len(data)} tombstones, A–Z →</a></p>')
+    slugs_json = json.dumps([[i.get("slug") or slugify(i["name"]), i["name"]] for i in data], ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    for rel in ("api/index.html", "about/index.html", "404.html"):
+        page = ROOT / rel
+        if not page.exists():
+            continue
+        src = page.read_text()
+        out = re.sub(r"(<!--FOOTER_LINKS-->).*?(<!--/FOOTER_LINKS-->)", lambda m: m.group(1) + fl + m.group(2), src, count=1, flags=re.S)
+        out = re.sub(r"(<!--LATEST-->).*?(<!--/LATEST-->)", lambda m: m.group(1) + latest_html + m.group(2), out, count=1, flags=re.S)
+        out = re.sub(r'(<script type="application/json" id="tombstones">).*?(</script>)', lambda m: m.group(1) + slugs_json + m.group(2), out, count=1, flags=re.S)
+        if rel == "api/index.html":
+            out = re.sub(r'"dateModified": "\d{4}-\d{2}-\d{2}"',
+                         '"dateModified": "%s"' % max(lm(["graveyard.json"]), lm(["layoffs.json"]), lm(["coming-soon.json"])), out)
+        if out != src:   # only touch the file when something changed, so its git lastmod stays honest
+            page.write_text(out)
 
-    ldata_for_check = json.loads((ROOT / "layoffs.json").read_text()) if (ROOT / "layoffs.json").exists() else []
-    cs_for_check = json.loads((ROOT / "coming-soon.json").read_text()) if (ROOT / "coming-soon.json").exists() else []
-    warnings = validate(data, ldata_for_check, cs_for_check)
-    if warnings:
-        print(f"\n⚠️  {len(warnings)} data warning(s):")
-        for w in warnings:
-            print(f"   - {w}")
-    else:
-        print("✓ Data checks passed")
-    # A scheduled death that is two weeks past its date and still has no tombstone is a content bug, not a warning.
-    cutoff = (datetime.utcnow() - __import__("datetime").timedelta(days=14)).strftime("%Y-%m-%d")
-    stale = [c["name"] for c in cs_for_check if c.get("dateShutdown", "") < cutoff]
-    if stale:
-        print(f"\n✗ BUILD FAILED: {len(stale)} coming-soon entr{'y is' if len(stale)==1 else 'ies are'} 14+ days past shutdown — migrate to graveyard.json: {', '.join(stale)}")
+    # A literal {{PLACEHOLDER}} in a built page means a template gained a slot no caller fills.
+    leftovers = [str(p.relative_to(ROOT)) for p in ROOT.glob("**/*.html")
+                 if not p.name.endswith("template.html") and ".git" not in p.parts and re.search(r"\{\{[A-Z_]+\}\}", p.read_text())]
+    if leftovers:
+        print(f"\n✗ BUILD FAILED: unfilled template placeholders in {', '.join(sorted(leftovers)[:10])}")
         raise SystemExit(1)
+
 
 
 if __name__ == "__main__":

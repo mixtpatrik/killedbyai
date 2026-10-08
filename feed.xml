@@ -5,15 +5,191 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Google Gemini 2.5 Flash Image (&quot;Nano Banana&quot;) — Killed by Google (2026-10-02)</title>
-      <link>https://killedbyai.net/dead/google-gemini-2-5-flash-image-nano-banana/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/google-gemini-2-5-flash-image-nano-banana/</guid>
-      <pubDate>Tue, 06 Oct 2026 00:00:00 +0000</pubDate>
-      <description>The image model that went viral as &#x27;Nano Banana&#x27; — 3D figurine selfies, a #1 spot in the App Store for Gemini — was shut off on the Gemini API on October 2, a year and five weeks after launch. Google&#x27;s first recommended replacement, gemini-3.1-flash-image-preview, had already died in June; developers were pointed to gemini-3.1-flash-image instead.</description>
+      <title>Amazon Lookout for Equipment — Killed by AWS (2026-10-07)</title>
+      <link>https://killedbyai.net/dead/amazon-lookout-for-equipment/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/amazon-lookout-for-equipment/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>AWS&#x27;s managed ML service that learned the normal behavior of industrial equipment from sensor data and flagged anomalies before failures. It went GA on April 8, 2021, closed to new customers in late 2024 and was discontinued on October 7, 2026, after which the console and all resources became inaccessible. AWS pointed customers to the native anomaly detection added to AWS IoT SiteWise in July 2025, plus a GitHub repo of migration scripts. Its siblings Lookout for Metrics and Lookout for Vision were already gone, both in October 2025.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Gemini API Antigravity Agent (05-2026 preview) — Killed by Google (2026-10-05)</title>
+      <link>https://killedbyai.net/dead/gemini-api-antigravity-agent-05-2026-preview/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/gemini-api-antigravity-agent-05-2026-preview/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>antigravity-preview-05-2026 was the first version of Google&#x27;s managed Antigravity agent in the Gemini API, launched May 19, 2026 alongside Managed Agents. On September 17 Google shipped antigravity-preview-09-2026, which swapped the old file tools for new ones (write_file became write_to_file and replace_file_content, read_file became view_file, list_files became list_dir), moved tool parameters to PascalCase, replaced full-file rewrites with line-range edits, and set the old agent&#x27;s shutdown for October 5. It lived 139 days. Apps that only read its output changed one string; anyone running its tools locally or parsing its function calls had to rewrite code. The Antigravity IDE is unaffected.</description>
       <category>model</category>
+    </item>
+    <item>
+      <title>Kimi K2.7 Code (GitHub Copilot &amp; Microsoft Foundry) — Killed by GitHub / Microsoft (2026-10-02)</title>
+      <link>https://killedbyai.net/dead/kimi-k2-7-code-github-copilot-microsoft-foundry/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/kimi-k2-7-code-github-copilot-microsoft-foundry/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Moonshot&#x27;s open-weight coding model went generally available in GitHub Copilot on July 1, 2026 and was removed from every Copilot surface on October 2, 93 days later, with Kimi K3 named as its replacement. The next day Microsoft Foundry&#x27;s preview deployment (version 2026-06-12) hit its October 3 retirement date with no replacement listed. The same Copilot changelog also cleared out Gemini 3.5 Flash, Gemini 3.6 Flash and Claude Opus 4.7. Moonshot&#x27;s own API still lists kimi-k2.7-code as active; only Microsoft let go.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Mistral OCR 4.0 — Killed by Mistral (2026-09-30)</title>
+      <link>https://killedbyai.net/dead/mistral-ocr-4-0/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/mistral-ocr-4-0/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Mistral released OCR 4 (mistral-ocr-4-0) on June 23, 2026, supporting 170 languages and claiming independent annotators preferred it over every leading OCR and document-AI system tested, with a 72% average win rate. OCR 4.1 took over the mistral-ocr-4 and mistral-ocr-latest aliases on July 16 and went GA on August 31. The changelog marked 4.0 deprecated on September 29 and retired it on September 30, at the same price as its replacement: one day&#x27;s formal notice. It lived 99 days and died the same day as Leanstral 1.5.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Appsmith AI — Killed by Appsmith (2026-09-30)</title>
+      <link>https://killedbyai.net/dead/appsmith-ai/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/appsmith-ai/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>The low-code platform&#x27;s managed AI datasource, merged in January 2024, which ran on model credentials Appsmith paid for. A pull request opened July 17, 2026 spelled out the problem: &#x27;Appsmith pays for LLM tokens behind the managed Appsmith AI plugin.&#x27; From release 2.3 on August 13, new Appsmith AI datasources and queries were blocked with errors AE-DTS-4031 and AE-DTS-4032, and on September 30, 2026 every existing one stopped working, whether or not the instance had been upgraded. Free AI, it turns out, has a meter.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Microsoft Copilot Labs — Killed by Microsoft (2026-09-29)</title>
+      <link>https://killedbyai.net/dead/microsoft-copilot-labs/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/microsoft-copilot-labs/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Microsoft&#x27;s experimental sandbox for consumer Copilot, launched October 1, 2024 with Think Deeper, with Copilot Vision following soon after. Its biggest graduates had long since moved into the main app. On September 29, 2026 Labs was retired as part of the unified Copilot app, and Microsoft pointed early-access users to &#x27;Frontier in Copilot&#x27; and the MAI Playground. What remained, experiments such as 3D and audio generation, died with it.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Google Mixboard — Killed by Google (2026-09-28)</title>
+      <link>https://killedbyai.net/dead/google-mixboard/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/google-mixboard/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Google Labs&#x27; AI concepting board: an open canvas where Google&#x27;s Nano Banana image model generated, remixed and edited pictures into mood boards and presentations. It launched as a US-only public beta on September 23, 2025, spread to more than 180 countries that October, and was taken offline on September 28, 2026, a year and five days later. Google said it had &#x27;learned a lot from this experiment&#x27; and would apply the lessons to &#x27;future Google Labs explorations and creative tooling.&#x27; It follows Whisk and Doppl, two other Labs experiments Google shut down on April 30, 2026.</description>
+      <category>app</category>
+    </item>
+    <item>
+      <title>Perplexity Sonar Chat Completions API — Killed by Perplexity (2026-09-27)</title>
+      <link>https://killedbyai.net/dead/perplexity-sonar-chat-completions-api/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/perplexity-sonar-chat-completions-api/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Perplexity&#x27;s search-grounded chat-completions API, launched January 21, 2025 with Sonar and Sonar Pro and later joined by sonar-reasoning-pro and sonar-deep-research. Support ended September 27, 2026, when the Agent API became the main surface. Synchronous and streaming calls are being quietly rewritten as Agent API presets (sonar and sonar-pro become &#x27;fast&#x27;, reasoning-pro &#x27;low&#x27;, deep-research &#x27;high&#x27;); asynchronous requests are simply no longer supported. Some developers on migrated accounts reported HTTP 403 &#x27;agent_api_migration_required&#x27; errors from the old endpoint. The Sonar model lives on inside the Agent API; the API that carried its name does not.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Excel =COPILOT() Function — Killed by Microsoft (2026-09-14)</title>
+      <link>https://killedbyai.net/dead/excel-copilot-function/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/excel-copilot-function/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>A worksheet function that put an LLM inside a cell: =COPILOT(prompt, range) could summarize, classify or tag rows in place. It reached Beta Channel Insiders with a Microsoft 365 Copilot license on August 18, 2025, and Excel for the web through Frontier later, with Microsoft&#x27;s own warning, as Windows Central reported, not to use it for numerical calculations or anything with legal, regulatory or compliance implications. In a spreadsheet, that rules out a lot. It never left preview: message-center notice MC1454373 retired it on September 14, 2026, and the roadmap entry said simply, &#x27;We have decided not to move forward with this feature.&#x27;</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>TruckSmarter Dispatch — Killed by Undisclosed Acquirer (2026-09-04)</title>
+      <link>https://killedbyai.net/dead/trucksmarter-dispatch/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/trucksmarter-dispatch/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>TruckSmarter ran a free load board used by more than 500,000 carriers. In September 2025, alongside a $16M round led by Socium Ventures, it launched Dispatch, an AI chat interface where drivers asked for freight in plain language and software agents handled the bidding and booking. On Tuesday, September 1, 2026 it told users it was being acquired, and on Friday, September 4 it switched the app off. Nobody will say who bought it; OTR Solutions, which had bought the factoring and banking arm in November 2025, says it wasn&#x27;t them.</description>
+      <category>app</category>
+    </item>
+    <item>
+      <title>Rilo — Killed by Adobe (2026-09-02)</title>
+      <link>https://killedbyai.net/dead/rilo/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/rilo/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>An Indian startup founded in 2025 by IIT Bombay alumni Dhruv Jaglan and Georgi Boby, selling AI agents for marketing work described in plain English: competitor intelligence, campaign research, social outreach, content repurposing and sales-call analysis. It raised $1M from Peak XV Partners, DeVC and Day Zero Ventures at a $10M valuation and, by Jaglan&#x27;s account, reached 10,000 users within months of launch. On September 2, 2026 Adobe acquired it in an undisclosed deal that licensed its technology and brought its six-person team into Adobe. The platform shut down after the deal; no switch-off date was published.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>Raptor mini (GitHub Copilot) — Killed by GitHub / Microsoft (2026-09-01)</title>
+      <link>https://killedbyai.net/dead/raptor-mini-github-copilot/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/raptor-mini-github-copilot/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>GitHub&#x27;s own model, a fine-tuned GPT-5 mini pitched for fast, accurate inline suggestions and explanations. It entered public preview on November 10, 2025, only ever in VS Code&#x27;s Copilot Chat, and was listed as generally available by August 2026. On September 1 GitHub removed it from Copilot Chat, inline edits, ask and agent modes and code completions, in the same changelog that retired a batch of Claude and Gemini models. Unlike those, Raptor mini existed nowhere else: 295 days, start to finish. Its replacement is MAI-Code-1.1-Flash, whose predecessor was pulled from Copilot nine days later.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Microsoft Edge Real-Time Video Translation — Killed by Microsoft (2026-08-27)</title>
+      <link>https://killedbyai.net/dead/microsoft-edge-real-time-video-translation/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/microsoft-edge-real-time-video-translation/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>On-device AI dubbing for the web. You hovered over a video, clicked Translate, and Edge downloaded a roughly 200 MB language model and replaced the audio track in real time. Shown off at Build 2024, it shipped in Edge 141 in October 2025, but only on Windows PCs with at least 12 GB of RAM and a four-core CPU, and only in select markets. Edge 152 began retiring it on August 27, 2026, less than eleven months later, in the same release that killed Edge Drop. Microsoft gave no reason.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Microsoft Copilot Groups, Podcasts &amp; Deep Research — Killed by Microsoft (2026-08-18)</title>
+      <link>https://killedbyai.net/dead/microsoft-copilot-groups-podcasts-deep-research/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/microsoft-copilot-groups-podcasts-deep-research/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Three headline features of Microsoft&#x27;s consumer Copilot were retired from August 18, 2026, as Microsoft merged its consumer Copilot and Microsoft 365 Copilot apps into one. AI-generated Podcasts and Deep Research had debuted at Copilot&#x27;s April 2025 anniversary event; Groups, which let up to 32 people share one Copilot chat, arrived in the October 2025 Fall Release alongside Mico, the animated blob, which began leaving Copilot Voice in waves that same August. Copilot chief Jacob Andreou had reportedly told staff the app had to earn &#x27;the right to exist&#x27; in people&#x27;s lives.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Google Earth AI Image Generation — Killed by Google (2026-07-31)</title>
+      <link>https://killedbyai.net/dead/google-earth-ai-image-generation/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/google-earth-ai-image-generation/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>On July 30, 2026 Google put Nano Banana 2 inside Google Earth on the web: zoom to any spot on the planet, click &#x27;create image&#x27;, and describe what should be there instead. A BBC journalist and other critics pointed out that one of the most trusted sources of visual evidence for journalists and researchers now had a fake-imagery button. By the next day Google said it had seen people &#x27;sharing screenshots of generated imagery that appear to violate our policies&#x27; and rolled the feature back while it worked on stronger guardrails. It lived about a day.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Meta AI Instagram @-Mention Images — Killed by Meta (2026-07-10)</title>
+      <link>https://killedbyai.net/dead/meta-ai-instagram-mention-images/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/meta-ai-instagram-mention-images/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Launched alongside Meta Superintelligence Labs&#x27; Muse Image generator on July 7, 2026, it let you @-mention a public Instagram account in Meta AI and generate images of that person, pitched for birthday cards and group-trip memes. It was on by default: account owners were never notified, and the only protection was an opt-out in Instagram&#x27;s settings. Users and talent agencies including CAA pushed back, and critics pointed to the obvious non-consensual imagery risk. Three days later Meta posted a brief update to its announcement: &#x27;this feature missed the mark, so it&#x27;s no longer available.&#x27;</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Gemini CLI (Free &amp; Consumer Tiers) — Killed by Google (2026-06-18)</title>
+      <link>https://killedbyai.net/dead/gemini-cli-free-consumer-tiers/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/gemini-cli-free-consumer-tiers/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Google&#x27;s open-source (Apache-2.0) terminal coding agent launched June 25, 2025 and passed 100,000 GitHub stars and 6,000 merged pull requests. At I/O on May 19, 2026 Google folded its developer tools under the Antigravity brand, and on June 18 Gemini CLI and the Gemini Code Assist IDE extensions stopped serving free users, Google AI Pro and Ultra subscribers and free individual Code Assist users. Their replacement, Antigravity CLI (agy), ships as a binary with no public repo. Code Assist Standard and Enterprise licenses and paid API keys kept access, and Google still updates the open-source repo for them: the code survived, the free users didn&#x27;t.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>LOVO AI — Killed by itself (2026-05-27)</title>
+      <link>https://killedbyai.net/dead/lovo-ai/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/lovo-ai/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>A Berkeley AI voiceover and voice-cloning startup, founded in 2019, behind the Genny text-to-speech studio. LOVO filed for Chapter 7 liquidation on May 27, 2026, listing $245,224 in assets against $17,788 in liabilities. The filing landed less than three weeks before a June 16 hearing on its motion to dismiss Lehrman &amp; Sage v. Lovo, a class action by voice actors who say their voices were cloned without permission; the bankruptcy automatically stayed the case. Paying customers had been reporting on Trustpilot since late April that they were locked out of their accounts.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>Soul Machines — Killed by itself (2026-02-05)</title>
+      <link>https://killedbyai.net/dead/soul-machines/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/soul-machines/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>A New Zealand maker of AI &#x27;Digital People&#x27; avatars, co-founded in 2016 by Greg Cross and Mark Sagar, a two-time Sci-Tech Academy Award winner for facial-capture work at Weta Digital. It raised more than US$135M (about NZ$225M) from backers including Horizons Ventures, SoftBank Vision Fund 2, Salesforce Ventures and Temasek. On February 5, 2026 KPMG&#x27;s Leon Bowker and Luke Norman were appointed receivers. On September 28, 2026 AppDirect announced it had acquired Soul Machines on undisclosed terms and would build the avatars into Devs.ai, so the faces live on with a different employer.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>PlayAI (PlayHT) — Killed by Meta (2025-12-31)</title>
+      <link>https://killedbyai.net/dead/playai-playht/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/playai-playht/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>PlayHT began in 2016 as a browser extension that read articles aloud and grew into a text-to-speech, voice-cloning and voice-agent platform, later renamed PlayAI. Founders Hammad Syed and Mahmoud Felfel went through Y Combinator and raised a $21M seed round in November 2024 led by Kindred Ventures and 500 Global. In July 2025 Meta acquired the company and took the entire team to work on voice for Meta AI, AI Characters and wearables. The API was given until December 31, 2025, and voice-agent frameworks such as Pipecat deprecated their PlayHT integrations ahead of the cutoff.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>Dot (New Computer) — Killed by Its Own Founders (2025-10-05)</title>
+      <link>https://killedbyai.net/dead/dot-new-computer/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/dot-new-computer/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>A personalized AI companion app from New Computer, co-founded by Sam Whitmore and former Apple designer Jason Yuan, that launched on iOS in June 2024. On September 5, 2025 the founders announced that their &#x27;shared Northstar had diverged&#x27; and that, rather than compromise either vision, they would &#x27;wind down operations&#x27;. The app stopped on October 5, 2025, after a month for data export. The company claimed &#x27;hundreds of thousands&#x27; of users; Appfigures counted about 24,500 lifetime iOS downloads, and there was never an Android app.</description>
+      <category>app</category>
+    </item>
+    <item>
+      <title>Esperanto Technologies — Killed by Deep-Pocketed Rivals (2025-07-01)</title>
+      <link>https://killedbyai.net/dead/esperanto-technologies/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/esperanto-technologies/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>A RISC-V AI-inference chipmaker founded in 2014 by Transmeta co-founder Dave Ditzel. Its 7nm ET-SoC-1 packed 1,088 small ET-Minion cores and four larger ET-Maxion cores onto one chip. A $58M Series B in November 2018 brought equity funding to $63M, plus a $1.5M PPP loan in 2020. In July 2025 it closed most operations, keeping only the staff needed to sell its IP, after rivals offered prospective employees up to four times its pay. Ainekko (Nekko.ai) bought the IP that October and is open-sourcing it.</description>
+      <category>startup</category>
+    </item>
+    <item>
+      <title>Untether AI — Killed by AMD (2025-06-05)</title>
+      <link>https://killedbyai.net/dead/untether-ai/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/untether-ai/</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
+      <description>A Toronto AI-inference chip startup selling speedAI accelerators and the imAIgine SDK. PitchBook data cited by The Logic puts its funding at US$168M from backers including CPP Investments, Intel Capital and Radical Ventures, with the last major round in July 2021. In early June 2025 AMD took its engineering team in an undisclosed deal, and Untether said it would &#x27;no longer be supplying or supporting our speedAI products and imAIgine software development kit.&#x27; The engineers went to work on AMD&#x27;s AI compiler, kernel and chip-design efforts.</description>
+      <category>startup</category>
     </item>
     <item>
       <title>Notion Mail — Killed by Notion (2026-09-22)</title>
@@ -56,19 +232,11 @@
       <category>model</category>
     </item>
     <item>
-      <title>Gemini Omni Flash Preview — Killed by Google (2026-09-30)</title>
-      <link>https://killedbyai.net/dead/gemini-omni-flash-preview/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/gemini-omni-flash-preview/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
-      <description>Google&#x27;s text-and-image-to-video preview shipped June 30 and was shut down September 30 — a 92-day life. Its deprecation was posted on August 27, the same day gemini-omni-1.1-flash went GA.</description>
-      <category>model</category>
-    </item>
-    <item>
       <title>OpenAI davinci-002, babbage-002 &amp; gpt-3.5-turbo-instruct — Killed by OpenAI (2026-09-28)</title>
       <link>https://killedbyai.net/dead/openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct/</guid>
       <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
-      <description>The end of the GPT-3 base-model lineage, retired September 28. The three shipped in August 2023, inherited the job when the original ada/babbage/curie/davinci died in January 2024, and were the last models served over the legacy /v1/completions endpoint. OpenAI&#x27;s suggested replacement is gpt-5.6-terra; their fine-tuned versions outlive them by 25 days.</description>
+      <description>The end of the GPT-3 base-model lineage, retired September 28. davinci-002 and babbage-002 shipped in August 2023 and inherited the job when the original ada/babbage/curie/davinci died in January 2024; gpt-3.5-turbo-instruct, the instruct-tuned completions model, joined them that September. The same cutoff also took a fourth model: gpt-3.5-turbo-1106, the chat snapshot from OpenAI&#x27;s November 2023 DevDay. OpenAI&#x27;s suggested replacement is gpt-5.6-terra; their fine-tuned versions outlive them by 25 days.</description>
       <category>model</category>
     </item>
     <item>
@@ -78,174 +246,6 @@
       <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
       <description>Reve&#x27;s image generator — briefly the top-ranked text-to-image model on launch in March 2025 — shut off at noon Pacific on September 27, the price of an investment from OpenAI, which also took its AI research team to lead multimodal work. The API went dark on August 14 and sign-ups stopped September 17; users have until October 31 to export, and September fees are refunded. The company survives; the product does not.</description>
       <category>service</category>
-    </item>
-    <item>
-      <title>GM Cruise — Killed by General Motors (2024-12-10)</title>
-      <link>https://killedbyai.net/dead/gm-cruise/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/gm-cruise/</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
-      <description>The robotaxi startup GM bought in 2016 and then poured more than $10 billion into, with Honda ($852M), Microsoft and SoftBank alongside. Driverless paid rides began in San Francisco in 2022; a 2023 crash in which a Cruise car dragged a pedestrian, and the company&#x27;s handling of it, cost it its California permit. In December 2024 Mary Barra ended the program, citing the &#x27;incremental time and capital&#x27; still needed. The most expensive AI product death on record.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>Forward (CarePods) — Killed by Itself (2024-11-12)</title>
-      <link>https://killedbyai.net/dead/forward-carepods/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/forward-carepods/</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
-      <description>A primary-care startup that raised $657M on the promise of AI-run doctor&#x27;s offices, culminating in &#x27;CarePods&#x27; — self-serve kiosks meant to automate check-ups. Only three pods ever launched, one was pulled soon after installation, and former staff described patients getting stuck inside. Forward shut down in November 2024 with a few weeks&#x27; notice.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>Ghost Autonomy — Killed by Market (2024-04-03)</title>
-      <link>https://killedbyai.net/dead/ghost-autonomy/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/ghost-autonomy/</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
-      <description>A self-driving software startup that raised about $220M and, months before closing, landed an investment from OpenAI&#x27;s startup fund to bring large language models to autonomous driving. It shut down worldwide on April 3, 2024, unable to secure the long-term funding its plan required.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>Embark Trucks — Killed by Market (2023-03-03)</title>
-      <link>https://killedbyai.net/dead/embark-trucks/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/embark-trucks/</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
-      <description>An autonomous-trucking company that went public via SPAC in 2021 and raised more than $400 million. With no revenue and capital markets closed to pre-revenue companies, it cut 70% of staff and began liquidating its self-driving truck assets in March 2023. Its timeline for driverless freight never arrived; the money did run out.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>Argo AI — Killed by Ford &amp; Volkswagen (2022-10-26)</title>
-      <link>https://killedbyai.net/dead/argo-ai/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/argo-ai/</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
-      <description>Pittsburgh&#x27;s self-driving champion, backed by roughly $1 billion from Ford and $2.6 billion from Volkswagen. Six years in, both backers decided that fully driverless cars were further away than they could keep paying for, declined to invest further, and absorbed its assets. Around 2,000 employees were offered jobs at the two carmakers; the company itself simply stopped.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>MAI-Transcribe-1 (Microsoft Foundry) — Killed by Microsoft (2026-09-15)</title>
-      <link>https://killedbyai.net/dead/mai-transcribe-1-microsoft-foundry/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/mai-transcribe-1-microsoft-foundry/</guid>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
-      <description>Microsoft&#x27;s first-party speech model, version 2026-01-23, retired from Foundry on September 15 — less than eight months old, replaced by MAI-Transcribe-1.5. The same accelerated churn that took MAI-Image-2 at 176 days and MAI-Code-1-Flash at 100.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>theGist — Killed by Itself (2026-09-15)</title>
-      <link>https://killedbyai.net/dead/thegist/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/thegist/</guid>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
-      <description>An Israeli startup that scanned Slack, email, CRM and analytics to hand each employee a personalised summary of what mattered — founded in 2022 by alumni of Wix, Blizzard, OpenWeb and Gong, with $7M pre-seed co-led by StageOne and Aleph. A pivot toward sales tooling never caught, and rather than spend the remainder the founders closed the company and returned the money to investors. ⚠ Closure reported mid-September 2026; no exact date was published.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>Amazon Nova Premier &amp; Nova Sonic — Killed by Amazon (2026-09-14)</title>
-      <link>https://killedbyai.net/dead/amazon-nova-premier-nova-sonic/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/amazon-nova-premier-nova-sonic/</guid>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
-      <description>Amazon&#x27;s flagship Nova model and its speech sibling, launched at re:Invent 2024 as AWS&#x27;s answer to frontier models. Both entered Legacy status in March 2026 and reached end of life on September 14 — inside two years. AWS migrated nothing automatically; Legacy models also cut off any customer inactive for 15 days, so some accounts lost access before the deadline arrived.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Huxe — Killed by Google / Spotify (2026-05-22)</title>
-      <link>https://killedbyai.net/dead/huxe/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/huxe/</guid>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
-      <description>An AI audio app from three former NotebookLM developers — prompt it and get a podcast, a personalised feed, or a live AI radio station you could interrupt mid-sentence. It raised $4.6M from Conviction, Dylan Field and Google&#x27;s own Jeff Dean. Spotify shipped a near-identical personal podcast feature one day before the wind-down notice, and Google&#x27;s Gemini Daily Brief had landed at I/O weeks earlier. Built by ex-Googlers, buried by Google.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>Figgs AI — Killed by Inference Bills (2024-12-30)</title>
-      <link>https://killedbyai.net/dead/figgs-ai/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/figgs-ai/</guid>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 +0000</pubDate>
-      <description>A character-chat platform for role-play and storytelling that reached more than a million users on a free tier, with no funding and no revenue at any point. Character chat is among the most expensive things to serve per user, and the developers shut it down at the end of 2024 rather than charge for it. Demand was never the problem; the bill was.</description>
-      <category>app</category>
-    </item>
-    <item>
-      <title>MAI-Code-1-Flash (GitHub Copilot) — Killed by GitHub / Microsoft (2026-09-10)</title>
-      <link>https://killedbyai.net/dead/mai-code-1-flash-github-copilot/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/mai-code-1-flash-github-copilot/</guid>
-      <pubDate>Sat, 12 Sep 2026 00:00:00 +0000</pubDate>
-      <description>Microsoft&#x27;s first purpose-built small coding model for GitHub Copilot, announced June 2, 2026 as &quot;the first in a new wave&quot; of Copilot-tuned models. On August 11 GitHub shipped MAI-Code-1.1-Flash (with vision) and, in the same day&#x27;s changelog, put 1.0 on notice; it was removed from every Copilot surface on September 10. One hundred days from launch to retirement — the first wave lasted about as long as a summer.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Gemini Robotics-ER 1.6 Preview — Killed by Google (2026-08-31)</title>
-      <link>https://killedbyai.net/dead/gemini-robotics-er-1-6-preview/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/gemini-robotics-er-1-6-preview/</guid>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
-      <description>Released April 14, 2026, deleted August 31: a 139-day lifespan for an embodied-reasoning model that never left preview. It had killed its own predecessor, ER 1.5, on April 30, and was in turn replaced by gemini-robotics-er-2-preview, which shipped July 30 — 32 days before 1.6 was gone. Three robotics previews retired inside five months, none of which ever reached GA.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Mistral Medium 3 &amp; 3.1 — Killed by Mistral (2026-08-31)</title>
-      <link>https://killedbyai.net/dead/mistral-medium-3-3-1/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/mistral-medium-3-3-1/</guid>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
-      <description>Both retired the same day, August 31, 2026, in favour of Mistral Medium 3.5. Medium 3 shipped May 7, 2025 and lasted 481 days; Medium 3.1 shipped August 12, 2025 and managed 384. Both were marked deprecated on May 22, so developers got 101 days&#x27; notice — generous by 2026 standards, where some previews don&#x27;t live that long.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Flowise — Killed by AI Coding Agents (2026-08-31)</title>
-      <link>https://killedbyai.net/dead/flowise/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/flowise/</guid>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
-      <description>The open-source drag-and-drop LLM builder with 55,000 GitHub stars froze feature development on July 29, 2026, archived the repository on August 13 and declared end of life on August 31. Maintainer HenryHengZJ was candid about the cause: &quot;the typical rigid workflow low-code approach quickly hits the limit when it comes to complexity&quot; as developers hand complex work to coding agents instead. A tool for building AI without code, killed by AI that writes code. The Apache-2.0 source stays up for forks.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>DALL·E GPT (in ChatGPT) — Killed by OpenAI (2026-08-30)</title>
-      <link>https://killedbyai.net/dead/dall-e-gpt-in-chatgpt/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/dall-e-gpt-in-chatgpt/</guid>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
-      <description>The official DALL·E GPT — the last place the DALL·E name still lived inside ChatGPT — retired on August 30, 2026, 1,028 days after it launched alongside custom GPTs at DevDay 2023. OpenAI would not say what happens to images stored inside it and simply advised users to download anything they wanted to keep. Image generation itself survives under the ChatGPT Images banner. Three DALL·E entries now share this graveyard.</description>
-      <category>app</category>
-    </item>
-    <item>
-      <title>OpenAI Assistants API — Killed by OpenAI (2026-08-26)</title>
-      <link>https://killedbyai.net/dead/openai-assistants-api/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/openai-assistants-api/</guid>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
-      <description>OpenAI&#x27;s first stab at agents-as-a-service: threads, runs, file search and code interpreter bundled behind one beta endpoint. Announced at DevDay on November 6, 2023, it never left beta, and on August 26, 2025 OpenAI gave it exactly one year to live. It died on the day — a hard cut, no read-only mode, no grace period — with the Responses API inheriting its best parts and developers inheriting a full rewrite. 1,024 days, every one of them labelled &quot;beta&quot;.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Claude 3 Haiku on Google Cloud — Killed by Google Cloud (2026-08-23)</title>
-      <link>https://killedbyai.net/dead/claude-3-haiku-on-google-cloud/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/claude-3-haiku-on-google-cloud/</guid>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
-      <description>Deprecated on Google Cloud on February 23, 2026 and switched off on August 23 — the last Claude 3-generation model on the platform. Anthropic itself had retired claude-3-haiku on April 20, so Google kept serving a model its maker had already buried for 125 extra days. Amazon Bedrock, not to be outdone, keeps it on life support until September 10: one model, three funerals.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>HereAfter AI — Killed by Itself (2026-08-18)</title>
-      <link>https://killedbyai.net/dead/hereafter-ai/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/hereafter-ai/</guid>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
-      <description>The grief-tech pioneer that interviewed people about their lives so relatives could later ask questions and hear answers in the recorded voice — built by former journalist James Vlahos from the &#x27;Dadbot&#x27; he made of his dying father. Vlahos left in January 2024; the iOS app was last updated in September 2023. A farewell notice appeared on the homepage in July 2026 with no deadline, telling families to email support to export recordings; by August 18 the site itself no longer loaded. ⚠ The closing date here is the day the site went dark, as no official end date was published.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>Anthropic Legacy Workbench — Killed by Anthropic (2026-08-17)</title>
-      <link>https://killedbyai.net/dead/anthropic-legacy-workbench/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/anthropic-legacy-workbench/</guid>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
-      <description>Announced July 17, 2026 and gone August 17, the legacy Console Workbench took its saved prompts, variables and evals with it — none migrated to the replacement &quot;playground&quot; that opened a day later. The three experimental prompt-tool endpoints (generate_prompt, improve_prompt, templatize_prompt) were retired the same day and now return errors. Thirty-one days&#x27; notice for an API that was, to be fair, always labelled experimental.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Microsoft MAI-Image-2 &amp; MAI-Image-2e — Killed by Microsoft (2026-08-15)</title>
-      <link>https://killedbyai.net/dead/microsoft-mai-image-2-mai-image-2e/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/microsoft-mai-image-2-mai-image-2e/</guid>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
-      <description>Microsoft&#x27;s first in-house image models did not get long. MAI-Image-2 (February 20) and MAI-Image-2e (April 9) were retired from Azure Foundry on August 15, 2026 — 176 and 128 days after release — in favour of MAI-Image-2.5 and 2.5-Flash. The successors are still in preview and already carry their own retirement date of October 1. Microsoft is now deprecating image models faster than most companies ship them.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Wsup AI — Killed by Itself (2026-06-19)</title>
-      <link>https://killedbyai.net/dead/wsup-ai/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/wsup-ai/</guid>
-      <pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate>
-      <description>A no-sign-up AI character-chat app that briefly found an audience in the gap beneath Character.AI and Replika. In May 2026 it announced a wind-down: chats worked until May 24, accounts went read-only from May 25, and the service closed on June 19. No reason was given beyond the obvious one — an 18-month-old companion app cannot outspend incumbents with multi-year head starts. An unrelated operator has since launched a look-alike under the same name.</description>
-      <category>app</category>
     </item>
   </channel>
 </rss>

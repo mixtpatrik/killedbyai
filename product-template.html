@@ -29,7 +29,7 @@
     <meta name="theme-color" content="#09090b">
     <style>
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#8f8f99;--line-dim:#52525b;--red:#ef4444;--red-dim:rgba(239,68,68,.15);--amber:#f59e0b}
+        :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#8f8f99;--line-dim:#52525b;--red:#ef4444;--red-text:#f87171;--red-dim:rgba(239,68,68,.15);--amber:#f59e0b}
         html{-webkit-text-size-adjust:100%}
         body{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;font-size:16px}
         a{color:var(--text-muted)} a:hover{color:var(--red)}
@@ -46,7 +46,7 @@
         .crumbs a:hover{color:var(--red)}
         .stone{background:var(--bg-card);border:1px solid var(--border);border-radius:.75rem;padding:1.5rem;position:relative;overflow:hidden}
         .stone::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--red),#7f1d1d)}
-        .verdict{display:inline-flex;align-items:center;gap:.5rem;min-height:36px;padding:0 .875rem;border-radius:999px;background:var(--red-dim);border:1px solid rgba(239,68,68,.3);color:var(--red);font-weight:700;font-size:.9375rem;margin-bottom:1rem}
+        .verdict{display:inline-flex;align-items:center;gap:.5rem;min-height:36px;padding:0 .875rem;border-radius:999px;background:var(--red-dim);border:1px solid rgba(239,68,68,.3);color:var(--red-text);font-weight:700;font-size:.9375rem;margin-bottom:1rem}
         h1{font-size:clamp(1.75rem,6vw,2.5rem);font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:.5rem}
         .sub{color:var(--text-muted);font-size:1.0625rem;margin-bottom:1.25rem}
         .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.75rem;margin:1.25rem 0}
@@ -59,7 +59,7 @@
         .actions{display:flex;flex-wrap:wrap;gap:.625rem;margin-top:1.25rem}
         .btn{display:inline-flex;align-items:center;gap:.375rem;min-height:44px;padding:0 1rem;border-radius:.5rem;border:1px solid var(--border);background:var(--bg);color:var(--text);text-decoration:none;font-weight:600;font-size:.9375rem}
         .btn:hover{border-color:var(--red);color:var(--red)}
-        .btn-red{background:var(--red-dim);border-color:rgba(239,68,68,.35);color:var(--red)}
+        .btn-red,.btn-red:hover{background:var(--red-dim);border-color:rgba(239,68,68,.35);color:var(--red-text)}
         h2{font-size:1.25rem;font-weight:800;margin:2rem 0 .75rem;letter-spacing:-.01em}
         .qa{background:var(--bg-card);border:1px solid var(--border);border-radius:.75rem;padding:1.25rem}
         .qa h2{margin:0 0 .5rem;font-size:1.125rem}
@@ -93,15 +93,10 @@
 </head>
 <body>
     <nav class="site-nav" aria-label="Site">
-        <a href="/" class="site-nav-item active">💀 Graveyard</a>
-        <a href="/layoffs/" class="site-nav-item">💼 AI Layoffs</a>
-        <a href="/funding/" class="site-nav-item">🔥 Funding</a>
-        <a href="/coming-soon/" class="site-nav-item">⏳ Dying soon</a>
-        <a href="/will-ai-take-my-job/" class="site-nav-item">🎯 Will AI take my job?</a>
-        <a href="/api/" class="site-nav-item">{ } API</a>
+        {{NAV}}
     </nav>
     <main class="wrap">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Killed by AI</a> › <a href="/#{{SLUG}}">Graveyard</a> › {{NAME}}</nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Killed by AI</a> › <a href="/dead/">All tombstones</a> › {{NAME}}</nav>
         <article class="stone">
             <div class="verdict">🪦 {{VERDICT}}</div>
             <h1>{{H1}}</h1>{{H1_SUB}}

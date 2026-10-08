@@ -33,12 +33,27 @@ jobs:
           python-version: '3.12'
       - name: Build site
         run: python3 build.py
+      # Publish only the public site: every built page, asset, JSON dataset, feed, .ics, sitemap, robots.txt,
+      # CNAME and icon — but not the build script, raw templates (canonical "{{URL}}"), internal docs or the
+      # source CSV, which would otherwise be served (and indexable) on killedbyai.net.
+      - name: Assemble public site
+        run: |
+          SITE="${{ runner.temp }}/site"
+          rm -rf "$SITE" && mkdir -p "$SITE" && cp -a . "$SITE/"
+          ( cd "$SITE" && rm -rf .git .github .gitignore docs data __pycache__ build.py README.md template.html ./*-template.html \
+            && find . -name '*.pyc' -delete )
+          for f in index.html 404.html CNAME robots.txt sitemap.xml feed.xml deprecations.ics site.webmanifest favicon.ico \
+                   graveyard.json layoffs.json coming-soon.json roles.json dead/index.html api/index.html; do
+            test -s "$SITE/$f" || { echo "missing from Pages artifact: $f"; exit 1; }
+          done
+          if grep -rlE --include='*.html' '\{\{[A-Z_]+\}\}' "$SITE"; then echo "unrendered template placeholders"; exit 1; fi
+          echo "SITE_DIR=$SITE" >> "$GITHUB_ENV"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: ${{ env.SITE_DIR }}
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -11,8 +11,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Layoffs Tracker 2026: {{TOTAL_JOBS}} Jobs Replaced by AI</title>
-    <meta name="description" content="{{TOTAL_JOBS}} jobs cut by {{TOTAL_COMPANIES}} companies that blamed AI — {{THIS_YEAR_JOBS}} in {{THIS_YEAR}} alone. Charts by quarter and role, the biggest cuts ({{BIGGEST}}), and a source on every entry. Updated {{LAST_UPDATED}}.">
+    <title>AI Layoffs Tracker: {{TOTAL_JOBS}} Jobs Replaced by AI Since {{FIRST_YEAR}}</title>
+    <meta name="description" content="{{TOTAL_JOBS}} jobs cut by {{TOTAL_COMPANIES}} companies that blamed AI, {{THIS_YEAR_JOBS}} in {{THIS_YEAR}}. Charts by quarter and role, the biggest cuts, and a source on every entry.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://killedbyai.net/layoffs/">
     <meta property="og:url" content="https://killedbyai.net/layoffs/">
@@ -22,7 +22,7 @@
     <meta property="og:site_name" content="Killed by AI">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
-    <meta property="og:title" content="AI Layoffs Tracker — {{TOTAL_JOBS}} Jobs Cut by AI">
+    <meta property="og:title" content="AI Layoffs Tracker — {{TOTAL_JOBS}} Jobs Cut by AI Since {{FIRST_YEAR}}">
     <meta property="og:description" content="{{TOTAL_JOBS}} jobs cut across {{TOTAL_COMPANIES}} companies that blamed AI — {{THIS_YEAR_JOBS}} in {{THIS_YEAR}}. Charts, rankings, sources.">
     <meta property="og:type" content="website">
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -198,17 +198,19 @@
 
     <header class="header">
         <h1>AI Layoffs <span>Tracker</span></h1>
-        <p>Every layoff where the company itself named AI, automation or an "AI-first" strategy as the reason — {{TOTAL_JOBS}} jobs at {{TOTAL_COMPANIES}} companies, with the date, the roles replaced, the quote and a source. Numbers are what companies disclosed, not estimates. Hardest hit so far: {{TOP_ROLE}}. See it <a href="/jobs/">by the jobs AI replaced</a>.</p>
+        <p>Every layoff where the company itself named AI, automation or an "AI-first" strategy as the reason — {{TOTAL_JOBS}} jobs at {{TOTAL_COMPANIES}} companies, with the date, the roles replaced, the quote and a source. Numbers are what companies disclosed, not estimates. Most often named so far: {{TOP_ROLE}}. See it <a href="/jobs/">by the jobs AI replaced</a>.</p>
     </header>
 
     {{DASHBOARD}}
     <div style="padding:0 .75rem"><a class="risk-cta" href="/will-ai-take-my-job/">🎯 Is your job next? <span>Find out in 20 seconds →</span></a></div>
     <span class="last-updated">Last updated: {{LAST_UPDATED}} · every number sourced · <a href="/api/" style="color:inherit">free JSON</a></span>
+    <div class="list-wrap">  <!-- the sticky filter bar stops where the list ends -->
     {{CONTROLS}}
 
     <main class="list" data-sortable>
 {{ROWS}}
     </main>
+    </div>
 
     <section class="prose">
         <h2>AI layoffs by year</h2>
