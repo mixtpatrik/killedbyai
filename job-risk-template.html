@@ -209,7 +209,7 @@
         <a href="/funding/" class="site-nav-item">🔥 Funding</a>
         <a href="/coming-soon/" class="site-nav-item">⏳ Dying soon</a>
         <a href="/will-ai-take-my-job/" class="site-nav-item active" aria-current="page">🎯 Will AI take my job?</a>
-        <a href="/api/" class="site-nav-item">{ } API</a>
+        <a href="/embed/" class="site-nav-item">📤 Embed &amp; share</a>
     </nav>
 
     <header class="header">
@@ -239,7 +239,7 @@
 
     <section class="section" id="ranking">
         <h2>Jobs most and least exposed to AI</h2>
-        <p class="lead">Microsoft Research's AI applicability score measures how much of an occupation's work overlaps with what people successfully use AI for, on a scale from 0 (none) to about 0.5. High overlap is exposure, not a death sentence.</p>
+        <p class="lead">Microsoft Research's AI applicability score measures how much of an occupation's work overlaps with what people successfully use AI for, on a scale from 0 (none) to about 0.5. High overlap means exposure rather than a death sentence.</p>
         <div class="two">
             <div class="tcard"><h3>🪦 Most exposed to AI</h3><p class="dnote">Top 20 of {{N_OCC}} occupations</p>{{TOP_TABLE}}</div>
             <div class="tcard"><h3>🌱 Least exposed to AI</h3><p class="dnote">Bottom 20 of {{N_OCC}} occupations</p>{{BOTTOM_TABLE}}</div>
@@ -255,7 +255,7 @@
 
     <section class="section prose" id="method">
         <h2>How the score works</h2>
-        <p><b>55% is your occupation.</b> We take the <a href="https://arxiv.org/abs/2507.07935" target="_blank" rel="noopener">AI applicability score</a> Microsoft Research computed for {{N_OCC}} US occupations from 200,000 anonymized Bing Copilot conversations (how often AI is used for each work activity, how successfully, and how much of the job it covers) and convert it to a percentile: how many occupations are less exposed than yours. The authors stress that applicability is not displacement; a job is more than its task list. If your work is hands-on, the occupation part counts 40% less, because Microsoft's score measures overlap with chatbot use, not physical work.</p>
+        <p><b>55% is your occupation.</b> We take the <a href="https://arxiv.org/abs/2507.07935" target="_blank" rel="noopener">AI applicability score</a> Microsoft Research computed for {{N_OCC}} US occupations from 200,000 anonymized Bing Copilot conversations (how often AI is used for each work activity, how successfully, and how much of the job it covers) and convert it to a percentile: how many occupations are less exposed than yours. The authors stress that applicability is not displacement; a job is more than its task list. If your work is hands-on, the occupation part counts 40% less, because Microsoft's score measures overlap with chatbot use and does not cover physical work.</p>
         <p><b>45% is how you work.</b> Three questions move the score up or down using what has predicted real losses so far: early-career workers in exposed jobs are being hired less (Stanford), roles built on codified, rule-following knowledge have shrunk while tacit, experience-based ones have not, physical and on-site work is largely outside what chatbots can do, and licences and legal accountability slow automation down.</p>
         <p>Nothing you enter leaves your browser except anonymous totals in our analytics. Occupation data: Microsoft Research, <a href="https://github.com/microsoft/working-with-ai" target="_blank" rel="noopener">working-with-ai</a>, CC BY 4.0. Layoff data updated {{LAST_UPDATED}}.</p>
     </section>
@@ -293,7 +293,7 @@
       ['Mostly screen, some in person', 5, 'Most of your work happens where AI operates.', '<b>Grow the in-person half.</b> Client meetings, site visits and workshops are where AI is weakest.'],
       ['Hands-on or on-site', -18, 'Physical, real-world work is the strongest protection there is.', '<b>Let AI do the paperwork.</b> Use it for quotes, reports and scheduling so you spend more time on the work only you can do.']] },
     { q: 'What is your work mostly?', o: [
-      ['Following set processes', 12, 'Rule-based, repeatable work is exactly what AI learns from.', 'Become the person who <b>writes and fixes the playbook</b>, not the one who follows it.'],
+      ['Following set processes', 12, 'Rule-based, repeatable work is exactly what AI learns from.', 'Become the person who <b>writes and fixes the playbook</b> instead of following it.'],
       ['Judgment calls and relationships', -4, 'Messy one-off decisions and relationships are slow to automate.', '<b>Make your judgment visible.</b> Write down the calls you made and why: context only you hold is your moat.'],
       ['Signing off: I’m licensed or accountable', -10, 'Licences and legal liability keep a human in the loop.', '<b>Stay the accountable signature.</b> Let AI do the prep while you keep the sign-off.']] }
   ];
@@ -486,7 +486,7 @@
       '<div class="share">' + (state.shared ? '<button class="cta full" type="button" data-act="retake">Take the test →</button>' : '<button class="cta full" type="button" data-act="share">Share my result</button>') +
       '<button class="cta ghost" type="button" data-act="image">⬇ Save image</button><button class="cta ghost" type="button" data-act="copy">🔗 Copy link</button>' +
       (state.shared ? '' : '<button class="cta ghost full" type="button" data-act="retake">↺ Try another job</button>') + '</div>' +
-      '<p class="disclaimer">An informed estimate, not a prediction. Occupation data: Microsoft Research (CC BY 4.0). <a href="#method">How the score works</a></p>';
+      '<p class="disclaimer">An informed estimate rather than a prediction. Occupation data: Microsoft Research (CC BY 4.0). <a href="#method">How the score works</a></p>';
     card.innerHTML = html;
     requestAnimationFrame(function () { requestAnimationFrame(function () {
       var arc = document.getElementById('garc'); arc.style.strokeDashoffset = arc.dataset.to;

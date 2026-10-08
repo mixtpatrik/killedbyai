@@ -8,6 +8,7 @@ Reads graveyard.json and generates index.html with:
 """
 import calendar
 import json
+import shutil
 import html
 import re
 import subprocess
@@ -173,12 +174,12 @@ PERSON_REF = {"@type": "Person", "@id": PERSON_ID, "name": "Patrik Rojan", "url"
 def footer_links(active=None):
     links = [("/", "The AI graveyard"), ("/dead/", f"All {len(json.loads((ROOT / 'graveyard.json').read_text()))} tombstones A-Z"), ("/killed-by/", "By killer"),
              ("/layoffs/", "AI layoffs tracker"), ("/will-ai-take-my-job/", "Will AI take my job?"), ("/jobs/", "Jobs replaced by AI"), ("/coming-soon/", "Upcoming AI shutdowns"), ("/deprecations.ics", "Shutdown calendar (.ics)"),
-             ("/funding/", "Failed AI startups"), ("/api/", "JSON API"), ("/about/", "About & methodology"), ("/feed.xml", "RSS")]
+             ("/funding/", "Failed AI startups"), ("/embed/", "Embed & share"), ("/api/", "JSON API"), ("/about/", "About & methodology"), ("/feed.xml", "RSS")]
     return " · ".join(f'<a href="{h}">{t}</a>' for h, t in links)
 
 
 NAV_LINKS = [("/", "💀 Graveyard"), ("/layoffs/", "💼 AI Layoffs"), ("/funding/", "🔥 Funding"), ("/coming-soon/", "⏳ Dying soon"),
-             ("/will-ai-take-my-job/", "🎯 Will AI take my job?"), ("/api/", "{ } API")]
+             ("/will-ai-take-my-job/", "🎯 Will AI take my job?"), ("/embed/", "📤 Embed & share")]
 
 
 def site_nav(active, page_path=None):
@@ -750,7 +751,7 @@ def render_job_risk(ldata):
         ("Which jobs are most at risk from AI?", "By Microsoft's AI applicability score, the most exposed occupations are " + ", ".join(t for _, t, _ in top[:6]) + ". Among real layoffs where employers named AI as the reason, customer support is hit hardest by far, followed by operations, software engineering and sales."),
         ("Which jobs are safest from AI?", "Jobs built on physical, on-site work in unpredictable environments score lowest: " + ", ".join(t for _, t, _ in bottom[:6]) + ". Work that needs a licence, legal accountability or in-person trust is also slower to automate."),
         ("Are young workers more at risk?", "So far, yes. Stanford's Digital Economy Lab found that by mid-2026 employment for 22- to 25-year-olds in the most AI-exposed occupations was about 19% below where it would have been had it kept pace with less-exposed jobs, mostly because of fewer hires rather than firings. Experienced workers show no comparable drop."),
-        ("How accurate is this AI job risk score?", "It is an informed estimate, not a prediction. The occupation part is Microsoft's measured overlap between AI and the tasks of each job, which its authors stress is not the same as displacement. The personal part reflects findings on early-career exposure, codified versus tacit knowledge, physical work and employer signals. Use it to see where you are exposed, not as a verdict."),
+        ("How accurate is this AI job risk score?", "It is an informed estimate rather than a prediction. The occupation part is Microsoft's measured overlap between AI and the tasks of each job, which its authors stress is not the same as displacement. The personal part reflects findings on early-career exposure, codified versus tacit knowledge, physical work and employer signals. Use it to see where you are exposed, and don't read it as a verdict."),
     ]
     faq_html = "".join(f'<details class="faq"><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in faq)
     jsonld = {"@context": "https://schema.org", "@graph": [
@@ -922,7 +923,7 @@ def render_card(item, killer_counts=None):
     return f'''<article class="card{" is-new" if new_badge else ""}" id="{slug}" data-type="{esc(item["type"])}" data-death-type="{death_type}" data-name="{esc(item["name"].lower())}" data-desc="{esc(item["description"].lower())}" data-killer="{esc(item["killedBy"].lower())}" data-cause="{esc(item["causeOfDeath"].lower())}" data-date-close="{esc(item["dateClose"])}" data-date-open="{esc(item["dateOpen"])}" data-added="{esc(item.get("dateAdded", ""))}" data-days="{days}">
   <header class="card-header">
     <h3 class="card-name"><a href="/dead/{slug}/">{esc(item["name"])}</a>{new_badge}</h3>
-    <span class="card-lifespan">{y_open}-{y_close}</span>
+    <span class="card-lifespan">{y_open if y_open == y_close else f"{y_open}-{y_close}"}</span>
   </header>
   <p class="card-description">{esc(item["description"])}</p>
   <footer class="card-footer">
@@ -1587,6 +1588,14 @@ def main():
     job_pages = render_jobs_pages(json.loads((ROOT / "layoffs.json").read_text()), list_tpl) if (ROOT / "layoffs.json").exists() else []
     if (ROOT / "layoffs.json").exists():
         render_job_risk(json.loads((ROOT / "layoffs.json").read_text()))
+    # Role pages that no longer qualify (fewer than 2 layoffs) would otherwise linger with stale numbers.
+    for d in (ROOT / "jobs").iterdir() if (ROOT / "jobs").exists() else []:
+        if d.is_dir() and d.name not in job_pages:
+            shutil.rmtree(d)
+    import embed
+    embed.build_embeds(ROOT, SITE_URL, data, json.loads((ROOT / "layoffs.json").read_text()) if (ROOT / "layoffs.json").exists() else [],
+                       json.loads((ROOT / "coming-soon.json").read_text()) if (ROOT / "coming-soon.json").exists() else [],
+                       publish, site_nav, footer_links, product_url)
     killer_pages = []
     for killer, n in killer_counts.items():
         if n < 2:
@@ -1929,6 +1938,7 @@ def main():
         (SITE_URL + "will-ai-take-my-job/", "0.9", "weekly", lm(["layoffs.json", "job-risk-template.html", "data/microsoft-ai-applicability-scores.csv"])),
         (SITE_URL + "api/", "0.6", "monthly", lm(["api/index.html"])),
         (SITE_URL + "about/", "0.5", "monthly", lm(["about/index.html"])),
+        (SITE_URL + "embed/", "0.6", "weekly", lm(["embed.py", "embed-template.html", "graveyard.json", "layoffs.json"])),
     ]
     mods = entry_lastmod_map()
     pages.append((SITE_URL + "jobs/", "", "", lm(["layoffs.json"])))

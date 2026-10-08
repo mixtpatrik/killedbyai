@@ -3,7 +3,7 @@ VERSION:2.0
 PRODID:-//Killed by AI//Upcoming AI shutdowns//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:Upcoming AI shutdowns — Killed by AI
+X-WR-CALNAME:Upcoming AI shutdowns | Killed by AI
 X-WR-CALDESC:Confirmed shutdown and deprecation dates for AI products and
   models. Source: killedbyai.net/coming-soon/
 REFRESH-INTERVAL;VALUE=DURATION:P1D
@@ -120,12 +120,12 @@ DTSTART;VALUE=DATE:20261021
 DTEND;VALUE=DATE:20261022
 SUMMARY:🪦 Shutdown: Vertex AI Open-Model MaaS (16 models)
 DESCRIPTION:Google Cloud drops managed serving for 16 open models on Octo
- ber 21 — four DeepSeek endpoints (V3.1\, V3.2\, R1-0528 and DeepSeek-O
- CR)\, GLM-5 and 4.7\, gpt-oss-20b\, Kimi K2 Thinking\, Llama 3.3 70B\, M
- iniMax M2\, two e5 embedding models and four Qwen3 variants. You can sti
- ll run them\; you just have to host them yourself. Replacement: Self-dep
- loy the weights from Model Garden. Source: https://docs.cloud.google.com
- /gemini-enterprise-agent-platform/models/deprecations/open-models
+ ber 21: four DeepSeek endpoints (V3.1\, V3.2\, R1-0528 and DeepSeek-OCR)
+ \, GLM-5 and 4.7\, gpt-oss-20b\, Kimi K2 Thinking\, Llama 3.3 70B\, Mini
+ Max M2\, two e5 embedding models and four Qwen3 variants. You can still 
+ run them\; you just have to host them yourself. Replacement: Self-deploy
+  the weights from Model Garden. Source: https://docs.cloud.google.com/ge
+ mini-enterprise-agent-platform/models/deprecations/open-models
 URL:https://killedbyai.net/coming-soon/#vertex-ai-open-model-maas-16-mode
  ls
 CATEGORIES:AI shutdown
@@ -160,12 +160,12 @@ SUMMARY:🪦 Shutdown: OpenAI GPT-4\, GPT-4 Turbo\, GPT-3.5 Turbo\, o1\,
 DESCRIPTION:One date kills three eras. On October 23\, OpenAI removes gpt
  -3.5-turbo (the engine that launched ChatGPT)\, gpt-4\, gpt-4-0613\, gpt
  -4-turbo and gpt-4-1106-preview (the models that defined 2023)\, and mos
- t of its first generation of reasoning models — o1\, o1-pro\, o3-mini\
- , o4-mini — plus gpt-4o-2024-05-13\, gpt-4.1-nano and gpt-image-1. o3 
- and o3-pro follow on December 11. Every fine-tune built on them dies the
-  same day. Seventeen table rows\, six months' notice. Replacement: gpt-5
- .6-sol / gpt-5.6-terra / gpt-5.6-luna / gpt-image-2.5-sunburst or -flare
- . Source: https://developers.openai.com/api/docs/deprecations
+ t of its first generation of reasoning models (o1\, o1-pro\, o3-mini\, o
+ 4-mini)\, plus gpt-4o-2024-05-13\, gpt-4.1-nano and gpt-image-1. o3 and 
+ o3-pro follow on December 11. Every fine-tune built on them dies the sam
+ e day. Seventeen table rows\, six months' notice. Replacement: gpt-5.6-s
+ ol / gpt-5.6-terra / gpt-5.6-luna / gpt-image-2.5-sunburst or -flare. So
+ urce: https://developers.openai.com/api/docs/deprecations
 URL:https://killedbyai.net/coming-soon/#openai-gpt-4-gpt-4-turbo-gpt-3-5-
  turbo-o1-o3-mini-o4-mini
 CATEGORIES:AI shutdown
@@ -214,13 +214,14 @@ DTSTART;VALUE=DATE:20261113
 DTEND;VALUE=DATE:20261114
 SUMMARY:🪦 Shutdown: Reddit RSS Feeds & Public API
 DESCRIPTION:Killed by AI in the literal sense. Reddit turns off RSS on No
- vember 13 — 'RSS has now become a common surface for large-scale scrap
- ing and automated abuse' — stops new public API requests on October 31
-  and closes the remaining public endpoints in March 2027. The data now g
- oes to paying AI licensees instead\; that revenue line grew 24% last qua
- rter. Replacement: None for outside readers\; registered apps only (dead
- line Jan 12\, 2027). Source: https://techcrunch.com/2026/09/30/reddit-is
- -killing-rss-feeds-ending-public-api-access-because-of-ai-bots/
+ vember 13\, saying 'RSS has now become a common surface for large-scale 
+ scraping and automated abuse'. It also stops new public API requests on 
+ October 31 and closes the remaining public endpoints in March 2027. The 
+ data now goes to paying AI licensees instead\; that revenue line grew 24
+ % last quarter. Replacement: None for outside readers\; registered apps 
+ only (deadline Jan 12\, 2027). Source: https://techcrunch.com/2026/09/30
+ /reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots
+ /
 URL:https://killedbyai.net/coming-soon/#reddit-rss-feeds-public-api
 CATEGORIES:AI shutdown
 END:VEVENT
@@ -291,10 +292,10 @@ DESCRIPTION:This is what Google's 'short-term availability' GA tier means
   in practice. Gemini 3.6 Flash retires from Vertex AI on November 19\, 1
  21 days after its July 21 release\, and 3.7 Flash follows on January 28\
  , 2027\, 168 days after release. Both are replaced by gemini-3.8-flash. 
- Google never dated the notice\; the dates simply appeared in its model-v
- ersions table. GitHub Copilot had already dropped 3.6 Flash on October 2
- . Replacement: gemini-3.8-flash. Source: https://docs.cloud.google.com/g
- emini-enterprise-agent-platform/models/model-versions
+ Google never dated the notice\; the dates appeared in its model-versions
+  table. GitHub Copilot had already dropped 3.6 Flash on October 2. Repla
+ cement: gemini-3.8-flash. Source: https://docs.cloud.google.com/gemini-e
+ nterprise-agent-platform/models/model-versions
 URL:https://killedbyai.net/coming-soon/#gemini-3-6-flash-3-7-flash-vertex
  -ai
 CATEGORIES:AI shutdown
@@ -307,9 +308,9 @@ DTEND;VALUE=DATE:20261127
 SUMMARY:🪦 Shutdown: Vertex AI Extensions
 DESCRIPTION:Google's managed tool-calling framework for Gemini\, deprecat
  ed with the standard six-month window and switched off after November 26
- \, 2026. The replacement is the Agent Platform — the third name for th
- is idea in as many years. Replacement: Agent Platform. Source: https://d
- ocs.cloud.google.com/vertex-ai/generative-ai/docs/extensions/overview
+ \, 2026. The replacement is the Agent Platform\, the third name for this
+  idea in as many years. Replacement: Agent Platform. Source: https://doc
+ s.cloud.google.com/vertex-ai/generative-ai/docs/extensions/overview
 URL:https://killedbyai.net/coming-soon/#vertex-ai-extensions
 CATEGORIES:AI shutdown
 END:VEVENT
@@ -339,10 +340,10 @@ DTEND;VALUE=DATE:20261201
 SUMMARY:🪦 Shutdown: Claude Sonnet 4.5
 DESCRIPTION:Anthropic's September 2025 coding model\, billed at launch as
   the best in the world for agents and computer use\, retires from the Cl
- aude API on November 30 — announced on its first birthday. Opus 4.5 is
-  next in line: 'not sooner than November 24\, 2026.' Replacement: claude
- -sonnet-5-5. Source: https://platform.claude.com/docs/en/about-claude/mo
- del-deprecations
+ aude API on November 30. Anthropic announced the retirement on the model
+ 's first birthday. Opus 4.5 is next in line: 'not sooner than November 2
+ 4\, 2026.' Replacement: claude-sonnet-5-5. Source: https://platform.clau
+ de.com/docs/en/about-claude/model-deprecations
 URL:https://killedbyai.net/coming-soon/#claude-sonnet-4-5
 CATEGORIES:AI shutdown
 END:VEVENT
@@ -352,13 +353,13 @@ DTSTAMP:20261008T000000Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:🪦 Shutdown: OpenAI Agent Builder\, Evals & Reusable Prompts
-DESCRIPTION:The visual agent canvas OpenAI unveiled at DevDay 2025 as the
-  centrepiece of AgentKit dies on November 30\, along with the Evals plat
- form and the /v1/prompts API. Evals goes read-only on October 31. Agent 
- Builder lasted eight months in beta before its death was announced. Repl
- acement: Agents SDK\; Workspace Agents in ChatGPT\; prompts in your own 
- code\; Promptfoo for evals. Source: https://developers.openai.com/api/do
- cs/deprecations
+DESCRIPTION:The visual agent canvas OpenAI introduced at DevDay 2025 as t
+ he centrepiece of AgentKit dies on November 30\, along with the Evals pl
+ atform and the /v1/prompts API. Evals goes read-only on October 31. Agen
+ t Builder lasted eight months in beta before its death was announced. Re
+ placement: Agents SDK\; Workspace Agents in ChatGPT\; prompts in your ow
+ n code\; Promptfoo for evals. Source: https://developers.openai.com/api/
+ docs/deprecations
 URL:https://killedbyai.net/coming-soon/#openai-agent-builder-evals-reusab
  le-prompts
 CATEGORIES:AI shutdown
@@ -388,13 +389,13 @@ DESCRIPTION:The original May 2024 GPT-4o snapshot retires from Azure on D
  ecember 9\, and Microsoft uses it as the worked example in its lifecycle
   docs. Global Standard\, Data Zone Standard and Standard deployments are
   force-upgraded to gpt-5.6-sol. Provisioned deployments get no upgrade a
- nd must migrate by hand\, and deployments set to NoAutoUpgrade simply st
- art returning 410 Gone. It outlives OpenAI's own gpt-4o-2024-05-13\, whi
- ch goes on October 23\, by seven weeks. The later 2024-08-06 and 2024-11
- -20 versions last until April 14\, 2027. Replacement: gpt-5.6-sol (auto-
- upgrade on Standard deployments\; Provisioned must migrate manually). So
- urce: https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/mo
- del-retirement-schedule
+ nd must migrate by hand\, and deployments set to NoAutoUpgrade start ret
+ urning 410 Gone. It outlives OpenAI's own gpt-4o-2024-05-13\, which goes
+  on October 23\, by seven weeks. The later 2024-08-06 and 2024-11-20 ver
+ sions last until April 14\, 2027. Replacement: gpt-5.6-sol (auto-upgrade
+  on Standard deployments\; Provisioned must migrate manually). Source: h
+ ttps://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-ret
+ irement-schedule
 URL:https://killedbyai.net/coming-soon/#azure-openai-gpt-4o-2024-05-13
 CATEGORIES:AI shutdown
 END:VEVENT
@@ -404,12 +405,12 @@ DTSTAMP:20261008T000000Z
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:🪦 Shutdown: OpenAI GPT-5 (original snapshots)\, o3 & o3-pro
-DESCRIPTION:The original GPT-5 launch snapshots — gpt-5-2025-08-07 and 
- its mini\, nano and pro siblings — plus o3 and o3-pro shut down Decemb
- er 11. GPT-5 launched in August 2025 as the 'PhD-level expert' model. It
- s launch snapshot gets 16 months before it starts returning errors. Repl
- acement: gpt-5.6-sol / gpt-5.6-terra / gpt-5.6-luna. Source: https://dev
- elopers.openai.com/api/docs/deprecations
+DESCRIPTION:The original GPT-5 launch snapshots (gpt-5-2025-08-07 and its
+  mini\, nano and pro siblings) shut down December 11\, along with o3 and
+  o3-pro. GPT-5 launched in August 2025 as the 'PhD-level expert' model. 
+ Its launch snapshot gets 16 months before it starts returning errors. Re
+ placement: gpt-5.6-sol / gpt-5.6-terra / gpt-5.6-luna. Source: https://d
+ evelopers.openai.com/api/docs/deprecations
 URL:https://killedbyai.net/coming-soon/#openai-gpt-5-original-snapshots-o
  3-o3-pro
 CATEGORIES:AI shutdown
@@ -533,11 +534,11 @@ SUMMARY:🪦 Shutdown: OpenAI Realtime & Audio Model Family
 DESCRIPTION:OpenAI put its entire GA voice stack on death row: gpt-realti
  me\, gpt-audio\, gpt-realtime-mini\, gpt-audio-mini and all four gpt-4o 
  audio/realtime variants. gpt-realtime and gpt-audio went GA in August 20
- 25 — the models that headlined 'production-ready voice agents' get rou
- ghly 17 months. OpenAI is skipping its own intermediate generation: the 
- 1.5 series shipped in February 2026 and the named replacement is already
-  2.1. Replacement: gpt-realtime-2.1 / gpt-realtime-2.1-mini / gpt-audio-
- 1.5. Source: https://developers.openai.com/api/docs/deprecations
+ 25\, so the models that headlined 'production-ready voice agents' get ro
+ ughly 17 months. OpenAI is skipping its own intermediate generation: the
+  1.5 series shipped in February 2026 and the named replacement is alread
+ y 2.1. Replacement: gpt-realtime-2.1 / gpt-realtime-2.1-mini / gpt-audio
+ -1.5. Source: https://developers.openai.com/api/docs/deprecations
 URL:https://killedbyai.net/coming-soon/#openai-realtime-audio-model-famil
  y
 CATEGORIES:AI shutdown
@@ -548,14 +549,14 @@ DTSTAMP:20261008T000000Z
 DTSTART;VALUE=DATE:20270226
 DTEND;VALUE=DATE:20270227
 SUMMARY:🪦 Shutdown: OpenAI Whisper-1 & GPT-4o Transcribe
-DESCRIPTION:On August 26 OpenAI deprecated whisper-1 — its original spe
- ech-to-text API from March 2023 — together with gpt-4o-transcribe\, gp
- t-4o-mini-transcribe and gpt-4o-transcribe-diarize\, the last of which s
- hipped in October 2025. All four die February 26\, 2027. The open-source
-  Whisper weights are unaffected\; the hosted endpoint that made them a p
- roduct is not. Replacement: gpt-transcribe / gpt-live-transcribe. Source
- : https://developers.openai.com/api/docs/deprecations#2026-08-26-transcr
- iption-models
+DESCRIPTION:On August 26 OpenAI deprecated whisper-1 (its original speech
+ -to-text API from March 2023) together with gpt-4o-transcribe\, gpt-4o-m
+ ini-transcribe and gpt-4o-transcribe-diarize\, the last of which shipped
+  in October 2025. All four die February 26\, 2027. The open-source Whisp
+ er weights are unaffected\; the hosted endpoint that made them a product
+  is not. Replacement: gpt-transcribe / gpt-live-transcribe. Source: http
+ s://developers.openai.com/api/docs/deprecations#2026-08-26-transcription
+ -models
 URL:https://killedbyai.net/coming-soon/#openai-whisper-1-gpt-4o-transcrib
  e
 CATEGORIES:AI shutdown

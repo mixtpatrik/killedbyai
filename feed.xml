@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Killed by AI — The AI Graveyard</title>
+    <title>Killed by AI: The AI Graveyard</title>
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
     <lastBuildDate>Thu, 08 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Amazon Lookout for Equipment — Killed by AWS (2026-10-07)</title>
+      <title>Amazon Lookout for Equipment: Killed by AWS (2026-10-07)</title>
       <link>https://killedbyai.net/dead/amazon-lookout-for-equipment/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/amazon-lookout-for-equipment/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -16,7 +16,7 @@
       <category>service</category>
     </item>
     <item>
-      <title>Gemini API Antigravity Agent (05-2026 preview) — Killed by Google (2026-10-05)</title>
+      <title>Gemini API Antigravity Agent (05-2026 preview): Killed by Google (2026-10-05)</title>
       <link>https://killedbyai.net/dead/gemini-api-antigravity-agent-05-2026-preview/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/gemini-api-antigravity-agent-05-2026-preview/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -24,7 +24,7 @@
       <category>model</category>
     </item>
     <item>
-      <title>Kimi K2.7 Code (GitHub Copilot &amp; Microsoft Foundry) — Killed by GitHub / Microsoft (2026-10-02)</title>
+      <title>Kimi K2.7 Code (GitHub Copilot &amp; Microsoft Foundry): Killed by GitHub / Microsoft (2026-10-02)</title>
       <link>https://killedbyai.net/dead/kimi-k2-7-code-github-copilot-microsoft-foundry/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/kimi-k2-7-code-github-copilot-microsoft-foundry/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -32,7 +32,7 @@
       <category>model</category>
     </item>
     <item>
-      <title>Mistral OCR 4.0 — Killed by Mistral (2026-09-30)</title>
+      <title>Mistral OCR 4.0: Killed by Mistral (2026-09-30)</title>
       <link>https://killedbyai.net/dead/mistral-ocr-4-0/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/mistral-ocr-4-0/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -40,7 +40,7 @@
       <category>model</category>
     </item>
     <item>
-      <title>Appsmith AI — Killed by Appsmith (2026-09-30)</title>
+      <title>Appsmith AI: Killed by Appsmith (2026-09-30)</title>
       <link>https://killedbyai.net/dead/appsmith-ai/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/appsmith-ai/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -48,7 +48,7 @@
       <category>service</category>
     </item>
     <item>
-      <title>Microsoft Copilot Labs — Killed by Microsoft (2026-09-29)</title>
+      <title>Microsoft Copilot Labs: Killed by Microsoft (2026-09-29)</title>
       <link>https://killedbyai.net/dead/microsoft-copilot-labs/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/microsoft-copilot-labs/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -56,7 +56,7 @@
       <category>service</category>
     </item>
     <item>
-      <title>Google Mixboard — Killed by Google (2026-09-28)</title>
+      <title>Google Mixboard: Killed by Google (2026-09-28)</title>
       <link>https://killedbyai.net/dead/google-mixboard/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/google-mixboard/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -64,23 +64,23 @@
       <category>app</category>
     </item>
     <item>
-      <title>Perplexity Sonar Chat Completions API — Killed by Perplexity (2026-09-27)</title>
+      <title>Perplexity Sonar Chat Completions API: Killed by Perplexity (2026-09-27)</title>
       <link>https://killedbyai.net/dead/perplexity-sonar-chat-completions-api/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/perplexity-sonar-chat-completions-api/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-      <description>Perplexity&#x27;s search-grounded chat-completions API, launched January 21, 2025 with Sonar and Sonar Pro and later joined by sonar-reasoning-pro and sonar-deep-research. Support ended September 27, 2026, when the Agent API became the main surface. Synchronous and streaming calls are being quietly rewritten as Agent API presets (sonar and sonar-pro become &#x27;fast&#x27;, reasoning-pro &#x27;low&#x27;, deep-research &#x27;high&#x27;); asynchronous requests are simply no longer supported. Some developers on migrated accounts reported HTTP 403 &#x27;agent_api_migration_required&#x27; errors from the old endpoint. The Sonar model lives on inside the Agent API; the API that carried its name does not.</description>
+      <description>Perplexity&#x27;s search-grounded chat-completions API, launched January 21, 2025 with Sonar and Sonar Pro and later joined by sonar-reasoning-pro and sonar-deep-research. Support ended September 27, 2026, when the Agent API became the main surface. Synchronous and streaming calls are being silently rewritten as Agent API presets (sonar and sonar-pro become &#x27;fast&#x27;, reasoning-pro &#x27;low&#x27;, deep-research &#x27;high&#x27;); asynchronous requests are no longer supported. Some developers on migrated accounts reported HTTP 403 &#x27;agent_api_migration_required&#x27; errors from the old endpoint. The Sonar model lives on inside the Agent API and has outlived the API that carried its name.</description>
       <category>service</category>
     </item>
     <item>
-      <title>Excel =COPILOT() Function — Killed by Microsoft (2026-09-14)</title>
+      <title>Excel =COPILOT() Function: Killed by Microsoft (2026-09-14)</title>
       <link>https://killedbyai.net/dead/excel-copilot-function/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/excel-copilot-function/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-      <description>A worksheet function that put an LLM inside a cell: =COPILOT(prompt, range) could summarize, classify or tag rows in place. It reached Beta Channel Insiders with a Microsoft 365 Copilot license on August 18, 2025, and Excel for the web through Frontier later, with Microsoft&#x27;s own warning, as Windows Central reported, not to use it for numerical calculations or anything with legal, regulatory or compliance implications. In a spreadsheet, that rules out a lot. It never left preview: message-center notice MC1454373 retired it on September 14, 2026, and the roadmap entry said simply, &#x27;We have decided not to move forward with this feature.&#x27;</description>
+      <description>A worksheet function that put an LLM inside a cell: =COPILOT(prompt, range) could summarize, classify or tag rows in place. It reached Beta Channel Insiders with a Microsoft 365 Copilot license on August 18, 2025, and Excel for the web through Frontier later, with Microsoft&#x27;s own warning, as Windows Central reported, not to use it for numerical calculations or anything with legal, regulatory or compliance implications. In a spreadsheet, that rules out a lot. It never left preview: message-center notice MC1454373 retired it on September 14, 2026, and the roadmap entry said only, &#x27;We have decided not to move forward with this feature.&#x27;</description>
       <category>service</category>
     </item>
     <item>
-      <title>TruckSmarter Dispatch — Killed by Undisclosed Acquirer (2026-09-04)</title>
+      <title>TruckSmarter Dispatch: Killed by Undisclosed Acquirer (2026-09-04)</title>
       <link>https://killedbyai.net/dead/trucksmarter-dispatch/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/trucksmarter-dispatch/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -88,7 +88,7 @@
       <category>app</category>
     </item>
     <item>
-      <title>Rilo — Killed by Adobe (2026-09-02)</title>
+      <title>Rilo: Killed by Adobe (2026-09-02)</title>
       <link>https://killedbyai.net/dead/rilo/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/rilo/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -96,7 +96,7 @@
       <category>startup</category>
     </item>
     <item>
-      <title>Raptor mini (GitHub Copilot) — Killed by GitHub / Microsoft (2026-09-01)</title>
+      <title>Raptor mini (GitHub Copilot): Killed by GitHub / Microsoft (2026-09-01)</title>
       <link>https://killedbyai.net/dead/raptor-mini-github-copilot/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/raptor-mini-github-copilot/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -104,7 +104,7 @@
       <category>model</category>
     </item>
     <item>
-      <title>Microsoft Edge Real-Time Video Translation — Killed by Microsoft (2026-08-27)</title>
+      <title>Microsoft Edge Real-Time Video Translation: Killed by Microsoft (2026-08-27)</title>
       <link>https://killedbyai.net/dead/microsoft-edge-real-time-video-translation/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/microsoft-edge-real-time-video-translation/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -112,7 +112,7 @@
       <category>service</category>
     </item>
     <item>
-      <title>Microsoft Copilot Groups, Podcasts &amp; Deep Research — Killed by Microsoft (2026-08-18)</title>
+      <title>Microsoft Copilot Groups, Podcasts &amp; Deep Research: Killed by Microsoft (2026-08-18)</title>
       <link>https://killedbyai.net/dead/microsoft-copilot-groups-podcasts-deep-research/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/microsoft-copilot-groups-podcasts-deep-research/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -120,7 +120,7 @@
       <category>service</category>
     </item>
     <item>
-      <title>Google Earth AI Image Generation — Killed by Google (2026-07-31)</title>
+      <title>Google Earth AI Image Generation: Killed by Google (2026-07-31)</title>
       <link>https://killedbyai.net/dead/google-earth-ai-image-generation/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/google-earth-ai-image-generation/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -128,7 +128,7 @@
       <category>service</category>
     </item>
     <item>
-      <title>Meta AI Instagram @-Mention Images — Killed by Meta (2026-07-10)</title>
+      <title>Meta AI Instagram @-Mention Images: Killed by Meta (2026-07-10)</title>
       <link>https://killedbyai.net/dead/meta-ai-instagram-mention-images/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/meta-ai-instagram-mention-images/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -136,15 +136,15 @@
       <category>service</category>
     </item>
     <item>
-      <title>Gemini CLI (Free &amp; Consumer Tiers) — Killed by Google (2026-06-18)</title>
+      <title>Gemini CLI (Free &amp; Consumer Tiers): Killed by Google (2026-06-18)</title>
       <link>https://killedbyai.net/dead/gemini-cli-free-consumer-tiers/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/gemini-cli-free-consumer-tiers/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-      <description>Google&#x27;s open-source (Apache-2.0) terminal coding agent launched June 25, 2025 and passed 100,000 GitHub stars and 6,000 merged pull requests. At I/O on May 19, 2026 Google folded its developer tools under the Antigravity brand, and on June 18 Gemini CLI and the Gemini Code Assist IDE extensions stopped serving free users, Google AI Pro and Ultra subscribers and free individual Code Assist users. Their replacement, Antigravity CLI (agy), ships as a binary with no public repo. Code Assist Standard and Enterprise licenses and paid API keys kept access, and Google still updates the open-source repo for them: the code survived, the free users didn&#x27;t.</description>
+      <description>Google&#x27;s open-source (Apache-2.0) terminal coding agent launched June 25, 2025 and passed 100,000 GitHub stars and 6,000 merged pull requests. At I/O on May 19, 2026 Google folded its developer tools under the Antigravity brand, and on June 18 Gemini CLI and the Gemini Code Assist IDE extensions stopped serving free users, Google AI Pro and Ultra subscribers and free individual Code Assist users. Their replacement, Antigravity CLI (agy), ships as a binary with no public repo. Code Assist Standard and Enterprise licenses and paid API keys kept access, and Google still updates the open-source repo for them, so the code outlived its free users.</description>
       <category>service</category>
     </item>
     <item>
-      <title>LOVO AI — Killed by itself (2026-05-27)</title>
+      <title>LOVO AI: Killed by itself (2026-05-27)</title>
       <link>https://killedbyai.net/dead/lovo-ai/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/lovo-ai/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -152,7 +152,7 @@
       <category>startup</category>
     </item>
     <item>
-      <title>Soul Machines — Killed by itself (2026-02-05)</title>
+      <title>Soul Machines: Killed by itself (2026-02-05)</title>
       <link>https://killedbyai.net/dead/soul-machines/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/soul-machines/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -160,7 +160,7 @@
       <category>startup</category>
     </item>
     <item>
-      <title>PlayAI (PlayHT) — Killed by Meta (2025-12-31)</title>
+      <title>PlayAI (PlayHT): Killed by Meta (2025-12-31)</title>
       <link>https://killedbyai.net/dead/playai-playht/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/playai-playht/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -168,7 +168,7 @@
       <category>startup</category>
     </item>
     <item>
-      <title>Dot (New Computer) — Killed by Its Own Founders (2025-10-05)</title>
+      <title>Dot (New Computer): Killed by Its Own Founders (2025-10-05)</title>
       <link>https://killedbyai.net/dead/dot-new-computer/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/dot-new-computer/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -176,7 +176,7 @@
       <category>app</category>
     </item>
     <item>
-      <title>Esperanto Technologies — Killed by Deep-Pocketed Rivals (2025-07-01)</title>
+      <title>Esperanto Technologies: Killed by Deep-Pocketed Rivals (2025-07-01)</title>
       <link>https://killedbyai.net/dead/esperanto-technologies/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/esperanto-technologies/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -184,7 +184,7 @@
       <category>startup</category>
     </item>
     <item>
-      <title>Untether AI — Killed by AMD (2025-06-05)</title>
+      <title>Untether AI: Killed by AMD (2025-06-05)</title>
       <link>https://killedbyai.net/dead/untether-ai/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/untether-ai/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
@@ -192,23 +192,23 @@
       <category>startup</category>
     </item>
     <item>
-      <title>Notion Mail — Killed by Notion (2026-09-22)</title>
+      <title>Notion Mail: Killed by Notion (2026-09-22)</title>
       <link>https://killedbyai.net/dead/notion-mail/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/notion-mail/</guid>
       <pubDate>Tue, 06 Oct 2026 00:00:00 +0000</pubDate>
-      <description>Notion&#x27;s AI email client lasted 17 months. Notion shut the web, desktop and iOS apps on September 22, explaining that more than half its users were already handling email through agents without ever opening the inbox. The Gmail connector and email-writing agents live on; the inbox does not.</description>
+      <description>Notion&#x27;s AI email client lasted 17 months. Notion shut the web, desktop and iOS apps on September 22, explaining that more than half its users were already handling email through agents without ever opening the inbox. The Gmail connector and email-writing agents live on without the inbox.</description>
       <category>app</category>
     </item>
     <item>
-      <title>OpenAI GPT-5.4-Cyber — Killed by OpenAI (2026-10-01)</title>
+      <title>OpenAI GPT-5.4-Cyber: Killed by OpenAI (2026-10-01)</title>
       <link>https://killedbyai.net/dead/openai-gpt-5-4-cyber/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/openai-gpt-5-4-cyber/</guid>
       <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
-      <description>The &#x27;cyber-permissive&#x27; GPT-5.4 variant built for vetted security defenders — the model that could reverse-engineer binaries and anchored OpenAI&#x27;s Trusted Access for Cyber program — was shut down October 1 after five and a half months, with three weeks&#x27; notice. OpenAI&#x27;s replacement advice: &#x27;the most capable cyber model available to you.&#x27;</description>
+      <description>The &#x27;cyber-permissive&#x27; GPT-5.4 variant built for vetted security defenders, which could reverse-engineer binaries and anchored OpenAI&#x27;s Trusted Access for Cyber program, was shut down October 1 after five and a half months, with three weeks&#x27; notice. OpenAI&#x27;s replacement advice: &#x27;the most capable cyber model available to you.&#x27;</description>
       <category>model</category>
     </item>
     <item>
-      <title>Mistral Leanstral 1.5 — Killed by Mistral (2026-09-30)</title>
+      <title>Mistral Leanstral 1.5: Killed by Mistral (2026-09-30)</title>
       <link>https://killedbyai.net/dead/mistral-leanstral-1-5/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/mistral-leanstral-1-5/</guid>
       <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
@@ -216,23 +216,23 @@
       <category>model</category>
     </item>
     <item>
-      <title>Amazon Mechanical Turk — Killed by Amazon (2026-09-30)</title>
+      <title>Amazon Mechanical Turk: Killed by Amazon (2026-09-30)</title>
       <link>https://killedbyai.net/dead/amazon-mechanical-turk/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/amazon-mechanical-turk/</guid>
       <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
-      <description>The marketplace Jeff Bezos called &quot;artificial artificial intelligence&quot; closed on September 30 after 21 years — the human crowd, 500,000 strong at its peak, that labelled a generation of AI training data. Amazon shut SageMaker Ground Truth and Amazon Augmented AI the same day, leaving human-data work entirely. The official reason was an internal review of its programs; the obvious one is that the models MTurk workers trained now do MTurk&#x27;s work.</description>
+      <description>The marketplace Jeff Bezos called &quot;artificial artificial intelligence&quot; closed on September 30 after 21 years: the human crowd, 500,000 strong at its peak, that labelled a generation of AI training data. Amazon shut SageMaker Ground Truth and Amazon Augmented AI the same day, leaving human-data work entirely. The official reason was an internal review of its programs; the obvious one is that the models MTurk workers trained now do MTurk&#x27;s work.</description>
       <category>service</category>
     </item>
     <item>
-      <title>Amazon Nova Canvas &amp; Nova Reel — Killed by Amazon (2026-09-30)</title>
+      <title>Amazon Nova Canvas &amp; Nova Reel: Killed by Amazon (2026-09-30)</title>
       <link>https://killedbyai.net/dead/amazon-nova-canvas-nova-reel/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/amazon-nova-canvas-nova-reel/</guid>
       <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
-      <description>The image and video half of Amazon&#x27;s first Nova generation, launched at re:Invent 2024, left Bedrock on September 30 — two weeks after Nova Premier and Sonic. AWS pointed image users to Nova 2 Lite and video users to a rival&#x27;s model, Luma Ray v2.</description>
+      <description>The image and video half of Amazon&#x27;s first Nova generation, launched at re:Invent 2024, left Bedrock on September 30, two weeks after Nova Premier and Sonic. AWS pointed image users to Nova 2 Lite and video users to a rival&#x27;s model, Luma Ray v2.</description>
       <category>model</category>
     </item>
     <item>
-      <title>OpenAI davinci-002, babbage-002 &amp; gpt-3.5-turbo-instruct — Killed by OpenAI (2026-09-28)</title>
+      <title>OpenAI davinci-002, babbage-002 &amp; gpt-3.5-turbo-instruct: Killed by OpenAI (2026-09-28)</title>
       <link>https://killedbyai.net/dead/openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct/</guid>
       <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
@@ -240,11 +240,11 @@
       <category>model</category>
     </item>
     <item>
-      <title>Reve AI Image Generation — Killed by OpenAI (2026-09-27)</title>
+      <title>Reve AI Image Generation: Killed by OpenAI (2026-09-27)</title>
       <link>https://killedbyai.net/dead/reve-ai-image-generation/</link>
       <guid isPermaLink="true">https://killedbyai.net/dead/reve-ai-image-generation/</guid>
       <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
-      <description>Reve&#x27;s image generator — briefly the top-ranked text-to-image model on launch in March 2025 — shut off at noon Pacific on September 27, the price of an investment from OpenAI, which also took its AI research team to lead multimodal work. The API went dark on August 14 and sign-ups stopped September 17; users have until October 31 to export, and September fees are refunded. The company survives; the product does not.</description>
+      <description>Reve&#x27;s image generator (briefly the top-ranked text-to-image model on launch in March 2025) shut off at noon Pacific on September 27, the price of an investment from OpenAI, which also took its AI research team to lead multimodal work. The API went dark on August 14 and sign-ups stopped September 17; users have until October 31 to export, and September fees are refunded. Reve itself carries on without its image generator.</description>
       <category>service</category>
     </item>
   </channel>

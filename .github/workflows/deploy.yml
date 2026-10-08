@@ -40,7 +40,7 @@ jobs:
         run: |
           SITE="${{ runner.temp }}/site"
           rm -rf "$SITE" && mkdir -p "$SITE" && cp -a . "$SITE/"
-          ( cd "$SITE" && rm -rf .git .github .gitignore docs data __pycache__ build.py README.md template.html ./*-template.html \
+          ( cd "$SITE" && rm -rf .git .github .gitignore docs data __pycache__ build.py embed.py README.md template.html ./*-template.html \
             && find . -name '*.pyc' -delete )
           for f in index.html 404.html CNAME robots.txt sitemap.xml feed.xml deprecations.ics site.webmanifest favicon.ico \
                    graveyard.json layoffs.json coming-soon.json roles.json dead/index.html api/index.html; do
