@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MC3PM7NKRX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-MC3PM7NKRX');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed AI Graveyard Charts, Counters &amp; Widgets | Killed by AI</title>
+    <meta name="description" content="Free charts, counters and live widgets for your site, slides or post: {{N_DEAD}} dead AI products, {{TOTAL_JOBS}} jobs cut in AI layoffs, ${{TOTAL_B}}B burned. Copy the code or download a PNG.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://killedbyai.net/embed/">
+    <meta property="og:url" content="https://killedbyai.net/embed/">
+    <meta property="og:title" content="Embed the AI graveyard: free charts and counters">
+    <meta property="og:description" content="{{N_DEAD}} dead AI products, {{TOTAL_JOBS}} AI layoff jobs, ${{TOTAL_B}}B burned. Copy an embed code or download the image.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://killedbyai.net/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Killed by AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#09090b">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{--bg:#09090b;--bg-card:#111113;--bg-2:#18181b;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#8f8f99;--red:#ef4444;--red-text:#f87171;--red-dim:rgba(239,68,68,.14);--mono:'SF Mono','Cascadia Code',ui-monospace,monospace}
+        html{-webkit-text-size-adjust:100%}
+        body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+        :focus-visible{outline:2px solid currentColor;outline-offset:2px}
+        a{color:inherit}
+        .site-nav{display:flex;justify-content:center;gap:.25rem;padding:.5rem .75rem;border-bottom:1px solid var(--border)}
+        .site-nav-item{min-height:44px;display:inline-flex;align-items:center;padding:0 .875rem;font-size:.875rem;font-weight:500;color:var(--text-muted);text-decoration:none;border-radius:.375rem;white-space:nowrap}
+        .site-nav-item:hover{color:var(--text);background:var(--bg-card)}
+        .site-nav-item.active{color:var(--red-text);background:var(--red-dim);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+        .header{text-align:center;padding:2.5rem 1.5rem .5rem;max-width:760px;margin:0 auto}
+        .header h1{font-size:clamp(2rem,5.5vw,3.25rem);font-weight:900;letter-spacing:-.035em;line-height:1.08;margin-bottom:.75rem}
+        .header h1 span{color:var(--red)}
+        .header p{color:var(--text-muted);font-size:1.0625rem;max-width:640px;margin:0 auto}
+        .theme{display:flex;justify-content:center;gap:.375rem;margin:1.25rem 0 0}
+        .theme button{min-height:40px;padding:0 1rem;border-radius:2rem;border:1px solid var(--border);background:var(--bg-card);color:var(--text-muted);font:inherit;font-size:.875rem;cursor:pointer}
+        .theme button[aria-pressed=true]{border-color:var(--red);color:var(--red-text);background:var(--red-dim);font-weight:700}
+        .section{max-width:1100px;margin:2.75rem auto 0;padding:0 1.5rem}
+        .section>h2{font-size:clamp(1.25rem,3vw,1.625rem);font-weight:900;letter-spacing:-.02em;margin-bottom:.25rem}
+        .section>p.lead{color:var(--text-muted);margin-bottom:1rem;max-width:760px}
+        .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+        .g-card{background:var(--bg-card);border:1px solid var(--border);border-radius:.875rem;padding:1rem;display:flex;flex-direction:column;gap:.75rem;min-width:0;scroll-margin-top:1rem}
+        .g-card:target{border-color:var(--red)}
+        .g-card h2{font-size:1rem;font-weight:800}
+        .g-prev{display:block;border-radius:.625rem;overflow:hidden;line-height:0}
+        .g-prev img{width:100%;height:auto;display:block}
+        .g-card iframe{width:100%;border:0;border-radius:.75rem;background:transparent}
+        .g-actions{display:flex;flex-wrap:wrap;gap:.375rem}
+        .b{min-height:40px;padding:0 .75rem;border-radius:.5rem;border:1px solid var(--border);background:var(--bg-2);color:var(--text);font:inherit;font-size:.8125rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:.25rem}
+        .b:hover{border-color:var(--text-dim)}
+        .b.primary{background:var(--red);border-color:var(--red);color:#fff}
+        .g-code{display:flex;flex-direction:column;gap:.5rem}
+        .tabs{display:flex;gap:.25rem;flex-wrap:wrap}
+        .tabs button{min-height:34px;padding:0 .625rem;border-radius:.375rem;border:1px solid var(--border);background:transparent;color:var(--text-muted);font:inherit;font-size:.75rem;cursor:pointer}
+        .tabs button[aria-pressed=true]{color:var(--text);border-color:var(--text-dim);background:var(--bg-2)}
+        textarea{width:100%;min-height:96px;resize:vertical;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:.5rem;padding:.625rem;font:.75rem/1.5 var(--mono)}
+        .row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+        select{min-height:44px;flex:1 1 260px;min-width:0;background:var(--bg-2);color:var(--text);border:1px solid var(--border);border-radius:.5rem;padding:0 .75rem;font:inherit;font-size:16px}
+        .badges{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
+        .note{font-size:.875rem;color:var(--text-muted)}
+        .note a{color:var(--text)}
+        .toast{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%) translateY(1rem);opacity:0;pointer-events:none;background:var(--text);color:var(--bg);padding:.625rem 1rem;border-radius:.5rem;font-weight:700;font-size:.875rem;transition:transform .25s,opacity .25s;z-index:20}
+        .toast.show{transform:translateX(-50%);opacity:1}
+        .site-footer{text-align:center;padding:2rem 1.5rem 3rem;border-top:1px solid var(--border);max-width:760px;margin:3.5rem auto 0}
+        .site-footer p{color:var(--text-dim);font-size:.8125rem;line-height:1.8}
+        .site-footer a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
+        @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+        @media(max-width:800px){.grid{grid-template-columns:1fr}}
+        @media(max-width:600px){
+            .site-nav{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent)}
+            .site-nav::-webkit-scrollbar{display:none}.site-nav-item{flex-shrink:0;font-size:.8125rem;padding:0 .75rem}
+            .header{padding:1.75rem .75rem .25rem}.section{padding:0 .75rem}
+        }
+    </style>
+    <script type="application/ld+json">{{JSONLD}}</script>
+</head>
+<body>
+    <nav class="site-nav" aria-label="Site">{{NAV}}</nav>
+
+    <header class="header">
+        <h1>Embed the <span>AI graveyard</span></h1>
+        <p>Charts, counters and live widgets for your blog, newsletter, slides or README. They update with every deploy, cost nothing, and only ask for a link back. Copy the code, download a PNG, or share it straight to X, LinkedIn, Reddit or Bluesky.</p>
+        <div class="theme" role="group" aria-label="Graphic theme">
+            <button type="button" data-theme="dark" aria-pressed="true">🌙 Dark</button>
+            <button type="button" data-theme="light" aria-pressed="false">☀️ Light</button>
+        </div>
+    </header>
+
+    <section class="section" id="graphics">
+        <h2>Charts and counters</h2>
+        <p class="lead">Images at 1200x630, the size social networks use for link previews. Embedded on a page they stay current; a downloaded PNG is a snapshot of today's numbers.</p>
+        <div class="grid">{{GRAPHICS}}</div>
+    </section>
+
+    <section class="section" id="widgets">
+        <h2>Live widgets</h2>
+        <p class="lead">Small iframes with clickable entries. The shutdown countdown recounts the days in your reader's browser.</p>
+        <div class="grid">{{WIDGETS}}</div>
+    </section>
+
+    <section class="section" id="tombstone">
+        <h2>A tombstone for one product</h2>
+        <p class="lead">Writing about one dead AI product? Pick it and embed its tombstone card: launch and death dates, what killed it, and a link to the full story.</p>
+        <div class="g-card" data-widget="tombstone" data-h="220">
+            <div class="row"><select id="tomb-pick" aria-label="Pick a dead AI product">{{OPTIONS}}</select><button type="button" class="b primary" data-act="wcode">&lt;/&gt; Embed code</button></div>
+            <iframe id="tomb-frame" title="AI product tombstone" height="220" loading="lazy"></iframe>
+            <div class="g-code" hidden></div>
+        </div>
+    </section>
+
+    <section class="section" id="badges">
+        <h2>Badges for READMEs and docs</h2>
+        <p class="lead">Small live badges for a GitHub README, Notion page or docs site.</p>
+        <div class="g-card" data-badges>
+            <div class="badges"><img id="badge-g" src="/embed/img/badge-graveyard-dark.svg" alt="Killed by AI: dead AI products" height="24"><img id="badge-l" src="/embed/img/badge-layoffs-dark.svg" alt="AI layoffs: jobs cut" height="24"></div>
+            <div class="g-actions"><button type="button" class="b" data-act="badge" data-b="graveyard">Copy graveyard badge (Markdown)</button><button type="button" class="b" data-act="badge" data-b="layoffs">Copy layoffs badge (Markdown)</button></div>
+        </div>
+    </section>
+
+    <section class="section" id="data">
+        <h2>Need the raw numbers?</h2>
+        <p class="note">Everything here is built from three JSON files you can use directly: <a href="/graveyard.json">graveyard.json</a>, <a href="/layoffs.json">layoffs.json</a> and <a href="/coming-soon.json">coming-soon.json</a>. Every field is explained on the <a href="/api/">JSON API page</a>. The data and graphics are free under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener" target="_blank">CC BY 4.0</a>: use them anywhere, commercial use included, with a credit link to killedbyai.net.</p>
+    </section>
+
+    <footer class="site-footer">
+        <p>Part of <a href="/">Killed by AI</a>. Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.</p>
+        <p class="footer-links" style="margin-top:.5rem">{{FOOTER_LINKS}}</p>
+    </footer>
+    <div class="toast" id="toast" role="status"></div>
+
+<script>
+(function () {
+  var SITE = '{{SITE}}', theme = 'dark';
+  try { if (localStorage.getItem('kbai-embed-theme') === 'light') theme = 'light'; } catch (e) {}
+  var track = function (n, p) { try { gtag('event', n, p || {}); } catch (e) {} };
+  function toast(m) { var t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); setTimeout(function () { t.classList.remove('show'); }, 2000); }
+  function copy(text) {
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(function () { toast('Copied'); }, function () { window.prompt('Copy this', text); });
+  }
+  function escA(s) { return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+  function imgUrl(id) { return SITE + 'embed/img/' + id + '-' + theme + '.svg'; }
+  function credit(page) { return '<p style="font-size:13px">Source: <a href="' + SITE + page + '">Killed by AI</a></p>'; }
+
+  function graphicCodes(card) {
+    var id = card.dataset.id, page = card.dataset.page, alt = card.dataset.alt;
+    return [
+      ['HTML', '<a href="' + SITE + page + '"><img src="' + imgUrl(id) + '" alt="' + escA(alt) + '" width="600" height="315" style="max-width:100%;height:auto"></a>\n' + credit(page)],
+      ['Markdown', '[![' + alt.replace(/[\[\]]/g, '') + '](' + imgUrl(id) + ')](' + SITE + page + ')'],
+      ['Image URL', imgUrl(id)]
+    ];
+  }
+  function widgetCode(card) {
+    var w = card.dataset.widget, h = card.dataset.h, q = '?theme=' + theme;
+    if (w === 'tombstone') q += '&slug=' + encodeURIComponent(document.getElementById('tomb-pick').value);
+    return [['HTML', '<iframe src="' + SITE + 'embed/w/' + w + '/' + q + '" width="100%" height="' + h + '" style="border:0;max-width:520px" loading="lazy" title="Killed by AI"></iframe>\n' + credit(w === 'layoffs' ? 'layoffs/' : w === 'dying-soon' ? 'coming-soon/' : '')]];
+  }
+  function showCode(card, codes) {
+    var box = card.querySelector('.g-code');
+    if (!box.hidden && box.dataset.for === theme + (card.dataset.widget === 'tombstone' ? document.getElementById('tomb-pick').value : '')) { box.hidden = true; return; }
+    box.dataset.for = theme + (card.dataset.widget === 'tombstone' ? document.getElementById('tomb-pick').value : '');
+    box.innerHTML = '<div class="tabs" role="group" aria-label="Code format">' + codes.map(function (c, i) { return '<button type="button" aria-pressed="' + (i === 0) + '" data-i="' + i + '">' + c[0] + '</button>'; }).join('') + '</div>' +
+      '<textarea readonly aria-label="Embed code" spellcheck="false"></textarea><div class="row"><button type="button" class="b primary" data-act="copy">Copy code</button></div>';
+    var ta = box.querySelector('textarea'); ta.value = codes[0][1];
+    box.querySelectorAll('.tabs button').forEach(function (b) { b.onclick = function () { box.querySelectorAll('.tabs button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); ta.value = codes[+b.dataset.i][1]; }; });
+    box.querySelector('[data-act=copy]').onclick = function () { copy(ta.value); track('embed_copy', { item: card.dataset.id || card.dataset.widget, theme: theme }); };
+    box.hidden = false;
+  }
+  function download(id, asPng) {
+    var url = imgUrl(id).replace(SITE, '/'), name = 'killedbyai-' + id + '-' + theme;
+    if (!asPng) { var a = document.createElement('a'); a.href = url; a.download = name + '.svg'; document.body.appendChild(a); a.click(); a.remove(); return; }
+    fetch(url).then(function (r) { return r.text(); }).then(function (svg) {
+      var img = new Image(), blob = new Blob([svg], { type: 'image/svg+xml' }), u = URL.createObjectURL(blob);
+      img.onload = function () {
+        var c = document.createElement('canvas'); c.width = 2400; c.height = 1260;
+        c.getContext('2d').drawImage(img, 0, 0, 2400, 1260); URL.revokeObjectURL(u);
+        c.toBlob(function (b) { var a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = name + '.png'; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500); toast('PNG saved'); }, 'image/png');
+      };
+      img.src = u;
+    });
+  }
+  function share(card, net) {
+    var url = SITE + card.dataset.page, text = card.dataset.share, href;
+    if (net === 'x') href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
+    else if (net === 'li') href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url);
+    else if (net === 'reddit') href = 'https://www.reddit.com/submit?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(text);
+    else href = 'https://bsky.app/intent/compose?text=' + encodeURIComponent(text + ' ' + url);
+    window.open(href, '_blank', 'noopener,width=640,height=560');
+  }
+
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-act]'); if (!b) return;
+    var card = b.closest('.g-card'), act = b.dataset.act;
+    if (act === 'code') { showCode(card, graphicCodes(card)); track('embed_open', { item: card.dataset.id }); }
+    else if (act === 'wcode') showCode(card, widgetCode(card));
+    else if (act === 'png' || act === 'svg') { download(card.dataset.id, act === 'png'); track('embed_download', { item: card.dataset.id, format: act, theme: theme }); }
+    else if (['x', 'li', 'reddit', 'bsky'].indexOf(act) > -1) { share(card, act); track('embed_share', { item: card.dataset.id, network: act }); }
+    else if (act === 'badge') { var n = b.dataset.b; copy('[![' + (n === 'layoffs' ? 'AI layoffs' : 'Killed by AI') + '](' + SITE + 'embed/img/badge-' + n + '-' + theme + '.svg)](' + SITE + (n === 'layoffs' ? 'layoffs/' : '') + ')'); }
+  });
+
+  function applyTheme() {
+    document.querySelectorAll('.theme button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.theme === theme); });
+    document.querySelectorAll('.g-card[data-id] img').forEach(function (img) { img.src = '/embed/img/' + img.closest('.g-card').dataset.id + '-' + theme + '.svg'; });
+    document.querySelectorAll('.g-card[data-widget]:not([data-widget=tombstone]) iframe').forEach(function (f) { f.src = '/embed/w/' + f.closest('.g-card').dataset.widget + '/?theme=' + theme; });
+    document.getElementById('badge-g').src = '/embed/img/badge-graveyard-' + theme + '.svg';
+    document.getElementById('badge-l').src = '/embed/img/badge-layoffs-' + theme + '.svg';
+    tomb();
+    document.querySelectorAll('.g-code').forEach(function (c) { c.hidden = true; });
+  }
+  var pick = document.getElementById('tomb-pick');
+  function tomb() { document.getElementById('tomb-frame').src = '/embed/w/tombstone/?theme=' + theme + '&slug=' + encodeURIComponent(pick.value); }
+  pick.addEventListener('change', function () { tomb(); var c = pick.closest('.g-card').querySelector('.g-code'); if (!c.hidden) { c.hidden = true; showCode(pick.closest('.g-card'), widgetCode(pick.closest('.g-card'))); } });
+  document.querySelectorAll('.theme button').forEach(function (b) { b.onclick = function () { theme = b.dataset.theme; try { localStorage.setItem('kbai-embed-theme', theme); } catch (e) {} applyTheme(); }; });
+
+  var slug = new URLSearchParams(location.search).get('slug');
+  if (slug && pick.querySelector('option[value="' + slug.replace(/"/g, '') + '"]')) { pick.value = slug; setTimeout(function () { document.getElementById('tombstone').scrollIntoView(); }, 50); }
+  else { var opts = pick.options; for (var i = 0; i < opts.length; i++) if (opts[i].value === 'humane-ai-pin') { pick.selectedIndex = i; break; } }
+  applyTheme();
+})();
+</script>
+</body>
+</html>

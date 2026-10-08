@@ -20,7 +20,7 @@
     <meta name="twitter:title" content="{{OG_TITLE}}">
     <meta name="twitter:description" content="{{META_DESC}}">
     <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
-    <link rel="alternate" type="application/rss+xml" title="Killed by AI — RSS" href="https://killedbyai.net/feed.xml">
+    <link rel="alternate" type="application/rss+xml" title="Killed by AI RSS Feed" href="https://killedbyai.net/feed.xml">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
@@ -84,7 +84,7 @@
         .timeline p{margin:0;font-size:1rem;color:#e4e4e7}
         .qa-item{border-top:1px solid var(--border);padding:.25rem 0}.qa-item:first-of-type{border-top:0}
         .qa-item summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600;font-size:1rem;list-style:none}
-        .qa-item summary::-webkit-details-marker{display:none}.qa-item summary::before{content:"+";color:var(--red);margin-right:.625rem;font-weight:800}.qa-item[open] summary::before{content:"–"}
+        .qa-item summary::-webkit-details-marker{display:none}.qa-item summary::before{content:"+";color:var(--red);margin-right:.625rem;font-weight:800}.qa-item[open] summary::before{content:"−"}
         .qa-item p{padding:0 0 .875rem 1.25rem;color:#e4e4e7;line-height:1.7}
         .more{font-size:.875rem;font-weight:500;color:var(--text-dim);margin-left:.5rem;text-decoration:none}.more:hover{color:var(--red)}
         @media(max-width:600px){.site-nav{justify-content:flex-start;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent)}.wrap{padding:1rem .875rem 2.5rem}.stone{padding:1.25rem}.prevnext{grid-template-columns:1fr}.prevnext .next{text-align:left;align-items:flex-start}}
@@ -122,7 +122,7 @@
         {{PREV_NEXT_HTML}}
     </main>
     <footer class="site-footer">
-        <p>One of {{COUNT}} tombstones. Entry last updated <time datetime="{{MODIFIED}}">{{MODIFIED_FMT}}</time>. Data is <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a> — reuse it, link back.</p>
+        <p>One of {{COUNT}} tombstones. Entry last updated <time datetime="{{MODIFIED}}">{{MODIFIED_FMT}}</time>. Data is <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>: reuse it and link back.</p>
         <p>{{FOOTER_LINKS}}</p>
     </footer>
 </body>
