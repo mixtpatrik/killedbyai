@@ -5,8 +5,16 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Gemini Flash &amp; Pro for Free Users: Killed by Google (2026-10-09)</title>
+      <link>https://killedbyai.net/dead/gemini-flash-pro-for-free-users/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/gemini-flash-pro-for-free-users/</guid>
+      <pubDate>Sat, 10 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Since the Gemini app replaced Bard in February 2024, a personal Google account got Google&#x27;s mainstream models for free, within usage limits. On October 9, 2026 that ended: free users were cut down to a single model, Gemini 3.5 Flash-Lite, with Gemini 3.6 Flash now behind the $4.99 AI Plus plan and 3.1 Pro behind AI Pro and Ultra. AI Plus subscribers lose Pro too, on a date Google emails them. It is the second free-tier squeeze in five months, after the May 2026 move to compute-based usage limits.</description>
+      <category>service</category>
+    </item>
     <item>
       <title>Amazon Lookout for Equipment: Killed by AWS (2026-10-07)</title>
       <link>https://killedbyai.net/dead/amazon-lookout-for-equipment/</link>
@@ -238,14 +246,6 @@
       <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
       <description>The end of the GPT-3 base-model lineage, retired September 28. davinci-002 and babbage-002 shipped in August 2023 and inherited the job when the original ada/babbage/curie/davinci died in January 2024; gpt-3.5-turbo-instruct, the instruct-tuned completions model, joined them that September. The same cutoff also took a fourth model: gpt-3.5-turbo-1106, the chat snapshot from OpenAI&#x27;s November 2023 DevDay. OpenAI&#x27;s suggested replacement is gpt-5.6-terra; their fine-tuned versions outlive them by 25 days.</description>
       <category>model</category>
-    </item>
-    <item>
-      <title>Reve AI Image Generation: Killed by OpenAI (2026-09-27)</title>
-      <link>https://killedbyai.net/dead/reve-ai-image-generation/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/reve-ai-image-generation/</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
-      <description>Reve&#x27;s image generator (briefly the top-ranked text-to-image model on launch in March 2025) shut off at noon Pacific on September 27, the price of an investment from OpenAI, which also took its AI research team to lead multimodal work. The API went dark on August 14 and sign-ups stopped September 17; users have until October 31 to export, and September fees are refunded. Reve itself carries on without its image generator.</description>
-      <category>service</category>
     </item>
   </channel>
 </rss>

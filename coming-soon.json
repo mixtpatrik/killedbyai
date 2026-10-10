@@ -163,15 +163,6 @@
     "description": "GPT-4.1 launched April 2025 as OpenAI's 'best model for coding' with a 1M-token context window. Azure first scheduled it and gpt-4.1-mini to retire on October 14, 2026, then moved both back six months to April 14, 2027, in the Deprecated stage (existing customers only). gpt-4o 2024-08-06 and gpt-4o-mini 2024-07-18 retire the same day. Fine-tuned 4.1 and 4.1-mini deployments run until October 14, 2027."
   },
   {
-    "name": "Gemini Flash & Pro for Free Users",
-    "dateAnnounced": "2026-10-03",
-    "dateShutdown": "2026-10-09",
-    "killedBy": "Google",
-    "replacement": "Gemini Flash-Lite; Google AI Plus for Flash, or AI Pro / Ultra for Pro",
-    "link": "https://support.google.com/gemini/answer/17004136",
-    "description": "From October 9, people using the Gemini app on a personal account without a Google AI plan lose the Flash and Pro models and are left with Flash-Lite. AI Plus subscribers keep Flash but lose Pro, on a date Google emails them individually. It is the second free-tier squeeze in five months, after the May 2026 switch to compute-based usage limits."
-  },
-  {
     "name": "Tencent QClaw",
     "dateAnnounced": "2026-09-24",
     "dateShutdown": "2026-12-24",

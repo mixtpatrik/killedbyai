@@ -2282,5 +2282,18 @@
     "link": "https://techcrunch.com/2025/07/13/meta-acquires-voice-startup-play-ai/",
     "description": "PlayHT began in 2016 as a browser extension that read articles aloud and grew into a text-to-speech, voice-cloning and voice-agent platform, later renamed PlayAI. Founders Hammad Syed and Mahmoud Felfel went through Y Combinator and raised a $21M seed round in November 2024 led by Kindred Ventures and 500 Global. In July 2025 Meta acquired the company and took the entire team to work on voice for Meta AI, AI Characters and wearables. The API was given until December 31, 2025, and voice-agent frameworks such as Pipecat deprecated their PlayHT integrations ahead of the cutoff.",
     "collateral": "API customers had to migrate to another TTS provider before the December 31, 2025 shutdown."
+  },
+  {
+    "name": "Gemini Flash & Pro for Free Users",
+    "dateOpen": "2024-02-08",
+    "dateClose": "2026-10-09",
+    "type": "service",
+    "causeOfDeath": "Monetization Pivot",
+    "killedBy": "Google",
+    "deathType": "feature-removed",
+    "link": "https://support.google.com/gemini/answer/17004136",
+    "description": "Since the Gemini app replaced Bard in February 2024, a personal Google account got Google's mainstream models for free, within usage limits. On October 9, 2026 that ended: free users were cut down to a single model, Gemini 3.5 Flash-Lite, with Gemini 3.6 Flash now behind the $4.99 AI Plus plan and 3.1 Pro behind AI Pro and Ultra. AI Plus subscribers lose Pro too, on a date Google emails them. It is the second free-tier squeeze in five months, after the May 2026 move to compute-based usage limits.",
+    "dateAdded": "2026-10-10",
+    "slug": "gemini-flash-pro-for-free-users"
   }
 ]
