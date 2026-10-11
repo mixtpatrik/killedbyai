@@ -1,0 +1,22 @@
+# Pages and feeds written by build.py / embed.py: collapsed in GitHub diffs, excluded from language stats.
+# 404.html, about/index.html and api/index.html are hand-written (the build only patches marked blocks), so they stay visible.
+/index.html                linguist-generated
+/dead/**                   linguist-generated
+/killed-by/**              linguist-generated
+/jobs/**                   linguist-generated
+/coming-soon/**            linguist-generated
+/funding/**                linguist-generated
+/layoffs/**                linguist-generated
+/will-ai-take-my-job/**    linguist-generated
+/embed/**                  linguist-generated
+/feed.xml                  linguist-generated
+/sitemap.xml               linguist-generated
+/robots.txt                linguist-generated
+/deprecations.ics          linguist-generated
+# redirect stubs
+/api.html                  linguist-generated
+/coming-soon.html          linguist-generated
+/embed.html                linguist-generated
+/funding.html              linguist-generated
+/layoffs.html              linguist-generated
+/will-ai-take-my-job.html  linguist-generated
