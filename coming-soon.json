@@ -343,5 +343,14 @@
     "replacement": "Kiro",
     "link": "https://aws.amazon.com/blogs/devops/amazon-q-developer-end-of-support-announcement/",
     "description": "On April 30, 2027, three years to the day after general availability, AWS ends support for the Amazon Q Developer IDE plugins for VS Code, JetBrains, Eclipse and Visual Studio. Paid subscriptions and the Java and .NET code-transformation tools end the same day. New sign-ups stopped on May 15, 2026, and the newest coding models, including Opus 4.7, were made Kiro-only. Q Developer survives in the AWS Console, the mobile app, and Slack and Teams."
+  },
+  {
+    "name": "Gemini Deep Research Pro Preview (12-2025)",
+    "dateAnnounced": "2026-10-08",
+    "dateShutdown": "2026-10-23",
+    "killedBy": "Google",
+    "replacement": "deep-research-preview-04-2026 or deep-research-max-preview-04-2026",
+    "link": "https://ai.google.dev/gemini-api/docs/changelog",
+    "description": "The deep-research-pro-preview-12-2025 agent, the Gemini API's first managed Deep Research agent, launched December 11, 2025. Google deprecated it on October 8, 2026 and set its shutdown for October 23: fifteen days' notice. Developers move to the April 2026 Deep Research preview or its Max variant, both still labelled preview."
   }
 ]
