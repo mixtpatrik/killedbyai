@@ -27,15 +27,6 @@
     "link": "https://developers.openai.com/api/docs/deprecations"
   },
   {
-    "name": "Azure OpenAI GPT-4.1 nano",
-    "dateAnnounced": "2026-04-14",
-    "dateShutdown": "2026-10-14",
-    "description": "GPT-4.1 nano, the smallest of the April 2025 GPT-4.1 family, retires on Azure OpenAI on October 14, 2026, 18 months after launch, with no replacement listed. Its siblings got a reprieve: Microsoft pushed gpt-4.1 and gpt-4.1-mini back to April 14, 2027. Nano's own date has flipped back and forth in Microsoft's docs since August; as of the September 23 update it is October 14 again. Fine-tuned nano deployments keep running until October 14, 2027.",
-    "replacement": "None listed",
-    "killedBy": "Microsoft Azure",
-    "link": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule"
-  },
-  {
     "name": "Azure OpenAI o-series (o1, o3, o4-mini, o3-pro)",
     "dateAnnounced": "2026-07-29",
     "dateShutdown": "2026-11-19",
@@ -154,13 +145,13 @@
     "description": "Google's text-and-image-to-video preview launched June 30, 2026. When gemini-omni-1.1-flash went GA on August 27, Google said the preview endpoint would be 'deprecated on September 30, 2026'; the deprecations table sets the actual shutdown for no earlier than October 22, which would make a 114-day life. The three Veo 3.1 previews (veo-3.1-generate-preview, veo-3.1-fast-generate-preview and veo-3.1-lite-generate-preview) go the same day, to the same replacement."
   },
   {
-    "name": "Azure OpenAI GPT-4.1 & 4.1 mini",
+    "name": "Azure OpenAI GPT-4.1, 4.1 mini & 4.1 nano",
     "dateAnnounced": "2026-07-23",
     "dateShutdown": "2027-04-14",
     "killedBy": "Microsoft Azure",
     "replacement": "None listed",
     "link": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
-    "description": "GPT-4.1 launched April 2025 as OpenAI's 'best model for coding' with a 1M-token context window. Azure first scheduled it and gpt-4.1-mini to retire on October 14, 2026, then moved both back six months to April 14, 2027, in the Deprecated stage (existing customers only). gpt-4o 2024-08-06 and gpt-4o-mini 2024-07-18 retire the same day. Fine-tuned 4.1 and 4.1-mini deployments run until October 14, 2027."
+    "description": "GPT-4.1 launched April 2025 as OpenAI's 'best model for coding' with a 1M-token context window. Azure first scheduled the whole family to retire on October 14, 2026, then moved gpt-4.1 and gpt-4.1-mini to April 14, 2027. Nano's date flipped between the two several times; on October 14, the day it was due to go, Microsoft's schedule listed it for April 14, 2027 as well. All three are in the Deprecated stage (existing customers only), and fine-tuned deployments run until October 14, 2027."
   },
   {
     "name": "Tencent QClaw",
@@ -197,25 +188,6 @@
     "replacement": "Plugins (ChatGPT + Codex); GPT instructions become a skill",
     "link": "https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq",
     "description": "Custom GPTs launched at DevDay in November 2023 and replaced ChatGPT Plugins. Now they are being replaced by plugins. OpenAI says they retire on December 11, 2026, though timing 'can vary by account and workspace'. Affected Enterprise workspaces lose GPT creation on October 26, and approved deferrals run to February 11, 2027. Instructions become a skill and knowledge files carry over; conversations, the chosen model, sharing settings and Custom Actions do not."
-  },
-  {
-    "name": "GPT-5.5 in ChatGPT & Codex",
-    "dateAnnounced": "2026-09-14",
-    "dateShutdown": "2026-10-14",
-    "killedBy": "OpenAI",
-    "replacement": "GPT-6 Sol (paid plans) / GPT-6 Luna (Free & Go), when available",
-    "link": "https://learn.chatgpt.com/docs/models",
-    "description": "OpenAI's April 23 flagship leaves ChatGPT, ChatGPT Work and Codex on every plan on October 14, 174 days after launch. Codex users on paid plans are pointed to GPT-6 Sol and Free and Go users to GPT-6 Luna, both 'when available'. The API keeps gpt-5.5, and Azure lists it until October 26, 2027, so the model outlives its own chat app by a year."
-  },
-  {
-    "name": "Claude Sonnet 4 on Amazon Bedrock",
-    "dateAnnounced": "2026-04-14",
-    "dateShutdown": "2026-10-14",
-    "killedBy": "AWS",
-    "replacement": "None named by AWS (Anthropic recommends claude-sonnet-4-6)",
-    "link": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html",
-    "graveyardSlug": "claude-sonnet-4-opus-4",
-    "description": "Anthropic retired claude-sonnet-4-20250514 from its own API on June 15, but Bedrock kept serving it for another 121 days. AWS marked it Legacy on April 14: new customers were locked out, and existing ones could lose access after 15 days of inactivity. On July 14 it moved into 'public extended access', where AWS tells customers to expect higher prices set by the provider. End of life is October 14 in all 23 regions listed."
   },
   {
     "name": "xAI Grok Imagine Image Quality",

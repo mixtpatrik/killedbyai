@@ -1229,7 +1229,7 @@
     "name": "Claude Sonnet 4 & Opus 4",
     "dateOpen": "2025-05-22",
     "dateClose": "2026-06-15",
-    "description": "Anthropic's flagship Claude 4 generation, Sonnet 4 and Opus 4, launched together on May 22, 2025 and retired together 389 days later. Deprecation was announced April 14, 2026, and calls to claude-sonnet-4-20250514 and claude-opus-4-20250514 have returned errors since June 15. Anthropic points users to claude-sonnet-4-6 and claude-opus-4-8. Amazon Bedrock kept Sonnet 4 running until October 14.",
+    "description": "Anthropic's flagship Claude 4 generation, Sonnet 4 and Opus 4, launched together on May 22, 2025 and retired together 389 days later. Deprecation was announced April 14, 2026, and calls to claude-sonnet-4-20250514 and claude-opus-4-20250514 have returned errors since June 15. Anthropic points users to claude-sonnet-4-6 and claude-opus-4-8. Amazon Bedrock kept Sonnet 4 running for another 121 days, until its end of life on October 14, 2026.",
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "Anthropic",
@@ -2299,5 +2299,18 @@
     "description": "Since the Gemini app replaced Bard in February 2024, a personal Google account got Google's mainstream models for free, within usage limits. On October 9, 2026 that ended: free users were cut down to a single model, Gemini 3.5 Flash-Lite, with Gemini 3.6 Flash now behind the $4.99 AI Plus plan and 3.1 Pro behind AI Pro and Ultra. AI Plus subscribers lose Pro too, on a date Google emails them. It is the second free-tier squeeze in five months, after the May 2026 move to compute-based usage limits.",
     "dateAdded": "2026-10-10",
     "slug": "gemini-flash-pro-for-free-users"
+  },
+  {
+    "name": "GPT-5.5 in ChatGPT & Codex",
+    "dateOpen": "2026-04-23",
+    "dateClose": "2026-10-14",
+    "type": "model",
+    "causeOfDeath": "Model Upgrade",
+    "killedBy": "OpenAI",
+    "deathType": "model-upgrade",
+    "link": "https://learn.chatgpt.com/docs/models",
+    "description": "OpenAI's April 23 flagship left ChatGPT, ChatGPT Work and Codex on every plan on October 14, 174 days after launch. Codex users on paid plans were pointed to GPT-6 Sol and Free and Go users to GPT-6 Luna, both 'when available'. The API keeps gpt-5.5, and Azure lists it until October 26, 2027, so the model outlives its place in ChatGPT by a year.",
+    "dateAdded": "2026-10-14",
+    "slug": "gpt-5-5-in-chatgpt-codex"
   }
 ]

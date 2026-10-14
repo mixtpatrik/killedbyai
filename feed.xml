@@ -5,8 +5,16 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>GPT-5.5 in ChatGPT &amp; Codex: Killed by OpenAI (2026-10-14)</title>
+      <link>https://killedbyai.net/dead/gpt-5-5-in-chatgpt-codex/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/gpt-5-5-in-chatgpt-codex/</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <description>OpenAI&#x27;s April 23 flagship left ChatGPT, ChatGPT Work and Codex on every plan on October 14, 174 days after launch. Codex users on paid plans were pointed to GPT-6 Sol and Free and Go users to GPT-6 Luna, both &#x27;when available&#x27;. The API keeps gpt-5.5, and Azure lists it until October 26, 2027, so the model outlives its place in ChatGPT by a year.</description>
+      <category>model</category>
+    </item>
     <item>
       <title>Gemini Flash &amp; Pro for Free Users: Killed by Google (2026-10-09)</title>
       <link>https://killedbyai.net/dead/gemini-flash-pro-for-free-users/</link>
@@ -237,14 +245,6 @@
       <guid isPermaLink="true">https://killedbyai.net/dead/amazon-nova-canvas-nova-reel/</guid>
       <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
       <description>The image and video half of Amazon&#x27;s first Nova generation, launched at re:Invent 2024, left Bedrock on September 30, two weeks after Nova Premier and Sonic. AWS pointed image users to Nova 2 Lite and video users to a rival&#x27;s model, Luma Ray v2.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>OpenAI davinci-002, babbage-002 &amp; gpt-3.5-turbo-instruct: Killed by OpenAI (2026-09-28)</title>
-      <link>https://killedbyai.net/dead/openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/openai-davinci-002-babbage-002-gpt-3-5-turbo-instruct/</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 +0000</pubDate>
-      <description>The end of the GPT-3 base-model lineage, retired September 28. davinci-002 and babbage-002 shipped in August 2023 and inherited the job when the original ada/babbage/curie/davinci died in January 2024; gpt-3.5-turbo-instruct, the instruct-tuned completions model, joined them that September. The same cutoff also took a fourth model: gpt-3.5-turbo-1106, the chat snapshot from OpenAI&#x27;s November 2023 DevDay. OpenAI&#x27;s suggested replacement is gpt-5.6-terra; their fine-tuned versions outlive them by 25 days.</description>
       <category>model</category>
     </item>
   </channel>
