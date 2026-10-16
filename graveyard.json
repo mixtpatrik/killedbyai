@@ -435,8 +435,8 @@
     "deathType": "product-killed",
     "dateAdded": "2026-03-26",
     "seo": {
-      "title": "Sora Shutdown Dates: App Apr 26, API Sep 24, Azure Oct 15",
-      "description": "OpenAI shut the Sora app on April 26, 2026 and the API on September 24. Sora 2 on Azure OpenAI has the last date: October 15, 2026. Why Sora died and what replaced it.",
+      "title": "Sora Is Fully Shut Down: App, API and Azure (2026 Timeline)",
+      "description": "OpenAI shut the Sora app on April 26, 2026 and the API on September 24. Sora 2 on Azure OpenAI, the last place it ran, retired October 15. Why Sora died and what replaced it.",
       "h1": "Sora AI Shutdown"
     },
     "slug": "openai-sora",
@@ -463,15 +463,15 @@
       }
     ],
     "replacement": "None. OpenAI points former Sora users to image generation inside ChatGPT; it has not announced a successor video model. Compute freed by the shutdown was redirected to coding and enterprise products.",
-    "aftermath": "The shutdown followed the collapse of a reported $1 billion content deal with Disney and a user base that fell from a ~1M peak to under 500K. Sora had been the most-hyped consumer launch in OpenAI's history sixteen months earlier. Sora 2 lives on for a few more weeks in one place: Microsoft's Azure OpenAI service, where it is scheduled to retire on October 15, 2026.",
+    "aftermath": "The shutdown followed the collapse of a reported $1 billion content deal with Disney and a user base that fell from a ~1M peak to under 500K. Sora had been the most-hyped consumer launch in OpenAI's history sixteen months earlier. Sora 2 held on three weeks longer in one place, Microsoft's Azure OpenAI service, until it retired there on October 15, 2026 with no replacement.",
     "faq": [
       {
         "q": "Is Sora shut down?",
-        "a": "Yes. The Sora app and website were shut down on April 26, 2026, and the Sora API was switched off on September 24, 2026. OpenAI no longer offers video generation; the last place Sora 2 runs is Microsoft's Azure OpenAI service, until October 15."
+        "a": "Yes. The Sora app and website were shut down on April 26, 2026, and the Sora API was switched off on September 24, 2026. Sora 2 on Microsoft's Azure OpenAI service, the last place it ran, retired on October 15, 2026. No Sora model is available anywhere now."
       },
       {
         "q": "When did the Sora API shut down?",
-        "a": "September 24, 2026, six months after the March 24 discontinuation notice. Sora 2 on Azure OpenAI follows on October 15."
+        "a": "September 24, 2026, six months after the March 24 discontinuation notice. Sora 2 on Azure OpenAI followed on October 15, 2026."
       },
       {
         "q": "Why did OpenAI shut down Sora?",

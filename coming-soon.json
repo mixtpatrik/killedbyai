@@ -63,16 +63,6 @@
     "link": "https://developers.openai.com/api/docs/deprecations"
   },
   {
-    "name": "Sora 2 on Azure OpenAI / Foundry",
-    "dateAnnounced": "2026-08-24",
-    "dateShutdown": "2026-10-15",
-    "killedBy": "Microsoft",
-    "replacement": "None listed",
-    "link": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
-    "graveyardSlug": "openai-sora",
-    "description": "Sora outlives its maker's own shutdown by three weeks: OpenAI switched its Sora API off on September 24, but Microsoft pushed the Azure retirement from September 15 to October 15, with no replacement. Until then, the last place to generate a Sora video is a Microsoft data centre."
-  },
-  {
     "name": "Vertex AI Open-Model MaaS (16 models)",
     "dateAnnounced": "2026-07-21",
     "dateShutdown": "2026-10-21",
@@ -324,5 +314,14 @@
     "replacement": "deep-research-preview-04-2026 or deep-research-max-preview-04-2026",
     "link": "https://ai.google.dev/gemini-api/docs/changelog",
     "description": "The deep-research-pro-preview-12-2025 agent, the Gemini API's first managed Deep Research agent, launched December 11, 2025. Google deprecated it on October 8, 2026 and set its shutdown for October 23: fifteen days' notice. Developers move to the April 2026 Deep Research preview or its Max variant, both still labelled preview."
+  },
+  {
+    "name": "OpenAI GPT-4o, GPT-4o mini, GPT-4.1 & 4.1 mini (API)",
+    "dateAnnounced": "2026-10-14",
+    "dateShutdown": "2027-01-14",
+    "killedBy": "OpenAI",
+    "replacement": "gpt-6-luna",
+    "link": "https://developers.openai.com/api/docs/deprecations",
+    "description": "On October 14 OpenAI told developers that five snapshots leave the API on January 14, 2027: gpt-4o-2024-08-06, gpt-4o-2024-11-20, gpt-4o-mini-2024-07-18, gpt-4.1-2025-04-14 and gpt-4.1-mini-2025-04-14. Every one is pointed at the same replacement, gpt-6-luna, and fine-tuned versions go with their base models. GPT-4o mini was the default cheap model in thousands of apps; Azure keeps its own copies until April 14, 2027."
   }
 ]
