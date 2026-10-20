@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://killedbyai.net/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/layoffs/</loc>
@@ -10,11 +10,11 @@
   </url>
   <url>
     <loc>https://killedbyai.net/coming-soon/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/funding/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/will-ai-take-my-job/</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://killedbyai.net/api/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/about/</loc>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://killedbyai.net/embed/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/jobs/</loc>
@@ -74,11 +74,11 @@
   </url>
   <url>
     <loc>https://killedbyai.net/dead/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/microsoft-clippy/</loc>
@@ -222,7 +222,7 @@
   </url>
   <url>
     <loc>https://killedbyai.net/dead/character-ai-independent/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/google-palm-api/</loc>
@@ -737,12 +737,24 @@
     <lastmod>2026-10-14</lastmod>
   </url>
   <url>
-    <loc>https://killedbyai.net/killed-by/openai/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <loc>https://killedbyai.net/dead/opaque-systems/</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/gemini-2-5-pro-flash-flash-lite-vertex-ai/</loc>
+    <lastmod>2026-10-20</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/google/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/anthropic/</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/openai/</loc>
+    <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/aws/</loc>
@@ -775,10 +787,6 @@
   <url>
     <loc>https://killedbyai.net/killed-by/itself/</loc>
     <lastmod>2026-10-08</lastmod>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/anthropic/</loc>
-    <lastmod>2026-10-14</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/groq/</loc>

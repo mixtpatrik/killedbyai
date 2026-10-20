@@ -9,15 +9,6 @@
     "link": "https://developers.openai.com/api/docs/deprecations"
   },
   {
-    "name": "Gemini 2.5 Pro / Flash / Flash Lite (Vertex AI)",
-    "dateAnnounced": "2026-04-01",
-    "dateShutdown": "2026-10-20",
-    "description": "Google retires the Gemini 2.5 family on Vertex AI (now the Gemini Enterprise Agent Platform) on October 20, 2026, four days after the October 16 date it previously gave. That date blocks new projects and any project that hasn't called the model since July 22; per a re-issued September 15 customer notice quoted publicly, existing workloads keep running until January 28, 2027 for Flash-Lite and March 31, 2027 for Flash and Pro (August 6, 2027 in the KR, BR and FR regions). On the Gemini Developer API the models are still 'not deprecated', but since September 18 only projects that used them before can call them.",
-    "replacement": "gemini-3.8-flash / gemini-3.5-flash / gemini-3.5-flash-lite / gemini-3.1-flash-lite",
-    "killedBy": "Google",
-    "link": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions"
-  },
-  {
     "name": "OpenAI Legacy GPT Image Models",
     "dateAnnounced": "2026-06-02",
     "dateShutdown": "2026-12-01",

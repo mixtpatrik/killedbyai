@@ -198,14 +198,14 @@
     "name": "Character.AI (Independent)",
     "dateOpen": "2022-09-16",
     "dateClose": "2024-08-02",
-    "description": "The viral AI chatbot platform where users created and talked to AI 'characters.' After safety controversies and intense competition, Google effectively acqui-hired the founders and key staff, leaving the company a shell of its former self.",
+    "description": "The viral AI chatbot platform where users created and talked to AI 'characters.' After safety controversies and intense competition, Google effectively acqui-hired the founders and key staff in August 2024, leaving the company a shell of its former self. The shell did not last: on October 13, 2026 Character.AI filed for Chapter 11, citing lawsuits, regulatory pressure and the cost of serving heavy users, with a court-supervised sale due to close in late November or early December. Disney is buying some assets for $20 million. CEO Colin Adams: 'If such a bid is unavailable, however, the platform will be wound down.'",
     "type": "startup",
     "causeOfDeath": "Acqui-hire",
     "killedBy": "Google",
     "link": "https://www.theverge.com/2024/8/2/24212348/google-character-ai-noam-shazeer",
     "collateral": "Users lost unique AI personalities they had spent hundreds of hours training and conversing with.",
     "deathType": "acqui-hired",
-    "fundingM": 150,
+    "fundingM": 193,
     "dateAdded": "2026-03-26",
     "slug": "character-ai-independent"
   },
@@ -2312,5 +2312,32 @@
     "description": "OpenAI's April 23 flagship left ChatGPT, ChatGPT Work and Codex on every plan on October 14, 174 days after launch. Codex users on paid plans were pointed to GPT-6 Sol and Free and Go users to GPT-6 Luna, both 'when available'. The API keeps gpt-5.5, and Azure lists it until October 26, 2027, so the model outlives its place in ChatGPT by a year.",
     "dateAdded": "2026-10-14",
     "slug": "gpt-5-5-in-chatgpt-codex"
+  },
+  {
+    "name": "Gemini 2.5 Pro, Flash & Flash-Lite (Vertex AI)",
+    "dateOpen": "2025-06-17",
+    "dateClose": "2026-10-20",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "Google",
+    "deathType": "model-upgrade",
+    "link": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions",
+    "description": "The Gemini 2.5 family went GA on Vertex AI on June 17, 2025 (Flash-Lite on July 22) and hit its retirement date on October 20, 2026, after Google moved it from October 16. Google's model table points users to gemini-3.8-flash, gemini-3.5-flash or gemini-3.5-flash-lite. A September customer notice, quoted publicly, said existing workloads could keep running into 2027; new projects were shut out. On the Gemini Developer API the models were never deprecated, but since September 18 only projects that already used them can call them.",
+    "dateAdded": "2026-10-20",
+    "slug": "gemini-2-5-pro-flash-flash-lite-vertex-ai"
+  },
+  {
+    "name": "Opaque Systems",
+    "dateOpen": "2021-01-01",
+    "dateClose": "2026-10-19",
+    "type": "startup",
+    "causeOfDeath": "Acqui-hire",
+    "killedBy": "Anthropic",
+    "deathType": "acqui-hired",
+    "fundingM": 55.5,
+    "link": "https://www.securityweek.com/anthropic-acquires-confidential-ai-startup-opaque-systems/",
+    "description": "The confidential-computing startup out of UC Berkeley's RISELab, built so AI systems could work on sensitive data that even the hardware operator cannot read, and later on verifying what AI agents do. It raised a $24M Series B at a $300M valuation in February 2026. Eight months later its site announced that the team 'is joining Anthropic to carry our work forward, and Opaque Systems is winding down its operations.' Anthropic, already a customer, disclosed no terms, and Opaque has not said what happens to the customers it leaves behind.",
+    "dateAdded": "2026-10-20",
+    "slug": "opaque-systems"
   }
 ]

@@ -5,8 +5,24 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 16 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Gemini 2.5 Pro, Flash &amp; Flash-Lite (Vertex AI): Killed by Google (2026-10-20)</title>
+      <link>https://killedbyai.net/dead/gemini-2-5-pro-flash-flash-lite-vertex-ai/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/gemini-2-5-pro-flash-flash-lite-vertex-ai/</guid>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+      <description>The Gemini 2.5 family went GA on Vertex AI on June 17, 2025 (Flash-Lite on July 22) and hit its retirement date on October 20, 2026, after Google moved it from October 16. Google&#x27;s model table points users to gemini-3.8-flash, gemini-3.5-flash or gemini-3.5-flash-lite. A September customer notice, quoted publicly, said existing workloads could keep running into 2027; new projects were shut out. On the Gemini Developer API the models were never deprecated, but since September 18 only projects that already used them can call them.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Opaque Systems: Killed by Anthropic (2026-10-19)</title>
+      <link>https://killedbyai.net/dead/opaque-systems/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/opaque-systems/</guid>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 +0000</pubDate>
+      <description>The confidential-computing startup out of UC Berkeley&#x27;s RISELab, built so AI systems could work on sensitive data that even the hardware operator cannot read, and later on verifying what AI agents do. It raised a $24M Series B at a $300M valuation in February 2026. Eight months later its site announced that the team &#x27;is joining Anthropic to carry our work forward, and Opaque Systems is winding down its operations.&#x27; Anthropic, already a customer, disclosed no terms, and Opaque has not said what happens to the customers it leaves behind.</description>
+      <category>startup</category>
+    </item>
     <item>
       <title>GPT-5.5 in ChatGPT &amp; Codex: Killed by OpenAI (2026-10-14)</title>
       <link>https://killedbyai.net/dead/gpt-5-5-in-chatgpt-codex/</link>
@@ -229,22 +245,6 @@
       <guid isPermaLink="true">https://killedbyai.net/dead/mistral-leanstral-1-5/</guid>
       <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
       <description>Mistral&#x27;s Lean 4 formal-proof model was retired on September 30, exactly as its own launch note promised: &#x27;We released Leanstral 1.5... This model will be retired on September 30, 2026.&#x27; A 92-day advertised lifespan, announced in the same sentence as its birth, with no replacement named.</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Amazon Mechanical Turk: Killed by Amazon (2026-09-30)</title>
-      <link>https://killedbyai.net/dead/amazon-mechanical-turk/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/amazon-mechanical-turk/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
-      <description>The marketplace Jeff Bezos called &quot;artificial artificial intelligence&quot; closed on September 30 after 21 years: the human crowd, 500,000 strong at its peak, that labelled a generation of AI training data. Amazon shut SageMaker Ground Truth and Amazon Augmented AI the same day, leaving human-data work entirely. The official reason was an internal review of its programs; the obvious one is that the models MTurk workers trained now do MTurk&#x27;s work.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Amazon Nova Canvas &amp; Nova Reel: Killed by Amazon (2026-09-30)</title>
-      <link>https://killedbyai.net/dead/amazon-nova-canvas-nova-reel/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/amazon-nova-canvas-nova-reel/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
-      <description>The image and video half of Amazon&#x27;s first Nova generation, launched at re:Invent 2024, left Bedrock on September 30, two weeks after Nova Premier and Sonic. AWS pointed image users to Nova 2 Lite and video users to a rival&#x27;s model, Luma Ray v2.</description>
       <category>model</category>
     </item>
   </channel>
