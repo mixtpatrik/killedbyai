@@ -1325,8 +1325,6 @@ HARD_WARNING = re.compile(r"duplicate|used by both|\(future\)|already in the gra
 
 RETIRED_TOMBSTONES = {  # slug -> coming-soon.json name it now redirects to
     "google-gemini-2-5-flash-image-nano-banana": 'Google Gemini 2.5 Flash Image ("Nano Banana")',
-    "gemini-omni-flash-preview": "Gemini Omni Flash Preview & Veo 3.1 Previews",
-    "gpt-4o-api-2024-05-13-2024-08-06": "OpenAI GPT-4, GPT-4 Turbo, GPT-3.5 Turbo, o1, o3-mini & o4-mini",
 }
 
 REDIRECT_STUB = """<!DOCTYPE html>

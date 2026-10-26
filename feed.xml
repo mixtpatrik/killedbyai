@@ -5,8 +5,40 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>OpenAI GPT-4 Turbo, o1, o1-pro, o3-mini &amp; o4-mini (API): Killed by OpenAI (2026-10-23)</title>
+      <link>https://killedbyai.net/dead/openai-gpt-4-turbo-o1-o1-pro-o3-mini-o4-mini-api/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/openai-gpt-4-turbo-o1-o1-pro-o3-mini-o4-mini-api/</guid>
+      <pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate>
+      <description>OpenAI&#x27;s largest single cull. On October 23, 2026 it shut down GPT-4 Turbo (gpt-4-turbo and gpt-4-1106-preview, launched at DevDay in November 2023), most of its first reasoning generation (o1, o1-pro, o3-mini and o4-mini), plus gpt-4o-2024-05-13, gpt-4.1-nano and gpt-image-1, together with gpt-4 and gpt-3.5-turbo. Fine-tunes on every one of them died the same day. The notice went out April 22: six months for one of the biggest migrations in API history. Replacements are the gpt-5.6 models and gpt-image-2.5.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Gemini Deep Research Pro Preview (12-2025): Killed by Google (2026-10-23)</title>
+      <link>https://killedbyai.net/dead/gemini-deep-research-pro-preview-12-2025/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/gemini-deep-research-pro-preview-12-2025/</guid>
+      <pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate>
+      <description>The Gemini API&#x27;s first managed Deep Research agent, deep-research-pro-preview-12-2025, launched December 11, 2025 and was shut down October 23, 2026, fifteen days after Google deprecated it. Developers were sent to the April 2026 Deep Research preview or its Max variant, both still labelled preview.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Gemini Omni Flash Preview &amp; Veo 3.1 Previews: Killed by Google (2026-10-22)</title>
+      <link>https://killedbyai.net/dead/gemini-omni-flash-preview-veo-3-1-previews/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/gemini-omni-flash-preview-veo-3-1-previews/</guid>
+      <pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Google&#x27;s video previews on the Gemini API all went on October 22, 2026: veo-3.1-generate-preview and veo-3.1-fast-generate-preview (October 2025), veo-3.1-lite-generate-preview (March 2026) and gemini-omni-flash-preview, which lived 114 days from its June 30 launch. All four point to gemini-omni-1.1-flash, GA since August 27. With Veo 2 and 3.0 already gone in June, no Veo model is left on the Gemini API.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Vertex AI Open-Model MaaS (16 models): Killed by Google Cloud (2026-10-21)</title>
+      <link>https://killedbyai.net/dead/vertex-ai-open-model-maas-16-models/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/vertex-ai-open-model-maas-16-models/</guid>
+      <pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Google Cloud stopped managed serving for 16 open models on October 21, 2026: four DeepSeek endpoints (V3.1, V3.2, R1-0528 and DeepSeek-OCR), GLM-5 and 4.7, gpt-oss-20b, Kimi K2 Thinking, Llama 3.3 70B, MiniMax M2, two e5 embedding models and four Qwen3 variants. The weights stay on Model Garden; customers who want them now have to host them themselves. Notice was given July 21.</description>
+      <category>service</category>
+    </item>
     <item>
       <title>Gemini 2.5 Pro, Flash &amp; Flash-Lite (Vertex AI): Killed by Google (2026-10-20)</title>
       <link>https://killedbyai.net/dead/gemini-2-5-pro-flash-flash-lite-vertex-ai/</link>
@@ -214,38 +246,6 @@
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
       <description>A RISC-V AI-inference chipmaker founded in 2014 by Transmeta co-founder Dave Ditzel. Its 7nm ET-SoC-1 packed 1,088 small ET-Minion cores and four larger ET-Maxion cores onto one chip. A $58M Series B in November 2018 brought equity funding to $63M, plus a $1.5M PPP loan in 2020. In July 2025 it closed most operations, keeping only the staff needed to sell its IP, after rivals offered prospective employees up to four times its pay. Ainekko (Nekko.ai) bought the IP that October and is open-sourcing it.</description>
       <category>startup</category>
-    </item>
-    <item>
-      <title>Untether AI: Killed by AMD (2025-06-05)</title>
-      <link>https://killedbyai.net/dead/untether-ai/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/untether-ai/</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-      <description>A Toronto AI-inference chip startup selling speedAI accelerators and the imAIgine SDK. PitchBook data cited by The Logic puts its funding at US$168M from backers including CPP Investments, Intel Capital and Radical Ventures, with the last major round in July 2021. In early June 2025 AMD took its engineering team in an undisclosed deal, and Untether said it would &#x27;no longer be supplying or supporting our speedAI products and imAIgine software development kit.&#x27; The engineers went to work on AMD&#x27;s AI compiler, kernel and chip-design efforts.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>Notion Mail: Killed by Notion (2026-09-22)</title>
-      <link>https://killedbyai.net/dead/notion-mail/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/notion-mail/</guid>
-      <pubDate>Tue, 06 Oct 2026 00:00:00 +0000</pubDate>
-      <description>Notion&#x27;s AI email client lasted 17 months. Notion shut the web, desktop and iOS apps on September 22, explaining that more than half its users were already handling email through agents without ever opening the inbox. The Gmail connector and email-writing agents live on without the inbox.</description>
-      <category>app</category>
-    </item>
-    <item>
-      <title>OpenAI GPT-5.4-Cyber: Killed by OpenAI (2026-10-01)</title>
-      <link>https://killedbyai.net/dead/openai-gpt-5-4-cyber/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/openai-gpt-5-4-cyber/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
-      <description>The &#x27;cyber-permissive&#x27; GPT-5.4 variant built for vetted security defenders, which could reverse-engineer binaries and anchored OpenAI&#x27;s Trusted Access for Cyber program, was shut down October 1 after five and a half months, with three weeks&#x27; notice. OpenAI&#x27;s replacement advice: &#x27;the most capable cyber model available to you.&#x27;</description>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Mistral Leanstral 1.5: Killed by Mistral (2026-09-30)</title>
-      <link>https://killedbyai.net/dead/mistral-leanstral-1-5/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/mistral-leanstral-1-5/</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 +0000</pubDate>
-      <description>Mistral&#x27;s Lean 4 formal-proof model was retired on September 30, exactly as its own launch note promised: &#x27;We released Leanstral 1.5... This model will be retired on September 30, 2026.&#x27; A 92-day advertised lifespan, announced in the same sentence as its birth, with no replacement named.</description>
-      <category>model</category>
     </item>
   </channel>
 </rss>

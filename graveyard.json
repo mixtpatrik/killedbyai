@@ -332,8 +332,8 @@
   {
     "name": "OpenAI GPT-3.5 Turbo",
     "dateOpen": "2022-11-30",
-    "dateClose": "2024-09-13",
-    "description": "The engine behind the original ChatGPT and the model that started it all. Its first API snapshots (gpt-3.5-turbo-0301, -0613 and -16k-0613) were shut down on September 13, 2024, and gpt-3.5-turbo-1106 followed on September 28, 2026. The last one, gpt-3.5-turbo-0125, still answers to the bare gpt-3.5-turbo name and is scheduled to die on October 23, 2026, along with the fine-tunes built on it.",
+    "dateClose": "2026-10-23",
+    "description": "The engine behind the original ChatGPT and the model that started it all. Its first API snapshots (gpt-3.5-turbo-0301, -0613 and -16k-0613) were shut down on September 13, 2024, and gpt-3.5-turbo-1106 followed on September 28, 2026. The last one, gpt-3.5-turbo-0125, which still answered to the bare gpt-3.5-turbo name, was shut down on October 23, 2026 along with every fine-tune built on it: almost four years after ChatGPT launched on it.",
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "OpenAI",
@@ -675,8 +675,8 @@
   {
     "name": "GPT-4 (Original)",
     "dateOpen": "2023-03-14",
-    "dateClose": "2024-06-13",
-    "description": "OpenAI's multimodal model that set new benchmarks across every task. The original GPT-4 and GPT-4-32k endpoints were deprecated just 15 months after launch as GPT-4 Turbo and GPT-4o offered the same capabilities at a fraction of the cost.",
+    "dateClose": "2026-10-23",
+    "description": "OpenAI's March 2023 flagship, the model that set the benchmark for the GPT-4 era. The GPT-4-32k endpoint went first, in June 2024, and GPT-4 left ChatGPT on April 30, 2025. The API kept gpt-4 and gpt-4-0613 alive for another 18 months, until OpenAI shut both down on October 23, 2026, 3 years and 7 months after launch, pointing developers to the gpt-5.6 models.",
     "type": "model",
     "causeOfDeath": "Model Deprecation",
     "killedBy": "OpenAI",
@@ -685,7 +685,7 @@
     "dateAdded": "2026-03-26",
     "seo": {
       "title": "GPT-4 Deprecation: When OpenAI Retired the Original GPT-4",
-      "description": "The original GPT-4 was retired from ChatGPT on April 30, 2025, and its API model IDs follow on October 23, 2026. Every GPT-4 deprecation date in one place."
+      "description": "The original GPT-4 left ChatGPT on April 30, 2025 and the API on October 23, 2026. Every GPT-4 deprecation date in one place."
     },
     "slug": "gpt-4-original"
   },
@@ -2339,5 +2339,63 @@
     "description": "The confidential-computing startup out of UC Berkeley's RISELab, built so AI systems could work on sensitive data that even the hardware operator cannot read, and later on verifying what AI agents do. It raised a $24M Series B at a $300M valuation in February 2026. Eight months later its site announced that the team 'is joining Anthropic to carry our work forward, and Opaque Systems is winding down its operations.' Anthropic, already a customer, disclosed no terms, and Opaque has not said what happens to the customers it leaves behind.",
     "dateAdded": "2026-10-20",
     "slug": "opaque-systems"
+  },
+  {
+    "name": "OpenAI GPT-4 Turbo, o1, o1-pro, o3-mini & o4-mini (API)",
+    "dateOpen": "2023-11-06",
+    "dateClose": "2026-10-23",
+    "type": "model",
+    "causeOfDeath": "Model Deprecation",
+    "killedBy": "OpenAI",
+    "deathType": "model-upgrade",
+    "link": "https://developers.openai.com/api/docs/deprecations",
+    "aliases": [
+      "gpt-4o-api-2024-05-13-2024-08-06"
+    ],
+    "description": "OpenAI's largest single cull. On October 23, 2026 it shut down GPT-4 Turbo (gpt-4-turbo and gpt-4-1106-preview, launched at DevDay in November 2023), most of its first reasoning generation (o1, o1-pro, o3-mini and o4-mini), plus gpt-4o-2024-05-13, gpt-4.1-nano and gpt-image-1, together with gpt-4 and gpt-3.5-turbo. Fine-tunes on every one of them died the same day. The notice went out April 22: six months for one of the biggest migrations in API history. Replacements are the gpt-5.6 models and gpt-image-2.5.",
+    "dateAdded": "2026-10-26",
+    "slug": "openai-gpt-4-turbo-o1-o1-pro-o3-mini-o4-mini-api"
+  },
+  {
+    "name": "Vertex AI Open-Model MaaS (16 models)",
+    "dateOpen": "2024-12-06",
+    "dateClose": "2026-10-21",
+    "type": "service",
+    "causeOfDeath": "Catalog Pruning",
+    "killedBy": "Google Cloud",
+    "deathType": "model-upgrade",
+    "link": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models",
+    "description": "Google Cloud stopped managed serving for 16 open models on October 21, 2026: four DeepSeek endpoints (V3.1, V3.2, R1-0528 and DeepSeek-OCR), GLM-5 and 4.7, gpt-oss-20b, Kimi K2 Thinking, Llama 3.3 70B, MiniMax M2, two e5 embedding models and four Qwen3 variants. The weights stay on Model Garden; customers who want them now have to host them themselves. Notice was given July 21.",
+    "dateAdded": "2026-10-26",
+    "slug": "vertex-ai-open-model-maas-16-models"
+  },
+  {
+    "name": "Gemini Omni Flash Preview & Veo 3.1 Previews",
+    "dateOpen": "2025-10-15",
+    "dateClose": "2026-10-22",
+    "type": "model",
+    "causeOfDeath": "Model Upgrade",
+    "killedBy": "Google",
+    "deathType": "model-upgrade",
+    "link": "https://ai.google.dev/gemini-api/docs/deprecations",
+    "aliases": [
+      "gemini-omni-flash-preview"
+    ],
+    "description": "Google's video previews on the Gemini API all went on October 22, 2026: veo-3.1-generate-preview and veo-3.1-fast-generate-preview (October 2025), veo-3.1-lite-generate-preview (March 2026) and gemini-omni-flash-preview, which lived 114 days from its June 30 launch. All four point to gemini-omni-1.1-flash, GA since August 27. With Veo 2 and 3.0 already gone in June, no Veo model is left on the Gemini API.",
+    "dateAdded": "2026-10-26",
+    "slug": "gemini-omni-flash-preview-veo-3-1-previews"
+  },
+  {
+    "name": "Gemini Deep Research Pro Preview (12-2025)",
+    "dateOpen": "2025-12-11",
+    "dateClose": "2026-10-23",
+    "type": "model",
+    "causeOfDeath": "Model Upgrade",
+    "killedBy": "Google",
+    "deathType": "model-upgrade",
+    "link": "https://ai.google.dev/gemini-api/docs/changelog",
+    "description": "The Gemini API's first managed Deep Research agent, deep-research-pro-preview-12-2025, launched December 11, 2025 and was shut down October 23, 2026, fifteen days after Google deprecated it. Developers were sent to the April 2026 Deep Research preview or its Max variant, both still labelled preview.",
+    "dateAdded": "2026-10-26",
+    "slug": "gemini-deep-research-pro-preview-12-2025"
   }
 ]

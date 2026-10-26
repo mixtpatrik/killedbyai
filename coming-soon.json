@@ -27,15 +27,6 @@
     "link": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule"
   },
   {
-    "name": "OpenAI GPT-4, GPT-4 Turbo, GPT-3.5 Turbo, o1, o3-mini & o4-mini",
-    "dateAnnounced": "2026-04-22",
-    "dateShutdown": "2026-10-23",
-    "description": "One date kills three eras. On October 23, OpenAI removes gpt-3.5-turbo (the engine that launched ChatGPT), gpt-4, gpt-4-0613, gpt-4-turbo and gpt-4-1106-preview (the models that defined 2023), and most of its first generation of reasoning models (o1, o1-pro, o3-mini, o4-mini), plus gpt-4o-2024-05-13, gpt-4.1-nano and gpt-image-1. o3 and o3-pro follow on December 11. Every fine-tune built on them dies the same day. Seventeen table rows, six months' notice.",
-    "replacement": "gpt-5.6-sol / gpt-5.6-terra / gpt-5.6-luna / gpt-image-2.5-sunburst or -flare",
-    "killedBy": "OpenAI",
-    "link": "https://developers.openai.com/api/docs/deprecations"
-  },
-  {
     "name": "OpenAI GPT-5 (original snapshots), o3 & o3-pro",
     "dateAnnounced": "2026-06-11",
     "dateShutdown": "2026-12-11",
@@ -52,15 +43,6 @@
     "replacement": "gpt-realtime-2.1 / gpt-realtime-2.1-mini / gpt-audio-1.5",
     "killedBy": "OpenAI",
     "link": "https://developers.openai.com/api/docs/deprecations"
-  },
-  {
-    "name": "Vertex AI Open-Model MaaS (16 models)",
-    "dateAnnounced": "2026-07-21",
-    "dateShutdown": "2026-10-21",
-    "killedBy": "Google Cloud",
-    "replacement": "Self-deploy the weights from Model Garden",
-    "link": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models",
-    "description": "Google Cloud drops managed serving for 16 open models on October 21: four DeepSeek endpoints (V3.1, V3.2, R1-0528 and DeepSeek-OCR), GLM-5 and 4.7, gpt-oss-20b, Kimi K2 Thinking, Llama 3.3 70B, MiniMax M2, two e5 embedding models and four Qwen3 variants. You can still run them; you just have to host them yourself."
   },
   {
     "name": "Vertex AI Extensions",
@@ -115,15 +97,6 @@
     "replacement": "gemini-3.1-flash-lite-image",
     "link": "https://ai.google.dev/gemini-api/docs/deprecations",
     "description": "The image model that went viral as 'Nano Banana' (3D figurine selfies, a #1 App Store spot for Gemini) got a stay of execution. Google's earliest shutdown date was October 2, 2026; a September 14 release note pushed it to no earlier than March 15, 2027, with gemini-3.1-flash-lite-image as the replacement. Since September 18 the Gemini API serves 2.5 models only to projects that used them before, though Google says they 'will continue to be served until further notice.'"
-  },
-  {
-    "name": "Gemini Omni Flash Preview & Veo 3.1 Previews",
-    "dateAnnounced": "2026-08-27",
-    "dateShutdown": "2026-10-22",
-    "killedBy": "Google",
-    "replacement": "gemini-omni-1.1-flash",
-    "link": "https://ai.google.dev/gemini-api/docs/deprecations",
-    "description": "Google's text-and-image-to-video preview launched June 30, 2026. When gemini-omni-1.1-flash went GA on August 27, Google said the preview endpoint would be 'deprecated on September 30, 2026'; the deprecations table sets the actual shutdown for no earlier than October 22, which would make a 114-day life. The three Veo 3.1 previews (veo-3.1-generate-preview, veo-3.1-fast-generate-preview and veo-3.1-lite-generate-preview) go the same day, to the same replacement."
   },
   {
     "name": "Azure OpenAI GPT-4.1, 4.1 mini & 4.1 nano",
@@ -296,15 +269,6 @@
     "replacement": "Kiro",
     "link": "https://aws.amazon.com/blogs/devops/amazon-q-developer-end-of-support-announcement/",
     "description": "On April 30, 2027, three years to the day after general availability, AWS ends support for the Amazon Q Developer IDE plugins for VS Code, JetBrains, Eclipse and Visual Studio. Paid subscriptions and the Java and .NET code-transformation tools end the same day. New sign-ups stopped on May 15, 2026, and the newest coding models, including Opus 4.7, were made Kiro-only. Q Developer survives in the AWS Console, the mobile app, and Slack and Teams."
-  },
-  {
-    "name": "Gemini Deep Research Pro Preview (12-2025)",
-    "dateAnnounced": "2026-10-08",
-    "dateShutdown": "2026-10-23",
-    "killedBy": "Google",
-    "replacement": "deep-research-preview-04-2026 or deep-research-max-preview-04-2026",
-    "link": "https://ai.google.dev/gemini-api/docs/changelog",
-    "description": "The deep-research-pro-preview-12-2025 agent, the Gemini API's first managed Deep Research agent, launched December 11, 2025. Google deprecated it on October 8, 2026 and set its shutdown for October 23: fifteen days' notice. Developers move to the April 2026 Deep Research preview or its Max variant, both still labelled preview."
   },
   {
     "name": "OpenAI GPT-4o, GPT-4o mini, GPT-4.1 & 4.1 mini (API)",
