@@ -2397,5 +2397,18 @@
     "description": "The Gemini API's first managed Deep Research agent, deep-research-pro-preview-12-2025, launched December 11, 2025 and was shut down October 23, 2026, fifteen days after Google deprecated it. Developers were sent to the April 2026 Deep Research preview or its Max variant, both still labelled preview.",
     "dateAdded": "2026-10-26",
     "slug": "gemini-deep-research-pro-preview-12-2025"
+  },
+  {
+    "name": "xAI Grok Imagine Image Quality",
+    "dateOpen": "2026-05-06",
+    "dateClose": "2026-11-02",
+    "type": "model",
+    "causeOfDeath": "Model Upgrade",
+    "killedBy": "xAI",
+    "deathType": "model-upgrade",
+    "link": "https://docs.x.ai/developers/migration/imagine-image-quality-nov-2",
+    "description": "The Grok Imagine API's Quality Mode launched for enterprise developers on May 6, 2026, and xAI retired the grok-imagine-image-quality model 180 days later, on November 2, after 60 days' notice. Nothing visibly broke: the slug still resolves, but every request is now served by grok-imagine-image-2.0 at its 'low' quality setting, billed $0.01 per image less, and only the model field in the response shows the swap. Apps that called grok-imagine-image-pro were already redirected to this model in May, so their images have now been forwarded twice.",
+    "dateAdded": "2026-11-05",
+    "slug": "xai-grok-imagine-image-quality"
   }
 ]

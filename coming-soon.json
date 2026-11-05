@@ -144,15 +144,6 @@
     "description": "Custom GPTs launched at DevDay in November 2023 and replaced ChatGPT Plugins. Now they are being replaced by plugins. OpenAI says they retire on December 11, 2026, though timing 'can vary by account and workspace'. Affected Enterprise workspaces lose GPT creation on October 26, and approved deferrals run to February 11, 2027. Instructions become a skill and knowledge files carry over; conversations, the chosen model, sharing settings and Custom Actions do not."
   },
   {
-    "name": "xAI Grok Imagine Image Quality",
-    "dateAnnounced": "2026-09-02",
-    "dateShutdown": "2026-11-02",
-    "killedBy": "xAI",
-    "replacement": "grok-imagine-image-2.0",
-    "link": "https://docs.x.ai/developers/migration/imagine-image-quality-nov-2",
-    "description": "xAI retires the grok-imagine-image-quality slug on November 2, after 60 days' notice. Calls will not fail. They are redirected to grok-imagine-image-2.0 at the 'low' quality setting, $0.01 per image cheaper, and only the model field in the response shows the change. grok-imagine-image-pro was already redirected to the 'quality' model in May and now gets forwarded a second time."
-  },
-  {
     "name": "Gemini Live & TTS Preview Models",
     "dateAnnounced": "2026-09-22",
     "dateShutdown": "2026-11-17",

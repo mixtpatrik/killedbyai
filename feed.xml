@@ -5,8 +5,16 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>xAI Grok Imagine Image Quality: Killed by xAI (2026-11-02)</title>
+      <link>https://killedbyai.net/dead/xai-grok-imagine-image-quality/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/xai-grok-imagine-image-quality/</guid>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 +0000</pubDate>
+      <description>The Grok Imagine API&#x27;s Quality Mode launched for enterprise developers on May 6, 2026, and xAI retired the grok-imagine-image-quality model 180 days later, on November 2, after 60 days&#x27; notice. Nothing visibly broke: the slug still resolves, but every request is now served by grok-imagine-image-2.0 at its &#x27;low&#x27; quality setting, billed $0.01 per image less, and only the model field in the response shows the swap. Apps that called grok-imagine-image-pro were already redirected to this model in May, so their images have now been forwarded twice.</description>
+      <category>model</category>
+    </item>
     <item>
       <title>OpenAI GPT-4 Turbo, o1, o1-pro, o3-mini &amp; o4-mini (API): Killed by OpenAI (2026-10-23)</title>
       <link>https://killedbyai.net/dead/openai-gpt-4-turbo-o1-o1-pro-o3-mini-o4-mini-api/</link>
@@ -238,14 +246,6 @@
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
       <description>A personalized AI companion app from New Computer, co-founded by Sam Whitmore and former Apple designer Jason Yuan, that launched on iOS in June 2024. On September 5, 2025 the founders announced that their &#x27;shared Northstar had diverged&#x27; and that, rather than compromise either vision, they would &#x27;wind down operations&#x27;. The app stopped on October 5, 2025, after a month for data export. The company claimed &#x27;hundreds of thousands&#x27; of users; Appfigures counted about 24,500 lifetime iOS downloads, and there was never an Android app.</description>
       <category>app</category>
-    </item>
-    <item>
-      <title>Esperanto Technologies: Killed by Deep-Pocketed Rivals (2025-07-01)</title>
-      <link>https://killedbyai.net/dead/esperanto-technologies/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/esperanto-technologies/</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-      <description>A RISC-V AI-inference chipmaker founded in 2014 by Transmeta co-founder Dave Ditzel. Its 7nm ET-SoC-1 packed 1,088 small ET-Minion cores and four larger ET-Maxion cores onto one chip. A $58M Series B in November 2018 brought equity funding to $63M, plus a $1.5M PPP loan in 2020. In July 2025 it closed most operations, keeping only the staff needed to sell its IP, after rivals offered prospective employees up to four times its pay. Ainekko (Nekko.ai) bought the IP that October and is open-sourcing it.</description>
-      <category>startup</category>
     </item>
   </channel>
 </rss>
