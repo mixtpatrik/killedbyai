@@ -470,5 +470,16 @@
     "roleTags": [
       "various"
     ]
+  },
+  {
+    "company": "SUSE",
+    "jobs": 190,
+    "date": "2026-11-02",
+    "description": "The enterprise Linux company is cutting about 10% of its roughly 1,900 staff. CEO Dirk-Peter van Leeuwen's memo to all employees: 'What is clear is that automation and AI are fundamentally shifting how software companies operate,' and 'AI capabilities are advancing exponentially, forcing us to radically reimagine our work.' The memo named no roles or countries, and it came after a September voluntary-separation round drew too few takers. The job figure is The Register's estimate; SUSE gave only the percentage.",
+    "roles": "Company-wide; roles and countries not disclosed",
+    "source": "https://www.theregister.com/software/2026/11/02/suse-to-cut-one-in-ten-employees-because-of-ai/5306950",
+    "roleTags": [
+      "various"
+    ]
   }
 ]
