@@ -271,12 +271,21 @@
     "description": "On October 14 OpenAI told developers that five snapshots leave the API on January 14, 2027: gpt-4o-2024-08-06, gpt-4o-2024-11-20, gpt-4o-mini-2024-07-18, gpt-4.1-2025-04-14 and gpt-4.1-mini-2025-04-14. Every one is pointed at the same replacement, gpt-6-luna, and fine-tuned versions go with their base models. GPT-4o mini was the default cheap model in thousands of apps; Azure keeps its own copies until April 14, 2027."
   },
   {
-    "name": "Ollie",
-    "dateAnnounced": "2026-10-30",
-    "dateShutdown": "2026-11-06",
-    "killedBy": "Market",
-    "replacement": "None; users get data export and refunds",
-    "link": "https://techcrunch.com/2026/10/30/ollie-a-privacy-focused-ai-assistant-is-shutting-down/",
-    "description": "A text-based AI assistant for families that read email and calendars to book appointments, plan meals and pay bills, and one of the first mainstream assistant apps to get SOC 2 certified. Backed by a $7.5M seed round led by Khosla Ventures, it shuts down on November 6 with about a week's notice. CEO Bill Lennon: 'We got close, but ultimately couldn't keep up,' as rival assistants such as Muse and Instinct made it 'harder to stand out, grow, and raise the capital we needed.'"
+    "name": "Google Jules",
+    "dateAnnounced": "2026-10-29",
+    "dateShutdown": "2026-12-31",
+    "killedBy": "Google",
+    "replacement": "Google Antigravity",
+    "link": "https://www.timesofai.com/news/google-jules-antigravity/",
+    "description": "Google's asynchronous coding agent, which took a GitHub task, worked in a cloud VM and opened a pull request, entered beta in May 2025 and went GA that August. On October 29, 2026 Google said it is winding Jules down and folding the work into Antigravity. New tasks stop on November 11, when Jules turns read-only; it shuts down completely on December 31. Code already pushed to GitHub stays; session changes that were never pushed do not."
+  },
+  {
+    "name": "Claude Opus 4.8, Claude Opus 5 & GPT-5.6 Terra in GitHub Copilot",
+    "dateAnnounced": "2026-10-15",
+    "dateShutdown": "2026-11-16",
+    "killedBy": "GitHub / Microsoft",
+    "replacement": "Claude Opus 5.5; GPT-6.1 Sol or GPT-6 Luna",
+    "link": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/",
+    "description": "GitHub removes three models from every Copilot surface (Chat, inline edits, ask and agent modes, code completions) on November 16. Claude Opus 4.8 and Claude Opus 5 point to Claude Opus 5.5, GPT-5.6 Terra to GPT-6.1 Sol or GPT-6 Luna. One exception: individual subscribers on annual plans keep Opus 4.8. Anthropic's own API keeps Opus 5 until at least July 2027."
   }
 ]

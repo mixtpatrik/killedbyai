@@ -5,8 +5,24 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Vellum Personal Assistant (cloud): Killed by the market (2026-11-07)</title>
+      <link>https://killedbyai.net/dead/vellum-personal-assistant-cloud/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/vellum-personal-assistant-cloud/</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Vellum introduced its &#x27;Personal Intelligence&#x27; assistant on May 7, 2026: persistent memory, integrations across desktop, mobile and messaging, hosted in Vellum&#x27;s cloud or self-hosted. Six months later the company cancelled paid plans on November 2, took a final export of every cloud assistant on November 7 and switched them off, citing competition that had &#x27;grown incredibly fierce&#x27; and distribution it could not grow. Downloads close and data is deleted on December 13. The open-source assistant code stays online but is no longer maintained; a fork called Cadet carries the self-hosted version.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>Ollie: Killed by the market (2026-11-06)</title>
+      <link>https://killedbyai.net/dead/ollie/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/ollie/</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 +0000</pubDate>
+      <description>A text-based AI assistant for families that read email and calendars to book appointments, plan meals and pay bills, and one of the first mainstream assistant apps to get SOC 2 certified. It launched June 2, 2026, raised a $7.5M seed led by Khosla Ventures, and shut down 157 days later on November 6 with a week&#x27;s notice. CEO Bill Lennon: &#x27;We got close, but ultimately couldn&#x27;t keep up,&#x27; as rival assistants made it &#x27;harder to stand out, grow, and raise the capital we needed.&#x27; Users were texted an export of their data and refunded for unused months.</description>
+      <category>startup</category>
+    </item>
     <item>
       <title>xAI Grok Imagine Image Quality: Killed by xAI (2026-11-02)</title>
       <link>https://killedbyai.net/dead/xai-grok-imagine-image-quality/</link>
@@ -230,22 +246,6 @@
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
       <description>A New Zealand maker of AI &#x27;Digital People&#x27; avatars, co-founded in 2016 by Greg Cross and Mark Sagar, a two-time Sci-Tech Academy Award winner for facial-capture work at Weta Digital. It raised more than US$135M (about NZ$225M) from backers including Horizons Ventures, SoftBank Vision Fund 2, Salesforce Ventures and Temasek. On February 5, 2026 KPMG&#x27;s Leon Bowker and Luke Norman were appointed receivers. On September 28, 2026 AppDirect announced it had acquired Soul Machines on undisclosed terms and would build the avatars into Devs.ai, so the faces live on with a different employer.</description>
       <category>startup</category>
-    </item>
-    <item>
-      <title>PlayAI (PlayHT): Killed by Meta (2025-12-31)</title>
-      <link>https://killedbyai.net/dead/playai-playht/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/playai-playht/</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-      <description>PlayHT began in 2016 as a browser extension that read articles aloud and grew into a text-to-speech, voice-cloning and voice-agent platform, later renamed PlayAI. Founders Hammad Syed and Mahmoud Felfel went through Y Combinator and raised a $21M seed round in November 2024 led by Kindred Ventures and 500 Global. In July 2025 Meta acquired the company and took the entire team to work on voice for Meta AI, AI Characters and wearables. The API was given until December 31, 2025, and voice-agent frameworks such as Pipecat deprecated their PlayHT integrations ahead of the cutoff.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>Dot (New Computer): Killed by Its Own Founders (2025-10-05)</title>
-      <link>https://killedbyai.net/dead/dot-new-computer/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/dot-new-computer/</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-      <description>A personalized AI companion app from New Computer, co-founded by Sam Whitmore and former Apple designer Jason Yuan, that launched on iOS in June 2024. On September 5, 2025 the founders announced that their &#x27;shared Northstar had diverged&#x27; and that, rather than compromise either vision, they would &#x27;wind down operations&#x27;. The app stopped on October 5, 2025, after a month for data export. The company claimed &#x27;hundreds of thousands&#x27; of users; Appfigures counted about 24,500 lifetime iOS downloads, and there was never an Android app.</description>
-      <category>app</category>
     </item>
   </channel>
 </rss>

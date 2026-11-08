@@ -2410,5 +2410,32 @@
     "description": "The Grok Imagine API's Quality Mode launched for enterprise developers on May 6, 2026, and xAI retired the grok-imagine-image-quality model 180 days later, on November 2, after 60 days' notice. Nothing visibly broke: the slug still resolves, but every request is now served by grok-imagine-image-2.0 at its 'low' quality setting, billed $0.01 per image less, and only the model field in the response shows the swap. Apps that called grok-imagine-image-pro were already redirected to this model in May, so their images have now been forwarded twice.",
     "dateAdded": "2026-11-05",
     "slug": "xai-grok-imagine-image-quality"
+  },
+  {
+    "name": "Ollie",
+    "dateOpen": "2026-06-02",
+    "dateClose": "2026-11-06",
+    "type": "startup",
+    "causeOfDeath": "Funding Collapse",
+    "killedBy": "Market",
+    "deathType": "startup-failed",
+    "fundingM": 7.5,
+    "link": "https://ollie.ai/farewell",
+    "description": "A text-based AI assistant for families that read email and calendars to book appointments, plan meals and pay bills, and one of the first mainstream assistant apps to get SOC 2 certified. It launched June 2, 2026, raised a $7.5M seed led by Khosla Ventures, and shut down 157 days later on November 6 with a week's notice. CEO Bill Lennon: 'We got close, but ultimately couldn't keep up,' as rival assistants made it 'harder to stand out, grow, and raise the capital we needed.' Users were texted an export of their data and refunded for unused months.",
+    "dateAdded": "2026-11-08",
+    "slug": "ollie"
+  },
+  {
+    "name": "Vellum Personal Assistant (cloud)",
+    "dateOpen": "2026-05-07",
+    "dateClose": "2026-11-07",
+    "type": "service",
+    "causeOfDeath": "No Product-Market Fit",
+    "killedBy": "Market",
+    "deathType": "product-killed",
+    "link": "https://www.vellum.ai/vellum-assistant-platform-shutdown",
+    "description": "Vellum introduced its 'Personal Intelligence' assistant on May 7, 2026: persistent memory, integrations across desktop, mobile and messaging, hosted in Vellum's cloud or self-hosted. Six months later the company cancelled paid plans on November 2, took a final export of every cloud assistant on November 7 and switched them off, citing competition that had 'grown incredibly fierce' and distribution it could not grow. Downloads close and data is deleted on December 13. The open-source assistant code stays online but is no longer maintained; a fork called Cadet carries the self-hosted version.",
+    "dateAdded": "2026-11-08",
+    "slug": "vellum-personal-assistant-cloud"
   }
 ]

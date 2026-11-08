@@ -481,5 +481,16 @@
     "roleTags": [
       "various"
     ]
+  },
+  {
+    "company": "Rackspace",
+    "jobs": 750,
+    "date": "2026-06-16",
+    "description": "Cut about 750 jobs, roughly 15% of its global workforce, approved by the executive committee on June 10. The SEC filing describes the move as being 'in favor of redeploying resources toward its enterprise AI buildout' as the company moves away from legacy cloud services. It expects $14M to $19M in charges and $75M to $85M in annual savings, and says further measures may follow.",
+    "roles": "Legacy cloud and managed-services teams (company-wide, about 15%)",
+    "source": "https://sanantonioreport.org/rackspace-750-workers-pivots-infrastructure-ai-san-antonio/",
+    "roleTags": [
+      "various"
+    ]
   }
 ]
