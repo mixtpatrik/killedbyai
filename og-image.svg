@@ -1,10 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Killed by AI: the AI graveyard">
+  <title>Killed by AI: the AI graveyard</title>
   <rect width="1200" height="630" fill="#09090b"/>
-  <rect x="0" y="0" width="1200" height="3" fill="#ef4444"/>
-  <text x="600" y="230" text-anchor="middle" fill="#fafafa" font-family="Inter, -apple-system, sans-serif" font-weight="900" font-size="96" letter-spacing="-3">Killed by <tspan fill="#ef4444" text-decoration="underline">AI</tspan></text>
-  <text x="600" y="310" text-anchor="middle" fill="#a1a1aa" font-family="Inter, sans-serif" font-weight="400" font-size="28">A digital cemetery for the AI tools that didn't survive</text>
-  <text x="600" y="350" text-anchor="middle" fill="#a1a1aa" font-family="Inter, sans-serif" font-weight="400" font-size="28">the artificial intelligence gold rush.</text>
-  <rect x="430" y="400" width="340" height="50" rx="25" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
-  <text x="600" y="433" text-anchor="middle" fill="#ef4444" font-family="Inter, sans-serif" font-weight="700" font-size="22">💀  150+ AI products killed</text>
-  <text x="600" y="530" text-anchor="middle" fill="#52525b" font-family="Inter, sans-serif" font-weight="400" font-size="20">killedbyai.net</text>
+  <text x="80" y="318" fill="#f4f4f5" font-family="'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif" font-weight="700" font-size="148">Killed by <tspan fill="#ef4444">AI</tspan></text>
+  <text x="84" y="392" fill="#a1a1aa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="34">The AI tools that didn't survive the artificial intelligence gold rush.</text>
+  <rect x="80" y="520" width="1040" height="1" fill="#26262a"/>
+  <text x="80" y="572" fill="#8f8f99" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="26">killedbyai.net</text>
 </svg>

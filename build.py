@@ -71,9 +71,11 @@ def lc_label(s):
 
 
 def sc_label(s):
-    """Title Case label -> sentence case ("No Product-Market Fit" -> "No product-market fit"), keeping acronyms."""
-    s = lc_label(s)
-    return s[:1].upper() + s[1:]
+    """Title Case label -> sentence case ("No Product-Market Fit" -> "No product-market fit"), keeping acronyms
+    and whatever follows " by " (a name: "Replaced by Playground", "Replaced by Responses API")."""
+    head, sep, name = s.partition(" by ")
+    head = lc_label(head)
+    return head[:1].upper() + head[1:] + sep.lower() + name
 
 
 def company_key(name):
@@ -349,12 +351,12 @@ def render_product(item, ordered, idx, tpl, total, killer_counts):
     if len(meta) > 155:
         meta = meta[:152].rsplit(" ", 1)[0] + "…"
     verdict = "Dead, then revived" if revived else "Dead"
-    subtitle = f"{dlabel} · {item['causeOfDeath']} · shut down {fmt_date(item['dateClose'])}"
+    subtitle = f"{dlabel} · {sc_label(item['causeOfDeath'])} · shut down {fmt_date(item['dateClose'])}"
     ks = killer_slug(item["killedBy"])
     has_killer_page = killer_counts.get(item["killedBy"], 0) >= 2
     killer_html = f'<a href="/killed-by/{ks}/">{esc(item["killedBy"])}</a>' if has_killer_page else esc(item["killedBy"])
-    collateral = f'<div class="collateral"><span aria-hidden="true">⚠️</span><div><strong>Collateral damage:</strong> {esc(item["collateral"])}</div></div>' if item.get("collateral") else ""
-    source = f'<a class="btn btn-red" href="{esc(item["link"])}" target="_blank" rel="noopener">Source ↗</a>' if item.get("link") else ""
+    collateral = f'<p class="collateral"><strong>Collateral damage:</strong> {esc(item["collateral"])}</p>' if item.get("collateral") else ""
+    source = f'<a class="btn" href="{esc(item["link"])}" target="_blank" rel="noopener">Source ↗</a>' if item.get("link") else ""
     # The answer states the verdict and the facts; it does not re-print the description the reader just saw.
     if revived:
         tail = (" The timeline above records the outage." if item.get("timeline")
@@ -376,19 +378,20 @@ def render_product(item, ordered, idx, tpl, total, killer_counts):
     if item.get("aftermath"):
         sections.append(f'<section class="sec"><h2>Aftermath</h2><p>{esc(item["aftermath"])}</p></section>')
     faq_items = [{"q": f"Is {name} dead?", "a": answer}] if not item.get("faq") else list(item["faq"])
-    faq_html = "".join(f'<details class="qa-item"><summary>{esc(q["q"])}</summary><p>{esc(q["a"])}</p></details>' for q in faq_items)
+    faq_html = "".join(f'<details class="faq-item"><summary><h3>{esc(q["q"])}</h3></summary><div class="faq-answer"><p>{esc(q["a"])}</p></div></details>' for q in faq_items)
     related = [o for o in ordered if o is not item and o["killedBy"] == item["killedBy"]]
     related = sorted(related, key=lambda o: o["dateClose"], reverse=True)[:4]
     related_html = ""
     if related:
         rows = "".join(f'<a class="rel" href="{product_url(o)}"><b>{esc(o["name"])}</b><span>{o["dateClose"][:4]}</span></a>' for o in related)
-        more = f' <a class="more" href="/killed-by/{ks}/">All {killer_counts[item["killedBy"]]} →</a>' if has_killer_page else ""
-        related_html = f'<h2>Also {esc(killer_label(item["killedBy"]).replace("Killed", "killed", 1))}{more}</h2><div class="related">{rows}</div>'
+        more = f'<a class="more" href="/killed-by/{ks}/">All {killer_counts[item["killedBy"]]} →</a>' if has_killer_page else ""
+        related_html = (f'<section class="sec"><div class="sec-head"><h2>Also {esc(killer_label(item["killedBy"]).replace("Killed", "killed", 1))}</h2>{more}</div>'
+                        f'<div class="related">{rows}</div></section>')
     prev_ = ordered[idx - 1] if idx > 0 else None
     next_ = ordered[idx + 1] if idx + 1 < len(ordered) else None
     pn = ""
-    if prev_: pn += f'<a class="prev" href="{product_url(prev_)}"><small>← Died before</small>{esc(prev_["name"])}</a>'
-    if next_: pn += f'<a class="next" href="{product_url(next_)}"><small>Died after →</small>{esc(next_["name"])}</a>'
+    if prev_: pn += f'<a class="prev" href="{product_url(prev_)}"><small>← Died before</small><span>{esc(prev_["name"])}</span></a>'
+    if next_: pn += f'<a class="next" href="{product_url(next_)}"><small>Died after →</small><span>{esc(next_["name"])}</span></a>'
     pn_html = f'<nav class="prevnext" aria-label="Chronological">{pn}</nav>' if pn else ""
     modified = entry_lastmod_map().get(name) or item.get("dateAdded") or item["dateClose"]
     jsonld = {"@context": "https://schema.org", "@graph": [
@@ -413,7 +416,7 @@ def render_product(item, ordered, idx, tpl, total, killer_counts):
         "{{NAV}}": site_nav("/"),
         "{{DATE_OPEN}}": item["dateOpen"], "{{DATE_OPEN_FMT}}": fmt_date(item["dateOpen"]),
         "{{DATE_CLOSE}}": item["dateClose"], "{{DATE_CLOSE_FMT}}": fmt_date(item["dateClose"]),
-        "{{LIFESPAN}}": lifespan, "{{CAUSE}}": esc(item["causeOfDeath"]), "{{KILLER_HTML}}": killer_html,
+        "{{LIFESPAN}}": lifespan, "{{CAUSE}}": esc(sc_label(item["causeOfDeath"])), "{{KILLER_HTML}}": killer_html,
         "{{TYPE_LABEL}}": TYPE_LABEL.get(item["type"], item["type"]), "{{DESCRIPTION}}": esc(item["description"]),
         "{{COLLATERAL_HTML}}": collateral, "{{SOURCE_HTML}}": source, "{{SECTIONS_HTML}}": "".join(sections), "{{FAQ_HTML}}": faq_html,
         "{{RELATED_HTML}}": related_html, "{{PREV_NEXT_HTML}}": pn_html, "{{COUNT}}": str(total), "{{MODIFIED}}": modified, "{{MODIFIED_FMT}}": fmt_date(modified),
@@ -459,7 +462,8 @@ def render_killer_page(killer, items, tpl, total):
              + "By year: " + ", ".join(f"{y}: {v}" for y, v in sorted(by_year.items())) + ". "
              + f"The first was {oldest['name']} ({fmt_date(oldest['dateClose'])}); the most recent is {newest['name']} ({fmt_date(newest['dateClose'])}). "
              + f"Each tombstone links its source.")
-    rows = "".join(f'<a class="row" href="{product_url(i)}"><span><b>{esc(i["name"])}</b><small>{esc(i["causeOfDeath"])} · {TYPE_LABEL.get(i["type"], i["type"])}</small></span><span class="when">{i["dateClose"]}</span></a>' for i in items)
+    short = lambda d: datetime.strptime(d, "%Y-%m-%d").strftime("%b %-d, %Y")
+    rows = "".join(f'<a class="row" href="{product_url(i)}"><span><b>{esc(i["name"])}</b><small>{esc(sc_label(i["causeOfDeath"]))} · {TYPE_LABEL.get(i["type"], i["type"])}</small></span><span class="when"><time datetime="{i["dateClose"]}">{short(i["dateClose"])}</time></span></a>' for i in items)
     jsonld = {"@context": "https://schema.org", "@graph": [
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL},
@@ -470,75 +474,144 @@ def render_killer_page(killer, items, tpl, total):
     out = tpl
     for k, v in {"{{TITLE}}": esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": crumb_items(url, label, ("By killer", "/killed-by/")),
                  "{{H1}}": esc(label), "{{INTRO}}": esc(intro), "{{NAV}}": site_nav("/"), "{{AFTER}}": "",
-                 "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(jsonld, indent=2, ensure_ascii=False)}.items():
+                 "{{ACC}}": "var(--red)", "{{ACC_TEXT}}": "var(--red-text)", "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(jsonld, indent=2, ensure_ascii=False)}.items():
         out = out.replace(k, v)
     return out
 
 
 # ---------- Dashboards for /layoffs/ and /funding/ ----------
 DASH_CSS = """
-.dash{max-width:1000px;margin:1.25rem auto 0;padding:0 1.5rem}
-.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem}
-.tile{background:var(--bg-card);border:1px solid var(--border);border-radius:.625rem;padding:.875rem 1rem;display:flex;flex-direction:column;gap:.125rem;text-decoration:none;color:inherit;min-width:0}
-a.tile:hover{border-color:var(--acc)}
-.tile-val{font-size:1.625rem;font-weight:900;color:var(--acc);font-family:'SF Mono','Cascadia Code',monospace;line-height:1.15;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tile-lbl{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
-.tile-sub{font-size:.8125rem;color:var(--text-dim)}
-.tile.txt .tile-val{font-size:1.25rem;white-space:normal;line-height:1.25;padding:.25rem 0}
-.tile.hero{background:linear-gradient(135deg,var(--acc-dim),var(--bg-card) 70%)}
-.tile.hero .tile-val{font-size:2.5rem}
-.dash-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-top:.75rem}
-.dcard{background:var(--bg-card);border:1px solid var(--border);border-radius:.625rem;padding:1rem 1.125rem;min-width:0}
+/* Shared by /layoffs/ and /funding/. Colours, type and the site menu come from SITE_HEAD; each page sets --acc and --wrap. */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.55;min-height:100vh}
+a{color:inherit}
+.header,main,.site-footer{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+.header{padding-top:2.5rem;padding-bottom:1.5rem}
+.header h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3rem);font-weight:700;letter-spacing:-.015em;line-height:1.1}
+.header h1 span{color:var(--acc)}
+.lede{max-width:44rem;margin-top:.75rem;color:var(--text-muted);font-size:1.0625rem;line-height:1.5}
+.lede a,.aside a,.last-updated a,.prose a,.site-footer a,.layoff-meta a,.fund-meta a,.recent a,a.hbar .hbar-name,a.tile.txt .tile-val,a.tile:not(.txt) .tile-sub{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
+.lede a:hover,.aside a:hover,.last-updated a:hover,.prose a:hover,.site-footer a:hover,.layoff-meta a:hover,.fund-meta a:hover,.recent a:hover,a.hbar:hover .hbar-name,a.tile.txt:hover .tile-val,a.tile:not(.txt):hover .tile-sub{color:var(--acc);text-decoration-color:var(--acc)}
+
+/* figures: label, value, one line of context; no boxes */
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem 2.5rem;padding:1.25rem 0 1.5rem;border-top:1px solid var(--border)}
+.tile{display:flex;flex-direction:column;min-width:0;color:inherit;text-decoration:none}
+.tile-lbl{font-size:.875rem;color:var(--text-muted)}
+.tile-val{font-size:1.5rem;font-weight:700;line-height:1.2;color:var(--acc);overflow-wrap:anywhere}
+.tile.txt .tile-val{padding-block:.1875rem;font-size:1.125rem;font-weight:600;line-height:1.3;color:var(--text)}
+.tile-sub{margin-top:.125rem;font-size:.8125rem;line-height:1.45;color:var(--text-dim)}
+
+/* chart sections */
+.dash-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.75rem 3rem}
+.dcard{min-width:0;padding-top:1.125rem;border-top:1px solid var(--border)}
 .dcard.wide{grid-column:1/-1}
-.dcard h2{font-size:.9375rem;font-weight:800;margin-bottom:.125rem}
-.dcard .dnote{font-size:.8125rem;color:var(--text-dim);margin-bottom:.75rem}
-.vbars{display:flex;align-items:flex-end;gap:.375rem;height:170px;padding-top:1.25rem}
-.vbar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
-.vbar-track{flex:1;width:100%;display:flex;align-items:flex-end;position:relative}
-.vbar-fill{width:100%;height:var(--h);min-height:2px;background:linear-gradient(180deg,var(--acc),var(--acc2));border-radius:.25rem .25rem 0 0;position:relative}
-.vbar-fill b{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);font-size:.6875rem;font-weight:700;color:var(--text);white-space:nowrap;padding-bottom:.125rem;font-family:'SF Mono','Cascadia Code',monospace}
-.vbar-lbl{font-size:.6875rem;color:var(--text-dim);margin-top:.375rem;white-space:nowrap;text-align:center;line-height:1.2;font-family:'SF Mono','Cascadia Code',monospace}
-.vbar.now .vbar-fill{box-shadow:0 0 0 2px var(--acc-dim)}
-.vbar.now .vbar-lbl{color:var(--acc);font-weight:700}
-.hbars{display:flex;flex-direction:column;gap:.5rem;list-style:none}
-.hbar{display:grid;grid-template-columns:minmax(0,9.5rem) minmax(0,1fr) auto;align-items:center;gap:.625rem;font-size:.875rem;text-decoration:none;color:var(--text)}
-a.hbar:hover .hbar-name{color:var(--acc)}
+.dcard h2{font-size:.875rem;font-weight:600;line-height:1.4}
+.dnote{max-width:44rem;margin-bottom:.875rem;font-size:.8125rem;line-height:1.5;color:var(--text-dim)}
+.dnote.after{margin:.75rem 0 0}
+.vbars{display:flex;gap:.5rem;height:200px}
+.vbars:not(.many){max-width:34rem}
+.vbar{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:.375rem}
+/* the value sits on top of its bar: the padding keeps room for it above a full-height bar */
+.vbar-track{flex:1;min-height:0;width:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:.125rem;padding-top:1.5rem}
+.vbar-val{flex:none;font-size:.8125rem;line-height:1.25;color:var(--text-muted);white-space:nowrap}
+.vbar-fill{flex:none;width:100%;height:var(--h);min-height:2px;background:var(--acc);opacity:.7;border-radius:2px 2px 0 0}
+.vbar-lbl{flex:none;font-size:.8125rem;line-height:1.25;color:var(--text-dim);text-align:center;white-space:nowrap}
+.vbar:hover .vbar-fill{opacity:.85}
+.vbar:hover .vbar-val,.vbar:hover .vbar-lbl{color:var(--text)}
+.vbar.now .vbar-fill{opacity:1}
+.vbar.now .vbar-val,.vbar.now .vbar-lbl{color:var(--acc);font-weight:600}
+.hbars{list-style:none}
+.hbar{display:grid;grid-template-columns:minmax(0,9.5rem) minmax(0,1fr) auto;align-items:center;gap:.75rem;min-height:30px;font-size:.875rem;color:inherit;text-decoration:none}
 .hbar-name{min-width:0;line-height:1.25;overflow-wrap:break-word}
-.hbar-track{display:block;height:.625rem;background:#1c1c1f;border-radius:1rem;overflow:hidden}
-.hbar-fill{display:block;height:100%;width:var(--w);min-width:3px;background:linear-gradient(90deg,var(--acc2),var(--acc));border-radius:1rem}
-.hbar-val{font-family:'SF Mono','Cascadia Code',monospace;font-size:.8125rem;color:var(--text-muted);text-align:right;min-width:3.5rem}
-.recent{list-style:none;display:flex;flex-direction:column}
-.recent li{display:flex;justify-content:space-between;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.875rem}
+.hbar-track{display:block;height:6px}
+.hbar-fill{display:block;height:100%;width:var(--w);min-width:2px;background:var(--acc);opacity:.7;border-radius:1px}
+a.hbar:hover .hbar-fill{opacity:1}
+.hbar-val{min-width:3.25rem;text-align:right;font-size:.8125rem;color:var(--text-muted)}
+.recent{list-style:none}
+.recent li{display:flex;align-items:baseline;gap:.75rem;padding:.4375rem 0;border-bottom:1px solid var(--border);font-size:.875rem}
 .recent li:last-child{border-bottom:0}
-.recent a{color:var(--text);text-decoration:none;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.recent a:hover{color:var(--acc)}
-.recent span{color:var(--text-dim);font-family:'SF Mono','Cascadia Code',monospace;font-size:.8125rem;white-space:nowrap}
-.recent em{font-style:normal;color:var(--acc);font-weight:700}
-.lctrl{max-width:1000px;margin:1.75rem auto 0;padding:0 1.5rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;position:sticky;top:0;z-index:5;background:var(--bg);padding-top:.625rem;padding-bottom:.625rem;border-bottom:1px solid var(--border)}
-.lctrl h2{font-size:1.125rem;font-weight:800;width:100%;margin-bottom:.125rem}
-.lsearch{flex:1 1 220px;min-width:0;height:44px;background:var(--bg-card);border:1px solid var(--border);border-radius:.5rem;color:var(--text);padding:0 .875rem;font-size:16px}
-.lsearch:focus{outline:none;border-color:var(--acc)}
-.lsort{height:44px;background:var(--bg-card);border:1px solid var(--border);border-radius:.5rem;color:var(--text);padding:0 .625rem;font-size:.875rem}
-.chips{display:flex;gap:.375rem;flex-wrap:wrap;width:100%}
-.chipf{height:36px;padding:0 .875rem;border-radius:2rem;border:1px solid var(--border);background:var(--bg-card);color:var(--text-muted);font-size:.8125rem;cursor:pointer;font-family:inherit}
+.recent a{min-width:0;margin-right:auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.recent em{flex:none;font-style:normal;font-weight:600;color:var(--acc)}
+.recent span{flex:none;min-width:4.5rem;text-align:right;font-size:.8125rem;color:var(--text-dim);white-space:nowrap}
+.dash-foot{margin-top:1.75rem;padding-top:.875rem;border-top:1px solid var(--border)}
+.aside{display:flex;flex-wrap:wrap;gap:0 1.5rem;font-size:.9375rem}
+.aside a{display:inline-flex;align-items:center;min-height:32px}
+.last-updated{margin-top:.25rem;font-size:.8125rem;color:var(--text-dim)}
+
+/* the list: title, sticky search / sort / tabs, hairline rows */
+.list-title{margin-top:2.5rem;font-family:var(--serif);font-size:1.375rem;font-weight:700;line-height:1.25}
+.lctrl{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.25rem;padding-top:.75rem;background:var(--bg)}
+.lsearch{flex:1 1 280px;min-width:0;max-width:420px;min-height:44px;padding:0 .875rem;background:transparent;border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font:inherit;font-size:.9375rem}
+.lsearch::placeholder{color:var(--text-dim)}
+.lsearch:hover,.lsort:hover{border-color:var(--line)}
+.lsort{min-height:44px;padding:0 .75rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font:inherit;font-size:.875rem;cursor:pointer}
+.lcount{margin-left:auto;font-size:.8125rem;color:var(--text-muted);white-space:nowrap}
+.chips{flex-basis:100%;display:flex;flex-wrap:wrap;gap:0 1.5rem;border-bottom:1px solid var(--border)}
+.chipf{min-height:44px;padding:0;background:none;border:0;font:inherit;font-size:.9375rem;color:var(--text-muted);cursor:pointer;white-space:nowrap}
 .chipf:hover{color:var(--text)}
-.chipf.on{background:var(--acc-dim);border-color:var(--acc);color:var(--acc);font-weight:700}
-.chipf small{color:var(--text-muted);margin-left:.25rem;font-weight:400}
-.chipf:hover small,.chipf.on small{color:inherit}
-.lcount{font-size:.8125rem;color:var(--text-dim);width:100%}
-.list .empty{text-align:center;color:var(--text-dim);padding:2rem 0}
-.rank{font-family:'SF Mono','Cascadia Code',monospace;color:var(--text-dim);font-size:.8125rem;margin-right:.125rem;font-weight:600}
+.chipf.on{color:var(--text);font-weight:600;box-shadow:inset 0 -2px 0 var(--acc)}
+.list{margin-bottom:3rem}
+.list .empty{padding:2rem 0;color:var(--text-muted)}
+.layoff-row,.fund-row{padding:1rem 0;border-bottom:1px solid var(--border)}
+.layoff-row:target,.fund-row:target{padding-left:.75rem;box-shadow:inset 2px 0 0 var(--acc)}
+.layoff-header,.fund-header{display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
+.layoff-company,.fund-name{font-size:1.0625rem;font-weight:600;line-height:1.3}
+.fund-name a{text-decoration:none}
+.fund-name a:hover{color:var(--acc)}
+.layoff-count,.fund-amount{flex:none;font-size:1.0625rem;font-weight:700;line-height:1.3;color:var(--acc);white-space:nowrap}
+.rank{margin-right:.25rem;font-size:.8125rem;font-weight:400;color:var(--text-dim)}
 .list.unranked .rank{display:none}
-.layoff-row:target,.fund-row:target{border-color:var(--acc)}
-@media(min-width:601px){.layoff-row,.fund-row,.list a{scroll-margin-top:calc(var(--lctrl-h,240px) + .75rem)}}
-.to-filters{position:fixed;right:1rem;bottom:1rem;z-index:50;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--bg-card);color:var(--text);font-size:1.125rem;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.45);font-family:inherit}
+.badge-new{margin-left:.5rem;font-size:.8125rem;font-weight:600;color:var(--acc)}
+.layoff-desc,.fund-desc{max-width:48rem;margin-top:.375rem;font-size:.9375rem;line-height:1.55;color:var(--text-muted)}
+.layoff-meta,.fund-meta{margin-top:.5rem;font-size:.8125rem;line-height:1.6;color:var(--text-dim)}
+.layoff-meta a,.fund-meta a{color:var(--text-muted)}
+/* the separator stays at the end of a line, never at the start of the next */
+.tag{white-space:nowrap}
+.tag:not(:last-child)::after{content:"\\00A0\\00B7" / "";display:inline-block;color:var(--text-dim)}
+@media(min-width:601px){.layoff-row,.fund-row,.list a{scroll-margin-top:calc(var(--lctrl-h,160px) + .75rem)}}
+.to-filters{position:fixed;right:1rem;bottom:1rem;z-index:50;display:none;align-items:center;justify-content:center;width:44px;height:44px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-muted);font:inherit;font-size:1.125rem;line-height:1;cursor:pointer}
 .to-filters:hover{border-color:var(--acc);color:var(--acc)}
-.badge-new{display:inline-block;background:var(--acc);color:#09090b;font-size:.625rem;font-weight:800;padding:.0625rem .375rem;border-radius:.25rem;margin-left:.375rem;vertical-align:middle;letter-spacing:.04em}
-.mchip{color:var(--text-muted);background:#1c1c1f;padding:.125rem .5rem;border-radius:.25rem;text-decoration:none}
-a.mchip:hover{color:var(--acc)}
-@media(max-width:700px){.dash-grid{grid-template-columns:1fr}.dcard.wide{grid-column:auto}}
-@media(max-width:600px){.dash,.lctrl{padding-left:.75rem;padding-right:.75rem}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tile{padding:.75rem}.tile-val{font-size:1.25rem}.tile.hero .tile-val{font-size:1.5rem}.tile.txt .tile-val{font-size:1rem}.tile-sub{font-size:.75rem}.hbar{grid-template-columns:minmax(0,7rem) minmax(0,1fr) auto;font-size:.8125rem}.vbars{height:140px;gap:.25rem}.vbar-fill b{font-size:.625rem}.vbar-lbl{font-size:.625rem}.lsort{flex:1 1 100%}.lctrl{position:static}.to-filters.visible{display:flex}}
-@media(max-width:380px){.vbar-fill b{display:none}}
-@media(forced-colors:active){.vbar-fill,.hbar-fill,.layoff-bar,.fund-bar{background:CanvasText}.chipf.on{background:Highlight;color:HighlightText}}
+
+.site-footer{padding-bottom:3rem;font-size:.875rem;line-height:1.7;color:var(--text-dim)}
+.site-footer::before{content:"";display:block;margin-bottom:1.5rem;border-top:1px solid var(--border)}
+.site-footer a{color:var(--text-muted)}
+.footer-links{margin-top:.5rem}
+
+@media(max-width:700px){.dash-grid{grid-template-columns:minmax(0,1fr)}.dcard.wide{grid-column:auto}}
+@media(max-width:600px){
+.header{padding-top:1.5rem;padding-bottom:1rem}
+.lede{font-size:1rem}
+.tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.5rem}
+.tile-val{font-size:1.375rem}
+.hbar{grid-template-columns:minmax(0,7.5rem) minmax(0,1fr) auto}
+.vbars{height:170px;gap:.375rem}
+/* a chart with many bars lies down on phones, so every value keeps a readable size */
+.vbars.many{display:block;height:auto}
+.vbars.many .vbar{display:grid;grid-template-columns:3.25rem minmax(0,1fr) 2.75rem;align-items:center;gap:0 .625rem;min-height:28px}
+.vbars.many .vbar-track{display:contents}
+.vbars.many .vbar-lbl{order:-1;text-align:left}
+.vbars.many .vbar-lbl br{display:none}
+.vbars.many .vbar-fill{width:var(--h);height:6px;min-width:2px;min-height:0;border-radius:1px}
+.vbars.many .vbar-val{order:1;text-align:right}
+.list-title{margin-top:2rem;font-size:1.1875rem}
+.lctrl{position:static;gap:.25rem 1rem}
+.lsearch{flex-basis:100%;max-width:none;font-size:16px}
+.lsort{flex:1;min-width:0;margin-top:.25rem;font-size:16px}
+.chips{gap:0 1.25rem}
+.to-filters.visible{display:flex}
+}
+@media(pointer:coarse){
+a.hbar{min-height:40px}
+.recent li{align-items:center;padding:0}
+.recent a{display:block;line-height:44px}
+.aside a{min-height:44px}
+.layoff-meta,.fund-meta{line-height:2.25}
+.layoff-meta a,.fund-meta a{padding-block:.625rem}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* Windows high contrast drops custom backgrounds: keep the bars and the pressed tab visible */
+@media(forced-colors:active){.vbar-fill,.hbar-fill{background:CanvasText;opacity:1}.vbar.now .vbar-fill{background:Highlight}.chipf.on{color:Highlight}}
 """
 
 DASH_JS = """<script>
@@ -578,7 +651,8 @@ DASH_JS = """<script>
     var btn=document.createElement('button'); btn.type='button'; btn.className='to-filters'; btn.setAttribute('aria-label','Back to filters'); btn.title='Back to filters'; btn.textContent='↑';
     btn.addEventListener('click',function(){ var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches; bar.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); });
     document.body.appendChild(btn);
-    var tick=false; function vis(){ tick=false; btn.classList.toggle('visible', bar.getBoundingClientRect().bottom<0); }
+    // shown while the list runs past the bottom of the screen, so it never sits on the notes or the footer after it
+    var tick=false; function vis(){ tick=false; btn.classList.toggle('visible', bar.getBoundingClientRect().bottom<0 && list.getBoundingClientRect().bottom>window.innerHeight); }
     window.addEventListener('scroll',function(){ if(!tick){ tick=true; requestAnimationFrame(vis); } },{passive:true}); vis();
   }
 })();
@@ -593,10 +667,11 @@ def dash_tile(val, label, sub="", href=None, hero=False, txt=False):
 
 
 def dash_vbars(items, now_label=None):
+    """Column chart. With more than 8 bars it gets .many, which turns it into horizontal bars on phones."""
     mx = max((v for _, v, _ in items), default=1) or 1
-    return '<div class="vbars" role="img" aria-label="' + esc(", ".join(f"{l}: {d or 0}" for l, _, d in items)) + '">' + "".join(
-        f'<div class="vbar{" now" if l == now_label else ""}"><div class="vbar-track"><div class="vbar-fill" style="--h:{v / mx * 100:.1f}%">'
-        f'{f"<b>{d}</b>" if v else ""}</div></div><span class="vbar-lbl">{esc(l).replace(" ", "<br>")}</span></div>' for l, v, d in items) + "</div>"
+    return (f'<div class="vbars{" many" if len(items) > 8 else ""}" role="img" aria-label="' + esc(", ".join(f"{l}: {d or 0}" for l, _, d in items)) + '">' + "".join(
+        f'<div class="vbar{" now" if l == now_label else ""}" style="--h:{v / mx * 100:.1f}%"><div class="vbar-track">'
+        f'<span class="vbar-val">{d if v else ""}</span><div class="vbar-fill"></div></div><span class="vbar-lbl">{esc(l).replace(" ", " <br>")}</span></div>' for l, v, d in items) + "</div>")
 
 
 def dash_hbars(items):
@@ -615,12 +690,13 @@ def dash_card(title, note, body, wide=False):
 
 def dash_controls(title, placeholder, sorts, chips):
     opts = "".join(f'<option value="{v}">{esc(l)}</option>' for v, l in sorts)
-    ch = "".join(f'<button type="button" class="chipf{" on" if i == 0 else ""}" data-f="{v}" aria-pressed="{"true" if i == 0 else "false"}">{esc(l)}{f"<small>{n}</small>" if n is not None else ""}</button>'
+    ch = "".join(f'<button type="button" class="chipf{" on" if i == 0 else ""}" data-f="{v}" aria-pressed="{"true" if i == 0 else "false"}">{esc(l)}{f" ({n})" if n is not None else ""}</button>'
                  for i, (v, l, n) in enumerate(chips))
-    return (f'<div class="lctrl" role="search"><h2 id="list">{title}</h2>'
+    # the title scrolls away; only the search, sort and tabs stay stuck to the top
+    return (f'<h2 class="list-title" id="list">{title}</h2><div class="lctrl" role="search">'
             f'<input class="lsearch" type="search" placeholder="{esc(placeholder)}" aria-label="{esc(placeholder)}" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="search">'
-            f'<select class="lsort" aria-label="Sort by">{opts}</select><div class="chips" role="group" aria-label="Filter">{ch}</div>'
-            f'<p class="lcount" aria-live="polite"></p></div>')
+            f'<select class="lsort" aria-label="Sort by">{opts}</select><p class="lcount" aria-live="polite"></p>'
+            f'<div class="chips" role="group" aria-label="Filter">{ch}</div></div>')
 
 
 def fmt_money_m(m):
@@ -805,9 +881,10 @@ def render_job_risk(ldata):
     top = sorted(rows, key=lambda r: -r[2])
     bottom = sorted(rows, key=lambda r: r[2])
 
-    def table(items, start=1):
+    def table(items, start=1, bars=True):  # bars: a small bar beside each score (left out where every score is about zero)
+        bar = (lambda s: f'<span class="mini"><span style="--w:{s / top[0][2] * 100:.0f}%"></span></span>') if bars else (lambda s: "")
         return ('<table class="rank-table"><thead><tr><th scope="col">#</th><th scope="col">Occupation</th><th scope="col">AI applicability</th><th scope="col"><span class="sr-only">Test</span></th></tr></thead><tbody>'
-                + "".join(f'<tr><td>{start + k}</td><td>{esc(t)}</td><td><span class="mini"><span style="--w:{s / top[0][2] * 100:.0f}%"></span></span>{s:.2f}</td>'
+                + "".join(f'<tr><td>{start + k}</td><td>{esc(t)}</td><td>{bar(s)}{s:.2f}</td>'
                           f'<td><a href="#test" data-job="{soc}" rel="nofollow">Test →</a></td></tr>' for k, (soc, t, s) in enumerate(items))
                 + "</tbody></table>")
 
@@ -821,7 +898,7 @@ def render_job_risk(ldata):
         ("Are young workers more at risk?", "So far, yes. Stanford's Digital Economy Lab found that by mid-2026 employment for 22- to 25-year-olds in the most AI-exposed occupations was about 19% below where it would have been had it kept pace with less-exposed jobs, mostly because of fewer hires rather than firings. Experienced workers show no comparable drop."),
         ("How accurate is this AI job risk score?", "It is an informed estimate rather than a prediction. The occupation part is Microsoft's measured overlap between AI and the tasks of each job, which its authors stress is not the same as displacement. The personal part reflects findings on early-career exposure, codified versus tacit knowledge, physical work and employer signals. Use it to see where you are exposed, and don't read it as a verdict."),
     ]
-    faq_html = "".join(f'<details class="faq"><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in faq)
+    faq_html = "".join(f'<details class="faq-item"><summary><h3>{esc(q)}</h3></summary><div class="faq-answer"><p>{esc(a)}</p></div></details>' for q, a in faq)
     jsonld = {"@context": "https://schema.org", "@graph": [
         webpage_node(url, "Will AI Take My Job? The AI Job Risk Test", f"Free AI job risk test: score your job against {n} occupations using Microsoft's AI applicability data and {total_jobs:,} real AI layoffs.", lm(["layoffs.json", "job-risk-template.html", "data/microsoft-ai-applicability-scores.csv"])),
         {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]},
@@ -833,7 +910,7 @@ def render_job_risk(ldata):
            .replace("{{ROLE_JSON}}", json.dumps(role_info, separators=(",", ":")).replace("</", "<\\/"))
            .replace("{{POPULAR_JSON}}", json.dumps(POPULAR_JOBS))
            .replace("{{TOP_TABLE}}", table(top[:20]))
-           .replace("{{BOTTOM_TABLE}}", table(bottom[:20]))
+           .replace("{{BOTTOM_TABLE}}", table(bottom[:20], bars=False))
            .replace("{{ALL_ROWS}}", all_rows)
            .replace("{{FAQ}}", faq_html)
            .replace("{{N_OCC}}", str(n))
@@ -886,7 +963,7 @@ def render_jobs_pages(ldata, list_tpl):
                  + f"the first was {company_key(by_date[0]['company'])} in {fmt_month(by_date[0]['date'])} and the latest {company_key(by_date[-1]['company'])} in {fmt_month(by_date[-1]['date'])}. "
                  + (f"{ytd} of the {L} came in {this_year}. " if ytd else "")
                  + "Largest first; every row links to its entry and source on the layoffs tracker.")
-        rhtml = "".join(f'<a class="row" href="/layoffs/#{slugify(x["company"])}"><span><b>{esc(x["company"])}</b><small>{esc(x["roles"])}</small></span><span class="when">{x["jobs"]:,} · {x["date"][:7]}</span></a>' for x in rows)
+        rhtml = "".join(f'<a class="row" href="/layoffs/#{slugify(x["company"])}"><span><b>{esc(x["company"])}</b><small>{esc(x["roles"])}</small></span><span class="when"><b>{x["jobs"]:,}</b> jobs · <time datetime="{x["date"][:7]}">{fmt_month(x["date"])}</time></span></a>' for x in rows)
         siblings = "".join(f'<a href="/jobs/{o}/">{esc(roles.get(o, o))} <small>{len(orows)}</small></a>' for o, orows in page_roles if o != r)
         after = f'<nav class="siblings" aria-label="Other roles"><h2>Other roles hit by AI layoffs</h2><div>{siblings}</div></nav>' if siblings else ""
         ld = {"@context": "https://schema.org", "@graph": [
@@ -896,12 +973,12 @@ def render_jobs_pages(ldata, list_tpl):
         out = list_tpl
         for k, v in {"{{TITLE}}": esc(title + " | Killed by AI") if len(title) <= 45 else esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": crumb_items(url, label, ("Jobs replaced by AI", "/jobs/")),
                      "{{H1}}": f"{esc(label)}: jobs replaced by AI", "{{INTRO}}": esc(intro), "{{ROWS}}": rhtml, "{{AFTER}}": after, "{{NAV}}": site_nav("/layoffs/"),
-                     "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
+                     "{{ACC}}": "#f97316", "{{ACC_TEXT}}": "#f97316", "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
             out = out.replace(k, v)
         d = ROOT / "jobs" / r; d.mkdir(parents=True, exist_ok=True); (d / "index.html").write_text(out)
     # index
     url = SITE_URL + "jobs/"
-    rhtml = "".join(f'<a class="row" href="/jobs/{r}/"><span><b>{esc(roles.get(r, r))}</b><small>{len({company_key(x["company"]) for x in rows})} companies · {sum(x["jobs"] for x in rows):,} jobs in those layoffs</small></span><span class="when">{len(rows)} layoffs</span></a>' for r, rows in page_roles)
+    rhtml = "".join(f'<a class="row" href="/jobs/{r}/"><span><b>{esc(roles.get(r, r))}</b><small>{len({company_key(x["company"]) for x in rows})} companies · {sum(x["jobs"] for x in rows):,} jobs in those layoffs</small></span><span class="when"><b>{len(rows)}</b> layoffs</span></a>' for r, rows in page_roles)
     title = f"Jobs Replaced by AI: {total_jobs:,} Layoffs by Role | Killed by AI"
     meta = f"Which jobs AI is replacing: {total_jobs:,} jobs cut at {n_companies} companies that blamed AI, by role, including customer support, sales and engineering. Sourced."
     top_label = roles.get(pages[0], pages[0]) if pages else "Customer support"
@@ -912,7 +989,7 @@ def render_jobs_pages(ldata, list_tpl):
     out = list_tpl
     for k, v in {"{{TITLE}}": esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": crumb_items(url, "Jobs replaced by AI"),
                  "{{H1}}": "Jobs replaced by AI, by role", "{{INTRO}}": esc(f"The roles companies name when they blame layoffs on AI. {total_jobs:,} jobs across {n_companies} companies, re-indexed by the work that was replaced, most-named role first. {top_label} leads by a distance. Each layoff's job count is the company-wide total and is counted under every role it named, so role figures overlap; the per-company figures are on the layoffs tracker."),
-                 "{{ROWS}}": rhtml, "{{AFTER}}": "", "{{NAV}}": site_nav("/layoffs/"), "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
+                 "{{ROWS}}": rhtml, "{{AFTER}}": "", "{{NAV}}": site_nav("/layoffs/"), "{{ACC}}": "#f97316", "{{ACC_TEXT}}": "#f97316", "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
         out = out.replace(k, v)
     d = ROOT / "jobs"; d.mkdir(exist_ok=True); (d / "index.html").write_text(out)
     return pages
@@ -930,7 +1007,7 @@ def build_ics(cs_data):
         uid = slugify(c["name"]) + "@killedbyai.net"
         desc = f'{c["description"]} Replacement: {c["replacement"]}. Source: {c["link"]}'
         events.append("BEGIN:VEVENT\r\nUID:" + uid + "\r\nDTSTAMP:" + stamp + "\r\nDTSTART;VALUE=DATE:" + d + "\r\nDTEND;VALUE=DATE:" + nxt
-                      + "\r\nSUMMARY:" + ics_escape("🪦 Shutdown: " + c["name"]) + "\r\nDESCRIPTION:" + ics_escape(desc)
+                      + "\r\nSUMMARY:" + ics_escape("Shutdown: " + c["name"]) + "\r\nDESCRIPTION:" + ics_escape(desc)
                       + "\r\nURL:" + SITE_URL + "coming-soon/#" + slugify(c["name"]) + "\r\nCATEGORIES:AI shutdown\r\nEND:VEVENT")
     return ("BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Killed by AI//Upcoming AI shutdowns//EN\r\nCALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\n"
             "X-WR-CALNAME:Upcoming AI shutdowns | Killed by AI\r\nX-WR-CALDESC:Confirmed shutdown and deprecation dates for AI products and models. Source: killedbyai.net/coming-soon/\r\nREFRESH-INTERVAL;VALUE=DURATION:P1D\r\n"
@@ -940,7 +1017,8 @@ def build_ics(cs_data):
 def render_index_pages(data, killer_counts, list_tpl):
     """/dead/ (A-Z, every tombstone) and /killed-by/ (every killer with a page)."""
     az = sorted(data, key=lambda i: i["name"].lower())
-    rows = "".join(f'<a class="row" href="{product_url(i)}"><span><b>{esc(i["name"])}</b><small>{esc(i["causeOfDeath"])} · {esc(killer_label(i["killedBy"]).replace("Killed", "killed", 1))}</small></span><span class="when">{i["dateClose"]}</span></a>' for i in az)
+    short = lambda d: datetime.strptime(d, "%Y-%m-%d").strftime("%b %-d, %Y")
+    rows = "".join(f'<a class="row" href="{product_url(i)}"><span><b>{esc(i["name"])}</b><small>{esc(sc_label(i["causeOfDeath"]))} · {esc(killer_label(i["killedBy"]).replace("Killed", "killed", 1))}</small></span><span class="when"><time datetime="{i["dateClose"]}">{short(i["dateClose"])}</time></span></a>' for i in az)
     url = SITE_URL + "dead/"
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL}, {"@type": "ListItem", "position": 2, "name": "All tombstones", "item": url}]},
@@ -949,12 +1027,12 @@ def render_index_pages(data, killer_counts, list_tpl):
     out = list_tpl
     for k, v in {"{{TITLE}}": f"All {len(data)} Dead AI Products, A-Z | Killed by AI", "{{META_DESC}}": esc(f"Every one of the {len(data)} tombstones in the AI graveyard, alphabetically: models, apps, services, startups and hardware, each with dates, cause of death and source."),
                  "{{URL}}": url, "{{CRUMB}}": crumb_items(url, "All tombstones"), "{{H1}}": f"All {len(data)} tombstones, A-Z", "{{INTRO}}": esc("Every dead AI product tracked here, alphabetically. Each page has the launch and death dates, the cause, the killer, and a source."),
-                 "{{NAV}}": site_nav("/"), "{{AFTER}}": "", "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
+                 "{{NAV}}": site_nav("/"), "{{AFTER}}": "", "{{ACC}}": "var(--red)", "{{ACC_TEXT}}": "var(--red-text)", "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
         out = out.replace(k, v)
     d = ROOT / "dead"; d.mkdir(exist_ok=True); (d / "index.html").write_text(out)
 
     killers = sorted([(k, n) for k, n in killer_counts.items() if n >= 2], key=lambda x: -x[1])
-    rows = "".join(f'<a class="row" href="/killed-by/{killer_slug(k)}/"><span><b>{esc(k)}</b><small>{n} AI products killed{" · a cause, not a company" if k in KILLER_PROSE else ""}</small></span><span class="when">{n}</span></a>' for k, n in killers)
+    rows = "".join(f'<a class="row" href="/killed-by/{killer_slug(k)}/"><span><b>{esc(k)}</b><small>{n} AI products killed{" · a cause, not a company" if k in KILLER_PROSE else ""}</small></span><span class="when"><b>{n}</b></span></a>' for k, n in killers)
     url = SITE_URL + "killed-by/"
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL}, {"@type": "ListItem", "position": 2, "name": "By killer", "item": url}]},
@@ -962,7 +1040,7 @@ def render_index_pages(data, killer_counts, list_tpl):
     out = list_tpl
     for k, v in {"{{TITLE}}": "Who Kills the Most AI Products? | Killed by AI", "{{META_DESC}}": esc(f"AI product shutdowns by the company responsible. {killers[0][0]} leads with {killers[0][1]}. Every killer with two or more dead products has its own page."),
                  "{{URL}}": url, "{{CRUMB}}": crumb_items(url, "By killer"), "{{H1}}": "Killed by whom?", "{{INTRO}}": esc(f"Killers ranked by how many AI products they have shut down. {killers[0][0]} leads with {killers[0][1]}; every killer with two or more kills has its own page listing them. A few are causes rather than companies: products that collapsed on their own, or were killed by the market or by reality."),
-                 "{{NAV}}": site_nav("/"), "{{AFTER}}": "", "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
+                 "{{NAV}}": site_nav("/"), "{{AFTER}}": "", "{{ACC}}": "var(--red)", "{{ACC_TEXT}}": "var(--red-text)", "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
         out = out.replace(k, v)
     d = ROOT / "killed-by"; d.mkdir(exist_ok=True); (d / "index.html").write_text(out)
 
@@ -1396,6 +1474,9 @@ REDIRECT_STUB = """<!DOCTYPE html>
 <link rel="canonical" href="{target}">
 <meta name="robots" content="noindex, follow">
 <meta http-equiv="refresh" content="0; url={target}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<style>body{{margin:0;padding:2.5rem 1.5rem;background:#09090b;color:#a1a1aa;font:1rem/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}}a{{color:#f4f4f5;text-underline-offset:3px;overflow-wrap:anywhere}}</style>
 <script>location.replace("{target}" + location.search + location.hash);</script>
 </head>
 <body><p>This page has moved to <a href="{target}">{target}</a>.</p></body>
@@ -1707,7 +1788,6 @@ def main():
         total_companies = len({company_key(l["company"]) for l in layoffs})  # PayPal + PayPal (2026) = one company
         first_year = min(l["date"] for l in layoffs)[:4]
         layoffs_sorted = sorted(layoffs, key=lambda l: l["jobs"], reverse=True)
-        max_jobs = layoffs_sorted[0]["jobs"] if layoffs_sorted else 1
         now = datetime.utcnow()
         this_year = str(now.year)
 
@@ -1718,28 +1798,23 @@ def main():
         role_pages = {r for r, rows in by_role.items() if r != "various" and len(rows) >= 2}
 
         def role_chips(l):
-            return " ".join(f'<a class="mchip" href="/jobs/{r}/">{esc(roles_map.get(r, r))}</a>' if r in role_pages else f'<span class="mchip">{esc(roles_map.get(r, r))}</span>'
+            return " ".join(f'<span class="tag"><a href="/jobs/{r}/">{esc(roles_map.get(r, r))}</a></span>' if r in role_pages else f'<span class="tag">{esc(roles_map.get(r, r))}</span>'
                             for r in l.get("roleTags", []) if r != "various")
 
         def lrow(rank, l):
             fresh = (now - datetime.strptime(l["date"], "%Y-%m-%d")).days <= 45
             text = " ".join([l["company"], l["description"], l["roles"], " ".join(roles_map.get(r, r) for r in l.get("roleTags", []))]).lower()
             return f'''<article class="layoff-row" id="{slugify(l["company"])}" data-sort-row data-jobs="{l["jobs"]}" data-date="{l["date"].replace("-", "")}" data-name="{esc(l["company"].lower())}" data-f="{l["date"][:4]} {" ".join(l.get("roleTags", []))}" data-text="{esc(text)}">
-  <div class="layoff-bar-wrap">
-    <div class="layoff-bar" style="width: {l["jobs"] / max_jobs * 100:.1f}%"></div>
+  <div class="layoff-header">
+    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#{rank}</span> {esc(l["company"])}{'<span class="badge-new">New</span>' if fresh else ""}</h2>
+    <span class="layoff-count">{l["jobs"]:,}</span>
   </div>
-  <div class="layoff-info">
-    <div class="layoff-header">
-      <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#{rank}</span> {esc(l["company"])}{'<span class="badge-new">NEW</span>' if fresh else ""}</h2>
-      <span class="layoff-count">{l["jobs"]:,}</span>
-    </div>
-    <p class="layoff-desc">{esc(l["description"])}</p>
-    <div class="layoff-meta">
-      <span class="layoff-date">{fmt_month(l["date"])}</span>
-      {role_chips(l)}
-      <a class="layoff-source" href="{esc(l["source"])}" target="_blank" rel="noopener">Source ↗</a>
-    </div>
-  </div>
+  <p class="layoff-desc">{esc(l["description"])}</p>
+  <p class="layoff-meta">
+    <span class="tag layoff-date">{fmt_month(l["date"])}</span>
+    {role_chips(l)}
+    <span class="tag"><a class="layoff-source" href="{esc(l["source"])}" target="_blank" rel="noopener">Source ↗</a></span>
+  </p>
 </article>'''
 
         rows_html = "\n".join(lrow(k + 1, l) for k, l in enumerate(layoffs_sorted))
@@ -1795,10 +1870,10 @@ def main():
             dash_card("Layoffs that named each role", "Total size of the layoffs naming each role; a layoff that names several roles counts in full under each",
                       dash_hbars([(roles_map.get(r, r), j, fmt_k(j), f"/jobs/{r}/" if r in role_pages else None) for r, j, _ in role_rank[:10]])),
             dash_card("Latest AI layoffs", "Most recent announcements first",
-                      '<ul class="recent">' + "".join(f'<li><a href="#{slugify(l["company"])}">{esc(l["company"])} <em>{l["jobs"]:,}</em></a><span>{fmt_month(l["date"])}</span></li>' for l in latest[:8]) + "</ul>"),
+                      '<ul class="recent">' + "".join(f'<li><a href="#{slugify(l["company"])}">{esc(l["company"])}</a> <em>{l["jobs"]:,}</em><span>{fmt_month(l["date"])}</span></li>' for l in latest[:8]) + "</ul>"),
             dash_card(f"{this_year} so far vs. {prev_year}", f"Same calendar window, Jan 1 to {now.strftime('%b %-d')}",
                       dash_hbars([(this_year, year_2026_jobs, f"{year_2026_jobs:,}", None), (prev_year, ytd_prev, f"{ytd_prev:,}", None)])
-                      + f'<p class="dnote" style="margin:.75rem 0 0">{"Up" if year_2026_jobs >= ytd_prev else "Down"} {abs(year_2026_jobs - ytd_prev) / max(ytd_prev, 1) * 100:.0f}% on the same point last year. Companies citing AI in {this_year}: {len(by_year_c.get(this_year, ()))}.</p>'),
+                      + f'<p class="dnote after">{"Up" if year_2026_jobs >= ytd_prev else "Down"} {abs(year_2026_jobs - ytd_prev) / max(ytd_prev, 1) * 100:.0f}% on the same point last year. Companies citing AI in {this_year}: {len(by_year_c.get(this_year, ()))}.</p>'),
         ])
         dashboard = f'<div class="dash"><div class="tiles">{tiles}</div><div class="dash-grid">{cards}</div></div>'
         years_desc = sorted(by_year_n, reverse=True)
@@ -1840,7 +1915,6 @@ def main():
         fund_template = read_template("funding-template.html")
         total_m = sum(i["fundingM"] for i in funded)
         total_b = f"{total_m / 1000:.1f}"
-        max_fund = funded[0]["fundingM"]
 
         def days_alive(i):
             return max((datetime.strptime(i["dateClose"], "%Y-%m-%d") - datetime.strptime(i["dateOpen"], "%Y-%m-%d")).days, 1)
@@ -1857,21 +1931,19 @@ def main():
             text = " ".join([i["name"], i["description"], i.get("killedBy", ""), i.get("causeOfDeath", "")]).lower()
             killer = i.get("killedBy", "")
             return f'''<article class="fund-row" id="{slug}" data-sort-row data-fund="{i["fundingM"]}" data-date="{i["dateClose"].replace("-", "")}" data-burn="{burn_day(i):.0f}" data-life="{days_alive(i)}" data-name="{esc(i["name"].lower())}" data-f="{i.get("deathType", "")} {i["dateClose"][:4]}" data-text="{esc(text)}">
-  <div class="fund-bar-wrap"><div class="fund-bar" style="width:{i["fundingM"] / max_fund * 100:.1f}%"></div></div>
-  <div class="fund-info">
-    <div class="fund-header">
-      <h2 class="fund-name"><span class="rank" title="Rank by money raised">#{rank}</span> <a href="/dead/{slug}/">{esc(i["name"])}</a></h2>
-      <span class="fund-amount">{fmt_money_m(i["fundingM"])}</span>
-    </div>
-    <p class="fund-desc">{esc(i["description"])}</p>
-    <div class="fund-meta">
-      <span class="mchip">{esc(DEATH_LABEL.get(i.get("deathType"), "Killed"))}</span>
-      <span class="fund-dates">{i["dateOpen"][:4]} to {fmt_month(i["dateClose"])} · {yrs:.1f} yrs</span>
-      <span class="fund-dates">{fmt_burn(burn_day(i))}/day</span>
-      {f'<span class="fund-dates">Killed by {esc(killer)}</span>' if killer else ""}
-      {f'<a class="fund-source" href="{esc(i["link"])}" target="_blank" rel="noopener">Source ↗</a>' if i.get("link") else ""}
-    </div>
+  <div class="fund-header">
+    <h2 class="fund-name"><span class="rank" title="Rank by money raised">#{rank}</span> <a href="/dead/{slug}/">{esc(i["name"])}</a></h2>
+    <span class="fund-amount">{fmt_money_m(i["fundingM"])}</span>
   </div>
+  <p class="fund-desc">{esc(i["description"])}</p>
+  <p class="fund-meta">
+    <span class="tag">{esc(DEATH_LABEL.get(i.get("deathType"), "Killed"))}</span>
+    <span class="tag fund-dates">{i["dateOpen"][:4]} to {fmt_month(i["dateClose"])}</span>
+    <span class="tag fund-dates">{yrs:.1f} yrs</span>
+    <span class="tag fund-dates">{fmt_burn(burn_day(i))}/day</span>
+    {f'<span class="tag fund-dates">Killed by {esc(killer)}</span>' if killer else ""}
+    {f'<span class="tag"><a class="fund-source" href="{esc(i["link"])}" target="_blank" rel="noopener">Source ↗</a></span>' if i.get("link") else ""}
+  </p>
 </article>'''
 
         fund_rows = "\n".join(frow(k + 1, i) for k, i in enumerate(funded))
@@ -1959,36 +2031,34 @@ def main():
         for item in cs_sorted:
             shutdown = datetime.strptime(item["dateShutdown"], "%Y-%m-%d")
             days_left = (shutdown.date() - now.date()).days
+            # the figure is bold and in the page accent; the page script recomputes it on every visit
             if days_left > 0:
-                countdown = f"{days_left}d left"
+                countdown = f"<b>{days_left}</b> day{'' if days_left == 1 else 's'} left"
                 dead_class = ""
             elif days_left == 0:
-                countdown = "Today"
+                countdown = "<b>Today</b>"
                 dead_class = ""
             else:
-                countdown = "DEAD"
+                countdown = "<b>Dead</b>"
                 dead_class = " dead"
             overdue = days_left < 0 and still_alive(item)
             if overdue:   # the announced date passed but the thing still runs: say so instead of calling it dead
-                countdown, dead_class = "Overdue", " overdue"
+                countdown, dead_class = "<b>Overdue</b>", " overdue"
 
             tomb = ""
             if item.get("graveyardSlug") in gy_names:   # a related tombstone (e.g. the app died, this channel still lives)
-                tomb = f'<a class="doom-tomb" href="/dead/{esc(item["graveyardSlug"])}/">🪦 Related: the {esc(gy_names[item["graveyardSlug"]])} tombstone →</a>'
+                tomb = f'<a class="doom-tomb" href="/dead/{esc(item["graveyardSlug"])}/">Related: the {esc(gy_names[item["graveyardSlug"]])} tombstone →</a>'
             cs_rows.append(
                 f'''<article class="doom-card" id="{slugify(item["name"])}">
-  <div class="doom-header">
-    <h2 class="doom-name">{esc(item["name"])}</h2>
-    <span class="doom-countdown{dead_class}"{"" if overdue else f' data-shutdown="{item["dateShutdown"]}"'}>{countdown}</span>
+  <h2 class="doom-name">{esc(item["name"])}</h2>
+  <div class="doom-when">
+    <p class="doom-countdown{dead_class}"{"" if overdue else f' data-shutdown="{item["dateShutdown"]}"'}>{countdown}</p>
+    <p class="doom-date">{"Was due" if overdue else "Shutdown"}: <time datetime="{item["dateShutdown"]}">{fmt_date(item["dateShutdown"])}</time></p>
+    {f'<p class="doom-alive">Still running on <time datetime="{item["aliveAsOf"]}">{fmt_date(item["aliveAsOf"])}</time></p>' if overdue else ""}
   </div>
   <p class="doom-desc">{esc(item["description"])}</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: {esc(item["killedBy"])}</span>
-    <span>{"Was due" if overdue else "Shutdown"}: <time datetime="{item["dateShutdown"]}">{fmt_date(item["dateShutdown"])}</time></span>
-    {f'<span class="doom-alive">Still running on {fmt_date(item["aliveAsOf"])}</span>' if overdue else ""}
-    <span>Replacement: {esc(item["replacement"])}</span>
-    <a class="doom-source" href="{esc(item["link"])}" target="_blank" rel="noopener">Source</a>{tomb}
-  </div>
+  <p class="doom-meta"><span>Killed by: {esc(item["killedBy"])}</span> <span>Replacement: {esc(item["replacement"])}</span></p>
+  <p class="doom-links"><a class="doom-source" href="{esc(item["link"])}" target="_blank" rel="noopener">Source</a>{tomb}</p>
 </article>'''
             )
 

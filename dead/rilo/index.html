@@ -28,74 +28,103 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#09090b">
     <style>
+        /* Colors, type and the site menu come from the shared head block (SITE_HEAD in build.py). */
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#8f8f99;--line-dim:#52525b;--red:#ef4444;--red-text:#f87171;--red-dim:rgba(239,68,68,.15);--amber:#f59e0b}
+        :root{--wrap:760px}
         html{-webkit-text-size-adjust:100%}
-        body{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;font-size:1rem}
-        a{color:var(--text-muted)} a:hover{color:var(--red)}
-        :focus-visible{outline:2px solid var(--red);outline-offset:2px}
-        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-        .site-nav{display:flex;justify-content:center;gap:.25rem;padding:.5rem .75rem;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
-        .site-nav::-webkit-scrollbar{display:none}
-        .site-nav-item{display:inline-flex;align-items:center;min-height:44px;padding:0 .875rem;font-size:.875rem;font-weight:500;color:var(--text-muted);text-decoration:none;border-radius:.375rem;white-space:nowrap}
-        .site-nav-item:hover{color:var(--text);background:var(--bg-card)}
-        .site-nav-item.active{color:var(--red);background:var(--red-dim)}
-        .wrap{max-width:760px;margin:0 auto;padding:1.5rem 1rem 3rem}
-        .crumbs{font-size:.875rem;color:var(--text-dim);margin-bottom:1.25rem}
-        .crumbs a{color:var(--text-dim);text-decoration:none;display:inline-block;padding:.5rem 0}
-        .crumbs a:hover{color:var(--red);text-decoration:underline}
-        .crumbs ol{list-style:none;display:flex;flex-wrap:wrap;align-items:center}
-        .crumbs li+li::before{content:"›";content:"›" / "";margin:0 .375rem}
-        .crumbs [aria-current]{font-weight:600}
-        .stone{background:var(--bg-card);border:1px solid var(--border);border-radius:.75rem;padding:1.5rem;position:relative;overflow:hidden}
-        .stone::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--red),#7f1d1d)}
-        .verdict{display:inline-flex;align-items:center;gap:.5rem;min-height:36px;padding:0 .875rem;border-radius:999px;background:var(--red-dim);border:1px solid rgba(239,68,68,.3);color:var(--red-text);font-weight:700;font-size:.9375rem;margin-bottom:1rem}
-        h1{font-size:clamp(1.75rem,6vw,2.5rem);font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:.5rem}
-        .sub{color:var(--text-muted);font-size:1.0625rem;margin-bottom:1.25rem}
-        .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.75rem;margin:1.25rem 0}
-        .fact{background:var(--bg);border:1px solid var(--border);border-radius:.5rem;padding:.75rem}
-        .fact dt{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-dim);margin-bottom:.25rem}
-        .fact dd{font-size:1rem;font-weight:700;font-family:"SF Mono","Cascadia Code",monospace}
-        .fact dd a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--line-dim)}
-        .body{font-size:1.0625rem;line-height:1.7;color:#e4e4e7;margin:1rem 0}
-        .collateral{display:flex;gap:.625rem;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);border-radius:.5rem;padding:.875rem 1rem;color:#fcd34d;font-size:.9375rem;line-height:1.6;margin:1rem 0}
-        .actions{display:flex;flex-wrap:wrap;gap:.625rem;margin-top:1.25rem}
-        .btn{display:inline-flex;align-items:center;gap:.375rem;min-height:44px;padding:0 1rem;border-radius:.5rem;border:1px solid var(--border);background:var(--bg);color:var(--text);text-decoration:none;font-weight:600;font-size:.9375rem}
-        .btn:hover{border-color:var(--red);color:var(--red)}
-        .btn-red,.btn-red:hover{background:var(--red-dim);border-color:rgba(239,68,68,.35);color:var(--red-text)}
-        h2{font-size:1.25rem;font-weight:800;margin:2rem 0 .75rem;letter-spacing:-.01em}
-        .qa{background:var(--bg-card);border:1px solid var(--border);border-radius:.75rem;padding:1.25rem}
-        .qa h2{margin:0 0 .5rem;font-size:1.125rem}
-        .qa p{color:#e4e4e7;line-height:1.7}
-        .related{display:grid;gap:.5rem}
-        .rel{display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:56px;padding:.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:.5rem;text-decoration:none;color:var(--text)}
-        .rel:hover{border-color:var(--red)}
-        .rel b{font-size:1rem}
-        .rel span{font-size:.8125rem;color:var(--text-dim);white-space:nowrap;font-family:"SF Mono",monospace}
-        .prevnext{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.5rem}
-        .prevnext a{min-height:56px;display:flex;flex-direction:column;justify-content:center;padding:.625rem .875rem;background:var(--bg-card);border:1px solid var(--border);border-radius:.5rem;text-decoration:none;color:var(--text);font-size:.9375rem}
-        .prevnext a:hover{border-color:var(--red)}
-        .prevnext small{color:var(--text-dim);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}
-        .prevnext .next{text-align:right;align-items:flex-end}
-        .site-footer{text-align:center;padding:2rem 1rem 3rem;border-top:1px solid var(--border);color:var(--text-dim);font-size:.9375rem;line-height:1.8}
-        .h1sub{color:var(--text-muted);font-size:1.125rem;font-weight:600;margin:-.25rem 0 .5rem}
-        .sec{margin-top:1.75rem}.sec p{font-size:1.0625rem;line-height:1.7;color:#e4e4e7}
-        .timeline{list-style:none;padding:0;border-left:2px solid var(--border);margin-left:.5rem}
-        .timeline li{position:relative;padding:0 0 1rem 1.25rem}
-        .timeline li::before{content:"";position:absolute;left:-7px;top:.45rem;width:12px;height:12px;border-radius:50%;background:var(--red);border:2px solid var(--bg)}
-        .timeline time{display:block;font-family:"SF Mono","Cascadia Code",monospace;font-size:.8125rem;color:var(--text-dim);margin-bottom:.125rem}
-        .timeline p{margin:0;font-size:1rem;color:#e4e4e7}
-        .qa-item{border-top:1px solid var(--border);padding:.25rem 0}.qa-item:first-of-type{border-top:0}
-        .qa-item summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600;font-size:1rem;list-style:none}
-        .qa-item summary::-webkit-details-marker{display:none}.qa-item summary::before{content:"+";content:"+" / "";color:var(--red);margin-right:.625rem;font-weight:800}.qa-item[open] summary::before{content:"−";content:"−" / ""}
-        .qa-item p{padding:0 0 .875rem 1.25rem;color:#e4e4e7;line-height:1.7}
+        body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;font-size:1rem}
+        a{color:inherit}
+        .wrap,.site-footer{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+        .wrap{padding-top:1.25rem;padding-bottom:3rem}
+        .facts a,.actions a,.more,.prevnext a span,.site-footer a{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
+        .facts a:hover,.actions a:hover,.more:hover,.prevnext a:hover span,.site-footer a:hover{color:var(--red-text);text-decoration-color:var(--red)}
+
+        /* ---------- breadcrumb ---------- */
+        .crumbs{font-size:.875rem;color:var(--text-dim)}
+        .crumbs ol{list-style:none}
+        .crumbs li{display:inline}
+        /* the padding makes the tap target taller without moving the line; the separator never starts a line */
+        .crumbs a{padding-block:.625rem;color:inherit;text-decoration:none}
+        .crumbs a:hover{color:var(--red-text);text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:3px}
+        .crumbs li:not(:last-child)::after{content:"\00A0\00A0\203A\0020";content:"\00A0\00A0\203A\0020" / "";margin-right:.25rem}
+        .crumbs [aria-current]{color:var(--text-muted)}
+
+        /* ---------- the tombstone ---------- */
+        .stone{padding-top:1.25rem}
+        .verdict{font-size:.9375rem;font-weight:600;color:var(--red-text)}
+        h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3rem);font-weight:700;letter-spacing:-.015em;line-height:1.1;margin-top:.25rem;overflow-wrap:break-word}
+        .h1sub{margin-top:.5rem;font-size:1.0625rem;font-weight:600;color:var(--text-muted)}
+        .sub{margin-top:.625rem;color:var(--text-muted);font-size:1.0625rem;line-height:1.5}
+        .facts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:2.5rem;margin-top:1.5rem;border-top:1px solid var(--border)}
+        .facts>div{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.9375rem}
+        .facts dt{flex:none;color:var(--text-muted)}
+        .facts dd{text-align:right;font-weight:600}
+        .body{margin-top:1.5rem;font-size:1.0625rem;line-height:1.7}
+        .collateral{margin-top:1rem;color:var(--text-muted);line-height:1.7}
+        .collateral strong{font-weight:600;color:var(--text)}
+        .actions{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem 1.5rem;margin-top:1.5rem;font-size:.9375rem}
+        .actions a{display:inline-flex;align-items:center;min-height:44px;color:var(--text-muted)}
+        .actions .btn{padding:0 1rem;border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-weight:600;text-decoration:none}
+        .actions .btn:hover{border-color:var(--red);color:var(--red-text)}
+
+        /* ---------- sections ---------- */
+        .sec{margin-top:2.75rem}
+        h2{font-family:var(--serif);font-size:1.375rem;font-weight:700;line-height:1.25;margin-bottom:.75rem}
+        .sec>p{font-size:1.0625rem;line-height:1.7}
+        .sec-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:0 1rem}
+        .more{flex:none;display:inline-flex;align-items:center;min-height:32px;margin-bottom:.5rem;font-size:.875rem;color:var(--text-muted)}
+
+        .timeline{list-style:none;border-top:1px solid var(--border)}
+        .timeline li{display:grid;grid-template-columns:9.5rem minmax(0,1fr);column-gap:1.5rem;padding:.75rem 0;border-bottom:1px solid var(--border)}
+        .timeline time{font-size:.9375rem;font-weight:600}
+        .timeline p{color:var(--text-muted);line-height:1.65}
+
+        .faq-item{border-top:1px solid var(--border)}
+        .faq-item:last-of-type{border-bottom:1px solid var(--border)}
+        .faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:48px;padding:.625rem 0;font-weight:600;cursor:pointer;list-style:none}
+        .faq-item summary::-webkit-details-marker{display:none}
+        .faq-item summary h3{display:inline;font:inherit}
+        /* decorative markers are not read out; the summary already says expanded or collapsed */
+        .faq-item summary::after{content:"+" / "";flex:none;font-size:1.25rem;font-weight:400;color:var(--text-dim)}
+        .faq-item[open] summary::after{content:"\2212" / "";color:var(--red-text)}
+        .faq-answer{padding-bottom:1rem}
+        .faq-answer p{color:var(--text-muted);line-height:1.7}
         @supports (interpolate-size:allow-keywords){
-            .qa-item::details-content{interpolate-size:allow-keywords;overflow:clip;contain:layout}
-            .qa-item:not([open])::details-content{block-size:0}
-            @media(prefers-reduced-motion:no-preference){.qa-item::details-content{transition:block-size,content-visibility,display;transition-duration:.3s;transition-timing-function:ease-in-out;transition-behavior:allow-discrete}}
+            .faq-item::details-content{interpolate-size:allow-keywords;overflow:clip;contain:layout}
+            .faq-item:not([open])::details-content{block-size:0}
+            @media(prefers-reduced-motion:no-preference){.faq-item::details-content{transition:block-size,content-visibility,display;transition-duration:.3s;transition-timing-function:ease-in-out;transition-behavior:allow-discrete}}
         }
-        .more{font-size:.875rem;font-weight:500;color:var(--text-dim);margin-left:.5rem;text-decoration:none}.more:hover{color:var(--red)}
-        @media(max-width:600px){.site-nav{justify-content:flex-start;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent)}.wrap{padding:1rem .875rem 2.5rem}.stone{padding:1.25rem}.prevnext{grid-template-columns:1fr}.prevnext .next{text-align:left;align-items:flex-start}}
+
+        .related{border-top:1px solid var(--border)}
+        .rel{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;min-height:44px;padding:.625rem 0;border-bottom:1px solid var(--border);text-decoration:none}
+        .rel b{font-weight:600}
+        .rel span{flex:none;font-size:.875rem;color:var(--text-dim)}
+        .rel:hover b{color:var(--red-text)}
+
+        .prevnext{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.5rem 2rem;margin-top:2.75rem;padding-top:1rem;border-top:1px solid var(--border)}
+        .prevnext a{display:flex;flex-direction:column;justify-content:center;min-height:44px;text-decoration:none}
+        .prevnext small{font-size:.8125rem;color:var(--text-dim)}
+        .prevnext .next{grid-column:2;text-align:right;align-items:flex-end}
+
+        /* ---------- footer ---------- */
+        .site-footer{padding-bottom:3rem;font-size:.875rem;line-height:1.7;color:var(--text-dim)}
+        .site-footer::before{content:"";display:block;margin-bottom:1.5rem;border-top:1px solid var(--border)}
+        .site-footer a{color:var(--text-muted)}
+        .site-footer p+p{margin-top:.5rem}
+
+        @media(max-width:600px){
+            .wrap{padding-top:.75rem;padding-bottom:2.5rem}
+            .stone{padding-top:.75rem}
+            .sub,.body,.sec>p{font-size:1rem}
+            .facts{grid-template-columns:minmax(0,1fr)}
+            .timeline li{grid-template-columns:minmax(0,1fr);row-gap:.125rem}
+            .sec{margin-top:2.25rem}
+            .prevnext{grid-template-columns:minmax(0,1fr);margin-top:2.25rem}
+            .prevnext .next{grid-column:auto;text-align:left;align-items:flex-start}
+        }
+        @media(pointer:coarse){.more{min-height:44px}}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+        @media(forced-colors:active){.verdict,.faq-item[open] summary::after{color:CanvasText}}
     </style>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -229,28 +258,28 @@
     <main class="wrap">
         <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Killed by AI</a></li><li><a href="/dead/">All tombstones</a></li><li><a href="/dead/rilo/" aria-current="page">Rilo</a></li></ol></nav>
         <article class="stone">
-            <div class="verdict">🪦 Dead</div>
+            <p class="verdict">Dead</p>
             <h1>Rilo</h1>
             <p class="sub">Acqui-hired · Acqui-hire · shut down September 2, 2026</p>
             <dl class="facts">
-                <div class="fact"><dt>Born</dt><dd><time datetime="2025-01-01">January 1, 2025</time></dd></div>
-                <div class="fact"><dt>Died</dt><dd><time datetime="2026-09-02">September 2, 2026</time></dd></div>
-                <div class="fact"><dt>Lifespan</dt><dd>1y 8m</dd></div>
-                <div class="fact"><dt>Cause of death</dt><dd>Acqui-hire</dd></div>
-                <div class="fact"><dt>Killed by</dt><dd><a href="/killed-by/adobe/">Adobe</a></dd></div>
-                <div class="fact"><dt>Type</dt><dd>Startup</dd></div>
+                <div><dt>Born</dt><dd><time datetime="2025-01-01">January 1, 2025</time></dd></div>
+                <div><dt>Died</dt><dd><time datetime="2026-09-02">September 2, 2026</time></dd></div>
+                <div><dt>Lifespan</dt><dd>1y 8m</dd></div>
+                <div><dt>Cause of death</dt><dd>Acqui-hire</dd></div>
+                <div><dt>Killed by</dt><dd><a href="/killed-by/adobe/">Adobe</a></dd></div>
+                <div><dt>Type</dt><dd>Startup</dd></div>
             </dl>
             <p class="body">An Indian startup founded in 2025 by IIT Bombay alumni Dhruv Jaglan and Georgi Boby, selling AI agents for marketing work described in plain English: competitor intelligence, campaign research, social outreach, content repurposing and sales-call analysis. It raised $1M from Peak XV Partners, DeVC and Day Zero Ventures at a $10M valuation and, by Jaglan&#x27;s account, reached 10,000 users within months of launch. On September 2, 2026 Adobe acquired it in an undisclosed deal that licensed its technology and brought its six-person team into Adobe. The platform shut down after the deal; no switch-off date was published.</p>
-            <div class="collateral"><span aria-hidden="true">⚠️</span><div><strong>Collateral damage:</strong> Existing customers lost access to the platform, with no data-export window announced.</div></div>
-            <div class="actions"><a class="btn btn-red" href="https://inc42.com/buzz/adobe-acquires-peak-xv-backed-ai-martech-startup-rilo/" target="_blank" rel="noopener">Source ↗</a><a class="btn" href="/#rilo">View in the graveyard</a><a class="btn" href="/embed/?slug=rilo#tombstone">Embed this tombstone</a><a class="btn" href="/about/#corrections">Suggest a correction</a></div>
+            <p class="collateral"><strong>Collateral damage:</strong> Existing customers lost access to the platform, with no data-export window announced.</p>
+            <div class="actions"><a class="btn" href="https://inc42.com/buzz/adobe-acquires-peak-xv-backed-ai-martech-startup-rilo/" target="_blank" rel="noopener">Source ↗</a><a href="/#rilo">View in the graveyard</a><a href="/embed/?slug=rilo#tombstone">Embed this tombstone</a><a href="/about/#corrections">Suggest a correction</a></div>
         </article>
         
-        <section class="qa" style="margin-top:1.5rem" aria-labelledby="qa-title">
+        <section class="sec" aria-labelledby="qa-title">
             <h2 id="qa-title">Questions about Rilo</h2>
-            <details class="qa-item"><summary>Is Rilo dead?</summary><p>Yes. Rilo was shut down on September 2, 2026, 1 year, 8 months after its launch on January 1, 2025. The cause of death was acqui-hire; it was killed by Adobe. Classification: acqui-hired. Details and the source are above.</p></details>
+            <details class="faq-item"><summary><h3>Is Rilo dead?</h3></summary><div class="faq-answer"><p>Yes. Rilo was shut down on September 2, 2026, 1 year, 8 months after its launch on January 1, 2025. The cause of death was acqui-hire; it was killed by Adobe. Classification: acqui-hired. Details and the source are above.</p></div></details>
         </section>
-        <h2>Also killed by Adobe <a class="more" href="/killed-by/adobe/">All 2 →</a></h2><div class="related"><a class="rel" href="https://killedbyai.net/dead/adobe-animate/"><b>Adobe Animate</b><span>2026</span></a></div>
-        <nav class="prevnext" aria-label="Chronological"><a class="prev" href="https://killedbyai.net/dead/raptor-mini-github-copilot/"><small>← Died before</small>Raptor mini (GitHub Copilot)</a><a class="next" href="https://killedbyai.net/dead/trucksmarter-dispatch/"><small>Died after →</small>TruckSmarter Dispatch</a></nav>
+        <section class="sec"><div class="sec-head"><h2>Also killed by Adobe</h2><a class="more" href="/killed-by/adobe/">All 2 →</a></div><div class="related"><a class="rel" href="https://killedbyai.net/dead/adobe-animate/"><b>Adobe Animate</b><span>2026</span></a></div></section>
+        <nav class="prevnext" aria-label="Chronological"><a class="prev" href="https://killedbyai.net/dead/raptor-mini-github-copilot/"><small>← Died before</small><span>Raptor mini (GitHub Copilot)</span></a><a class="next" href="https://killedbyai.net/dead/trucksmarter-dispatch/"><small>Died after →</small><span>TruckSmarter Dispatch</span></a></nav>
     </main>
     <footer class="site-footer">
         <p>One of 173 tombstones. Entry last updated <time datetime="2026-10-08">October 8, 2026</time>. Data is <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>: reuse it and link back.</p>

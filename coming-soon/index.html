@@ -26,54 +26,64 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#09090b">
     <style>
+        /* Colors, type and the site menu come from the shared head block (SITE_HEAD in build.py). */
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#52525b;--yellow:#eab308;--yellow-dim:rgba(234,179,8,0.1)}
-        body{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
-        .header{text-align:center;padding:2.5rem 1.5rem 1rem;max-width:700px;margin:0 auto}
-        .header h1{font-size:clamp(1.75rem,5vw,2.5rem);font-weight:900;letter-spacing:-0.03em;margin-bottom:0.5rem}
-        .header h1 span{color:var(--yellow)}
-        .header p{color:var(--text-muted);font-size:0.95rem}
-        .site-nav{display:flex;justify-content:center;gap:0.125rem;padding:0.5rem 0.75rem;border-bottom:1px solid var(--border)}
-        .site-nav-item{padding:0.375rem 0.75rem;font-size:0.6875rem;font-weight:500;color:var(--text-dim);text-decoration:none;border-radius:0.25rem;transition:all 0.15s}
-        .site-nav-item:hover{color:#a1a1aa;background:#111113}
-        .site-nav-item.active{color:var(--yellow);background:var(--yellow-dim)}
-        .list{max-width:900px;margin:1.5rem auto 3rem;padding:0 1.5rem;display:flex;flex-direction:column;gap:0.75rem}
-        .doom-card{background:var(--bg-card);border:1px solid var(--border);border-radius:0.5rem;padding:1.25rem 1.5rem;transition:border-color 0.2s;position:relative;overflow:hidden}
-        .doom-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--yellow)}
-        .doom-card:hover{border-color:var(--yellow)}
-        .doom-header{display:flex;justify-content:space-between;align-items:flex-start;gap:0.75rem;margin-bottom:0.5rem}
-        .doom-name{font-size:1.0625rem;font-weight:700}
-        .doom-countdown{font-family:'SF Mono','Cascadia Code',monospace;font-size:0.75rem;font-weight:700;color:var(--yellow);background:var(--yellow-dim);padding:0.25rem 0.625rem;border-radius:0.25rem;white-space:nowrap;flex-shrink:0}
-        .doom-countdown.dead{color:#ef4444;background:rgba(239,68,68,0.12)}
-        .doom-countdown.overdue{color:#fb923c;background:rgba(249,115,22,0.14)}
-        .doom-alive{color:#fb923c}
-        .doom-desc{font-size:0.8125rem;color:var(--text-muted);line-height:1.6;margin-bottom:0.5rem}
-        .doom-meta{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;font-size:0.6875rem;color:var(--text-dim)}
-        .doom-tag{background:#1c1c1f;padding:0.125rem 0.5rem;border-radius:0.25rem}
-        .doom-source{color:var(--text-muted);text-decoration:none;background:#1c1c1f;padding:0.125rem 0.5rem;border-radius:0.25rem;font-size:0.625rem}
-        .doom-source:hover{color:var(--yellow);background:var(--yellow-dim)}
-        .site-footer{text-align:center;padding:2rem 1.5rem 3rem;border-top:1px solid var(--border);max-width:700px;margin:0 auto}
-        .site-footer p{color:var(--text-dim);font-size:0.8125rem;line-height:1.8}
-        .site-footer a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
-        .site-footer a:hover{color:var(--yellow)}
-        @media(max-width:600px){.site-nav{gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;justify-content:flex-start;padding:0.375rem 0.5rem}.site-nav::-webkit-scrollbar{display:none}.site-nav-item{flex-shrink:0;font-size:0.625rem;padding:0.3rem 0.5rem}.header{padding:1.75rem 0.75rem 0.75rem}.header h1{font-size:1.5rem}.list{padding:0 0.75rem}.doom-card{padding:1rem 1.125rem}.doom-name{font-size:0.9375rem}.doom-desc{font-size:0.75rem}}
+        :root{--wrap:1000px;--acc:#eab308;--overdue:#fb923c}
+        html{-webkit-text-size-adjust:100%}
+        body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+        a{color:inherit}
+        .header,.list,.site-footer{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+        .last-updated a,.doom-links a,.site-footer a{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
+        .last-updated a:hover,.doom-links a:hover,.site-footer a:hover{color:var(--acc);text-decoration-color:var(--acc)}
 
-        /* ===== UX & accessibility floors (audit 2026-09) ===== */
-        :root { --text-dim: #8f8f99; }
-        html { -webkit-text-size-adjust: 100%; }
-        :focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
-        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
-        .site-nav { gap: .25rem; }
-        .site-nav-item { min-height: 44px; display: inline-flex; align-items: center; font-size: .875rem; padding: 0 .875rem; color: var(--text-muted); }
-        .site-nav-item.active { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
-        .layoff-source, .fund-source, .doom-source { min-height: 36px; display: inline-flex; align-items: center; font-size: .8125rem; }
-        .layoff-desc, .fund-desc, .doom-desc { font-size: .9375rem; }
-        .layoff-meta, .fund-meta, .doom-meta { font-size: .8125rem; }
-        .last-updated { font-size: .8125rem; color: var(--text-muted); }
-        @media (max-width: 600px) { .site-nav { justify-content: flex-start; -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); mask-image: linear-gradient(90deg, #000 90%, transparent); } .site-nav-item { font-size: .8125rem; padding: 0 .75rem; } .layoff-desc, .fund-desc, .doom-desc { font-size: .875rem; } }
-        .doom-tomb{display:inline-flex;align-items:center;min-height:36px;padding:0 .625rem;border-radius:.25rem;background:rgba(239,68,68,.12);color:#f87171;text-decoration:none;font-size:.8125rem;font-weight:600}.doom-tomb:hover{background:rgba(239,68,68,.22)}
-        .last-updated{display:block;text-align:center;margin-top:.5rem}
-        .ics-link{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}.ics-link:hover{color:#fbbf24}
+        /* ---------- header ---------- */
+        .header{padding-top:2.5rem;padding-bottom:1.75rem}
+        .header h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3rem);font-weight:700;letter-spacing:-.015em;line-height:1.1}
+        .header h1 span{color:var(--acc)}
+        .lede{max-width:44rem;margin-top:.75rem;color:var(--text-muted);font-size:1.0625rem;line-height:1.5}
+        .last-updated{max-width:44rem;margin-top:.75rem;font-size:.875rem;line-height:1.7;color:var(--text-dim);scroll-margin-top:1rem}
+        .last-updated a{color:var(--text-muted)}
+
+        /* ---------- the schedule ---------- */
+        .list{padding-bottom:3rem}
+        .doom-card{display:grid;grid-template-columns:13.5rem minmax(0,1fr);column-gap:2rem;padding:1.25rem 0;border-top:1px solid var(--border);scroll-margin-top:1rem}
+        .doom-card:target .doom-name{color:var(--acc)}
+        .doom-name{grid-column:2;font-size:1.0625rem;font-weight:650;line-height:1.3}
+        .doom-when{grid-column:1;grid-row:1 / span 4;font-size:.8125rem;line-height:1.5;color:var(--text-muted)}
+        .doom-countdown{color:var(--text-muted)}
+        .doom-countdown b{margin-right:.125rem;font-size:1.375rem;font-weight:700;line-height:1.2;color:var(--acc)}
+        .doom-countdown.dead b,.doom-countdown.overdue b{font-size:1.0625rem;line-height:1.5}
+        .doom-countdown.dead b{color:var(--red-text)}
+        .doom-countdown.overdue b,.doom-alive{color:var(--overdue)}
+        .doom-date{margin-top:.125rem}
+        .doom-when time{white-space:nowrap}
+        .doom-desc{grid-column:2;max-width:44rem;margin-top:.375rem;color:var(--text-muted);font-size:.9375rem;line-height:1.6}
+        .doom-meta{grid-column:2;max-width:44rem;margin-top:.5rem;font-size:.8125rem;line-height:1.6;color:var(--text-dim)}
+        .doom-meta span:not(:last-child)::after{content:"\00A0\00B7" / ""}
+        .doom-links{grid-column:2;display:flex;flex-wrap:wrap;gap:0 1.5rem;margin-top:.25rem;font-size:.8125rem;color:var(--text-muted)}
+        .doom-links a{display:inline-flex;align-items:center;min-height:32px}
+
+        /* ---------- footer ---------- */
+        .site-footer{padding-bottom:3rem;font-size:.875rem;line-height:1.7;color:var(--text-dim)}
+        .site-footer::before{content:"";display:block;margin-bottom:1.5rem;border-top:1px solid var(--border)}
+        .site-footer a{color:var(--text-muted)}
+        .footer-links{margin-top:.5rem}
+
+        @media(max-width:700px){
+            /* one column: name, then the countdown and the date on a line of their own */
+            .doom-card{grid-template-columns:minmax(0,1fr);padding:1rem 0}
+            .doom-name,.doom-when,.doom-desc,.doom-meta,.doom-links{grid-column:1;grid-row:auto}
+            .doom-when{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .875rem;margin-top:.25rem}
+            .doom-date{margin-top:0}
+        }
+        @media(max-width:600px){
+            .header{padding-top:1.5rem;padding-bottom:1.25rem}
+            .lede{font-size:1rem}
+        }
+        /* the padding makes the calendar links taller to tap without moving the line */
+        @media(pointer:coarse){.doom-links a{min-height:44px}.last-updated{line-height:2}.last-updated a{padding-block:.5rem}}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+        @media(forced-colors:active){.doom-countdown b,.doom-alive{color:CanvasText}}
     </style>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -1512,476 +1522,377 @@
 
     <header class="header">
         <h1>Upcoming AI <span>Shutdowns</span></h1>
-        <p>Coming soon to the graveyard: the deprecation schedule for 33 AI products with confirmed death dates. Already announced, just counting down.</p>
-        <span class="last-updated" id="calendar">Last updated: November 14, 2026 · 📅 Shutdown calendar: <a href="webcal://killedbyai.net/deprecations.ics" class="ics-link">Subscribe (Apple / Outlook)</a> · <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fkilledbyai.net%2Fdeprecations.ics" class="ics-link" target="_blank" rel="noopener">Add to Google Calendar (desktop)</a> · <a href="/deprecations.ics" class="ics-link" download>Download .ics</a></span>
+        <p class="lede">Coming soon to the graveyard: the deprecation schedule for 33 AI products with confirmed death dates. Already announced, just counting down.</p>
+        <p class="last-updated" id="calendar">Last updated: November 14, 2026 · Shutdown calendar: <a href="webcal://killedbyai.net/deprecations.ics" class="ics-link">Subscribe (Apple / Outlook)</a> · <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fkilledbyai.net%2Fdeprecations.ics" class="ics-link" target="_blank" rel="noopener">Add to Google Calendar (desktop)</a> · <a href="/deprecations.ics" class="ics-link" download>Download .ics</a></p>
     </header>
     <main class="list">
 <article class="doom-card" id="openai-models-in-cursor">
-  <div class="doom-header">
-    <h2 class="doom-name">OpenAI Models in Cursor</h2>
-    <span class="doom-countdown overdue">Overdue</span>
+  <h2 class="doom-name">OpenAI Models in Cursor</h2>
+  <div class="doom-when">
+    <p class="doom-countdown overdue"><b>Overdue</b></p>
+    <p class="doom-date">Was due: <time datetime="2026-11-12">November 12, 2026</time></p>
+    <p class="doom-alive">Still running on <time datetime="2026-11-14">November 14, 2026</time></p>
   </div>
   <p class="doom-desc">OpenAI is ending its contract to supply models to the AI code editor Cursor, using a change-of-ownership clause after SpaceX completed its $60B purchase of Cursor in August. &#x27;It boils down to trust,&#x27; said OpenAI&#x27;s Thibault Sottiaux, citing Elon Musk&#x27;s history of breaking contracts. OpenAI proposed November 12, 2026 as the cutoff, but that date was never confirmed by both companies: on November 14 Cursor&#x27;s model list still carried 17 GPT models, pinned to the set it had in August. Once the cutoff lands, developers can still bring their own OpenAI API keys, and Cursor says OpenAI models were only about 5% of its traffic.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: OpenAI</span>
-    <span>Was due: <time datetime="2026-11-12">November 12, 2026</time></span>
-    <span class="doom-alive">Still running on November 14, 2026</span>
-    <span>Replacement: Bring-your-own OpenAI API key or OpenAI&#x27;s IDE extension; Claude and other models in Cursor</span>
-    <a class="doom-source" href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: OpenAI</span> <span>Replacement: Bring-your-own OpenAI API key or OpenAI&#x27;s IDE extension; Claude and other models in Cursor</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="reddit-rss-feeds-public-api">
-  <div class="doom-header">
-    <h2 class="doom-name">Reddit RSS Feeds &amp; Public API</h2>
-    <span class="doom-countdown overdue">Overdue</span>
+  <h2 class="doom-name">Reddit RSS Feeds &amp; Public API</h2>
+  <div class="doom-when">
+    <p class="doom-countdown overdue"><b>Overdue</b></p>
+    <p class="doom-date">Was due: <time datetime="2026-11-13">November 13, 2026</time></p>
+    <p class="doom-alive">Still running on <time datetime="2026-11-14">November 14, 2026</time></p>
   </div>
   <p class="doom-desc">Killed by AI in the literal sense. Reddit said it would stop supporting RSS on November 13, because &#x27;RSS has now become a common surface for large-scale scraping and automated abuse&#x27;. The date came and went: subreddit feeds were still answering on November 14, unsupported and liable to break without warning. New public API requests stopped on October 31, unregistered apps lose access from January 12, 2027, and the remaining public endpoints close that March. The data now goes to paying AI licensees instead; that revenue line grew 24% last quarter.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Reddit</span>
-    <span>Was due: <time datetime="2026-11-13">November 13, 2026</time></span>
-    <span class="doom-alive">Still running on November 14, 2026</span>
-    <span>Replacement: None for outside readers; registered apps only (deadline Jan 12, 2027)</span>
-    <a class="doom-source" href="https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Reddit</span> <span>Replacement: None for outside readers; registered apps only (deadline Jan 12, 2027)</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="claude-opus-4-8-claude-opus-5-gpt-5-6-terra-in-github-copilot">
-  <div class="doom-header">
-    <h2 class="doom-name">Claude Opus 4.8, Claude Opus 5 &amp; GPT-5.6 Terra in GitHub Copilot</h2>
-    <span class="doom-countdown" data-shutdown="2026-11-16">2d left</span>
+  <h2 class="doom-name">Claude Opus 4.8, Claude Opus 5 &amp; GPT-5.6 Terra in GitHub Copilot</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-11-16"><b>2</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-11-16">November 16, 2026</time></p>
+    
   </div>
   <p class="doom-desc">GitHub removes three models from every Copilot surface (Chat, inline edits, ask and agent modes, code completions) on November 16. Claude Opus 4.8 and Claude Opus 5 point to Claude Opus 5.5, GPT-5.6 Terra to GPT-6.1 Sol or GPT-6 Luna. One exception: individual subscribers on annual plans keep Opus 4.8. Anthropic&#x27;s own API keeps Opus 5 until at least July 2027.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: GitHub / Microsoft</span>
-    <span>Shutdown: <time datetime="2026-11-16">November 16, 2026</time></span>
-    
-    <span>Replacement: Claude Opus 5.5; GPT-6.1 Sol or GPT-6 Luna</span>
-    <a class="doom-source" href="https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: GitHub / Microsoft</span> <span>Replacement: Claude Opus 5.5; GPT-6.1 Sol or GPT-6 Luna</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="google-opal-gemini-gems">
-  <div class="doom-header">
-    <h2 class="doom-name">Google Opal &amp; Gemini Gems</h2>
-    <span class="doom-countdown" data-shutdown="2026-11-17">3d left</span>
+  <h2 class="doom-name">Google Opal &amp; Gemini Gems</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-11-17"><b>3</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-11-17">November 17, 2026</time></p>
+    
   </div>
   <p class="doom-desc">Google switches off Opal, its Labs no-code builder for AI mini-apps launched in July 2025, on November 17. The &#x27;Gems made by Labs&#x27; it powered go the same day, and neither migrates anywhere. Ordinary Gems, the custom chatbots Google shipped in 2024, are being converted into Gemini Skills: personal accounts from November, Workspace business in March 2027 and education in June 2027. Opal workflow files stay in Google Drive as plain text; they just stop running.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Google</span>
-    <span>Shutdown: <time datetime="2026-11-17">November 17, 2026</time></span>
-    
-    <span>Replacement: Gemini Skills / Google AI Studio</span>
-    <a class="doom-source" href="https://developers.google.com/opal/faq" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Google</span> <span>Replacement: Gemini Skills / Google AI Studio</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://developers.google.com/opal/faq" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="gemini-live-tts-preview-models">
-  <div class="doom-header">
-    <h2 class="doom-name">Gemini Live &amp; TTS Preview Models</h2>
-    <span class="doom-countdown" data-shutdown="2026-11-17">3d left</span>
+  <h2 class="doom-name">Gemini Live &amp; TTS Preview Models</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-11-17"><b>3</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-11-17">November 17, 2026</time></p>
+    
   </div>
   <p class="doom-desc">Five voice previews leave the Gemini API no earlier than November 17. Two are Live API models, gemini-3.1-flash-live-preview and gemini-2.5-flash-native-audio-preview-12-2025. The other three are text-to-speech models: gemini-3.1-flash-tts-preview, gemini-2.5-flash-preview-tts and gemini-2.5-pro-preview-tts. The 2.5 TTS models spent 18 months in preview and never left it; the 3.1 Live preview, released in March, gets eight. The replacements, gemini-3.8-live and gemini-3.8-flash-tts, went GA on September 15 and 22.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Google</span>
-    <span>Shutdown: <time datetime="2026-11-17">November 17, 2026</time></span>
-    
-    <span>Replacement: gemini-3.8-live / gemini-3.8-flash-tts / gemini-3.8-flash-lite-tts</span>
-    <a class="doom-source" href="https://ai.google.dev/gemini-api/docs/deprecations" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Google</span> <span>Replacement: gemini-3.8-live / gemini-3.8-flash-tts / gemini-3.8-flash-lite-tts</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://ai.google.dev/gemini-api/docs/deprecations" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="azure-openai-o-series-o1-o3-o4-mini-o3-pro">
-  <div class="doom-header">
-    <h2 class="doom-name">Azure OpenAI o-series (o1, o3, o4-mini, o3-pro)</h2>
-    <span class="doom-countdown" data-shutdown="2026-11-19">5d left</span>
+  <h2 class="doom-name">Azure OpenAI o-series (o1, o3, o4-mini, o3-pro)</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-11-19"><b>5</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-11-19">November 19, 2026</time></p>
+    
   </div>
   <p class="doom-desc">Microsoft folded its staggered schedule into one date: o1, o1-pro, o3, o3-deep-research, o3-mini, o3-pro and o4-mini all retire November 19, 2026. That pushed o3-mini back from October 1, o4-mini from October 16 and o1, o1-pro and o3 from October 21, and pulled o3-pro forward from December 17. gpt-5.6-sol is the recommended replacement, or gpt-5.6-terra for o3-mini and o4-mini; codex-mini goes four days earlier with none. Azure now keeps o1 and the minis about four weeks longer than OpenAI&#x27;s own API, and kills o3 and o3-pro about three weeks sooner.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Microsoft Azure</span>
-    <span>Shutdown: <time datetime="2026-11-19">November 19, 2026</time></span>
-    
-    <span>Replacement: gpt-5.6-sol / gpt-5.6-terra (o3-mini, o4-mini)</span>
-    <a class="doom-source" href="https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Microsoft Azure</span> <span>Replacement: gpt-5.6-sol / gpt-5.6-terra (o3-mini, o4-mini)</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="gemini-3-6-flash-3-7-flash-vertex-ai">
-  <div class="doom-header">
-    <h2 class="doom-name">Gemini 3.6 Flash &amp; 3.7 Flash (Vertex AI)</h2>
-    <span class="doom-countdown" data-shutdown="2026-11-19">5d left</span>
+  <h2 class="doom-name">Gemini 3.6 Flash &amp; 3.7 Flash (Vertex AI)</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-11-19"><b>5</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-11-19">November 19, 2026</time></p>
+    
   </div>
   <p class="doom-desc">This is what Google&#x27;s &#x27;short-term availability&#x27; GA tier means in practice. Gemini 3.6 Flash retires from Vertex AI on November 19, 121 days after its July 21 release, and 3.7 Flash follows on January 28, 2027, 168 days after release. Both are replaced by gemini-3.8-flash. Google never dated the notice; the dates appeared in its model-versions table. GitHub Copilot had already dropped 3.6 Flash on October 2.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Google</span>
-    <span>Shutdown: <time datetime="2026-11-19">November 19, 2026</time></span>
-    
-    <span>Replacement: gemini-3.8-flash</span>
-    <a class="doom-source" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Google</span> <span>Replacement: gemini-3.8-flash</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="vertex-ai-extensions">
-  <div class="doom-header">
-    <h2 class="doom-name">Vertex AI Extensions</h2>
-    <span class="doom-countdown" data-shutdown="2026-11-26">12d left</span>
+  <h2 class="doom-name">Vertex AI Extensions</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-11-26"><b>12</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-11-26">November 26, 2026</time></p>
+    
   </div>
   <p class="doom-desc">Google&#x27;s managed tool-calling framework for Gemini, deprecated with the standard six-month window and switched off after November 26, 2026. The replacement is the Agent Platform, the third name for this idea in as many years.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Google Cloud</span>
-    <span>Shutdown: <time datetime="2026-11-26">November 26, 2026</time></span>
-    
-    <span>Replacement: Agent Platform</span>
-    <a class="doom-source" href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/extensions/overview" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Google Cloud</span> <span>Replacement: Agent Platform</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/extensions/overview" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="ai21-jamba-1-5-large-mini-on-amazon-bedrock">
-  <div class="doom-header">
-    <h2 class="doom-name">AI21 Jamba 1.5 Large &amp; Mini on Amazon Bedrock</h2>
-    <span class="doom-countdown" data-shutdown="2026-11-26">12d left</span>
+  <h2 class="doom-name">AI21 Jamba 1.5 Large &amp; Mini on Amazon Bedrock</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-11-26"><b>12</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-11-26">November 26, 2026</time></p>
+    
   </div>
   <p class="doom-desc">AWS moved ai21.jamba-1-5-large-v1:0 and ai21.jamba-1-5-mini-v1:0 to Legacy on May 26, 2026, which cut off new customers. Both entered paid public extended access on August 26 and reach end of life in us-east-1, their only listed region, on November 26. AWS names no replacement. Google Cloud already shut both Jamba 1.5 models down on February 27, 2026, and TwelveLabs&#x27; Marengo Embed 2.7 leaves Bedrock four days after them, on November 30.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: AWS</span>
-    <span>Shutdown: <time datetime="2026-11-26">November 26, 2026</time></span>
-    
-    <span>Replacement: None named</span>
-    <a class="doom-source" href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: AWS</span> <span>Replacement: None named</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="claude-sonnet-4-5">
-  <div class="doom-header">
-    <h2 class="doom-name">Claude Sonnet 4.5</h2>
-    <span class="doom-countdown" data-shutdown="2026-11-30">16d left</span>
+  <h2 class="doom-name">Claude Sonnet 4.5</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-11-30"><b>16</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-11-30">November 30, 2026</time></p>
+    
   </div>
   <p class="doom-desc">Anthropic&#x27;s September 2025 coding model, billed at launch as the best in the world for agents and computer use, retires from the Claude API on November 30. Anthropic announced the retirement on the model&#x27;s first birthday. Opus 4.5 is next in line: &#x27;not sooner than November 24, 2026.&#x27;</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Anthropic</span>
-    <span>Shutdown: <time datetime="2026-11-30">November 30, 2026</time></span>
-    
-    <span>Replacement: claude-sonnet-5-5</span>
-    <a class="doom-source" href="https://platform.claude.com/docs/en/about-claude/model-deprecations" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Anthropic</span> <span>Replacement: claude-sonnet-5-5</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://platform.claude.com/docs/en/about-claude/model-deprecations" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="openai-agent-builder-evals-reusable-prompts">
-  <div class="doom-header">
-    <h2 class="doom-name">OpenAI Agent Builder, Evals &amp; Reusable Prompts</h2>
-    <span class="doom-countdown" data-shutdown="2026-11-30">16d left</span>
+  <h2 class="doom-name">OpenAI Agent Builder, Evals &amp; Reusable Prompts</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-11-30"><b>16</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-11-30">November 30, 2026</time></p>
+    
   </div>
   <p class="doom-desc">The visual agent canvas OpenAI introduced at DevDay 2025 as the centrepiece of AgentKit dies on November 30, along with the Evals platform and the /v1/prompts API. Evals goes read-only on October 31. Agent Builder lasted eight months in beta before its death was announced.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: OpenAI</span>
-    <span>Shutdown: <time datetime="2026-11-30">November 30, 2026</time></span>
-    
-    <span>Replacement: Agents SDK; Workspace Agents in ChatGPT; prompts in your own code; Promptfoo for evals</span>
-    <a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: OpenAI</span> <span>Replacement: Agents SDK; Workspace Agents in ChatGPT; prompts in your own code; Promptfoo for evals</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="mozilla-solo">
-  <div class="doom-header">
-    <h2 class="doom-name">Mozilla Solo</h2>
-    <span class="doom-countdown" data-shutdown="2026-11-30">16d left</span>
+  <h2 class="doom-name">Mozilla Solo</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-11-30"><b>16</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-11-30">November 30, 2026</time></p>
+    
   </div>
   <p class="doom-desc">Mozilla&#x27;s AI website builder for sole traders, launched in December 2023 as a &#x27;Mozilla Innovation Project&#x27;: describe your business and an LLM wrote and hosted the site. About 54,000 people built pages with it. It &#x27;will cease operations on Nov 30, 2026&#x27;, and every site and its data are deleted that day. Users get a ZIP with an HTML export and a CSV of image links; the images have to be downloaded one by one. Mozilla gave no reason beyond &#x27;Sometimes, that means making the decision to bring a product to an end.&#x27;</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Mozilla</span>
-    <span>Shutdown: <time datetime="2026-11-30">November 30, 2026</time></span>
-    
-    <span>Replacement: None; export a ZIP of your site, domains move to Name.com</span>
-    <a class="doom-source" href="https://www.theregister.com/software/2026/11/13/mozilla-leaves-solo-website-owners-to-go-it-alone-as-hosting-shuts-down/5309632" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Mozilla</span> <span>Replacement: None; export a ZIP of your site, domains move to Name.com</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://www.theregister.com/software/2026/11/13/mozilla-leaves-solo-website-owners-to-go-it-alone-as-hosting-shuts-down/5309632" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="openai-legacy-gpt-image-models">
-  <div class="doom-header">
-    <h2 class="doom-name">OpenAI Legacy GPT Image Models</h2>
-    <span class="doom-countdown" data-shutdown="2026-12-01">17d left</span>
+  <h2 class="doom-name">OpenAI Legacy GPT Image Models</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-12-01"><b>17</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-12-01">December 1, 2026</time></p>
+    
   </div>
   <p class="doom-desc">OpenAI removes gpt-image-1-mini, gpt-image-1.5 and chatgpt-image-latest from the API on December 1, 2026, months after this generation replaced DALL·E. gpt-image-1.5 only shipped on December 16, 2025, so it gets about 350 days. The models that buried DALL·E don&#x27;t outlive it by much.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: OpenAI</span>
-    <span>Shutdown: <time datetime="2026-12-01">December 1, 2026</time></span>
-    
-    <span>Replacement: gpt-image-2.5-sunburst / gpt-image-2.5-flare</span>
-    <a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: OpenAI</span> <span>Replacement: gpt-image-2.5-sunburst / gpt-image-2.5-flare</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="azure-openai-gpt-4o-2024-05-13">
-  <div class="doom-header">
-    <h2 class="doom-name">Azure OpenAI GPT-4o (2024-05-13)</h2>
-    <span class="doom-countdown" data-shutdown="2026-12-09">25d left</span>
+  <h2 class="doom-name">Azure OpenAI GPT-4o (2024-05-13)</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-12-09"><b>25</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-12-09">December 9, 2026</time></p>
+    
   </div>
   <p class="doom-desc">The original May 2024 GPT-4o snapshot retires from Azure on December 9, and Microsoft uses it as the worked example in its lifecycle docs. Global Standard, Data Zone Standard and Standard deployments are force-upgraded to gpt-5.6-sol. Provisioned deployments get no upgrade and must migrate by hand, and deployments set to NoAutoUpgrade start returning 410 Gone. It outlives OpenAI&#x27;s own gpt-4o-2024-05-13, which goes on October 23, by seven weeks. The later 2024-08-06 and 2024-11-20 versions last until April 14, 2027.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Microsoft Azure</span>
-    <span>Shutdown: <time datetime="2026-12-09">December 9, 2026</time></span>
-    
-    <span>Replacement: gpt-5.6-sol (auto-upgrade on Standard deployments; Provisioned must migrate manually)</span>
-    <a class="doom-source" href="https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Microsoft Azure</span> <span>Replacement: gpt-5.6-sol (auto-upgrade on Standard deployments; Provisioned must migrate manually)</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="openai-gpt-5-original-snapshots-o3-o3-pro">
-  <div class="doom-header">
-    <h2 class="doom-name">OpenAI GPT-5 (original snapshots), o3 &amp; o3-pro</h2>
-    <span class="doom-countdown" data-shutdown="2026-12-11">27d left</span>
+  <h2 class="doom-name">OpenAI GPT-5 (original snapshots), o3 &amp; o3-pro</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-12-11"><b>27</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-12-11">December 11, 2026</time></p>
+    
   </div>
   <p class="doom-desc">The original GPT-5 launch snapshots (gpt-5-2025-08-07 and its mini, nano and pro siblings) shut down December 11, along with o3 and o3-pro. GPT-5 launched in August 2025 as the &#x27;PhD-level expert&#x27; model. Its launch snapshot gets 16 months before it starts returning errors.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: OpenAI</span>
-    <span>Shutdown: <time datetime="2026-12-11">December 11, 2026</time></span>
-    
-    <span>Replacement: gpt-5.6-sol / gpt-5.6-terra / gpt-5.6-luna</span>
-    <a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: OpenAI</span> <span>Replacement: gpt-5.6-sol / gpt-5.6-terra / gpt-5.6-luna</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="chatgpt-custom-gpts">
-  <div class="doom-header">
-    <h2 class="doom-name">ChatGPT Custom GPTs</h2>
-    <span class="doom-countdown" data-shutdown="2026-12-11">27d left</span>
+  <h2 class="doom-name">ChatGPT Custom GPTs</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-12-11"><b>27</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-12-11">December 11, 2026</time></p>
+    
   </div>
   <p class="doom-desc">Custom GPTs launched at DevDay in November 2023 and replaced ChatGPT Plugins. Now they are being replaced by plugins. OpenAI says they retire on December 11, 2026, though timing &#x27;can vary by account and workspace&#x27;. Affected Enterprise workspaces lose GPT creation on October 26, and approved deferrals run to February 11, 2027. Instructions become a skill and knowledge files carry over; conversations, the chosen model, sharing settings and Custom Actions do not.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: OpenAI</span>
-    <span>Shutdown: <time datetime="2026-12-11">December 11, 2026</time></span>
-    
-    <span>Replacement: Plugins (ChatGPT + Codex); GPT instructions become a skill</span>
-    <a class="doom-source" href="https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: OpenAI</span> <span>Replacement: Plugins (ChatGPT + Codex); GPT instructions become a skill</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://help.openai.com/en/articles/20001519-custom-gpt-retirement-and-migration-faq" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="azure-openai-whisper-tts">
-  <div class="doom-header">
-    <h2 class="doom-name">Azure OpenAI Whisper &amp; TTS</h2>
-    <span class="doom-countdown" data-shutdown="2026-12-15">31d left</span>
+  <h2 class="doom-name">Azure OpenAI Whisper &amp; TTS</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-12-15"><b>31</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-12-15">December 15, 2026</time></p>
+    
   </div>
   <p class="doom-desc">Azure retires version 001 of its whisper, tts and tts-hd models on December 15. That is weeks ahead of OpenAI, whose own API keeps tts-1 until January 6, 2027 and whisper-1 until February 26, 2027. Microsoft&#x27;s policy is to declare a replacement 90 to 120 days before retirement, yet as of October the replacement column is still a dash. The March 2025 gpt-4o-transcribe, gpt-4o-mini-transcribe and gpt-4o-mini-tts snapshots go first, on October 15.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Microsoft Azure</span>
-    <span>Shutdown: <time datetime="2026-12-15">December 15, 2026</time></span>
-    
-    <span>Replacement: None listed</span>
-    <a class="doom-source" href="https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Microsoft Azure</span> <span>Replacement: None listed</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="tencent-qclaw">
-  <div class="doom-header">
-    <h2 class="doom-name">Tencent QClaw</h2>
-    <span class="doom-countdown" data-shutdown="2026-12-24">40d left</span>
+  <h2 class="doom-name">Tencent QClaw</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-12-24"><b>40</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-12-24">December 24, 2026</time></p>
+    
   </div>
   <p class="doom-desc">Tencent&#x27;s take on the OpenClaw &#x27;lobster&#x27; agent: an AI assistant driven from WeChat that operated your PC remotely, organizing files, running scheduled tasks and handling multi-step jobs. It opened to everyone on March 20, 2026, at the height of China&#x27;s lobster craze. On September 24 Tencent stopped new sign-ups and renewals, citing &#x27;business development adjustments&#x27;. Service ends at 00:00 on December 24 (Beijing time); users can still log in to download backups until March 24, 2027, when the data is deleted.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Tencent</span>
-    <span>Shutdown: <time datetime="2026-12-24">December 24, 2026</time></span>
-    
-    <span>Replacement: Tencent WorkBuddy</span>
-    <a class="doom-source" href="https://technode.com/2026/09/24/tencents-qclaw-to-stop-operating-on-december-24/" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Tencent</span> <span>Replacement: Tencent WorkBuddy</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://technode.com/2026/09/24/tencents-qclaw-to-stop-operating-on-december-24/" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="google-jules">
-  <div class="doom-header">
-    <h2 class="doom-name">Google Jules</h2>
-    <span class="doom-countdown" data-shutdown="2026-12-31">47d left</span>
+  <h2 class="doom-name">Google Jules</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2026-12-31"><b>47</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2026-12-31">December 31, 2026</time></p>
+    
   </div>
   <p class="doom-desc">Google&#x27;s asynchronous coding agent, which took a GitHub task, worked in a cloud VM and opened a pull request, entered beta in May 2025 and went GA that August. On October 29, 2026 Google said it is winding Jules down and folding the work into Antigravity. New tasks stop on November 11, when Jules turns read-only; it shuts down completely on December 31. Code already pushed to GitHub stays; session changes that were never pushed do not.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Google</span>
-    <span>Shutdown: <time datetime="2026-12-31">December 31, 2026</time></span>
-    
-    <span>Replacement: Google Antigravity</span>
-    <a class="doom-source" href="https://www.timesofai.com/news/google-jules-antigravity/" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Google</span> <span>Replacement: Google Antigravity</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://www.timesofai.com/news/google-jules-antigravity/" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="openai-self-serve-fine-tuning">
-  <div class="doom-header">
-    <h2 class="doom-name">OpenAI Self-Serve Fine-tuning</h2>
-    <span class="doom-countdown" data-shutdown="2027-01-06">53d left</span>
+  <h2 class="doom-name">OpenAI Self-Serve Fine-tuning</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2027-01-06"><b>53</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2027-01-06">January 6, 2027</time></p>
+    
   </div>
   <p class="doom-desc">OpenAI is closing self-serve fine-tuning in three steps. Since May 7, 2026, organizations that had never fine-tuned can&#x27;t start; since July 2, organizations with no fine-tuned inference in the previous 60 days are locked out; on January 6, 2027, active existing customers lose the ability to create new fine-tuning jobs. Existing fine-tunes keep serving until their base model retires, and the six on legacy bases (ft-gpt-3.5-turbo, ft-gpt-4, ft-gpt-4.1-nano, ft-o4-mini, ft-babbage-002, ft-davinci-002) shut down October 23.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: OpenAI</span>
-    <span>Shutdown: <time datetime="2027-01-06">January 6, 2027</time></span>
-    
-    <span>Replacement: Prompt caching / system prompts</span>
-    <a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: OpenAI</span> <span>Replacement: Prompt caching / system prompts</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="openai-tts-1-tts-1-hd-gpt-4o-mini-tts">
-  <div class="doom-header">
-    <h2 class="doom-name">OpenAI TTS-1, TTS-1-HD &amp; GPT-4o mini TTS</h2>
-    <span class="doom-countdown" data-shutdown="2027-01-06">53d left</span>
+  <h2 class="doom-name">OpenAI TTS-1, TTS-1-HD &amp; GPT-4o mini TTS</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2027-01-06"><b>53</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2027-01-06">January 6, 2027</time></p>
+    
   </div>
   <p class="doom-desc">On October 1 OpenAI deprecated its whole standalone text-to-speech line: tts-1 and tts-1-hd, launched at DevDay in November 2023, and both gpt-4o-mini-tts snapshots. All four leave the API on January 6, 2027. There is no new TTS model; the named replacement is the speech-to-speech gpt-realtime-2.1-mini. With whisper-1 going on February 26, 2027, every audio model OpenAI shipped in 2023 is now on a removal list.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: OpenAI</span>
-    <span>Shutdown: <time datetime="2027-01-06">January 6, 2027</time></span>
-    
-    <span>Replacement: gpt-realtime-2.1-mini</span>
-    <a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: OpenAI</span> <span>Replacement: gpt-realtime-2.1-mini</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="claude-opus-4-1-on-amazon-bedrock">
-  <div class="doom-header">
-    <h2 class="doom-name">Claude Opus 4.1 on Amazon Bedrock</h2>
-    <span class="doom-countdown" data-shutdown="2027-01-08">55d left</span>
+  <h2 class="doom-name">Claude Opus 4.1 on Amazon Bedrock</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2027-01-08"><b>55</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2027-01-08">January 8, 2027</time></p>
+    
   </div>
   <p class="doom-desc">Anthropic retired Opus 4.1 from its own API on August 5, 2026, but Amazon Bedrock keeps serving it until January 8, 2027 in us-east-1, us-east-2 and us-west-2, 156 days longer. AWS marked it Legacy on July 8: no new customers, and existing ones may lose access after 15 days of inactivity. From October 8 it is in &#x27;public extended access&#x27;, where the provider can raise the price.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: AWS</span>
-    <span>Shutdown: <time datetime="2027-01-08">January 8, 2027</time></span>
-    
-    <span>Replacement: None named by AWS (Anthropic recommends claude-opus-4-8)</span>
-    <a class="doom-source" href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html" target="_blank" rel="noopener">Source</a><a class="doom-tomb" href="/dead/claude-opus-4-1/">🪦 Related: the Claude Opus 4.1 tombstone →</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: AWS</span> <span>Replacement: None named by AWS (Anthropic recommends claude-opus-4-8)</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html" target="_blank" rel="noopener">Source</a><a class="doom-tomb" href="/dead/claude-opus-4-1/">Related: the Claude Opus 4.1 tombstone →</a></p>
 </article>
 <article class="doom-card" id="openai-gpt-4o-gpt-4o-mini-gpt-4-1-4-1-mini-api">
-  <div class="doom-header">
-    <h2 class="doom-name">OpenAI GPT-4o, GPT-4o mini, GPT-4.1 &amp; 4.1 mini (API)</h2>
-    <span class="doom-countdown" data-shutdown="2027-01-14">61d left</span>
+  <h2 class="doom-name">OpenAI GPT-4o, GPT-4o mini, GPT-4.1 &amp; 4.1 mini (API)</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2027-01-14"><b>61</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2027-01-14">January 14, 2027</time></p>
+    
   </div>
   <p class="doom-desc">On October 14 OpenAI told developers that five snapshots leave the API on January 14, 2027: gpt-4o-2024-08-06, gpt-4o-2024-11-20, gpt-4o-mini-2024-07-18, gpt-4.1-2025-04-14 and gpt-4.1-mini-2025-04-14. Every one is pointed at the same replacement, gpt-6-luna, and fine-tuned versions go with their base models. GPT-4o mini was the default cheap model in thousands of apps; Azure keeps its own copies until April 14, 2027.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: OpenAI</span>
-    <span>Shutdown: <time datetime="2027-01-14">January 14, 2027</time></span>
-    
-    <span>Replacement: gpt-6-luna</span>
-    <a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: OpenAI</span> <span>Replacement: gpt-6-luna</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="openai-realtime-audio-model-family">
-  <div class="doom-header">
-    <h2 class="doom-name">OpenAI Realtime &amp; Audio Model Family</h2>
-    <span class="doom-countdown" data-shutdown="2027-01-20">67d left</span>
+  <h2 class="doom-name">OpenAI Realtime &amp; Audio Model Family</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2027-01-20"><b>67</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2027-01-20">January 20, 2027</time></p>
+    
   </div>
   <p class="doom-desc">OpenAI put its entire GA voice stack on death row: gpt-realtime, gpt-audio, gpt-realtime-mini, gpt-audio-mini and all four gpt-4o audio/realtime variants. gpt-realtime and gpt-audio went GA in August 2025, so the models that headlined &#x27;production-ready voice agents&#x27; get roughly 17 months. OpenAI is skipping its own intermediate generation: the 1.5 series shipped in February 2026 and the named replacement is already 2.1.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: OpenAI</span>
-    <span>Shutdown: <time datetime="2027-01-20">January 20, 2027</time></span>
-    
-    <span>Replacement: gpt-realtime-2.1 / gpt-realtime-2.1-mini / gpt-audio-1.5</span>
-    <a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: OpenAI</span> <span>Replacement: gpt-realtime-2.1 / gpt-realtime-2.1-mini / gpt-audio-1.5</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="openai-whisper-1-gpt-4o-transcribe">
-  <div class="doom-header">
-    <h2 class="doom-name">OpenAI Whisper-1 &amp; GPT-4o Transcribe</h2>
-    <span class="doom-countdown" data-shutdown="2027-02-26">104d left</span>
+  <h2 class="doom-name">OpenAI Whisper-1 &amp; GPT-4o Transcribe</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2027-02-26"><b>104</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2027-02-26">February 26, 2027</time></p>
+    
   </div>
   <p class="doom-desc">On August 26 OpenAI deprecated whisper-1 (its original speech-to-text API from March 2023) together with gpt-4o-transcribe, gpt-4o-mini-transcribe and gpt-4o-transcribe-diarize, the last of which shipped in October 2025. All four die February 26, 2027. The open-source Whisper weights are unaffected; the hosted endpoint that made them a product is not.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: OpenAI</span>
-    <span>Shutdown: <time datetime="2027-02-26">February 26, 2027</time></span>
-    
-    <span>Replacement: gpt-transcribe / gpt-live-transcribe</span>
-    <a class="doom-source" href="https://developers.openai.com/api/docs/deprecations#2026-08-26-transcription-models" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: OpenAI</span> <span>Replacement: gpt-transcribe / gpt-live-transcribe</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://developers.openai.com/api/docs/deprecations#2026-08-26-transcription-models" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="google-gemini-2-5-flash-image-nano-banana">
-  <div class="doom-header">
-    <h2 class="doom-name">Google Gemini 2.5 Flash Image (&quot;Nano Banana&quot;)</h2>
-    <span class="doom-countdown" data-shutdown="2027-03-15">121d left</span>
+  <h2 class="doom-name">Google Gemini 2.5 Flash Image (&quot;Nano Banana&quot;)</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2027-03-15"><b>121</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2027-03-15">March 15, 2027</time></p>
+    
   </div>
   <p class="doom-desc">The image model that went viral as &#x27;Nano Banana&#x27; (3D figurine selfies, a #1 App Store spot for Gemini) got a stay of execution. Google&#x27;s earliest shutdown date was October 2, 2026; a September 14 release note pushed it to no earlier than March 15, 2027, with gemini-3.1-flash-lite-image as the replacement. Since September 18 the Gemini API serves 2.5 models only to projects that used them before, though Google says they &#x27;will continue to be served until further notice.&#x27;</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Google</span>
-    <span>Shutdown: <time datetime="2027-03-15">March 15, 2027</time></span>
-    
-    <span>Replacement: gemini-3.1-flash-lite-image</span>
-    <a class="doom-source" href="https://ai.google.dev/gemini-api/docs/deprecations" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Google</span> <span>Replacement: gemini-3.1-flash-lite-image</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://ai.google.dev/gemini-api/docs/deprecations" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="firebase-studio">
-  <div class="doom-header">
-    <h2 class="doom-name">Firebase Studio</h2>
-    <span class="doom-countdown" data-shutdown="2027-03-22">128d left</span>
+  <h2 class="doom-name">Firebase Studio</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2027-03-22"><b>128</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2027-03-22">March 22, 2027</time></p>
+    
   </div>
   <p class="doom-desc">Google&#x27;s browser-based, Gemini-powered app builder absorbed Project IDX at its April 2025 launch and is being sunset before its second birthday. New workspaces and sign-ups were switched off on June 22, 2026. On March 22, 2027 the service shuts down and remaining data is &#x27;permanently deleted and cannot be recovered.&#x27; Users are split between Google Antigravity for coding and Google AI Studio for prompt-to-app prototyping; Firestore, Auth and App Hosting are unaffected.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Google</span>
-    <span>Shutdown: <time datetime="2027-03-22">March 22, 2027</time></span>
-    
-    <span>Replacement: Google Antigravity / Google AI Studio</span>
-    <a class="doom-source" href="https://firebase.google.com/docs/studio/migrating-project" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Google</span> <span>Replacement: Google Antigravity / Google AI Studio</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://firebase.google.com/docs/studio/migrating-project" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="pipedream-workflows-string">
-  <div class="doom-header">
-    <h2 class="doom-name">Pipedream Workflows &amp; String</h2>
-    <span class="doom-countdown" data-shutdown="2027-03-31">137d left</span>
+  <h2 class="doom-name">Pipedream Workflows &amp; String</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2027-03-31"><b>137</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2027-03-31">March 31, 2027</time></p>
+    
   </div>
   <p class="doom-desc">Pipedream will shut down Workflows, its developer automation platform, and String, its prompt-to-agent builder, on March 31, 2027. All Workflows data, including stored credentials and OAuth tokens, is deleted by April 30. Workflows is already in maintenance mode, with sign-ups closed. The stated reason is a focus on &#x27;being the integration layer companies rely on to connect AI to the outside world&#x27;, and Pipedream Connect, with its API and MCP servers, carries on. Workday agreed to buy the company in November 2025.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Pipedream</span>
-    <span>Shutdown: <time datetime="2027-03-31">March 31, 2027</time></span>
-    
-    <span>Replacement: None (Pipedream Connect continues; JSON export for workflows)</span>
-    <a class="doom-source" href="https://pipedream.com/docs/workflows" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Pipedream</span> <span>Replacement: None (Pipedream Connect continues; JSON export for workflows)</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://pipedream.com/docs/workflows" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="microsoft-foundry-agent-service-classic">
-  <div class="doom-header">
-    <h2 class="doom-name">Microsoft Foundry Agent Service (classic)</h2>
-    <span class="doom-countdown" data-shutdown="2027-03-31">137d left</span>
+  <h2 class="doom-name">Microsoft Foundry Agent Service (classic)</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2027-03-31"><b>137</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2027-03-31">March 31, 2027</time></p>
+    
   </div>
   <p class="doom-desc">Microsoft&#x27;s managed agent service entered preview in December 2024 as Azure AI Agent Service and went GA in May 2025. In March 2026 it was renamed &#x27;classic&#x27; and deprecated, through a notice added to the docs without a formal announcement. It retires March 31, 2027. Its threads-and-runs design was modelled on OpenAI&#x27;s Assistants API, which died in August 2026. Migrating means rebuilding on the Responses API.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Microsoft</span>
-    <span>Shutdown: <time datetime="2027-03-31">March 31, 2027</time></span>
-    
-    <span>Replacement: New Foundry Agent Service (Responses API: threads become conversations, runs become responses)</span>
-    <a class="doom-source" href="https://learn.microsoft.com/en-us/azure/foundry-classic/agents/whats-new" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Microsoft</span> <span>Replacement: New Foundry Agent Service (Responses API: threads become conversations, runs become responses)</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://learn.microsoft.com/en-us/azure/foundry-classic/agents/whats-new" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="openai-gpt-5-3-codex-gpt-5-1-gpt-5-4-nano">
-  <div class="doom-header">
-    <h2 class="doom-name">OpenAI GPT-5.3-Codex, GPT-5.1 &amp; GPT-5.4-nano</h2>
-    <span class="doom-countdown" data-shutdown="2027-04-01">138d left</span>
+  <h2 class="doom-name">OpenAI GPT-5.3-Codex, GPT-5.1 &amp; GPT-5.4-nano</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2027-04-01"><b>138</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2027-04-01">April 1, 2027</time></p>
+    
   </div>
   <p class="doom-desc">On October 1 OpenAI deprecated gpt-5.3-codex, gpt-5.1 and gpt-5.4-nano, with removal from the API on April 1, 2027. gpt-6-sol replaces the first two and gpt-6-luna the third; both shipped nine days before the notice. gpt-5.4-nano launched March 17, 2026 and gets just over a year, although in April OpenAI was recommending it as the replacement for GPT-3.5 Turbo and the o-series. GitHub made GPT-5.3-Codex Copilot&#x27;s first long-term-support model, promised through February 4, 2027.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: OpenAI</span>
-    <span>Shutdown: <time datetime="2027-04-01">April 1, 2027</time></span>
-    
-    <span>Replacement: gpt-6-sol / gpt-6-luna</span>
-    <a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: OpenAI</span> <span>Replacement: gpt-6-sol / gpt-6-luna</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://developers.openai.com/api/docs/deprecations" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="vertex-ai-legacy-embedding-models">
-  <div class="doom-header">
-    <h2 class="doom-name">Vertex AI Legacy Embedding Models</h2>
-    <span class="doom-countdown" data-shutdown="2027-04-01">138d left</span>
+  <h2 class="doom-name">Vertex AI Legacy Embedding Models</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2027-04-01"><b>138</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2027-04-01">April 1, 2027</time></p>
+    
   </div>
   <p class="doom-desc">Four pre-Gemini embedding models retire from Vertex AI on April 1, 2027: multimodalembedding@001 (February 2024), text-embedding-004 and text-multilingual-embedding-002 (May 2024), and text-embedding-005 (November 2024). Google names no replacement. Vectors from different embedding models are not interchangeable, so every index built on these models has to be regenerated, not just pointed at a new model. text-embedding-004 already left the Gemini Developer API on January 14, 2026.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Google Cloud</span>
-    <span>Shutdown: <time datetime="2027-04-01">April 1, 2027</time></span>
-    
-    <span>Replacement: None named; gemini-embedding-001 / gemini-embedding-2</span>
-    <a class="doom-source" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Google Cloud</span> <span>Replacement: None named; gemini-embedding-001 / gemini-embedding-2</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="azure-openai-gpt-4-1-4-1-mini-4-1-nano">
-  <div class="doom-header">
-    <h2 class="doom-name">Azure OpenAI GPT-4.1, 4.1 mini &amp; 4.1 nano</h2>
-    <span class="doom-countdown" data-shutdown="2027-04-14">151d left</span>
+  <h2 class="doom-name">Azure OpenAI GPT-4.1, 4.1 mini &amp; 4.1 nano</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2027-04-14"><b>151</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2027-04-14">April 14, 2027</time></p>
+    
   </div>
   <p class="doom-desc">GPT-4.1 launched April 2025 as OpenAI&#x27;s &#x27;best model for coding&#x27; with a 1M-token context window. Azure first scheduled the whole family to retire on October 14, 2026, then moved gpt-4.1 and gpt-4.1-mini to April 14, 2027. Nano&#x27;s date flipped between the two several times; on October 14, the day it was due to go, Microsoft&#x27;s schedule listed it for April 14, 2027 as well. All three are in the Deprecated stage (existing customers only), and fine-tuned deployments run until October 14, 2027.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: Microsoft Azure</span>
-    <span>Shutdown: <time datetime="2027-04-14">April 14, 2027</time></span>
-    
-    <span>Replacement: None listed</span>
-    <a class="doom-source" href="https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: Microsoft Azure</span> <span>Replacement: None listed</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule" target="_blank" rel="noopener">Source</a></p>
 </article>
 <article class="doom-card" id="amazon-q-developer-ide-plugins-subscriptions">
-  <div class="doom-header">
-    <h2 class="doom-name">Amazon Q Developer (IDE plugins &amp; subscriptions)</h2>
-    <span class="doom-countdown" data-shutdown="2027-04-30">167d left</span>
+  <h2 class="doom-name">Amazon Q Developer (IDE plugins &amp; subscriptions)</h2>
+  <div class="doom-when">
+    <p class="doom-countdown" data-shutdown="2027-04-30"><b>167</b> days left</p>
+    <p class="doom-date">Shutdown: <time datetime="2027-04-30">April 30, 2027</time></p>
+    
   </div>
   <p class="doom-desc">On April 30, 2027, three years to the day after general availability, AWS ends support for the Amazon Q Developer IDE plugins for VS Code, JetBrains, Eclipse and Visual Studio. Paid subscriptions and the Java and .NET code-transformation tools end the same day. New sign-ups stopped on May 15, 2026, and the newest coding models, including Opus 4.7, were made Kiro-only. Q Developer survives in the AWS Console, the mobile app, and Slack and Teams.</p>
-  <div class="doom-meta">
-    <span class="doom-tag">Killed by: AWS</span>
-    <span>Shutdown: <time datetime="2027-04-30">April 30, 2027</time></span>
-    
-    <span>Replacement: Kiro</span>
-    <a class="doom-source" href="https://aws.amazon.com/blogs/devops/amazon-q-developer-end-of-support-announcement/" target="_blank" rel="noopener">Source</a>
-  </div>
+  <p class="doom-meta"><span>Killed by: AWS</span> <span>Replacement: Kiro</span></p>
+  <p class="doom-links"><a class="doom-source" href="https://aws.amazon.com/blogs/devops/amazon-q-developer-end-of-support-announcement/" target="_blank" rel="noopener">Source</a></p>
 </article>
     </main>
     <footer class="site-footer">
         <p>Part of <a href="/">Killed by AI</a>.</p>
-        <p class="footer-links" style="font-size:.8125rem;margin-top:.5rem;text-align:center"><a href="/">The AI graveyard</a> · <a href="/dead/">All 173 tombstones A-Z</a> · <a href="/killed-by/">By killer</a> · <a href="/layoffs/">AI layoffs tracker</a> · <a href="/will-ai-take-my-job/">Will AI take my job?</a> · <a href="/jobs/">Jobs replaced by AI</a> · <a href="/coming-soon/">Upcoming AI shutdowns</a> · <a href="/deprecations.ics">Shutdown calendar (.ics)</a> · <a href="/funding/">Failed AI startups</a> · <a href="/embed/">Embed & share</a> · <a href="/api/">JSON API</a> · <a href="/about/">About & methodology</a> · <a href="/feed.xml">RSS</a></p>
+        <p class="footer-links"><a href="/">The AI graveyard</a> · <a href="/dead/">All 173 tombstones A-Z</a> · <a href="/killed-by/">By killer</a> · <a href="/layoffs/">AI layoffs tracker</a> · <a href="/will-ai-take-my-job/">Will AI take my job?</a> · <a href="/jobs/">Jobs replaced by AI</a> · <a href="/coming-soon/">Upcoming AI shutdowns</a> · <a href="/deprecations.ics">Shutdown calendar (.ics)</a> · <a href="/funding/">Failed AI startups</a> · <a href="/embed/">Embed & share</a> · <a href="/api/">JSON API</a> · <a href="/about/">About & methodology</a> · <a href="/feed.xml">RSS</a></p>
     </footer>
     <script>
     (function () {  // countdowns recompute on every visit, in the visitor's own calendar days ("Today" on the shutdown day)
@@ -1990,7 +1901,9 @@
             const [y, m, day] = el.dataset.shutdown.split('-').map(Number);
             const n = Math.round((Date.UTC(y, m - 1, day) - today) / 864e5);
             if (!Number.isFinite(n)) return;   // keep the build-time text
-            el.textContent = n > 0 ? n + 'd left' : n === 0 ? 'Today' : 'DEAD';
+            const b = document.createElement('b');
+            b.textContent = n > 0 ? n : n === 0 ? 'Today' : 'Dead';
+            el.replaceChildren(b, n > 0 ? (n === 1 ? ' day left' : ' days left') : '');
             el.classList.toggle('dead', n < 0);
         });
     })();

@@ -19,31 +19,73 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#09090b">
     <style>
+        /* Colors, type and the site menu come from the shared head block (SITE_HEAD in build.py). */
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#8f8f99;--line-dim:#52525b;--red:#ef4444;--red-dim:rgba(239,68,68,.15)}
-        body{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:1rem}
-        a{color:var(--text-muted)} a:hover{color:var(--red)} :focus-visible{outline:2px solid var(--red);outline-offset:2px}
-        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-        .site-nav{display:flex;justify-content:center;gap:.25rem;padding:.5rem .75rem;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}.site-nav::-webkit-scrollbar{display:none}
-        .site-nav-item{display:inline-flex;align-items:center;min-height:44px;padding:0 .875rem;font-size:.875rem;font-weight:500;color:var(--text-muted);text-decoration:none;border-radius:.375rem;white-space:nowrap}
-        .site-nav-item:hover{color:var(--text);background:var(--bg-card)}.site-nav-item.active{color:var(--red);background:var(--red-dim)}
-        .wrap{max-width:900px;margin:0 auto;padding:1.5rem 1rem 3rem}
-        .crumbs{font-size:.875rem;color:var(--text-dim);margin-bottom:1rem}.crumbs a{color:var(--text-dim);text-decoration:none;display:inline-block;padding:.5rem 0}
-        .crumbs a:hover{color:var(--red);text-decoration:underline}
-        .crumbs ol{list-style:none;display:flex;flex-wrap:wrap;align-items:center}
-        .crumbs li+li::before{content:"›";content:"›" / "";margin:0 .375rem}
-        .crumbs [aria-current]{font-weight:600}
-        h1{font-size:clamp(1.75rem,6vw,2.5rem);font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:.5rem}
-        .intro{color:var(--text-muted);font-size:1.0625rem;margin-bottom:1.5rem;max-width:640px}
-        .list{display:grid;gap:.625rem}
-        .row{display:grid;grid-template-columns:1fr auto;gap:.75rem;align-items:center;min-height:64px;padding:.875rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:.625rem;text-decoration:none;color:var(--text)}
-        .row:hover{border-color:var(--red)}
-        .row b{font-size:1.0625rem;display:block}.row small{color:var(--text-dim);font-size:.875rem}
-        .row .when{font-family:"SF Mono",monospace;font-size:.875rem;color:var(--text-dim);white-space:nowrap}
-        .siblings{margin-top:2rem}.siblings h2{font-size:1.125rem;font-weight:800;margin-bottom:.75rem}.siblings div{display:flex;flex-wrap:wrap;gap:.5rem}
-        .siblings a{display:inline-flex;align-items:center;gap:.375rem;min-height:40px;padding:0 .875rem;border:1px solid var(--border);border-radius:2rem;text-decoration:none;color:var(--text-muted);font-size:.875rem}.siblings a:hover{border-color:var(--red);color:var(--text)}.siblings small{color:var(--text-dim)}
-        .site-footer{text-align:center;padding:2rem 1rem 3rem;border-top:1px solid var(--border);color:var(--text-dim);font-size:.9375rem;line-height:1.8}
-        @media(max-width:600px){.site-nav{justify-content:flex-start;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent)}}
+        :root{--wrap:1000px;--acc:#f97316;--acc-text:#f97316}
+        html{-webkit-text-size-adjust:100%}
+        body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;font-size:1rem}
+        a{color:inherit}
+        .wrap,.site-footer{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+        .wrap{padding-top:1.25rem;padding-bottom:3rem}
+
+        /* ---------- breadcrumb and header ---------- */
+        .crumbs{font-size:.875rem;color:var(--text-dim)}
+        .crumbs ol{list-style:none}
+        .crumbs li{display:inline}
+        /* the padding makes the tap target taller without moving the line; the separator never starts a line */
+        .crumbs a{padding-block:.625rem;color:inherit;text-decoration:none}
+        .crumbs a:hover{color:var(--acc-text);text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:3px}
+        .crumbs li:not(:last-child)::after{content:"\00A0\00A0\203A\0020";content:"\00A0\00A0\203A\0020" / "";margin-right:.25rem}
+        .crumbs [aria-current]{color:var(--text-muted)}
+        h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3rem);font-weight:700;letter-spacing:-.015em;line-height:1.1;margin-top:1.25rem;overflow-wrap:break-word}
+        .intro{max-width:44rem;margin-top:.75rem;color:var(--text-muted);font-size:1.0625rem;line-height:1.55}
+
+        /* ---------- rows ---------- */
+        .list{margin-top:1.75rem;border-top:1px solid var(--border)}
+        .row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.2fr) 10rem;align-items:baseline;column-gap:1.5rem;min-height:44px;padding:.625rem 0;border-bottom:1px solid var(--border);text-decoration:none}
+        /* every row shares the list's columns, so the last one is as wide as its longest value */
+        @supports (grid-template-columns:subgrid){
+            .list{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.2fr) auto;column-gap:1.5rem}
+            .row{grid-column:1 / -1;grid-template-columns:subgrid}
+        }
+        .row>span:first-child{display:contents}
+        .row b{font-size:.9375rem;font-weight:600}
+        .row small{font-size:.8125rem;color:var(--text-dim)}
+        .row .when{justify-self:end;text-align:right;font-size:.875rem;color:var(--text-muted);white-space:nowrap}
+        .row .when b{color:var(--acc-text)}
+        .row:hover>span:first-child b{color:var(--acc-text)}
+
+        /* ---------- other roles ---------- */
+        .siblings{margin-top:2.75rem}
+        .siblings h2{font-family:var(--serif);font-size:1.375rem;font-weight:700;line-height:1.25;margin-bottom:.5rem}
+        .siblings div{display:flex;flex-wrap:wrap;gap:0 1.5rem;font-size:.9375rem}
+        .siblings a{display:inline-flex;align-items:baseline;gap:.375rem;padding-block:.375rem;text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
+        .siblings a:hover{color:var(--acc-text);text-decoration-color:var(--acc)}
+        .siblings small{font-size:.8125rem;color:var(--text-dim)}
+
+        /* ---------- footer ---------- */
+        .site-footer{padding-bottom:3rem;font-size:.875rem;line-height:1.7;color:var(--text-dim)}
+        .site-footer::before{content:"";display:block;margin-bottom:1.5rem;border-top:1px solid var(--border)}
+        .site-footer a{color:var(--text-muted);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
+        .site-footer a:hover{color:var(--acc-text);text-decoration-color:var(--acc)}
+        .site-footer p+p{margin-top:.5rem}
+
+        @media(max-width:700px){
+            /* name on the first line; the details and the date share the second */
+            .row,.list{grid-template-columns:minmax(0,1fr) auto;column-gap:1rem}
+            .row{row-gap:0}
+            @supports (grid-template-columns:subgrid){.row{grid-template-columns:subgrid}}
+            .row b{grid-column:1 / -1}
+            .row .when b{grid-column:auto}
+        }
+        @media(max-width:600px){
+            .wrap{padding-top:.75rem;padding-bottom:2.5rem}
+            h1{margin-top:.75rem}
+            .intro{font-size:1rem}
+            .list{margin-top:1.25rem}
+        }
+        @media(pointer:coarse){.siblings a{min-height:44px;align-items:center}}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
     </style>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -145,7 +187,7 @@
         <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Killed by AI</a></li><li><a href="/jobs/">Jobs replaced by AI</a></li><li><a href="/jobs/admin/" aria-current="page">Admin &amp; back office</a></li></ol></nav>
         <h1>Admin &amp; back office: jobs replaced by AI</h1>
         <p class="intro">2 layoffs where the company blamed AI named admin &amp; back office among the roles cut. Together those layoffs cut 5,500 jobs. That is the company-wide total, not only admin &amp; back office roles, so figures for different roles overlap. The largest was HP (5,000 jobs, Nov 2025); the first was Paycom in Oct 2025 and the latest HP in Nov 2025. Largest first; every row links to its entry and source on the layoffs tracker.</p>
-        <div class="list"><a class="row" href="/layoffs/#hp"><span><b>HP</b><small>Operations, support, admin</small></span><span class="when">5,000 · 2025-11</span></a><a class="row" href="/layoffs/#paycom"><span><b>Paycom</b><small>Payroll processing, back-office</small></span><span class="when">500 · 2025-10</span></a></div>
+        <div class="list"><a class="row" href="/layoffs/#hp"><span><b>HP</b><small>Operations, support, admin</small></span><span class="when"><b>5,000</b> jobs · <time datetime="2025-11">Nov 2025</time></span></a><a class="row" href="/layoffs/#paycom"><span><b>Paycom</b><small>Payroll processing, back-office</small></span><span class="when"><b>500</b> jobs · <time datetime="2025-10">Oct 2025</time></span></a></div>
         <nav class="siblings" aria-label="Other roles"><h2>Other roles hit by AI layoffs</h2><div><a href="/jobs/customer-support/">Customer support <small>11</small></a><a href="/jobs/engineering/">Software engineering <small>8</small></a><a href="/jobs/product/">Product management <small>8</small></a><a href="/jobs/operations/">Operations <small>6</small></a><a href="/jobs/sales/">Sales <small>5</small></a><a href="/jobs/middle-management/">Middle management <small>5</small></a><a href="/jobs/marketing/">Marketing <small>2</small></a><a href="/jobs/finance/">Finance &amp; payroll <small>2</small></a></div></nav>
     </main>
     <footer class="site-footer"><p><a href="/">The AI graveyard</a> · <a href="/dead/">All 173 tombstones A-Z</a> · <a href="/killed-by/">By killer</a> · <a href="/layoffs/">AI layoffs tracker</a> · <a href="/will-ai-take-my-job/">Will AI take my job?</a> · <a href="/jobs/">Jobs replaced by AI</a> · <a href="/coming-soon/">Upcoming AI shutdowns</a> · <a href="/deprecations.ics">Shutdown calendar (.ics)</a> · <a href="/funding/">Failed AI startups</a> · <a href="/embed/">Embed & share</a> · <a href="/api/">JSON API</a> · <a href="/about/">About & methodology</a> · <a href="/feed.xml">RSS</a></p><p>Data is <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>: reuse it and link back.</p></footer>
