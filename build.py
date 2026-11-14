@@ -168,7 +168,7 @@ PERSON_ID = SITE_URL + "about/#patrik-rojan"
 # Full node, not a bare {"@id"} reference: Google's Dataset validator only resolves @id within the same page's
 # graph, so sub-pages that referenced the Person defined on /about/ were flagged "Invalid object type for creator".
 PERSON_REF = {"@type": "Person", "@id": PERSON_ID, "name": "Patrik Rojan", "url": SITE_URL + "about/",
-              "sameAs": ["https://www.linkedin.com/in/patrik-rojan/", "https://github.com/mixtpatrik"]}
+              "sameAs": ["https://www.linkedin.com/in/patrik-rojan/"]}
 
 
 def footer_links(active=None):
@@ -967,11 +967,10 @@ def build_jsonld(items):
                 "url": SITE_URL,
                 "logo": {"@type": "ImageObject", "url": SITE_URL + "icon-512.png", "width": 512, "height": 512},
                 "founder": PERSON_REF,
-                "sameAs": ["https://github.com/mixtpatrik/killedbyai"],
             },
             {
                 "@type": "Person", "@id": PERSON_ID, "name": "Patrik Rojan", "url": SITE_URL + "about/",
-                "sameAs": ["https://www.linkedin.com/in/patrik-rojan/", "https://github.com/mixtpatrik"],
+                "sameAs": ["https://www.linkedin.com/in/patrik-rojan/"],
             },
             {
                 "@type": "WebSite",
@@ -1047,7 +1046,7 @@ def build_faq(items):
     faqs = [
         {
             "q": "What is Killed by AI?",
-            "a": f"Killed by AI is an open-source tracker of discontinued AI products, models, startups, and hardware. It currently documents {total} casualties of the artificial intelligence industry, including deprecated API models and billion-dollar startup failures."
+            "a": f"Killed by AI is an independent tracker of discontinued AI products, models, startups, and hardware. It currently documents {total} casualties of the artificial intelligence industry, including deprecated API models and billion-dollar startup failures."
         },
         {
             "q": "Why did OpenAI shut down Sora?",
@@ -1286,9 +1285,10 @@ def validate(data, ldata, cs_data):
     graveyard_names = {i.get("name", "").lower() for i in data}
     for item in cs_data:
         name = item.get("name", "<unnamed>")
-        if item.get("dateShutdown", "") < today:
+        if item.get("dateShutdown", "") < today and not still_alive(item):
             warnings.append(
                 f"coming-soon: '{name}' died {item['dateShutdown']}; move it to graveyard.json"
+                + (f" (aliveAsOf {item['aliveAsOf']} is more than 14 days old: re-verify)" if item.get("aliveAsOf") else "")
             )
         if name.lower() in graveyard_names:
             warnings.append(f"coming-soon: '{name}' is already in the graveyard; remove one")
@@ -1511,10 +1511,21 @@ def check_data(data):
         raise SystemExit(1)
     # A scheduled death that is two weeks past its date and still has no tombstone is a content bug, not a warning.
     cutoff = (datetime.utcnow() - __import__("datetime").timedelta(days=14)).strftime("%Y-%m-%d")
-    stale = [c["name"] for c in cs_data if c.get("dateShutdown", "") < cutoff]
+    stale = [c["name"] for c in cs_data if c.get("dateShutdown", "") < cutoff and not still_alive(c)]
     if stale:
         print(f"\n✗ BUILD FAILED: {len(stale)} coming-soon entr{'y is' if len(stale)==1 else 'ies are'} 14+ days past shutdown; migrate to graveyard.json: {', '.join(stale)}")
         raise SystemExit(1)
+
+
+def still_alive(item):
+    """A coming-soon entry whose announced date passed but which was checked and found still running.
+
+    "aliveAsOf" is the date of that check. It only counts for 14 days, so an overdue entry has to be
+    re-verified (or buried) regularly instead of sitting on the page indefinitely.
+    """
+    checked = item.get("aliveAsOf", "")
+    cutoff = (datetime.utcnow() - __import__("datetime").timedelta(days=14)).strftime("%Y-%m-%d")
+    return bool(checked) and checked >= cutoff and checked > item.get("dateShutdown", "")
 
 
 def main():
@@ -1891,6 +1902,9 @@ def main():
             else:
                 countdown = "DEAD"
                 dead_class = " dead"
+            overdue = days_left < 0 and still_alive(item)
+            if overdue:   # the announced date passed but the thing still runs: say so instead of calling it dead
+                countdown, dead_class = "Overdue", " overdue"
 
             tomb = ""
             if item.get("graveyardSlug") in gy_names:   # a related tombstone (e.g. the app died, this channel still lives)
@@ -1899,12 +1913,13 @@ def main():
                 f'''<article class="doom-card" id="{slugify(item["name"])}">
   <div class="doom-header">
     <h2 class="doom-name">{esc(item["name"])}</h2>
-    <span class="doom-countdown{dead_class}" data-shutdown="{item["dateShutdown"]}">{countdown}</span>
+    <span class="doom-countdown{dead_class}"{"" if overdue else f' data-shutdown="{item["dateShutdown"]}"'}>{countdown}</span>
   </div>
   <p class="doom-desc">{esc(item["description"])}</p>
   <div class="doom-meta">
     <span class="doom-tag">Killed by: {esc(item["killedBy"])}</span>
-    <span>Shutdown: <time datetime="{item["dateShutdown"]}">{fmt_date(item["dateShutdown"])}</time></span>
+    <span>{"Was due" if overdue else "Shutdown"}: <time datetime="{item["dateShutdown"]}">{fmt_date(item["dateShutdown"])}</time></span>
+    {f'<span class="doom-alive">Still running on {fmt_date(item["aliveAsOf"])}</span>' if overdue else ""}
     <span>Replacement: {esc(item["replacement"])}</span>
     <a class="doom-source" href="{esc(item["link"])}" target="_blank" rel="noopener">Source</a>{tomb}
   </div>

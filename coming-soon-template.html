@@ -5,7 +5,7 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-MC3PM7NKRX');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upcoming AI Shutdowns &amp; Model Deprecation Dates ({{YEAR_SPAN}})</title>
+    <title>AI Model Deprecation &amp; Shutdown Dates: {{SHUTDOWN_RANGE}}</title>
     <meta name="description" content="The AI deprecation schedule: {{COUNT}} AI products, APIs and models with confirmed shutdown dates, {{SHUTDOWN_RANGE}}. Coming soon to the graveyard.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://killedbyai.net/coming-soon/">
@@ -45,6 +45,8 @@
         .doom-name{font-size:1.0625rem;font-weight:700}
         .doom-countdown{font-family:'SF Mono','Cascadia Code',monospace;font-size:0.75rem;font-weight:700;color:var(--yellow);background:var(--yellow-dim);padding:0.25rem 0.625rem;border-radius:0.25rem;white-space:nowrap;flex-shrink:0}
         .doom-countdown.dead{color:#ef4444;background:rgba(239,68,68,0.12)}
+        .doom-countdown.overdue{color:#fb923c;background:rgba(249,115,22,0.14)}
+        .doom-alive{color:#fb923c}
         .doom-desc{font-size:0.8125rem;color:var(--text-muted);line-height:1.6;margin-bottom:0.5rem}
         .doom-meta{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;font-size:0.6875rem;color:var(--text-dim)}
         .doom-tag{background:#1c1c1f;padding:0.125rem 0.5rem;border-radius:0.25rem}
@@ -95,7 +97,7 @@
 {{ROWS}}
     </main>
     <footer class="site-footer">
-        <p>Part of <a href="/">Killed by AI</a>. Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.</p>
+        <p>Part of <a href="/">Killed by AI</a>.</p>
         <p class="footer-links" style="font-size:.8125rem;margin-top:.5rem;text-align:center">{{FOOTER_LINKS}}</p>
     </footer>
     <script>

@@ -1,6 +1,6 @@
 # 🪦 Killed by AI
 
-**Killed by AI** is a free, open-source cemetery for discontinued Artificial Intelligence projects, products, and companies. As the industry moves from the hype of 2023 to the consolidation of 2026, many tools are being left in the digital dust.
+**Killed by AI** is a free online cemetery for discontinued Artificial Intelligence projects, products, and companies. As the industry moves from the hype of 2023 to the consolidation of 2026, many tools are being left in the digital dust.
 
 [View the Live Graveyard](https://killedbyai.net)
 
@@ -18,16 +18,15 @@ We track tools that have been discontinued due to:
 * **GitHub Pages** for free, lightning-fast hosting.
 * **JSON-driven**: `graveyard.json`, `layoffs.json`, `coming-soon.json` and `roles.json` are the whole database.
 
-## 🤝 Contributing
-Want to add a fresh tombstone?
-1. Fork this repository.
-2. Add a new entry to `graveyard.json` with the required fields: `name`, `slug`, `dateOpen`, `dateClose`, `dateAdded`, `description`, `type` (`app` | `model` | `service` | `startup` | `hardware`), `deathType` (`model-upgrade` | `product-killed` | `feature-removed` | `startup-failed` | `acqui-hired` | `hardware-failed`), `causeOfDeath`, `killedBy`, `link`. Products that haven't died yet go in `coming-soon.json`; layoffs a company blamed on AI go in `layoffs.json`.
-3. Submit a Pull Request with a link to the official shutdown announcement.
+## ✏️ Adding an entry
+This is a private project. Corrections and new entries from readers come in through the contact on the [About page](https://killedbyai.net/about/#corrections).
+
+To add a tombstone, append an entry to `graveyard.json` with the required fields (`name`, `slug`, `dateOpen`, `dateClose`, `dateAdded`, `description`, `type`, `deathType`, `causeOfDeath`, `killedBy`, `link`) and run the build.
 
 `python3 build.py` regenerates every page (the homepage, `/dead/`, `/killed-by/`, `/layoffs/`, `/jobs/`, `/coming-soon/`, `/funding/`, `/will-ai-take-my-job/`) plus `feed.xml`, `deprecations.ics`, `sitemap.xml` and `robots.txt` from the JSON files and the `*template.html` files. It checks the data first: missing fields or an invalid `type`/`deathType` print warnings, while duplicate entries or slugs, a death date in the future, or a coming-soon entry 14+ days past its date fail the build before anything is written. GitHub Actions runs the build on every push to `main` and daily at 06:00 UTC, then publishes only the public site (no build script, templates or `docs/`) to GitHub Pages.
 
 ## 📄 License
-The data in `graveyard.json`, `layoffs.json`, `coming-soon.json` and `roles.json` is [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): reuse it and link back to killedbyai.net. The code is MIT; see `LICENSE`. `data/microsoft-ai-applicability-scores.csv` is third-party data from Microsoft's research on AI applicability by occupation and keeps its original terms.
+The data in `graveyard.json`, `layoffs.json`, `coming-soon.json` and `roles.json` is [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): reuse it and link back to killedbyai.net. The code is proprietary, all rights reserved; see `LICENSE`. `data/microsoft-ai-applicability-scores.csv` is third-party data from Microsoft's research on AI applicability by occupation and keeps its original terms.
 
 ---
 *Disclaimer: This project is not affiliated with OpenAI, Google, or the original 'Killed by Google'. It is maintained by Patrik Rojan; contributions are welcome via pull request.*

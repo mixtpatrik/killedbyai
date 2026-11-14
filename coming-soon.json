@@ -87,7 +87,8 @@
     "killedBy": "Reddit",
     "replacement": "None for outside readers; registered apps only (deadline Jan 12, 2027)",
     "link": "https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/",
-    "description": "Killed by AI in the literal sense. Reddit turns off RSS on November 13, saying 'RSS has now become a common surface for large-scale scraping and automated abuse'. It also stops new public API requests on October 31 and closes the remaining public endpoints in March 2027. The data now goes to paying AI licensees instead; that revenue line grew 24% last quarter."
+    "description": "Killed by AI in the literal sense. Reddit said it would stop supporting RSS on November 13, because 'RSS has now become a common surface for large-scale scraping and automated abuse'. The date came and went: subreddit feeds were still answering on November 14, unsupported and liable to break without warning. New public API requests stopped on October 31, unregistered apps lose access from January 12, 2027, and the remaining public endpoints close that March. The data now goes to paying AI licensees instead; that revenue line grew 24% last quarter.",
+    "aliveAsOf": "2026-11-14"
   },
   {
     "name": "Google Gemini 2.5 Flash Image (\"Nano Banana\")",
@@ -123,7 +124,8 @@
     "killedBy": "OpenAI",
     "replacement": "Bring-your-own OpenAI API key or OpenAI's IDE extension; Claude and other models in Cursor",
     "link": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/",
-    "description": "OpenAI is ending its contract to supply models to the AI code editor Cursor on November 12, 2026, using a change-of-ownership clause after SpaceX completed its $60B purchase of Cursor in August. 'It boils down to trust,' said OpenAI's Thibault Sottiaux, citing Elon Musk's history of breaking contracts. Built-in GPT access ends, but developers can still bring their own OpenAI API keys or use OpenAI's IDE extension, and Cursor says OpenAI models were only about 5% of its traffic. Cursor says it is 'speaking with the OpenAI team to resolve this.'"
+    "description": "OpenAI is ending its contract to supply models to the AI code editor Cursor, using a change-of-ownership clause after SpaceX completed its $60B purchase of Cursor in August. 'It boils down to trust,' said OpenAI's Thibault Sottiaux, citing Elon Musk's history of breaking contracts. OpenAI proposed November 12, 2026 as the cutoff, but that date was never confirmed by both companies: on November 14 Cursor's model list still carried 17 GPT models, pinned to the set it had in August. Once the cutoff lands, developers can still bring their own OpenAI API keys, and Cursor says OpenAI models were only about 5% of its traffic.",
+    "aliveAsOf": "2026-11-14"
   },
   {
     "name": "Google Opal & Gemini Gems",
@@ -287,5 +289,14 @@
     "replacement": "Claude Opus 5.5; GPT-6.1 Sol or GPT-6 Luna",
     "link": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/",
     "description": "GitHub removes three models from every Copilot surface (Chat, inline edits, ask and agent modes, code completions) on November 16. Claude Opus 4.8 and Claude Opus 5 point to Claude Opus 5.5, GPT-5.6 Terra to GPT-6.1 Sol or GPT-6 Luna. One exception: individual subscribers on annual plans keep Opus 4.8. Anthropic's own API keeps Opus 5 until at least July 2027."
+  },
+  {
+    "name": "Mozilla Solo",
+    "dateAnnounced": "2026-10-01",
+    "dateShutdown": "2026-11-30",
+    "killedBy": "Mozilla",
+    "replacement": "None; export a ZIP of your site, domains move to Name.com",
+    "link": "https://www.theregister.com/software/2026/11/13/mozilla-leaves-solo-website-owners-to-go-it-alone-as-hosting-shuts-down/5309632",
+    "description": "Mozilla's AI website builder for sole traders, launched in December 2023 as a 'Mozilla Innovation Project': describe your business and an LLM wrote and hosted the site. About 54,000 people built pages with it. It 'will cease operations on Nov 30, 2026', and every site and its data are deleted that day. Users get a ZIP with an HTML export and a CSV of image links; the images have to be downloaded one by one. Mozilla gave no reason beyond 'Sometimes, that means making the decision to bring a product to an end.'"
   }
 ]

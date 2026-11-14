@@ -198,16 +198,66 @@
     "name": "Character.AI (Independent)",
     "dateOpen": "2022-09-16",
     "dateClose": "2024-08-02",
-    "description": "The viral AI chatbot platform where users created and talked to AI 'characters.' After safety controversies and intense competition, Google effectively acqui-hired the founders and key staff in August 2024, leaving the company a shell of its former self. The shell did not last: on October 13, 2026 Character.AI filed for Chapter 11, citing lawsuits, regulatory pressure and the cost of serving heavy users, with a court-supervised sale due to close in late November or early December. Disney is buying some assets for $20 million. CEO Colin Adams: 'If such a bid is unavailable, however, the platform will be wound down.'",
+    "description": "The viral AI chatbot platform where users created and talked to AI 'characters.' After safety controversies and intense competition, Google effectively acqui-hired the founders and key staff in August 2024, leaving the company a shell of its former self. The shell did not last: on October 12, 2026 Character.AI filed for Chapter 11, citing lawsuits, regulatory pressure and the cost of serving heavy users. The app is still online while a court-supervised sale runs, with Disney offering $20 million for a technology license that leaves out the consumer app and user data. CEO Colin Adams: 'If such a bid is unavailable, however, the platform will be wound down.'",
     "type": "startup",
     "causeOfDeath": "Acqui-hire",
     "killedBy": "Google",
-    "link": "https://www.theverge.com/2024/8/2/24212348/google-character-ai-noam-shazeer",
+    "link": "https://techcrunch.com/2026/10/13/just-5-years-in-interactive-chatbot-platform-character-ai-files-for-bankruptcy/",
     "collateral": "Users lost unique AI personalities they had spent hundreds of hours training and conversing with.",
     "deathType": "acqui-hired",
     "fundingM": 193,
     "dateAdded": "2026-03-26",
-    "slug": "character-ai-independent"
+    "slug": "character-ai-independent",
+    "seo": {
+      "title": "Is Character.AI Dead? Chapter 11 Bankruptcy and What Happens Next",
+      "description": "Character.AI filed for Chapter 11 on October 12, 2026. The app is still online, bids are due November 24, and without a buyer it will be wound down. Timeline and what users should do.",
+      "h1": "Is Character.AI dead?"
+    },
+    "timeline": [
+      {
+        "date": "2022-09-16",
+        "text": "Character.AI opens its public beta. Founders Noam Shazeer and Daniel De Freitas had left Google to build it."
+      },
+      {
+        "date": "2024-08-02",
+        "text": "Google signs a licensing deal and hires the founders and key researchers back. The company keeps running, but the people who built its models are gone. This is the death recorded on this tombstone."
+      },
+      {
+        "date": "2026-10-12",
+        "text": "Character Technologies files for Chapter 11 in Delaware, citing lawsuits, regulatory pressure and the cost of serving heavy users. It lists assets and liabilities of $50 million to $100 million each, having raised more than $193 million."
+      },
+      {
+        "date": "2026-11-04",
+        "text": "The court approves the sale process. Disney is the opening bidder at $20 million for a perpetual, non-exclusive technology license that excludes the consumer app and end-user data."
+      },
+      {
+        "date": "2026-11-24",
+        "text": "Deadline for rival bids. An auction follows on December 1 only if a qualifying bid arrives; the sale hearing is set for December 3 and 4."
+      }
+    ],
+    "aftermath": "If no buyer takes the app itself, Character.AI has said the platform will be wound down. Disney's offer covers technology only, so it would not keep the service running. Several US states have asked the court to let users delete their data before any sale of it.",
+    "faq": [
+      {
+        "q": "Is Character.AI dead?",
+        "a": "Not yet. The app is still online, but the company has been in Chapter 11 bankruptcy since October 12, 2026. Rival bids are due November 24, and the sale hearing is on December 3 and 4. The company has said that without a suitable bid, the platform will be wound down."
+      },
+      {
+        "q": "Is Character.AI shutting down?",
+        "a": "It depends on the bankruptcy sale. Disney has offered $20 million, but only for a technology license that excludes the consumer app and user data. Unless another bidder buys the app, the company's own statement is that the platform 'will be wound down.' No shutdown date has been set."
+      },
+      {
+        "q": "Why did Character.AI go bankrupt?",
+        "a": "The company cited lawsuits, regulatory pressure and operating problems. Character chat is expensive to serve, and the founders and key researchers had already left for Google in August 2024. It raised more than $193 million and listed assets and liabilities of $50 million to $100 million each."
+      },
+      {
+        "q": "What happens to my Character.AI chats and characters?",
+        "a": "Nothing has been deleted so far. Disney's offer excludes end-user data, user inputs and outputs. A group of US states has asked the court to give every user the chance to delete their data before any sale of it. If your chats matter to you, save copies now."
+      },
+      {
+        "q": "Why is Character.AI listed here with a 2024 death date?",
+        "a": "This tombstone marks August 2, 2024, when Google hired away the founders and licensed the technology, ending Character.AI as an independent AI lab. If the platform itself is wound down, that date will be recorded too."
+      }
+    ]
   },
   {
     "name": "Amazon Alexa (Original AI)",
@@ -1791,7 +1841,11 @@
     "description": "A character-chat platform for role-play and storytelling that reached more than a million users on a free tier, with no funding and no revenue at any point. Character chat is among the most expensive things to serve per user, and the developers shut it down at the end of 2024 rather than charge for it. It had more users than it could afford to serve for free.",
     "collateral": "Custom characters, multiplayer rooms and the community library went offline with no export.",
     "dateAdded": "2026-09-22",
-    "slug": "figgs-ai"
+    "slug": "figgs-ai",
+    "seo": {
+      "title": "Figgs AI Is Shut Down: What Happened to figgs.ai (2024)",
+      "description": "Figgs AI closed at the end of 2024. The free character-chat app had over a million users, no funding and no revenue, and its developers shut it down instead of charging. What users lost."
+    }
   },
   {
     "name": "theGist",

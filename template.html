@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Killed by AI: The AI Graveyard | {{COUNT}} Dead AI Tools &amp; Products</title>
-    <meta name="description" content="{{COUNT}} AI products killed and counting. Every AI shutdown tracked, including the Sora shutdown, GPT-4o, the Humane AI Pin, and the startups that died trying.">
+    <meta name="description" content="{{COUNT}} AI products and companies that shut down, went bankrupt or were killed off, including Sora, GPT-4o and the Humane AI Pin. Every AI shutdown, dated and sourced.">
     <meta name="keywords" content="killed by AI, AI graveyard, sora ai shutdown, discontinued AI, dead AI products, AI shutdown, deprecated AI models, failed AI startups, openai sora shutdown, humane ai pin failure, AI tool tracker, openai ai text classifier discontinued">
     <meta name="author" content="Patrik Rojan">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -1235,7 +1235,7 @@
             <input type="checkbox" class="toggle-input" id="hide-upgrades">
             <span class="toggle-switch"></span>
         </label>
-        <a class="submit-cta" href="https://github.com/mixtpatrik/killedbyai/issues/new?title=New+entry:+[Product+Name]&body=Name:%0ADate+launched:%0ADate+killed:%0ADescription:%0AKilled+by:%0ASource+link:" target="_blank" rel="noopener">+ Submit a death</a>
+        <a class="submit-cta" href="/about/#corrections">+ Submit a death</a>
     </div>
     <div class="active-filters" id="active-filters"></div>
     <p class="sr-only" id="sr-status" role="status" aria-atomic="true"></p>
@@ -1266,8 +1266,7 @@
     <footer class="site-footer">
         <p>
             Inspired by <a href="https://killedbygoogle.com/" target="_blank" rel="noopener">Killed by Google</a>.
-            Open source on <a href="https://github.com/mixtpatrik/killedbyai" target="_blank" rel="noopener">GitHub</a>.
-            <br>Want to add a tombstone? <a href="https://github.com/mixtpatrik/killedbyai/issues/new?title=New+entry:+[Product+Name]" target="_blank" rel="noopener">Submit a death</a> or a pull request. Data <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
+            <br>Want to add a tombstone? <a href="/about/#corrections">Submit a death</a>. Data <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
         </p>
         <p class="footer-links">{{FOOTER_LINKS}}</p>
         <p class="quote">"I'm sorry, Dave. I'm afraid I can't do that anymore."</p>
@@ -1364,8 +1363,8 @@
                 empty.querySelector('p').textContent = missing ? 'No tombstone matches “' + q.slice(0, 80) + '”.' : 'Nothing buried here: no tombstones match those filters.';
                 const a = empty.querySelector('.actions');
                 if (missing) {
-                    const link = document.createElement('a'); link.className = 'chip'; link.target = '_blank'; link.rel = 'noopener';
-                    link.href = 'https://github.com/mixtpatrik/killedbyai/issues/new?' + new URLSearchParams({ title: 'New entry: ' + q.slice(0, 80), body: 'Name: ' + q.slice(0, 80) + '\nDate launched:\nDate killed:\nDescription:\nKilled by:\nSource link:' });
+                    const link = document.createElement('a'); link.className = 'chip';
+                    link.href = '/about/#corrections';
                     link.textContent = 'Missing one? Submit “' + q.slice(0, 40) + '” as a death';
                     a.appendChild(link);
                 }
