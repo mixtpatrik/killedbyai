@@ -294,7 +294,7 @@ def build_embeds(root, site, data, ldata, cs_data, publish, site_nav, footer_lin
                 '<button type="button" class="b" data-act="reddit">Reddit</button><button type="button" class="b" data-act="bsky">Bluesky</button></div>'
                 '<div class="g-code" hidden></div></section>')
 
-    widgets = [("graveyard", "Graveyard counter + latest deaths", 330), ("layoffs", "AI layoffs counter", 330), ("dying-soon", "Next AI shutdowns, live countdown", 300)]
+    widgets = [("graveyard", "Graveyard counter + latest deaths", 330), ("layoffs", "AI layoffs counter", 350), ("dying-soon", "Next AI shutdowns, live countdown", 300)]
     wcards = "".join(f'<section class="g-card" id="widget-{w}" data-widget="{w}" data-h="{h}"><h3>{esc(t)}</h3>'
                      f'<iframe src="/embed/w/{w}/" title="{esc(t)}" height="{h}" loading="lazy"></iframe>'
                      '<div class="g-actions"><button type="button" class="b" data-act="wcode">Embed code</button></div><div class="g-code" hidden></div></section>' for w, t, h in widgets)

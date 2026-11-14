@@ -18,6 +18,8 @@
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Killed by AI">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coming Soon to the Graveyard: AI Products With Death Dates">
+    <meta name="twitter:description" content="{{COUNT}} AI products with confirmed shutdown dates. The walking dead of the AI industry.">
     <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -86,6 +88,7 @@
     </style>
     <script type="application/ld+json">{{JSONLD}}</script>
     <script type="application/ld+json">{{BREADCRUMB}}</script>
+    <script type="application/ld+json">{{FAQ_JSONLD}}</script>
     {{SITE_HEAD}}
 </head>
 <body>
@@ -105,6 +108,7 @@
     </header>
     <main class="list">
 {{ROWS}}
+    {{FAQ_HTML}}
     </main>
     <footer class="site-footer">
         {{FOOTER_LINKS}}

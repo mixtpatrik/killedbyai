@@ -224,7 +224,8 @@ SITE_HEAD = r"""<meta name="color-scheme" content="dark">
     <style>
         :root{color-scheme:dark;--bg:#09090b;--bg-card:#111113;--border:#26262a;--line:#3f3f46;--mark:#3f3f46;--mark-hover:#71717a;--text:#f4f4f5;--text-muted:#a1a1aa;--text-dim:#8f8f99;--red:#ef4444;--red-text:#f87171;--radius:6px;--gutter:1.5rem;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;--mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace}
         @media(max-width:600px){:root{--gutter:1rem}}
-        body{font-variant-numeric:tabular-nums}
+        body{font-family:var(--sans);line-height:1.55;font-variant-numeric:tabular-nums}
+        input,select,button,textarea{font-family:inherit}
         h1,h2,h3{text-wrap:balance}
         p{text-wrap:pretty}
         :focus-visible{outline:2px solid var(--red-text);outline-offset:2px}
@@ -236,6 +237,19 @@ SITE_HEAD = r"""<meta name="color-scheme" content="dark">
         .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
         .skip-link{position:absolute;left:.5rem;top:.5rem;z-index:100;transform:translateY(-200%);padding:.5rem .875rem;background:var(--text);color:var(--bg);border-radius:var(--radius);font-weight:600;text-decoration:none}
         .skip-link:focus{transform:none}
+        .faq-section{margin-top:3.5rem}
+        .faq-title{margin-bottom:.875rem;font-family:var(--serif);font-size:1.375rem;font-weight:700;line-height:1.25}
+        .faq-item{max-width:48rem;border-top:1px solid var(--border)}
+        .faq-item:last-of-type{border-bottom:1px solid var(--border)}
+        .faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:48px;padding:.625rem 0;font-weight:600;cursor:pointer;list-style:none}
+        .faq-item summary::-webkit-details-marker{display:none}
+        .faq-item summary h3{display:inline;margin:0;font:inherit}
+        .faq-item summary::after{content:"+" / "";flex:none;font-size:1.25rem;font-weight:400;color:var(--text-dim)}
+        .faq-item[open] summary::after{content:"\2212" / "";color:var(--acc,var(--red-text))}
+        .faq-answer{padding-bottom:1rem}
+        .faq-answer p{margin:0;color:var(--text-muted);font-size:.9375rem;line-height:1.65}
+        .faq-answer a{color:var(--text);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
+        .faq-answer a:hover{text-decoration-color:var(--acc,var(--red))}
         .site-footer{margin-top:3rem;padding-bottom:2.5rem;font-size:.875rem;line-height:1.6;color:var(--text-dim)}
         .site-footer::before{content:"";display:block;margin-bottom:2rem;border-top:1px solid var(--border)}
         .footer-brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem 1.25rem;margin-bottom:1.75rem}
@@ -265,6 +279,34 @@ SITE_HEAD = r"""<meta name="color-scheme" content="dark">
     </style>
     <script>if(!CSS.supports("scroll-initial-target","nearest"))addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".site-nav"),a=n&&n.querySelector(".active");if(a)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2})</script>
     <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*\\?(.+)"}},{"not":{"href_matches":"/*.*"}},{"not":{"selector_matches":"[download],[rel~=nofollow],[target=_blank],[aria-current=page]"}}]},"eagerness":"moderate"}]}</script>"""
+
+
+def faq_section(items, title="Frequently asked questions"):
+    """A visible FAQ in the homepage's markup. `items` is [(question, answer)]; an answer may contain links."""
+    qa = "".join(f'<details class="faq-item"><summary><h3>{esc(q)}</h3></summary><div class="faq-answer"><p>{a}</p></div></details>' for q, a in items)
+    return f'<section class="faq-section" aria-labelledby="faq-title"><h2 class="faq-title" id="faq-title">{esc(title)}</h2>{qa}</section>'
+
+
+def faq_jsonld(items):
+    """FAQPage for exactly the questions faq_section() shows (the answer text is the visible answer without its links)."""
+    text = lambda a: html.unescape(re.sub(r"<[^>]+>", "", a))
+    return json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": text(a)}} for q, a in items]}, indent=2, ensure_ascii=False)
+
+
+EMBED_FAQ = [
+    ("Is it free to embed these charts and widgets?",
+     "Yes. The graphics, widgets and badges are free for commercial and non-commercial use under CC BY 4.0. "
+     "The one condition is a link back to killedbyai.net, which the embed code already includes."),
+    ("Do the embedded graphics update on their own?",
+     "Yes. An embedded image or widget loads from this site, so it shows the current numbers after every data update. "
+     "A downloaded PNG is a snapshot of the day you saved it."),
+    ("Which sizes and themes are available?",
+     "Charts and counters are 1200x630 images in a dark and a light theme, as SVG or PNG. "
+     "The live widgets are iframes with a fixed height that fill their column up to 520 pixels wide."),
+    ("Can I use the raw data instead?",
+     'Yes. The same numbers are served as static JSON, with no key and no rate limit. The <a href="/api/">API page</a> lists the files and their fields.'),
+]
 
 
 def crumb_items(url, label, *parents):
@@ -1626,9 +1668,6 @@ def build_coming_soon_jsonld(cs_data):
                 },
             },
             webpage_node(SITE_URL + "coming-soon/", "Upcoming AI Shutdowns & Model Deprecation Dates", f"{len(cs_data)} AI products with confirmed shutdown dates.", lm(["coming-soon.json", "coming-soon-template.html"]), {"@type": "CollectionPage"}),
-            {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f"What is the shutdown date for {c['name']}?",
-                "acceptedAnswer": {"@type": "Answer", "text": f"{c['name']}: scheduled shutdown on {fmt_date(c['dateShutdown'])} (announced {fmt_date(c['dateAnnounced'])}). Replacement: {c['replacement']}."}}
-                for c in sorted(cs_data, key=lambda x: x["dateShutdown"])]},
             {"@type": "ItemList", "numberOfItems": len(cs_data), "itemListElement": items},
         ],
     }
@@ -1782,7 +1821,8 @@ def main():
     import embed
     embed.build_embeds(ROOT, SITE_URL, data, json.loads((ROOT / "layoffs.json").read_text()) if (ROOT / "layoffs.json").exists() else [],
                        json.loads((ROOT / "coming-soon.json").read_text()) if (ROOT / "coming-soon.json").exists() else [],
-                       publish, site_nav, footer_links, product_url, read_template)
+                       publish, site_nav, footer_links, product_url,
+                       lambda name: read_template(name).replace("{{FAQ_HTML}}", faq_section(EMBED_FAQ, "Embedding: frequently asked questions")).replace("{{FAQ_JSONLD}}", faq_jsonld(EMBED_FAQ)))
     killer_pages = []
     for killer, n in killer_counts.items():
         if n < 2:
@@ -1830,7 +1870,7 @@ def main():
             text = " ".join([l["company"], l["description"], l["roles"], " ".join(roles_map.get(r, r) for r in l.get("roleTags", []))]).lower()
             return f'''<article class="layoff-row" id="{slugify(l["company"])}" data-sort-row data-jobs="{l["jobs"]}" data-date="{l["date"].replace("-", "")}" data-name="{esc(l["company"].lower())}" data-f="{l["date"][:4]} {" ".join(l.get("roleTags", []))}" data-text="{esc(text)}">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#{rank}</span> {esc(l["company"])}{'<span class="badge-new">New</span>' if fresh else ""}</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#{rank}</span> {esc(l["company"])}{'<span class="badge-new">New</span>' if fresh else ""}</h3>
     <span class="layoff-count">{l["jobs"]:,}</span>
   </div>
   <p class="layoff-desc">{esc(l["description"])}</p>
@@ -1906,7 +1946,34 @@ def main():
                                  [("all", "All", total_entries)] + [(y, y, by_year_n[y]) for y in years_desc]
                                  + [(r, roles_map.get(r, r), n) for r, _, n in sorted(role_rank, key=lambda t: -t[2])[:4]])
 
+        roles_by_mentions = sorted(role_rank, key=lambda t: (-t[2], -t[1]))[:3]
+        role_name = lambda r: lc_label(roles_map.get(r, r))
+        yr_jobs = sum(l["jobs"] for l in layoffs if l["date"][:4] == this_year)
+        yr_n = sum(1 for l in layoffs if l["date"][:4] == this_year)
+        top3 = layoffs_sorted[:3]
+        layoffs_faq = [
+            ("How many jobs have been lost to AI?",
+             f"{total_jobs:,} jobs at {total_companies} companies since {first_year}, counting only layoffs where the company, its CEO or a regulatory filing "
+             "named AI or automation as the reason. The real total is higher: most employers never say why they cut jobs, and those cuts are not counted here."),
+            ("Which company has laid off the most people because of AI?",
+             f"{esc(top3[0]['company'])}, with {top3[0]['jobs']:,} jobs cut in {fmt_month(top3[0]['date'])}. "
+             f"{esc(top3[1]['company'])} follows with {top3[1]['jobs']:,} and {esc(top3[2]['company'])} with {top3[2]['jobs']:,}."),
+            ("Which jobs is AI replacing first?",
+             f"{role_name(roles_by_mentions[0][0]).capitalize()} is named most often: {roles_by_mentions[0][2]} of the {total_entries} layoffs here mention it. "
+             f"{role_name(roles_by_mentions[1][0]).capitalize()} ({roles_by_mentions[1][2]} layoffs) and {role_name(roles_by_mentions[2][0])} ({roles_by_mentions[2][2]}) come next. "
+             'Each role has its own page under <a href="/jobs/">jobs replaced by AI</a>.'),
+            (f"How many AI layoffs have there been in {this_year}?",
+             f"{yr_jobs:,} jobs across {yr_n} layoffs so far in {this_year}. At the same point in {prev_year} the count was {ytd_prev:,}."),
+            ("What counts as an AI layoff on this tracker?",
+             "Only a cut the employer itself tied to AI: a statement from the company or its CEO, an internal memo, or a regulatory filing. "
+             "A layoff at an AI company, or one a reporter linked to AI without the company saying so, is left out."),
+            ("Where do the numbers come from?",
+             "Every row links its source: the company's own announcement, memo or SEC filing where one exists, otherwise reporting from outlets that name their sources. "
+             "Where only a WARN filing is public, that smaller number is used and the entry says the real total is larger."),
+        ]
         layoffs_out = (layoffs_template
+                       .replace("{{FAQ_HTML}}", faq_section(layoffs_faq, "AI layoffs: frequently asked questions"))
+                       .replace("{{FAQ_JSONLD}}", faq_jsonld(layoffs_faq))
                        .replace("{{JSONLD}}", json.dumps(build_layoffs_jsonld(ldata), indent=2))
                        .replace("{{BREADCRUMB}}", json.dumps(build_breadcrumb("AI Layoffs Tracker", "layoffs"), indent=2))
                        .replace("{{DASH_CSS}}", DASH_CSS)
@@ -1956,7 +2023,7 @@ def main():
             killer = i.get("killedBy", "")
             return f'''<article class="fund-row" id="{slug}" data-sort-row data-fund="{i["fundingM"]}" data-date="{i["dateClose"].replace("-", "")}" data-burn="{burn_day(i):.0f}" data-life="{days_alive(i)}" data-name="{esc(i["name"].lower())}" data-f="{i.get("deathType", "")} {i["dateClose"][:4]}" data-text="{esc(text)}">
   <div class="fund-header">
-    <h2 class="fund-name"><span class="rank" title="Rank by money raised">#{rank}</span> <a href="/dead/{slug}/">{esc(i["name"])}</a></h2>
+    <h3 class="fund-name"><span class="rank" title="Rank by money raised">#{rank}</span> <a href="/dead/{slug}/">{esc(i["name"])}</a></h3>
     <span class="fund-amount">{fmt_money_m(i["fundingM"])}</span>
   </div>
   <p class="fund-desc">{esc(i["description"])}</p>
@@ -2017,8 +2084,34 @@ def main():
                                  [("all", "All", len(funded))] + [(k, DEATH_LABEL.get(k, k), n) for k, (m, n) in sorted(by_death.items(), key=lambda kv: -kv[1][1])]
                                  + [(y, y, sum(1 for i in funded if i["dateClose"][:4] == y)) for y in sorted(years, reverse=True)[:3]])
 
+        from collections import Counter as _Causes
+        causes = _Causes(i.get("causeOfDeath", "") for i in funded if i.get("causeOfDeath")).most_common(3)
+        funding_faq = [
+            ("How much money have failed AI startups burned?",
+             f"${total_b} billion, raised by {len(funded)} AI companies that shut down, were acqui-hired or ran out of money. "
+             "The figure is the total funding each company is reported to have raised before it died."),
+            ("What is the most expensive AI startup failure?",
+             f'<a href="/dead/{slug_of(funded[0])}/">{esc(funded[0]["name"])}</a>, which raised {fmt_money_m(funded[0]["fundingM"])} and died in {fmt_month(funded[0]["dateClose"])}. '
+             f'{esc(funded[1]["name"])} ({fmt_money_m(funded[1]["fundingM"])}) and {esc(funded[2]["name"])} ({fmt_money_m(funded[2]["fundingM"])}) follow.'),
+            ("Which failed AI startup burned money fastest?",
+             f'{esc(fastest["name"])}: {fmt_money_m(fastest["fundingM"])} over {days_alive(fastest) / 365.25:.1f} years, about {fmt_burn(burn_day(fastest))} a day.'),
+            ("How long does a failed AI startup last?",
+             f"{avg_life:.1f} years on average from founding to shutdown, across the {len(funded)} companies on this list. The median company raised {fmt_money_m(median_m)}."),
+            ("Why do AI startups fail?",
+             "The most common causes of death on this list are " + ", ".join(f"{lc_label(c)} ({n})" for c, n in causes[:-1]) + f" and {lc_label(causes[-1][0])} ({causes[-1][1]}). "
+             "Each entry names its own cause and what killed it."),
+            ("Does an acqui-hire count as a failure?",
+             "Yes, when the buyer hired the team and the product was shut down. Investors are sometimes repaid in those deals, "
+             "so the figure shown is what the company raised, not a measured loss."),
+        ]
         fund_out = (fund_template
-                    .replace("{{JSONLD}}", json.dumps(build_funding_jsonld(funded, total_b), indent=2))
+                    .replace("{{FAQ_HTML}}", faq_section(funding_faq, "Failed AI startups: frequently asked questions"))
+                    .replace("{{FAQ_JSONLD}}", faq_jsonld(funding_faq))
+                    .replace("{{JSONLD}}", json.dumps({"@context": "https://schema.org", "@graph": [
+                        {k: v for k, v in build_funding_jsonld(funded, total_b).items() if k != "@context"},
+                        webpage_node(SITE_URL + "funding/", "Failed AI Startups and the Funding They Burned",
+                                     f"{len(funded)} AI companies that shut down, were acqui-hired or ran out of money after raising ${total_b} billion.",
+                                     lm(["graveyard.json", "funding-template.html"]), {"@type": "CollectionPage"})]}, indent=2))
                     .replace("{{BREADCRUMB}}", json.dumps(build_breadcrumb("Funding Burned", "funding"), indent=2))
                     .replace("{{DASH_CSS}}", DASH_CSS)
                     .replace("{{DASH_JS}}", DASH_JS)
@@ -2086,7 +2179,27 @@ def main():
 </article>'''
             )
 
+        nxt = upcoming[:3]
+        day = lambda i: datetime.strptime(i["dateShutdown"], "%Y-%m-%d").strftime("%B %-d")
+        cs_faq = [
+            ("Which AI models are being shut down next?",
+             (f"{esc(nxt[0]['name'])} on {day(nxt[0])}, then {esc(nxt[1]['name'])} on {day(nxt[1])} and {esc(nxt[2]['name'])} on {day(nxt[2])}. " if len(nxt) == 3 else "")
+             + f"The schedule above covers {len(cs_sorted)} products, {cs_range}."),
+            ("How do I get notified before an AI model is retired?",
+             'Subscribe to the <a href="#calendar">shutdown calendar</a> at the top of this page in Apple Calendar, Outlook or Google Calendar. '
+             "Each shutdown appears as a calendar event, and the feed updates as dates are added or moved."),
+            ("What happens when an AI model is deprecated?",
+             "The vendor announces a retirement date and usually names a replacement. After that date, requests to the old model ID fail or are routed to a newer model, "
+             "so anything pinned to the old ID has to be updated first."),
+            ("Where do these shutdown dates come from?",
+             "From the vendor's own deprecation page, changelog or announcement, linked as the source on each entry. "
+             "A date that passes while the product is still running is marked Overdue until the shutdown is confirmed."),
+            ("What happens to a product after its shutdown date?",
+             'Once the shutdown is confirmed it moves to <a href="/">the AI graveyard</a> with its launch date, cause of death and source.'),
+        ]
         cs_out = (cs_template
+                  .replace("{{FAQ_HTML}}", faq_section(cs_faq, "AI shutdowns: frequently asked questions"))
+                  .replace("{{FAQ_JSONLD}}", faq_jsonld(cs_faq))
                   .replace("{{JSONLD}}", json.dumps(build_coming_soon_jsonld(cs_data), indent=2))
                   .replace("{{BREADCRUMB}}", json.dumps(build_breadcrumb("Coming Soon", "coming-soon"), indent=2))
                   .replace("{{ROWS}}", "\n".join(cs_rows))

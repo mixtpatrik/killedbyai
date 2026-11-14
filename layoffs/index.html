@@ -21,6 +21,8 @@
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Killed by AI">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Layoffs Tracker: 88,164 Jobs Cut by AI Since 2024">
+    <meta name="twitter:description" content="88,164 jobs cut across 40 companies that blamed AI, 59,450 of them in 2026. Charts, rankings, sources.">
     <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
     <meta property="og:title" content="AI Layoffs Tracker: 88,164 Jobs Cut by AI Since 2024">
     <meta property="og:description" content="88,164 jobs cut across 40 companies that blamed AI, 59,450 of them in 2026. Charts, rankings, sources.">
@@ -1388,11 +1390,66 @@ a.hbar{min-height:40px}
     }
   ]
 }</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many jobs have been lost to AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "88,164 jobs at 40 companies since 2024, counting only layoffs where the company, its CEO or a regulatory filing named AI or automation as the reason. The real total is higher: most employers never say why they cut jobs, and those cuts are not counted here."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which company has laid off the most people because of AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oracle, with 21,000 jobs cut in Jun 2026. Dell follows with 12,500 and Meta with 8,000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which jobs is AI replacing first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Customer support is named most often: 11 of the 42 layoffs here mention it. Software engineering (8 layoffs) and product management (8) come next. Each role has its own page under jobs replaced by AI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many AI layoffs have there been in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "59,450 jobs across 30 layoffs so far in 2026. At the same point in 2025 the count was 12,386."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What counts as an AI layoff on this tracker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only a cut the employer itself tied to AI: a statement from the company or its CEO, an internal memo, or a regulatory filing. A layoff at an AI company, or one a reporter linked to AI without the company saying so, is left out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do the numbers come from?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every row links its source: the company's own announcement, memo or SEC filing where one exists, otherwise reporting from outlets that name their sources. Where only a WARN filing is public, that smaller number is used and the entry says the real total is larger."
+      }
+    }
+  ]
+}</script>
     <meta name="color-scheme" content="dark">
     <style>
         :root{color-scheme:dark;--bg:#09090b;--bg-card:#111113;--border:#26262a;--line:#3f3f46;--mark:#3f3f46;--mark-hover:#71717a;--text:#f4f4f5;--text-muted:#a1a1aa;--text-dim:#8f8f99;--red:#ef4444;--red-text:#f87171;--radius:6px;--gutter:1.5rem;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;--mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace}
         @media(max-width:600px){:root{--gutter:1rem}}
-        body{font-variant-numeric:tabular-nums}
+        body{font-family:var(--sans);line-height:1.55;font-variant-numeric:tabular-nums}
+        input,select,button,textarea{font-family:inherit}
         h1,h2,h3{text-wrap:balance}
         p{text-wrap:pretty}
         :focus-visible{outline:2px solid var(--red-text);outline-offset:2px}
@@ -1404,6 +1461,19 @@ a.hbar{min-height:40px}
         .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
         .skip-link{position:absolute;left:.5rem;top:.5rem;z-index:100;transform:translateY(-200%);padding:.5rem .875rem;background:var(--text);color:var(--bg);border-radius:var(--radius);font-weight:600;text-decoration:none}
         .skip-link:focus{transform:none}
+        .faq-section{margin-top:3.5rem}
+        .faq-title{margin-bottom:.875rem;font-family:var(--serif);font-size:1.375rem;font-weight:700;line-height:1.25}
+        .faq-item{max-width:48rem;border-top:1px solid var(--border)}
+        .faq-item:last-of-type{border-bottom:1px solid var(--border)}
+        .faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:48px;padding:.625rem 0;font-weight:600;cursor:pointer;list-style:none}
+        .faq-item summary::-webkit-details-marker{display:none}
+        .faq-item summary h3{display:inline;margin:0;font:inherit}
+        .faq-item summary::after{content:"+" / "";flex:none;font-size:1.25rem;font-weight:400;color:var(--text-dim)}
+        .faq-item[open] summary::after{content:"\2212" / "";color:var(--acc,var(--red-text))}
+        .faq-answer{padding-bottom:1rem}
+        .faq-answer p{margin:0;color:var(--text-muted);font-size:.9375rem;line-height:1.65}
+        .faq-answer a{color:var(--text);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
+        .faq-answer a:hover{text-decoration-color:var(--acc,var(--red))}
         .site-footer{margin-top:3rem;padding-bottom:2.5rem;font-size:.875rem;line-height:1.6;color:var(--text-dim)}
         .site-footer::before{content:"";display:block;margin-bottom:2rem;border-top:1px solid var(--border)}
         .footer-brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem 1.25rem;margin-bottom:1.75rem}
@@ -1461,7 +1531,7 @@ a.hbar{min-height:40px}
     <div class="list" data-sortable>
 <article class="layoff-row" id="oracle" data-sort-row data-jobs="21000" data-date="20260622" data-name="oracle" data-f="2026 engineering sales customer-support" data-text="oracle oracle&#x27;s fy2026 10-k reports about 141,000 full-time employees at may 31, 2026, down from about 162,000 a year earlier, a net drop of about 21,000 (13%), after a restructuring plan of up to $2.1b meant to improve efficiency &#x27;including through the adoption and integration of ai technologies across certain functions.&#x27; the filing says &#x27;the adoption and deployment of ai technologies across our operations have resulted, and may continue to result, in reductions to our workforce.&#x27; oracle disclosed no gross layoff count. research and development, sales and marketing, services and support (largest net headcount declines) software engineering sales customer support">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#1</span> Oracle</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#1</span> Oracle</h3>
     <span class="layoff-count">21,000</span>
   </div>
   <p class="layoff-desc">Oracle&#x27;s FY2026 10-K reports about 141,000 full-time employees at May 31, 2026, down from about 162,000 a year earlier, a net drop of about 21,000 (13%), after a restructuring plan of up to $2.1B meant to improve efficiency &#x27;including through the adoption and integration of AI technologies across certain functions.&#x27; The filing says &#x27;the adoption and deployment of AI technologies across our operations have resulted, and may continue to result, in reductions to our workforce.&#x27; Oracle disclosed no gross layoff count.</p>
@@ -1473,7 +1543,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="dell" data-sort-row data-jobs="12500" data-date="20240801" data-name="dell" data-f="2024 sales customer-support it" data-text="dell cut 10% of workforce as it reorganized around demand for ai servers and infrastructure. traditional pc and services roles eliminated. sales, support, traditional infrastructure sales customer support it">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#2</span> Dell</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#2</span> Dell</h3>
     <span class="layoff-count">12,500</span>
   </div>
   <p class="layoff-desc">Cut 10% of workforce as it reorganized around demand for AI servers and infrastructure. Traditional PC and services roles eliminated.</p>
@@ -1485,7 +1555,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="meta" data-sort-row data-jobs="8000" data-date="20260520" data-name="meta" data-f="2026 sales marketing product middle-management" data-text="meta cut 10% of its 80,000 workforce. zuckerberg&#x27;s memo: &#x27;success isn&#x27;t a given&#x27; in the ai era. 7,000 more employees reassigned to ai-focused teams. 6,000 open roles scrapped. nearly 1,400 cut in seattle alone, 20% of its local workforce. his $300m superyacht docked in seattle the same day. sales, marketing, product, middle management (india, seattle, bay area hardest hit). ai teams protected. sales marketing product management middle management">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#3</span> Meta</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#3</span> Meta</h3>
     <span class="layoff-count">8,000</span>
   </div>
   <p class="layoff-desc">Cut 10% of its 80,000 workforce. Zuckerberg&#x27;s memo: &#x27;success isn&#x27;t a given&#x27; in the AI era. 7,000 more employees reassigned to AI-focused teams. 6,000 open roles scrapped. Nearly 1,400 cut in Seattle alone, 20% of its local workforce. His $300M superyacht docked in Seattle the same day.</p>
@@ -1497,7 +1567,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="hp" data-sort-row data-jobs="5000" data-date="20251101" data-name="hp" data-f="2025 operations customer-support admin" data-text="hp cut 4,000-6,000 employees as part of an ai productivity initiative across global operations. operations, support, admin operations customer support admin &amp; back office">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#4</span> HP</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#4</span> HP</h3>
     <span class="layoff-count">5,000</span>
   </div>
   <p class="layoff-desc">Cut 4,000-6,000 employees as part of an AI productivity initiative across global operations.</p>
@@ -1509,7 +1579,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="paypal-2026" data-sort-row data-jobs="4760" data-date="20260505" data-name="paypal (2026)" data-f="2026 various" data-text="paypal (2026) bloomberg reported that paypal plans to cut about 20% of staff over two to three years, roughly 4,760 of the 23,800 employees it had at the end of 2025; paypal has not confirmed a headcount. its 10-q says the restructuring program &#x27;will focus on realigning our operating structure and accelerating the adoption of artificial intelligence and automation across the company&#x27; and should deliver at least $1.5b in annual savings. this is its second round of cuts, after 2,500 in jan 2024. company-wide (no function breakdown disclosed) unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#5</span> PayPal (2026)</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#5</span> PayPal (2026)</h3>
     <span class="layoff-count">4,760</span>
   </div>
   <p class="layoff-desc">Bloomberg reported that PayPal plans to cut about 20% of staff over two to three years, roughly 4,760 of the 23,800 employees it had at the end of 2025; PayPal has not confirmed a headcount. Its 10-Q says the restructuring program &#x27;will focus on realigning our operating structure and accelerating the adoption of artificial intelligence and automation across the company&#x27; and should deliver at least $1.5B in annual savings. This is its second round of cuts, after 2,500 in Jan 2024.</p>
@@ -1521,7 +1591,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="block-square" data-sort-row data-jobs="4000" data-date="20260226" data-name="block (square)" data-f="2026 engineering operations customer-support" data-text="block (square) jack dorsey cut block &#x27;by nearly half, from over 10,000 people to just under 6,000.&#x27; his shareholder letter: &#x27;intelligence tools have changed what it means to build and run a company... a significantly smaller team, using the tools we&#x27;re building, can do more and do it better.&#x27; the 8-k puts restructuring charges at $450-500m. engineering, operations, support software engineering operations customer support">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#6</span> Block (Square)</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#6</span> Block (Square)</h3>
     <span class="layoff-count">4,000</span>
   </div>
   <p class="layoff-desc">Jack Dorsey cut Block &#x27;by nearly half, from over 10,000 people to just under 6,000.&#x27; His shareholder letter: &#x27;Intelligence tools have changed what it means to build and run a company... A significantly smaller team, using the tools we&#x27;re building, can do more and do it better.&#x27; The 8-K puts restructuring charges at $450-500M.</p>
@@ -1533,7 +1603,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="salesforce" data-sort-row data-jobs="4000" data-date="20250901" data-name="salesforce" data-f="2025 customer-support" data-text="salesforce cut customer support roles. ceo marc benioff said bluntly: &#x27;i need less heads.&#x27; replaced them with agentforce, salesforce&#x27;s ai agent platform. customer support, success managers customer support">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#7</span> Salesforce</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#7</span> Salesforce</h3>
     <span class="layoff-count">4,000</span>
   </div>
   <p class="layoff-desc">Cut customer support roles. CEO Marc Benioff said bluntly: &#x27;I need less heads.&#x27; Replaced them with Agentforce, Salesforce&#x27;s AI agent platform.</p>
@@ -1545,7 +1615,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="cisco" data-sort-row data-jobs="4000" data-date="20260514" data-name="cisco" data-f="2026 various" data-text="cisco cut nearly 4,000 jobs one day after reporting record $15.8b quarterly revenue and $5.3b in ai infrastructure orders. cfo said the restructuring realigns resources around silicon, optics, security, and ai. up to $1b in charges to pay people to leave. various (restructuring toward ai infrastructure) unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#8</span> Cisco</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#8</span> Cisco</h3>
     <span class="layoff-count">4,000</span>
   </div>
   <p class="layoff-desc">Cut nearly 4,000 jobs one day after reporting record $15.8B quarterly revenue and $5.3B in AI infrastructure orders. CFO said the restructuring realigns resources around silicon, optics, security, and AI. Up to $1B in charges to pay people to leave.</p>
@@ -1557,7 +1627,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="intuit" data-sort-row data-jobs="3000" data-date="20260520" data-name="intuit" data-f="2026 product middle-management" data-text="intuit the turbotax and quickbooks maker cut 17% of its workforce to &#x27;reduce complexity&#x27; and divert resources toward baking ai into its products. announced the same day as meta&#x27;s 8,000 cuts. signed multi-year deals with anthropic and openai while showing 3,000 humans the door. corporate structure, product, various (us workers stay until july 31) product management middle management">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#9</span> Intuit</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#9</span> Intuit</h3>
     <span class="layoff-count">3,000</span>
   </div>
   <p class="layoff-desc">The TurboTax and QuickBooks maker cut 17% of its workforce to &#x27;reduce complexity&#x27; and divert resources toward baking AI into its products. Announced the same day as Meta&#x27;s 8,000 cuts. Signed multi-year deals with Anthropic and OpenAI while showing 3,000 humans the door.</p>
@@ -1569,7 +1639,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="visa" data-sort-row data-jobs="2600" data-date="20260728" data-name="visa" data-f="2026 product engineering" data-text="visa cut about 2,600 jobs, roughly 7% of its workforce and mostly in product and technology teams, and booked $563m in severance. ceo ryan mcinerney: &#x27;ai is also helping to accelerate this evolution and shape the way work gets done at visa.&#x27; visa named efficiency as the main goal and ai as a key but not the only factor; the savings go to stablecoin and commercial payments. mostly product and technology/development teams product management software engineering">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#10</span> Visa</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#10</span> Visa</h3>
     <span class="layoff-count">2,600</span>
   </div>
   <p class="layoff-desc">Cut about 2,600 jobs, roughly 7% of its workforce and mostly in product and technology teams, and booked $563M in severance. CEO Ryan McInerney: &#x27;AI is also helping to accelerate this evolution and shape the way work gets done at Visa.&#x27; Visa named efficiency as the main goal and AI as a key but not the only factor; the savings go to stablecoin and commercial payments.</p>
@@ -1581,7 +1651,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="paypal" data-sort-row data-jobs="2500" data-date="20240130" data-name="paypal" data-f="2024 risk-fraud customer-support" data-text="paypal reduced 9% of staff as automation expanded across fraud detection, risk management, and customer support pipelines. fraud analysts, risk management, support fraud &amp; risk analysis customer support">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#11</span> PayPal</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#11</span> PayPal</h3>
     <span class="layoff-count">2,500</span>
   </div>
   <p class="layoff-desc">Reduced 9% of staff as automation expanded across fraud detection, risk management, and customer support pipelines.</p>
@@ -1593,7 +1663,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="workday" data-sort-row data-jobs="1750" data-date="20250205" data-name="workday" data-f="2025 various" data-text="workday cut approximately 1,750 positions, 8.5% of its workforce. in a memo filed with the sec, ceo carl eschenbach said &#x27;the increasing demand for ai has the potential to drive a new era of growth for workday&#x27; and that the company was &#x27;prioritizing innovation investments like ai and platform development.&#x27; company-wide (no function breakdown disclosed) unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#12</span> Workday</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#12</span> Workday</h3>
     <span class="layoff-count">1,750</span>
   </div>
   <p class="layoff-desc">Cut approximately 1,750 positions, 8.5% of its workforce. In a memo filed with the SEC, CEO Carl Eschenbach said &#x27;the increasing demand for AI has the potential to drive a new era of growth for Workday&#x27; and that the company was &#x27;prioritizing innovation investments like AI and platform development.&#x27;</p>
@@ -1605,7 +1675,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="atlassian" data-sort-row data-jobs="1600" data-date="20260311" data-name="atlassian" data-f="2026 various" data-text="atlassian cut about 10% of staff, roughly 1,600 employees, &#x27;to self-fund further investment in ai and enterprise sales.&#x27; the company said its approach is not &#x27;ai replaces people&#x27;, &#x27;but it would be disingenuous to pretend ai doesn&#x27;t change the mix of skills we need or the number of roles required in certain areas.&#x27; various unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#13</span> Atlassian</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#13</span> Atlassian</h3>
     <span class="layoff-count">1,600</span>
   </div>
   <p class="layoff-desc">Cut about 10% of staff, roughly 1,600 employees, &#x27;to self-fund further investment in AI and enterprise sales.&#x27; The company said its approach is not &#x27;AI replaces people&#x27;, &#x27;but it would be disingenuous to pretend AI doesn&#x27;t change the mix of skills we need or the number of roles required in certain areas.&#x27;</p>
@@ -1617,7 +1687,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="cloudflare" data-sort-row data-jobs="1100" data-date="20260508" data-name="cloudflare" data-f="2026 middle-management finance legal" data-text="cloudflare first mass layoff in 16-year history, cutting 20% of staff while posting record $639.8m revenue. ceo said ai made &#x27;measurers&#x27; (middle management, finance, legal, auditing) obsolete. internal ai usage surged 600% in 3 months. middle management, finance, legal, auditing middle management finance &amp; payroll legal &amp; audit">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#14</span> Cloudflare</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#14</span> Cloudflare</h3>
     <span class="layoff-count">1,100</span>
   </div>
   <p class="layoff-desc">First mass layoff in 16-year history, cutting 20% of staff while posting record $639.8M revenue. CEO said AI made &#x27;measurers&#x27; (middle management, finance, legal, auditing) obsolete. Internal AI usage surged 600% in 3 months.</p>
@@ -1629,7 +1699,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="snap" data-sort-row data-jobs="1000" data-date="20260415" data-name="snap" data-f="2026 various" data-text="snap cut approximately 1,000 people, 16% of full-time staff, and closed more than 300 open roles. evan spiegel&#x27;s memo, filed with the sec: &#x27;we believe that rapid advancements in artificial intelligence enable our teams to reduce repetitive work, increase velocity, and better support our community, partners, and advertisers.&#x27; company-wide (16% of full-time staff; no function breakdown disclosed) unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#15</span> Snap</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#15</span> Snap</h3>
     <span class="layoff-count">1,000</span>
   </div>
   <p class="layoff-desc">Cut approximately 1,000 people, 16% of full-time staff, and closed more than 300 open roles. Evan Spiegel&#x27;s memo, filed with the SEC: &#x27;we believe that rapid advancements in artificial intelligence enable our teams to reduce repetitive work, increase velocity, and better support our community, partners, and advertisers.&#x27;</p>
@@ -1641,7 +1711,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="servicenow" data-sort-row data-jobs="1000" data-date="20260730" data-name="servicenow" data-f="2026 various" data-text="servicenow up to 1,000 jobs (~3%) cut as &quot;planned rightsizing&quot; so that, despite three acquisitions, servicenow ends 2026 at the ~29,000 headcount it started with, on ceo bill mcdermott&#x27;s logic that ai productivity means the company &quot;does not need to grow staff.&quot; spokesperson: &quot;we are driving efficiencies across the business, actively investing in and hiring for ai-focused skills, and managing headcount with discipline to end 2026 where we started.&quot; shares rose 9%. overlapping roles from the armis, veza and moveworks acquisitions, rolled out over several months unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#16</span> ServiceNow</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#16</span> ServiceNow</h3>
     <span class="layoff-count">1,000</span>
   </div>
   <p class="layoff-desc">Up to 1,000 jobs (~3%) cut as &quot;planned rightsizing&quot; so that, despite three acquisitions, ServiceNow ends 2026 at the ~29,000 headcount it started with, on CEO Bill McDermott&#x27;s logic that AI productivity means the company &quot;does not need to grow staff.&quot; Spokesperson: &quot;We are driving efficiencies across the business, actively investing in and hiring for AI-focused skills, and managing headcount with discipline to end 2026 where we started.&quot; Shares rose 9%.</p>
@@ -1653,7 +1723,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="rackspace" data-sort-row data-jobs="750" data-date="20260616" data-name="rackspace" data-f="2026 various" data-text="rackspace cut about 750 jobs, roughly 15% of its global workforce, approved by the executive committee on june 10. the sec filing describes the move as being &#x27;in favor of redeploying resources toward its enterprise ai buildout&#x27; as the company moves away from legacy cloud services. it expects $14m to $19m in charges and $75m to $85m in annual savings, and says further measures may follow. legacy cloud and managed-services teams (company-wide, about 15%) unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#17</span> Rackspace</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#17</span> Rackspace</h3>
     <span class="layoff-count">750</span>
   </div>
   <p class="layoff-desc">Cut about 750 jobs, roughly 15% of its global workforce, approved by the executive committee on June 10. The SEC filing describes the move as being &#x27;in favor of redeploying resources toward its enterprise AI buildout&#x27; as the company moves away from legacy cloud services. It expects $14M to $19M in charges and $75M to $85M in annual savings, and says further measures may follow.</p>
@@ -1665,7 +1735,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="bill-holdings" data-sort-row data-jobs="709" data-date="20260507" data-name="bill holdings" data-f="2026 engineering operations customer-support" data-text="bill holdings cut 30% of staff the same day it authorized a $1b stock buyback. ceo said &#x27;ai presents an extraordinary opportunity&#x27; while eliminating the humans. announced on the same day as upwork&#x27;s cuts. engineering, operations, support software engineering operations customer support">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#18</span> BILL Holdings</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#18</span> BILL Holdings</h3>
     <span class="layoff-count">709</span>
   </div>
   <p class="layoff-desc">Cut 30% of staff the same day it authorized a $1B stock buyback. CEO said &#x27;AI presents an extraordinary opportunity&#x27; while eliminating the humans. Announced on the same day as Upwork&#x27;s cuts.</p>
@@ -1677,7 +1747,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="coinbase" data-sort-row data-jobs="700" data-date="20260505" data-name="coinbase" data-f="2026 various" data-text="coinbase cut approximately 700 employees, about 14% of its workforce, in an sec-filed restructuring plan to manage operating expenses and &#x27;optimize the company&#x27;s operations for the ai era.&#x27; the plan carries $50-60m in restructuring costs. various unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#19</span> Coinbase</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#19</span> Coinbase</h3>
     <span class="layoff-count">700</span>
   </div>
   <p class="layoff-desc">Cut approximately 700 employees, about 14% of its workforce, in an SEC-filed restructuring plan to manage operating expenses and &#x27;optimize the Company&#x27;s operations for the AI era.&#x27; The plan carries $50-60M in restructuring costs.</p>
@@ -1689,7 +1759,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="klarna" data-sort-row data-jobs="700" data-date="20240601" data-name="klarna" data-f="2024 customer-support" data-text="klarna replaced 700 customer service agents with an ai chatbot. then reversed course by 2026 as customer satisfaction tanked on complex issues. now uses a hybrid model. customer service agents customer support">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#20</span> Klarna</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#20</span> Klarna</h3>
     <span class="layoff-count">700</span>
   </div>
   <p class="layoff-desc">Replaced 700 customer service agents with an AI chatbot. Then reversed course by 2026 as customer satisfaction tanked on complex issues. Now uses a hybrid model.</p>
@@ -1701,7 +1771,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="pinterest" data-sort-row data-jobs="700" data-date="20260127" data-name="pinterest" data-f="2026 sales various" data-text="pinterest cut about 15% of its ~4,700 staff to &quot;double down on an ai-forward approach,&quot; in ceo bill ready&#x27;s words, reallocating money to ai-focused teams and ai products at a cost of $35-45m in charges. the stock fell on the news. a week later pinterest fired two engineers who had built an internal tool to track which colleagues had been laid off. company-wide, with sales and go-to-market restructured; headcount reallocated to ai-focused roles sales unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#21</span> Pinterest</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#21</span> Pinterest</h3>
     <span class="layoff-count">700</span>
   </div>
   <p class="layoff-desc">Cut about 15% of its ~4,700 staff to &quot;double down on an AI-forward approach,&quot; in CEO Bill Ready&#x27;s words, reallocating money to AI-focused teams and AI products at a cost of $35-45M in charges. The stock fell on the news. A week later Pinterest fired two engineers who had built an internal tool to track which colleagues had been laid off.</p>
@@ -1713,7 +1783,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="hubspot" data-sort-row data-jobs="660" data-date="20261006" data-name="hubspot" data-f="2026 middle-management product" data-text="hubspot cut about 7% of staff, &#x27;nearly 660 hubspotters&#x27;, in a reorganization ceo yamini rangan tied to its ai strategy: &#x27;we have shifted our strategy from building software that helps customers grow to delivering outcomes for them with ai... but we also need to fundamentally change the way we are organized.&#x27; in the same memo, filed with the sec, she wrote: &#x27;this is not driven by ai-related efficiencies.&#x27; management layers and the product organization (teams regrouped around customer outcomes) middle management product management">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#22</span> HubSpot<span class="badge-new">New</span></h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#22</span> HubSpot<span class="badge-new">New</span></h3>
     <span class="layoff-count">660</span>
   </div>
   <p class="layoff-desc">Cut about 7% of staff, &#x27;nearly 660 HubSpotters&#x27;, in a reorganization CEO Yamini Rangan tied to its AI strategy: &#x27;we have shifted our strategy from building software that helps customers grow to delivering outcomes for them with AI... But we also need to fundamentally change the way we are organized.&#x27; In the same memo, filed with the SEC, she wrote: &#x27;This is not driven by AI-related efficiencies.&#x27;</p>
@@ -1725,7 +1795,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="monday-com" data-sort-row data-jobs="600" data-date="20260722" data-name="monday.com" data-f="2026 product marketing sales" data-text="monday.com cut 20% of its workforce, just over 600 people, in an sec-filed restructuring tied to its &#x27;ai-driven growth strategy,&#x27; at a cost of $45-55m in charges while still guiding to 19-20% revenue growth. co-founder eran zinman told staff the move &#x27;was not made to reduce costs or replace people with ai,&#x27; which is a difficult sentence to place next to the filing. product, marketing, go-to-market product management marketing sales">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#23</span> Monday.com</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#23</span> Monday.com</h3>
     <span class="layoff-count">600</span>
   </div>
   <p class="layoff-desc">Cut 20% of its workforce, just over 600 people, in an SEC-filed restructuring tied to its &#x27;AI-driven growth strategy,&#x27; at a cost of $45-55M in charges while still guiding to 19-20% revenue growth. Co-founder Eran Zinman told staff the move &#x27;was not made to reduce costs or replace people with AI,&#x27; which is a difficult sentence to place next to the filing.</p>
@@ -1737,7 +1807,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="fico" data-sort-row data-jobs="570" data-date="20261006" data-name="fico" data-f="2026 middle-management various" data-text="fico committed to eliminating &#x27;approximately 15% of positions across the company&#x27;, roughly 570 jobs by reuters&#x27; estimate from the 3,811 staff fico reported in september 2025 (fico gave no headcount). its 8-k says the plan works by &#x27;reducing the number of layers in the organization, simplifying the operating structure, optimizing processes and tools, and integrating ai-driven product development.&#x27; pre-tax charges are about $27m. company-wide; fewer management layers, with product development reorganized around ai middle management unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#24</span> FICO<span class="badge-new">New</span></h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#24</span> FICO<span class="badge-new">New</span></h3>
     <span class="layoff-count">570</span>
   </div>
   <p class="layoff-desc">Committed to eliminating &#x27;approximately 15% of positions across the Company&#x27;, roughly 570 jobs by Reuters&#x27; estimate from the 3,811 staff FICO reported in September 2025 (FICO gave no headcount). Its 8-K says the plan works by &#x27;reducing the number of layers in the organization, simplifying the operating structure, optimizing processes and tools, and integrating AI-driven product development.&#x27; Pre-tax charges are about $27M.</p>
@@ -1749,7 +1819,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="dropbox" data-sort-row data-jobs="528" data-date="20241001" data-name="dropbox" data-f="2024 engineering product" data-text="dropbox cut staff as it refocused the entire business around ai search and document intelligence. engineering, product, various software engineering product management">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#25</span> Dropbox</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#25</span> Dropbox</h3>
     <span class="layoff-count">528</span>
   </div>
   <p class="layoff-desc">Cut staff as it refocused the entire business around AI search and document intelligence.</p>
@@ -1761,7 +1831,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="paycom" data-sort-row data-jobs="500" data-date="20251001" data-name="paycom" data-f="2025 finance admin" data-text="paycom cut staff after automating payroll and back-office functions with ai. one of the clearest cases of ai directly replacing human jobs. payroll processing, back-office finance &amp; payroll admin &amp; back office">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#26</span> Paycom</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#26</span> Paycom</h3>
     <span class="layoff-count">500</span>
   </div>
   <p class="layoff-desc">Cut staff after automating payroll and back-office functions with AI. One of the clearest cases of AI directly replacing human jobs.</p>
@@ -1773,7 +1843,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="crowdstrike" data-sort-row data-jobs="500" data-date="20250506" data-name="crowdstrike" data-f="2025 various" data-text="crowdstrike cut approximately 500 positions, about 5% of the workforce. ceo george kurtz&#x27;s memo, filed with the sec: &#x27;ai flattens our hiring curve, and helps us innovate from idea to product faster.&#x27; crowdstrike said it would keep hiring in customer-facing and product engineering roles. various unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#27</span> CrowdStrike</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#27</span> CrowdStrike</h3>
     <span class="layoff-count">500</span>
   </div>
   <p class="layoff-desc">Cut approximately 500 positions, about 5% of the workforce. CEO George Kurtz&#x27;s memo, filed with the SEC: &#x27;AI flattens our hiring curve, and helps us innovate from idea to product faster.&#x27; CrowdStrike said it would keep hiring in customer-facing and product engineering roles.</p>
@@ -1785,7 +1855,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="dnb" data-sort-row data-jobs="400" data-date="20261006" data-name="dnb" data-f="2026 engineering operations compliance" data-text="dnb norway&#x27;s largest bank is cutting about 400 full-time equivalents in its technology &amp; services unit because agentic ai now does work that was previously done by hand, including customer-data control, kyc checks, technology development and coding. ceo kjerstin braathen: &#x27;ai is changing the way we work and how we deliver services to our customers. we are already seeing considerable gains, and are therefore adapting our organisation to a new reality.&#x27; the downsizing is due to finish in q4 2026. technology &amp; services unit: technology development and coding, customer-data control, kyc work software engineering operations compliance">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#28</span> DNB<span class="badge-new">New</span></h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#28</span> DNB<span class="badge-new">New</span></h3>
     <span class="layoff-count">400</span>
   </div>
   <p class="layoff-desc">Norway&#x27;s largest bank is cutting about 400 full-time equivalents in its Technology &amp; Services unit because agentic AI now does work that was previously done by hand, including customer-data control, KYC checks, technology development and coding. CEO Kjerstin Braathen: &#x27;AI is changing the way we work and how we deliver services to our customers. We are already seeing considerable gains, and are therefore adapting our organisation to a new reality.&#x27; The downsizing is due to finish in Q4 2026.</p>
@@ -1797,7 +1867,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="chegg" data-sort-row data-jobs="388" data-date="20251027" data-name="chegg" data-f="2025 various" data-text="chegg cut 388 roles, about 45% of its workforce, and brought back dan rosensweig as ceo. chegg&#x27;s release: &#x27;the new realities of ai and reduced traffic from google to content publishers have led to a significant decline in chegg&#x27;s traffic and revenue.&#x27; company-wide (about 45% of workforce) unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#29</span> Chegg</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#29</span> Chegg</h3>
     <span class="layoff-count">388</span>
   </div>
   <p class="layoff-desc">Cut 388 roles, about 45% of its workforce, and brought back Dan Rosensweig as CEO. Chegg&#x27;s release: &#x27;The new realities of AI and reduced traffic from Google to content publishers have led to a significant decline in Chegg&#x27;s traffic and revenue.&#x27;</p>
@@ -1809,7 +1879,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="ticketmaster" data-sort-row data-jobs="350" data-date="20260515" data-name="ticketmaster" data-f="2026 customer-support operations" data-text="ticketmaster cut 8% of global workforce across 25 countries as ai handles more customer service and event operations. customer service, operations across 25 countries customer support operations">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#30</span> Ticketmaster</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#30</span> Ticketmaster</h3>
     <span class="layoff-count">350</span>
   </div>
   <p class="layoff-desc">Cut 8% of global workforce across 25 countries as AI handles more customer service and event operations.</p>
@@ -1821,7 +1891,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="angi" data-sort-row data-jobs="350" data-date="20260101" data-name="angi" data-f="2026 customer-support operations" data-text="angi the home-services marketplace formerly known as angie&#x27;s list cut 350 jobs (12.5% of its 2,800 staff) explicitly &#x27;in light of ai-driven efficiency improvements,&#x27; with ai taking over customer matching and contractor vetting. expected to save $70-80m a year, at a one-time restructuring cost of about $30m. customer matching, service provider vetting, operations customer support operations">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#31</span> Angi</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#31</span> Angi</h3>
     <span class="layoff-count">350</span>
   </div>
   <p class="layoff-desc">The home-services marketplace formerly known as Angie&#x27;s List cut 350 jobs (12.5% of its 2,800 staff) explicitly &#x27;in light of AI-driven efficiency improvements,&#x27; with AI taking over customer matching and contractor vetting. Expected to save $70-80M a year, at a one-time restructuring cost of about $30M.</p>
@@ -1833,7 +1903,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="rapid7" data-sort-row data-jobs="314" data-date="20260807" data-name="rapid7" data-f="2026 various" data-text="rapid7 cut about 12% of its 2,613 staff under a board-approved &quot;2026 restructuring plan&quot; with $10-11m in charges, mostly severance. new ceo wael mohamed called it &quot;a strategic shift in business operations to drive efficiency and focus&quot;; the 8-k frames the cuts as freeing capacity to increase investment in ai-driven security products. cross-company restructuring around the command platform (detection &amp; response, exposure management) unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#32</span> Rapid7</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#32</span> Rapid7</h3>
     <span class="layoff-count">314</span>
   </div>
   <p class="layoff-desc">Cut about 12% of its 2,613 staff under a board-approved &quot;2026 Restructuring Plan&quot; with $10-11M in charges, mostly severance. New CEO Wael Mohamed called it &quot;a strategic shift in business operations to drive efficiency and focus&quot;; the 8-K frames the cuts as freeing capacity to increase investment in AI-driven security products.</p>
@@ -1845,7 +1915,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="zscaler" data-sort-row data-jobs="261" data-date="20260903" data-name="zscaler" data-f="2026 various" data-text="zscaler cut about 3% of its 8,700+ staff, roughly 261 people by bankinfosecurity&#x27;s estimate (zscaler gave only the percentage), with $30-33m in charges. the 8-k says the cut means &#x27;strategically reallocating resources to provide additional capacity to support our ai and growth initiatives.&#x27; the savings go to specialist sales teams. company-wide 3% cut; savings redirected to specialist account executives and sales teams unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#33</span> Zscaler</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#33</span> Zscaler</h3>
     <span class="layoff-count">261</span>
   </div>
   <p class="layoff-desc">Cut about 3% of its 8,700+ staff, roughly 261 people by BankInfoSecurity&#x27;s estimate (Zscaler gave only the percentage), with $30-33M in charges. The 8-K says the cut means &#x27;strategically reallocating resources to provide additional capacity to support our AI and growth initiatives.&#x27; The savings go to specialist sales teams.</p>
@@ -1857,7 +1927,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="chegg-may-2025" data-sort-row data-jobs="248" data-date="20250512" data-name="chegg (may 2025)" data-f="2025 various" data-text="chegg (may 2025) cut about 22% of staff, 248 people, mostly in chegg study and corporate services. the sec-filed shareholder letter blamed google&#x27;s &#x27;expansion of ai overviews&#x27; and free student access to chatgpt plus and anthropic&#x27;s education offering, then said: &#x27;as a result, we are once again taking proactive measures to align costs with our business outlook.&#x27; chegg study and corporate services unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#34</span> Chegg (May 2025)</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#34</span> Chegg (May 2025)</h3>
     <span class="layoff-count">248</span>
   </div>
   <p class="layoff-desc">Cut about 22% of staff, 248 people, mostly in Chegg Study and corporate services. The SEC-filed shareholder letter blamed Google&#x27;s &#x27;expansion of AI Overviews&#x27; and free student access to ChatGPT Plus and Anthropic&#x27;s education offering, then said: &#x27;As a result, we are once again taking proactive measures to align costs with our business outlook.&#x27;</p>
@@ -1869,7 +1939,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="apple" data-sort-row data-jobs="200" data-date="20260821" data-name="apple" data-f="2026 engineering product" data-text="apple rare mass layoffs at apple: roughly 100 roles cut from vision pro (largely closing the gaming team and shrinking immersive video) and about 100 from siri and related software, as the company moves money toward ai and new hardware. the siri cuts follow the decision to rebuild the assistant on a new ai architecture that needs different expertise than the team it replaced. apple said it is realigning teams &quot;to evolve our business.&quot; vision pro gaming and immersive video (~100); siri and intelligent systems experience software (~100) software engineering product management">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#35</span> Apple</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#35</span> Apple</h3>
     <span class="layoff-count">200</span>
   </div>
   <p class="layoff-desc">Rare mass layoffs at Apple: roughly 100 roles cut from Vision Pro (largely closing the gaming team and shrinking immersive video) and about 100 from Siri and related software, as the company moves money toward AI and new hardware. The Siri cuts follow the decision to rebuild the assistant on a new AI architecture that needs different expertise than the team it replaced. Apple said it is realigning teams &quot;to evolve our business.&quot;</p>
@@ -1881,7 +1951,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="booksy" data-sort-row data-jobs="200" data-date="20260910" data-name="booksy" data-f="2026 various" data-text="booksy the polish beauty and wellness booking platform cut about 20% of staff, roughly 200 positions across all departments and markets. in a linkedin post, co-founder and ceo stefan batory wrote: &#x27;możliwość pracy nad naszą wizją ai-first przez kolejne lata oznacza konieczność podjęcia trudnych decyzji już teraz&#x27; (&#x27;being able to work on our ai-first vision for years to come means making difficult decisions now&#x27;). all departments and markets (about 20% of staff) unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#36</span> Booksy</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#36</span> Booksy</h3>
     <span class="layoff-count">200</span>
   </div>
   <p class="layoff-desc">The Polish beauty and wellness booking platform cut about 20% of staff, roughly 200 positions across all departments and markets. In a LinkedIn post, co-founder and CEO Stefan Batory wrote: &#x27;Możliwość pracy nad naszą wizją AI-first przez kolejne lata oznacza konieczność podjęcia trudnych decyzji już teraz&#x27; (&#x27;Being able to work on our AI-first vision for years to come means making difficult decisions now&#x27;).</p>
@@ -1893,7 +1963,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="mews" data-sort-row data-jobs="200" data-date="20260707" data-name="mews" data-f="2026 various" data-text="mews the $2.5b hotel-software company cut about 15% of its roughly 1,350 staff, about 200 people (the anp wire says about 170), to become &#x27;ai-native&#x27;. founder richard valtr told skift the cut &#x27;does impact a number of different roles built for an era that is ceasing to exist, because of the fact that a singular employee can do so, so much more with ai.&#x27; customer-facing roles were largely spared. roles across teams and countries, especially hand-off roles between functional teams; customer-facing roles largely spared unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#37</span> Mews</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#37</span> Mews</h3>
     <span class="layoff-count">200</span>
   </div>
   <p class="layoff-desc">The $2.5B hotel-software company cut about 15% of its roughly 1,350 staff, about 200 people (the ANP wire says about 170), to become &#x27;AI-native&#x27;. Founder Richard Valtr told Skift the cut &#x27;does impact a number of different roles built for an era that is ceasing to exist, because of the fact that a singular employee can do so, so much more with AI.&#x27; Customer-facing roles were largely spared.</p>
@@ -1905,7 +1975,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="suse" data-sort-row data-jobs="190" data-date="20261102" data-name="suse" data-f="2026 various" data-text="suse the enterprise linux company is cutting about 10% of its roughly 1,900 staff. ceo dirk-peter van leeuwen&#x27;s memo to all employees: &#x27;what is clear is that automation and ai are fundamentally shifting how software companies operate,&#x27; and &#x27;ai capabilities are advancing exponentially, forcing us to radically reimagine our work.&#x27; the memo named no roles or countries, and it came after a september voluntary-separation round drew too few takers. the job figure is the register&#x27;s estimate; suse gave only the percentage. company-wide; roles and countries not disclosed unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#38</span> SUSE<span class="badge-new">New</span></h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#38</span> SUSE<span class="badge-new">New</span></h3>
     <span class="layoff-count">190</span>
   </div>
   <p class="layoff-desc">The enterprise Linux company is cutting about 10% of its roughly 1,900 staff. CEO Dirk-Peter van Leeuwen&#x27;s memo to all employees: &#x27;What is clear is that automation and AI are fundamentally shifting how software companies operate,&#x27; and &#x27;AI capabilities are advancing exponentially, forcing us to radically reimagine our work.&#x27; The memo named no roles or countries, and it came after a September voluntary-separation round drew too few takers. The job figure is The Register&#x27;s estimate; SUSE gave only the percentage.</p>
@@ -1917,7 +1987,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="upwork" data-sort-row data-jobs="145" data-date="20260507" data-name="upwork" data-f="2026 various" data-text="upwork cut 24% of its 600-person workforce. ceo said ai is making teams smaller: &#x27;two pizza teams are dead.&#x27; stock plunged 19%. law firms launched securities investigations. various across the company unspecified / company-wide">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#39</span> Upwork</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#39</span> Upwork</h3>
     <span class="layoff-count">145</span>
   </div>
   <p class="layoff-desc">Cut 24% of its 600-person workforce. CEO said AI is making teams smaller: &#x27;Two pizza teams are dead.&#x27; Stock plunged 19%. Law firms launched securities investigations.</p>
@@ -1929,7 +1999,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="duolingo" data-sort-row data-jobs="100" data-date="20240108" data-name="duolingo" data-f="2024 translation content" data-text="duolingo offboarded 10% of contractors as the company declared itself &#x27;ai-first.&#x27; content translation work moved to ai models. one of the first major &#x27;replaced by ai&#x27; stories. contract translators, content creators translation content &amp; editorial">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#40</span> Duolingo</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#40</span> Duolingo</h3>
     <span class="layoff-count">100</span>
   </div>
   <p class="layoff-desc">Offboarded 10% of contractors as the company declared itself &#x27;AI-first.&#x27; Content translation work moved to AI models. One of the first major &#x27;replaced by AI&#x27; stories.</p>
@@ -1941,7 +2011,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="videoamp" data-sort-row data-jobs="50" data-date="20260807" data-name="videoamp" data-f="2026 engineering product" data-text="videoamp the ad-measurement company cut about 20% of staff, between 50 and 60 people by the company&#x27;s count, mostly in product development and technology. the cuts included the cto role, which will not be refilled. ceo tony fagan: &#x27;these were difficult decisions, but they reflect our long-standing approach of adapting early... we believe ai is a major platform shift... for videoamp, that means continuing to invest in agentic software development.&#x27; product development and technology, including the cto role (eliminated, not refilled) software engineering product management">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#41</span> VideoAmp</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#41</span> VideoAmp</h3>
     <span class="layoff-count">50</span>
   </div>
   <p class="layoff-desc">The ad-measurement company cut about 20% of staff, between 50 and 60 people by the company&#x27;s count, mostly in product development and technology. The cuts included the CTO role, which will not be refilled. CEO Tony Fagan: &#x27;These were difficult decisions, but they reflect our long-standing approach of adapting early... We believe AI is a major platform shift... For VideoAmp, that means continuing to invest in agentic software development.&#x27;</p>
@@ -1953,7 +2023,7 @@ a.hbar{min-height:40px}
 </article>
 <article class="layoff-row" id="uber" data-sort-row data-jobs="41" data-date="20260722" data-name="uber" data-f="2026 customer-support" data-text="uber cut roughly 10% of community operations (the support arm covering riders, drivers and delivery partners) in the first headcount reduction uber has ever attributed directly to ai. bloomberg&#x27;s headline: &#x27;uber cuts 10% of customer service jobs, citing embrace of ai.&#x27; remaining remote staff in the division were also ordered to relocate to hub offices. only the 41-person california warn filing is public; the global total is undisclosed and larger. customer support / community operations; remaining remote roles forced back to hub offices customer support">
   <div class="layoff-header">
-    <h2 class="layoff-company"><span class="rank" title="Rank by jobs cut">#42</span> Uber</h2>
+    <h3 class="layoff-company"><span class="rank" title="Rank by jobs cut">#42</span> Uber</h3>
     <span class="layoff-count">41</span>
   </div>
   <p class="layoff-desc">Cut roughly 10% of Community Operations (the support arm covering riders, drivers and delivery partners) in the first headcount reduction Uber has ever attributed directly to AI. Bloomberg&#x27;s headline: &#x27;Uber Cuts 10% of Customer Service Jobs, Citing Embrace of AI.&#x27; Remaining remote staff in the division were also ordered to relocate to hub offices. Only the 41-person California WARN filing is public; the global total is undisclosed and larger.</p>
@@ -1977,6 +2047,7 @@ a.hbar{min-height:40px}
         <h2>Sources</h2>
         <p>Every row links its source: the company's own announcement, memo or SEC filing where one exists, otherwise reporting from outlets that name their sources (TechCrunch, Bloomberg, Reuters, Fortune, Business Insider). Related: <a href="/">the AI product graveyard</a>, <a href="/funding/">failed AI startups and the funding they burned</a>, and <a href="/coming-soon/">upcoming AI shutdowns</a>. The data is free as <a href="/api/">JSON</a> under CC BY 4.0.</p>
     </section>
+    <section class="faq-section" aria-labelledby="faq-title"><h2 class="faq-title" id="faq-title">AI layoffs: frequently asked questions</h2><details class="faq-item"><summary><h3>How many jobs have been lost to AI?</h3></summary><div class="faq-answer"><p>88,164 jobs at 40 companies since 2024, counting only layoffs where the company, its CEO or a regulatory filing named AI or automation as the reason. The real total is higher: most employers never say why they cut jobs, and those cuts are not counted here.</p></div></details><details class="faq-item"><summary><h3>Which company has laid off the most people because of AI?</h3></summary><div class="faq-answer"><p>Oracle, with 21,000 jobs cut in Jun 2026. Dell follows with 12,500 and Meta with 8,000.</p></div></details><details class="faq-item"><summary><h3>Which jobs is AI replacing first?</h3></summary><div class="faq-answer"><p>Customer support is named most often: 11 of the 42 layoffs here mention it. Software engineering (8 layoffs) and product management (8) come next. Each role has its own page under <a href="/jobs/">jobs replaced by AI</a>.</p></div></details><details class="faq-item"><summary><h3>How many AI layoffs have there been in 2026?</h3></summary><div class="faq-answer"><p>59,450 jobs across 30 layoffs so far in 2026. At the same point in 2025 the count was 12,386.</p></div></details><details class="faq-item"><summary><h3>What counts as an AI layoff on this tracker?</h3></summary><div class="faq-answer"><p>Only a cut the employer itself tied to AI: a statement from the company or its CEO, an internal memo, or a regulatory filing. A layoff at an AI company, or one a reporter linked to AI without the company saying so, is left out.</p></div></details><details class="faq-item"><summary><h3>Where do the numbers come from?</h3></summary><div class="faq-answer"><p>Every row links its source: the company's own announcement, memo or SEC filing where one exists, otherwise reporting from outlets that name their sources. Where only a WARN filing is public, that smaller number is used and the entry says the real total is larger.</p></div></details></section>
     </main>
 
     <footer class="site-footer">

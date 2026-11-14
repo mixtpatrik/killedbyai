@@ -10,7 +10,9 @@
     <link rel="canonical" href="https://killedbyai.net/killed-by/github-microsoft/">
     <meta property="og:type" content="website"><meta property="og:url" content="https://killedbyai.net/killed-by/github-microsoft/"><meta property="og:title" content="Killed by GitHub / Microsoft: 3 AI products"><meta property="og:description" content="AI products GitHub / Microsoft killed: 3 deaths in 2026, each with launch date, shutdown date, cause of death and source.">
     <meta property="og:image" content="https://killedbyai.net/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="Killed by AI">
-    <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://killedbyai.net/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Killed by GitHub / Microsoft: 3 AI products">
+    <meta name="twitter:description" content="AI products GitHub / Microsoft killed: 3 deaths in 2026, each with launch date, shutdown date, cause of death and source."><meta name="twitter:image" content="https://killedbyai.net/og-image.png">
     <link rel="alternate" type="application/rss+xml" title="Killed by AI RSS Feed" href="https://killedbyai.net/feed.xml">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -144,7 +146,8 @@
     <style>
         :root{color-scheme:dark;--bg:#09090b;--bg-card:#111113;--border:#26262a;--line:#3f3f46;--mark:#3f3f46;--mark-hover:#71717a;--text:#f4f4f5;--text-muted:#a1a1aa;--text-dim:#8f8f99;--red:#ef4444;--red-text:#f87171;--radius:6px;--gutter:1.5rem;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;--mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace}
         @media(max-width:600px){:root{--gutter:1rem}}
-        body{font-variant-numeric:tabular-nums}
+        body{font-family:var(--sans);line-height:1.55;font-variant-numeric:tabular-nums}
+        input,select,button,textarea{font-family:inherit}
         h1,h2,h3{text-wrap:balance}
         p{text-wrap:pretty}
         :focus-visible{outline:2px solid var(--red-text);outline-offset:2px}
@@ -156,6 +159,19 @@
         .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
         .skip-link{position:absolute;left:.5rem;top:.5rem;z-index:100;transform:translateY(-200%);padding:.5rem .875rem;background:var(--text);color:var(--bg);border-radius:var(--radius);font-weight:600;text-decoration:none}
         .skip-link:focus{transform:none}
+        .faq-section{margin-top:3.5rem}
+        .faq-title{margin-bottom:.875rem;font-family:var(--serif);font-size:1.375rem;font-weight:700;line-height:1.25}
+        .faq-item{max-width:48rem;border-top:1px solid var(--border)}
+        .faq-item:last-of-type{border-bottom:1px solid var(--border)}
+        .faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:48px;padding:.625rem 0;font-weight:600;cursor:pointer;list-style:none}
+        .faq-item summary::-webkit-details-marker{display:none}
+        .faq-item summary h3{display:inline;margin:0;font:inherit}
+        .faq-item summary::after{content:"+" / "";flex:none;font-size:1.25rem;font-weight:400;color:var(--text-dim)}
+        .faq-item[open] summary::after{content:"\2212" / "";color:var(--acc,var(--red-text))}
+        .faq-answer{padding-bottom:1rem}
+        .faq-answer p{margin:0;color:var(--text-muted);font-size:.9375rem;line-height:1.65}
+        .faq-answer a{color:var(--text);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
+        .faq-answer a:hover{text-decoration-color:var(--acc,var(--red))}
         .site-footer{margin-top:3rem;padding-bottom:2.5rem;font-size:.875rem;line-height:1.6;color:var(--text-dim)}
         .site-footer::before{content:"";display:block;margin-bottom:2rem;border-top:1px solid var(--border)}
         .footer-brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem 1.25rem;margin-bottom:1.75rem}

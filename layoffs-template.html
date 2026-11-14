@@ -21,6 +21,8 @@
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Killed by AI">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Layoffs Tracker: {{TOTAL_JOBS}} Jobs Cut by AI Since {{FIRST_YEAR}}">
+    <meta name="twitter:description" content="{{TOTAL_JOBS}} jobs cut across {{TOTAL_COMPANIES}} companies that blamed AI, {{THIS_YEAR_JOBS}} of them in {{THIS_YEAR}}. Charts, rankings, sources.">
     <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
     <meta property="og:title" content="AI Layoffs Tracker: {{TOTAL_JOBS}} Jobs Cut by AI Since {{FIRST_YEAR}}">
     <meta property="og:description" content="{{TOTAL_JOBS}} jobs cut across {{TOTAL_COMPANIES}} companies that blamed AI, {{THIS_YEAR_JOBS}} of them in {{THIS_YEAR}}. Charts, rankings, sources.">
@@ -56,6 +58,7 @@
     </style>
     <script type="application/ld+json">{{JSONLD}}</script>
     <script type="application/ld+json">{{BREADCRUMB}}</script>
+    <script type="application/ld+json">{{FAQ_JSONLD}}</script>
     {{SITE_HEAD}}
 </head>
 <body>
@@ -98,6 +101,7 @@
         <h2>Sources</h2>
         <p>Every row links its source: the company's own announcement, memo or SEC filing where one exists, otherwise reporting from outlets that name their sources (TechCrunch, Bloomberg, Reuters, Fortune, Business Insider). Related: <a href="/">the AI product graveyard</a>, <a href="/funding/">failed AI startups and the funding they burned</a>, and <a href="/coming-soon/">upcoming AI shutdowns</a>. The data is free as <a href="/api/">JSON</a> under CC BY 4.0.</p>
     </section>
+    {{FAQ_HTML}}
     </main>
 
     <footer class="site-footer">

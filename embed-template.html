@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Embed AI Graveyard Charts, Counters &amp; Widgets | Killed by AI</title>
-    <meta name="description" content="Free charts, counters and live widgets for your site, slides or post: {{N_DEAD}} dead AI products, {{TOTAL_JOBS}} jobs cut in AI layoffs, ${{TOTAL_B}}B burned. Copy the code or download a PNG.">
+    <meta name="description" content="Free charts, counters and live widgets for your site or slides: {{N_DEAD}} dead AI products, {{TOTAL_JOBS}} jobs cut in AI layoffs, ${{TOTAL_B}}B burned. Copy the code or save a PNG.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://killedbyai.net/embed/">
     <meta property="og:url" content="https://killedbyai.net/embed/">
@@ -18,6 +18,8 @@
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Killed by AI">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Embed the AI graveyard: free charts and counters">
+    <meta name="twitter:description" content="{{N_DEAD}} dead AI products, {{TOTAL_JOBS}} AI layoff jobs, ${{TOTAL_B}}B burned. Copy an embed code or download the image.">
     <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -95,6 +97,7 @@
         @media(forced-colors:active){.theme button[aria-pressed=true],.tabs button[aria-pressed=true]{color:Highlight}}
     </style>
     <script type="application/ld+json">{{JSONLD}}</script>
+    <script type="application/ld+json">{{FAQ_JSONLD}}</script>
     {{SITE_HEAD}}
 </head>
 <body>
@@ -126,9 +129,9 @@
     <section class="section" id="tombstone">
         <h2>A tombstone for one product</h2>
         <p class="lead">Writing about one dead AI product? Pick it and embed its tombstone card: launch and death dates, what killed it, and a link to the full story.</p>
-        <div class="g-card single" data-widget="tombstone" data-h="220">
+        <div class="g-card single" data-widget="tombstone" data-h="250">
             <div class="row"><select id="tomb-pick" aria-label="Pick a dead AI product">{{OPTIONS}}</select><button type="button" class="b" data-act="wcode">Embed code</button></div>
-            <iframe id="tomb-frame" title="AI product tombstone" height="220" loading="lazy"></iframe>
+            <iframe id="tomb-frame" title="AI product tombstone" height="250" loading="lazy"></iframe>
             <div class="g-code" hidden></div>
         </div>
     </section>
@@ -146,6 +149,7 @@
         <h2>Need the raw numbers?</h2>
         <p class="note">Everything here is built from three JSON files you can use directly: <a href="/graveyard.json">graveyard.json</a>, <a href="/layoffs.json">layoffs.json</a> and <a href="/coming-soon.json">coming-soon.json</a>. Every field is explained on the <a href="/api/">JSON API page</a>. The data and graphics are free under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener" target="_blank">CC BY 4.0</a>: use them anywhere, commercial use included, with a credit link to killedbyai.net.</p>
     </section>
+    {{FAQ_HTML}}
     </main>
 
     <footer class="site-footer">

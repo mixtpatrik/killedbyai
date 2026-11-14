@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Failed AI Startups List: {{COUNT}} Dead Companies, ${{TOTAL_B}}B Burned</title>
-    <meta name="description" content="The list of failed AI startups: {{COUNT}} AI companies that shut down or went bankrupt after raising ${{TOTAL_B}}B, from {{TOP1}} to {{TOP2}}. Ranked by money burned.">
+    <meta name="description" content="List of failed AI startups: {{COUNT}} companies that shut down or went bankrupt after raising ${{TOTAL_B}}B, from {{TOP1}} to {{TOP2}}. Ranked by money burned.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://killedbyai.net/funding/">
     <meta property="og:url" content="https://killedbyai.net/funding/">
@@ -18,6 +18,8 @@
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Killed by AI">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Funding Burned: The Most Expensive AI Graveyard">
+    <meta name="twitter:description" content="${{TOTAL_B}} billion burned across {{COUNT}} failed AI companies, ranked by money lost, burn rate and cause of death.">
     <meta name="twitter:image" content="https://killedbyai.net/og-image.png">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -33,6 +35,7 @@
     </style>
     <script type="application/ld+json">{{JSONLD}}</script>
     <script type="application/ld+json">{{BREADCRUMB}}</script>
+    <script type="application/ld+json">{{FAQ_JSONLD}}</script>
     {{SITE_HEAD}}
 </head>
 <body>
@@ -62,6 +65,7 @@
 {{ROWS}}
     </div>
     </div>
+    {{FAQ_HTML}}
     </main>
     <footer class="site-footer">
         {{FOOTER_LINKS}}
