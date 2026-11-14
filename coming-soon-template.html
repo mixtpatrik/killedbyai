@@ -67,7 +67,6 @@
         .site-footer{padding-bottom:3rem;font-size:.875rem;line-height:1.7;color:var(--text-dim)}
         .site-footer::before{content:"";display:block;margin-bottom:1.5rem;border-top:1px solid var(--border)}
         .site-footer a{color:var(--text-muted)}
-        .footer-links{margin-top:.5rem}
 
         @media(max-width:700px){
             /* one column: name, then the countdown and the date on a line of their own */
@@ -108,8 +107,8 @@
 {{ROWS}}
     </main>
     <footer class="site-footer">
-        <p>Part of <a href="/">Killed by AI</a>.</p>
-        <p class="footer-links">{{FOOTER_LINKS}}</p>
+        {{FOOTER_LINKS}}
+        <p class="footer-note">Data is <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>: reuse it and link back.</p>
     </footer>
     <script>
     (function () {  // countdowns recompute on every visit, in the visitor's own calendar days ("Today" on the shutdown day)

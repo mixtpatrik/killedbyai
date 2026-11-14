@@ -180,10 +180,20 @@ PERSON_REF = {"@type": "Person", "@id": PERSON_ID, "name": "Patrik Rojan", "url"
 
 
 def footer_links(active=None):
-    links = [("/", "The AI graveyard"), ("/dead/", f"All {len(json.loads((ROOT / 'graveyard.json').read_text()))} tombstones A-Z"), ("/killed-by/", "By killer"),
-             ("/layoffs/", "AI layoffs tracker"), ("/will-ai-take-my-job/", "Will AI take my job?"), ("/jobs/", "Jobs replaced by AI"), ("/coming-soon/", "Upcoming AI shutdowns"), ("/deprecations.ics", "Shutdown calendar (.ics)"),
-             ("/funding/", "Failed AI startups"), ("/embed/", "Embed & share"), ("/api/", "JSON API"), ("/about/", "About & methodology"), ("/feed.xml", "RSS")]
-    return " · ".join(f'<a href="{h}">{t}</a>' for h, t in links)
+    """The site footer's body: wordmark, one line about the site, and the links grouped in four columns."""
+    n = len(json.loads((ROOT / "graveyard.json").read_text()))
+    cols = [("Graveyard", [("/", "The AI graveyard"), ("/dead/", f"All {n} tombstones A-Z"), ("/killed-by/", "By killer"),
+                           ("/coming-soon/", "Upcoming AI shutdowns"), ("/funding/", "Failed AI startups")]),
+            ("Jobs", [("/layoffs/", "AI layoffs tracker"), ("/jobs/", "Jobs replaced by AI"), ("/will-ai-take-my-job/", "Will AI take my job?")]),
+            ("Data", [("/embed/", "Embed &amp; share"), ("/api/", "JSON API"), ("/feed.xml", "RSS"), ("/deprecations.ics", "Shutdown calendar (.ics)")]),
+            ("About", [("/about/", "About &amp; methodology"), ("/about/#corrections", "Submit a correction")])]
+    out = ['<div class="footer-brand"><a class="footer-logo" href="/">Killed by <span>AI</span></a>'
+           '<p>Every dead AI tool, model and startup, dated and sourced.</p></div>', '<div class="footer-cols">']
+    for title, links in cols:
+        items = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in links)
+        out.append(f'<nav class="footer-col" aria-label="{title}"><p class="footer-h">{title}</p><ul>{items}</ul></nav>')
+    out.append("</div>")
+    return "".join(out)
 
 
 NAV_LINKS = [("/", "Graveyard"), ("/layoffs/", "AI layoffs"), ("/funding/", "Funding"), ("/coming-soon/", "Dying soon"),
@@ -226,6 +236,20 @@ SITE_HEAD = r"""<meta name="color-scheme" content="dark">
         .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
         .skip-link{position:absolute;left:.5rem;top:.5rem;z-index:100;transform:translateY(-200%);padding:.5rem .875rem;background:var(--text);color:var(--bg);border-radius:var(--radius);font-weight:600;text-decoration:none}
         .skip-link:focus{transform:none}
+        .site-footer{margin-top:3rem;padding-bottom:2.5rem;font-size:.875rem;line-height:1.6;color:var(--text-dim)}
+        .site-footer::before{content:"";display:block;margin-bottom:2rem;border-top:1px solid var(--border)}
+        .footer-brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem 1.25rem;margin-bottom:1.75rem}
+        .site-footer .footer-logo{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--text);text-decoration:none}
+        .footer-logo span{color:var(--red)}
+        .footer-cols{display:grid;grid-template-columns:1.3fr 1fr 1.2fr 1.15fr;gap:1.5rem}
+        @media(max-width:600px){.footer-cols{grid-template-columns:1fr 1fr}}
+        .footer-h{margin:0 0 .375rem;font-size:.8125rem;font-weight:600;color:var(--text)}
+        .footer-col ul{list-style:none;margin:0;padding:0}
+        .footer-col li{margin:0;padding:0}
+        .footer-col a{display:inline-block;padding:.25rem 0;color:var(--text-muted);text-decoration:none}
+        .footer-col a:hover{color:var(--text);text-decoration:underline;text-decoration-color:var(--acc,var(--red));text-underline-offset:3px}
+        .site-footer .footer-note{margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid var(--border)}
+        @media(pointer:coarse){.footer-col a{padding:.5rem 0}}
         @media(prefers-reduced-motion:no-preference){@view-transition{navigation:auto}}
         @property --nav-fade-l{syntax:"<length>";inherits:false;initial-value:0px}
         @property --nav-fade-r{syntax:"<length>";inherits:false;initial-value:0px}
@@ -577,7 +601,6 @@ a.hbar:hover .hbar-fill{opacity:1}
 .site-footer{padding-bottom:3rem;font-size:.875rem;line-height:1.7;color:var(--text-dim)}
 .site-footer::before{content:"";display:block;margin-bottom:1.5rem;border-top:1px solid var(--border)}
 .site-footer a{color:var(--text-muted)}
-.footer-links{margin-top:.5rem}
 
 @media(max-width:700px){.dash-grid{grid-template-columns:minmax(0,1fr)}.dcard.wide{grid-column:auto}}
 @media(max-width:600px){

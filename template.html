@@ -188,7 +188,7 @@
         .show-more:hover, .sticky-btn:hover, .back-to-top:hover { border-color: var(--red); color: var(--red-text); }
 
         /* ---------- questions ---------- */
-        .faq-section { margin-top: 3.5rem; padding-bottom: 3rem; }
+        .faq-section { margin-top: 3.5rem; }
         .faq-title { margin-bottom: .875rem; font-family: var(--serif); font-size: 1.375rem; font-weight: 700; }
         .faq-item { max-width: 48rem; border-top: 1px solid var(--border); }
         .faq-item:last-of-type { border-bottom: 1px solid var(--border); }
@@ -210,11 +210,7 @@
         }
 
         /* ---------- footer, back to top, sticky search ---------- */
-        .site-footer { padding-bottom: 3rem; font-size: .875rem; line-height: 1.7; color: var(--text-dim); }
-        .site-footer::before { content: ""; display: block; margin-bottom: 1.5rem; border-top: 1px solid var(--border); }
-        .site-footer a { color: var(--text-muted); }
-        .footer-links { margin-top: .5rem; }
-        .site-footer .quote { margin-top: 1rem; font-style: italic; }
+        .site-footer .quote { margin-top: .5rem; font-style: italic; }
         .back-to-top { position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 50; display: none; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-muted); font-size: 1.125rem; cursor: pointer; }
         .back-to-top.visible { display: flex; }
 
@@ -402,11 +398,8 @@
     <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
 
     <footer class="site-footer">
-        <p>
-            Inspired by <a href="https://killedbygoogle.com/" target="_blank" rel="noopener">Killed by Google</a>.
-            Want to add a tombstone? <a href="/about/#corrections">Submit a death</a>. Data <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>.
-        </p>
-        <p class="footer-links">{{FOOTER_LINKS}}</p>
+        {{FOOTER_LINKS}}
+        <p class="footer-note">Inspired by <a href="https://killedbygoogle.com/" target="_blank" rel="noopener">Killed by Google</a>. Data is <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>: reuse it and link back.</p>
         <p class="quote">"I'm sorry, Dave. I'm afraid I can't do that anymore."</p>
     </footer>
 
