@@ -70,6 +70,12 @@ def lc_label(s):
     return re.sub(r"[A-Za-z]+", lambda m: m[0] if len(m[0]) > 1 and m[0].isupper() else m[0].lower(), s)
 
 
+def sc_label(s):
+    """Title Case label -> sentence case ("No Product-Market Fit" -> "No product-market fit"), keeping acronyms."""
+    s = lc_label(s)
+    return s[:1].upper() + s[1:]
+
+
 def company_key(name):
     """'PayPal (2026)' -> 'PayPal': a repeat layoff at the same company is a second row, not a second company."""
     return re.sub(r"\s*\([^()]*\b(?:19|20)\d\d\)$", "", name).strip()
@@ -178,8 +184,8 @@ def footer_links(active=None):
     return " · ".join(f'<a href="{h}">{t}</a>' for h, t in links)
 
 
-NAV_LINKS = [("/", "💀 Graveyard"), ("/layoffs/", "💼 AI Layoffs"), ("/funding/", "🔥 Funding"), ("/coming-soon/", "⏳ Dying soon"),
-             ("/will-ai-take-my-job/", "🎯 Will AI take my job?"), ("/embed/", "📤 Embed & share")]
+NAV_LINKS = [("/", "Graveyard"), ("/layoffs/", "AI layoffs"), ("/funding/", "Funding"), ("/coming-soon/", "Dying soon"),
+             ("/will-ai-take-my-job/", "Will AI take my job?"), ("/embed/", "Embed &amp; share")]
 
 
 def site_nav(active, page_path=None):
@@ -204,10 +210,20 @@ def site_nav(active, page_path=None):
 #    URLs with a query string (?r=, ?job=, ?q=...), data files, downloads and nofollow links are left alone
 SITE_HEAD = r"""<meta name="color-scheme" content="dark">
     <style>
-        :root{color-scheme:dark}
+        :root{color-scheme:dark;--bg:#09090b;--bg-card:#111113;--border:#26262a;--line:#3f3f46;--mark:#3f3f46;--mark-hover:#71717a;--text:#f4f4f5;--text-muted:#a1a1aa;--text-dim:#8f8f99;--red:#ef4444;--red-text:#f87171;--radius:6px;--gutter:1.5rem;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;--mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace}
+        @media(max-width:600px){:root{--gutter:1rem}}
+        body{font-variant-numeric:tabular-nums}
         h1,h2,h3{text-wrap:balance}
         p{text-wrap:pretty}
-        .site-nav-item.active{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+        :focus-visible{outline:2px solid var(--red-text);outline-offset:2px}
+        .site-nav{display:flex;justify-content:flex-start;gap:0 1.5rem;width:calc(100% - 2*var(--gutter));max-width:calc(var(--wrap,1120px) - 2*var(--gutter));margin:0 auto;padding:0;background:none;border:0;box-shadow:inset 0 -1px 0 var(--border);overflow-x:auto;scrollbar-width:none}
+        .site-nav::-webkit-scrollbar{display:none}
+        .site-nav-item{flex:none;display:inline-flex;align-items:center;min-height:48px;padding:0;background:none;border-radius:0;color:var(--text-muted);font-size:.9375rem;font-weight:400;text-decoration:none;white-space:nowrap}
+        .site-nav-item:hover{color:var(--text);background:none}
+        .site-nav-item.active{color:var(--text);background:none;text-decoration:none;box-shadow:inset 0 -2px 0 var(--red)}
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+        .skip-link{position:absolute;left:.5rem;top:.5rem;z-index:100;transform:translateY(-200%);padding:.5rem .875rem;background:var(--text);color:var(--bg);border-radius:var(--radius);font-weight:600;text-decoration:none}
+        .skip-link:focus{transform:none}
         @media(prefers-reduced-motion:no-preference){@view-transition{navigation:auto}}
         @property --nav-fade-l{syntax:"<length>";inherits:false;initial-value:0px}
         @property --nav-fade-r{syntax:"<length>";inherits:false;initial-value:0px}
@@ -968,26 +984,26 @@ def render_card(item, killer_counts=None):
         )
     collateral_html = ""
     if item.get("collateral"):
-        collateral_html = f'<div class="card-collateral"><span class="collateral-icon">⚠️</span> {esc(item["collateral"])}</div>'
+        collateral_html = f'<p class="card-collateral"><b>Collateral damage:</b> {esc(item["collateral"])}</p>'
     slug = item.get("slug") or slugify(item["name"])
     death_type = item.get("deathType", "product-killed")
-    new_badge = '<span class="badge-new" title="Added in the last two weeks">NEW</span>' if is_new(item) else ""
+    new_badge = '<span class="badge-new" title="Added in the last two weeks">New</span>' if is_new(item) else ""
     return f'''<article class="card{" is-new" if new_badge else ""}" id="{slug}" data-type="{esc(item["type"])}" data-death-type="{death_type}" data-name="{esc(item["name"].lower())}" data-desc="{esc(item["description"].lower())}" data-killer="{esc(item["killedBy"].lower())}" data-cause="{esc(item["causeOfDeath"].lower())}" data-date-close="{esc(item["dateClose"])}" data-date-open="{esc(item["dateOpen"])}" data-added="{esc(item.get("dateAdded", ""))}" data-days="{days}">
   <header class="card-header">
     <h3 class="card-name"><a href="/dead/{slug}/">{esc(item["name"])}</a>{new_badge}</h3>
     <span class="card-lifespan">{y_open if y_open == y_close else f"{y_open}-{y_close}"}</span>
   </header>
   <p class="card-description">{esc(item["description"])}</p>
+  {collateral_html}
   <footer class="card-footer">
     <div class="card-tags">
-      <span class="tag">{esc(item["type"])}</span>
-      <span class="tag">{esc(item["causeOfDeath"])}</span>
-      {('<a class="tag tag-killer" href="/killed-by/' + killer_slug(item["killedBy"]) + '/">Killed by: ' + esc(item["killedBy"]) + '</a>') if killer_counts.get(item["killedBy"], 0) >= 2 else ('<span class="tag tag-killer">Killed by: ' + esc(item["killedBy"]) + '</span>')}
+      <span class="tag">{TYPE_LABEL.get(item["type"], esc(item["type"]))}</span>
+      <span class="tag">{esc(sc_label(item["causeOfDeath"]))}</span>
+      {('<a class="tag tag-killer" href="/killed-by/' + killer_slug(item["killedBy"]) + '/">Killed by ' + esc(item["killedBy"]) + '</a>') if killer_counts.get(item["killedBy"], 0) >= 2 else ('<span class="tag tag-killer">Killed by ' + esc(item["killedBy"]) + '</span>')}
+      <span class="tag card-age">Lived {lifespan}</span>
     </div>
-    <div class="card-age">{lifespan}</div>
+    {link_html}
   </footer>
-  {collateral_html}
-  {link_html}
 </article>'''
 
 
@@ -1193,7 +1209,7 @@ def build_rss(items):
 def build_killer_leaderboard(items):
     from collections import Counter
     killers = Counter(i["killedBy"] for i in items)
-    top10 = killers.most_common(10)
+    top10 = killers.most_common(6)
     max_count = top10[0][1] if top10 else 1
     rows = []
     for killer, count in top10:
@@ -1594,6 +1610,7 @@ def main():
     for item in data:
         type_counts[item["type"]] = type_counts.get(item["type"], 0) + 1
 
+    latest = max(data, key=lambda i: (i["dateClose"], i.get("dateAdded", "")))
     output = (template
               .replace("{{CARDS}}", cards_html)
               .replace("{{JSONLD}}", jsonld)
@@ -1620,6 +1637,10 @@ def main():
               .replace("{{CURRENT_YEAR}}", str(datetime.utcnow().year))
               .replace("{{FUNDING_B}}", f"{sum(d.get('fundingM', 0) for d in data) / 1000:.1f}")
               .replace("{{FOOTER_LINKS}}", footer_links())
+              .replace("{{NAV}}", site_nav("/", "/"))
+              .replace("{{LATEST_URL}}", "/dead/" + (latest.get("slug") or slugify(latest["name"])) + "/")
+              .replace("{{LATEST_NAME}}", esc(latest["name"]))
+              .replace("{{LATEST_DATE}}", datetime.strptime(latest["dateClose"], "%Y-%m-%d").strftime("%b %-d"))
               .replace("{{LAST_UPDATED}}", fmt_date(content_updated)))
 
     # Inject layoffs stats into main page
