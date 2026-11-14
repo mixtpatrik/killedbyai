@@ -152,7 +152,7 @@
         .card-header { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; }
         .card-name { font-size: 1.0625rem; font-weight: 650; line-height: 1.3; }
         .card-name { text-wrap: wrap; }
-        .card-name a { text-decoration: none; }
+        .card-name a { padding-block: .375rem; text-decoration: none; }   /* inline padding: a taller hit area without moving the line */
         .card-name a:hover { color: var(--red-text); }
         .badge-new { margin-left: .5rem; font-size: .75rem; font-weight: 600; color: var(--red-text); }
         .card-lifespan { flex: none; font-size: .8125rem; color: var(--text-dim); white-space: nowrap; }
@@ -164,6 +164,7 @@
         .tag { white-space: nowrap; }
         .tag:not(:last-child)::after { content: "\00A0\00B7" / ""; display: inline-block; }
         .tag-killer { color: var(--red-text); }
+        a.tag-killer { padding-block: .375rem; }
         .card-age { white-space: nowrap; }
         .card-collateral { margin-top: .5rem; font-size: .8125rem; line-height: 1.5; color: var(--text-dim); }
         .card-collateral b { font-weight: 600; color: var(--text-muted); }
