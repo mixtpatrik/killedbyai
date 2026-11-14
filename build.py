@@ -214,6 +214,7 @@ SITE_HEAD = r"""<meta name="color-scheme" content="dark">
         @keyframes nav-fade-l{to{--nav-fade-l:2.5rem}}
         @keyframes nav-fade-r{from{--nav-fade-r:2.5rem}}
         @media(max-width:600px){
+            .site-nav{scroll-padding-inline:35vw}
             .site-nav-item.active{scroll-initial-target:nearest}
             @media(prefers-reduced-motion:no-preference){@supports (animation-timeline:scroll()) and (mask-clip:no-clip){
                 .site-nav{mask:linear-gradient(#000,#000) no-clip subtract,linear-gradient(to right,#000,transparent) 0 0/var(--nav-fade-l) 100% no-repeat no-clip,linear-gradient(to right,transparent,#000) 100% 0/var(--nav-fade-r) 100% no-repeat no-clip;animation:nav-fade-l linear both,nav-fade-r linear both;animation-timeline:scroll(self inline);animation-range:0 2.5rem,calc(100% - 2.5rem) 100%}
