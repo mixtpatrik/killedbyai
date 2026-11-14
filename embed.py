@@ -39,7 +39,7 @@ def _svg(w, h, t, body, title):
 
 def _head(t, title, note):
     return (f'<text x="{PAD}" y="92" font-family="{SERIF}" font-size="46" font-weight="700" fill="{t["text"]}">{esc(title)}</text>'
-            f'<text x="{PAD}" y="134" font-family="{FONT}" font-size="24" fill="{t["muted"]}">{esc(note)}</text>')
+            f'<text x="{PAD}" y="134" font-family="{FONT}" font-size="{24 if len(note) <= 78 else 22}" fill="{t["muted"]}">{esc(note)}</text>')
 
 
 def _brand(w, h, t, src="killedbyai.net"):
