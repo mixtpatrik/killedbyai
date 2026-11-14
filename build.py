@@ -193,6 +193,49 @@ def site_nav(active, page_path=None):
     return "".join(out)
 
 
+# ---------- Head block every page shares: {{SITE_HEAD}} in templates, <!--SITE_HEAD--> markers in hand-written pages ----------
+# Each rule is a progressive enhancement: a browser without the feature skips it and renders the page as before.
+#  - color-scheme: the site is dark only, so scrollbars, select menus and search-field buttons are drawn dark too
+#  - text-wrap: even line lengths in headings, no one-word last lines in paragraphs
+#  - @view-transition: cross-fade between pages, only for visitors who have not asked for reduced motion
+#  - phone nav: starts scrolled to the current section, and its edge fades show only where more links are hidden
+#    (templates keep their static right-edge fade for browsers without scroll-driven animations or with reduced motion)
+#  - speculation rules: prefetch (never prerender, so no script or analytics runs) a same-site page on hover or touch;
+#    URLs with a query string (?r=, ?job=, ?q=...), data files, downloads and nofollow links are left alone
+SITE_HEAD = r"""<meta name="color-scheme" content="dark">
+    <style>
+        :root{color-scheme:dark}
+        h1,h2,h3{text-wrap:balance}
+        p{text-wrap:pretty}
+        .site-nav-item.active{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+        @media(prefers-reduced-motion:no-preference){@view-transition{navigation:auto}}
+        @property --nav-fade-l{syntax:"<length>";inherits:false;initial-value:0px}
+        @property --nav-fade-r{syntax:"<length>";inherits:false;initial-value:0px}
+        @keyframes nav-fade-l{to{--nav-fade-l:2.5rem}}
+        @keyframes nav-fade-r{from{--nav-fade-r:2.5rem}}
+        @media(max-width:600px){
+            .site-nav-item.active{scroll-initial-target:nearest}
+            @media(prefers-reduced-motion:no-preference){@supports (animation-timeline:scroll()) and (mask-clip:no-clip){
+                .site-nav{mask:linear-gradient(#000,#000) no-clip subtract,linear-gradient(to right,#000,transparent) 0 0/var(--nav-fade-l) 100% no-repeat no-clip,linear-gradient(to right,transparent,#000) 100% 0/var(--nav-fade-r) 100% no-repeat no-clip;animation:nav-fade-l linear both,nav-fade-r linear both;animation-timeline:scroll(self inline);animation-range:0 2.5rem,calc(100% - 2.5rem) 100%}
+            }}
+        }
+    </style>
+    <script>if(!CSS.supports("scroll-initial-target","nearest"))addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".site-nav"),a=n&&n.querySelector(".active");if(a)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2})</script>
+    <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*\\?(.+)"}},{"not":{"href_matches":"/*.*"}},{"not":{"selector_matches":"[download],[rel~=nofollow],[target=_blank],[aria-current=page]"}}]},"eagerness":"moderate"}]}</script>"""
+
+
+def crumb_items(url, label, *parents):
+    """Breadcrumb <li>s that follow the home link: (label, href) for each parent, then the page itself as the current item."""
+    here = "/" + url[len(SITE_URL):]
+    return ("".join(f'<li><a href="{h}">{esc(t)}</a></li>' for t, h in parents)
+            + f'<li><a href="{here}" aria-current="page">{esc(label)}</a></li>')
+
+
+def read_template(name):
+    """A page template with the shared head block filled in."""
+    return (ROOT / name).read_text().replace("{{SITE_HEAD}}", SITE_HEAD)
+
+
 # killedBy values that are causes, not companies: how to say "killed by X" in running text (None = it died on its own).
 KILLER_PROSE = {"Itself": None, "Market": "the market", "Reality": "reality", "Inference Bills": "inference bills",
                 "Its Own Founder": "its own founder", "Its Own Parent Company": "its own parent company", "Big Tech": "Big Tech",
@@ -408,7 +451,7 @@ def render_killer_page(killer, items, tpl, total):
         {"@type": "ItemList", "name": f"AI products {label[0].lower() + label[1:]}", "numberOfItems": n,
          "itemListElement": [{"@type": "ListItem", "position": k + 1, "name": i["name"], "url": product_url(i)} for k, i in enumerate(items)]}]}
     out = tpl
-    for k, v in {"{{TITLE}}": esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": f'<a href="/killed-by/">By killer</a> › {esc(label)}',
+    for k, v in {"{{TITLE}}": esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": crumb_items(url, label, ("By killer", "/killed-by/")),
                  "{{H1}}": esc(label), "{{INTRO}}": esc(intro), "{{NAV}}": site_nav("/"), "{{AFTER}}": "",
                  "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(jsonld, indent=2, ensure_ascii=False)}.items():
         out = out.replace(k, v)
@@ -469,7 +512,7 @@ a.hbar:hover .hbar-name{color:var(--acc)}
 .rank{font-family:'SF Mono','Cascadia Code',monospace;color:var(--text-dim);font-size:.8125rem;margin-right:.125rem;font-weight:600}
 .list.unranked .rank{display:none}
 .layoff-row:target,.fund-row:target{border-color:var(--acc)}
-@media(min-width:601px){.layoff-row,.fund-row{scroll-margin-top:calc(var(--lctrl-h,240px) + .75rem)}}
+@media(min-width:601px){.layoff-row,.fund-row,.list a{scroll-margin-top:calc(var(--lctrl-h,240px) + .75rem)}}
 .to-filters{position:fixed;right:1rem;bottom:1rem;z-index:50;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--bg-card);color:var(--text);font-size:1.125rem;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.45);font-family:inherit}
 .to-filters:hover{border-color:var(--acc);color:var(--acc)}
 .badge-new{display:inline-block;background:var(--acc);color:#09090b;font-size:.625rem;font-weight:800;padding:.0625rem .375rem;border-radius:.25rem;margin-left:.375rem;vertical-align:middle;letter-spacing:.04em}
@@ -478,6 +521,7 @@ a.mchip:hover{color:var(--acc)}
 @media(max-width:700px){.dash-grid{grid-template-columns:1fr}.dcard.wide{grid-column:auto}}
 @media(max-width:600px){.dash,.lctrl{padding-left:.75rem;padding-right:.75rem}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.tile{padding:.75rem}.tile-val{font-size:1.25rem}.tile.hero .tile-val{font-size:1.5rem}.tile.txt .tile-val{font-size:1rem}.tile-sub{font-size:.75rem}.hbar{grid-template-columns:minmax(0,7rem) minmax(0,1fr) auto;font-size:.8125rem}.vbars{height:140px;gap:.25rem}.vbar-fill b{font-size:.625rem}.vbar-lbl{font-size:.625rem}.lsort{flex:1 1 100%}.lctrl{position:static}.to-filters.visible{display:flex}}
 @media(max-width:380px){.vbar-fill b{display:none}}
+@media(forced-colors:active){.vbar-fill,.hbar-fill,.layoff-bar,.fund-bar{background:CanvasText}.chipf.on{background:Highlight;color:HighlightText}}
 """
 
 DASH_JS = """<script>
@@ -557,7 +601,7 @@ def dash_controls(title, placeholder, sorts, chips):
     ch = "".join(f'<button type="button" class="chipf{" on" if i == 0 else ""}" data-f="{v}" aria-pressed="{"true" if i == 0 else "false"}">{esc(l)}{f"<small>{n}</small>" if n is not None else ""}</button>'
                  for i, (v, l, n) in enumerate(chips))
     return (f'<div class="lctrl" role="search"><h2 id="list">{title}</h2>'
-            f'<input class="lsearch" type="search" placeholder="{esc(placeholder)}" aria-label="{esc(placeholder)}" autocomplete="off">'
+            f'<input class="lsearch" type="search" placeholder="{esc(placeholder)}" aria-label="{esc(placeholder)}" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="search">'
             f'<select class="lsort" aria-label="Sort by">{opts}</select><div class="chips" role="group" aria-label="Filter">{ch}</div>'
             f'<p class="lcount" aria-live="polite"></p></div>')
 
@@ -745,7 +789,7 @@ def render_job_risk(ldata):
     bottom = sorted(rows, key=lambda r: r[2])
 
     def table(items, start=1):
-        return ('<table class="rank-table"><thead><tr><th>#</th><th>Occupation</th><th>AI applicability</th><th></th></tr></thead><tbody>'
+        return ('<table class="rank-table"><thead><tr><th scope="col">#</th><th scope="col">Occupation</th><th scope="col">AI applicability</th><th scope="col"><span class="sr-only">Test</span></th></tr></thead><tbody>'
                 + "".join(f'<tr><td>{start + k}</td><td>{esc(t)}</td><td><span class="mini"><span style="--w:{s / top[0][2] * 100:.0f}%"></span></span>{s:.2f}</td>'
                           f'<td><a href="#test" data-job="{soc}" rel="nofollow">Test →</a></td></tr>' for k, (soc, t, s) in enumerate(items))
                 + "</tbody></table>")
@@ -766,7 +810,7 @@ def render_job_risk(ldata):
         {"@type": "FAQPage", "@id": url + "#faq", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]},
         {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL}, {"@type": "ListItem", "position": 2, "name": "Will AI take my job?", "item": url}]},
     ]}
-    tpl = (ROOT / "job-risk-template.html").read_text()
+    tpl = read_template("job-risk-template.html")
     out = (tpl.replace("{{JSONLD}}", json.dumps(jsonld, indent=1))
            .replace("{{OCC_JSON}}", json.dumps(occ, separators=(",", ":")).replace("</", "<\\/"))
            .replace("{{ROLE_JSON}}", json.dumps(role_info, separators=(",", ":")).replace("</", "<\\/"))
@@ -833,7 +877,7 @@ def render_jobs_pages(ldata, list_tpl):
             webpage_node(url, title, meta, lm(["layoffs.json"]), {"@type": "CollectionPage"}),
             {"@type": "ItemList", "numberOfItems": L, "itemListElement": [{"@type": "ListItem", "position": k + 1, "name": f'{x["company"]}: {x["jobs"]:,} jobs', "url": SITE_URL + "layoffs/#" + slugify(x["company"])} for k, x in enumerate(rows)]}]}
         out = list_tpl
-        for k, v in {"{{TITLE}}": esc(title + " | Killed by AI") if len(title) <= 45 else esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": f'<a href="/jobs/">Jobs replaced by AI</a> › {esc(label)}',
+        for k, v in {"{{TITLE}}": esc(title + " | Killed by AI") if len(title) <= 45 else esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": crumb_items(url, label, ("Jobs replaced by AI", "/jobs/")),
                      "{{H1}}": f"{esc(label)}: jobs replaced by AI", "{{INTRO}}": esc(intro), "{{ROWS}}": rhtml, "{{AFTER}}": after, "{{NAV}}": site_nav("/layoffs/"),
                      "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
             out = out.replace(k, v)
@@ -849,7 +893,7 @@ def render_jobs_pages(ldata, list_tpl):
         webpage_node(url, title, meta, lm(["layoffs.json"]), {"@type": "CollectionPage"}),
         {"@type": "ItemList", "numberOfItems": len(pages), "itemListElement": [{"@type": "ListItem", "position": k + 1, "name": roles.get(r, r), "url": f"{SITE_URL}jobs/{r}/"} for k, r in enumerate(pages)]}]}
     out = list_tpl
-    for k, v in {"{{TITLE}}": esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": "Jobs replaced by AI",
+    for k, v in {"{{TITLE}}": esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": crumb_items(url, "Jobs replaced by AI"),
                  "{{H1}}": "Jobs replaced by AI, by role", "{{INTRO}}": esc(f"The roles companies name when they blame layoffs on AI. {total_jobs:,} jobs across {n_companies} companies, re-indexed by the work that was replaced, most-named role first. {top_label} leads by a distance. Each layoff's job count is the company-wide total and is counted under every role it named, so role figures overlap; the per-company figures are on the layoffs tracker."),
                  "{{ROWS}}": rhtml, "{{AFTER}}": "", "{{NAV}}": site_nav("/layoffs/"), "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
         out = out.replace(k, v)
@@ -887,7 +931,7 @@ def render_index_pages(data, killer_counts, list_tpl):
         {"@type": "ItemList", "numberOfItems": len(data), "itemListElement": [{"@type": "ListItem", "position": k + 1, "name": i["name"], "url": product_url(i)} for k, i in enumerate(az)]}]}
     out = list_tpl
     for k, v in {"{{TITLE}}": f"All {len(data)} Dead AI Products, A-Z | Killed by AI", "{{META_DESC}}": esc(f"Every one of the {len(data)} tombstones in the AI graveyard, alphabetically: models, apps, services, startups and hardware, each with dates, cause of death and source."),
-                 "{{URL}}": url, "{{CRUMB}}": "All tombstones", "{{H1}}": f"All {len(data)} tombstones, A-Z", "{{INTRO}}": esc("Every dead AI product tracked here, alphabetically. Each page has the launch and death dates, the cause, the killer, and a source."),
+                 "{{URL}}": url, "{{CRUMB}}": crumb_items(url, "All tombstones"), "{{H1}}": f"All {len(data)} tombstones, A-Z", "{{INTRO}}": esc("Every dead AI product tracked here, alphabetically. Each page has the launch and death dates, the cause, the killer, and a source."),
                  "{{NAV}}": site_nav("/"), "{{AFTER}}": "", "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
         out = out.replace(k, v)
     d = ROOT / "dead"; d.mkdir(exist_ok=True); (d / "index.html").write_text(out)
@@ -900,7 +944,7 @@ def render_index_pages(data, killer_counts, list_tpl):
         webpage_node(url, "Who kills the most AI products?", "AI product deaths by the company responsible.", lm(["graveyard.json"]), {"@type": "CollectionPage"})]}
     out = list_tpl
     for k, v in {"{{TITLE}}": "Who Kills the Most AI Products? | Killed by AI", "{{META_DESC}}": esc(f"AI product shutdowns by the company responsible. {killers[0][0]} leads with {killers[0][1]}. Every killer with two or more dead products has its own page."),
-                 "{{URL}}": url, "{{CRUMB}}": "By killer", "{{H1}}": "Killed by whom?", "{{INTRO}}": esc(f"Killers ranked by how many AI products they have shut down. {killers[0][0]} leads with {killers[0][1]}; every killer with two or more kills has its own page listing them. A few are causes rather than companies: products that collapsed on their own, or were killed by the market or by reality."),
+                 "{{URL}}": url, "{{CRUMB}}": crumb_items(url, "By killer"), "{{H1}}": "Killed by whom?", "{{INTRO}}": esc(f"Killers ranked by how many AI products they have shut down. {killers[0][0]} leads with {killers[0][1]}; every killer with two or more kills has its own page listing them. A few are causes rather than companies: products that collapsed on their own, or were killed by the market or by reality."),
                  "{{NAV}}": site_nav("/"), "{{AFTER}}": "", "{{ROWS}}": rows, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
         out = out.replace(k, v)
     d = ROOT / "killed-by"; d.mkdir(exist_ok=True); (d / "index.html").write_text(out)
@@ -1532,7 +1576,7 @@ def main():
     data = json.loads((ROOT / "graveyard.json").read_text())
     data.sort(key=lambda i: (i["dateClose"], i.get("dateAdded", "")), reverse=True)
     check_data(data)
-    template = (ROOT / "template.html").read_text()
+    template = read_template("template.html")
 
     from collections import Counter as _Counter
     killer_counts = _Counter(i["killedBy"] for i in data)
@@ -1592,14 +1636,14 @@ def main():
 
     # Per-product pages (/dead/<slug>/) and per-killer pages (/killed-by/<slug>/)
     ordered = sorted(data, key=lambda i: i["dateClose"])
-    prod_tpl = (ROOT / "product-template.html").read_text()
+    prod_tpl = read_template("product-template.html")
     for idx, item in enumerate(ordered):
         d = ROOT / "dead" / (item.get("slug") or slugify(item["name"])); d.mkdir(parents=True, exist_ok=True)
         (d / "index.html").write_text(render_product(item, ordered, idx, prod_tpl, len(data), killer_counts))
         for old in item.get("aliases", []):   # renamed entries keep their old URL as a redirect stub
             od = ROOT / "dead" / old; od.mkdir(parents=True, exist_ok=True)
             (od / "index.html").write_text(REDIRECT_STUB.format(target=product_url(item)))
-    list_tpl = (ROOT / "list-template.html").read_text()
+    list_tpl = read_template("list-template.html")
     render_index_pages(data, killer_counts, list_tpl)
     job_pages = render_jobs_pages(json.loads((ROOT / "layoffs.json").read_text()), list_tpl) if (ROOT / "layoffs.json").exists() else []
     if (ROOT / "layoffs.json").exists():
@@ -1611,7 +1655,7 @@ def main():
     import embed
     embed.build_embeds(ROOT, SITE_URL, data, json.loads((ROOT / "layoffs.json").read_text()) if (ROOT / "layoffs.json").exists() else [],
                        json.loads((ROOT / "coming-soon.json").read_text()) if (ROOT / "coming-soon.json").exists() else [],
-                       publish, site_nav, footer_links, product_url)
+                       publish, site_nav, footer_links, product_url, read_template)
     killer_pages = []
     for killer, n in killer_counts.items():
         if n < 2:
@@ -1634,7 +1678,7 @@ def main():
     layoffs_path = ROOT / "layoffs.json"
     if layoffs_path.exists():
         layoffs = json.loads(layoffs_path.read_text())
-        layoffs_template = (ROOT / "layoffs-template.html").read_text()
+        layoffs_template = read_template("layoffs-template.html")
         roles_map = json.loads((ROOT / "roles.json").read_text())
         total_jobs = sum(l["jobs"] for l in layoffs)
         total_entries = len(layoffs)                                       # rows: "All 34 AI layoffs"
@@ -1687,9 +1731,9 @@ def main():
             by_year_n[y] = by_year_n.get(y, 0) + 1
             by_year_c.setdefault(y, set()).add(company_key(l["company"]))
         year_stats = " | ".join(f"{y}: {c:,}" for y, c in sorted(by_year.items()))
-        year_table = ("<table class=\"year-table\"><thead><tr><th>Year</th><th>Layoffs</th><th>Jobs cut, AI cited</th></tr></thead><tbody>"
+        year_table = ("<table class=\"year-table\"><thead><tr><th scope=\"col\">Year</th><th scope=\"col\">Layoffs</th><th scope=\"col\">Jobs cut, AI cited</th></tr></thead><tbody>"
                       + "".join(f"<tr><td>{y}</td><td>{by_year_n[y]}</td><td>{c:,}</td></tr>" for y, c in sorted(by_year.items()))
-                      + f"<tr><th>Total</th><th>{len(layoffs)}</th><th>{total_jobs:,}</th></tr></tbody></table>")
+                      + f"<tr><th scope=\"row\">Total</th><th>{len(layoffs)}</th><th>{total_jobs:,}</th></tr></tbody></table>")
         largest = sorted([l for l in layoffs if l["date"].startswith(this_year)], key=lambda l: -l["jobs"])[:5]
         largest_html = "<ol class=\"largest\">" + "".join(f'<li><a href="#{slugify(l["company"])}"><b>{esc(l["company"])}</b>: {l["jobs"]:,} jobs</a> <span>{fmt_month(l["date"])}</span></li>' for l in largest) + "</ol>"
         year_2026_jobs = by_year.get(this_year, 0)
@@ -1771,7 +1815,7 @@ def main():
         reverse=True,
     )
     if funded:
-        fund_template = (ROOT / "funding-template.html").read_text()
+        fund_template = read_template("funding-template.html")
         total_m = sum(i["fundingM"] for i in funded)
         total_b = f"{total_m / 1000:.1f}"
         max_fund = funded[0]["fundingM"]
@@ -1876,7 +1920,7 @@ def main():
     cs_path = ROOT / "coming-soon.json"
     if cs_path.exists():
         cs_data = json.loads(cs_path.read_text())
-        cs_template = (ROOT / "coming-soon-template.html").read_text()
+        cs_template = read_template("coming-soon-template.html")
         cs_sorted = sorted(cs_data, key=lambda i: i["dateShutdown"])
         now = datetime.utcnow()
         gy_names = {(g.get("slug") or slugify(g["name"])): g["name"] for g in data}
@@ -1997,6 +2041,7 @@ def main():
             continue
         src = page.read_text()
         out = re.sub(r"(<!--FOOTER_LINKS-->).*?(<!--/FOOTER_LINKS-->)", lambda m: m.group(1) + fl + m.group(2), src, count=1, flags=re.S)
+        out = re.sub(r"(<!--SITE_HEAD-->).*?(<!--/SITE_HEAD-->)", lambda m: m.group(1) + SITE_HEAD + m.group(2), out, count=1, flags=re.S)
         out = re.sub(r"(<!--LATEST-->).*?(<!--/LATEST-->)", lambda m: m.group(1) + latest_html + m.group(2), out, count=1, flags=re.S)
         out = re.sub(r'(<script type="application/json" id="tombstones">).*?(</script>)', lambda m: m.group(1) + slugs_json + m.group(2), out, count=1, flags=re.S)
         if rel == "api/index.html":

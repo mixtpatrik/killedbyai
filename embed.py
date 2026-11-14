@@ -155,7 +155,7 @@ def foot(site, path=""):
     return f'<div class="foot"><span>Data updated {datetime.utcnow().strftime("%b %-d, %Y")}</span><a href="{site}{path}" target="_blank" rel="noopener">💀 Killed by AI ↗</a></div>'
 
 
-def build_embeds(root, site, data, ldata, cs_data, publish, site_nav, footer_links, product_url):
+def build_embeds(root, site, data, ldata, cs_data, publish, site_nav, footer_links, product_url, read_template):
     now = datetime.utcnow()
     today = now.strftime("%Y-%m-%d")
     deaths = sorted(data, key=lambda i: i["dateClose"], reverse=True)
@@ -257,10 +257,11 @@ def build_embeds(root, site, data, ldata, cs_data, publish, site_nav, footer_lin
                  f"'<div class=\"foot\"><span>killedbyai.net</span><a href=\"{site}dead/'+encodeURIComponent(s)+'/\" target=\"_blank\" rel=\"noopener\">Read the tombstone ↗</a></div>';}}</script>")
 
     # --- gallery page ---
-    def card(g):
+    def card(g, k):
+        load = ' fetchpriority="high"' if k == 0 else "" if k == 1 else ' loading="lazy"'   # the first row is in view on load
         return (f'<section class="g-card" id="{g["id"]}" data-id="{g["id"]}" data-page="{g["page"]}" data-alt="{esc(g["alt"])}" data-share="{esc(g["share"])}">'
                 f'<h2>{esc(g["title"])}</h2>'
-                f'<a class="g-prev" href="{site}{g["page"]}"><img src="/embed/img/{g["id"]}-dark.svg" width="1200" height="630" alt="{esc(g["alt"])}" loading="lazy"></a>'
+                f'<a class="g-prev" href="{site}{g["page"]}"><img src="/embed/img/{g["id"]}-dark.svg" width="1200" height="630" alt="{esc(g["alt"])}"{load}></a>'
                 '<div class="g-actions"><button type="button" class="b" data-act="code">&lt;/&gt; Embed code</button>'
                 '<button type="button" class="b" data-act="png">⬇ PNG</button><button type="button" class="b" data-act="svg">⬇ SVG</button>'
                 '<button type="button" class="b" data-act="x">Share on X</button><button type="button" class="b" data-act="li">LinkedIn</button>'
@@ -272,7 +273,7 @@ def build_embeds(root, site, data, ldata, cs_data, publish, site_nav, footer_lin
                      f'<iframe src="/embed/w/{w}/" title="{esc(t)}" height="{h}" loading="lazy"></iframe>'
                      '<div class="g-actions"><button type="button" class="b" data-act="wcode">&lt;/&gt; Embed code</button></div><div class="g-code" hidden></div></section>' for w, t, h in widgets)
     options = "".join(f'<option value="{i["slug"]}">{esc(i["name"])}</option>' for i in sorted(data, key=lambda i: i["name"].lower()) if i.get("slug"))
-    tpl = (root / "embed-template.html").read_text()
+    tpl = read_template("embed-template.html")
     url = site + "embed/"
     jsonld = {"@context": "https://schema.org", "@type": "WebPage", "@id": url, "url": url,
               "name": "Embed AI graveyard charts and counters", "isPartOf": {"@type": "WebSite", "@id": site + "#website", "name": "Killed by AI", "url": site},
@@ -282,7 +283,7 @@ def build_embeds(root, site, data, ldata, cs_data, publish, site_nav, footer_lin
                                                                              {"@type": "ListItem", "position": 2, "name": "Embed & share", "item": url}]}}
     out = (tpl.replace("{{NAV}}", site_nav("/embed/", "/embed/"))
            .replace("{{JSONLD}}", json.dumps(jsonld, indent=1, ensure_ascii=False))
-           .replace("{{GRAPHICS}}", "".join(card(g) for g in graphics))
+           .replace("{{GRAPHICS}}", "".join(card(g, k) for k, g in enumerate(graphics)))
            .replace("{{WIDGETS}}", wcards)
            .replace("{{OPTIONS}}", options)
            .replace("{{N_DEAD}}", str(n_dead))

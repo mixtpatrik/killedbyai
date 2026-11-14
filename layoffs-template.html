@@ -185,6 +185,7 @@
     </style>
     <script type="application/ld+json">{{JSONLD}}</script>
     <script type="application/ld+json">{{BREADCRUMB}}</script>
+    {{SITE_HEAD}}
 </head>
 <body>
     <nav class="site-nav" aria-label="Site">
@@ -201,6 +202,7 @@
         <p>Every layoff where the company itself named AI, automation or an "AI-first" strategy as the reason: {{TOTAL_JOBS}} jobs at {{TOTAL_COMPANIES}} companies, each with the date, the roles replaced, the quote and a source. Numbers are what companies disclosed, not estimates. Most often named so far: {{TOP_ROLE}}. See it <a href="/jobs/">by the jobs AI replaced</a>.</p>
     </header>
 
+    <main>
     {{DASHBOARD}}
     <p style="text-align:center;margin:.75rem 0 0;font-size:.875rem"><a href="/embed/#layoffs-by-quarter" style="color:var(--text-muted)">📤 Embed or share these numbers</a></p>
     <div style="padding:0 .75rem"><a class="risk-cta" href="/will-ai-take-my-job/">🎯 Is your job next? <span>Find out in 20 seconds →</span></a></div>
@@ -208,9 +210,9 @@
     <div class="list-wrap">  <!-- the sticky filter bar stops where the list ends -->
     {{CONTROLS}}
 
-    <main class="list" data-sortable>
+    <div class="list" data-sortable>
 {{ROWS}}
-    </main>
+    </div>
     </div>
 
     <section class="prose">
@@ -224,6 +226,7 @@
         <h2>Sources</h2>
         <p>Every row links its source: the company's own announcement, memo or SEC filing where one exists, otherwise reporting from outlets that name their sources (TechCrunch, Bloomberg, Reuters, Fortune, Business Insider). Related: <a href="/">the AI product graveyard</a>, <a href="/funding/">failed AI startups and the funding they burned</a>, and <a href="/coming-soon/">upcoming AI shutdowns</a>. The data is free as <a href="/api/">JSON</a> under CC BY 4.0.</p>
     </section>
+    </main>
 
     <footer class="site-footer">
         <p>

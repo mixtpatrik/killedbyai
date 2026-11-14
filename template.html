@@ -1089,6 +1089,42 @@
             .grid.list-view .badge-new { font-size: .6875rem; padding: .05rem .375rem; margin-left: .375rem; }
         }
         .risk-cta{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap;max-width:1000px;margin:1rem auto 0;padding:.75rem 1rem;border:1px solid rgba(239,68,68,.45);background:linear-gradient(90deg,rgba(239,68,68,.12),rgba(245,158,11,.08));border-radius:.75rem;color:#fafafa;text-decoration:none;font-weight:700;font-size:.9375rem;text-align:center}.risk-cta:hover{border-color:#ef4444}.risk-cta span{color:#f87171}
+        /* ===== modern web guidance pass (2026-11): browsers without a feature ignore its rule and render as before ===== */
+        /* off-screen tombstones skip layout and paint until scrolled near; the size is a placeholder until the real one is known */
+        .card { content-visibility: auto; contain-intrinsic-size: auto none auto 21rem; }
+        .grid.list-view .card { contain-intrinsic-size: auto none auto 4rem; }
+        /* tombstones behind "Show more" stay findable (find-in-page, text-fragment links, #anchors): the script sets
+           hidden="until-found" only where the browser supports it; the box itself must not take up room in the grid */
+        .card.beyond[hidden="until-found"] { display: block !important; content-visibility: hidden; position: absolute; width: 1px; height: 1px; min-height: 0; padding: 0; border: 0; box-shadow: none; overflow: hidden; }
+        /* keyboard focus is not left underneath the sticky search bar */
+        #main :is(a, button, summary, input, select) { scroll-margin-top: 4.5rem; }
+        /* decorative markers are not read out; the summary already says expanded or collapsed */
+        .faq-item summary::after { content: '+' / ''; }
+        .faq-item[open] summary::after { content: '−' / ''; }
+        .insights-fold > summary::after { content: "Show ▾" / ""; }
+        .insights-fold[open] > summary::after { content: "Hide ▴" / ""; }
+        /* answers slide open (only with interpolate-size, and only if motion is welcome) */
+        @supports (interpolate-size: allow-keywords) {
+            .faq-item::details-content { interpolate-size: allow-keywords; overflow: clip; contain: layout; }
+            .faq-item:not([open])::details-content { block-size: 0; }
+            @media (prefers-reduced-motion: no-preference) {
+                .faq-item::details-content { transition: block-size, content-visibility, display; transition-duration: .3s; transition-timing-function: ease-in-out; transition-behavior: allow-discrete; }
+            }
+        }
+        @media (max-width: 600px) {
+            /* icon-only on phones, but the button keeps its name */
+            .view-btn span { display: inline; position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+        }
+        /* Windows high contrast drops gradients and custom backgrounds: keep bars, the switch and pressed states visible */
+        @media (forced-colors: active) {
+            .bar-fill, .lb-bar { background: CanvasText; }
+            .bar.active .bar-fill { background: Highlight; }
+            .filter-pill.active, .view-btn.active { background: Highlight; color: HighlightText; }
+            .toggle-switch { outline: 1px solid ButtonText; outline-offset: -1px; }
+            .toggle-switch::after { background: ButtonText; }
+            .toggle-input:checked + .toggle-switch { background: Highlight; }
+            .toggle-input:checked + .toggle-switch::after { background: HighlightText; }
+        }
         /* ===== state + a11y utilities (keep last: must beat .grid.list-view .card { display: grid }) ===== */
         .card.hidden, .card.beyond { display: none !important; }
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -1097,6 +1133,7 @@
         .controls { scroll-margin-top: .75rem; }
         a.chip { text-decoration: none; }
     </style>
+    {{SITE_HEAD}}
 </head>
 <body>
     <a class="skip-link" id="skip-link" href="#search">Skip to search</a>
@@ -1133,6 +1170,7 @@
         <a class="risk-cta" href="/will-ai-take-my-job/" style="max-width:520px">🎯 Will AI take your job? <span>3 questions, 20 seconds →</span></a>
     </header>
 
+    <main id="main">
     <details class="insights-fold" id="insights" open>
         <summary>📊 Stats, chart &amp; leaderboard</summary>
         <script>try { if (localStorage.getItem('kbai-insights-v2') === 'closed' && !/[?&](year|killer)=/.test(location.search)) document.getElementById('insights').open = false; } catch (e) {}</script>
@@ -1206,7 +1244,7 @@
 
     </details>
 
-    <div class="controls">
+    <div class="controls" role="search">
         <div class="search-box">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
@@ -1251,15 +1289,16 @@
         </div>
     </div>
 
-    <main class="grid" id="grid">
+    <div class="grid" id="grid">
 {{CARDS}}
-    </main>
+    </div>
     <div class="show-more-wrap"><button type="button" class="show-more" id="show-more" hidden>Show 24 more tombstones</button></div>
 
     <section class="faq-section" aria-labelledby="faq-title">
         <h2 class="faq-title" id="faq-title">Frequently Asked Questions</h2>
 {{FAQ_HTML}}
     </section>
+    </main>
 
     <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
 
@@ -1392,12 +1431,29 @@
                     default: return 0;
                 }
             });
-            cards.forEach(c => { if (c.classList.contains('hidden')) c.classList.remove('beyond'); });
-            vis.forEach((c, i) => { grid.appendChild(c); c.classList.toggle('beyond', i >= limit); });
+            cards.forEach(c => { if (c.classList.contains('hidden')) { c.classList.remove('beyond'); c.removeAttribute('hidden'); } });
+            vis.forEach(c => grid.appendChild(c));
+            paginate(vis);
+        }
+        // Tombstones behind "Show more": hidden="until-found" where the browser supports it, so find-in-page, text-fragment
+        // links and #anchors still reach them; everywhere else they stay display:none through the .beyond class alone
+        const untilFound = 'onbeforematch' in HTMLElement.prototype;
+        function paginate(vis) {
+            vis.forEach((c, i) => {
+                const b = i >= limit; c.classList.toggle('beyond', b);
+                if (untilFound) { if (b) c.setAttribute('hidden', 'until-found'); else c.removeAttribute('hidden'); }
+            });
             const rest = Math.max(0, vis.length - limit);
             showMore.hidden = rest === 0;
             showMore.textContent = 'Show ' + Math.min(pageSize(), rest) + ' more tombstones (' + rest + ' remaining)';
         }
+        // the browser is about to reveal a match inside a paginated-out tombstone: show every page up to it (no re-sort, the DOM order is already right)
+        grid.addEventListener('beforematch', e => {
+            const card = e.target.closest && e.target.closest('.card');
+            if (!card || !card.classList.contains('beyond')) return;
+            const vis = Array.from(grid.querySelectorAll('.card:not(.hidden)'));
+            limit = Math.ceil((vis.indexOf(card) + 1) / pageSize()) * pageSize(); paginate(vis); updateURL();
+        });
         showMore.addEventListener('click', () => {
             const old = limit; limit += pageSize(); apply();
             // move focus to the first newly revealed tombstone so keyboard users don't skip past it

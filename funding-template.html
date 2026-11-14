@@ -79,6 +79,7 @@
     </style>
     <script type="application/ld+json">{{JSONLD}}</script>
     <script type="application/ld+json">{{BREADCRUMB}}</script>
+    {{SITE_HEAD}}
 </head>
 <body>
     <nav class="site-nav" aria-label="Site">
@@ -94,16 +95,18 @@
         <h1>Failed AI Startups <span>&amp; the Funding They Burned</span></h1>
         <p>The most expensive corner of the graveyard: ${{TOTAL_B}} billion raised by {{COUNT}} AI companies that shut down, were acqui-hired into oblivion, or ran out of money, self-driving moonshots and AI gadgets included. Ranked by money burned, with how fast they burned it and what killed them.</p>
     </header>
+    <main>
     {{DASHBOARD}}
     <p style="text-align:center;margin:.75rem 0 0;font-size:.875rem"><a href="/embed/#funding-burned" style="color:var(--text-muted)">📤 Embed or share these numbers</a></p>
     <span class="last-updated" style="display:block;text-align:center;margin-top:.75rem">Last updated: {{LAST_UPDATED}} · funding = total raised before death (VC, corporate or strategic) · <a href="/api/" style="color:inherit">free JSON</a></span>
     <div class="list-wrap">  <!-- the sticky filter bar stops where the list ends -->
     {{CONTROLS}}
 
-    <main class="list" data-sortable>
+    <div class="list" data-sortable>
 {{ROWS}}
-    </main>
     </div>
+    </div>
+    </main>
     <footer class="site-footer">
         <p>Part of <a href="/">Killed by AI</a>.</p>
         <p class="footer-links" style="font-size:.8125rem;margin-top:.5rem;text-align:center">{{FOOTER_LINKS}}</p>

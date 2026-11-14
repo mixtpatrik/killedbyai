@@ -68,7 +68,7 @@
         .search-wrap{position:relative}
         .job-input{width:100%;height:56px;background:var(--bg-2);border:1px solid var(--border);border-radius:.75rem;color:var(--text);font-size:17px;padding:0 1rem 0 2.75rem}
         .job-input:focus{outline:none;border-color:var(--acc)}
-        .search-wrap::before{content:"🔎";position:absolute;left:1rem;top:50%;transform:translateY(-50%);font-size:1rem;opacity:.7}
+        .search-wrap::before{content:"🔎";content:"🔎" / "";position:absolute;left:1rem;top:50%;transform:translateY(-50%);font-size:1rem;opacity:.7}
         .sugg{list-style:none;margin-top:.5rem;display:flex;flex-direction:column;gap:.25rem;max-height:340px;overflow:auto}
         .sugg [role=option]{flex:none;width:100%;text-align:left;display:flex;justify-content:space-between;gap:.75rem;align-items:center;min-height:48px;padding:.5rem .875rem;background:transparent;border:1px solid transparent;border-radius:.5rem;color:var(--text);font-size:.9375rem;cursor:pointer}
         .sugg [role=option]:hover,.sugg [role=option].hl{background:var(--bg-2);border-color:var(--border)}
@@ -87,7 +87,7 @@
         .guess-lbl{text-align:center;color:var(--text-muted);font-size:.9375rem;min-height:1.5em}
         input[type=range]{width:100%;margin:1.25rem 0 .25rem;accent-color:var(--acc);height:32px}
         .range-ends{display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-dim)}
-        .cta{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;padding:0 1.5rem;border-radius:.75rem;border:0;background:var(--acc);color:#fff;font:inherit;font-size:1rem;font-weight:800;cursor:pointer;text-decoration:none;width:100%;margin-top:1.25rem}
+        .cta{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;padding:0 1.5rem;border-radius:.75rem;border:0;background:#dc2626;color:#fff;font:inherit;font-size:1rem;font-weight:800;cursor:pointer;text-decoration:none;width:100%;margin-top:1.25rem}
         .cta:hover{filter:brightness(1.1)}
         .cta.ghost{background:var(--bg-2);border:1px solid var(--border);color:var(--text);font-weight:600}
 
@@ -172,8 +172,8 @@
         .all{margin-top:.75rem;background:var(--bg-card);border:1px solid var(--border);border-radius:.875rem}
         .all>summary{cursor:pointer;min-height:52px;display:flex;align-items:center;padding:0 1.125rem;font-weight:700;list-style:none}
         .all>summary::-webkit-details-marker{display:none}
-        .all>summary::after{content:"Show ▾";margin-left:auto;color:var(--text-dim);font-weight:500;font-size:.8125rem}
-        .all[open]>summary::after{content:"Hide ▴"}
+        .all>summary::after{content:"Show ▾";content:"Show ▾" / "";margin-left:auto;color:var(--text-dim);font-weight:500;font-size:.8125rem}
+        .all[open]>summary::after{content:"Hide ▴";content:"Hide ▴" / ""}
         .all-inner{padding:0 1.125rem 1rem;max-height:560px;overflow:auto}
         .all-none{font-size:.875rem;color:var(--text-dim);padding:.25rem 0 .5rem}
         .all-filter{width:100%;height:44px;background:var(--bg-2);border:1px solid var(--border);border-radius:.5rem;color:var(--text);padding:0 .875rem;font-size:16px;margin-bottom:.5rem;position:sticky;top:0}
@@ -182,8 +182,14 @@
         .faq{background:var(--bg-card);border:1px solid var(--border);border-radius:.75rem;margin-bottom:.5rem}
         .faq summary{cursor:pointer;min-height:52px;display:flex;align-items:center;padding:.5rem 1.125rem;font-weight:700;list-style:none}
         .faq summary::-webkit-details-marker{display:none}
-        .faq summary::after{content:"+";margin-left:auto;padding-left:1rem;color:var(--text-dim);font-size:1.25rem}
-        .faq[open] summary::after{content:"−"}
+        .faq summary::after{content:"+";content:"+" / "";margin-left:auto;padding-left:1rem;color:var(--text-dim);font-size:1.25rem}
+        .faq[open] summary::after{content:"−";content:"−" / ""}
+        @supports (interpolate-size:allow-keywords){
+            .faq::details-content{interpolate-size:allow-keywords;overflow:clip;contain:layout}
+            .faq:not([open])::details-content{block-size:0}
+            @media(prefers-reduced-motion:no-preference){.faq::details-content{transition:block-size,content-visibility,display;transition-duration:.3s;transition-timing-function:ease-in-out;transition-behavior:allow-discrete}}
+        }
+        @media(forced-colors:active){.progress-track{outline:1px solid CanvasText}.progress-fill,.mini span{background:CanvasText}.opt.sel{background:Highlight;color:HighlightText}}
         .faq p{padding:0 1.125rem 1rem;color:var(--text-muted);font-size:.9375rem}
         .site-footer{text-align:center;padding:2rem 1.5rem 3rem;border-top:1px solid var(--border);max-width:760px;margin:3.5rem auto 0}
         .site-footer p{color:var(--text-dim);font-size:.8125rem;line-height:1.8}
@@ -201,6 +207,7 @@
         }
     </style>
     <script type="application/ld+json">{{JSONLD}}</script>
+    {{SITE_HEAD}}
 </head>
 <body>
     <nav class="site-nav" aria-label="Site">
@@ -218,6 +225,7 @@
         <div class="proof"><span>⏱ <b>20</b> seconds</span><span>✓ Free</span><span>✓ No sign-up or email</span></div>
     </header>
 
+    <main>
     <section class="app" id="test">
         <div class="card" id="card">
             <noscript><p>The test needs JavaScript. The full ranking of {{N_OCC}} occupations is below.</p></noscript>
@@ -248,7 +256,7 @@
             <summary>All {{N_OCC}} occupations ranked by AI exposure</summary>
             <div class="all-inner">
                 <input class="all-filter" type="search" placeholder="Filter occupations…" aria-label="Filter occupations">
-                <table class="rank-table"><thead><tr><th>#</th><th>Occupation</th><th>Score</th><th></th></tr></thead><tbody>{{ALL_ROWS}}</tbody></table>
+                <table class="rank-table"><thead><tr><th scope="col">#</th><th scope="col">Occupation</th><th scope="col">Score</th><th scope="col"><span class="sr-only">Test</span></th></tr></thead><tbody>{{ALL_ROWS}}</tbody></table>
             </div>
         </details>
     </section>
@@ -260,10 +268,11 @@
         <p>Nothing you enter leaves your browser except anonymous totals in our analytics. Occupation data: Microsoft Research, <a href="https://github.com/microsoft/working-with-ai" target="_blank" rel="noopener">working-with-ai</a>, CC BY 4.0. Layoff data updated {{LAST_UPDATED}}.</p>
     </section>
 
-    <section class="section" id="faq">
-        <h2>Will AI take my job? FAQ</h2>
+    <section class="section" id="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Will AI take my job? FAQ</h2>
         {{FAQ}}
     </section>
+    </main>
 
     <footer class="site-footer">
         <p>Part of <a href="/">Killed by AI</a>, the graveyard of dead AI products, <a href="/layoffs/">AI layoffs</a> and <a href="/jobs/">the jobs AI replaced</a>.</p>
@@ -504,7 +513,15 @@
   }
   function shareText() { var o = BY[state.job], s = score(); return (state.shared ? 'AI job risk score for ' + o[1] + ': ' + s + '/100, ' + tierOf(s)[1] : 'My AI job risk score: ' + s + '/100, ' + tierOf(s)[1] + ' (' + o[1] + ')') + '. What’s yours?'; }
   function shareUrl() { return location.origin + location.pathname + '?r=' + code(); }
-  function toast(m) { var t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); setTimeout(function () { t.classList.remove('show'); }, 2200); }
+  // one timer at a time; the text is cleared once hidden so no stale message is left for screen readers. A repeated
+  // message gets a trailing no-break space, because VoiceOver skips an announcement identical to the previous one
+  var toastT, toastLast = '';
+  function toast(m) {
+    var t = document.getElementById('toast'); clearTimeout(toastT);
+    if (m === toastLast) m += '\u00A0'; toastLast = m;
+    t.textContent = m; t.classList.add('show');
+    toastT = setTimeout(function () { t.classList.remove('show'); toastT = setTimeout(function () { t.textContent = ''; }, 300); }, 2200);
+  }
   function copy() { var u = shareUrl(); (navigator.clipboard ? navigator.clipboard.writeText(shareText() + ' ' + u) : Promise.reject()).then(function () { toast('Link copied'); }, function () { prompt('Copy this link', u); }); }
   function act(e) {
     var b = e.target.closest('[data-act]'); if (!b) return;
@@ -563,7 +580,7 @@
   document.addEventListener('click', function (e) {
     var a = e.target.closest('.rank-table a[data-job]'); if (!a) return;
     e.preventDefault(); state = { job: null, a: [], shared: false }; pick(a.dataset.job);
-    document.getElementById('test').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('test').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   });
 
   // ----- boot: ?r= shared result, ?job= preselected occupation -----

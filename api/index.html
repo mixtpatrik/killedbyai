@@ -150,6 +150,7 @@
     }
   ]
 }</script>
+    <!--SITE_HEAD--><!--/SITE_HEAD-->
 </head>
 <body>
     <nav class="site-nav" aria-label="Site">
@@ -166,7 +167,7 @@
         <p>Free, open JSON API for discontinued AI products, AI-driven layoffs, and upcoming shutdowns. No auth, no rate limits, no API key.</p>
     </header>
 
-    <div class="content">
+    <main class="content">
         <h2>Base URL</h2>
         <div class="endpoint">
             <span class="url">https://killedbyai.net/</span>
@@ -256,8 +257,8 @@
         </div>
         <p>RSS 2.0 feed of the 30 most recently added tombstones (<code>pubDate</code> = <code>dateAdded</code>, so older deaths that were added late still appear; <code>guid</code> = the tombstone URL).</p>
 
-        <h2>Usage Example</h2>
-<pre><code>// Fetch all dead AI products
+        <h2 id="usage">Usage Example</h2>
+<pre tabindex="0" role="region" aria-labelledby="usage"><code>// Fetch all dead AI products
 const res = await fetch('https://killedbyai.net/graveyard.json');
 const graveyard = await res.json();
 
@@ -272,7 +273,7 @@ console.log(`$${(burned / 1000).toFixed(1)}B in funding burned`);</code></pre>
 
         <h2>Corrections</h2>
         <p>Found a wrong date or a missing death? See <a href="/about/#corrections" style="color:var(--green)">how to send a correction</a>.</p>
-    </div>
+    </main>
 
     <footer class="site-footer">
         <p>Part of <a href="/">Killed by AI</a>.<br>Data licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>: free to use commercially, as long as you credit <a href="/">killedbyai.net</a>.</p>

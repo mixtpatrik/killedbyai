@@ -51,11 +51,11 @@
         .g-card h2{font-size:1rem;font-weight:800}
         .g-prev{display:block;border-radius:.625rem;overflow:hidden;line-height:0}
         .g-prev img{width:100%;height:auto;display:block}
-        .g-card iframe{width:100%;border:0;border-radius:.75rem;background:transparent}
+        .g-card iframe{width:100%;border:0;border-radius:.75rem;background:transparent;color-scheme:light}
         .g-actions{display:flex;flex-wrap:wrap;gap:.375rem}
         .b{min-height:40px;padding:0 .75rem;border-radius:.5rem;border:1px solid var(--border);background:var(--bg-2);color:var(--text);font:inherit;font-size:.8125rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:.25rem}
         .b:hover{border-color:var(--text-dim)}
-        .b.primary{background:var(--red);border-color:var(--red);color:#fff}
+        .b.primary{background:#dc2626;border-color:#dc2626;color:#fff}
         .g-code{display:flex;flex-direction:column;gap:.5rem}
         .tabs{display:flex;gap:.25rem;flex-wrap:wrap}
         .tabs button{min-height:34px;padding:0 .625rem;border-radius:.375rem;border:1px solid var(--border);background:transparent;color:var(--text-muted);font:inherit;font-size:.75rem;cursor:pointer}
@@ -72,6 +72,7 @@
         .site-footer p{color:var(--text-dim);font-size:.8125rem;line-height:1.8}
         .site-footer a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
         @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+        @media(forced-colors:active){.theme button[aria-pressed=true],.tabs button[aria-pressed=true]{background:Highlight;color:HighlightText}}
         @media(max-width:800px){.grid{grid-template-columns:1fr}}
         @media(max-width:600px){
             .site-nav{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent)}
@@ -80,6 +81,7 @@
         }
     </style>
     <script type="application/ld+json">{{JSONLD}}</script>
+    {{SITE_HEAD}}
 </head>
 <body>
     <nav class="site-nav" aria-label="Site">{{NAV}}</nav>
@@ -93,6 +95,7 @@
         </div>
     </header>
 
+    <main>
     <section class="section" id="graphics">
         <h2>Charts and counters</h2>
         <p class="lead">Images at 1200x630, the size social networks use for link previews. Embedded on a page they stay current; a downloaded PNG is a snapshot of today's numbers.</p>
@@ -128,6 +131,7 @@
         <h2>Need the raw numbers?</h2>
         <p class="note">Everything here is built from three JSON files you can use directly: <a href="/graveyard.json">graveyard.json</a>, <a href="/layoffs.json">layoffs.json</a> and <a href="/coming-soon.json">coming-soon.json</a>. Every field is explained on the <a href="/api/">JSON API page</a>. The data and graphics are free under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener" target="_blank">CC BY 4.0</a>: use them anywhere, commercial use included, with a credit link to killedbyai.net.</p>
     </section>
+    </main>
 
     <footer class="site-footer">
         <p>Part of <a href="/">Killed by AI</a>.</p>
@@ -140,7 +144,15 @@
   var SITE = '{{SITE}}', theme = 'dark';
   try { if (localStorage.getItem('kbai-embed-theme') === 'light') theme = 'light'; } catch (e) {}
   var track = function (n, p) { try { gtag('event', n, p || {}); } catch (e) {} };
-  function toast(m) { var t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); setTimeout(function () { t.classList.remove('show'); }, 2000); }
+  // one timer at a time; the text is cleared once hidden so no stale message is left for screen readers. A repeated
+  // message gets a trailing no-break space, because VoiceOver skips an announcement identical to the previous one
+  var toastT, toastLast = '';
+  function toast(m) {
+    var t = document.getElementById('toast'); clearTimeout(toastT);
+    if (m === toastLast) m += '\u00A0'; toastLast = m;
+    t.textContent = m; t.classList.add('show');
+    toastT = setTimeout(function () { t.classList.remove('show'); toastT = setTimeout(function () { t.textContent = ''; }, 300); }, 2000);
+  }
   function copy(text) {
     (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(function () { toast('Copied'); }, function () { window.prompt('Copy this', text); });
   }
@@ -219,7 +231,7 @@
   document.querySelectorAll('.theme button').forEach(function (b) { b.onclick = function () { theme = b.dataset.theme; try { localStorage.setItem('kbai-embed-theme', theme); } catch (e) {} applyTheme(); }; });
 
   var slug = new URLSearchParams(location.search).get('slug');
-  if (slug && pick.querySelector('option[value="' + slug.replace(/"/g, '') + '"]')) { pick.value = slug; setTimeout(function () { document.getElementById('tombstone').scrollIntoView(); }, 50); }
+  if (slug && [].some.call(pick.options, function (o) { return o.value === slug; })) { pick.value = slug; setTimeout(function () { document.getElementById('tombstone').scrollIntoView(); }, 50); }
   else { var opts = pick.options; for (var i = 0; i < opts.length; i++) if (opts[i].value === 'humane-ai-pin') { pick.selectedIndex = i; break; } }
   applyTheme();
 })();
