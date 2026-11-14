@@ -2,7 +2,7 @@
   <title>Killed by AI: the AI graveyard</title>
   <rect width="1200" height="630" fill="#09090b"/>
   <text x="80" y="306" fill="#f4f4f5" font-family="'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif" font-weight="700" font-size="148">Killed by <tspan fill="#ef4444">AI</tspan></text>
-  <text x="83" y="382" fill="#a1a1aa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="32">Every dead AI tool, model and startup that didn't survive the gold rush.</text>
+  <text x="83" y="382" fill="#a1a1aa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="30">Every dead AI tool, model and startup that didn't survive the gold rush.</text>
   <rect x="80" y="520" width="1040" height="1" fill="#26262a"/>
   <text x="80" y="572" fill="#8f8f99" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="26">killedbyai.net</text>
 </svg>
