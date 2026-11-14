@@ -220,9 +220,10 @@ def site_nav(active, page_path=None):
 #    (templates keep their static right-edge fade for browsers without scroll-driven animations or with reduced motion)
 #  - speculation rules: prefetch (never prerender, so no script or analytics runs) a same-site page on hover or touch;
 #    URLs with a query string (?r=, ?job=, ?q=...), data files, downloads and nofollow links are left alone
-SITE_HEAD = r"""<meta name="color-scheme" content="dark">
+SITE_HEAD = r"""<meta name="color-scheme" content="dark light">
     <style>
-        :root{color-scheme:dark;--bg:#09090b;--bg-card:#111113;--border:#26262a;--line:#3f3f46;--mark:#3f3f46;--mark-hover:#71717a;--text:#f4f4f5;--text-muted:#a1a1aa;--text-dim:#8f8f99;--red:#ef4444;--red-text:#f87171;--radius:6px;--gutter:1.5rem;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;--mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace}
+        :root{color-scheme:dark;--bg:#09090b;--bg-card:#111113;--border:#26262a;--line:#3f3f46;--mark:#3f3f46;--mark-hover:#71717a;--text:#f4f4f5;--text-muted:#a1a1aa;--text-dim:#8f8f99;--red:#ef4444;--red-text:#f87171;--radius:6px;--gutter:1.5rem;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;--mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;--orange:#f97316;--amber:#f59e0b;--yellow:#eab308;--green:#22c55e;--warn:#fb923c;--good:#4ade80;--hover-line:#7f1d1d;--on-acc:#09090b}
+        :root[data-theme="light"]{color-scheme:light;--bg:#fafaf9;--bg-card:#f4f4f5;--border:#e4e4e7;--line:#a1a1aa;--mark:#d4d4d8;--mark-hover:#a1a1aa;--text:#18181b;--text-muted:#52525b;--text-dim:#6b6b74;--red:#dc2626;--red-text:#b91c1c;--orange:#c2410c;--amber:#b45309;--yellow:#a16207;--green:#15803d;--warn:#c2410c;--good:#15803d;--hover-line:#fca5a5;--on-acc:#fff}
         @media(max-width:600px){:root{--gutter:1rem}}
         body{font-family:var(--sans);line-height:1.55;font-variant-numeric:tabular-nums}
         input,select,button,textarea{font-family:inherit}
@@ -265,18 +266,33 @@ SITE_HEAD = r"""<meta name="color-scheme" content="dark">
         .site-footer .footer-note{margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid var(--border)}
         @media(pointer:coarse){.footer-col a{padding:.5rem 0}}
         @media(prefers-reduced-motion:no-preference){@view-transition{navigation:auto}}
-        @property --nav-fade-l{syntax:"<length>";inherits:false;initial-value:0px}
-        @property --nav-fade-r{syntax:"<length>";inherits:false;initial-value:0px}
-        @keyframes nav-fade-l{to{--nav-fade-l:2.5rem}}
-        @keyframes nav-fade-r{from{--nav-fade-r:2.5rem}}
         @media(max-width:600px){
             .site-nav{scroll-padding-inline:35vw}
             .site-nav-item.active{scroll-initial-target:nearest}
-            @media(prefers-reduced-motion:no-preference){@supports (animation-timeline:scroll()) and (mask-clip:no-clip){
-                .site-nav{mask:linear-gradient(#000,#000) no-clip subtract,linear-gradient(to right,#000,transparent) 0 0/var(--nav-fade-l) 100% no-repeat no-clip,linear-gradient(to right,transparent,#000) 100% 0/var(--nav-fade-r) 100% no-repeat no-clip;animation:nav-fade-l linear both,nav-fade-r linear both;animation-timeline:scroll(self inline);animation-range:0 2.5rem,calc(100% - 2.5rem) 100%}
-            }}
         }
+        .theme-toggle{position:sticky;right:0;flex:none;display:inline-flex;align-items:center;justify-content:center;width:44px;min-height:48px;margin-left:auto;padding:0;background:var(--bg);border:0;box-shadow:inset 0 -1px 0 var(--border),-10px 0 8px -4px var(--bg);color:var(--text-muted);cursor:pointer}
+        .theme-toggle:hover{color:var(--text)}
+        .theme-toggle:focus-visible{outline-offset:-3px}
+        .theme-toggle svg{width:18px;height:18px}
+        .back-to-top{position:fixed;right:1rem;bottom:1rem;z-index:50;display:none;align-items:center;justify-content:center;width:44px;height:44px;padding:0;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-muted);font:inherit;font-size:1.125rem;line-height:1;cursor:pointer}
+        .back-to-top.visible{display:flex}
+        .back-to-top:hover{border-color:var(--acc,var(--red));color:var(--text)}
     </style>
+    <script>(function(){var d=document.documentElement,K="kbai-theme";try{if(localStorage.getItem(K)==="light")d.dataset.theme="light"}catch(e){}
+    function light(){return d.dataset.theme==="light"}
+    function meta(){var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=light()?"#fafaf9":"#09090b"}
+    addEventListener("DOMContentLoaded",function(){meta();
+      var n=document.querySelector(".site-nav");
+      if(n){var b=document.createElement("button");b.type="button";b.className="theme-toggle";
+        b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>';
+        var lab=function(){var t=light()?"Switch to dark theme":"Switch to light theme";b.setAttribute("aria-label",t);b.title=t};lab();
+        b.addEventListener("click",function(){var l=light();if(l)delete d.dataset.theme;else d.dataset.theme="light";try{localStorage.setItem(K,l?"dark":"light")}catch(e){}lab();meta()});
+        n.appendChild(b)}
+      if(!document.getElementById("back-to-top")){var t=document.createElement("button");t.type="button";t.id="back-to-top";t.className="back-to-top";t.setAttribute("aria-label","Back to top");t.title="Back to top";t.textContent="\u2191";
+        document.body.appendChild(t);
+        addEventListener("scroll",function(){t.classList.toggle("visible",scrollY>600)},{passive:true});
+        t.addEventListener("click",function(){scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});var h=document.querySelector("h1");if(h){h.tabIndex=-1;h.focus({preventScroll:true})}})}
+    })})()</script>
     <script>if(!CSS.supports("scroll-initial-target","nearest"))addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".site-nav"),a=n&&n.querySelector(".active");if(a)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2})</script>
     <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*\\?(.+)"}},{"not":{"href_matches":"/*.*"}},{"not":{"selector_matches":"[download],[rel~=nofollow],[target=_blank],[aria-current=page]"}}]},"eagerness":"moderate"}]}</script>"""
 
@@ -637,7 +653,7 @@ a.hbar:hover .hbar-fill{opacity:1}
 .tag{white-space:nowrap}
 .tag:not(:last-child)::after{content:"\\00A0\\00B7" / "";display:inline-block;color:var(--text-dim)}
 @media(min-width:601px){.layoff-row,.fund-row,.list a{scroll-margin-top:calc(var(--lctrl-h,160px) + .75rem)}}
-.to-filters{position:fixed;right:1rem;bottom:1rem;z-index:50;display:none;align-items:center;justify-content:center;width:44px;height:44px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-muted);font:inherit;font-size:1.125rem;line-height:1;cursor:pointer}
+.to-filters{position:fixed;right:1rem;bottom:4.25rem;z-index:50;display:none;align-items:center;justify-content:center;height:44px;padding:0 .75rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-muted);font:inherit;font-size:.8125rem;line-height:1;cursor:pointer}
 .to-filters:hover{border-color:var(--acc);color:var(--acc)}
 
 .site-footer{padding-bottom:3rem;font-size:.875rem;line-height:1.7;color:var(--text-dim)}
@@ -714,7 +730,7 @@ DASH_JS = """<script>
   if(location.hash){ var t=unhide(location.hash.slice(1)); if(t) requestAnimationFrame(function(){ t.scrollIntoView(); }); }
   // phones: the filter bar is not sticky there, so offer a way back to it from deep in the list
   if(bar){
-    var btn=document.createElement('button'); btn.type='button'; btn.className='to-filters'; btn.setAttribute('aria-label','Back to filters'); btn.title='Back to filters'; btn.textContent='↑';
+    var btn=document.createElement('button'); btn.type='button'; btn.className='to-filters'; btn.setAttribute('aria-label','Back to filters'); btn.title='Back to filters'; btn.textContent='Filters ↑';
     btn.addEventListener('click',function(){ var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches; bar.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); });
     document.body.appendChild(btn);
     // shown while the list runs past the bottom of the screen, so it never sits on the notes or the footer after it
@@ -1039,7 +1055,7 @@ def render_jobs_pages(ldata, list_tpl):
         out = list_tpl
         for k, v in {"{{TITLE}}": esc(title + " | Killed by AI") if len(title) <= 45 else esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": crumb_items(url, label, ("Jobs replaced by AI", "/jobs/")),
                      "{{H1}}": f"{esc(label)}: jobs replaced by AI", "{{INTRO}}": esc(intro), "{{ROWS}}": rhtml, "{{AFTER}}": after, "{{NAV}}": site_nav("/layoffs/"),
-                     "{{ACC}}": "#f97316", "{{ACC_TEXT}}": "#f97316", "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
+                     "{{ACC}}": "var(--orange)", "{{ACC_TEXT}}": "var(--orange)", "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
             out = out.replace(k, v)
         d = ROOT / "jobs" / r; d.mkdir(parents=True, exist_ok=True); (d / "index.html").write_text(out)
     # index
@@ -1055,7 +1071,7 @@ def render_jobs_pages(ldata, list_tpl):
     out = list_tpl
     for k, v in {"{{TITLE}}": esc(title), "{{META_DESC}}": esc(meta), "{{URL}}": url, "{{CRUMB}}": crumb_items(url, "Jobs replaced by AI"),
                  "{{H1}}": "Jobs replaced by AI, by role", "{{INTRO}}": esc(f"The roles companies name when they blame layoffs on AI. {total_jobs:,} jobs across {n_companies} companies, re-indexed by the work that was replaced, most-named role first. {top_label} leads by a distance. Each layoff's job count is the company-wide total and is counted under every role it named, so role figures overlap; the per-company figures are on the layoffs tracker."),
-                 "{{ROWS}}": rhtml, "{{AFTER}}": "", "{{NAV}}": site_nav("/layoffs/"), "{{ACC}}": "#f97316", "{{ACC_TEXT}}": "#f97316", "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
+                 "{{ROWS}}": rhtml, "{{AFTER}}": "", "{{NAV}}": site_nav("/layoffs/"), "{{ACC}}": "var(--orange)", "{{ACC_TEXT}}": "var(--orange)", "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(ld, indent=2, ensure_ascii=False)}.items():
         out = out.replace(k, v)
     d = ROOT / "jobs"; d.mkdir(exist_ok=True); (d / "index.html").write_text(out)
     return pages

@@ -32,7 +32,7 @@
     <style>
         /* Colors, type and the site menu come from the shared head block (SITE_HEAD in build.py). */
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        :root{--wrap:1000px;--acc:#ef4444}
+        :root{--wrap:1000px;--acc:var(--red)}
         html{-webkit-text-size-adjust:100%}
         body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.55;min-height:100vh}
         a{color:inherit}
@@ -86,8 +86,8 @@
         /* buttons: outline by default, one solid accent button per view */
         .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 1rem;background:none;border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font:inherit;font-size:.9375rem;font-weight:600;cursor:pointer;white-space:nowrap}
         .btn:hover{border-color:var(--acc);color:var(--red-text)}
-        .btn.primary{background:var(--acc);border-color:var(--acc);color:#09090b}
-        .btn.primary:hover{background:var(--red-text);border-color:var(--red-text);color:#09090b}
+        .btn.primary{background:var(--acc);border-color:var(--acc);color:var(--on-acc)}
+        .btn.primary:hover{background:var(--red-text);border-color:var(--red-text);color:var(--on-acc)}
 
         /* ---------- result ---------- */
         .shared-banner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 1rem;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border);font-size:.9375rem}
@@ -104,6 +104,9 @@
         .gauge-segs i.on{opacity:1}
         .gauge-mark{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--text);box-shadow:0 0 0 2px var(--bg)}
         .gauge-ends{display:flex;justify-content:space-between;font-size:.8125rem;color:var(--text-dim)}
+        /* the tier colour encodes the score; on the light theme it is darkened so it still reads as text */
+        .score b,.tier{color:var(--tc)}
+        :root[data-theme="light"] .score b,:root[data-theme="light"] .tier{color:color-mix(in srgb,var(--tc) 62%,#000)}
         .tier{margin-top:.75rem;font-size:1.25rem;font-weight:700;line-height:1.3}
         .tier-blurb{max-width:36rem;margin-top:.25rem;color:var(--text-muted);font-size:.9375rem}
         .res-grid{margin-top:1.5rem;border-top:1px solid var(--border)}
@@ -121,7 +124,7 @@
         .factors{list-style:none;border-top:1px solid var(--border)}
         .factors li{display:grid;grid-template-columns:2.75rem minmax(0,1fr);align-items:baseline;gap:.75rem;padding:.625rem 0;border-bottom:1px solid var(--border);font-size:.9375rem}
         .pts{font-weight:700}
-        .pts.up{color:var(--red-text)}.pts.down{color:#4ade80}.pts.zero{color:var(--text-dim)}
+        .pts.up{color:var(--red-text)}.pts.down{color:var(--good)}.pts.zero{color:var(--text-dim)}
         .factors small{display:block;margin-top:.125rem;font-size:.8125rem;line-height:1.5;color:var(--text-muted)}
         .tips{list-style:none;counter-reset:t;border-top:1px solid var(--border)}
         .tips li{position:relative;padding:.625rem 0 .625rem 3.5rem;border-bottom:1px solid var(--border);font-size:.9375rem;color:var(--text-muted)}
@@ -501,8 +504,8 @@
     tips.push('<li><b>Track the signals.</b> Watch the <a href="/layoffs/">AI layoffs tracker</a> for your industry. Cuts come in waves, and the first movers tell you where it goes next.</li>');
     var html = (state.shared ? '<div class="shared-banner"><span>Someone shared their result with you. What’s yours?</span><button class="btn primary" type="button" data-act="retake">Take the test →</button></div>' : '') +
       '<div class="res-head"><h2 class="res-job">AI job risk score <b>' + esc(o[1]) + '</b></h2>' +
-      '<div class="score"><b style="color:' + t[2] + '" id="snum" aria-hidden="true">' + (still ? s : 0) + '</b><span class="sr-only">' + s + ' </span><span>out of 100</span></div>' + gauge(s, t) +
-      '<div class="tier" style="color:' + t[2] + '">' + t[1] + '</div><p class="tier-blurb">' + t[3] + '</p></div>' +
+      '<div class="score"><b style="--tc:' + t[2] + '" id="snum" aria-hidden="true">' + (still ? s : 0) + '</b><span class="sr-only">' + s + ' </span><span>out of 100</span></div>' + gauge(s, t) +
+      '<div class="tier" style="--tc:' + t[2] + '">' + t[1] + '</div><p class="tier-blurb">' + t[3] + '</p></div>' +
       '<div class="res-grid"><div class="rstat"><b>' + o[3] + '%</b><span>of {{N_OCC}} occupations are less exposed to AI than yours</span></div>' +
       '<div class="rstat"><b>#' + (idx + 1) + '</b><span>most AI-exposed job of {{N_OCC}} (Microsoft score ' + o[2].toFixed(2) + ')</span></div>' +
       '<div class="rstat"><b>' + (role ? role.jobs.toLocaleString('en-US') : '0') + '</b><span>' + (role ? 'jobs cut in AI-attributed layoffs that hit ' + esc(role.label) + ' (whole layoffs, not only this role)' : 'AI-attributed layoffs tracked for this kind of role so far') + '</span></div></div>' +
