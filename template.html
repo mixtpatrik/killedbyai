@@ -58,15 +58,16 @@
         /* ---------- header ---------- */
         .header { padding-top: 2.5rem; padding-bottom: 1.5rem; }
         .header h1 { font-family: var(--serif); font-size: clamp(2.25rem, 6vw, 3.5rem); font-weight: 700; letter-spacing: -.015em; line-height: 1.05; }
+        .header h1 span { color: var(--red); }
         .lede { max-width: 42rem; margin-top: .75rem; color: var(--text-muted); font-size: 1.0625rem; line-height: 1.5; }
         .facts { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; margin-top: 1rem; font-size: .9375rem; color: var(--text-muted); }
-        .facts b { color: var(--text); font-weight: 600; }
+        .facts b { color: var(--red-text); font-weight: 700; }
         .aside { margin-top: .5rem; font-size: .9375rem; }
         .facts a, .aside a, .facts-list a, .submit-cta, .card-link, a.tag-killer, .faq-answer a, .site-footer a {
             text-decoration: underline; text-decoration-color: var(--line); text-decoration-thickness: 1px; text-underline-offset: 3px;
         }
         .facts a:hover, .aside a:hover, .facts-list a:hover, .submit-cta:hover, .card-link:hover, a.tag-killer:hover, .faq-answer a:hover, .site-footer a:hover {
-            color: var(--text); text-decoration-color: var(--red);
+            color: var(--red-text); text-decoration-color: var(--red);
         }
         .aside a { display: inline-flex; align-items: center; min-height: 32px; }
 
@@ -86,24 +87,26 @@
         .bar { flex: 1; min-width: 0; height: 100%; display: flex; flex-direction: column; align-items: center; gap: .25rem; background: none; border: 0; padding: 0; cursor: pointer; font: inherit; }
         .bar-count { flex: none; font-size: .8125rem; color: var(--text-muted); }
         .bar-track { flex: 1; width: 100%; min-height: 0; display: flex; align-items: flex-end; }
-        .bar-fill { width: 100%; height: var(--bar-height, 0%); min-height: 2px; background: var(--mark); border-radius: 2px 2px 0 0; }
+        .bar-fill { width: 100%; height: var(--bar-height, 0%); min-height: 2px; background: var(--red); opacity: .7; border-radius: 2px 2px 0 0; }
         .bar-label { flex: none; font-size: .8125rem; color: var(--text-dim); }
-        .bar:hover .bar-fill { background: var(--mark-hover); }
+        .bar:hover .bar-fill { opacity: .85; }
         .bar:hover .bar-count, .bar:hover .bar-label { color: var(--text); }
-        .bar.active .bar-fill { background: var(--red); }
-        .bar.active .bar-count, .bar.active .bar-label { color: var(--text); font-weight: 600; }
+        .bar.active .bar-fill { opacity: 1; }
+        .bar.active .bar-count, .bar.active .bar-label { color: var(--red-text); font-weight: 600; }
 
         .lb-row { display: grid; grid-template-columns: minmax(0, 8rem) minmax(0, 1fr) 1.75rem; align-items: center; gap: .75rem; min-height: 30px; font-size: .875rem; color: inherit; text-decoration: none; }
         .lb-name { color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .lb-bar-wrap { display: block; height: 6px; }
-        .lb-bar { display: block; height: 100%; min-width: 2px; background: var(--mark); border-radius: 1px; }
-        .lb-count { text-align: right; }
+        .lb-bar { display: block; height: 100%; min-width: 2px; background: var(--red); opacity: .7; border-radius: 1px; }
+        .lb-count { text-align: right; font-weight: 600; color: var(--red-text); }
         .lb-row:hover .lb-name { color: var(--text); }
-        .lb-row:hover .lb-bar { background: var(--mark-hover); }
+        .lb-row:hover .lb-bar { opacity: 1; }
 
         .facts-list > div { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; min-height: 30px; font-size: .875rem; }
-        .facts-list dt { color: var(--text-muted); }
-        .facts-list dd { text-align: right; }
+        .facts-list dt { flex: none; color: var(--text-muted); }
+        .facts-list dd { text-align: right; font-weight: 600; }
+        .facts-list .v-funding { color: #f59e0b; }
+        .facts-list .v-layoffs { color: #f97316; }
 
         /* ---------- search, sort, type tabs ---------- */
         .controls { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.25rem; margin-top: 1.5rem; scroll-margin-top: .75rem; }
@@ -128,7 +131,7 @@
         .active-filters:empty { display: none; }
         .chip { display: inline-flex; align-items: center; gap: .375rem; min-height: 36px; padding: 0 .625rem; background: none; border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font: inherit; font-size: .8125rem; cursor: pointer; }
         a.chip { text-decoration: none; }
-        .chip:hover { border-color: var(--text-dim); }
+        .chip:hover { border-color: var(--red); }
         .chip-clear { padding: 0 .25rem; border-color: transparent; color: var(--text-muted); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
         .chip-clear:hover { border-color: transparent; color: var(--text); text-decoration-color: var(--red); }
         .result-count { font-size: .8125rem; color: var(--text-muted); }
@@ -144,13 +147,13 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: .75rem; }
         /* off-screen tombstones skip layout and paint until scrolled near; the size is a placeholder until the real one is known */
         .card { display: flex; flex-direction: column; padding: 1rem 1.125rem .875rem; border: 1px solid var(--border); border-radius: var(--radius); scroll-margin-top: 4.5rem; content-visibility: auto; contain-intrinsic-size: auto none auto 14rem; }
-        .card:hover { border-color: var(--line); }
+        .card:hover { border-color: #7f1d1d; }
         .card:target { border-color: var(--red); }
         .card-header { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; }
         .card-name { font-size: 1.0625rem; font-weight: 650; line-height: 1.3; }
         .card-name { text-wrap: wrap; }
         .card-name a { text-decoration: none; }
-        .card-name a:hover { text-decoration: underline; text-decoration-color: var(--red); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+        .card-name a:hover { color: var(--red-text); }
         .badge-new { margin-left: .5rem; font-size: .75rem; font-weight: 600; color: var(--red-text); }
         .card-lifespan { flex: none; font-size: .8125rem; color: var(--text-dim); white-space: nowrap; }
         .card-description { margin-top: .375rem; color: var(--text-muted); font-size: .9rem; line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }
@@ -160,7 +163,7 @@
         /* the separator stays at the end of a line, never at the start of the next */
         .tag { white-space: nowrap; }
         .tag:not(:last-child)::after { content: "\00A0\00B7" / ""; display: inline-block; }
-        .tag-killer { color: var(--text-muted); }
+        .tag-killer { color: var(--red-text); }
         .card-age { white-space: nowrap; }
         .card-collateral { margin-top: .5rem; font-size: .8125rem; line-height: 1.5; color: var(--text-dim); }
         .card-collateral b { font-weight: 600; color: var(--text-muted); }
@@ -181,7 +184,7 @@
         .empty .actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .875rem; }
         .show-more-wrap { margin-top: 1.25rem; text-align: center; }
         .show-more { min-height: 44px; padding: 0 1.25rem; background: none; border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font: inherit; font-size: .9375rem; font-weight: 600; cursor: pointer; }
-        .show-more:hover, .sticky-btn:hover, .back-to-top:hover { border-color: var(--text-dim); color: var(--text); }
+        .show-more:hover, .sticky-btn:hover, .back-to-top:hover { border-color: var(--red); color: var(--red-text); }
 
         /* ---------- questions ---------- */
         .faq-section { margin-top: 3.5rem; padding-bottom: 3rem; }
@@ -193,7 +196,7 @@
         .faq-item summary h3 { display: inline; font: inherit; }
         /* decorative markers are not read out; the summary already says expanded or collapsed */
         .faq-item summary::after { content: "+" / ""; flex: none; font-size: 1.25rem; font-weight: 400; color: var(--text-dim); }
-        .faq-item[open] summary::after { content: "\2212" / ""; }
+        .faq-item[open] summary::after { content: "\2212" / ""; color: var(--red-text); }
         .faq-answer { padding-bottom: 1rem; }
         .faq-answer p { color: var(--text-muted); font-size: .9375rem; line-height: 1.65; }
         /* answers slide open (only with interpolate-size, and only if motion is welcome) */
@@ -248,7 +251,6 @@
             .lb-row { display: inline-flex; gap: .375rem; min-height: 40px; }
             .lb-bar-wrap { display: none; }
             .lb-name { color: var(--text); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
-            .lb-count { color: var(--text-muted); }
             .controls { gap: .25rem 1rem; margin-top: 1.25rem; }
             .search-box { flex-basis: 100%; max-width: none; }
             .search-box input, .sort-select { font-size: 16px; }
@@ -269,7 +271,7 @@
         @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
         /* Windows high contrast drops custom backgrounds: keep the bars and pressed states visible */
         @media (forced-colors: active) {
-            .bar-fill, .lb-bar { background: CanvasText; }
+            .bar-fill, .lb-bar { background: CanvasText; opacity: 1; }
             .bar.active .bar-fill { background: Highlight; }
             .filter-pill.active, .view-btn.active { color: Highlight; }
         }
@@ -300,7 +302,7 @@
     </div>
 
     <header class="header">
-        <h1>Killed by AI</h1>
+        <h1>Killed by <span>AI</span></h1>
         <p class="lede">The AI graveyard: every dead AI tool, model and startup that didn't survive the gold rush. Each one is sourced and dated, with a launch, a death, a killer and a link.</p>
         <p class="facts">
             <span><b id="total-count">{{COUNT}}</b> products buried</span>
@@ -338,8 +340,8 @@
                     <div><dt>Projected by year end</dt><dd>~{{PROJECTED_EOY}}</dd></div>
                     <div><dt>Average lifespan</dt><dd>{{AVG_LIFESPAN}}</dd></div>
                     <div><dt>Shortest lived</dt><dd>{{SHORTEST_NAME}}, {{SHORTEST_DAYS}}</dd></div>
-                    <div><dt><a href="/funding/">Raised by failed AI startups</a></dt><dd>${{FUNDING_B}}B</dd></div>
-                    <div><dt><a href="/layoffs/">Jobs cut with AI as the stated reason</a></dt><dd>{{TOTAL_JOBS_LOST}}</dd></div>
+                    <div><dt><a href="/funding/">Raised by failed AI startups</a></dt><dd class="v-funding">${{FUNDING_B}}B</dd></div>
+                    <div><dt><a href="/layoffs/">Jobs cut with AI as the stated reason</a></dt><dd class="v-layoffs">{{TOTAL_JOBS_LOST}}</dd></div>
                 </dl>
             </section>
         </div>
