@@ -1260,11 +1260,11 @@ def build_timeline(items):
         count = years.get(y, 0)
         height_pct = (count / max_count * 100) if max_count else 0
         bars.append(
-            f'<button class="bar" data-year="{y}" aria-label="{count} killed in {y}" '
+            f'<button class="bar" data-year="{y}" '   # name comes from the visible text: "3 killed in 2022"
             f'style="--bar-height: {height_pct}%;">'
-            f'<span class="bar-count">{count}</span>'
+            f'<span class="bar-count">{count}<span class="sr-only"> killed in</span></span>'
             f'<span class="bar-track"><span class="bar-fill"></span></span>'
-            f'<span class="bar-label">{str(y)[-2:]}</span>'
+            f'<span class="bar-label">{y}</span>'
             f'</button>'
         )
     return "\n".join(bars), min_y, max_y, max_count

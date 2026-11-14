@@ -1147,7 +1147,7 @@
         <a href="/embed/" class="site-nav-item">📤 Embed &amp; share</a>
     </nav>
 
-    <div class="sticky-bar" id="sticky-bar" aria-hidden="true" inert>
+    <div class="sticky-bar" id="sticky-bar" role="search" aria-label="Quick search" aria-hidden="true" inert>
         <div class="sticky-inner">
             <label class="sticky-search-wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
@@ -1437,7 +1437,7 @@
         }
         // Tombstones behind "Show more": hidden="until-found" where the browser supports it, so find-in-page, text-fragment
         // links and #anchors still reach them; everywhere else they stay display:none through the .beyond class alone
-        const untilFound = 'onbeforematch' in HTMLElement.prototype;
+        const untilFound = 'onbeforematch' in HTMLElement.prototype; let pin = 0;
         function paginate(vis) {
             vis.forEach((c, i) => {
                 const b = i >= limit; c.classList.toggle('beyond', b);
@@ -1453,6 +1453,16 @@
             if (!card || !card.classList.contains('beyond')) return;
             const vis = Array.from(grid.querySelectorAll('.card:not(.hidden)'));
             limit = Math.ceil((vis.indexOf(card) + 1) / pageSize()) * pageSize(); paginate(vis); updateURL();
+            // rows shown for the first time get their real heights over the next few frames, which would push the match out of
+            // view: hold the card where the browser scrolled it until that settles (under a second), or until the visitor acts
+            const id = ++pin; let want = null, n = 0;
+            ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(t => addEventListener(t, () => { pin++; }, { once: true, passive: true }));
+            (function hold() {
+                if (id !== pin || n++ > 45) return;
+                const top = card.getBoundingClientRect().top;
+                if (want === null) { if (n > 1) want = top; } else if (Math.abs(top - want) > 1) scrollBy(0, top - want);
+                requestAnimationFrame(hold);
+            })();
         });
         showMore.addEventListener('click', () => {
             const old = limit; limit += pageSize(); apply();

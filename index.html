@@ -1089,6 +1089,42 @@
             .grid.list-view .badge-new { font-size: .6875rem; padding: .05rem .375rem; margin-left: .375rem; }
         }
         .risk-cta{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap;max-width:1000px;margin:1rem auto 0;padding:.75rem 1rem;border:1px solid rgba(239,68,68,.45);background:linear-gradient(90deg,rgba(239,68,68,.12),rgba(245,158,11,.08));border-radius:.75rem;color:#fafafa;text-decoration:none;font-weight:700;font-size:.9375rem;text-align:center}.risk-cta:hover{border-color:#ef4444}.risk-cta span{color:#f87171}
+        /* ===== modern web guidance pass (2026-11): browsers without a feature ignore its rule and render as before ===== */
+        /* off-screen tombstones skip layout and paint until scrolled near; the size is a placeholder until the real one is known */
+        .card { content-visibility: auto; contain-intrinsic-size: auto none auto 21rem; }
+        .grid.list-view .card { contain-intrinsic-size: auto none auto 4rem; }
+        /* tombstones behind "Show more" stay findable (find-in-page, text-fragment links, #anchors): the script sets
+           hidden="until-found" only where the browser supports it; the box itself must not take up room in the grid */
+        .card.beyond[hidden="until-found"] { display: block !important; content-visibility: hidden; position: absolute; width: 1px; height: 1px; min-height: 0; padding: 0; border: 0; box-shadow: none; overflow: hidden; }
+        /* keyboard focus is not left underneath the sticky search bar */
+        #main :is(a, button, summary, input, select) { scroll-margin-top: 4.5rem; }
+        /* decorative markers are not read out; the summary already says expanded or collapsed */
+        .faq-item summary::after { content: '+' / ''; }
+        .faq-item[open] summary::after { content: '−' / ''; }
+        .insights-fold > summary::after { content: "Show ▾" / ""; }
+        .insights-fold[open] > summary::after { content: "Hide ▴" / ""; }
+        /* answers slide open (only with interpolate-size, and only if motion is welcome) */
+        @supports (interpolate-size: allow-keywords) {
+            .faq-item::details-content { interpolate-size: allow-keywords; overflow: clip; contain: layout; }
+            .faq-item:not([open])::details-content { block-size: 0; }
+            @media (prefers-reduced-motion: no-preference) {
+                .faq-item::details-content { transition: block-size, content-visibility, display; transition-duration: .3s; transition-timing-function: ease-in-out; transition-behavior: allow-discrete; }
+            }
+        }
+        @media (max-width: 600px) {
+            /* icon-only on phones, but the button keeps its name */
+            .view-btn span { display: inline; position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+        }
+        /* Windows high contrast drops gradients and custom backgrounds: keep bars, the switch and pressed states visible */
+        @media (forced-colors: active) {
+            .bar-fill, .lb-bar { background: CanvasText; }
+            .bar.active .bar-fill { background: Highlight; }
+            .filter-pill.active, .view-btn.active { background: Highlight; color: HighlightText; }
+            .toggle-switch { outline: 1px solid ButtonText; outline-offset: -1px; }
+            .toggle-switch::after { background: ButtonText; }
+            .toggle-input:checked + .toggle-switch { background: Highlight; }
+            .toggle-input:checked + .toggle-switch::after { background: HighlightText; }
+        }
         /* ===== state + a11y utilities (keep last: must beat .grid.list-view .card { display: grid }) ===== */
         .card.hidden, .card.beyond { display: none !important; }
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -1097,6 +1133,27 @@
         .controls { scroll-margin-top: .75rem; }
         a.chip { text-decoration: none; }
     </style>
+    <meta name="color-scheme" content="dark">
+    <style>
+        :root{color-scheme:dark}
+        h1,h2,h3{text-wrap:balance}
+        p{text-wrap:pretty}
+        .site-nav-item.active{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+        @media(prefers-reduced-motion:no-preference){@view-transition{navigation:auto}}
+        @property --nav-fade-l{syntax:"<length>";inherits:false;initial-value:0px}
+        @property --nav-fade-r{syntax:"<length>";inherits:false;initial-value:0px}
+        @keyframes nav-fade-l{to{--nav-fade-l:2.5rem}}
+        @keyframes nav-fade-r{from{--nav-fade-r:2.5rem}}
+        @media(max-width:600px){
+            .site-nav{scroll-padding-inline:35vw}
+            .site-nav-item.active{scroll-initial-target:nearest}
+            @media(prefers-reduced-motion:no-preference){@supports (animation-timeline:scroll()) and (mask-clip:no-clip){
+                .site-nav{mask:linear-gradient(#000,#000) no-clip subtract,linear-gradient(to right,#000,transparent) 0 0/var(--nav-fade-l) 100% no-repeat no-clip,linear-gradient(to right,transparent,#000) 100% 0/var(--nav-fade-r) 100% no-repeat no-clip;animation:nav-fade-l linear both,nav-fade-r linear both;animation-timeline:scroll(self inline);animation-range:0 2.5rem,calc(100% - 2.5rem) 100%}
+            }}
+        }
+    </style>
+    <script>if(!CSS.supports("scroll-initial-target","nearest"))addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".site-nav"),a=n&&n.querySelector(".active");if(a)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2})</script>
+    <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*\\?(.+)"}},{"not":{"href_matches":"/*.*"}},{"not":{"selector_matches":"[download],[rel~=nofollow],[target=_blank],[aria-current=page]"}}]},"eagerness":"moderate"}]}</script>
 </head>
 <body>
     <a class="skip-link" id="skip-link" href="#search">Skip to search</a>
@@ -1110,7 +1167,7 @@
         <a href="/embed/" class="site-nav-item">📤 Embed &amp; share</a>
     </nav>
 
-    <div class="sticky-bar" id="sticky-bar" aria-hidden="true" inert>
+    <div class="sticky-bar" id="sticky-bar" role="search" aria-label="Quick search" aria-hidden="true" inert>
         <div class="sticky-inner">
             <label class="sticky-search-wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
@@ -1133,6 +1190,7 @@
         <a class="risk-cta" href="/will-ai-take-my-job/" style="max-width:520px">🎯 Will AI take your job? <span>3 questions, 20 seconds →</span></a>
     </header>
 
+    <main id="main">
     <details class="insights-fold" id="insights" open>
         <summary>📊 Stats, chart &amp; leaderboard</summary>
         <script>try { if (localStorage.getItem('kbai-insights-v2') === 'closed' && !/[?&](year|killer)=/.test(location.search)) document.getElementById('insights').open = false; } catch (e) {}</script>
@@ -1165,11 +1223,11 @@
                 <span class="range">2022-2026</span>
             </div>
             <div class="timeline-chart" id="timeline">
-<button class="bar" data-year="2022" aria-label="3 killed in 2022" style="--bar-height: 3.0%;"><span class="bar-count">3</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">22</span></button>
-<button class="bar" data-year="2023" aria-label="11 killed in 2023" style="--bar-height: 11.0%;"><span class="bar-count">11</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">23</span></button>
-<button class="bar" data-year="2024" aria-label="28 killed in 2024" style="--bar-height: 28.000000000000004%;"><span class="bar-count">28</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">24</span></button>
-<button class="bar" data-year="2025" aria-label="28 killed in 2025" style="--bar-height: 28.000000000000004%;"><span class="bar-count">28</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">25</span></button>
-<button class="bar" data-year="2026" aria-label="100 killed in 2026" style="--bar-height: 100.0%;"><span class="bar-count">100</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">26</span></button>
+<button class="bar" data-year="2022" style="--bar-height: 3.0%;"><span class="bar-count">3<span class="sr-only"> killed in</span></span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">2022</span></button>
+<button class="bar" data-year="2023" style="--bar-height: 11.0%;"><span class="bar-count">11<span class="sr-only"> killed in</span></span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">2023</span></button>
+<button class="bar" data-year="2024" style="--bar-height: 28.000000000000004%;"><span class="bar-count">28<span class="sr-only"> killed in</span></span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">2024</span></button>
+<button class="bar" data-year="2025" style="--bar-height: 28.000000000000004%;"><span class="bar-count">28<span class="sr-only"> killed in</span></span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">2025</span></button>
+<button class="bar" data-year="2026" style="--bar-height: 100.0%;"><span class="bar-count">100<span class="sr-only"> killed in</span></span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-label">2026</span></button>
             </div>
         </div>
     </section>
@@ -1219,7 +1277,7 @@
 
     </details>
 
-    <div class="controls">
+    <div class="controls" role="search">
         <div class="search-box">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
@@ -1264,7 +1322,7 @@
         </div>
     </div>
 
-    <main class="grid" id="grid">
+    <div class="grid" id="grid">
 <article class="card is-new" id="vellum-personal-assistant-cloud" data-type="service" data-death-type="product-killed" data-name="vellum personal assistant (cloud)" data-desc="vellum introduced its &#x27;personal intelligence&#x27; assistant on may 7, 2026: persistent memory, integrations across desktop, mobile and messaging, hosted in vellum&#x27;s cloud or self-hosted. six months later the company cancelled paid plans on november 2, took a final export of every cloud assistant on november 7 and switched them off, citing competition that had &#x27;grown incredibly fierce&#x27; and distribution it could not grow. downloads close and data is deleted on december 13. the open-source assistant code stays online but is no longer maintained; a fork called cadet carries the self-hosted version." data-killer="market" data-cause="no product-market fit" data-date-close="2026-11-07" data-date-open="2026-05-07" data-added="2026-11-08" data-days="184">
   <header class="card-header">
     <h3 class="card-name"><a href="/dead/vellum-personal-assistant-cloud/">Vellum Personal Assistant (cloud)</a><span class="badge-new" title="Added in the last two weeks">NEW</span></h3>
@@ -4206,7 +4264,7 @@
   
   <a class="card-link" href="https://en.wikipedia.org/wiki/Office_Assistant" target="_blank" rel="noopener">Source<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></a>
 </article>
-    </main>
+    </div>
     <div class="show-more-wrap"><button type="button" class="show-more" id="show-more" hidden>Show 24 more tombstones</button></div>
 
     <section class="faq-section" aria-labelledby="faq-title">
@@ -4260,6 +4318,7 @@
   </div>
 </details>
     </section>
+    </main>
 
     <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
 
@@ -4392,12 +4451,39 @@
                     default: return 0;
                 }
             });
-            cards.forEach(c => { if (c.classList.contains('hidden')) c.classList.remove('beyond'); });
-            vis.forEach((c, i) => { grid.appendChild(c); c.classList.toggle('beyond', i >= limit); });
+            cards.forEach(c => { if (c.classList.contains('hidden')) { c.classList.remove('beyond'); c.removeAttribute('hidden'); } });
+            vis.forEach(c => grid.appendChild(c));
+            paginate(vis);
+        }
+        // Tombstones behind "Show more": hidden="until-found" where the browser supports it, so find-in-page, text-fragment
+        // links and #anchors still reach them; everywhere else they stay display:none through the .beyond class alone
+        const untilFound = 'onbeforematch' in HTMLElement.prototype; let pin = 0;
+        function paginate(vis) {
+            vis.forEach((c, i) => {
+                const b = i >= limit; c.classList.toggle('beyond', b);
+                if (untilFound) { if (b) c.setAttribute('hidden', 'until-found'); else c.removeAttribute('hidden'); }
+            });
             const rest = Math.max(0, vis.length - limit);
             showMore.hidden = rest === 0;
             showMore.textContent = 'Show ' + Math.min(pageSize(), rest) + ' more tombstones (' + rest + ' remaining)';
         }
+        // the browser is about to reveal a match inside a paginated-out tombstone: show every page up to it (no re-sort, the DOM order is already right)
+        grid.addEventListener('beforematch', e => {
+            const card = e.target.closest && e.target.closest('.card');
+            if (!card || !card.classList.contains('beyond')) return;
+            const vis = Array.from(grid.querySelectorAll('.card:not(.hidden)'));
+            limit = Math.ceil((vis.indexOf(card) + 1) / pageSize()) * pageSize(); paginate(vis); updateURL();
+            // rows shown for the first time get their real heights over the next few frames, which would push the match out of
+            // view: hold the card where the browser scrolled it until that settles (under a second), or until the visitor acts
+            const id = ++pin; let want = null, n = 0;
+            ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(t => addEventListener(t, () => { pin++; }, { once: true, passive: true }));
+            (function hold() {
+                if (id !== pin || n++ > 45) return;
+                const top = card.getBoundingClientRect().top;
+                if (want === null) { if (n > 1) want = top; } else if (Math.abs(top - want) > 1) scrollBy(0, top - want);
+                requestAnimationFrame(hold);
+            })();
+        });
         showMore.addEventListener('click', () => {
             const old = limit; limit += pageSize(); apply();
             // move focus to the first newly revealed tombstone so keyboard users don't skip past it

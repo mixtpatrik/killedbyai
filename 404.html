@@ -78,7 +78,27 @@
         @media(max-width:600px){.site-nav{justify-content:flex-start;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent)}.wrap{padding:1rem .875rem 2.5rem}.stone{padding:1.25rem}.prevnext{grid-template-columns:1fr}.prevnext .next{text-align:left;align-items:flex-start}}
 
     </style>
-    <!--SITE_HEAD--><!--/SITE_HEAD-->
+    <!--SITE_HEAD--><meta name="color-scheme" content="dark">
+    <style>
+        :root{color-scheme:dark}
+        h1,h2,h3{text-wrap:balance}
+        p{text-wrap:pretty}
+        .site-nav-item.active{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+        @media(prefers-reduced-motion:no-preference){@view-transition{navigation:auto}}
+        @property --nav-fade-l{syntax:"<length>";inherits:false;initial-value:0px}
+        @property --nav-fade-r{syntax:"<length>";inherits:false;initial-value:0px}
+        @keyframes nav-fade-l{to{--nav-fade-l:2.5rem}}
+        @keyframes nav-fade-r{from{--nav-fade-r:2.5rem}}
+        @media(max-width:600px){
+            .site-nav{scroll-padding-inline:35vw}
+            .site-nav-item.active{scroll-initial-target:nearest}
+            @media(prefers-reduced-motion:no-preference){@supports (animation-timeline:scroll()) and (mask-clip:no-clip){
+                .site-nav{mask:linear-gradient(#000,#000) no-clip subtract,linear-gradient(to right,#000,transparent) 0 0/var(--nav-fade-l) 100% no-repeat no-clip,linear-gradient(to right,transparent,#000) 100% 0/var(--nav-fade-r) 100% no-repeat no-clip;animation:nav-fade-l linear both,nav-fade-r linear both;animation-timeline:scroll(self inline);animation-range:0 2.5rem,calc(100% - 2.5rem) 100%}
+            }}
+        }
+    </style>
+    <script>if(!CSS.supports("scroll-initial-target","nearest"))addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".site-nav"),a=n&&n.querySelector(".active");if(a)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2})</script>
+    <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*\\?(.+)"}},{"not":{"href_matches":"/*.*"}},{"not":{"selector_matches":"[download],[rel~=nofollow],[target=_blank],[aria-current=page]"}}]},"eagerness":"moderate"}]}</script><!--/SITE_HEAD-->
 </head>
 <body>
     <nav class="site-nav" aria-label="Site">

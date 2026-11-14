@@ -21,7 +21,7 @@
     <style>
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
         :root{--bg:#09090b;--bg-card:#111113;--border:#27272a;--text:#fafafa;--text-muted:#a1a1aa;--text-dim:#8f8f99;--line-dim:#52525b;--red:#ef4444;--red-dim:rgba(239,68,68,.15)}
-        body{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px}
+        body{font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:1rem}
         a{color:var(--text-muted)} a:hover{color:var(--red)} :focus-visible{outline:2px solid var(--red);outline-offset:2px}
         @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
         .site-nav{display:flex;justify-content:center;gap:.25rem;padding:.5rem .75rem;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}.site-nav::-webkit-scrollbar{display:none}
@@ -29,6 +29,10 @@
         .site-nav-item:hover{color:var(--text);background:var(--bg-card)}.site-nav-item.active{color:var(--red);background:var(--red-dim)}
         .wrap{max-width:900px;margin:0 auto;padding:1.5rem 1rem 3rem}
         .crumbs{font-size:.875rem;color:var(--text-dim);margin-bottom:1rem}.crumbs a{color:var(--text-dim);text-decoration:none;display:inline-block;padding:.5rem 0}
+        .crumbs a:hover{color:var(--red);text-decoration:underline}
+        .crumbs ol{list-style:none;display:flex;flex-wrap:wrap;align-items:center}
+        .crumbs li+li::before{content:"›";content:"›" / "";margin:0 .375rem}
+        .crumbs [aria-current]{font-weight:600}
         h1{font-size:clamp(1.75rem,6vw,2.5rem);font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:.5rem}
         .intro{color:var(--text-muted);font-size:1.0625rem;margin-bottom:1.5rem;max-width:640px}
         .list{display:grid;gap:.625rem}
@@ -137,13 +141,34 @@
     }
   ]
 }</script>
+    <meta name="color-scheme" content="dark">
+    <style>
+        :root{color-scheme:dark}
+        h1,h2,h3{text-wrap:balance}
+        p{text-wrap:pretty}
+        .site-nav-item.active{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+        @media(prefers-reduced-motion:no-preference){@view-transition{navigation:auto}}
+        @property --nav-fade-l{syntax:"<length>";inherits:false;initial-value:0px}
+        @property --nav-fade-r{syntax:"<length>";inherits:false;initial-value:0px}
+        @keyframes nav-fade-l{to{--nav-fade-l:2.5rem}}
+        @keyframes nav-fade-r{from{--nav-fade-r:2.5rem}}
+        @media(max-width:600px){
+            .site-nav{scroll-padding-inline:35vw}
+            .site-nav-item.active{scroll-initial-target:nearest}
+            @media(prefers-reduced-motion:no-preference){@supports (animation-timeline:scroll()) and (mask-clip:no-clip){
+                .site-nav{mask:linear-gradient(#000,#000) no-clip subtract,linear-gradient(to right,#000,transparent) 0 0/var(--nav-fade-l) 100% no-repeat no-clip,linear-gradient(to right,transparent,#000) 100% 0/var(--nav-fade-r) 100% no-repeat no-clip;animation:nav-fade-l linear both,nav-fade-r linear both;animation-timeline:scroll(self inline);animation-range:0 2.5rem,calc(100% - 2.5rem) 100%}
+            }}
+        }
+    </style>
+    <script>if(!CSS.supports("scroll-initial-target","nearest"))addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".site-nav"),a=n&&n.querySelector(".active");if(a)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2})</script>
+    <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*\\?(.+)"}},{"not":{"href_matches":"/*.*"}},{"not":{"selector_matches":"[download],[rel~=nofollow],[target=_blank],[aria-current=page]"}}]},"eagerness":"moderate"}]}</script>
 </head>
 <body>
     <nav class="site-nav" aria-label="Site">
         <a href="/" class="site-nav-item">💀 Graveyard</a><a href="/layoffs/" class="site-nav-item active" aria-current="true">💼 AI Layoffs</a><a href="/funding/" class="site-nav-item">🔥 Funding</a><a href="/coming-soon/" class="site-nav-item">⏳ Dying soon</a><a href="/will-ai-take-my-job/" class="site-nav-item">🎯 Will AI take my job?</a><a href="/embed/" class="site-nav-item">📤 Embed & share</a>
     </nav>
     <main class="wrap">
-        <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Killed by AI</a> › <a href="/jobs/">Jobs replaced by AI</a> › Software engineering</nav>
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Killed by AI</a></li><li><a href="/jobs/">Jobs replaced by AI</a></li><li><a href="/jobs/engineering/" aria-current="page">Software engineering</a></li></ol></nav>
         <h1>Software engineering: jobs replaced by AI</h1>
         <p class="intro">8 layoffs where the company blamed AI named software engineering among the roles cut. Together those layoffs cut 29,487 jobs. That is the company-wide total, not only software engineering roles, so figures for different roles overlap. The largest was Oracle (21,000 jobs, Jun 2026); the first was Dropbox in Oct 2024 and the latest DNB in Oct 2026. 7 of the 8 came in 2026. Largest first; every row links to its entry and source on the layoffs tracker.</p>
         <div class="list"><a class="row" href="/layoffs/#oracle"><span><b>Oracle</b><small>Research and development, sales and marketing, services and support (largest net headcount declines)</small></span><span class="when">21,000 · 2026-06</span></a><a class="row" href="/layoffs/#block-square"><span><b>Block (Square)</b><small>Engineering, operations, support</small></span><span class="when">4,000 · 2026-02</span></a><a class="row" href="/layoffs/#visa"><span><b>Visa</b><small>Mostly product and technology/development teams</small></span><span class="when">2,600 · 2026-07</span></a><a class="row" href="/layoffs/#bill-holdings"><span><b>BILL Holdings</b><small>Engineering, operations, support</small></span><span class="when">709 · 2026-05</span></a><a class="row" href="/layoffs/#dropbox"><span><b>Dropbox</b><small>Engineering, product, various</small></span><span class="when">528 · 2024-10</span></a><a class="row" href="/layoffs/#dnb"><span><b>DNB</b><small>Technology &amp; Services unit: technology development and coding, customer-data control, KYC work</small></span><span class="when">400 · 2026-10</span></a><a class="row" href="/layoffs/#apple"><span><b>Apple</b><small>Vision Pro gaming and immersive video (~100); Siri and Intelligent Systems Experience software (~100)</small></span><span class="when">200 · 2026-08</span></a><a class="row" href="/layoffs/#videoamp"><span><b>VideoAmp</b><small>Product development and technology, including the CTO role (eliminated, not refilled)</small></span><span class="when">50 · 2026-08</span></a></div>
