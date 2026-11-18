@@ -9,7 +9,7 @@ X-WR-CALDESC:Confirmed shutdown and deprecation dates for AI products and
 REFRESH-INTERVAL;VALUE=DURATION:P1D
 BEGIN:VEVENT
 UID:openai-models-in-cursor@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261112
 DTEND;VALUE=DATE:20261113
 SUMMARY:Shutdown: OpenAI Models in Cursor
@@ -18,7 +18,7 @@ DESCRIPTION:OpenAI is ending its contract to supply models to the AI code
  ed its $60B purchase of Cursor in August. 'It boils down to trust\,' sai
  d OpenAI's Thibault Sottiaux\, citing Elon Musk's history of breaking co
  ntracts. OpenAI proposed November 12\, 2026 as the cutoff\, but that dat
- e was never confirmed by both companies: on November 14 Cursor's model l
+ e was never confirmed by both companies: on November 18 Cursor's model l
  ist still carried 17 GPT models\, pinned to the set it had in August. On
  ce the cutoff lands\, developers can still bring their own OpenAI API ke
  ys\, and Cursor says OpenAI models were only about 5% of its traffic. Re
@@ -30,7 +30,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:reddit-rss-feeds-public-api@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261113
 DTEND;VALUE=DATE:20261114
 SUMMARY:Shutdown: Reddit RSS Feeds & Public API
@@ -49,64 +49,8 @@ URL:https://killedbyai.net/coming-soon/#reddit-rss-feeds-public-api
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
-UID:claude-opus-4-8-claude-opus-5-gpt-5-6-terra-in-github-copilot@killedb
- yai.net
-DTSTAMP:20261114T000000Z
-DTSTART;VALUE=DATE:20261116
-DTEND;VALUE=DATE:20261117
-SUMMARY:Shutdown: Claude Opus 4.8\, Claude Opus 5 & GPT-5.6 Terra in GitH
- ub Copilot
-DESCRIPTION:GitHub removes three models from every Copilot surface (Chat\
- , inline edits\, ask and agent modes\, code completions) on November 16.
-  Claude Opus 4.8 and Claude Opus 5 point to Claude Opus 5.5\, GPT-5.6 Te
- rra to GPT-6.1 Sol or GPT-6 Luna. One exception: individual subscribers 
- on annual plans keep Opus 4.8. Anthropic's own API keeps Opus 5 until at
-  least July 2027. Replacement: Claude Opus 5.5\; GPT-6.1 Sol or GPT-6 Lu
- na. Source: https://github.blog/changelog/2026-10-15-upcoming-deprecatio
- n-of-selected-github-copilot-models-in-mid-november/
-URL:https://killedbyai.net/coming-soon/#claude-opus-4-8-claude-opus-5-gpt
- -5-6-terra-in-github-copilot
-CATEGORIES:AI shutdown
-END:VEVENT
-BEGIN:VEVENT
-UID:google-opal-gemini-gems@killedbyai.net
-DTSTAMP:20261114T000000Z
-DTSTART;VALUE=DATE:20261117
-DTEND;VALUE=DATE:20261118
-SUMMARY:Shutdown: Google Opal & Gemini Gems
-DESCRIPTION:Google switches off Opal\, its Labs no-code builder for AI mi
- ni-apps launched in July 2025\, on November 17. The 'Gems made by Labs' 
- it powered go the same day\, and neither migrates anywhere. Ordinary Gem
- s\, the custom chatbots Google shipped in 2024\, are being converted int
- o Gemini Skills: personal accounts from November\, Workspace business in
-  March 2027 and education in June 2027. Opal workflow files stay in Goog
- le Drive as plain text\; they just stop running. Replacement: Gemini Ski
- lls / Google AI Studio. Source: https://developers.google.com/opal/faq
-URL:https://killedbyai.net/coming-soon/#google-opal-gemini-gems
-CATEGORIES:AI shutdown
-END:VEVENT
-BEGIN:VEVENT
-UID:gemini-live-tts-preview-models@killedbyai.net
-DTSTAMP:20261114T000000Z
-DTSTART;VALUE=DATE:20261117
-DTEND;VALUE=DATE:20261118
-SUMMARY:Shutdown: Gemini Live & TTS Preview Models
-DESCRIPTION:Five voice previews leave the Gemini API no earlier than Nove
- mber 17. Two are Live API models\, gemini-3.1-flash-live-preview and gem
- ini-2.5-flash-native-audio-preview-12-2025. The other three are text-to-
- speech models: gemini-3.1-flash-tts-preview\, gemini-2.5-flash-preview-t
- ts and gemini-2.5-pro-preview-tts. The 2.5 TTS models spent 18 months in
-  preview and never left it\; the 3.1 Live preview\, released in March\, 
- gets eight. The replacements\, gemini-3.8-live and gemini-3.8-flash-tts\
- , went GA on September 15 and 22. Replacement: gemini-3.8-live / gemini-
- 3.8-flash-tts / gemini-3.8-flash-lite-tts. Source: https://ai.google.dev
- /gemini-api/docs/deprecations
-URL:https://killedbyai.net/coming-soon/#gemini-live-tts-preview-models
-CATEGORIES:AI shutdown
-END:VEVENT
-BEGIN:VEVENT
 UID:azure-openai-o-series-o1-o3-o4-mini-o3-pro@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261119
 DTEND;VALUE=DATE:20261120
 SUMMARY:Shutdown: Azure OpenAI o-series (o1\, o3\, o4-mini\, o3-pro)
@@ -127,7 +71,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:gemini-3-6-flash-3-7-flash-vertex-ai@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261119
 DTEND;VALUE=DATE:20261120
 SUMMARY:Shutdown: Gemini 3.6 Flash & 3.7 Flash (Vertex AI)
@@ -145,7 +89,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:vertex-ai-extensions@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261126
 DTEND;VALUE=DATE:20261127
 SUMMARY:Shutdown: Vertex AI Extensions
@@ -159,7 +103,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:ai21-jamba-1-5-large-mini-on-amazon-bedrock@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261126
 DTEND;VALUE=DATE:20261127
 SUMMARY:Shutdown: AI21 Jamba 1.5 Large & Mini on Amazon Bedrock
@@ -177,7 +121,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:claude-sonnet-4-5@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:Shutdown: Claude Sonnet 4.5
@@ -192,7 +136,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-agent-builder-evals-reusable-prompts@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:Shutdown: OpenAI Agent Builder\, Evals & Reusable Prompts
@@ -209,7 +153,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:mozilla-solo@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:Shutdown: Mozilla Solo
@@ -229,7 +173,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-legacy-gpt-image-models@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:Shutdown: OpenAI Legacy GPT Image Models
@@ -243,8 +187,43 @@ URL:https://killedbyai.net/coming-soon/#openai-legacy-gpt-image-models
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
+UID:gemini-2-5-pro-2-5-flash-gemini-api@killedbyai.net
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20261202
+SUMMARY:Shutdown: Gemini 2.5 Pro & 2.5 Flash (Gemini API)
+DESCRIPTION:Google's mid-2025 workhorses leave the Gemini API on December
+  1. Requests do not fail: calls to gemini-2.5-pro are rerouted to gemini
+ -3.8-flash and calls to gemini-2.5-flash to gemini-3.5-flash-lite\, so a
+ n app pinned to the old IDs keeps answering from a different model. Both
+  went GA on June 17\, 2025\, and access had already been limited to exis
+ ting users in September. Vertex AI retired the same models on October 20
+ . gemini-2.5-flash-lite stays\, with no shutdown date. Replacement: gemi
+ ni-3.8-flash for 2.5 Pro\, gemini-3.5-flash-lite for 2.5 Flash (requests
+  are rerouted automatically). Source: https://aistudio.google.com/docs/d
+ eprecations
+URL:https://killedbyai.net/coming-soon/#gemini-2-5-pro-2-5-flash-gemini-a
+ pi
+CATEGORIES:AI shutdown
+END:VEVENT
+BEGIN:VEVENT
+UID:gemini-omni-1-1-flash@killedbyai.net
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20261203
+DTEND;VALUE=DATE:20261204
+SUMMARY:Shutdown: Gemini Omni 1.1 Flash
+DESCRIPTION:Released on August 27\, 2026 and rerouted 98 days later. From
+  December 3\, Gemini API requests to gemini-omni-1.1-flash are answered 
+ by gemini-omni-1.2-flash at the newer model's pricing. Google gave 28 da
+ ys' notice\, in a changelog entry dated November 5. Replacement: gemini-
+ omni-1.2-flash (requests are rerouted automatically\, at its pricing). S
+ ource: https://aistudio.google.com/docs/deprecations
+URL:https://killedbyai.net/coming-soon/#gemini-omni-1-1-flash
+CATEGORIES:AI shutdown
+END:VEVENT
+BEGIN:VEVENT
 UID:azure-openai-gpt-4o-2024-05-13@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261209
 DTEND;VALUE=DATE:20261210
 SUMMARY:Shutdown: Azure OpenAI GPT-4o (2024-05-13)
@@ -264,7 +243,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-gpt-5-original-snapshots-o3-o3-pro@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:Shutdown: OpenAI GPT-5 (original snapshots)\, o3 & o3-pro
@@ -280,7 +259,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:chatgpt-custom-gpts@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:Shutdown: ChatGPT Custom GPTs
@@ -299,7 +278,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:azure-openai-whisper-tts@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:Shutdown: Azure OpenAI Whisper & TTS
@@ -316,8 +295,29 @@ URL:https://killedbyai.net/coming-soon/#azure-openai-whisper-tts
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
+UID:gemini-tts-preview-models@killedbyai.net
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261219
+SUMMARY:Shutdown: Gemini TTS Preview Models
+DESCRIPTION:Three text-to-speech previews leave the Gemini API no earlier
+  than December 18: gemini-3.1-flash-tts-preview\, gemini-2.5-flash-previ
+ ew-tts and gemini-2.5-pro-preview-tts. Google's deprecations table first
+  said November 17\, then moved the date a month with no changelog entry.
+  The two Live API previews that shared the original date got longer repr
+ ieves: gemini-2.5-flash-native-audio-preview-12-2025 now runs to March 3
+ 1\, 2027\, and gemini-3.1-flash-live-preview has no shutdown date at all
+ . The 2.5 TTS models have been in preview since May 2025 and never left 
+ it. The replacements\, gemini-3.8-flash-tts and gemini-3.8-flash-lite-tt
+ s\, were released on September 22. Replacement: gemini-3.8-flash-tts / g
+ emini-3.8-flash-lite-tts. Source: https://aistudio.google.com/docs/depre
+ cations
+URL:https://killedbyai.net/coming-soon/#gemini-tts-preview-models
+CATEGORIES:AI shutdown
+END:VEVENT
+BEGIN:VEVENT
 UID:tencent-qclaw@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261224
 DTEND;VALUE=DATE:20261225
 SUMMARY:Shutdown: Tencent QClaw
@@ -336,7 +336,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:google-jules@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Shutdown: Google Jules
@@ -353,7 +353,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-self-serve-fine-tuning@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20270106
 DTEND;VALUE=DATE:20270107
 SUMMARY:Shutdown: OpenAI Self-Serve Fine-tuning
@@ -372,7 +372,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-tts-1-tts-1-hd-gpt-4o-mini-tts@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20270106
 DTEND;VALUE=DATE:20270107
 SUMMARY:Shutdown: OpenAI TTS-1\, TTS-1-HD & GPT-4o mini TTS
@@ -390,7 +390,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:claude-opus-4-1-on-amazon-bedrock@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20270108
 DTEND;VALUE=DATE:20270109
 SUMMARY:Shutdown: Claude Opus 4.1 on Amazon Bedrock
@@ -407,7 +407,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-gpt-4o-gpt-4o-mini-gpt-4-1-4-1-mini-api@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20270114
 DTEND;VALUE=DATE:20270115
 SUMMARY:Shutdown: OpenAI GPT-4o\, GPT-4o mini\, GPT-4.1 & 4.1 mini (API)
@@ -425,7 +425,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-realtime-audio-model-family@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Shutdown: OpenAI Realtime & Audio Model Family
@@ -443,7 +443,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-whisper-1-gpt-4o-transcribe@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20270226
 DTEND;VALUE=DATE:20270227
 SUMMARY:Shutdown: OpenAI Whisper-1 & GPT-4o Transcribe
@@ -461,7 +461,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:google-gemini-2-5-flash-image-nano-banana@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20270315
 DTEND;VALUE=DATE:20270316
 SUMMARY:Shutdown: Google Gemini 2.5 Flash Image ("Nano Banana")
@@ -480,7 +480,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:firebase-studio@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20270322
 DTEND;VALUE=DATE:20270323
 SUMMARY:Shutdown: Firebase Studio
@@ -498,7 +498,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:pipedream-workflows-string@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:Shutdown: Pipedream Workflows & String
@@ -517,7 +517,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:microsoft-foundry-agent-service-classic@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:Shutdown: Microsoft Foundry Agent Service (classic)
@@ -536,7 +536,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-gpt-5-3-codex-gpt-5-1-gpt-5-4-nano@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:Shutdown: OpenAI GPT-5.3-Codex\, GPT-5.1 & GPT-5.4-nano
@@ -555,7 +555,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:vertex-ai-legacy-embedding-models@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:Shutdown: Vertex AI Legacy Embedding Models
@@ -574,7 +574,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:azure-openai-gpt-4-1-4-1-mini-4-1-nano@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20270414
 DTEND;VALUE=DATE:20270415
 SUMMARY:Shutdown: Azure OpenAI GPT-4.1\, 4.1 mini & 4.1 nano
@@ -593,7 +593,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:amazon-q-developer-ide-plugins-subscriptions@killedbyai.net
-DTSTAMP:20261114T000000Z
+DTSTAMP:20261118T000000Z
 DTSTART;VALUE=DATE:20270430
 DTEND;VALUE=DATE:20270501
 SUMMARY:Shutdown: Amazon Q Developer (IDE plugins & subscriptions)

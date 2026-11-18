@@ -124,17 +124,8 @@
     "killedBy": "OpenAI",
     "replacement": "Bring-your-own OpenAI API key or OpenAI's IDE extension; Claude and other models in Cursor",
     "link": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/",
-    "description": "OpenAI is ending its contract to supply models to the AI code editor Cursor, using a change-of-ownership clause after SpaceX completed its $60B purchase of Cursor in August. 'It boils down to trust,' said OpenAI's Thibault Sottiaux, citing Elon Musk's history of breaking contracts. OpenAI proposed November 12, 2026 as the cutoff, but that date was never confirmed by both companies: on November 14 Cursor's model list still carried 17 GPT models, pinned to the set it had in August. Once the cutoff lands, developers can still bring their own OpenAI API keys, and Cursor says OpenAI models were only about 5% of its traffic.",
-    "aliveAsOf": "2026-11-14"
-  },
-  {
-    "name": "Google Opal & Gemini Gems",
-    "dateAnnounced": "2026-09-30",
-    "dateShutdown": "2026-11-17",
-    "killedBy": "Google",
-    "replacement": "Gemini Skills / Google AI Studio",
-    "link": "https://developers.google.com/opal/faq",
-    "description": "Google switches off Opal, its Labs no-code builder for AI mini-apps launched in July 2025, on November 17. The 'Gems made by Labs' it powered go the same day, and neither migrates anywhere. Ordinary Gems, the custom chatbots Google shipped in 2024, are being converted into Gemini Skills: personal accounts from November, Workspace business in March 2027 and education in June 2027. Opal workflow files stay in Google Drive as plain text; they just stop running."
+    "description": "OpenAI is ending its contract to supply models to the AI code editor Cursor, using a change-of-ownership clause after SpaceX completed its $60B purchase of Cursor in August. 'It boils down to trust,' said OpenAI's Thibault Sottiaux, citing Elon Musk's history of breaking contracts. OpenAI proposed November 12, 2026 as the cutoff, but that date was never confirmed by both companies: on November 18 Cursor's model list still carried 17 GPT models, pinned to the set it had in August. Once the cutoff lands, developers can still bring their own OpenAI API keys, and Cursor says OpenAI models were only about 5% of its traffic.",
+    "aliveAsOf": "2026-11-18"
   },
   {
     "name": "ChatGPT Custom GPTs",
@@ -146,13 +137,13 @@
     "description": "Custom GPTs launched at DevDay in November 2023 and replaced ChatGPT Plugins. Now they are being replaced by plugins. OpenAI says they retire on December 11, 2026, though timing 'can vary by account and workspace'. Affected Enterprise workspaces lose GPT creation on October 26, and approved deferrals run to February 11, 2027. Instructions become a skill and knowledge files carry over; conversations, the chosen model, sharing settings and Custom Actions do not."
   },
   {
-    "name": "Gemini Live & TTS Preview Models",
+    "name": "Gemini TTS Preview Models",
     "dateAnnounced": "2026-09-22",
-    "dateShutdown": "2026-11-17",
+    "dateShutdown": "2026-12-18",
     "killedBy": "Google",
-    "replacement": "gemini-3.8-live / gemini-3.8-flash-tts / gemini-3.8-flash-lite-tts",
-    "link": "https://ai.google.dev/gemini-api/docs/deprecations",
-    "description": "Five voice previews leave the Gemini API no earlier than November 17. Two are Live API models, gemini-3.1-flash-live-preview and gemini-2.5-flash-native-audio-preview-12-2025. The other three are text-to-speech models: gemini-3.1-flash-tts-preview, gemini-2.5-flash-preview-tts and gemini-2.5-pro-preview-tts. The 2.5 TTS models spent 18 months in preview and never left it; the 3.1 Live preview, released in March, gets eight. The replacements, gemini-3.8-live and gemini-3.8-flash-tts, went GA on September 15 and 22."
+    "replacement": "gemini-3.8-flash-tts / gemini-3.8-flash-lite-tts",
+    "link": "https://aistudio.google.com/docs/deprecations",
+    "description": "Three text-to-speech previews leave the Gemini API no earlier than December 18: gemini-3.1-flash-tts-preview, gemini-2.5-flash-preview-tts and gemini-2.5-pro-preview-tts. Google's deprecations table first said November 17, then moved the date a month with no changelog entry. The two Live API previews that shared the original date got longer reprieves: gemini-2.5-flash-native-audio-preview-12-2025 now runs to March 31, 2027, and gemini-3.1-flash-live-preview has no shutdown date at all. The 2.5 TTS models have been in preview since May 2025 and never left it. The replacements, gemini-3.8-flash-tts and gemini-3.8-flash-lite-tts, were released on September 22."
   },
   {
     "name": "Gemini 3.6 Flash & 3.7 Flash (Vertex AI)",
@@ -282,15 +273,6 @@
     "description": "Google's asynchronous coding agent, which took a GitHub task, worked in a cloud VM and opened a pull request, entered beta in May 2025 and went GA that August. On October 29, 2026 Google said it is winding Jules down and folding the work into Antigravity. New tasks stop on November 11, when Jules turns read-only; it shuts down completely on December 31. Code already pushed to GitHub stays; session changes that were never pushed do not."
   },
   {
-    "name": "Claude Opus 4.8, Claude Opus 5 & GPT-5.6 Terra in GitHub Copilot",
-    "dateAnnounced": "2026-10-15",
-    "dateShutdown": "2026-11-16",
-    "killedBy": "GitHub / Microsoft",
-    "replacement": "Claude Opus 5.5; GPT-6.1 Sol or GPT-6 Luna",
-    "link": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/",
-    "description": "GitHub removes three models from every Copilot surface (Chat, inline edits, ask and agent modes, code completions) on November 16. Claude Opus 4.8 and Claude Opus 5 point to Claude Opus 5.5, GPT-5.6 Terra to GPT-6.1 Sol or GPT-6 Luna. One exception: individual subscribers on annual plans keep Opus 4.8. Anthropic's own API keeps Opus 5 until at least July 2027."
-  },
-  {
     "name": "Mozilla Solo",
     "dateAnnounced": "2026-10-01",
     "dateShutdown": "2026-11-30",
@@ -298,5 +280,23 @@
     "replacement": "None; export a ZIP of your site, domains move to Name.com",
     "link": "https://www.theregister.com/software/2026/11/13/mozilla-leaves-solo-website-owners-to-go-it-alone-as-hosting-shuts-down/5309632",
     "description": "Mozilla's AI website builder for sole traders, launched in December 2023 as a 'Mozilla Innovation Project': describe your business and an LLM wrote and hosted the site. About 54,000 people built pages with it. It 'will cease operations on Nov 30, 2026', and every site and its data are deleted that day. Users get a ZIP with an HTML export and a CSV of image links; the images have to be downloaded one by one. Mozilla gave no reason beyond 'Sometimes, that means making the decision to bring a product to an end.'"
+  },
+  {
+    "name": "Gemini 2.5 Pro & 2.5 Flash (Gemini API)",
+    "dateAnnounced": "2026-11-02",
+    "dateShutdown": "2026-12-01",
+    "killedBy": "Google",
+    "replacement": "gemini-3.8-flash for 2.5 Pro, gemini-3.5-flash-lite for 2.5 Flash (requests are rerouted automatically)",
+    "link": "https://aistudio.google.com/docs/deprecations",
+    "description": "Google's mid-2025 workhorses leave the Gemini API on December 1. Requests do not fail: calls to gemini-2.5-pro are rerouted to gemini-3.8-flash and calls to gemini-2.5-flash to gemini-3.5-flash-lite, so an app pinned to the old IDs keeps answering from a different model. Both went GA on June 17, 2025, and access had already been limited to existing users in September. Vertex AI retired the same models on October 20. gemini-2.5-flash-lite stays, with no shutdown date."
+  },
+  {
+    "name": "Gemini Omni 1.1 Flash",
+    "dateAnnounced": "2026-11-05",
+    "dateShutdown": "2026-12-03",
+    "killedBy": "Google",
+    "replacement": "gemini-omni-1.2-flash (requests are rerouted automatically, at its pricing)",
+    "link": "https://aistudio.google.com/docs/deprecations",
+    "description": "Released on August 27, 2026 and rerouted 98 days later. From December 3, Gemini API requests to gemini-omni-1.1-flash are answered by gemini-omni-1.2-flash at the newer model's pricing. Google gave 28 days' notice, in a changelog entry dated November 5."
   }
 ]

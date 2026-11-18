@@ -5,8 +5,24 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Google Opal: Killed by Google (2026-11-17)</title>
+      <link>https://killedbyai.net/dead/google-opal/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/google-opal/</guid>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Google Labs&#x27; no-code builder for AI mini-apps: describe a workflow in plain language and Opal chained the prompts, models and tools into an app you could share. It launched in the US on July 24, 2025, reached 15 more countries that October, and in December was wired into the Gemini app, where its creations were called Gems made by Labs. Google turned opal.google down on November 17, 2026, along with Gems made by Labs, and said the product had &#x27;graduated to skills in Gemini&#x27;. Links to shared Opals now land on an explainer page.</description>
+      <category>app</category>
+    </item>
+    <item>
+      <title>Claude Opus 5 &amp; GPT-5.6 Terra (GitHub Copilot): Killed by GitHub / Microsoft (2026-11-16)</title>
+      <link>https://killedbyai.net/dead/claude-opus-5-gpt-5-6-terra-github-copilot/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/claude-opus-5-gpt-5-6-terra-github-copilot/</guid>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate>
+      <description>GitHub removed both models from every Copilot surface (Chat, inline edits, ask and agent modes, code completions) on November 16, 2026, after a month&#x27;s notice. GPT-5.6 Terra arrived on July 9 as part of OpenAI&#x27;s GPT-5.6 trio and lasted 130 days; Claude Opus 5 arrived on July 24 and lasted 115. Claude Opus 4.8 was retired the same day for everyone except individual subscribers on annual plans, who keep it. Anthropic&#x27;s own API still serves Opus 5 until at least July 2027.</description>
+      <category>model</category>
+    </item>
     <item>
       <title>Vellum Personal Assistant (cloud): Killed by the market (2026-11-07)</title>
       <link>https://killedbyai.net/dead/vellum-personal-assistant-cloud/</link>
@@ -230,22 +246,6 @@
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
       <description>Google&#x27;s open-source (Apache-2.0) terminal coding agent launched June 25, 2025 and passed 100,000 GitHub stars and 6,000 merged pull requests. At I/O on May 19, 2026 Google folded its developer tools under the Antigravity brand, and on June 18 Gemini CLI and the Gemini Code Assist IDE extensions stopped serving free users, Google AI Pro and Ultra subscribers and free individual Code Assist users. Their replacement, Antigravity CLI (agy), ships as a binary with no public repo. Code Assist Standard and Enterprise licenses and paid API keys kept access, and Google still updates the open-source repo for them, so the code outlived its free users.</description>
       <category>service</category>
-    </item>
-    <item>
-      <title>LOVO AI: Killed by itself (2026-05-27)</title>
-      <link>https://killedbyai.net/dead/lovo-ai/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/lovo-ai/</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-      <description>A Berkeley AI voiceover and voice-cloning startup, founded in 2019, behind the Genny text-to-speech studio. LOVO filed for Chapter 7 liquidation on May 27, 2026, listing $245,224 in assets against $17,788 in liabilities. The filing landed less than three weeks before a June 16 hearing on its motion to dismiss Lehrman &amp; Sage v. Lovo, a class action by voice actors who say their voices were cloned without permission; the bankruptcy automatically stayed the case. Paying customers had been reporting on Trustpilot since late April that they were locked out of their accounts.</description>
-      <category>startup</category>
-    </item>
-    <item>
-      <title>Soul Machines: Killed by itself (2026-02-05)</title>
-      <link>https://killedbyai.net/dead/soul-machines/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/soul-machines/</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-      <description>A New Zealand maker of AI &#x27;Digital People&#x27; avatars, co-founded in 2016 by Greg Cross and Mark Sagar, a two-time Sci-Tech Academy Award winner for facial-capture work at Weta Digital. It raised more than US$135M (about NZ$225M) from backers including Horizons Ventures, SoftBank Vision Fund 2, Salesforce Ventures and Temasek. On February 5, 2026 KPMG&#x27;s Leon Bowker and Luke Norman were appointed receivers. On September 28, 2026 AppDirect announced it had acquired Soul Machines on undisclosed terms and would build the avatars into Devs.ai, so the faces live on with a different employer.</description>
-      <category>startup</category>
     </item>
   </channel>
 </rss>

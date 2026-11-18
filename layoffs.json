@@ -492,5 +492,16 @@
     "roleTags": [
       "various"
     ]
+  },
+  {
+    "company": "Axonius",
+    "jobs": 66,
+    "date": "2026-11-09",
+    "description": "The cybersecurity asset-management company is cutting 66 people from its engineering organization, about 9% of its 722 staff. 46 of them are at its Israeli development center, 22% of the 207 people there. CEO Joe Diamond: 'We've made changes to our engineering team, as we reshape how we build around a new AI-driven way of working,' and 'Over the past several months, we've changed how our software gets built and we're adjusting our structure to match.' It is Axonius's third round of cuts in under a year.",
+    "roles": "Engineering and development, mostly in Israel",
+    "source": "https://www.calcalistech.com/ctechnews/article/9upwifo24",
+    "roleTags": [
+      "engineering"
+    ]
   }
 ]

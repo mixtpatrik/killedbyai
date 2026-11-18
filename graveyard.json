@@ -2491,5 +2491,34 @@
     "description": "Vellum introduced its 'Personal Intelligence' assistant on May 7, 2026: persistent memory, integrations across desktop, mobile and messaging, hosted in Vellum's cloud or self-hosted. Six months later the company cancelled paid plans on November 2, took a final export of every cloud assistant on November 7 and switched them off, citing competition that had 'grown incredibly fierce' and distribution it could not grow. Downloads close and data is deleted on December 13. The open-source assistant code stays online but is no longer maintained; a fork called Cadet carries the self-hosted version.",
     "dateAdded": "2026-11-08",
     "slug": "vellum-personal-assistant-cloud"
+  },
+  {
+    "name": "Google Opal",
+    "slug": "google-opal",
+    "dateAdded": "2026-11-18",
+    "dateOpen": "2025-07-24",
+    "dateClose": "2026-11-17",
+    "type": "app",
+    "causeOfDeath": "Feature Absorption",
+    "killedBy": "Google",
+    "deathType": "product-killed",
+    "link": "https://developers.google.com/opal/faq",
+    "description": "Google Labs' no-code builder for AI mini-apps: describe a workflow in plain language and Opal chained the prompts, models and tools into an app you could share. It launched in the US on July 24, 2025, reached 15 more countries that October, and in December was wired into the Gemini app, where its creations were called Gems made by Labs. Google turned opal.google down on November 17, 2026, along with Gems made by Labs, and said the product had 'graduated to skills in Gemini'. Links to shared Opals now land on an explainer page.",
+    "collateral": "Existing Opals no longer run and were not converted. The workflow files stay in Google Drive with the original prompts readable inside them.",
+    "replacement": "Skills in the Gemini app. Google's FAQ says Opal 'graduated to skills in Gemini'; existing Opals do not carry over."
+  },
+  {
+    "name": "Claude Opus 5 & GPT-5.6 Terra (GitHub Copilot)",
+    "slug": "claude-opus-5-gpt-5-6-terra-github-copilot",
+    "dateAdded": "2026-11-18",
+    "dateOpen": "2026-07-09",
+    "dateClose": "2026-11-16",
+    "type": "model",
+    "causeOfDeath": "Model Upgrade",
+    "killedBy": "GitHub / Microsoft",
+    "deathType": "model-upgrade",
+    "link": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/",
+    "description": "GitHub removed both models from every Copilot surface (Chat, inline edits, ask and agent modes, code completions) on November 16, 2026, after a month's notice. GPT-5.6 Terra arrived on July 9 as part of OpenAI's GPT-5.6 trio and lasted 130 days; Claude Opus 5 arrived on July 24 and lasted 115. Claude Opus 4.8 was retired the same day for everyone except individual subscribers on annual plans, who keep it. Anthropic's own API still serves Opus 5 until at least July 2027.",
+    "replacement": "Claude Opus 5.5 for Opus 5, and GPT-6.1 Sol or GPT-6 Luna for GPT-5.6 Terra."
   }
 ]

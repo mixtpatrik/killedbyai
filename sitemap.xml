@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://killedbyai.net/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/layoffs/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/coming-soon/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/funding/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/will-ai-take-my-job/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/api/</loc>
@@ -30,55 +30,55 @@
   </url>
   <url>
     <loc>https://killedbyai.net/embed/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/jobs/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/jobs/customer-support/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/jobs/engineering/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/jobs/product/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/jobs/operations/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/jobs/sales/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/jobs/middle-management/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/jobs/marketing/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/jobs/admin/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/jobs/finance/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/microsoft-clippy/</loc>
@@ -773,6 +773,22 @@
     <lastmod>2026-11-08</lastmod>
   </url>
   <url>
+    <loc>https://killedbyai.net/dead/claude-opus-5-gpt-5-6-terra-github-copilot/</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/dead/google-opal/</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/google/</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
+    <loc>https://killedbyai.net/killed-by/github-microsoft/</loc>
+    <lastmod>2026-11-18</lastmod>
+  </url>
+  <url>
     <loc>https://killedbyai.net/killed-by/market/</loc>
     <lastmod>2026-11-08</lastmod>
   </url>
@@ -785,10 +801,6 @@
     <lastmod>2026-10-26</lastmod>
   </url>
   <url>
-    <loc>https://killedbyai.net/killed-by/google/</loc>
-    <lastmod>2026-11-14</lastmod>
-  </url>
-  <url>
     <loc>https://killedbyai.net/killed-by/google-cloud/</loc>
     <lastmod>2026-10-26</lastmod>
   </url>
@@ -798,10 +810,6 @@
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/aws/</loc>
-    <lastmod>2026-10-08</lastmod>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/github-microsoft/</loc>
     <lastmod>2026-10-08</lastmod>
   </url>
   <url>
