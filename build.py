@@ -8,6 +8,7 @@ Reads graveyard.json and generates index.html with:
 """
 import calendar
 import json
+import os
 import shutil
 import html
 import re
@@ -19,6 +20,13 @@ from urllib.parse import quote_plus
 ROOT = Path(__file__).parent
 SITE_URL = "https://killedbyai.net/"
 DATA_LICENSE = "https://creativecommons.org/licenses/by/4.0/"
+# Newsletter signups go to two database functions on Supabase (docs/newsletter/setup.sql). The key is the project's
+# publishable key: it is meant to be public and can only call those two functions. With either value empty, no form
+# and no /newsletter/ page are built. The KBAI_ variables override them for local previews.
+NEWSLETTER_URL = os.environ.get("KBAI_NEWSLETTER_URL", "https://iiciaugvnmqkaqerglpw.supabase.co")
+NEWSLETTER_KEY = os.environ.get("KBAI_NEWSLETTER_KEY", "")
+NEWSLETTER_ENDPOINT = f"{NEWSLETTER_URL}/rest/v1/rpc/" if NEWSLETTER_URL and NEWSLETTER_KEY else ""
+NEWSLETTER_CONSENT = "One email a week. Unsubscribe any time."
 
 
 def slugify(name):
@@ -179,16 +187,33 @@ PERSON_REF = {"@type": "Person", "@id": PERSON_ID, "name": "Patrik Rojan", "url"
               "sameAs": ["https://www.linkedin.com/in/patrik-rojan/"]}
 
 
+def newsletter_form(uid, action="subscribe"):
+    """The signup form (or, with action="unsubscribe", the leave-the-list form). One field; the hidden one is a bot trap."""
+    if not NEWSLETTER_ENDPOINT:
+        return ""
+    leave = action == "unsubscribe"
+    label = "Email address to remove" if leave else "Get the weekly summary by email"
+    note = "" if leave else f'<p class="nl-note">{NEWSLETTER_CONSENT} <a href="/about/#privacy">Privacy</a>.</p>'
+    return (f'<form class="nl-form" data-nl="{action}" novalidate><label class="nl-label" for="nl-{uid}">{label}</label>'
+            f'<div class="nl-row"><input type="email" id="nl-{uid}" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>'
+            '<input type="text" name="website" class="nl-hp" tabindex="-1" autocomplete="off" aria-hidden="true">'
+            f'<button type="submit" class="nl-btn">{"Remove me" if leave else "Subscribe"}</button></div>'
+            f'{note}<p class="nl-msg" role="status"></p></form>')
+
+
 def footer_links(active=None):
     """The site footer's body: wordmark, one line about the site, and the links grouped in four columns."""
     n = len(json.loads((ROOT / "graveyard.json").read_text()))
     cols = [("Graveyard", [("/", "The AI graveyard"), ("/dead/", f"All {n} tombstones A-Z"), ("/killed-by/", "By killer"),
                            ("/coming-soon/", "Upcoming AI shutdowns"), ("/funding/", "Failed AI startups")]),
             ("Jobs", [("/layoffs/", "AI layoffs tracker"), ("/jobs/", "Jobs replaced by AI"), ("/will-ai-take-my-job/", "Will AI take my job?")]),
-            ("Data", [("/embed/", "Embed &amp; share"), ("/api/", "JSON API"), ("/feed.xml", "RSS"), ("/deprecations.ics", "Shutdown calendar (.ics)")]),
+            ("Data", ([("/newsletter/", "Weekly newsletter")] if NEWSLETTER_ENDPOINT else [])
+                     + [("/embed/", "Embed &amp; share"), ("/api/", "JSON API"), ("/feed.xml", "RSS"), ("/deprecations.ics", "Shutdown calendar (.ics)")]),
             ("About", [("/about/", "About &amp; methodology"), ("/about/#corrections", "Submit a correction")])]
-    out = ['<div class="footer-brand"><a class="footer-logo" href="/">Killed by <span>AI</span></a>'
-           '<p>Every dead AI tool, model and startup, dated and sourced.</p></div>', '<div class="footer-cols">']
+    brand = ('<div class="footer-brand"><a class="footer-logo" href="/">Killed by <span>AI</span></a>'
+             '<p>Every dead AI tool, model and startup, dated and sourced.</p></div>')
+    form = "" if active == "/newsletter/" else newsletter_form("footer")   # the newsletter page has its own form
+    out = [f'<div class="footer-top">{brand}{form}</div>' if form else brand, '<div class="footer-cols">']
     for title, links in cols:
         items = "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in links)
         out.append(f'<nav class="footer-col" aria-label="{title}"><p class="footer-h">{title}</p><ul>{items}</ul></nav>')
@@ -251,6 +276,24 @@ SITE_HEAD = r"""<meta name="color-scheme" content="dark light">
         .faq-answer p{margin:0;color:var(--text-muted);font-size:.9375rem;line-height:1.65}
         .faq-answer a{color:var(--text);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
         .faq-answer a:hover{text-decoration-color:var(--acc,var(--red))}
+        .nl-form{max-width:30rem}
+        .nl-label{display:block;margin-bottom:.375rem;font-size:.875rem;font-weight:600;color:var(--text)}
+        .nl-row{display:flex;gap:.5rem}
+        .nl-row input[type=email]{flex:1;min-width:0;min-height:44px;padding:0 .75rem;background:transparent;border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font:inherit;font-size:1rem}
+        .nl-row input[type=email]:hover{border-color:var(--line)}
+        .nl-row input[type=email]::placeholder{color:var(--text-dim)}
+        .nl-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+        .nl-btn{flex:none;min-height:44px;padding:0 1rem;background:var(--acc,var(--red));border:1px solid var(--acc,var(--red));border-radius:var(--radius);color:var(--on-acc);font:inherit;font-size:.9375rem;font-weight:600;cursor:pointer}
+        .nl-btn:hover{filter:brightness(1.08)}
+        .nl-btn[disabled]{opacity:.6;cursor:default}
+        .nl-form[data-nl="unsubscribe"] .nl-btn{background:none;border-color:var(--border);color:var(--text)}
+        .nl-note{margin-top:.375rem;font-size:.8125rem;color:var(--text-dim)}
+        .nl-note a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+        .nl-msg{margin-top:.375rem;font-size:.875rem;color:var(--text)}
+        .nl-msg:empty{display:none}
+        .footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:1.25rem 2.5rem;margin-bottom:1.75rem}
+        .footer-top .footer-brand{flex:1 1 16rem;margin-bottom:0}
+        .footer-top .nl-form{flex:1 1 20rem}
         .site-footer{margin-top:3rem;padding-bottom:2.5rem;font-size:.875rem;line-height:1.6;color:var(--text-dim)}
         .site-footer::before{content:"";display:block;margin-bottom:2rem;border-top:1px solid var(--border)}
         .footer-brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem 1.25rem;margin-bottom:1.75rem}
@@ -293,8 +336,17 @@ SITE_HEAD = r"""<meta name="color-scheme" content="dark light">
         addEventListener("scroll",function(){t.classList.toggle("visible",scrollY>600)},{passive:true});
         t.addEventListener("click",function(){scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});var h=document.querySelector("h1");if(h){h.tabIndex=-1;h.focus({preventScroll:true})}})}
     })})()</script>
+    <script>addEventListener("submit",function(e){var f=e.target;if(!f.matches||!f.matches("form[data-nl]"))return;e.preventDefault();
+      var m=f.querySelector(".nl-msg"),b=f.querySelector("button"),v=f.email.value.trim(),un=f.dataset.nl==="unsubscribe";
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){m.textContent="Please enter a valid email address.";f.email.focus();return}
+      b.disabled=true;m.textContent=un?"Removing\u2026":"Subscribing\u2026";
+      fetch("__NL_ENDPOINT__"+(un?"newsletter_unsubscribe":"newsletter_subscribe"),{method:"POST",headers:{"Content-Type":"application/json",apikey:"__NL_KEY__"},body:JSON.stringify(un?{p_email:v}:{p_email:v,p_source:location.pathname,p_website:f.website.value})})
+        .then(function(r){return r.json().then(function(j){if(!r.ok||!j.ok)throw new Error(j.error||r.status);return j})})
+        .then(function(){m.textContent=un?"Done. That address is off the list.":"You are on the list. The first weekly issue is on its way soon.";f.email.value="";if(!un&&window.gtag)gtag("event","newsletter_signup",{page_path:location.pathname})})
+        .catch(function(){m.textContent="That did not go through. Please try again in a minute."})
+        .finally(function(){b.disabled=false})})</script>
     <script>if(!CSS.supports("scroll-initial-target","nearest"))addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".site-nav"),a=n&&n.querySelector(".active");if(a)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2})</script>
-    <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*\\?(.+)"}},{"not":{"href_matches":"/*.*"}},{"not":{"selector_matches":"[download],[rel~=nofollow],[target=_blank],[aria-current=page]"}}]},"eagerness":"moderate"}]}</script>"""
+    <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*\\?(.+)"}},{"not":{"href_matches":"/*.*"}},{"not":{"selector_matches":"[download],[rel~=nofollow],[target=_blank],[aria-current=page]"}}]},"eagerness":"moderate"}]}</script>""".replace("__NL_ENDPOINT__", NEWSLETTER_ENDPOINT).replace("__NL_KEY__", NEWSLETTER_KEY)
 
 
 def faq_section(items, title="Frequently asked questions"):
@@ -1165,6 +1217,35 @@ def render_card(item, killer_counts=None):
     {link_html}
   </footer>
 </article>'''
+
+
+def build_issue(data, ldata, cs_data, days=7):
+    """This week's summary: what was buried, which layoffs were added, what shuts down in the next two weeks."""
+    now = datetime.utcnow()
+    since = (now - __import__("datetime").timedelta(days=days)).strftime("%Y-%m-%d")
+    today = now.strftime("%Y-%m-%d")
+    ahead = (now + __import__("datetime").timedelta(days=14)).strftime("%Y-%m-%d")
+    short = lambda d: datetime.strptime(d, "%Y-%m-%d").strftime("%b %-d")
+    dead = sorted([i for i in data if max(i.get("dateAdded", ""), i["dateClose"]) >= since and i["dateClose"] <= today], key=lambda i: i["dateClose"], reverse=True)
+    cuts = sorted([l for l in ldata if l["date"] >= (now - __import__("datetime").timedelta(days=14)).strftime("%Y-%m-%d")], key=lambda l: l["date"], reverse=True)
+    soon = sorted([c for c in cs_data if today <= c["dateShutdown"] <= ahead], key=lambda c: c["dateShutdown"])
+    def block(title, rows, empty):
+        body = f'<ul class="issue">{"".join(rows)}</ul>' if rows else f'<p class="none">{empty}</p>'
+        return f"<h3>{title}</h3>{body}"
+    parts = [
+        block("Buried this week",
+              [f'<li><a href="{product_url(i)}"><b>{esc(i["name"])}</b><small>{esc(sc_label(i["causeOfDeath"]))} · {esc(killer_label(i["killedBy"]))}</small></a><span class="when">{short(i["dateClose"])}</span></li>' for i in dead],
+              "No new tombstones this week."),
+        block("Layoffs where the company named AI, last two weeks",
+              [f'<li><a href="/layoffs/#{slugify(l["company"])}"><b>{esc(l["company"])}</b><small>{l["jobs"]:,} jobs · {esc(l["roles"])}</small></a><span class="when">{short(l["date"])}</span></li>' for l in cuts],
+              "No new AI-attributed layoffs in the last two weeks."),
+        block("Shutting down in the next two weeks",
+              [f'<li><a href="/coming-soon/"><b>{esc(c["name"])}</b><small>Killed by {esc(c["killedBy"])}</small></a><span class="when">{short(c["dateShutdown"])}</span></li>' for c in soon],
+              "Nothing is scheduled to shut down in the next two weeks."),
+    ]
+    totals = (f'<p class="totals">Running totals: <b>{len(data)}</b> dead AI products, <b>{sum(l["jobs"] for l in ldata):,}</b> jobs cut with AI named as the reason, '
+              f'<b>{len(cs_data)}</b> shutdowns on the calendar.</p>')
+    return f"Week to {fmt_date(today)}", "".join(parts) + totals, (len(dead), len(cuts), len(soon))
 
 
 def temporal_coverage(items):
@@ -2238,6 +2319,27 @@ def main():
         (ROOT / "deprecations.ics").write_bytes("\r\n".join(ics_lines).encode("utf-8"))
         print(f"Built coming-soon.html with {len(cs_sorted)} entries")
 
+    # Build the newsletter page: the signup form plus this week's summary, which is also what the weekly email will carry
+    if NEWSLETTER_ENDPOINT:
+        nl_url = SITE_URL + "newsletter/"
+        label, issue_html, counts = build_issue(data, json.loads((ROOT / "layoffs.json").read_text()), json.loads((ROOT / "coming-soon.json").read_text()))
+        nl_title = "Killed by AI Weekly: AI Shutdowns and Layoffs by Email"
+        nl_desc = "A free weekly email: the AI products that died, the layoffs where the company named AI, and the shutdowns due next. Each item dated and sourced."
+        nl_ld = {"@context": "https://schema.org", "@graph": [
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL},
+                {"@type": "ListItem", "position": 2, "name": "Weekly newsletter", "item": nl_url}]},
+            webpage_node(nl_url, nl_title, nl_desc, datetime.utcnow().strftime("%Y-%m-%d"))]}
+        nl_out = read_template("newsletter-template.html")
+        for k, v in {"{{TITLE}}": esc(nl_title), "{{META_DESC}}": esc(nl_desc), "{{URL}}": nl_url, "{{NAV}}": site_nav(None),
+                     "{{CRUMB}}": crumb_items(nl_url, "Weekly newsletter"), "{{FORM}}": newsletter_form("page"),
+                     "{{LEAVE_FORM}}": newsletter_form("leave", "unsubscribe"), "{{WEEK_LABEL}}": label, "{{ISSUE}}": issue_html,
+                     "{{FOOTER_LINKS}}": footer_links("/newsletter/"), "{{JSONLD}}": json.dumps(nl_ld, indent=2, ensure_ascii=False)}.items():
+            nl_out = nl_out.replace(k, v)
+        (ROOT / "newsletter").mkdir(exist_ok=True)
+        (ROOT / "newsletter" / "index.html").write_text(nl_out)
+        print(f"Built newsletter/ with {counts[0]} deaths, {counts[1]} layoffs, {counts[2]} upcoming shutdowns this week")
+
     # Build sitemap: lastmod derived from git so it changes only when content does
     pages = [
         (SITE_URL, "1.0", "daily", lm(["graveyard.json", "template.html", "build.py"])),
@@ -2248,6 +2350,7 @@ def main():
         (SITE_URL + "api/", "0.6", "monthly", lm(["api/index.html"])),
         (SITE_URL + "about/", "0.5", "monthly", lm(["about/index.html"])),
         (SITE_URL + "embed/", "0.6", "weekly", lm(["embed.py", "embed-template.html", "graveyard.json", "layoffs.json"])),
+    ] + ([(SITE_URL + "newsletter/", "0.5", "weekly", datetime.utcnow().strftime("%Y-%m-%d"))] if NEWSLETTER_ENDPOINT else []) + [
     ]
     mods = entry_lastmod_map()
     pages.append((SITE_URL + "jobs/", "", "", lm(["layoffs.json"])))

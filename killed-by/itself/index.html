@@ -209,6 +209,24 @@
         .faq-answer p{margin:0;color:var(--text-muted);font-size:.9375rem;line-height:1.65}
         .faq-answer a{color:var(--text);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
         .faq-answer a:hover{text-decoration-color:var(--acc,var(--red))}
+        .nl-form{max-width:30rem}
+        .nl-label{display:block;margin-bottom:.375rem;font-size:.875rem;font-weight:600;color:var(--text)}
+        .nl-row{display:flex;gap:.5rem}
+        .nl-row input[type=email]{flex:1;min-width:0;min-height:44px;padding:0 .75rem;background:transparent;border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font:inherit;font-size:1rem}
+        .nl-row input[type=email]:hover{border-color:var(--line)}
+        .nl-row input[type=email]::placeholder{color:var(--text-dim)}
+        .nl-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+        .nl-btn{flex:none;min-height:44px;padding:0 1rem;background:var(--acc,var(--red));border:1px solid var(--acc,var(--red));border-radius:var(--radius);color:var(--on-acc);font:inherit;font-size:.9375rem;font-weight:600;cursor:pointer}
+        .nl-btn:hover{filter:brightness(1.08)}
+        .nl-btn[disabled]{opacity:.6;cursor:default}
+        .nl-form[data-nl="unsubscribe"] .nl-btn{background:none;border-color:var(--border);color:var(--text)}
+        .nl-note{margin-top:.375rem;font-size:.8125rem;color:var(--text-dim)}
+        .nl-note a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+        .nl-msg{margin-top:.375rem;font-size:.875rem;color:var(--text)}
+        .nl-msg:empty{display:none}
+        .footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:1.25rem 2.5rem;margin-bottom:1.75rem}
+        .footer-top .footer-brand{flex:1 1 16rem;margin-bottom:0}
+        .footer-top .nl-form{flex:1 1 20rem}
         .site-footer{margin-top:3rem;padding-bottom:2.5rem;font-size:.875rem;line-height:1.6;color:var(--text-dim)}
         .site-footer::before{content:"";display:block;margin-bottom:2rem;border-top:1px solid var(--border)}
         .footer-brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem 1.25rem;margin-bottom:1.75rem}
@@ -251,6 +269,15 @@
         addEventListener("scroll",function(){t.classList.toggle("visible",scrollY>600)},{passive:true});
         t.addEventListener("click",function(){scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});var h=document.querySelector("h1");if(h){h.tabIndex=-1;h.focus({preventScroll:true})}})}
     })})()</script>
+    <script>addEventListener("submit",function(e){var f=e.target;if(!f.matches||!f.matches("form[data-nl]"))return;e.preventDefault();
+      var m=f.querySelector(".nl-msg"),b=f.querySelector("button"),v=f.email.value.trim(),un=f.dataset.nl==="unsubscribe";
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){m.textContent="Please enter a valid email address.";f.email.focus();return}
+      b.disabled=true;m.textContent=un?"Removing\u2026":"Subscribing\u2026";
+      fetch(""+(un?"newsletter_unsubscribe":"newsletter_subscribe"),{method:"POST",headers:{"Content-Type":"application/json",apikey:""},body:JSON.stringify(un?{p_email:v}:{p_email:v,p_source:location.pathname,p_website:f.website.value})})
+        .then(function(r){return r.json().then(function(j){if(!r.ok||!j.ok)throw new Error(j.error||r.status);return j})})
+        .then(function(){m.textContent=un?"Done. That address is off the list.":"You are on the list. The first weekly issue is on its way soon.";f.email.value="";if(!un&&window.gtag)gtag("event","newsletter_signup",{page_path:location.pathname})})
+        .catch(function(){m.textContent="That did not go through. Please try again in a minute."})
+        .finally(function(){b.disabled=false})})</script>
     <script>if(!CSS.supports("scroll-initial-target","nearest"))addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".site-nav"),a=n&&n.querySelector(".active");if(a)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2})</script>
     <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*\\?(.+)"}},{"not":{"href_matches":"/*.*"}},{"not":{"selector_matches":"[download],[rel~=nofollow],[target=_blank],[aria-current=page]"}}]},"eagerness":"moderate"}]}</script>
 </head>

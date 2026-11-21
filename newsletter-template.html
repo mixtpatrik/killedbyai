@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MC3PM7NKRX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MC3PM7NKRX');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{META_DESC}}">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <link rel="canonical" href="{{URL}}">
+    <meta property="og:type" content="website"><meta property="og:url" content="{{URL}}"><meta property="og:title" content="{{TITLE}}"><meta property="og:description" content="{{META_DESC}}">
+    <meta property="og:image" content="https://killedbyai.net/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="Killed by AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{TITLE}}">
+    <meta name="twitter:description" content="{{META_DESC}}"><meta name="twitter:image" content="https://killedbyai.net/og-image.png">
+    <link rel="alternate" type="application/rss+xml" title="Killed by AI RSS Feed" href="https://killedbyai.net/feed.xml">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#09090b">
+    <style>
+        /* Colors, type, the site menu, the footer and the signup form come from the shared head block (SITE_HEAD in build.py). */
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{--wrap:760px;--acc:var(--red)}
+        html{-webkit-text-size-adjust:100%}
+        body{background:var(--bg);color:var(--text);min-height:100vh}
+        a{color:inherit}
+        .wrap,.site-footer{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+        .wrap{padding-top:1.25rem}
+        .crumbs ol{display:flex;flex-wrap:wrap;gap:.375rem;list-style:none;font-size:.875rem;color:var(--text-dim)}
+        .crumbs li+li::before{content:"\203A" / "";margin-right:.375rem}
+        .crumbs a{text-decoration:none}.crumbs a:hover{color:var(--text)}
+        h1{margin-top:1.5rem;font-family:var(--serif);font-size:clamp(2rem,5vw,3rem);font-weight:700;letter-spacing:-.015em;line-height:1.1}
+        h1 span{color:var(--red)}
+        .lede{max-width:40rem;margin-top:.75rem;color:var(--text-muted);font-size:1.0625rem;line-height:1.5}
+        .nl-hero{margin-top:1.5rem;padding:1.25rem 0;border-block:1px solid var(--border)}
+        h2{margin:2.75rem 0 .25rem;font-family:var(--serif);font-size:1.375rem;font-weight:700;line-height:1.25}
+        .issue-date{color:var(--text-dim);font-size:.875rem}
+        h3{margin:1.5rem 0 .25rem;font-size:.875rem;font-weight:600;color:var(--text-muted)}
+        .issue{list-style:none}
+        .issue li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.625rem 0;border-bottom:1px solid var(--border)}
+        .issue b{font-weight:600}
+        .issue small{display:block;font-size:.8125rem;color:var(--text-dim)}
+        .issue .when{flex:none;font-size:.875rem;color:var(--text-muted);white-space:nowrap}
+        .issue a{text-decoration:none}.issue a:hover b{color:var(--red-text)}
+        .none{padding:.625rem 0;color:var(--text-dim);font-size:.9375rem}
+        .totals{margin-top:1.25rem;color:var(--text-muted);font-size:.9375rem}
+        .totals b{color:var(--text)}
+        .prose p{margin-top:.625rem;color:var(--text-muted);max-width:44rem}
+        .prose a{color:var(--text);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
+        .prose a:hover{text-decoration-color:var(--red)}
+        .leave{margin-top:1rem;max-width:30rem}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+    </style>
+    <script type="application/ld+json">{{JSONLD}}</script>
+    {{SITE_HEAD}}
+</head>
+<body>
+    <nav class="site-nav" aria-label="Site">{{NAV}}</nav>
+    <main class="wrap">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Killed by AI</a></li>{{CRUMB}}</ol></nav>
+        <h1>Killed by <span>AI</span>, weekly</h1>
+        <p class="lede">One email a week: which AI products died, which companies cut jobs and named AI as the reason, and what shuts down next. Every item dated and sourced. Free.</p>
+        <div class="nl-hero">{{FORM}}</div>
+
+        <h2>This week's summary</h2>
+        <p class="issue-date">{{WEEK_LABEL}}. This is what the email covers.</p>
+        {{ISSUE}}
+
+        <section class="prose">
+            <h2>What you sign up for</h2>
+            <p>One short email a week with the same items as this page, and nothing in the weeks when nothing happened. No tracking pixels are planned and your address is never sold or shared. What is stored is your email address, the date you signed up and the page you signed up from. Details are on the <a href="/about/#privacy">privacy section of the about page</a>.</p>
+            <h2 id="leave">Leave the list</h2>
+            <p>Enter the address you signed up with and it is marked as unsubscribed straight away.</p>
+            <div class="leave">{{LEAVE_FORM}}</div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        {{FOOTER_LINKS}}
+        <p class="footer-note">Data is <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>: reuse it and link back.</p>
+    </footer>
+</body>
+</html>
