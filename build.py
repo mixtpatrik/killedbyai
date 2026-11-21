@@ -24,7 +24,7 @@ DATA_LICENSE = "https://creativecommons.org/licenses/by/4.0/"
 # publishable key: it is meant to be public and can only call those two functions. With either value empty, no form
 # and no /newsletter/ page are built. The KBAI_ variables override them for local previews.
 NEWSLETTER_URL = os.environ.get("KBAI_NEWSLETTER_URL", "https://iiciaugvnmqkaqerglpw.supabase.co")
-NEWSLETTER_KEY = os.environ.get("KBAI_NEWSLETTER_KEY", "")
+NEWSLETTER_KEY = os.environ.get("KBAI_NEWSLETTER_KEY", "sb_publishable_cd7mYc4sRLle7dmaZffWmw_NGbgPcUD")
 NEWSLETTER_ENDPOINT = f"{NEWSLETTER_URL}/rest/v1/rpc/" if NEWSLETTER_URL and NEWSLETTER_KEY else ""
 NEWSLETTER_CONSENT = "One email a week. Unsubscribe any time."
 
