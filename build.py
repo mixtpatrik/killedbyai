@@ -27,6 +27,9 @@ NEWSLETTER_URL = os.environ.get("KBAI_NEWSLETTER_URL", "https://iiciaugvnmqkaqer
 NEWSLETTER_KEY = os.environ.get("KBAI_NEWSLETTER_KEY", "sb_publishable_cd7mYc4sRLle7dmaZffWmw_NGbgPcUD")
 NEWSLETTER_ENDPOINT = f"{NEWSLETTER_URL}/rest/v1/rpc/" if NEWSLETTER_URL and NEWSLETTER_KEY else ""
 NEWSLETTER_CONSENT = "One email a week. Unsubscribe any time."
+# Address published on /privacy/ for data requests. Empty = the LinkedIn contact from the about page is shown instead.
+PRIVACY_EMAIL = ""
+PRIVACY_UPDATED = "2026-11-21"   # change when the policy's substance changes
 
 
 def slugify(name):
@@ -193,7 +196,7 @@ def newsletter_form(uid, action="subscribe"):
         return ""
     leave = action == "unsubscribe"
     label = "Email address to remove" if leave else "Get the weekly summary by email"
-    note = "" if leave else f'<p class="nl-note">{NEWSLETTER_CONSENT} <a href="/about/#privacy">Privacy</a>.</p>'
+    note = "" if leave else f'<p class="nl-note">{NEWSLETTER_CONSENT} <a href="/privacy/">Privacy</a>.</p>'
     return (f'<form class="nl-form" data-nl="{action}" novalidate><label class="nl-label" for="nl-{uid}">{label}</label>'
             f'<div class="nl-row"><input type="email" id="nl-{uid}" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>'
             '<input type="text" name="website" class="nl-hp" tabindex="-1" autocomplete="off" aria-hidden="true">'
@@ -209,7 +212,7 @@ def footer_links(active=None):
             ("Jobs", [("/layoffs/", "AI layoffs tracker"), ("/jobs/", "Jobs replaced by AI"), ("/will-ai-take-my-job/", "Will AI take my job?")]),
             ("Data", ([("/newsletter/", "Weekly newsletter")] if NEWSLETTER_ENDPOINT else [])
                      + [("/embed/", "Embed &amp; share"), ("/api/", "JSON API"), ("/feed.xml", "RSS"), ("/deprecations.ics", "Shutdown calendar (.ics)")]),
-            ("About", [("/about/", "About &amp; methodology"), ("/about/#corrections", "Submit a correction")])]
+            ("About", [("/about/", "About &amp; methodology"), ("/about/#corrections", "Submit a correction"), ("/privacy/", "Privacy policy")])]
     brand = ('<div class="footer-brand"><a class="footer-logo" href="/">Killed by <span>AI</span></a>'
              '<p>Every dead AI tool, model and startup, dated and sourced.</p></div>')
     form = "" if active == "/newsletter/" else newsletter_form("footer")   # the newsletter page has its own form
@@ -2340,6 +2343,27 @@ def main():
         (ROOT / "newsletter" / "index.html").write_text(nl_out)
         print(f"Built newsletter/ with {counts[0]} deaths, {counts[1]} layoffs, {counts[2]} upcoming shutdowns this week")
 
+    # Build /privacy/
+    pv_url = SITE_URL + "privacy/"
+    pv_title = "Privacy Policy | Killed by AI"
+    pv_desc = "What killedbyai.net collects and why: the newsletter list, Google Analytics cookies, what stays on your device, who hosts it, and your rights."
+    li = '<a href="https://www.linkedin.com/in/patrik-rojan/" target="_blank" rel="noopener">LinkedIn</a>'
+    mail = f'<a href="mailto:{PRIVACY_EMAIL}">{PRIVACY_EMAIL}</a>' if PRIVACY_EMAIL else ""
+    contact = (f"For anything about your data, write to {mail}." if mail else f"For anything about your data, message him on {li}.")
+    contact_short = (f"To use any of these rights, write to {mail}." if mail else f"To use any of these rights, message Patrik Rojan on {li}.")
+    pv_ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL},
+            {"@type": "ListItem", "position": 2, "name": "Privacy policy", "item": pv_url}]},
+        webpage_node(pv_url, pv_title, pv_desc, PRIVACY_UPDATED)]}
+    pv_out = read_template("privacy-template.html")
+    for k, v in {"{{TITLE}}": esc(pv_title), "{{META_DESC}}": esc(pv_desc), "{{URL}}": pv_url, "{{NAV}}": site_nav(None),
+                 "{{CRUMB}}": crumb_items(pv_url, "Privacy policy"), "{{UPDATED}}": fmt_date(PRIVACY_UPDATED), "{{CONTACT}}": contact,
+                 "{{CONTACT_SHORT}}": contact_short, "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(pv_ld, indent=2, ensure_ascii=False)}.items():
+        pv_out = pv_out.replace(k, v)
+    (ROOT / "privacy").mkdir(exist_ok=True)
+    (ROOT / "privacy" / "index.html").write_text(pv_out)
+
     # Build /migrate/: every scheduled shutdown with its deadline and the vendor's named replacement, plus dead products
     # whose vendor said what comes next. Sponsored alternatives come from migrate.json and are always labelled.
     mg_cs = sorted(json.loads((ROOT / "coming-soon.json").read_text()), key=lambda c: c["dateShutdown"])
@@ -2426,6 +2450,7 @@ def main():
         (SITE_URL + "about/", "0.5", "monthly", lm(["about/index.html"])),
         (SITE_URL + "embed/", "0.6", "weekly", lm(["embed.py", "embed-template.html", "graveyard.json", "layoffs.json"])),
         (SITE_URL + "migrate/", "0.7", "daily", lm(["coming-soon.json", "graveyard.json", "migrate.json"])),
+        (SITE_URL + "privacy/", "0.3", "yearly", PRIVACY_UPDATED),
     ] + ([(SITE_URL + "newsletter/", "0.5", "weekly", datetime.utcnow().strftime("%Y-%m-%d"))] if NEWSLETTER_ENDPOINT else []) + [
     ]
     mods = entry_lastmod_map()

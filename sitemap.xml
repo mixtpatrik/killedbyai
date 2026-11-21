@@ -37,6 +37,10 @@
     <lastmod>2026-11-21</lastmod>
   </url>
   <url>
+    <loc>https://killedbyai.net/privacy/</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
     <loc>https://killedbyai.net/newsletter/</loc>
     <lastmod>2026-11-21</lastmod>
   </url>
@@ -287,10 +291,6 @@
   <url>
     <loc>https://killedbyai.net/dead/google-gemini-1-0-ultra/</loc>
     <lastmod>2026-09-09</lastmod>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/dead/rabbit-r1/</loc>
-    <lastmod>2026-11-21</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/dead/openai-gpt-store/</loc>
@@ -673,6 +673,10 @@
     <lastmod>2026-10-08</lastmod>
   </url>
   <url>
+    <loc>https://killedbyai.net/dead/rabbit-r1/</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
     <loc>https://killedbyai.net/dead/perplexity-sonar-chat-completions-api/</loc>
     <lastmod>2026-10-08</lastmod>
   </url>
@@ -833,6 +837,10 @@
     <lastmod>2026-10-08</lastmod>
   </url>
   <url>
+    <loc>https://killedbyai.net/killed-by/reality/</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
     <loc>https://killedbyai.net/killed-by/google-gemini/</loc>
     <lastmod>2026-10-08</lastmod>
   </url>
@@ -859,10 +867,6 @@
   <url>
     <loc>https://killedbyai.net/killed-by/fda/</loc>
     <lastmod>2026-10-08</lastmod>
-  </url>
-  <url>
-    <loc>https://killedbyai.net/killed-by/reality/</loc>
-    <lastmod>2026-11-21</lastmod>
   </url>
   <url>
     <loc>https://killedbyai.net/killed-by/microsoft-copilot/</loc>

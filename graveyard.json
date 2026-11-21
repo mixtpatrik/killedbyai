@@ -137,14 +137,13 @@
   },
   {
     "name": "Rabbit R1",
-    "dateOpen": "2024-04-24",
-    "dateClose": "2025-03-01",
-    "description": "A $199 'AI-native' gadget designed to replace apps with a 'Large Action Model.' Widely panned as a repackaged Android app with a $199 price tag. The hardware was all but abandoned after the company pivoted to software-only.",
+    "dateOpen": "2024-04-23",
+    "dateClose": "2026-09-22",
+    "description": "The $199 orange 'AI-native' gadget that promised a 'Large Action Model' to replace apps, and was widely panned at launch as a repackaged Android app. Rabbit kept shipping software for it, rabbitOS 2 in September 2025 and OS3 in September 2026, but OS3 no longer needs the device. On September 22, 2026 Wired reported that 'Rabbit is no longer manufacturing the R1, and the existing stock is dwindling', and that CEO Jesse Lyu has no plans for an R2. The R1 still works with OS3 and Rabbit still sells what is left.",
     "type": "hardware",
     "causeOfDeath": "Market Rejection",
     "killedBy": "Reality",
-    "link": "https://www.theverge.com/24133200/rabbit-r1-review-ai-gadget",
-    "collateral": "Buyers stuck with a $199 paperweight. No meaningful resale value.",
+    "link": "https://www.wired.com/story/rabbit-r1-os3-jesse-lyu/",
     "deathType": "hardware-failed",
     "fundingM": 30,
     "dateAdded": "2026-03-26",
@@ -157,7 +156,7 @@
     "timeline": [
       {
         "date": "2024-01-09",
-        "text": "Rabbit unveils the R1 at CES for $199 with no subscription. The company says the first 10,000 units sold out within 24 hours."
+        "text": "Rabbit introduces the R1 at CES for $199 with no subscription. The company says the first 10,000 units sold out within 24 hours."
       },
       {
         "date": "2024-04-23",
@@ -197,7 +196,7 @@
       },
       {
         "q": "What is the R1 service portal?",
-        "a": "Rabbit has no page with that name. Returns and warranty claims start with an email to Rabbit support, which issues a return authorization. Device settings now sit in the OS3 web app; before OS3, owners managed connected services in a web portal Rabbit called the rabbithole."
+        "a": "Rabbit has no page with that name. Returns and warranty claims start with an email to Rabbit support, which issues a return authorization. Device settings are now in the OS3 web app; before OS3, owners managed connected services in a web portal Rabbit called the rabbithole."
       },
       {
         "q": "Where can I find a used Rabbit R1 for sale?",
@@ -988,9 +987,9 @@
   },
   {
     "name": "Limitless Pendant (Rewind AI)",
-    "dateOpen": "2024-05-01",
+    "dateOpen": "2024-04-15",
     "dateClose": "2025-12-05",
-    "description": "A $99 AI wearable pendant that recorded and transcribed in-person conversations, previously known as Rewind. Meta acquired the company and immediately ended hardware sales, sunset the desktop app, and cut off EU/UK service entirely due to GDPR concerns.",
+    "description": "A $99 AI wearable pendant that recorded and transcribed in-person conversations, previously known as Rewind. Meta acquired the company and immediately ended hardware sales, sunset the desktop app, and ended service in the EU, the UK and several other countries.",
     "type": "hardware",
     "causeOfDeath": "Acquisition",
     "killedBy": "Meta",
@@ -1046,12 +1045,12 @@
     "name": "Google Jamboard",
     "dateOpen": "2016-10-25",
     "dateClose": "2024-12-31",
-    "description": "Google's $5,000 AI-based collaborative digital whiteboard for enterprise. After remote work made the physical hardware irrelevant and software alternatives like FigJam and Miro overtook it on features, Google killed it and deleted all user data after the shutdown date.",
+    "description": "Google's $5,000 AI-based collaborative digital whiteboard for enterprise. After remote work made the physical hardware irrelevant and software alternatives like FigJam and Miro overtook it on features, Google killed it. Jams stopped opening on December 31, 2024; Google had said they would be deleted, and later converted them to PDFs in Google Drive.",
     "type": "hardware",
     "causeOfDeath": "Market Irrelevance",
     "killedBy": "Google",
     "link": "https://support.google.com/jamboard/answer/14084927",
-    "collateral": "All collaborative whiteboard data was permanently deleted after the shutdown date. No export path for some content.",
+    "collateral": "Jams could no longer be opened or edited after the shutdown. Google later converted them to PDFs in Drive, and the boards lost saving to Drive and joining Google Meet.",
     "deathType": "hardware-failed",
     "dateAdded": "2026-03-26",
     "slug": "google-jamboard",
@@ -1107,7 +1106,7 @@
       },
       {
         "q": "What happened to my jams?",
-        "a": "Google's help page says jams were converted to PDFs in 2025 and are available in Google Drive. Jams still listed in Drive can also be exported as PDF or PNG files, though a PNG holds only one frame."
+        "a": "Google's help page says jams were converted to PDFs in 2025 and are available in Google Drive. Jams still listed in Drive can also be exported as PDF or PNG files, though a PNG shows only one frame."
       }
     ]
   },
@@ -1747,9 +1746,9 @@
   },
   {
     "name": "Yupp.ai",
-    "dateOpen": "2025-06-01",
+    "dateOpen": "2025-06-13",
     "dateClose": "2026-03-31",
-    "description": "A crowdsourced AI-evaluation platform that paid users to compare model outputs, backed by $33M from a16z crypto. It reached 1.3 million users and still died inside a year. The labs had moved on to expert-sourced data and agentic evaluation: broad consumer preference signal stopped being the scarce input anyone would pay for. Co-founders Pankaj Gupta and Gilad Mishne kept it accessible for two weeks after the announcement, then closed signups permanently.",
+    "description": "A crowdsourced AI-evaluation platform that paid users to compare model outputs, backed by a $33M round led by a16z crypto. It reached 1.3 million users and still died inside a year. The labs had moved on to expert-sourced data and agentic evaluation: broad consumer preference signal stopped being the scarce input anyone would pay for. Co-founders Pankaj Gupta and Gilad Mishne closed signups and new chats with the announcement on March 31, 2026, and left the site up until April 15 so users could export their history.",
     "type": "startup",
     "causeOfDeath": "No Product-Market Fit",
     "killedBy": "Market",
@@ -2027,9 +2026,9 @@
     "killedBy": "Inference Bills",
     "deathType": "startup-failed",
     "fundingM": 0,
-    "link": "https://techcrunch.com/2026/09/15/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
-    "description": "A character-chat platform for role-play and storytelling that reached more than a million users on a free tier, with no funding and no revenue at any point. Character chat is among the most expensive things to serve per user, and the developers shut it down at the end of 2024 rather than charge for it. It had more users than it could afford to serve for free.",
-    "collateral": "Custom characters, multiplayer rooms and the community library went offline with no export.",
+    "link": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+    "description": "A character-chat platform for role-play and storytelling that reached more than a million users on a free tier. Character chat is among the most expensive things to serve per user, and the developers shut it down at the end of 2024 rather than charge for it. It had more users than it could afford to serve for free.",
+    "collateral": "Custom characters, multiplayer rooms and the community library went offline with the site.",
     "dateAdded": "2026-09-22",
     "slug": "figgs-ai",
     "seo": {
