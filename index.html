@@ -307,10 +307,10 @@
         .faq-answer p{margin:0;color:var(--text-muted);font-size:.9375rem;line-height:1.65}
         .faq-answer a{color:var(--text);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
         .faq-answer a:hover{text-decoration-color:var(--acc,var(--red))}
-        .nl-form{max-width:30rem}
+        .nl-form{max-width:30rem;min-width:0}
         .nl-label{display:block;margin-bottom:.375rem;font-size:.875rem;font-weight:600;color:var(--text)}
         .nl-row{display:flex;gap:.5rem}
-        .nl-row input[type=email]{flex:1;min-width:0;min-height:44px;padding:0 .75rem;background:transparent;border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font:inherit;font-size:1rem}
+        .nl-row input[type=email]{flex:1;width:0;min-width:0;min-height:44px;padding:0 .75rem;background:transparent;border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font:inherit;font-size:1rem}
         .nl-row input[type=email]:hover{border-color:var(--line)}
         .nl-row input[type=email]::placeholder{color:var(--text-dim)}
         .nl-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
@@ -324,7 +324,7 @@
         .nl-msg:empty{display:none}
         .footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:1.25rem 2.5rem;margin-bottom:1.75rem}
         .footer-top .footer-brand{flex:1 1 16rem;margin-bottom:0}
-        .footer-top .nl-form{flex:1 1 20rem}
+        .footer-top .nl-form{flex:1 1 18rem;min-width:0}
         .site-footer{margin-top:3rem;padding-bottom:2.5rem;font-size:.875rem;line-height:1.6;color:var(--text-dim)}
         .site-footer::before{content:"";display:block;margin-bottom:2rem;border-top:1px solid var(--border)}
         .footer-brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem 1.25rem;margin-bottom:1.75rem}
