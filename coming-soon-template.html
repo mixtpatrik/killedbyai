@@ -35,8 +35,9 @@
         body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
         a{color:inherit}
         .header,.list,.site-footer{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
-        .last-updated a,.doom-links a,.site-footer a{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
-        .last-updated a:hover,.doom-links a:hover,.site-footer a:hover{color:var(--acc);text-decoration-color:var(--acc)}
+        .lede a{color:var(--text)}
+        .lede a,.last-updated a,.doom-links a,.site-footer a{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
+        .lede a:hover,.last-updated a:hover,.doom-links a:hover,.site-footer a:hover{color:var(--acc);text-decoration-color:var(--acc)}
 
         /* ---------- header ---------- */
         .header{padding-top:2.5rem;padding-bottom:1.75rem}
@@ -103,7 +104,7 @@
 
     <header class="header">
         <h1>Upcoming AI <span>Shutdowns</span></h1>
-        <p class="lede">Coming soon to the graveyard: the deprecation schedule for {{COUNT}} AI products with confirmed death dates. Already announced, just counting down.</p>
+        <p class="lede">Coming soon to the graveyard: the deprecation schedule for {{COUNT}} AI products with confirmed death dates. Already announced, just counting down. For the replacement each vendor names, see <a href="/migrate/">what to migrate to</a>.</p>
         <p class="last-updated" id="calendar">Last updated: {{LAST_UPDATED}} · Shutdown calendar: <a href="webcal://killedbyai.net/deprecations.ics" class="ics-link">Subscribe (Apple / Outlook)</a> · <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fkilledbyai.net%2Fdeprecations.ics" class="ics-link" target="_blank" rel="noopener">Add to Google Calendar (desktop)</a> · <a href="/deprecations.ics" class="ics-link" download>Download .ics</a></p>
     </header>
     <main class="list">

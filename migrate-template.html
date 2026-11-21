@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MC3PM7NKRX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MC3PM7NKRX');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{META_DESC}}">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <link rel="canonical" href="{{URL}}">
+    <meta property="og:type" content="website"><meta property="og:url" content="{{URL}}"><meta property="og:title" content="{{TITLE}}"><meta property="og:description" content="{{META_DESC}}">
+    <meta property="og:image" content="https://killedbyai.net/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:site_name" content="Killed by AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{TITLE}}">
+    <meta name="twitter:description" content="{{META_DESC}}"><meta name="twitter:image" content="https://killedbyai.net/og-image.png">
+    <link rel="alternate" type="application/rss+xml" title="Killed by AI RSS Feed" href="https://killedbyai.net/feed.xml">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#09090b">
+    <style>
+        /* Colors, type, the site menu, the footer, the FAQ and the signup form come from the shared head block (SITE_HEAD in build.py). */
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{--wrap:1000px;--acc:var(--red)}
+        html{-webkit-text-size-adjust:100%}
+        body{background:var(--bg);color:var(--text);min-height:100vh}
+        a{color:inherit}
+        .wrap,.site-footer{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+        .wrap{padding-top:1.25rem}
+        .crumbs ol{display:flex;flex-wrap:wrap;gap:.375rem;list-style:none;font-size:.875rem;color:var(--text-dim)}
+        .crumbs li+li::before{content:"\203A" / "";margin-right:.375rem}
+        .crumbs a{text-decoration:none}.crumbs a:hover{color:var(--text)}
+        h1{margin-top:1.5rem;font-family:var(--serif);font-size:clamp(2rem,5vw,3rem);font-weight:700;letter-spacing:-.015em;line-height:1.1}
+        h1 span{color:var(--red)}
+        .lede{max-width:44rem;margin-top:.75rem;color:var(--text-muted);font-size:1.0625rem;line-height:1.5}
+        .lede a,.note a,.mg-src,.sponsor a{color:var(--text);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1px;text-underline-offset:3px}
+        .lede a:hover,.note a:hover,.mg-src:hover,.sponsor a:hover{text-decoration-color:var(--red)}
+        .tabs{display:flex;flex-wrap:wrap;gap:0 1.5rem;margin-top:1.75rem;border-bottom:1px solid var(--border)}
+        .tab{min-height:44px;padding:0;background:none;border:0;font:inherit;font-size:.9375rem;color:var(--text-muted);cursor:pointer;white-space:nowrap}
+        .tab:hover{color:var(--text)}
+        .tab[aria-pressed="true"]{color:var(--text);font-weight:600;box-shadow:inset 0 -2px 0 var(--red)}
+        h2{margin:2.5rem 0 .25rem;font-family:var(--serif);font-size:1.375rem;font-weight:700;line-height:1.25}
+        .sub{color:var(--text-dim);font-size:.875rem}
+        .mg-list{list-style:none;margin-top:.75rem;border-top:1px solid var(--border)}
+        .mg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.25rem 2.5rem;padding:.875rem 0;border-bottom:1px solid var(--border);scroll-margin-top:1rem}
+        .mg[hidden]{display:none}
+        .mg:target{box-shadow:inset 2px 0 0 var(--red);padding-left:.75rem}
+        .mg-k{display:block;font-size:.8125rem;color:var(--text-dim)}
+        .mg h3{font-size:1.0625rem;font-weight:600;line-height:1.3}
+        .mg-meta{margin-top:.125rem;font-size:.8125rem;color:var(--text-muted)}
+        .mg-meta b{color:var(--red-text);font-weight:600}
+        .mg-to{font-size:1rem;line-height:1.45}
+        .mg-src{display:inline-flex;align-items:center;min-height:32px;margin-top:.125rem;font-size:.8125rem;color:var(--text-muted)}
+        .sponsor{grid-column:2;margin-top:.5rem;padding-top:.5rem;border-top:1px dashed var(--border);font-size:.9375rem;color:var(--text-muted)}
+        .sponsor .tag{margin-right:.5rem;font-size:.8125rem;font-weight:600;color:var(--text-dim)}
+        .empty-note{padding:.875rem 0;color:var(--text-dim)}
+        .note{margin-top:.75rem;max-width:44rem;color:var(--text-muted)}
+        @media(max-width:700px){.mg{grid-template-columns:minmax(0,1fr);gap:.5rem}.sponsor{grid-column:1}}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+    </style>
+    <script type="application/ld+json">{{JSONLD}}</script>
+    <script type="application/ld+json">{{FAQ_JSONLD}}</script>
+    {{SITE_HEAD}}
+</head>
+<body>
+    <nav class="site-nav" aria-label="Site">{{NAV}}</nav>
+    <main class="wrap">
+        <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Killed by AI</a></li>{{CRUMB}}</ol></nav>
+        <h1>What to <span>migrate to</span></h1>
+        <p class="lede">{{COUNT_SOON}} AI models and tools have a shutdown date. For each one, this is the deadline and the replacement its vendor names, taken from the source linked on each row. The full story of each is on the <a href="/coming-soon/">shutdown calendar</a>.</p>
+
+        <div class="tabs" id="vendors" role="group" aria-label="Filter by vendor">{{TABS}}</div>
+
+        <h2 id="soon">Shutting down soon</h2>
+        <p class="sub">Soonest first. Updated {{UPDATED}}.</p>
+        <ul class="mg-list" id="list-soon">
+{{ROWS_SOON}}
+        </ul>
+
+        <h2 id="gone">Already gone</h2>
+        <p class="sub">Dead products where the vendor said what comes next.</p>
+        <ul class="mg-list" id="list-gone">
+{{ROWS_GONE}}
+        </ul>
+
+        <h2 id="placements">Sponsored alternatives</h2>
+        <p class="note">{{SPONSOR_NOTE}} The replacement on each row is always the vendor's own recommendation, and a sponsored alternative never changes it. A sponsored one appears on its own line under that row, labelled Sponsored. To ask about a placement, use the contact on the <a href="/about/#corrections">about page</a>.</p>
+
+        {{FAQ_HTML}}
+    </main>
+    <footer class="site-footer">
+        {{FOOTER_LINKS}}
+        <p class="footer-note">Data is <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>: reuse it and link back.</p>
+    </footer>
+    <script>
+    (function () {
+        var tabs = document.getElementById('vendors'), rows = [].slice.call(document.querySelectorAll('.mg'));
+        tabs.addEventListener('click', function (e) {
+            var t = e.target.closest('.tab'); if (!t) return;
+            [].forEach.call(tabs.querySelectorAll('.tab'), function (b) { b.setAttribute('aria-pressed', String(b === t)); });
+            var v = t.dataset.vendor;
+            rows.forEach(function (r) { r.hidden = v !== 'all' && r.dataset.vendor !== v; });
+            ['list-soon', 'list-gone'].forEach(function (id) {
+                var l = document.getElementById(id), n = l.querySelectorAll('.mg:not([hidden])').length, m = l.querySelector('.empty-note');
+                if (!n && !m) { m = document.createElement('li'); m.className = 'empty-note'; m.textContent = 'Nothing from this vendor here.'; l.appendChild(m); }
+                if (m) m.hidden = n > 0;
+            });
+        });
+    })();
+    </script>
+</body>
+</html>

@@ -205,7 +205,7 @@ def footer_links(active=None):
     """The site footer's body: wordmark, one line about the site, and the links grouped in four columns."""
     n = len(json.loads((ROOT / "graveyard.json").read_text()))
     cols = [("Graveyard", [("/", "The AI graveyard"), ("/dead/", f"All {n} tombstones A-Z"), ("/killed-by/", "By killer"),
-                           ("/coming-soon/", "Upcoming AI shutdowns"), ("/funding/", "Failed AI startups")]),
+                           ("/coming-soon/", "Upcoming AI shutdowns"), ("/migrate/", "What to migrate to"), ("/funding/", "Failed AI startups")]),
             ("Jobs", [("/layoffs/", "AI layoffs tracker"), ("/jobs/", "Jobs replaced by AI"), ("/will-ai-take-my-job/", "Will AI take my job?")]),
             ("Data", ([("/newsletter/", "Weekly newsletter")] if NEWSLETTER_ENDPOINT else [])
                      + [("/embed/", "Embed &amp; share"), ("/api/", "JSON API"), ("/feed.xml", "RSS"), ("/deprecations.ics", "Shutdown calendar (.ics)")]),
@@ -1236,7 +1236,7 @@ def build_issue(data, ldata, cs_data, days=7):
         block("Buried this week",
               [f'<li><a href="{product_url(i)}"><b>{esc(i["name"])}</b><small>{esc(sc_label(i["causeOfDeath"]))} · {esc(killer_label(i["killedBy"]))}</small></a><span class="when">{short(i["dateClose"])}</span></li>' for i in dead],
               "No new tombstones this week."),
-        block("Layoffs where the company named AI, last two weeks",
+        block("Layoffs blamed on AI, last two weeks",
               [f'<li><a href="/layoffs/#{slugify(l["company"])}"><b>{esc(l["company"])}</b><small>{l["jobs"]:,} jobs · {esc(l["roles"])}</small></a><span class="when">{short(l["date"])}</span></li>' for l in cuts],
               "No new AI-attributed layoffs in the last two weeks."),
         block("Shutting down in the next two weeks",
@@ -2340,6 +2340,81 @@ def main():
         (ROOT / "newsletter" / "index.html").write_text(nl_out)
         print(f"Built newsletter/ with {counts[0]} deaths, {counts[1]} layoffs, {counts[2]} upcoming shutdowns this week")
 
+    # Build /migrate/: every scheduled shutdown with its deadline and the vendor's named replacement, plus dead products
+    # whose vendor said what comes next. Sponsored alternatives come from migrate.json and are always labelled.
+    mg_cs = sorted(json.loads((ROOT / "coming-soon.json").read_text()), key=lambda c: c["dateShutdown"])
+    mg_now = datetime.utcnow()
+    mg_today = mg_now.strftime("%Y-%m-%d")
+    placements = json.loads((ROOT / "migrate.json").read_text()).get("placements", []) if (ROOT / "migrate.json").exists() else []
+    vendor_group = lambda k: {"Google Cloud": "Google", "Microsoft Azure": "Microsoft", "GitHub / Microsoft": "Microsoft", "GitHub": "Microsoft"}.get(k, k)
+    from collections import Counter as _V
+    mg_gone = sorted([i for i in data if i.get("replacement")], key=lambda i: i["dateClose"], reverse=True)
+    v_counts = _V(vendor_group(c["killedBy"]) for c in mg_cs) + _V(vendor_group(i["killedBy"]) for i in mg_gone)
+    v_main = [v for v, n in v_counts.most_common() if n >= 2]
+    v_of = lambda k: vendor_group(k) if vendor_group(k) in v_main else "Other"
+
+    def sponsor_html(name, killer):
+        out = []
+        for pl in placements:
+            hit = any(w in name.lower() for w in pl.get("match", [])) or (pl.get("vendor") and vendor_group(pl["vendor"]) == vendor_group(killer))
+            if hit:
+                out.append(f'<p class="sponsor"><span class="tag">Sponsored</span><a href="{esc(pl["url"])}" target="_blank" rel="sponsored noopener">{esc(pl["name"])}</a>: {esc(pl["blurb"])}</p>')
+        return "".join(out)
+
+    def mg_row(name, killer, when_html, to_text, src, src_label, anchor):
+        ext = ' target="_blank" rel="noopener"'
+        return (f'<li class="mg" id="{anchor}" data-vendor="{esc(v_of(killer))}"><div><span class="mg-k">Leaving</span><h3>{esc(name)}</h3>'
+                f'<p class="mg-meta">{when_html} · Killed by {esc(killer)}</p></div>'
+                f'<div><span class="mg-k">Move to</span><p class="mg-to">{esc(to_text)}</p>'
+                + (f'<a class="mg-src" href="{esc(src)}"{ext if src.startswith("http") else ""}>{src_label}</a>' if src else "")
+                + f'</div>{sponsor_html(name, killer)}</li>')
+
+    rows_soon = []
+    for c in mg_cs:
+        left = (datetime.strptime(c["dateShutdown"], "%Y-%m-%d").date() - mg_now.date()).days
+        state = f"<b>{left} day{'' if left == 1 else 's'} left</b>" if left > 0 else "<b>Today</b>" if left == 0 else "Date passed"
+        rows_soon.append(mg_row(c["name"], c["killedBy"], f'{state} · {fmt_date(c["dateShutdown"])}', c.get("replacement") or "No replacement named.",
+                                c.get("link", ""), "Source ↗", slugify(c["name"])))
+    rows_gone = [mg_row(i["name"], i["killedBy"], f'Shut down {fmt_date(i["dateClose"])}', i["replacement"], product_url(i), "Full story", (i.get("slug") or slugify(i["name"])))
+                 for i in mg_gone]
+    tabs_html = (f'<button type="button" class="tab" data-vendor="all" aria-pressed="true">All ({len(mg_cs) + len(mg_gone)})</button>'
+                 + "".join(f'<button type="button" class="tab" data-vendor="{esc(v)}" aria-pressed="false">{esc(v)} ({v_counts[v]})</button>' for v in v_main)
+                 + (f'<button type="button" class="tab" data-vendor="Other" aria-pressed="false">Other ({sum(n for v, n in v_counts.items() if v not in v_main)})</button>' if len(v_counts) > len(v_main) else ""))
+    mg_url = SITE_URL + "migrate/"
+    mg_title = "AI Model Shutdowns: What to Migrate To, With Deadlines"
+    mg_desc = f"{len(mg_cs)} AI models and tools with a shutdown date, each with its deadline and the replacement the vendor names. OpenAI, Google, Azure, AWS and more."
+    mg_faq = [
+        ("What should I migrate to when an AI model is deprecated?",
+         "Start with the replacement the vendor names, shown next to each entry on this page, and test it against your own prompts before the deadline. "
+         "A newer model can answer differently even when the vendor presents it as the direct successor."),
+        ("What happens if I miss the shutdown date?",
+         "It depends on the vendor. Some return an error for the retired model ID. Others reroute requests to a newer model without failing, "
+         "which changes your output and can change what you are billed. The shutdown calendar notes it when a vendor has announced rerouting."),
+        ("Where do the replacements on this page come from?",
+         "From the source linked on each row: the vendor's own deprecation page, changelog or announcement where one exists, otherwise named reporting. Where the vendor names no replacement, the row says so."),
+        ("Are the alternatives on this page paid placements?",
+         "The replacement on each row is the vendor's own recommendation and is never paid for. A sponsored alternative is shown on a separate line and labelled Sponsored. "
+         + ("None are running at the moment." if not placements else f"{len(placements)} {'is' if len(placements) == 1 else 'are'} running at the moment.")),
+    ]
+    mg_ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Killed by AI", "item": SITE_URL},
+            {"@type": "ListItem", "position": 2, "name": "Migration guide", "item": mg_url}]},
+        webpage_node(mg_url, mg_title, mg_desc, lm(["coming-soon.json", "graveyard.json", "migrate.json"]), {"@type": "CollectionPage"}),
+        {"@type": "ItemList", "name": "AI shutdowns and their replacements", "numberOfItems": len(mg_cs),
+         "itemListElement": [{"@type": "ListItem", "position": k + 1, "name": c["name"], "url": f"{mg_url}#{slugify(c['name'])}"} for k, c in enumerate(mg_cs)]}]}
+    mg_out = read_template("migrate-template.html")
+    for k, v in {"{{TITLE}}": esc(mg_title), "{{META_DESC}}": esc(mg_desc), "{{URL}}": mg_url, "{{NAV}}": site_nav("/coming-soon/"),
+                 "{{CRUMB}}": crumb_items(mg_url, "Migration guide"), "{{COUNT_SOON}}": str(len(mg_cs)), "{{TABS}}": tabs_html,
+                 "{{UPDATED}}": fmt_date(lm(["coming-soon.json"])), "{{ROWS_SOON}}": "\n".join(rows_soon), "{{ROWS_GONE}}": "\n".join(rows_gone),
+                 "{{SPONSOR_NOTE}}": "None are running at the moment." if not placements else f"{len(placements)} running at the moment.",
+                 "{{FAQ_HTML}}": faq_section(mg_faq, "Migrating off a retired AI model: frequently asked questions"), "{{FAQ_JSONLD}}": faq_jsonld(mg_faq),
+                 "{{FOOTER_LINKS}}": footer_links(), "{{JSONLD}}": json.dumps(mg_ld, indent=2, ensure_ascii=False)}.items():
+        mg_out = mg_out.replace(k, v)
+    (ROOT / "migrate").mkdir(exist_ok=True)
+    (ROOT / "migrate" / "index.html").write_text(mg_out)
+    print(f"Built migrate/ with {len(rows_soon)} upcoming and {len(rows_gone)} past shutdowns, {len(placements)} sponsored placements")
+
     # Build sitemap: lastmod derived from git so it changes only when content does
     pages = [
         (SITE_URL, "1.0", "daily", lm(["graveyard.json", "template.html", "build.py"])),
@@ -2350,6 +2425,7 @@ def main():
         (SITE_URL + "api/", "0.6", "monthly", lm(["api/index.html"])),
         (SITE_URL + "about/", "0.5", "monthly", lm(["about/index.html"])),
         (SITE_URL + "embed/", "0.6", "weekly", lm(["embed.py", "embed-template.html", "graveyard.json", "layoffs.json"])),
+        (SITE_URL + "migrate/", "0.7", "daily", lm(["coming-soon.json", "graveyard.json", "migrate.json"])),
     ] + ([(SITE_URL + "newsletter/", "0.5", "weekly", datetime.utcnow().strftime("%Y-%m-%d"))] if NEWSLETTER_ENDPOINT else []) + [
     ]
     mods = entry_lastmod_map()

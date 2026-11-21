@@ -149,10 +149,61 @@
     "fundingM": 30,
     "dateAdded": "2026-03-26",
     "seo": {
-      "title": "Rabbit R1 Discontinued? What Happened to the R1 Device",
-      "description": "Is the Rabbit R1 dead? Launch date, the shutdown, what the $199 device did in practice, and what happened to the company behind it."
+      "title": "Rabbit R1 Discontinued? Can You Still Buy One in 2026",
+      "description": "Rabbit has stopped making the R1 but still sells its remaining stock at $199. Where to buy one, what still works, and what the R1 service portal is.",
+      "h1": "Is the Rabbit R1 discontinued?"
     },
-    "slug": "rabbit-r1"
+    "slug": "rabbit-r1",
+    "timeline": [
+      {
+        "date": "2024-01-09",
+        "text": "Rabbit unveils the R1 at CES for $199 with no subscription. The company says the first 10,000 units sold out within 24 hours."
+      },
+      {
+        "date": "2024-04-23",
+        "text": "The first batch reaches buyers in the United States, and Rabbit holds a launch event at the TWA Hotel in New York. Early reviews describe the device as unfinished."
+      },
+      {
+        "date": "2024-08-13",
+        "text": "Sales open in more EU markets and the UK. Rabbit says all new orders now ship within three business days."
+      },
+      {
+        "date": "2025-09-08",
+        "text": "Rabbit releases rabbitOS 2, which it calls its largest software update for the R1 so far."
+      },
+      {
+        "date": "2026-01-29",
+        "text": "Rabbit announces Project Cyberdeck, a small Linux computer for AI-assisted coding, as its second hardware project."
+      },
+      {
+        "date": "2026-09-22",
+        "text": "Rabbit makes OS3 generally available. It is an AI agent that runs in the cloud and works without the R1. Wired's report on the release says Rabbit is no longer manufacturing the R1 and that the existing stock is dwindling."
+      }
+    ],
+    "replacement": "Rabbit moved to software that does not need the device: OS3, an AI agent that runs in the cloud and on Windows, Mac and Linux computers, and also works with the R1. Its next hardware is Project Cyberdeck, and Wired reports that CEO Jesse Lyu has no plans for an R2.",
+    "aftermath": "The R1 was never switched off. As of November 2026 Rabbit's own site still sells it for $199 with no subscription, and owners can run OS3 on it or go back to the earlier assistant in retro mode. Wired's September 2026 report says a handful of employees had gone on strike, claiming they were not being paid, and that Lyu said there were 'no issues with the company's health.' Lyu also claimed more than 100,000 R1s had been delivered.",
+    "faq": [
+      {
+        "q": "Can you still buy a Rabbit R1?",
+        "a": "Yes, for now. As of November 2026 Rabbit's own store lists the R1 at $199 and says it ships in three business days. Wired reported in September 2026 that Rabbit has stopped manufacturing it and that stock is dwindling, so sales last only while units remain."
+      },
+      {
+        "q": "Is the Rabbit R1 discontinued?",
+        "a": "Production has ended, according to Wired's September 2026 report, and CEO Jesse Lyu said there are no plans for an R2. Rabbit has not shut the device down: it still sells the remaining units and still supports the R1 in software."
+      },
+      {
+        "q": "Does the Rabbit R1 still work?",
+        "a": "Yes. The R1 works with OS3, the agent software Rabbit released in September 2026, and a retro mode brings back the earlier assistant. Rabbit says no subscription is required."
+      },
+      {
+        "q": "What is the R1 service portal?",
+        "a": "Rabbit has no page with that name. Returns and warranty claims start with an email to Rabbit support, which issues a return authorization. Device settings now sit in the OS3 web app; before OS3, owners managed connected services in a web portal Rabbit called the rabbithole."
+      },
+      {
+        "q": "Where can I find a used Rabbit R1 for sale?",
+        "a": "Rabbit's support pages say used units appear on secondhand marketplaces such as eBay and Facebook Marketplace. Ask the seller to factory reset the R1 and unlink it from their account, because only the previous owner can unlink it. Rabbit says it cannot guarantee a used device."
+      }
+    ]
   },
   {
     "name": "Google Duplex on the Web",
@@ -947,7 +998,49 @@
     "deathType": "hardware-failed",
     "dateAdded": "2026-03-26",
     "slug": "limitless-pendant-rewind-ai",
-    "fundingM": 33
+    "fundingM": 33,
+    "seo": {
+      "title": "Rewind Pendant: What Happened to the Limitless Pendant",
+      "h1": "What happened to the Rewind Pendant?",
+      "description": "The Rewind Pendant became the Limitless Pendant. Meta bought the company on December 5, 2025 and sales stopped that day. Timeline and what owners keep."
+    },
+    "timeline": [
+      {
+        "date": "2024-04-15",
+        "text": "Rewind renames itself Limitless and opens preorders for a $99 Pendant, with the first batch planned for August. It says it will honor the $59 preorders taken for the Rewind Pendant in October 2023."
+      },
+      {
+        "date": "2025-12-05",
+        "text": "Limitless announces that Meta has acquired it and stops selling the Pendant the same day. Service ends in Brazil, China, the European Union, Israel, South Korea, Turkey and the United Kingdom."
+      },
+      {
+        "date": "2025-12-19",
+        "text": "An update disables all screen and audio capture in the Rewind app. It is also the deadline for users in the dropped regions to download their data before their accounts are deleted."
+      }
+    ],
+    "aftermath": "Limitless said it would support existing Pendant owners for at least another year, through 2026, and made its Unlimited plan free for them. Owners who stay have to accept an updated privacy policy and terms, and they can export or delete their data. The team joined the wearables group in Meta's Reality Labs. As of November 2026 the company's site gives no date for what happens after 2026.",
+    "faq": [
+      {
+        "q": "What was the Rewind Pendant?",
+        "a": "It was a wearable microphone that recorded and transcribed conversations. Rewind co-founder Dan Siroker announced it in October 2023 with $59 preorders. In April 2024 Rewind became Limitless and the device became the $99 Limitless Pendant."
+      },
+      {
+        "q": "Can you still buy a Rewind or Limitless Pendant?",
+        "a": "No. Limitless stopped selling the Pendant on December 5, 2025, the day it announced its acquisition by Meta."
+      },
+      {
+        "q": "Does the Limitless Pendant still work?",
+        "a": "For existing owners in supported regions, yes. Limitless committed to support the Pendant throughout 2026 and made its Unlimited plan free. Service ended on December 5, 2025 in Brazil, China, the European Union, Israel, South Korea, Turkey and the United Kingdom."
+      },
+      {
+        "q": "What happened to the Rewind app?",
+        "a": "Rewind, the desktop app that recorded and searched a user's activity, was sunset. An update disabled all screen and audio capture from December 19, 2025."
+      },
+      {
+        "q": "Who bought Limitless?",
+        "a": "Meta acquired Limitless in December 2025, and the team joined the wearables organization in Reality Labs. Limitless had raised more than $33 million from investors including a16z, First Round Capital and NEA."
+      }
+    ]
   },
   {
     "name": "Google Jamboard",
@@ -961,7 +1054,62 @@
     "collateral": "All collaborative whiteboard data was permanently deleted after the shutdown date. No export path for some content.",
     "deathType": "hardware-failed",
     "dateAdded": "2026-03-26",
-    "slug": "google-jamboard"
+    "slug": "google-jamboard",
+    "seo": {
+      "title": "Google Jamboard Discontinued: What It Was, What Came Next",
+      "h1": "Is Google Jamboard discontinued?",
+      "description": "Google shut down Jamboard on December 31, 2024. What Jamboard was, the wind-down dates, what happened to your jams, and the apps Google pointed to."
+    },
+    "timeline": [
+      {
+        "date": "2016-10-25",
+        "text": "Google announces Jamboard, a 55-inch 4K touchscreen whiteboard for teams that use G Suite."
+      },
+      {
+        "date": "2017-05-23",
+        "text": "Jamboard goes on sale in the United States for $4,999, with an annual management and support fee on top."
+      },
+      {
+        "date": "2023-09-28",
+        "text": "Google says it will wind down the Jamboard app in late 2024 and end support for the device. It points customers to FigJam, Lucidspark and Miro."
+      },
+      {
+        "date": "2024-09-30",
+        "text": "All Jamboard device license subscriptions end, including education licenses. It is also the automatic update expiration date for the 55-inch board."
+      },
+      {
+        "date": "2024-10-01",
+        "text": "Jams can no longer be created or edited on any platform, and the device reaches end of life. The app stays in view-only mode so people can back up their files."
+      },
+      {
+        "date": "2024-12-31",
+        "text": "Google winds down the Jamboard app. Users can no longer open their jam files in it."
+      }
+    ],
+    "replacement": "Google did not build a successor. It named three partner whiteboards that integrate with Google Workspace: FigJam, Lucidspark and Miro. For owners of the 55-inch board it suggested Avocor's Series One Board 65 and Desk 27.",
+    "aftermath": "Google's 2023 announcement said jam files would be permanently deleted. Its help page now says jams were converted to PDFs in 2025 and are available in Google Drive. The 55-inch board still works offline as a plain whiteboard or as an HDMI display, but it can no longer save to Drive or join Google Meet. Google also said it would work with schools to compensate them for their devices.",
+    "faq": [
+      {
+        "q": "What is Jamboard?",
+        "a": "Jamboard was Google's digital whiteboard. It was sold as a 55-inch 4K touchscreen for meeting rooms and classrooms, and it also ran as an app on the web and on phones and tablets, where people drew and wrote together on shared boards called jams."
+      },
+      {
+        "q": "Is Jamboard discontinued?",
+        "a": "Yes. Editing stopped on October 1, 2024, and Google wound down the Jamboard app on December 31, 2024. The 55-inch device reached end of life on October 1, 2024 and gets no more updates."
+      },
+      {
+        "q": "Why did Google discontinue Jamboard?",
+        "a": "Google said customers told it that other whiteboard tools worked better for them, citing features such as an infinite canvas, templates and voting. It chose to rely on partner apps for whiteboarding and to put its own effort into Docs, Sheets and Slides."
+      },
+      {
+        "q": "What replaced Jamboard?",
+        "a": "Nothing from Google. It pointed users to FigJam, Lucidspark and Miro, which integrate with Google Workspace, and to Avocor's Series One Board 65 and Desk 27 as replacement hardware."
+      },
+      {
+        "q": "What happened to my jams?",
+        "a": "Google's help page says jams were converted to PDFs in 2025 and are available in Google Drive. Jams still listed in Drive can also be exported as PDF or PNG files, though a PNG holds only one frame."
+      }
+    ]
   },
   {
     "name": "Woebot",
@@ -1609,7 +1757,49 @@
     "deathType": "startup-failed",
     "fundingM": 33,
     "dateAdded": "2026-08-22",
-    "slug": "yupp-ai"
+    "slug": "yupp-ai",
+    "seo": {
+      "title": "Yupp AI Shut Down: What Happened to Yupp.ai (2026)",
+      "h1": "What happened to Yupp AI?",
+      "description": "Yupp.ai announced its wind-down on March 31, 2026 and closed on April 15. Why the $33M AI model comparison site lasted under a year."
+    },
+    "timeline": [
+      {
+        "date": "2025-06-13",
+        "text": "Yupp launches with a $33 million seed round led by a16z crypto and joined by more than 45 angel investors. Users compare answers from hundreds of AI models for free and earn rewards for rating them."
+      },
+      {
+        "date": "2026-03-31",
+        "text": "Co-founders Pankaj Gupta and Gilad Mishne announce that Yupp is winding down, saying it did not reach strong enough product-market fit. Signups and new chats close with the announcement."
+      },
+      {
+        "date": "2026-04-15",
+        "text": "The date Yupp set for the site to close. It ends a 15-day window in which existing users could still view and export their chat history."
+      }
+    ],
+    "aftermath": "Gupta said the money left over would be returned to investors. He said some employees were joining a 'well-known' AI company and that others were looking for their next role. Existing users had until April 15, 2026 to export their chat history.",
+    "faq": [
+      {
+        "q": "What was Yupp AI?",
+        "a": "Yupp was a free website where people sent one prompt to several AI models and compared the answers side by side. Users rated the answers, and Yupp packaged those ratings as evaluation data for AI labs. By the time it closed it offered about 800 models and said it had signed up 1.3 million users."
+      },
+      {
+        "q": "Is Yupp AI shut down?",
+        "a": "Yes. Yupp announced its wind-down on March 31, 2026 and closed signups and new chats. It set April 15, 2026 as the date the site would close."
+      },
+      {
+        "q": "Why did Yupp shut down?",
+        "a": "The founders said Yupp did not reach strong enough product-market fit. CEO Pankaj Gupta wrote that AI model capabilities had changed dramatically in the last year and that 'the future is not just models but agentic systems.'"
+      },
+      {
+        "q": "How much money did Yupp raise?",
+        "a": "Yupp raised a $33 million seed round led by Chris Dixon of a16z crypto. More than 45 angels and small investors joined, including Jeff Dean, Biz Stone, Evan Sharp and Aravind Srinivas. Gupta said the remaining funds would go back to investors."
+      },
+      {
+        "q": "Can I still download my Yupp chats?",
+        "a": "The export window has closed. Existing users had 15 days from the March 31 announcement to view and download their chat history, and that window ended on April 15, 2026."
+      }
+    ]
   },
   {
     "name": "OpenAI Assistants API",
@@ -1843,9 +2033,29 @@
     "dateAdded": "2026-09-22",
     "slug": "figgs-ai",
     "seo": {
-      "title": "Figgs AI Is Shut Down: What Happened to figgs.ai (2024)",
-      "description": "Figgs AI closed at the end of 2024. The free character-chat app had over a million users, no funding and no revenue, and its developers shut it down instead of charging. What users lost."
-    }
+      "title": "Figgs AI Is Shut Down: What Happened to figgs.ai",
+      "description": "Figgs AI (figgs.ai) is shut down. The free character-chat site drew over 1 million users, and its developers said free access cost too much to sustain.",
+      "h1": "What happened to Figgs AI?"
+    },
+    "aftermath": "The closure notice came from the developers themselves, in a post titled 'Figgs end of life' on the r/FiggsAI subreddit. TechCrunch later added Figgs AI to its running list of dead AI projects, where it reports that the developers said keeping the service free became too expensive to sustain.",
+    "faq": [
+      {
+        "q": "What was Figgs AI?",
+        "a": "Figgs AI was a free character-chat site at figgs.ai. Users created customizable AI characters and talked to them for role-play and storytelling."
+      },
+      {
+        "q": "Is Figgs AI shut down?",
+        "a": "Yes. The developers announced the closure in a post titled 'Figgs end of life' on the r/FiggsAI subreddit. TechCrunch lists Figgs AI among dead AI projects and says it operated from 2023 to 2024."
+      },
+      {
+        "q": "Why did Figgs AI shut down?",
+        "a": "Cost. According to TechCrunch, the developers said keeping the service free became too expensive to sustain, and they shut it down."
+      },
+      {
+        "q": "How many users did Figgs AI have?",
+        "a": "More than 1 million, according to TechCrunch, which gives the figure as reported and not as an official count."
+      }
+    ]
   },
   {
     "name": "theGist",

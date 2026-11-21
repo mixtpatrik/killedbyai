@@ -1,0 +1,4 @@
+{
+  "note": "Sponsored alternatives for /migrate/. Each placement: name, url, blurb (one sentence), and either match (lowercase words; shown on rows whose name contains any of them) or vendor (shown on every row killed by that vendor). They render under the vendor's own replacement with a Sponsored label and rel=sponsored. Leave the list empty for none.",
+  "placements": []
+}
