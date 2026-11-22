@@ -79,7 +79,7 @@ begin
 end;
 $$;
 
-revoke all on function public.newsletter_subscribe(text, text, text) from public;
-revoke all on function public.newsletter_unsubscribe(text) from public;
-grant execute on function public.newsletter_subscribe(text, text, text) to anon, authenticated;
-grant execute on function public.newsletter_unsubscribe(text) to anon, authenticated;
+revoke all on function public.newsletter_subscribe(text, text, text) from public, authenticated;
+revoke all on function public.newsletter_unsubscribe(text) from public, authenticated;
+grant execute on function public.newsletter_subscribe(text, text, text) to anon;
+grant execute on function public.newsletter_unsubscribe(text) to anon;

@@ -29,7 +29,7 @@ NEWSLETTER_ENDPOINT = f"{NEWSLETTER_URL}/rest/v1/rpc/" if NEWSLETTER_URL and NEW
 NEWSLETTER_CONSENT = "One email a week. Unsubscribe any time."
 # Address published on /privacy/ for data requests. Empty = the LinkedIn contact from the about page is shown instead.
 PRIVACY_EMAIL = ""
-PRIVACY_UPDATED = "2026-11-21"   # change when the policy's substance changes
+PRIVACY_UPDATED = "2026-11-22"   # change when the policy's substance changes
 
 
 def slugify(name):
