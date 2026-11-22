@@ -386,6 +386,10 @@
         .nl-msg{margin-top:.375rem;font-size:.875rem;color:var(--text)}
         .nl-msg:empty{display:none}
         .nl-top{margin-top:1.25rem}
+        .site-nav .nav-sub{position:sticky;right:44px;margin-left:auto;padding:0 .625rem 0 .875rem;background:var(--bg);color:var(--red-text);font-weight:600;box-shadow:inset 0 -1px 0 var(--border),-10px 0 8px -4px var(--bg)}
+        .site-nav .nav-sub:hover{color:var(--text);background:var(--bg)}
+        .site-nav .nav-sub[aria-current]{box-shadow:inset 0 -2px 0 var(--red)}
+        .nav-sub + .theme-toggle{margin-left:0;box-shadow:inset 0 -1px 0 var(--border)}
         .nl-pop{position:fixed;left:1rem;bottom:1rem;z-index:70;width:min(23rem,calc(100vw - 2rem));padding:1rem 1.125rem 1rem;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 8px 28px rgba(0,0,0,.35)}
         .nl-pop[hidden]{display:none}
         .nl-pop-t{padding-right:2rem;font-family:var(--serif);font-size:1.1875rem;font-weight:700;line-height:1.2;color:var(--text)}
@@ -451,22 +455,34 @@
         .then(function(){m.textContent=un?"Done. That address is off the list.":"You are on the list. The first weekly issue is on its way soon.";f.email.value="";if(!un){try{localStorage.setItem("kbai-nl","subscribed")}catch(e){}if(window.gtag)gtag("event","newsletter_signup",{page_path:location.pathname,form:f.email.id})}})
         .catch(function(){m.textContent="That did not go through. Please try again in a minute."})
         .finally(function(){b.disabled=false})})</script>
-    <script>(function(){var H="<button type=\"button\" class=\"nl-pop-x\" aria-label=\"Close\">\u2715</button><p class=\"nl-pop-t\">Killed by <span>AI</span>, weekly</p><p class=\"nl-pop-d\">What died, which layoffs were blamed on AI, and what shuts down next.</p><form class=\"nl-form\" data-nl=\"subscribe\" novalidate><label class=\"nl-label\" for=\"nl-pop\">Get the weekly summary by email</label><div class=\"nl-row\"><input type=\"email\" id=\"nl-pop\" name=\"email\" autocomplete=\"email\" inputmode=\"email\" placeholder=\"you@example.com\" required><input type=\"text\" name=\"website\" class=\"nl-hp\" tabindex=\"-1\" autocomplete=\"off\" aria-hidden=\"true\"><button type=\"submit\" class=\"nl-btn\">Subscribe</button></div><p class=\"nl-note\">One email a week. Unsubscribe any time. <a href=\"/privacy/\">Privacy</a>.</p><p class=\"nl-msg\" role=\"status\"></p></form>";if(!H||/^\/(newsletter|privacy|will-ai-take-my-job)\//.test(location.pathname))return;
-      var K="kbai-nl",v=null;try{v=localStorage.getItem(K)}catch(e){return}
-      if(v==="subscribed"||(v&&v.indexOf("closed:")===0&&Date.now()-(+v.slice(7))<2592e6))return;   // not after a signup, not for 30 days after a close
-      var shown=false,t;
-      function show(){if(shown)return;var a=document.activeElement;if(a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)){t=setTimeout(show,15e3);return}   // never while someone is typing
-        try{if(localStorage.getItem(K)==="subscribed")return}catch(e){}
-        shown=true;removeEventListener("scroll",onScroll);clearTimeout(t);
-        var p=document.createElement("aside");p.className="nl-pop";p.setAttribute("role","dialog");p.setAttribute("aria-label","Weekly newsletter");p.innerHTML=H;document.body.appendChild(p);
+    <script>(function(){var H="<button type=\"button\" class=\"nl-pop-x\" aria-label=\"Close\">\u2715</button><p class=\"nl-pop-t\">Killed by <span>AI</span>, weekly</p><p class=\"nl-pop-d\">What died, which layoffs were blamed on AI, and what shuts down next.</p><form class=\"nl-form\" data-nl=\"subscribe\" novalidate><label class=\"nl-label\" for=\"nl-pop\">Get the weekly summary by email</label><div class=\"nl-row\"><input type=\"email\" id=\"nl-pop\" name=\"email\" autocomplete=\"email\" inputmode=\"email\" placeholder=\"you@example.com\" required><input type=\"text\" name=\"website\" class=\"nl-hp\" tabindex=\"-1\" autocomplete=\"off\" aria-hidden=\"true\"><button type=\"submit\" class=\"nl-btn\">Subscribe</button></div><p class=\"nl-note\">One email a week. Unsubscribe any time. <a href=\"/privacy/\">Privacy</a>.</p><p class=\"nl-msg\" role=\"status\"></p></form>";if(!H)return;
+      // The signup panel: opened from the Subscribe item in the menu, or by itself after 45 seconds or 70% scroll.
+      var K="kbai-nl",P=location.pathname,panel=null,t;
+      function get(){try{return localStorage.getItem(K)}catch(e){return null}}
+      function close(remember){if(!panel)return;panel.remove();panel=null;document.documentElement.classList.remove("nl-pop-open");removeEventListener("keydown",esc);
+        if(remember){try{if(get()!=="subscribed")localStorage.setItem(K,"closed:"+Date.now())}catch(e){}}}
+      function esc(e){if(e.key==="Escape")close(true)}
+      function open(byHand){clearTimeout(t);removeEventListener("scroll",onScroll);
+        if(panel){if(byHand)panel.querySelector("input[type=email]").focus();return}
+        panel=document.createElement("aside");panel.className="nl-pop";panel.setAttribute("role","dialog");panel.setAttribute("aria-label","Weekly newsletter");panel.innerHTML=H;document.body.appendChild(panel);
         document.documentElement.classList.add("nl-pop-open");
-        function close(remember){p.remove();document.documentElement.classList.remove("nl-pop-open");removeEventListener("keydown",esc);if(remember){try{if(localStorage.getItem(K)!=="subscribed")localStorage.setItem(K,"closed:"+Date.now())}catch(e){}}}
-        function esc(e){if(e.key==="Escape")close(true)}
-        p.querySelector(".nl-pop-x").addEventListener("click",function(){close(true)});addEventListener("keydown",esc);
-        new MutationObserver(function(){if(/on the list/.test(p.querySelector(".nl-msg").textContent))setTimeout(function(){close(false)},4000)}).observe(p.querySelector(".nl-msg"),{childList:true,characterData:true,subtree:true});
-        if(window.gtag)gtag("event","newsletter_prompt",{page_path:location.pathname})}
-      function onScroll(){var d=document.documentElement,max=d.scrollHeight-innerHeight;if(max>600&&scrollY/max>=.7)show()}
-      addEventListener("DOMContentLoaded",function(){t=setTimeout(show,45e3);addEventListener("scroll",onScroll,{passive:true})})})()</script>
+        panel.querySelector(".nl-pop-x").addEventListener("click",function(){close(true)});addEventListener("keydown",esc);
+        var m=panel.querySelector(".nl-msg");new MutationObserver(function(){if(/on the list/.test(m.textContent))setTimeout(function(){close(false)},4000)}).observe(m,{childList:true,characterData:true,subtree:true});
+        if(byHand)panel.querySelector("input[type=email]").focus();
+        if(window.gtag)gtag("event",byHand?"newsletter_open":"newsletter_prompt",{page_path:P})}
+      function auto(){var a=document.activeElement;if(a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)){t=setTimeout(auto,15e3);return}   // never while someone is typing
+        if(get()==="subscribed")return;open(false)}
+      function onScroll(){var d=document.documentElement,max=d.scrollHeight-innerHeight;if(max>600&&scrollY/max>=.7)auto()}
+      addEventListener("DOMContentLoaded",function(){
+        var n=document.querySelector(".site-nav");
+        if(n){var a=document.createElement("a");a.href="/newsletter/";a.className="site-nav-item nav-sub";a.textContent="Subscribe";
+          if(P==="/newsletter/")a.setAttribute("aria-current","page");
+          a.addEventListener("click",function(e){if(e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;e.preventDefault();
+            var f=document.getElementById("nl-page");if(f){f.scrollIntoView({block:"center"});f.focus({preventScroll:true})}else open(true)});
+          n.insertBefore(a,n.querySelector(".theme-toggle"))}
+        var v=get();
+        if(/^\/(newsletter|privacy|will-ai-take-my-job)\//.test(P)||v==="subscribed"||(v&&v.indexOf("closed:")===0&&Date.now()-(+v.slice(7))<2592e6))return;   // no automatic prompt here, after a signup, or for 30 days after a close
+        t=setTimeout(auto,45e3);addEventListener("scroll",onScroll,{passive:true})})})()</script>
     <script>if(!CSS.supports("scroll-initial-target","nearest"))addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".site-nav"),a=n&&n.querySelector(".active");if(a)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2})</script>
     <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*\\?(.+)"}},{"not":{"href_matches":"/*.*"}},{"not":{"selector_matches":"[download],[rel~=nofollow],[target=_blank],[aria-current=page]"}}]},"eagerness":"moderate"}]}</script>
 </head>
