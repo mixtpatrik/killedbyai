@@ -204,6 +204,22 @@ def newsletter_form(uid, action="subscribe"):
             f'{note}<p class="nl-msg" role="status"></p></form>')
 
 
+def newsletter_top():
+    """The signup form near the top of the main pages ({{NL_TOP}} in templates)."""
+    form = newsletter_form("top")
+    return f'<div class="nl-top">{form}</div>' if form else ""
+
+
+def newsletter_prompt():
+    """The small signup panel that slides in after 45 seconds or 70% scroll (built by the script in SITE_HEAD)."""
+    form = newsletter_form("pop")
+    if not form:
+        return ""
+    return ('<button type="button" class="nl-pop-x" aria-label="Close">\u2715</button>'
+            '<p class="nl-pop-t">Killed by <span>AI</span>, weekly</p>'
+            '<p class="nl-pop-d">What died, which layoffs were blamed on AI, and what shuts down next.</p>' + form)
+
+
 def footer_links(active=None):
     """The site footer's body: wordmark, one line about the site, and the links grouped in four columns."""
     n = len(json.loads((ROOT / "graveyard.json").read_text()))
@@ -294,6 +310,18 @@ SITE_HEAD = r"""<meta name="color-scheme" content="dark light">
         .nl-note a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
         .nl-msg{margin-top:.375rem;font-size:.875rem;color:var(--text)}
         .nl-msg:empty{display:none}
+        .nl-top{margin-top:1.25rem}
+        .nl-pop{position:fixed;left:1rem;bottom:1rem;z-index:70;width:min(23rem,calc(100vw - 2rem));padding:1rem 1.125rem 1rem;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 8px 28px rgba(0,0,0,.35)}
+        .nl-pop[hidden]{display:none}
+        .nl-pop-t{padding-right:2rem;font-family:var(--serif);font-size:1.1875rem;font-weight:700;line-height:1.2;color:var(--text)}
+        .nl-pop-t span{color:var(--red)}
+        .nl-pop-d{margin:.25rem 0 .75rem;font-size:.9375rem;line-height:1.45;color:var(--text-muted)}
+        .nl-pop .nl-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+        .nl-pop-x{position:absolute;top:.25rem;right:.25rem;width:44px;height:44px;padding:0;background:none;border:0;color:var(--text-muted);font:inherit;font-size:1rem;cursor:pointer}
+        .nl-pop-x:hover{color:var(--text)}
+        @media(prefers-reduced-motion:no-preference){.nl-pop{animation:nl-in .25s ease-out}@keyframes nl-in{from{opacity:0;transform:translateY(12px)}}}
+        @media(max-width:600px){.nl-pop{left:0;right:0;bottom:0;width:auto;border-width:1px 0 0;border-radius:0;padding-bottom:calc(1rem + env(safe-area-inset-bottom))}
+            .nl-pop-open .back-to-top,.nl-pop-open .to-filters{display:none}}
         .footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:1.25rem 2.5rem;margin-bottom:1.75rem}
         .footer-top .footer-brand{flex:1 1 16rem;margin-bottom:0}
         .footer-top .nl-form{flex:1 1 18rem;min-width:0}
@@ -345,11 +373,27 @@ SITE_HEAD = r"""<meta name="color-scheme" content="dark light">
       b.disabled=true;m.textContent=un?"Removing\u2026":"Subscribing\u2026";
       fetch("__NL_ENDPOINT__"+(un?"newsletter_unsubscribe":"newsletter_subscribe"),{method:"POST",headers:{"Content-Type":"application/json",apikey:"__NL_KEY__"},body:JSON.stringify(un?{p_email:v}:{p_email:v,p_source:location.pathname,p_website:f.website.value})})
         .then(function(r){return r.json().then(function(j){if(!r.ok||!j.ok)throw new Error(j.error||r.status);return j})})
-        .then(function(){m.textContent=un?"Done. That address is off the list.":"You are on the list. The first weekly issue is on its way soon.";f.email.value="";if(!un&&window.gtag)gtag("event","newsletter_signup",{page_path:location.pathname})})
+        .then(function(){m.textContent=un?"Done. That address is off the list.":"You are on the list. The first weekly issue is on its way soon.";f.email.value="";if(!un){try{localStorage.setItem("kbai-nl","subscribed")}catch(e){}if(window.gtag)gtag("event","newsletter_signup",{page_path:location.pathname,form:f.email.id})}})
         .catch(function(){m.textContent="That did not go through. Please try again in a minute."})
         .finally(function(){b.disabled=false})})</script>
+    <script>(function(){var H=__NL_POP__;if(!H||/^\/(newsletter|privacy|will-ai-take-my-job)\//.test(location.pathname))return;
+      var K="kbai-nl",v=null;try{v=localStorage.getItem(K)}catch(e){return}
+      if(v==="subscribed"||(v&&v.indexOf("closed:")===0&&Date.now()-(+v.slice(7))<2592e6))return;   // not after a signup, not for 30 days after a close
+      var shown=false,t;
+      function show(){if(shown)return;var a=document.activeElement;if(a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)){t=setTimeout(show,15e3);return}   // never while someone is typing
+        try{if(localStorage.getItem(K)==="subscribed")return}catch(e){}
+        shown=true;removeEventListener("scroll",onScroll);clearTimeout(t);
+        var p=document.createElement("aside");p.className="nl-pop";p.setAttribute("role","dialog");p.setAttribute("aria-label","Weekly newsletter");p.innerHTML=H;document.body.appendChild(p);
+        document.documentElement.classList.add("nl-pop-open");
+        function close(remember){p.remove();document.documentElement.classList.remove("nl-pop-open");removeEventListener("keydown",esc);if(remember){try{if(localStorage.getItem(K)!=="subscribed")localStorage.setItem(K,"closed:"+Date.now())}catch(e){}}}
+        function esc(e){if(e.key==="Escape")close(true)}
+        p.querySelector(".nl-pop-x").addEventListener("click",function(){close(true)});addEventListener("keydown",esc);
+        new MutationObserver(function(){if(/on the list/.test(p.querySelector(".nl-msg").textContent))setTimeout(function(){close(false)},4000)}).observe(p.querySelector(".nl-msg"),{childList:true,characterData:true,subtree:true});
+        if(window.gtag)gtag("event","newsletter_prompt",{page_path:location.pathname})}
+      function onScroll(){var d=document.documentElement,max=d.scrollHeight-innerHeight;if(max>600&&scrollY/max>=.7)show()}
+      addEventListener("DOMContentLoaded",function(){t=setTimeout(show,45e3);addEventListener("scroll",onScroll,{passive:true})})})()</script>
     <script>if(!CSS.supports("scroll-initial-target","nearest"))addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".site-nav"),a=n&&n.querySelector(".active");if(a)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2})</script>
-    <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*\\?(.+)"}},{"not":{"href_matches":"/*.*"}},{"not":{"selector_matches":"[download],[rel~=nofollow],[target=_blank],[aria-current=page]"}}]},"eagerness":"moderate"}]}</script>""".replace("__NL_ENDPOINT__", NEWSLETTER_ENDPOINT).replace("__NL_KEY__", NEWSLETTER_KEY)
+    <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*\\?(.+)"}},{"not":{"href_matches":"/*.*"}},{"not":{"selector_matches":"[download],[rel~=nofollow],[target=_blank],[aria-current=page]"}}]},"eagerness":"moderate"}]}</script>""".replace("__NL_ENDPOINT__", NEWSLETTER_ENDPOINT).replace("__NL_KEY__", NEWSLETTER_KEY).replace("__NL_POP__", json.dumps(newsletter_prompt()))
 
 
 def faq_section(items, title="Frequently asked questions"):
@@ -389,7 +433,7 @@ def crumb_items(url, label, *parents):
 
 def read_template(name):
     """A page template with the shared head block filled in."""
-    return (ROOT / name).read_text().replace("{{SITE_HEAD}}", SITE_HEAD)
+    return (ROOT / name).read_text().replace("{{SITE_HEAD}}", SITE_HEAD).replace("{{NL_TOP}}", newsletter_top())
 
 
 # killedBy values that are causes, not companies: how to say "killed by X" in running text (None = it died on its own).

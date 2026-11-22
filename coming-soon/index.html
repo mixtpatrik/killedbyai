@@ -127,7 +127,7 @@
         "name": "Killed by AI",
         "url": "https://killedbyai.net/"
       },
-      "dateModified": "2026-11-21"
+      "dateModified": "2026-11-22"
     },
     {
       "@type": "ItemList",
@@ -1303,6 +1303,18 @@
         .nl-note a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
         .nl-msg{margin-top:.375rem;font-size:.875rem;color:var(--text)}
         .nl-msg:empty{display:none}
+        .nl-top{margin-top:1.25rem}
+        .nl-pop{position:fixed;left:1rem;bottom:1rem;z-index:70;width:min(23rem,calc(100vw - 2rem));padding:1rem 1.125rem 1rem;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 8px 28px rgba(0,0,0,.35)}
+        .nl-pop[hidden]{display:none}
+        .nl-pop-t{padding-right:2rem;font-family:var(--serif);font-size:1.1875rem;font-weight:700;line-height:1.2;color:var(--text)}
+        .nl-pop-t span{color:var(--red)}
+        .nl-pop-d{margin:.25rem 0 .75rem;font-size:.9375rem;line-height:1.45;color:var(--text-muted)}
+        .nl-pop .nl-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+        .nl-pop-x{position:absolute;top:.25rem;right:.25rem;width:44px;height:44px;padding:0;background:none;border:0;color:var(--text-muted);font:inherit;font-size:1rem;cursor:pointer}
+        .nl-pop-x:hover{color:var(--text)}
+        @media(prefers-reduced-motion:no-preference){.nl-pop{animation:nl-in .25s ease-out}@keyframes nl-in{from{opacity:0;transform:translateY(12px)}}}
+        @media(max-width:600px){.nl-pop{left:0;right:0;bottom:0;width:auto;border-width:1px 0 0;border-radius:0;padding-bottom:calc(1rem + env(safe-area-inset-bottom))}
+            .nl-pop-open .back-to-top,.nl-pop-open .to-filters{display:none}}
         .footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:1.25rem 2.5rem;margin-bottom:1.75rem}
         .footer-top .footer-brand{flex:1 1 16rem;margin-bottom:0}
         .footer-top .nl-form{flex:1 1 18rem;min-width:0}
@@ -1354,9 +1366,25 @@
       b.disabled=true;m.textContent=un?"Removing\u2026":"Subscribing\u2026";
       fetch("https://iiciaugvnmqkaqerglpw.supabase.co/rest/v1/rpc/"+(un?"newsletter_unsubscribe":"newsletter_subscribe"),{method:"POST",headers:{"Content-Type":"application/json",apikey:"sb_publishable_cd7mYc4sRLle7dmaZffWmw_NGbgPcUD"},body:JSON.stringify(un?{p_email:v}:{p_email:v,p_source:location.pathname,p_website:f.website.value})})
         .then(function(r){return r.json().then(function(j){if(!r.ok||!j.ok)throw new Error(j.error||r.status);return j})})
-        .then(function(){m.textContent=un?"Done. That address is off the list.":"You are on the list. The first weekly issue is on its way soon.";f.email.value="";if(!un&&window.gtag)gtag("event","newsletter_signup",{page_path:location.pathname})})
+        .then(function(){m.textContent=un?"Done. That address is off the list.":"You are on the list. The first weekly issue is on its way soon.";f.email.value="";if(!un){try{localStorage.setItem("kbai-nl","subscribed")}catch(e){}if(window.gtag)gtag("event","newsletter_signup",{page_path:location.pathname,form:f.email.id})}})
         .catch(function(){m.textContent="That did not go through. Please try again in a minute."})
         .finally(function(){b.disabled=false})})</script>
+    <script>(function(){var H="<button type=\"button\" class=\"nl-pop-x\" aria-label=\"Close\">\u2715</button><p class=\"nl-pop-t\">Killed by <span>AI</span>, weekly</p><p class=\"nl-pop-d\">What died, which layoffs were blamed on AI, and what shuts down next.</p><form class=\"nl-form\" data-nl=\"subscribe\" novalidate><label class=\"nl-label\" for=\"nl-pop\">Get the weekly summary by email</label><div class=\"nl-row\"><input type=\"email\" id=\"nl-pop\" name=\"email\" autocomplete=\"email\" inputmode=\"email\" placeholder=\"you@example.com\" required><input type=\"text\" name=\"website\" class=\"nl-hp\" tabindex=\"-1\" autocomplete=\"off\" aria-hidden=\"true\"><button type=\"submit\" class=\"nl-btn\">Subscribe</button></div><p class=\"nl-note\">One email a week. Unsubscribe any time. <a href=\"/privacy/\">Privacy</a>.</p><p class=\"nl-msg\" role=\"status\"></p></form>";if(!H||/^\/(newsletter|privacy|will-ai-take-my-job)\//.test(location.pathname))return;
+      var K="kbai-nl",v=null;try{v=localStorage.getItem(K)}catch(e){return}
+      if(v==="subscribed"||(v&&v.indexOf("closed:")===0&&Date.now()-(+v.slice(7))<2592e6))return;   // not after a signup, not for 30 days after a close
+      var shown=false,t;
+      function show(){if(shown)return;var a=document.activeElement;if(a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)){t=setTimeout(show,15e3);return}   // never while someone is typing
+        try{if(localStorage.getItem(K)==="subscribed")return}catch(e){}
+        shown=true;removeEventListener("scroll",onScroll);clearTimeout(t);
+        var p=document.createElement("aside");p.className="nl-pop";p.setAttribute("role","dialog");p.setAttribute("aria-label","Weekly newsletter");p.innerHTML=H;document.body.appendChild(p);
+        document.documentElement.classList.add("nl-pop-open");
+        function close(remember){p.remove();document.documentElement.classList.remove("nl-pop-open");removeEventListener("keydown",esc);if(remember){try{if(localStorage.getItem(K)!=="subscribed")localStorage.setItem(K,"closed:"+Date.now())}catch(e){}}}
+        function esc(e){if(e.key==="Escape")close(true)}
+        p.querySelector(".nl-pop-x").addEventListener("click",function(){close(true)});addEventListener("keydown",esc);
+        new MutationObserver(function(){if(/on the list/.test(p.querySelector(".nl-msg").textContent))setTimeout(function(){close(false)},4000)}).observe(p.querySelector(".nl-msg"),{childList:true,characterData:true,subtree:true});
+        if(window.gtag)gtag("event","newsletter_prompt",{page_path:location.pathname})}
+      function onScroll(){var d=document.documentElement,max=d.scrollHeight-innerHeight;if(max>600&&scrollY/max>=.7)show()}
+      addEventListener("DOMContentLoaded",function(){t=setTimeout(show,45e3);addEventListener("scroll",onScroll,{passive:true})})})()</script>
     <script>if(!CSS.supports("scroll-initial-target","nearest"))addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".site-nav"),a=n&&n.querySelector(".active");if(a)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2})</script>
     <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*\\?(.+)"}},{"not":{"href_matches":"/*.*"}},{"not":{"selector_matches":"[download],[rel~=nofollow],[target=_blank],[aria-current=page]"}}]},"eagerness":"moderate"}]}</script>
 </head>
@@ -1374,6 +1402,7 @@
         <h1>Upcoming AI <span>Shutdowns</span></h1>
         <p class="lede">Coming soon to the graveyard: the deprecation schedule for 33 AI products with confirmed death dates. Already announced, just counting down. For the replacement each vendor names, see <a href="/migrate/">what to migrate to</a>.</p>
         <p class="last-updated" id="calendar">Last updated: November 18, 2026 · Shutdown calendar: <a href="webcal://killedbyai.net/deprecations.ics" class="ics-link">Subscribe (Apple / Outlook)</a> · <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Fkilledbyai.net%2Fdeprecations.ics" class="ics-link" target="_blank" rel="noopener">Add to Google Calendar (desktop)</a> · <a href="/deprecations.ics" class="ics-link" download>Download .ics</a></p>
+        <div class="nl-top"><form class="nl-form" data-nl="subscribe" novalidate><label class="nl-label" for="nl-top">Get the weekly summary by email</label><div class="nl-row"><input type="email" id="nl-top" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required><input type="text" name="website" class="nl-hp" tabindex="-1" autocomplete="off" aria-hidden="true"><button type="submit" class="nl-btn">Subscribe</button></div><p class="nl-note">One email a week. Unsubscribe any time. <a href="/privacy/">Privacy</a>.</p><p class="nl-msg" role="status"></p></form></div>
     </header>
     <main class="list">
 <article class="doom-card" id="openai-models-in-cursor">
@@ -1423,7 +1452,7 @@
 <article class="doom-card" id="vertex-ai-extensions">
   <h2 class="doom-name">Vertex AI Extensions</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-11-26"><b>5</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-11-26"><b>4</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-11-26">November 26, 2026</time></p>
     
   </div>
@@ -1434,7 +1463,7 @@
 <article class="doom-card" id="ai21-jamba-1-5-large-mini-on-amazon-bedrock">
   <h2 class="doom-name">AI21 Jamba 1.5 Large &amp; Mini on Amazon Bedrock</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-11-26"><b>5</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-11-26"><b>4</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-11-26">November 26, 2026</time></p>
     
   </div>
@@ -1445,7 +1474,7 @@
 <article class="doom-card" id="claude-sonnet-4-5">
   <h2 class="doom-name">Claude Sonnet 4.5</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-11-30"><b>9</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-11-30"><b>8</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-11-30">November 30, 2026</time></p>
     
   </div>
@@ -1456,7 +1485,7 @@
 <article class="doom-card" id="openai-agent-builder-evals-reusable-prompts">
   <h2 class="doom-name">OpenAI Agent Builder, Evals &amp; Reusable Prompts</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-11-30"><b>9</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-11-30"><b>8</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-11-30">November 30, 2026</time></p>
     
   </div>
@@ -1467,7 +1496,7 @@
 <article class="doom-card" id="mozilla-solo">
   <h2 class="doom-name">Mozilla Solo</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-11-30"><b>9</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-11-30"><b>8</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-11-30">November 30, 2026</time></p>
     
   </div>
@@ -1478,7 +1507,7 @@
 <article class="doom-card" id="openai-legacy-gpt-image-models">
   <h2 class="doom-name">OpenAI Legacy GPT Image Models</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-12-01"><b>10</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-12-01"><b>9</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-12-01">December 1, 2026</time></p>
     
   </div>
@@ -1489,7 +1518,7 @@
 <article class="doom-card" id="gemini-2-5-pro-2-5-flash-gemini-api">
   <h2 class="doom-name">Gemini 2.5 Pro &amp; 2.5 Flash (Gemini API)</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-12-01"><b>10</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-12-01"><b>9</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-12-01">December 1, 2026</time></p>
     
   </div>
@@ -1500,7 +1529,7 @@
 <article class="doom-card" id="gemini-omni-1-1-flash">
   <h2 class="doom-name">Gemini Omni 1.1 Flash</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-12-03"><b>12</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-12-03"><b>11</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-12-03">December 3, 2026</time></p>
     
   </div>
@@ -1511,7 +1540,7 @@
 <article class="doom-card" id="azure-openai-gpt-4o-2024-05-13">
   <h2 class="doom-name">Azure OpenAI GPT-4o (2024-05-13)</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-12-09"><b>18</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-12-09"><b>17</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-12-09">December 9, 2026</time></p>
     
   </div>
@@ -1522,7 +1551,7 @@
 <article class="doom-card" id="openai-gpt-5-original-snapshots-o3-o3-pro">
   <h2 class="doom-name">OpenAI GPT-5 (original snapshots), o3 &amp; o3-pro</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-12-11"><b>20</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-12-11"><b>19</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-12-11">December 11, 2026</time></p>
     
   </div>
@@ -1533,7 +1562,7 @@
 <article class="doom-card" id="chatgpt-custom-gpts">
   <h2 class="doom-name">ChatGPT Custom GPTs</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-12-11"><b>20</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-12-11"><b>19</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-12-11">December 11, 2026</time></p>
     
   </div>
@@ -1544,7 +1573,7 @@
 <article class="doom-card" id="azure-openai-whisper-tts">
   <h2 class="doom-name">Azure OpenAI Whisper &amp; TTS</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-12-15"><b>24</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-12-15"><b>23</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-12-15">December 15, 2026</time></p>
     
   </div>
@@ -1555,7 +1584,7 @@
 <article class="doom-card" id="gemini-tts-preview-models">
   <h2 class="doom-name">Gemini TTS Preview Models</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-12-18"><b>27</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-12-18"><b>26</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-12-18">December 18, 2026</time></p>
     
   </div>
@@ -1566,7 +1595,7 @@
 <article class="doom-card" id="tencent-qclaw">
   <h2 class="doom-name">Tencent QClaw</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-12-24"><b>33</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-12-24"><b>32</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-12-24">December 24, 2026</time></p>
     
   </div>
@@ -1577,7 +1606,7 @@
 <article class="doom-card" id="google-jules">
   <h2 class="doom-name">Google Jules</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2026-12-31"><b>40</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2026-12-31"><b>39</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2026-12-31">December 31, 2026</time></p>
     
   </div>
@@ -1588,7 +1617,7 @@
 <article class="doom-card" id="openai-self-serve-fine-tuning">
   <h2 class="doom-name">OpenAI Self-Serve Fine-tuning</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2027-01-06"><b>46</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2027-01-06"><b>45</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2027-01-06">January 6, 2027</time></p>
     
   </div>
@@ -1599,7 +1628,7 @@
 <article class="doom-card" id="openai-tts-1-tts-1-hd-gpt-4o-mini-tts">
   <h2 class="doom-name">OpenAI TTS-1, TTS-1-HD &amp; GPT-4o mini TTS</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2027-01-06"><b>46</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2027-01-06"><b>45</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2027-01-06">January 6, 2027</time></p>
     
   </div>
@@ -1610,7 +1639,7 @@
 <article class="doom-card" id="claude-opus-4-1-on-amazon-bedrock">
   <h2 class="doom-name">Claude Opus 4.1 on Amazon Bedrock</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2027-01-08"><b>48</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2027-01-08"><b>47</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2027-01-08">January 8, 2027</time></p>
     
   </div>
@@ -1621,7 +1650,7 @@
 <article class="doom-card" id="openai-gpt-4o-gpt-4o-mini-gpt-4-1-4-1-mini-api">
   <h2 class="doom-name">OpenAI GPT-4o, GPT-4o mini, GPT-4.1 &amp; 4.1 mini (API)</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2027-01-14"><b>54</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2027-01-14"><b>53</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2027-01-14">January 14, 2027</time></p>
     
   </div>
@@ -1632,7 +1661,7 @@
 <article class="doom-card" id="openai-realtime-audio-model-family">
   <h2 class="doom-name">OpenAI Realtime &amp; Audio Model Family</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2027-01-20"><b>60</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2027-01-20"><b>59</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2027-01-20">January 20, 2027</time></p>
     
   </div>
@@ -1643,7 +1672,7 @@
 <article class="doom-card" id="openai-whisper-1-gpt-4o-transcribe">
   <h2 class="doom-name">OpenAI Whisper-1 &amp; GPT-4o Transcribe</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2027-02-26"><b>97</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2027-02-26"><b>96</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2027-02-26">February 26, 2027</time></p>
     
   </div>
@@ -1654,7 +1683,7 @@
 <article class="doom-card" id="google-gemini-2-5-flash-image-nano-banana">
   <h2 class="doom-name">Google Gemini 2.5 Flash Image (&quot;Nano Banana&quot;)</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2027-03-15"><b>114</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2027-03-15"><b>113</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2027-03-15">March 15, 2027</time></p>
     
   </div>
@@ -1665,7 +1694,7 @@
 <article class="doom-card" id="firebase-studio">
   <h2 class="doom-name">Firebase Studio</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2027-03-22"><b>121</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2027-03-22"><b>120</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2027-03-22">March 22, 2027</time></p>
     
   </div>
@@ -1676,7 +1705,7 @@
 <article class="doom-card" id="pipedream-workflows-string">
   <h2 class="doom-name">Pipedream Workflows &amp; String</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2027-03-31"><b>130</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2027-03-31"><b>129</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2027-03-31">March 31, 2027</time></p>
     
   </div>
@@ -1687,7 +1716,7 @@
 <article class="doom-card" id="microsoft-foundry-agent-service-classic">
   <h2 class="doom-name">Microsoft Foundry Agent Service (classic)</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2027-03-31"><b>130</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2027-03-31"><b>129</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2027-03-31">March 31, 2027</time></p>
     
   </div>
@@ -1698,7 +1727,7 @@
 <article class="doom-card" id="openai-gpt-5-3-codex-gpt-5-1-gpt-5-4-nano">
   <h2 class="doom-name">OpenAI GPT-5.3-Codex, GPT-5.1 &amp; GPT-5.4-nano</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2027-04-01"><b>131</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2027-04-01"><b>130</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2027-04-01">April 1, 2027</time></p>
     
   </div>
@@ -1709,7 +1738,7 @@
 <article class="doom-card" id="vertex-ai-legacy-embedding-models">
   <h2 class="doom-name">Vertex AI Legacy Embedding Models</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2027-04-01"><b>131</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2027-04-01"><b>130</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2027-04-01">April 1, 2027</time></p>
     
   </div>
@@ -1720,7 +1749,7 @@
 <article class="doom-card" id="azure-openai-gpt-4-1-4-1-mini-4-1-nano">
   <h2 class="doom-name">Azure OpenAI GPT-4.1, 4.1 mini &amp; 4.1 nano</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2027-04-14"><b>144</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2027-04-14"><b>143</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2027-04-14">April 14, 2027</time></p>
     
   </div>
@@ -1731,7 +1760,7 @@
 <article class="doom-card" id="amazon-q-developer-ide-plugins-subscriptions">
   <h2 class="doom-name">Amazon Q Developer (IDE plugins &amp; subscriptions)</h2>
   <div class="doom-when">
-    <p class="doom-countdown" data-shutdown="2027-04-30"><b>160</b> days left</p>
+    <p class="doom-countdown" data-shutdown="2027-04-30"><b>159</b> days left</p>
     <p class="doom-date">Shutdown: <time datetime="2027-04-30">April 30, 2027</time></p>
     
   </div>
