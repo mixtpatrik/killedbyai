@@ -220,7 +220,10 @@
         .nl-msg{margin-top:.375rem;font-size:.875rem;color:var(--text)}
         .nl-msg:empty{display:none}
         .nl-top{margin-top:1.25rem}
-        .site-nav .nav-sub{position:sticky;right:44px;margin-left:auto;padding:0 .625rem 0 .875rem;background:var(--bg);color:var(--red-text);font-weight:600;box-shadow:inset 0 -1px 0 var(--border),-10px 0 8px -4px var(--bg)}
+        .site-nav.has-scroll{overflow:visible;gap:0}
+        .nav-scroll{flex:1;min-width:0;display:flex;gap:0 1.5rem;overflow-x:auto;scrollbar-width:none}
+        .nav-scroll::-webkit-scrollbar{display:none}
+        .site-nav .nav-sub{position:relative;margin-left:auto;padding:0 .625rem 0 .875rem;background:var(--bg);color:var(--red-text);font-weight:600;box-shadow:inset 0 -1px 0 var(--border),-10px 0 8px -4px var(--bg)}
         .site-nav .nav-sub:hover{color:var(--text);background:var(--bg)}
         .site-nav .nav-sub[aria-current]{box-shadow:inset 0 -2px 0 var(--red)}
         .nav-sub + .theme-toggle{margin-left:0;box-shadow:inset 0 -1px 0 var(--border)}
@@ -254,7 +257,7 @@
         @media(pointer:coarse){.footer-col a{padding:.5rem 0}}
         @media(prefers-reduced-motion:no-preference){@view-transition{navigation:auto}}
         @media(max-width:600px){
-            .site-nav{scroll-padding-inline:35vw}
+            .site-nav,.nav-scroll{scroll-padding-inline:35vw}
             .site-nav-item.active{scroll-initial-target:nearest}
         }
         .theme-toggle{position:sticky;right:0;flex:none;display:inline-flex;align-items:center;justify-content:center;width:44px;min-height:48px;margin-left:auto;padding:0;background:var(--bg);border:0;box-shadow:inset 0 -1px 0 var(--border),-10px 0 8px -4px var(--bg);color:var(--text-muted);cursor:pointer}
@@ -270,7 +273,8 @@
     function meta(){var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=light()?"#fafaf9":"#09090b"}
     addEventListener("DOMContentLoaded",function(){meta();
       var n=document.querySelector(".site-nav");
-      if(n){var b=document.createElement("button");b.type="button";b.className="theme-toggle";
+      if(n){var sc=document.createElement("div");sc.className="nav-scroll";while(n.firstChild)sc.appendChild(n.firstChild);n.appendChild(sc);n.classList.add("has-scroll");
+        var b=document.createElement("button");b.type="button";b.className="theme-toggle";
         b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>';
         var lab=function(){var t=light()?"Switch to dark theme":"Switch to light theme";b.setAttribute("aria-label",t);b.title=t};lab();
         b.addEventListener("click",function(){var l=light();if(l)delete d.dataset.theme;else d.dataset.theme="light";try{localStorage.setItem(K,l?"dark":"light")}catch(e){}lab();meta()});
@@ -317,7 +321,7 @@
         var v=get();
         if(/^\/(newsletter|privacy|will-ai-take-my-job)\//.test(P)||v==="subscribed"||(v&&v.indexOf("closed:")===0&&Date.now()-(+v.slice(7))<2592e6))return;   // no automatic prompt here, after a signup, or for 30 days after a close
         t=setTimeout(auto,45e3);addEventListener("scroll",onScroll,{passive:true})})})()</script>
-    <script>if(!CSS.supports("scroll-initial-target","nearest"))addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".site-nav"),a=n&&n.querySelector(".active");if(a)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2})</script>
+    <script>if(!CSS.supports("scroll-initial-target","nearest"))addEventListener("DOMContentLoaded",function(){var n=document.querySelector(".nav-scroll")||document.querySelector(".site-nav"),a=n&&n.querySelector(".active");if(a)n.scrollLeft=a.offsetLeft-n.offsetLeft-(n.clientWidth-a.offsetWidth)/2})</script>
     <script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*\\?(.+)"}},{"not":{"href_matches":"/*.*"}},{"not":{"selector_matches":"[download],[rel~=nofollow],[target=_blank],[aria-current=page]"}}]},"eagerness":"moderate"}]}</script>
 </head>
 <body>
