@@ -2,8 +2,8 @@
   {
     "name": "OpenAI Self-Serve Fine-tuning",
     "dateAnnounced": "2026-05-07",
-    "dateShutdown": "2027-01-06",
-    "description": "OpenAI is closing self-serve fine-tuning in three steps. Since May 7, 2026, organizations that had never fine-tuned can't start; since July 2, organizations with no fine-tuned inference in the previous 60 days are locked out; on January 6, 2027, active existing customers lose the ability to create new fine-tuning jobs. Existing fine-tunes keep serving until their base model retires, and the six on legacy bases (ft-gpt-3.5-turbo, ft-gpt-4, ft-gpt-4.1-nano, ft-o4-mini, ft-babbage-002, ft-davinci-002) shut down October 23.",
+    "dateShutdown": "2026-12-15",
+    "description": "OpenAI is closing self-serve fine-tuning in three steps. Since May 7, 2026, organizations that had never fine-tuned can't start; since July 2, organizations with no fine-tuned inference in the previous 60 days are locked out; and from December 15, 2026 no organization can create new self-serve fine-tuning jobs. OpenAI had first set that final cutoff for January 6, 2027, then moved it three weeks earlier. Existing fine-tunes keep serving until their base model retires, and the six on legacy bases (ft-gpt-3.5-turbo, ft-gpt-4, ft-gpt-4.1-nano, ft-o4-mini, ft-babbage-002, ft-davinci-002) shut down October 23.",
     "replacement": "Prompt caching / system prompts",
     "killedBy": "OpenAI",
     "link": "https://developers.openai.com/api/docs/deprecations"
@@ -13,18 +13,9 @@
     "dateAnnounced": "2026-06-02",
     "dateShutdown": "2026-12-01",
     "description": "OpenAI removes gpt-image-1-mini, gpt-image-1.5 and chatgpt-image-latest from the API on December 1, 2026, months after this generation replaced DALL·E. gpt-image-1.5 only shipped on December 16, 2025, so it gets about 350 days. The models that buried DALL·E don't outlive it by much.",
-    "replacement": "gpt-image-2.5-sunburst / gpt-image-2.5-flare",
+    "replacement": "gpt-image-2.6-sunburst / gpt-image-2.6-flare",
     "killedBy": "OpenAI",
     "link": "https://developers.openai.com/api/docs/deprecations"
-  },
-  {
-    "name": "Azure OpenAI o-series (o1, o3, o4-mini, o3-pro)",
-    "dateAnnounced": "2026-07-29",
-    "dateShutdown": "2026-11-19",
-    "description": "Microsoft folded its staggered schedule into one date: o1, o1-pro, o3, o3-deep-research, o3-mini, o3-pro and o4-mini all retire November 19, 2026. That pushed o3-mini back from October 1, o4-mini from October 16 and o1, o1-pro and o3 from October 21, and pulled o3-pro forward from December 17. gpt-5.6-sol is the recommended replacement, or gpt-5.6-terra for o3-mini and o4-mini; codex-mini goes four days earlier with none. Azure now keeps o1 and the minis about four weeks longer than OpenAI's own API, and kills o3 and o3-pro about three weeks sooner.",
-    "replacement": "gpt-5.6-sol / gpt-5.6-terra (o3-mini, o4-mini)",
-    "killedBy": "Microsoft Azure",
-    "link": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule"
   },
   {
     "name": "OpenAI GPT-5 (original snapshots), o3 & o3-pro",
@@ -45,15 +36,6 @@
     "link": "https://developers.openai.com/api/docs/deprecations"
   },
   {
-    "name": "Vertex AI Extensions",
-    "dateAnnounced": "2026-05-26",
-    "dateShutdown": "2026-11-26",
-    "killedBy": "Google Cloud",
-    "replacement": "Agent Platform",
-    "link": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/extensions/overview",
-    "description": "Google's managed tool-calling framework for Gemini, deprecated with the standard six-month window and switched off after November 26, 2026. The replacement is the Agent Platform, the third name for this idea in as many years."
-  },
-  {
     "name": "OpenAI Whisper-1 & GPT-4o Transcribe",
     "dateAnnounced": "2026-08-26",
     "dateShutdown": "2027-02-26",
@@ -69,7 +51,7 @@
     "killedBy": "Anthropic",
     "replacement": "claude-sonnet-5-5",
     "link": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
-    "description": "Anthropic's September 2025 coding model, billed at launch as the best in the world for agents and computer use, retires from the Claude API on November 30. Anthropic announced the retirement on the model's first birthday. Opus 4.5 is next in line: 'not sooner than November 24, 2026.'"
+    "description": "Anthropic's September 2025 coding model, billed at launch as the best in the world for agents and computer use, retires from the Claude API on November 30. Anthropic announced the retirement on the model's first birthday. Opus 4.5 is next: on November 23 Anthropic set its retirement for January 22, 2027."
   },
   {
     "name": "OpenAI Agent Builder, Evals & Reusable Prompts",
@@ -81,14 +63,13 @@
     "description": "The visual agent canvas OpenAI introduced at DevDay 2025 as the centrepiece of AgentKit dies on November 30, along with the Evals platform and the /v1/prompts API. Evals goes read-only on October 31. Agent Builder lasted eight months in beta before its death was announced."
   },
   {
-    "name": "Reddit RSS Feeds & Public API",
+    "name": "Reddit Public API (unregistered apps)",
     "dateAnnounced": "2026-09-30",
-    "dateShutdown": "2026-11-13",
+    "dateShutdown": "2027-01-12",
     "killedBy": "Reddit",
-    "replacement": "None for outside readers; registered apps only (deadline Jan 12, 2027)",
+    "replacement": "Registered apps only",
     "link": "https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/",
-    "description": "Killed by AI in the literal sense. Reddit said it would stop supporting RSS on November 13, because 'RSS has now become a common surface for large-scale scraping and automated abuse'. The date came and went: subreddit feeds were still answering on November 14, unsupported and liable to break without warning. New public API requests stopped on October 31, unregistered apps lose access from January 12, 2027, and the remaining public endpoints close that March. The data now goes to paying AI licensees instead; that revenue line grew 24% last quarter.",
-    "aliveAsOf": "2026-11-14"
+    "description": "Reddit is closing its public API to everything but registered apps, saying RSS and open access had become 'a common surface for large-scale scraping and automated abuse'. New public API requests stopped on October 31, 2026, unregistered apps lose access on January 12, 2027, and the remaining public endpoints close that March. The RSS feeds went first: still answering on November 14, by November 18 Reddit's own feed server returned 'Not Found', and it still did on November 27. The data now goes to paying AI licensees instead; that revenue line grew 24% last quarter."
   },
   {
     "name": "Google Gemini 2.5 Flash Image (\"Nano Banana\")",
@@ -124,8 +105,8 @@
     "killedBy": "OpenAI",
     "replacement": "Bring-your-own OpenAI API key or OpenAI's IDE extension; Claude and other models in Cursor",
     "link": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/",
-    "description": "OpenAI is ending its contract to supply models to the AI code editor Cursor, using a change-of-ownership clause after SpaceX completed its $60B purchase of Cursor in August. 'It boils down to trust,' said OpenAI's Thibault Sottiaux, citing Elon Musk's history of breaking contracts. OpenAI proposed November 12, 2026 as the cutoff, but that date was never confirmed by both companies: on November 18 Cursor's model list still carried 17 GPT models, pinned to the set it had in August. Once the cutoff lands, developers can still bring their own OpenAI API keys, and Cursor says OpenAI models were only about 5% of its traffic.",
-    "aliveAsOf": "2026-11-18"
+    "description": "OpenAI is ending its contract to supply models to the AI code editor Cursor, using a change-of-ownership clause after SpaceX completed its $60B purchase of Cursor in August. 'It boils down to trust,' said OpenAI's Thibault Sottiaux, citing Elon Musk's history of breaking contracts. OpenAI proposed November 12, 2026 as the cutoff, but that date was never confirmed by both companies: on November 27 Cursor's model list still carried 17 GPT models, pinned to the set it had in August. Once the cutoff lands, developers can still bring their own OpenAI API keys, and Cursor says OpenAI models were only about 5% of its traffic.",
+    "aliveAsOf": "2026-11-27"
   },
   {
     "name": "ChatGPT Custom GPTs",
@@ -146,22 +127,13 @@
     "description": "Three text-to-speech previews leave the Gemini API no earlier than December 18: gemini-3.1-flash-tts-preview, gemini-2.5-flash-preview-tts and gemini-2.5-pro-preview-tts. Google's deprecations table first said November 17, then moved the date a month with no changelog entry. The two Live API previews that shared the original date got longer reprieves: gemini-2.5-flash-native-audio-preview-12-2025 now runs to March 31, 2027, and gemini-3.1-flash-live-preview has no shutdown date at all. The 2.5 TTS models have been in preview since May 2025 and never left it. The replacements, gemini-3.8-flash-tts and gemini-3.8-flash-lite-tts, were released on September 22."
   },
   {
-    "name": "Gemini 3.6 Flash & 3.7 Flash (Vertex AI)",
+    "name": "Gemini 3.7 Flash (Vertex AI)",
     "dateAnnounced": "2026-09-02",
-    "dateShutdown": "2026-11-19",
+    "dateShutdown": "2027-01-28",
     "killedBy": "Google",
     "replacement": "gemini-3.8-flash",
     "link": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions",
-    "description": "This is what Google's 'short-term availability' GA tier means in practice. Gemini 3.6 Flash retires from Vertex AI on November 19, 121 days after its July 21 release, and 3.7 Flash follows on January 28, 2027, 168 days after release. Both are replaced by gemini-3.8-flash. Google never dated the notice; the dates appeared in its model-versions table. GitHub Copilot had already dropped 3.6 Flash on October 2."
-  },
-  {
-    "name": "AI21 Jamba 1.5 Large & Mini on Amazon Bedrock",
-    "dateAnnounced": "2026-05-26",
-    "dateShutdown": "2026-11-26",
-    "killedBy": "AWS",
-    "replacement": "None named",
-    "link": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html",
-    "description": "AWS moved ai21.jamba-1-5-large-v1:0 and ai21.jamba-1-5-mini-v1:0 to Legacy on May 26, 2026, which cut off new customers. Both entered paid public extended access on August 26 and reach end of life in us-east-1, their only listed region, on November 26. AWS names no replacement. Google Cloud already shut both Jamba 1.5 models down on February 27, 2026, and TwelveLabs' Marengo Embed 2.7 leaves Bedrock four days after them, on November 30."
+    "description": "Released on Vertex AI on August 13, 2026 in Google's shorter-availability tier and scheduled to retire on January 28, 2027, 168 days later. Google never dated a notice; the date appeared in its model-versions table. The replacement is gemini-3.8-flash. Its predecessor, 3.6 Flash, was retired on November 19 after 121 days."
   },
   {
     "name": "Azure OpenAI GPT-4o (2024-05-13)",
@@ -298,5 +270,32 @@
     "replacement": "gemini-omni-1.2-flash (requests are rerouted automatically, at its pricing)",
     "link": "https://aistudio.google.com/docs/deprecations",
     "description": "Released on August 27, 2026 and rerouted 98 days later. From December 3, Gemini API requests to gemini-omni-1.1-flash are answered by gemini-omni-1.2-flash at the newer model's pricing. Google gave 28 days' notice, in a changelog entry dated November 5."
+  },
+  {
+    "name": "Claude Opus 4.5 (Claude API)",
+    "dateAnnounced": "2026-11-23",
+    "dateShutdown": "2027-01-22",
+    "killedBy": "Anthropic",
+    "replacement": "claude-opus-5-5",
+    "link": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+    "description": "Anthropic's November 2025 flagship retires from the Claude API on January 22, 2027, 60 days after the November 23 notice, the minimum Anthropic promises. The retirement covers claude-opus-4-5-20251101 and the undated claude-opus-4-5 alias. Amazon Bedrock runs its own schedule: it marked Opus 4.5 Legacy the same day and keeps serving it until May 23, 2027."
+  },
+  {
+    "name": "OpenAI gpt-image-2",
+    "dateAnnounced": "2026-11-10",
+    "dateShutdown": "2027-02-10",
+    "killedBy": "OpenAI",
+    "replacement": "gpt-image-2.6-sunburst / gpt-image-2.6-flare",
+    "link": "https://developers.openai.com/api/docs/deprecations",
+    "description": "OpenAI's April 2026 image model, gpt-image-2 (snapshot gpt-image-2-2026-04-21), leaves the API on February 10, 2027, about ten months after release. Its replacements are the gpt-image-2.6 pair, sunburst and flare: the same two models the older gpt-image-1 generation is pointed to when it goes on December 1."
+  },
+  {
+    "name": "OpenAI GPT-5.5-Cyber Preview",
+    "dateAnnounced": "2026-11-05",
+    "dateShutdown": "2027-02-01",
+    "killedBy": "OpenAI",
+    "replacement": "Not named: OpenAI says 'the most capable cyber model available to you'",
+    "link": "https://developers.openai.com/api/docs/deprecations",
+    "description": "OpenAI's preview model for vetted security defenders, gpt-5.5-cyber-preview, leaves the API on February 1, 2027. The notice names no specific successor, only 'the most capable cyber model available to you.' Its predecessor, GPT-5.4-Cyber, is already in the graveyard."
   }
 ]

@@ -248,7 +248,7 @@
     "name": "Character.AI (Independent)",
     "dateOpen": "2022-09-16",
     "dateClose": "2024-08-02",
-    "description": "The viral AI chatbot platform where users created and talked to AI 'characters.' After safety controversies and intense competition, Google effectively acqui-hired the founders and key staff in August 2024, leaving the company a shell of its former self. The shell did not last: on October 12, 2026 Character.AI filed for Chapter 11, citing lawsuits, regulatory pressure and the cost of serving heavy users. The app is still online while a court-supervised sale runs, with Disney offering $20 million for a technology license that leaves out the consumer app and user data. CEO Colin Adams: 'If such a bid is unavailable, however, the platform will be wound down.'",
+    "description": "The viral AI chatbot platform where users created and talked to AI 'characters.' After safety controversies and intense competition, Google effectively acqui-hired the founders and key staff in August 2024, leaving the company a shell of its former self. The shell did not last: on October 12, 2026 Character.AI filed for Chapter 11, citing lawsuits, regulatory pressure and the cost of serving heavy users. The app is still online while a court-supervised sale runs. Disney has offered $20 million for a technology license that leaves out the app and user data; the platform itself, including chat histories from more than 21 million US accounts, goes to auction on December 1, and 42 state attorneys general have objected to selling those chats. CEO Colin Adams: 'If such a bid is unavailable, however, the platform will be wound down.'",
     "type": "startup",
     "causeOfDeath": "Acqui-hire",
     "killedBy": "Google",
@@ -281,15 +281,19 @@
         "text": "The court approves the sale process. Disney is the opening bidder at $20 million for a perpetual, non-exclusive technology license that excludes the consumer app and end-user data."
       },
       {
+        "date": "2026-11-14",
+        "text": "Character.AI picks Smirks and Pangs Acquisition LLC, a Delaware company formed the day before, as the base bidder for the platform, whose assets include chat histories from more than 21 million US accounts."
+      },
+      {
         "date": "2026-11-24",
-        "text": "Deadline for rival bids. An auction follows on December 1 only if a qualifying bid arrives; the sale hearing is set for December 3 and 4."
+        "text": "Deadline for rival bids. A coalition of 42 state attorneys general, led by California, has by now asked the court to stop the sale of users' private chats and personal data. The auction is set for December 1 and the sale hearing for December 3 and 4."
       }
     ],
-    "aftermath": "If no buyer takes the app itself, Character.AI has said the platform will be wound down. Disney's offer covers technology only, so it would not keep the service running. Several US states have asked the court to let users delete their data before any sale of it.",
+    "aftermath": "If no buyer takes the app itself, Character.AI has said the platform will be wound down. The base bid at the December 1 auction comes from Smirks and Pangs Acquisition LLC, an anonymous Delaware company formed on November 13, and the assets include users' chat histories. A coalition of 42 state attorneys general, led by California, has asked the bankruptcy court to stop the sale of users' private chats and personal data. Disney's separate offer covers technology only, so it would not keep the service running.",
     "faq": [
       {
         "q": "Is Character.AI dead?",
-        "a": "Not yet. The app is still online, but the company has been in Chapter 11 bankruptcy since October 12, 2026. Rival bids are due November 24, and the sale hearing is on December 3 and 4. The company has said that without a suitable bid, the platform will be wound down."
+        "a": "Not yet. The app is still online, but the company has been in Chapter 11 bankruptcy since October 12, 2026. The platform goes to auction on December 1 and the sale hearing is on December 3 and 4. The company has said that without a suitable buyer, the platform will be wound down."
       },
       {
         "q": "Is Character.AI shutting down?",
@@ -301,7 +305,7 @@
       },
       {
         "q": "What happens to my Character.AI chats and characters?",
-        "a": "Nothing has been deleted so far. Disney's offer excludes end-user data, user inputs and outputs. A group of US states has asked the court to give every user the chance to delete their data before any sale of it. If your chats matter to you, save copies now."
+        "a": "Nothing has been deleted so far, but users' chat histories are among the assets offered at the December 1 auction. 42 state attorneys general have asked the court to stop the sale of private chats and personal data, and the court has not ruled yet. If your chats matter to you, save copies now."
       },
       {
         "q": "Why is Character.AI listed here with a 2024 death date?",
@@ -2729,5 +2733,60 @@
     "link": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/",
     "description": "GitHub removed both models from every Copilot surface (Chat, inline edits, ask and agent modes, code completions) on November 16, 2026, after a month's notice. GPT-5.6 Terra arrived on July 9 as part of OpenAI's GPT-5.6 trio and lasted 130 days; Claude Opus 5 arrived on July 24 and lasted 115. Claude Opus 4.8 was retired the same day for everyone except individual subscribers on annual plans, who keep it. Anthropic's own API still serves Opus 5 until at least July 2027.",
     "replacement": "Claude Opus 5.5 for Opus 5, and GPT-6.1 Sol or GPT-6 Luna for GPT-5.6 Terra."
+  },
+  {
+    "name": "Azure OpenAI o1, o3, o3-pro & o4-mini",
+    "slug": "azure-openai-o1-o3-o3-pro-o4-mini",
+    "dateAdded": "2026-11-27",
+    "dateOpen": "2024-12-17",
+    "dateClose": "2026-11-19",
+    "type": "model",
+    "causeOfDeath": "Model Consolidation",
+    "killedBy": "Microsoft",
+    "deathType": "model-upgrade",
+    "link": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
+    "description": "Microsoft retired seven OpenAI reasoning models from Azure on November 19, 2026: o1, o1-pro, o3, o3-deep-research, o3-mini, o3-pro and o4-mini. It had first spread their retirements across October and December, then moved all seven to one date. When Microsoft revised its retirement schedule on November 24 it pushed other models back but left this date in place. The oldest of the seven, o1 version 2024-12-17, lasted just under two years.",
+    "replacement": "gpt-5.6-sol for o1, o1-pro, o3, o3-deep-research and o3-pro, and gpt-5.6-terra for o3-mini and o4-mini. Microsoft notes neither is offered for Batch or Regional Standard deployments and suggests gpt-5.4, gpt-5.4-mini, gpt-4.1 or gpt-5.1 there."
+  },
+  {
+    "name": "Gemini 3.6 Flash (Vertex AI)",
+    "slug": "gemini-3-6-flash-vertex-ai",
+    "dateAdded": "2026-11-27",
+    "dateOpen": "2026-07-21",
+    "dateClose": "2026-11-19",
+    "type": "model",
+    "causeOfDeath": "Model Upgrade",
+    "killedBy": "Google",
+    "deathType": "model-upgrade",
+    "link": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions",
+    "description": "This is what Google's 'shorter availability' tier means in practice. Gemini 3.6 Flash was released on Vertex AI on July 21, 2026 and retired on November 19, 121 days later. Google never dated a notice; the retirement date appeared in its model-versions table. GitHub Copilot had already dropped the model on October 2. Its successor in the same tier, 3.7 Flash, is scheduled to follow on January 28, 2027.",
+    "replacement": "gemini-3.8-flash, which Google names for both 3.6 and 3.7 Flash."
+  },
+  {
+    "name": "Vertex AI Extensions",
+    "slug": "vertex-ai-extensions",
+    "dateAdded": "2026-11-27",
+    "dateOpen": "2023-08-29",
+    "dateClose": "2026-11-26",
+    "type": "service",
+    "causeOfDeath": "Strategic Consolidation",
+    "killedBy": "Google Cloud",
+    "deathType": "feature-removed",
+    "link": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/extensions/overview",
+    "description": "Google's managed tool-calling framework for Gemini: pre-built and custom extensions that let a model call APIs, including a code interpreter and Vertex AI Search. Google announced it at Cloud Next on August 29, 2023. That date is used here as its birth because Google never published a separate launch date, and its documentation carried a Preview label. Google deprecated it on May 26, 2026 with six months' notice and shut it down after November 26, 2026.",
+    "replacement": "Google's Agent Platform, which it names in an Extensions migration guide."
+  },
+  {
+    "name": "AI21 Jamba 1.5 Large & Mini on Amazon Bedrock",
+    "slug": "ai21-jamba-1-5-amazon-bedrock",
+    "dateAdded": "2026-11-27",
+    "dateOpen": "2024-09-23",
+    "dateClose": "2026-11-26",
+    "type": "model",
+    "causeOfDeath": "Catalog Pruning",
+    "killedBy": "AWS",
+    "deathType": "model-upgrade",
+    "link": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html",
+    "description": "AI21's hybrid Mamba-transformer models arrived on Amazon Bedrock on September 23, 2024, in us-east-1 only. AWS moved ai21.jamba-1-5-large-v1:0 and ai21.jamba-1-5-mini-v1:0 to Legacy on May 26, 2026, which cut off new customers, put them on paid public extended access from August 26, and reached end of life on November 26. AWS's policy is that requests to a model fail on or soon after that date. It named no replacement. Google Cloud had already shut both Jamba 1.5 models down on February 27, 2026."
   }
 ]

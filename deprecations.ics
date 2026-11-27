@@ -9,7 +9,7 @@ X-WR-CALDESC:Confirmed shutdown and deprecation dates for AI products and
 REFRESH-INTERVAL;VALUE=DURATION:P1D
 BEGIN:VEVENT
 UID:openai-models-in-cursor@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261112
 DTEND;VALUE=DATE:20261113
 SUMMARY:Shutdown: OpenAI Models in Cursor
@@ -18,7 +18,7 @@ DESCRIPTION:OpenAI is ending its contract to supply models to the AI code
  ed its $60B purchase of Cursor in August. 'It boils down to trust\,' sai
  d OpenAI's Thibault Sottiaux\, citing Elon Musk's history of breaking co
  ntracts. OpenAI proposed November 12\, 2026 as the cutoff\, but that dat
- e was never confirmed by both companies: on November 18 Cursor's model l
+ e was never confirmed by both companies: on November 27 Cursor's model l
  ist still carried 17 GPT models\, pinned to the set it had in August. On
  ce the cutoff lands\, developers can still bring their own OpenAI API ke
  ys\, and Cursor says OpenAI models were only about 5% of its traffic. Re
@@ -29,114 +29,23 @@ URL:https://killedbyai.net/coming-soon/#openai-models-in-cursor
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
-UID:reddit-rss-feeds-public-api@killedbyai.net
-DTSTAMP:20261118T000000Z
-DTSTART;VALUE=DATE:20261113
-DTEND;VALUE=DATE:20261114
-SUMMARY:Shutdown: Reddit RSS Feeds & Public API
-DESCRIPTION:Killed by AI in the literal sense. Reddit said it would stop 
- supporting RSS on November 13\, because 'RSS has now become a common sur
- face for large-scale scraping and automated abuse'. The date came and we
- nt: subreddit feeds were still answering on November 14\, unsupported an
- d liable to break without warning. New public API requests stopped on Oc
- tober 31\, unregistered apps lose access from January 12\, 2027\, and th
- e remaining public endpoints close that March. The data now goes to payi
- ng AI licensees instead\; that revenue line grew 24% last quarter. Repla
- cement: None for outside readers\; registered apps only (deadline Jan 12
- \, 2027). Source: https://techcrunch.com/2026/09/30/reddit-is-killing-rs
- s-feeds-ending-public-api-access-because-of-ai-bots/
-URL:https://killedbyai.net/coming-soon/#reddit-rss-feeds-public-api
-CATEGORIES:AI shutdown
-END:VEVENT
-BEGIN:VEVENT
-UID:azure-openai-o-series-o1-o3-o4-mini-o3-pro@killedbyai.net
-DTSTAMP:20261118T000000Z
-DTSTART;VALUE=DATE:20261119
-DTEND;VALUE=DATE:20261120
-SUMMARY:Shutdown: Azure OpenAI o-series (o1\, o3\, o4-mini\, o3-pro)
-DESCRIPTION:Microsoft folded its staggered schedule into one date: o1\, o
- 1-pro\, o3\, o3-deep-research\, o3-mini\, o3-pro and o4-mini all retire 
- November 19\, 2026. That pushed o3-mini back from October 1\, o4-mini fr
- om October 16 and o1\, o1-pro and o3 from October 21\, and pulled o3-pro
-  forward from December 17. gpt-5.6-sol is the recommended replacement\, 
- or gpt-5.6-terra for o3-mini and o4-mini\; codex-mini goes four days ear
- lier with none. Azure now keeps o1 and the minis about four weeks longer
-  than OpenAI's own API\, and kills o3 and o3-pro about three weeks soone
- r. Replacement: gpt-5.6-sol / gpt-5.6-terra (o3-mini\, o4-mini). Source:
-  https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-r
- etirement-schedule
-URL:https://killedbyai.net/coming-soon/#azure-openai-o-series-o1-o3-o4-mi
- ni-o3-pro
-CATEGORIES:AI shutdown
-END:VEVENT
-BEGIN:VEVENT
-UID:gemini-3-6-flash-3-7-flash-vertex-ai@killedbyai.net
-DTSTAMP:20261118T000000Z
-DTSTART;VALUE=DATE:20261119
-DTEND;VALUE=DATE:20261120
-SUMMARY:Shutdown: Gemini 3.6 Flash & 3.7 Flash (Vertex AI)
-DESCRIPTION:This is what Google's 'short-term availability' GA tier means
-  in practice. Gemini 3.6 Flash retires from Vertex AI on November 19\, 1
- 21 days after its July 21 release\, and 3.7 Flash follows on January 28\
- , 2027\, 168 days after release. Both are replaced by gemini-3.8-flash. 
- Google never dated the notice\; the dates appeared in its model-versions
-  table. GitHub Copilot had already dropped 3.6 Flash on October 2. Repla
- cement: gemini-3.8-flash. Source: https://docs.cloud.google.com/gemini-e
- nterprise-agent-platform/models/model-versions
-URL:https://killedbyai.net/coming-soon/#gemini-3-6-flash-3-7-flash-vertex
- -ai
-CATEGORIES:AI shutdown
-END:VEVENT
-BEGIN:VEVENT
-UID:vertex-ai-extensions@killedbyai.net
-DTSTAMP:20261118T000000Z
-DTSTART;VALUE=DATE:20261126
-DTEND;VALUE=DATE:20261127
-SUMMARY:Shutdown: Vertex AI Extensions
-DESCRIPTION:Google's managed tool-calling framework for Gemini\, deprecat
- ed with the standard six-month window and switched off after November 26
- \, 2026. The replacement is the Agent Platform\, the third name for this
-  idea in as many years. Replacement: Agent Platform. Source: https://doc
- s.cloud.google.com/vertex-ai/generative-ai/docs/extensions/overview
-URL:https://killedbyai.net/coming-soon/#vertex-ai-extensions
-CATEGORIES:AI shutdown
-END:VEVENT
-BEGIN:VEVENT
-UID:ai21-jamba-1-5-large-mini-on-amazon-bedrock@killedbyai.net
-DTSTAMP:20261118T000000Z
-DTSTART;VALUE=DATE:20261126
-DTEND;VALUE=DATE:20261127
-SUMMARY:Shutdown: AI21 Jamba 1.5 Large & Mini on Amazon Bedrock
-DESCRIPTION:AWS moved ai21.jamba-1-5-large-v1:0 and ai21.jamba-1-5-mini-v
- 1:0 to Legacy on May 26\, 2026\, which cut off new customers. Both enter
- ed paid public extended access on August 26 and reach end of life in us-
- east-1\, their only listed region\, on November 26. AWS names no replace
- ment. Google Cloud already shut both Jamba 1.5 models down on February 2
- 7\, 2026\, and TwelveLabs' Marengo Embed 2.7 leaves Bedrock four days af
- ter them\, on November 30. Replacement: None named. Source: https://docs
- .aws.amazon.com/bedrock/latest/userguide/model-lifecycle-legacy.html
-URL:https://killedbyai.net/coming-soon/#ai21-jamba-1-5-large-mini-on-amaz
- on-bedrock
-CATEGORIES:AI shutdown
-END:VEVENT
-BEGIN:VEVENT
 UID:claude-sonnet-4-5@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:Shutdown: Claude Sonnet 4.5
 DESCRIPTION:Anthropic's September 2025 coding model\, billed at launch as
   the best in the world for agents and computer use\, retires from the Cl
  aude API on November 30. Anthropic announced the retirement on the model
- 's first birthday. Opus 4.5 is next in line: 'not sooner than November 2
- 4\, 2026.' Replacement: claude-sonnet-5-5. Source: https://platform.clau
- de.com/docs/en/about-claude/model-deprecations
+ 's first birthday. Opus 4.5 is next: on November 23 Anthropic set its re
+ tirement for January 22\, 2027. Replacement: claude-sonnet-5-5. Source: 
+ https://platform.claude.com/docs/en/about-claude/model-deprecations
 URL:https://killedbyai.net/coming-soon/#claude-sonnet-4-5
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-agent-builder-evals-reusable-prompts@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:Shutdown: OpenAI Agent Builder\, Evals & Reusable Prompts
@@ -153,7 +62,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:mozilla-solo@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
 SUMMARY:Shutdown: Mozilla Solo
@@ -173,7 +82,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-legacy-gpt-image-models@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:Shutdown: OpenAI Legacy GPT Image Models
@@ -181,14 +90,14 @@ DESCRIPTION:OpenAI removes gpt-image-1-mini\, gpt-image-1.5 and chatgpt-i
  mage-latest from the API on December 1\, 2026\, months after this genera
  tion replaced DALL·E. gpt-image-1.5 only shipped on December 16\, 2025\
  , so it gets about 350 days. The models that buried DALL·E don't outliv
- e it by much. Replacement: gpt-image-2.5-sunburst / gpt-image-2.5-flare.
+ e it by much. Replacement: gpt-image-2.6-sunburst / gpt-image-2.6-flare.
   Source: https://developers.openai.com/api/docs/deprecations
 URL:https://killedbyai.net/coming-soon/#openai-legacy-gpt-image-models
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:gemini-2-5-pro-2-5-flash-gemini-api@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:Shutdown: Gemini 2.5 Pro & 2.5 Flash (Gemini API)
@@ -208,7 +117,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:gemini-omni-1-1-flash@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261203
 DTEND;VALUE=DATE:20261204
 SUMMARY:Shutdown: Gemini Omni 1.1 Flash
@@ -223,7 +132,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:azure-openai-gpt-4o-2024-05-13@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261209
 DTEND;VALUE=DATE:20261210
 SUMMARY:Shutdown: Azure OpenAI GPT-4o (2024-05-13)
@@ -243,7 +152,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-gpt-5-original-snapshots-o3-o3-pro@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:Shutdown: OpenAI GPT-5 (original snapshots)\, o3 & o3-pro
@@ -259,7 +168,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:chatgpt-custom-gpts@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261211
 DTEND;VALUE=DATE:20261212
 SUMMARY:Shutdown: ChatGPT Custom GPTs
@@ -277,8 +186,28 @@ URL:https://killedbyai.net/coming-soon/#chatgpt-custom-gpts
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
+UID:openai-self-serve-fine-tuning@killedbyai.net
+DTSTAMP:20261127T000000Z
+DTSTART;VALUE=DATE:20261215
+DTEND;VALUE=DATE:20261216
+SUMMARY:Shutdown: OpenAI Self-Serve Fine-tuning
+DESCRIPTION:OpenAI is closing self-serve fine-tuning in three steps. Sinc
+ e May 7\, 2026\, organizations that had never fine-tuned can't start\; s
+ ince July 2\, organizations with no fine-tuned inference in the previous
+  60 days are locked out\; and from December 15\, 2026 no organization ca
+ n create new self-serve fine-tuning jobs. OpenAI had first set that fina
+ l cutoff for January 6\, 2027\, then moved it three weeks earlier. Exist
+ ing fine-tunes keep serving until their base model retires\, and the six
+  on legacy bases (ft-gpt-3.5-turbo\, ft-gpt-4\, ft-gpt-4.1-nano\, ft-o4-
+ mini\, ft-babbage-002\, ft-davinci-002) shut down October 23. Replacemen
+ t: Prompt caching / system prompts. Source: https://developers.openai.co
+ m/api/docs/deprecations
+URL:https://killedbyai.net/coming-soon/#openai-self-serve-fine-tuning
+CATEGORIES:AI shutdown
+END:VEVENT
+BEGIN:VEVENT
 UID:azure-openai-whisper-tts@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261215
 DTEND;VALUE=DATE:20261216
 SUMMARY:Shutdown: Azure OpenAI Whisper & TTS
@@ -296,7 +225,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:gemini-tts-preview-models@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261218
 DTEND;VALUE=DATE:20261219
 SUMMARY:Shutdown: Gemini TTS Preview Models
@@ -317,7 +246,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:tencent-qclaw@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261224
 DTEND;VALUE=DATE:20261225
 SUMMARY:Shutdown: Tencent QClaw
@@ -336,7 +265,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:google-jules@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Shutdown: Google Jules
@@ -352,27 +281,8 @@ URL:https://killedbyai.net/coming-soon/#google-jules
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
-UID:openai-self-serve-fine-tuning@killedbyai.net
-DTSTAMP:20261118T000000Z
-DTSTART;VALUE=DATE:20270106
-DTEND;VALUE=DATE:20270107
-SUMMARY:Shutdown: OpenAI Self-Serve Fine-tuning
-DESCRIPTION:OpenAI is closing self-serve fine-tuning in three steps. Sinc
- e May 7\, 2026\, organizations that had never fine-tuned can't start\; s
- ince July 2\, organizations with no fine-tuned inference in the previous
-  60 days are locked out\; on January 6\, 2027\, active existing customer
- s lose the ability to create new fine-tuning jobs. Existing fine-tunes k
- eep serving until their base model retires\, and the six on legacy bases
-  (ft-gpt-3.5-turbo\, ft-gpt-4\, ft-gpt-4.1-nano\, ft-o4-mini\, ft-babbag
- e-002\, ft-davinci-002) shut down October 23. Replacement: Prompt cachin
- g / system prompts. Source: https://developers.openai.com/api/docs/depre
- cations
-URL:https://killedbyai.net/coming-soon/#openai-self-serve-fine-tuning
-CATEGORIES:AI shutdown
-END:VEVENT
-BEGIN:VEVENT
 UID:openai-tts-1-tts-1-hd-gpt-4o-mini-tts@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20270106
 DTEND;VALUE=DATE:20270107
 SUMMARY:Shutdown: OpenAI TTS-1\, TTS-1-HD & GPT-4o mini TTS
@@ -390,7 +300,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:claude-opus-4-1-on-amazon-bedrock@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20270108
 DTEND;VALUE=DATE:20270109
 SUMMARY:Shutdown: Claude Opus 4.1 on Amazon Bedrock
@@ -406,8 +316,29 @@ URL:https://killedbyai.net/coming-soon/#claude-opus-4-1-on-amazon-bedrock
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
+UID:reddit-public-api-unregistered-apps@killedbyai.net
+DTSTAMP:20261127T000000Z
+DTSTART;VALUE=DATE:20270112
+DTEND;VALUE=DATE:20270113
+SUMMARY:Shutdown: Reddit Public API (unregistered apps)
+DESCRIPTION:Reddit is closing its public API to everything but registered
+  apps\, saying RSS and open access had become 'a common surface for larg
+ e-scale scraping and automated abuse'. New public API requests stopped o
+ n October 31\, 2026\, unregistered apps lose access on January 12\, 2027
+ \, and the remaining public endpoints close that March. The RSS feeds we
+ nt first: still answering on November 14\, by November 18 Reddit's own f
+ eed server returned 'Not Found'\, and it still did on November 27. The d
+ ata now goes to paying AI licensees instead\; that revenue line grew 24%
+  last quarter. Replacement: Registered apps only. Source: https://techcr
+ unch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access
+ -because-of-ai-bots/
+URL:https://killedbyai.net/coming-soon/#reddit-public-api-unregistered-ap
+ ps
+CATEGORIES:AI shutdown
+END:VEVENT
+BEGIN:VEVENT
 UID:openai-gpt-4o-gpt-4o-mini-gpt-4-1-4-1-mini-api@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20270114
 DTEND;VALUE=DATE:20270115
 SUMMARY:Shutdown: OpenAI GPT-4o\, GPT-4o mini\, GPT-4.1 & 4.1 mini (API)
@@ -425,7 +356,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-realtime-audio-model-family@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20270120
 DTEND;VALUE=DATE:20270121
 SUMMARY:Shutdown: OpenAI Realtime & Audio Model Family
@@ -442,8 +373,71 @@ URL:https://killedbyai.net/coming-soon/#openai-realtime-audio-model-famil
 CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
+UID:claude-opus-4-5-claude-api@killedbyai.net
+DTSTAMP:20261127T000000Z
+DTSTART;VALUE=DATE:20270122
+DTEND;VALUE=DATE:20270123
+SUMMARY:Shutdown: Claude Opus 4.5 (Claude API)
+DESCRIPTION:Anthropic's November 2025 flagship retires from the Claude AP
+ I on January 22\, 2027\, 60 days after the November 23 notice\, the mini
+ mum Anthropic promises. The retirement covers claude-opus-4-5-20251101 a
+ nd the undated claude-opus-4-5 alias. Amazon Bedrock runs its own schedu
+ le: it marked Opus 4.5 Legacy the same day and keeps serving it until Ma
+ y 23\, 2027. Replacement: claude-opus-5-5. Source: https://platform.clau
+ de.com/docs/en/about-claude/model-deprecations
+URL:https://killedbyai.net/coming-soon/#claude-opus-4-5-claude-api
+CATEGORIES:AI shutdown
+END:VEVENT
+BEGIN:VEVENT
+UID:gemini-3-7-flash-vertex-ai@killedbyai.net
+DTSTAMP:20261127T000000Z
+DTSTART;VALUE=DATE:20270128
+DTEND;VALUE=DATE:20270129
+SUMMARY:Shutdown: Gemini 3.7 Flash (Vertex AI)
+DESCRIPTION:Released on Vertex AI on August 13\, 2026 in Google's shorter
+ -availability tier and scheduled to retire on January 28\, 2027\, 168 da
+ ys later. Google never dated a notice\; the date appeared in its model-v
+ ersions table. The replacement is gemini-3.8-flash. Its predecessor\, 3.
+ 6 Flash\, was retired on November 19 after 121 days. Replacement: gemini
+ -3.8-flash. Source: https://docs.cloud.google.com/gemini-enterprise-agen
+ t-platform/models/model-versions
+URL:https://killedbyai.net/coming-soon/#gemini-3-7-flash-vertex-ai
+CATEGORIES:AI shutdown
+END:VEVENT
+BEGIN:VEVENT
+UID:openai-gpt-5-5-cyber-preview@killedbyai.net
+DTSTAMP:20261127T000000Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Shutdown: OpenAI GPT-5.5-Cyber Preview
+DESCRIPTION:OpenAI's preview model for vetted security defenders\, gpt-5.
+ 5-cyber-preview\, leaves the API on February 1\, 2027. The notice names 
+ no specific successor\, only 'the most capable cyber model available to 
+ you.' Its predecessor\, GPT-5.4-Cyber\, is already in the graveyard. Rep
+ lacement: Not named: OpenAI says 'the most capable cyber model available
+  to you'. Source: https://developers.openai.com/api/docs/deprecations
+URL:https://killedbyai.net/coming-soon/#openai-gpt-5-5-cyber-preview
+CATEGORIES:AI shutdown
+END:VEVENT
+BEGIN:VEVENT
+UID:openai-gpt-image-2@killedbyai.net
+DTSTAMP:20261127T000000Z
+DTSTART;VALUE=DATE:20270210
+DTEND;VALUE=DATE:20270211
+SUMMARY:Shutdown: OpenAI gpt-image-2
+DESCRIPTION:OpenAI's April 2026 image model\, gpt-image-2 (snapshot gpt-i
+ mage-2-2026-04-21)\, leaves the API on February 10\, 2027\, about ten mo
+ nths after release. Its replacements are the gpt-image-2.6 pair\, sunbur
+ st and flare: the same two models the older gpt-image-1 generation is po
+ inted to when it goes on December 1. Replacement: gpt-image-2.6-sunburst
+  / gpt-image-2.6-flare. Source: https://developers.openai.com/api/docs/d
+ eprecations
+URL:https://killedbyai.net/coming-soon/#openai-gpt-image-2
+CATEGORIES:AI shutdown
+END:VEVENT
+BEGIN:VEVENT
 UID:openai-whisper-1-gpt-4o-transcribe@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20270226
 DTEND;VALUE=DATE:20270227
 SUMMARY:Shutdown: OpenAI Whisper-1 & GPT-4o Transcribe
@@ -461,7 +455,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:google-gemini-2-5-flash-image-nano-banana@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20270315
 DTEND;VALUE=DATE:20270316
 SUMMARY:Shutdown: Google Gemini 2.5 Flash Image ("Nano Banana")
@@ -480,7 +474,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:firebase-studio@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20270322
 DTEND;VALUE=DATE:20270323
 SUMMARY:Shutdown: Firebase Studio
@@ -498,7 +492,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:pipedream-workflows-string@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:Shutdown: Pipedream Workflows & String
@@ -517,7 +511,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:microsoft-foundry-agent-service-classic@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20270331
 DTEND;VALUE=DATE:20270401
 SUMMARY:Shutdown: Microsoft Foundry Agent Service (classic)
@@ -536,7 +530,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:openai-gpt-5-3-codex-gpt-5-1-gpt-5-4-nano@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:Shutdown: OpenAI GPT-5.3-Codex\, GPT-5.1 & GPT-5.4-nano
@@ -555,7 +549,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:vertex-ai-legacy-embedding-models@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:Shutdown: Vertex AI Legacy Embedding Models
@@ -574,7 +568,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:azure-openai-gpt-4-1-4-1-mini-4-1-nano@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20270414
 DTEND;VALUE=DATE:20270415
 SUMMARY:Shutdown: Azure OpenAI GPT-4.1\, 4.1 mini & 4.1 nano
@@ -593,7 +587,7 @@ CATEGORIES:AI shutdown
 END:VEVENT
 BEGIN:VEVENT
 UID:amazon-q-developer-ide-plugins-subscriptions@killedbyai.net
-DTSTAMP:20261118T000000Z
+DTSTAMP:20261127T000000Z
 DTSTART;VALUE=DATE:20270430
 DTEND;VALUE=DATE:20270501
 SUMMARY:Shutdown: Amazon Q Developer (IDE plugins & subscriptions)

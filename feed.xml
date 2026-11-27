@@ -5,8 +5,40 @@
     <link>https://killedbyai.net/</link>
     <description>A digital cemetery for discontinued AI models, apps, startups, and hardware.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://killedbyai.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Vertex AI Extensions: Killed by Google Cloud (2026-11-26)</title>
+      <link>https://killedbyai.net/dead/vertex-ai-extensions/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/vertex-ai-extensions/</guid>
+      <pubDate>Fri, 27 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Google&#x27;s managed tool-calling framework for Gemini: pre-built and custom extensions that let a model call APIs, including a code interpreter and Vertex AI Search. Google announced it at Cloud Next on August 29, 2023. That date is used here as its birth because Google never published a separate launch date, and its documentation carried a Preview label. Google deprecated it on May 26, 2026 with six months&#x27; notice and shut it down after November 26, 2026.</description>
+      <category>service</category>
+    </item>
+    <item>
+      <title>AI21 Jamba 1.5 Large &amp; Mini on Amazon Bedrock: Killed by AWS (2026-11-26)</title>
+      <link>https://killedbyai.net/dead/ai21-jamba-1-5-amazon-bedrock/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/ai21-jamba-1-5-amazon-bedrock/</guid>
+      <pubDate>Fri, 27 Nov 2026 00:00:00 +0000</pubDate>
+      <description>AI21&#x27;s hybrid Mamba-transformer models arrived on Amazon Bedrock on September 23, 2024, in us-east-1 only. AWS moved ai21.jamba-1-5-large-v1:0 and ai21.jamba-1-5-mini-v1:0 to Legacy on May 26, 2026, which cut off new customers, put them on paid public extended access from August 26, and reached end of life on November 26. AWS&#x27;s policy is that requests to a model fail on or soon after that date. It named no replacement. Google Cloud had already shut both Jamba 1.5 models down on February 27, 2026.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Azure OpenAI o1, o3, o3-pro &amp; o4-mini: Killed by Microsoft (2026-11-19)</title>
+      <link>https://killedbyai.net/dead/azure-openai-o1-o3-o3-pro-o4-mini/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/azure-openai-o1-o3-o3-pro-o4-mini/</guid>
+      <pubDate>Fri, 27 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Microsoft retired seven OpenAI reasoning models from Azure on November 19, 2026: o1, o1-pro, o3, o3-deep-research, o3-mini, o3-pro and o4-mini. It had first spread their retirements across October and December, then moved all seven to one date. When Microsoft revised its retirement schedule on November 24 it pushed other models back but left this date in place. The oldest of the seven, o1 version 2024-12-17, lasted just under two years.</description>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Gemini 3.6 Flash (Vertex AI): Killed by Google (2026-11-19)</title>
+      <link>https://killedbyai.net/dead/gemini-3-6-flash-vertex-ai/</link>
+      <guid isPermaLink="true">https://killedbyai.net/dead/gemini-3-6-flash-vertex-ai/</guid>
+      <pubDate>Fri, 27 Nov 2026 00:00:00 +0000</pubDate>
+      <description>This is what Google&#x27;s &#x27;shorter availability&#x27; tier means in practice. Gemini 3.6 Flash was released on Vertex AI on July 21, 2026 and retired on November 19, 121 days later. Google never dated a notice; the retirement date appeared in its model-versions table. GitHub Copilot had already dropped the model on October 2. Its successor in the same tier, 3.7 Flash, is scheduled to follow on January 28, 2027.</description>
+      <category>model</category>
+    </item>
     <item>
       <title>Google Opal: Killed by Google (2026-11-17)</title>
       <link>https://killedbyai.net/dead/google-opal/</link>
@@ -213,38 +245,6 @@
       <guid isPermaLink="true">https://killedbyai.net/dead/microsoft-edge-real-time-video-translation/</guid>
       <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
       <description>On-device AI dubbing for the web. You hovered over a video, clicked Translate, and Edge downloaded a roughly 200 MB language model and replaced the audio track in real time. Shown off at Build 2024, it shipped in Edge 141 in October 2025, but only on Windows PCs with at least 12 GB of RAM and a four-core CPU, and only in select markets. Edge 152 began retiring it on August 27, 2026, less than eleven months later, in the same release that killed Edge Drop. Microsoft gave no reason.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Microsoft Copilot Groups, Podcasts &amp; Deep Research: Killed by Microsoft (2026-08-18)</title>
-      <link>https://killedbyai.net/dead/microsoft-copilot-groups-podcasts-deep-research/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/microsoft-copilot-groups-podcasts-deep-research/</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-      <description>Three headline features of Microsoft&#x27;s consumer Copilot were retired from August 18, 2026, as Microsoft merged its consumer Copilot and Microsoft 365 Copilot apps into one. AI-generated Podcasts and Deep Research had debuted at Copilot&#x27;s April 2025 anniversary event; Groups, which let up to 32 people share one Copilot chat, arrived in the October 2025 Fall Release alongside Mico, the animated blob, which began leaving Copilot Voice in waves that same August. Copilot chief Jacob Andreou had reportedly told staff the app had to earn &#x27;the right to exist&#x27; in people&#x27;s lives.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Google Earth AI Image Generation: Killed by Google (2026-07-31)</title>
-      <link>https://killedbyai.net/dead/google-earth-ai-image-generation/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/google-earth-ai-image-generation/</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-      <description>On July 30, 2026 Google put Nano Banana 2 inside Google Earth on the web: zoom to any spot on the planet, click &#x27;create image&#x27;, and describe what should be there instead. A BBC journalist and other critics pointed out that one of the most trusted sources of visual evidence for journalists and researchers now had a fake-imagery button. By the next day Google said it had seen people &#x27;sharing screenshots of generated imagery that appear to violate our policies&#x27; and rolled the feature back while it worked on stronger guardrails. It lived about a day.</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Meta AI Instagram @-Mention Images: Killed by Meta (2026-07-10)</title>
-      <link>https://killedbyai.net/dead/meta-ai-instagram-mention-images/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/meta-ai-instagram-mention-images/</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-      <description>Launched alongside Meta Superintelligence Labs&#x27; Muse Image generator on July 7, 2026, it let you @-mention a public Instagram account in Meta AI and generate images of that person, pitched for birthday cards and group-trip memes. It was on by default: account owners were never notified, and the only protection was an opt-out in Instagram&#x27;s settings. Users and talent agencies including CAA pushed back, and critics pointed to the obvious non-consensual imagery risk. Three days later Meta posted a brief update to its announcement: &#x27;this feature missed the mark, so it&#x27;s no longer available.&#x27;</description>
-      <category>service</category>
-    </item>
-    <item>
-      <title>Gemini CLI (Free &amp; Consumer Tiers): Killed by Google (2026-06-18)</title>
-      <link>https://killedbyai.net/dead/gemini-cli-free-consumer-tiers/</link>
-      <guid isPermaLink="true">https://killedbyai.net/dead/gemini-cli-free-consumer-tiers/</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 +0000</pubDate>
-      <description>Google&#x27;s open-source (Apache-2.0) terminal coding agent launched June 25, 2025 and passed 100,000 GitHub stars and 6,000 merged pull requests. At I/O on May 19, 2026 Google folded its developer tools under the Antigravity brand, and on June 18 Gemini CLI and the Gemini Code Assist IDE extensions stopped serving free users, Google AI Pro and Ultra subscribers and free individual Code Assist users. Their replacement, Antigravity CLI (agy), ships as a binary with no public repo. Code Assist Standard and Enterprise licenses and paid API keys kept access, and Google still updates the open-source repo for them, so the code outlived its free users.</description>
       <category>service</category>
     </item>
   </channel>
